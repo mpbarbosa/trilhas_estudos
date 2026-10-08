@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 3,
-  "gerado_em": "2026-10-08T15:55:35+00:00",
-  "hash": "sha256:b2bdac71438740a7e5caa83e222e30b72dfbfcd4a4c01a75faf9120ee16f765c",
+  "catalogo_versao": 4,
+  "gerado_em": "2026-10-08T16:27:40+00:00",
+  "hash": "sha256:4e3bf796c16923c3050786db5a1d896fdbd94d3d036accd09af806ced43ea04d",
   "competencias": [
     {
       "id": "comp:dados/analise-exploratoria",
@@ -59,6 +59,62 @@
       "status": "ativo",
       "verificacao": "Refazer um gráfico enganoso identificando o que nele distorce a leitura, e defender a escolha de forma, escala e agregação da sua versão.",
       "descricao": "Escolher a forma gráfica adequada à pergunta e à natureza da variável, e ler um gráfico criticamente: escala, agregação, o que foi omitido.\n"
+    },
+    {
+      "id": "comp:engenharia/controle-de-versao",
+      "titulo": "Controle de versão como registro de decisão",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Localizar por bissecção o commit que introduziu uma regressão num repositório dado, e reorganizar uma série de commits confusos em uma sequência revisável, explicando o que cada um passa a afirmar.",
+      "descricao": "Git além do trio add/commit/push: o grafo de commits, branches e merge, reescrita de histórico, bissecção, e o commit como unidade de revisão.\n"
+    },
+    {
+      "id": "comp:engenharia/dados-em-sistemas-distribuidos",
+      "titulo": "Dados em sistemas distribuídos",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Para uma operação que atravessa dois serviços, apresentar o padrão de coordenação escolhido e o que ele custa em consistência, acoplamento e complexidade de recuperação de falha, comparando com uma alternativa.",
+      "descricao": "O que acontece com o dado quando a fronteira é atravessada: propriedade de dado, transação distribuída e suas alternativas, contrato entre serviços, consistência eventual e consulta que cruza serviços.\n"
+    },
+    {
+      "id": "comp:engenharia/decisao-arquitetural",
+      "titulo": "Decisão arquitetural e análise de trade-off",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Escrever uma ADR sobre uma decisão real que apresente ao menos duas alternativas descartadas com o motivo técnico, as consequências aceitas e a condição que faria a decisão ser revisitada.",
+      "descricao": "Tratar arquitetura como escolha entre males: identificar as forças em conflito, descartar o que não serve, registrar a decisão com contexto e consequência, e reconhecer quando não há resposta boa, só a menos ruim.\n"
+    },
+    {
+      "id": "comp:engenharia/decomposicao-de-sistemas",
+      "titulo": "Decomposição de sistemas",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Diante de um monólito descrito, propor um corte justificando cada fronteira pela força que a motiva, e apontar qual integrador de granularidade impede um corte que à primeira vista pareceria óbvio.",
+      "descricao": "Decidir onde cortar: granularidade de serviço, acoplamento aferente e eferente, coesão, limites transacionais e o custo de cada fronteira que se cria.\n"
+    },
+    {
+      "id": "comp:engenharia/integracao-e-entrega-continua",
+      "titulo": "Integração e entrega contínua",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Montar um pipeline que barre uma mudança defeituosa antes da produção e demonstrar um retrocesso executado, justificando o que cada estágio verifica e por que nessa ordem.",
+      "descricao": "Levar mudança até produção com frequência e segurança: pipeline automatizado, estratégia de teste por camada, versionamento de artefato, implantação progressiva e retrocesso.\n"
+    },
+    {
+      "id": "comp:engenharia/operacao-e-cultura",
+      "titulo": "Operação e cultura de entrega",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Conduzir a análise de um incidente real ou simulado produzindo ações corretivas ligadas a causas sistêmicas, e justificar por que a análise não termina numa pessoa.",
+      "descricao": "O que sustenta a entrega depois do primeiro deploy: observabilidade, resposta a incidente, análise de falha sem culpado, propriedade compartilhada entre quem constrói e quem opera, e as métricas que dizem se isso melhora.\n"
+    },
+    {
+      "id": "comp:engenharia/requisitos",
+      "titulo": "Requisitos e atributos de qualidade",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "A partir de um pedido em prosa de uma área não técnica, entregar requisitos funcionais decompostos e ao menos três atributos de qualidade com medida e limiar — cada um verificável por um teste ou uma métrica, não por adjetivo.",
+      "descricao": "Elicitar e decompor o que o sistema deve fazer e sob quais condições: regra de negócio, atributo de qualidade mensurável, restrição, e o que fica fora.\n"
     },
     {
       "id": "comp:ia/adaptacao-de-modelo",
@@ -419,6 +475,191 @@
         {
           "competencia": "comp:dados/visualizacao-de-dados",
           "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:engenharia/controle-de-versao",
+      "titulo": "Git por dentro — grafo, histórico e o commit como unidade de revisão",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "trilha": "trilha:engenharia/arquitetura-e-entrega",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:engenharia/controle-de-versao",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:engenharia/dados-atravessando-fronteiras",
+      "titulo": "Dados atravessando fronteiras — propriedade, transação e contrato",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "trilha": "trilha:engenharia/arquitetura-e-entrega",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:engenharia/decomposicao-de-sistemas",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:engenharia/dados-em-sistemas-distribuidos",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:engenharia/decomposicao-de-sistemas",
+      "titulo": "Onde cortar — granularidade, acoplamento e coesão",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "trilha": "trilha:engenharia/arquitetura-e-entrega",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:engenharia/decisao-arquitetural",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:engenharia/decomposicao-de-sistemas",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:engenharia/entrega-continua",
+      "titulo": "Pipeline — da mudança à produção sem heroísmo",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "trilha": "trilha:engenharia/arquitetura-e-entrega",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:engenharia/controle-de-versao",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:engenharia/integracao-e-entrega-continua",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:engenharia/operacao-e-incidente",
+      "titulo": "Depois do deploy — observabilidade, incidente e análise sem culpado",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:engenharia/arquitetura-e-entrega",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:engenharia/integracao-e-entrega-continua",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:engenharia/operacao-e-cultura",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:engenharia/projeto-decisao-sustentada",
+      "titulo": "Projeto — uma decisão arquitetural levada até a operação",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1800,
+      "trilha": "trilha:engenharia/arquitetura-e-entrega",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:engenharia/decisao-arquitetural",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:engenharia/dados-em-sistemas-distribuidos",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:engenharia/operacao-e-cultura",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:engenharia/decisao-arquitetural",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:engenharia/registro-de-decisao",
+      "titulo": "Registrar a decisão — ADR como artefato de engenharia",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 480,
+      "trilha": "trilha:engenharia/arquitetura-e-entrega",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:engenharia/decomposicao-de-sistemas",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:engenharia/decisao-arquitetural",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:engenharia/requisitos-e-atributos",
+      "titulo": "Requisitos e atributos de qualidade mensuráveis",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:engenharia/arquitetura-e-entrega",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:engenharia/requisitos",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:engenharia/trade-off-como-metodo",
+      "titulo": "Trade-off como método — não existe arquitetura sem perda",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "trilha": "trilha:engenharia/arquitetura-e-entrega",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:engenharia/requisitos",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:engenharia/decisao-arquitetural",
+          "nivel_resultante": "iniciante"
         }
       ]
     },
@@ -1150,6 +1391,37 @@
       ]
     },
     {
+      "id": "trilha:engenharia/arquitetura-e-entrega",
+      "titulo": "Arquitetura e entrega de software",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:engenharia/decisao-arquitetural",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:engenharia/integracao-e-entrega-continua",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:engenharia/operacao-e-cultura",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:engenharia/requisitos-e-atributos",
+        "etapa:engenharia/trade-off-como-metodo",
+        "etapa:engenharia/decomposicao-de-sistemas",
+        "etapa:engenharia/dados-atravessando-fronteiras",
+        "etapa:engenharia/registro-de-decisao",
+        "etapa:engenharia/controle-de-versao",
+        "etapa:engenharia/entrega-continua",
+        "etapa:engenharia/operacao-e-incidente",
+        "etapa:engenharia/projeto-decisao-sustentada"
+      ]
+    },
+    {
       "id": "trilha:ia/claude-do-chat-ao-agente",
       "titulo": "Do chat ao agente em produção com Claude",
       "rev": 1,
@@ -1472,6 +1744,258 @@
       "custo": 0.0,
       "duracao_min": 900,
       "url": "https://allendowney.github.io/ThinkStats/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:engenharia/adr-organization",
+      "titulo": "Architecture Decision Records — modelos, exemplos e ferramentas (adr.github.io)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:engenharia/registro-de-decisao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://adr.github.io/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:engenharia/adrs-deste-repositorio",
+      "titulo": "As ADRs deste próprio repositório — seis decisões reais com alternativas descartadas",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:engenharia/registro-de-decisao",
+      "formato": "exercicio",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://github.com/mpbarbosa/trilhas_estudos/tree/main/docs/adr",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:engenharia/arc42-atributos-de-qualidade",
+      "titulo": "arc42 Quality Model — catálogo aberto de atributos de qualidade com cenários mensuráveis",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:engenharia/requisitos-e-atributos",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://quality.arc42.org/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:engenharia/dora-capacidades",
+      "titulo": "DORA — capacidades de entrega contínua e as quatro métricas, com os relatórios anuais",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:engenharia/entrega-continua",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 480,
+      "url": "https://dora.dev/capabilities/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:engenharia/effective-devops",
+      "titulo": "Effective DevOps: Building a Culture of Collaboration, Affinity, and Tooling at Scale (Davis & Daniels)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:engenharia/operacao-e-incidente",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 90.0,
+      "duracao_min": 900,
+      "url": "https://www.amazon.com.br/s?k=Effective+DevOps+Jennifer+Davis+Ryn+Daniels",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:engenharia/fitness-functions",
+      "titulo": "Architectural fitness functions — material aberto sobre verificar atributo de qualidade continuamente",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:engenharia/trade-off-como-metodo",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://www.thoughtworks.com/radar/techniques/architectural-fitness-function",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:engenharia/fowler-microservices-guide",
+      "titulo": "Microservices Guide (Martin Fowler) — quando decompor, quando não, e o que a fronteira custa",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:engenharia/decomposicao-de-sistemas",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 360,
+      "url": "https://martinfowler.com/microservices/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:engenharia/google-sre-books",
+      "titulo": "Google SRE Books — edição aberta: SLO, resposta a incidente e postmortem sem culpado",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:engenharia/operacao-e-incidente",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 900,
+      "url": "https://sre.google/books/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:engenharia/hathaway-requisitos-nao-funcionais",
+      "titulo": "Functional and Non-Functional Requirements — Simply Put! (Hathaway & Hathaway)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:engenharia/requisitos-e-atributos",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 25.0,
+      "duracao_min": 300,
+      "url": "https://www.amazon.com.br/s?k=Functional+and+Non-Functional+Requirements+Simply+Put",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:engenharia/padroes-de-saga-e-contrato",
+      "titulo": "microservices.io — catálogo aberto de padrões de dados: saga, CQRS, API composition, outbox",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:engenharia/dados-atravessando-fronteiras",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 420,
+      "url": "https://microservices.io/patterns/index.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:engenharia/partes-dificeis-dados",
+      "titulo": "As partes difíceis — parte II: propriedade de dado, saga, contrato e consulta distribuída",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:engenharia/dados-atravessando-fronteiras",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 120.0,
+      "duracao_min": 900,
+      "url": "https://www.amazon.com.br/s?k=Arquitetura+de+software+as+partes+dif%C3%ADceis",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:engenharia/partes-dificeis-decomposicao",
+      "titulo": "As partes difíceis — parte I: granularidade de serviço, acoplamento e integradores/desintegradores",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:engenharia/decomposicao-de-sistemas",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 120.0,
+      "duracao_min": 900,
+      "url": "https://www.amazon.com.br/s?k=Arquitetura+de+software+as+partes+dif%C3%ADceis",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:engenharia/partes-dificeis-trade-off",
+      "titulo": "Arquitetura de software: as partes difíceis (Ford, Richards, Sadalage & Dehghani) — capítulos de análise de trade-off",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:engenharia/trade-off-como-metodo",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 120.0,
+      "duracao_min": 480,
+      "url": "https://www.amazon.com.br/s?k=Arquitetura+de+software+as+partes+dif%C3%ADceis",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:engenharia/pipeline-pratica",
+      "titulo": "Montar um pipeline próprio no GitHub Actions: teste por camada, artefato versionado e retrocesso",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:engenharia/entrega-continua",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 720,
+      "url": "https://docs.github.com/en/actions",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:engenharia/pro-git",
+      "titulo": "Pro Git, 2ª ed. (Chacon & Straub) — edição aberta, inclusive em português",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:engenharia/controle-de-versao",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 720,
+      "url": "https://git-scm.com/book/pt-br/v2",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:engenharia/projeto-decisao-sustentada",
+      "titulo": "Projeto — levar uma decisão arquitetural de um sistema próprio da ADR ao pipeline e à instrumentação",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:engenharia/projeto-decisao-sustentada",
+      "formato": "projeto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 1800,
+      "url": "https://adr.github.io/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:engenharia/rys-git-tutorial",
+      "titulo": "Ry's Git Tutorial (Ryan Hodson)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:engenharia/controle-de-versao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 25.0,
+      "duracao_min": 300,
+      "url": "https://www.amazon.com.br/s?k=Ry%27s+Git+Tutorial+Ryan+Hodson",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:engenharia/vazquez-engenharia-de-requisitos",
+      "titulo": "Engenharia de Requisitos: software orientado ao negócio (Vazquez & Simões)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:engenharia/requisitos-e-atributos",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 70.0,
+      "duracao_min": 900,
+      "url": "https://www.amazon.com.br/s?k=Engenharia+de+Requisitos+Vazquez+Sim%C3%B5es",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },

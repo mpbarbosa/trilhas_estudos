@@ -1,0 +1,89 @@
+versao_schema: 1
+competencias:
+  - id: comp:engenharia/requisitos
+    titulo: Requisitos e atributos de qualidade
+    rev: 1
+    status: ativo
+    descricao: >
+      Elicitar e decompor o que o sistema deve fazer e sob quais condições: regra de
+      negócio, atributo de qualidade mensurável, restrição, e o que fica fora.
+    verificacao: >
+      A partir de um pedido em prosa de uma área não técnica, entregar requisitos
+      funcionais decompostos e ao menos três atributos de qualidade com medida e
+      limiar — cada um verificável por um teste ou uma métrica, não por adjetivo.
+
+  - id: comp:engenharia/controle-de-versao
+    titulo: Controle de versão como registro de decisão
+    rev: 1
+    status: ativo
+    descricao: >
+      Git além do trio add/commit/push: o grafo de commits, branches e merge,
+      reescrita de histórico, bissecção, e o commit como unidade de revisão.
+    verificacao: >
+      Localizar por bissecção o commit que introduziu uma regressão num repositório
+      dado, e reorganizar uma série de commits confusos em uma sequência revisável,
+      explicando o que cada um passa a afirmar.
+
+  - id: comp:engenharia/decisao-arquitetural
+    titulo: Decisão arquitetural e análise de trade-off
+    rev: 1
+    status: ativo
+    descricao: >
+      Tratar arquitetura como escolha entre males: identificar as forças em conflito,
+      descartar o que não serve, registrar a decisão com contexto e consequência, e
+      reconhecer quando não há resposta boa, só a menos ruim.
+    verificacao: >
+      Escrever uma ADR sobre uma decisão real que apresente ao menos duas alternativas
+      descartadas com o motivo técnico, as consequências aceitas e a condição que
+      faria a decisão ser revisitada.
+
+  - id: comp:engenharia/decomposicao-de-sistemas
+    titulo: Decomposição de sistemas
+    rev: 1
+    status: ativo
+    descricao: >
+      Decidir onde cortar: granularidade de serviço, acoplamento aferente e eferente,
+      coesão, limites transacionais e o custo de cada fronteira que se cria.
+    verificacao: >
+      Diante de um monólito descrito, propor um corte justificando cada fronteira
+      pela força que a motiva, e apontar qual integrador de granularidade impede um
+      corte que à primeira vista pareceria óbvio.
+
+  - id: comp:engenharia/dados-em-sistemas-distribuidos
+    titulo: Dados em sistemas distribuídos
+    rev: 1
+    status: ativo
+    descricao: >
+      O que acontece com o dado quando a fronteira é atravessada: propriedade de
+      dado, transação distribuída e suas alternativas, contrato entre serviços,
+      consistência eventual e consulta que cruza serviços.
+    verificacao: >
+      Para uma operação que atravessa dois serviços, apresentar o padrão de
+      coordenação escolhido e o que ele custa em consistência, acoplamento e
+      complexidade de recuperação de falha, comparando com uma alternativa.
+
+  - id: comp:engenharia/integracao-e-entrega-continua
+    titulo: Integração e entrega contínua
+    rev: 1
+    status: ativo
+    descricao: >
+      Levar mudança até produção com frequência e segurança: pipeline automatizado,
+      estratégia de teste por camada, versionamento de artefato, implantação
+      progressiva e retrocesso.
+    verificacao: >
+      Montar um pipeline que barre uma mudança defeituosa antes da produção e
+      demonstrar um retrocesso executado, justificando o que cada estágio verifica
+      e por que nessa ordem.
+
+  - id: comp:engenharia/operacao-e-cultura
+    titulo: Operação e cultura de entrega
+    rev: 1
+    status: ativo
+    descricao: >
+      O que sustenta a entrega depois do primeiro deploy: observabilidade, resposta a
+      incidente, análise de falha sem culpado, propriedade compartilhada entre quem
+      constrói e quem opera, e as métricas que dizem se isso melhora.
+    verificacao: >
+      Conduzir a análise de um incidente real ou simulado produzindo ações corretivas
+      ligadas a causas sistêmicas, e justificar por que a análise não termina numa
+      pessoa.
