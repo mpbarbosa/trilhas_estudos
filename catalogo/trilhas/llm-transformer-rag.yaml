@@ -1,0 +1,207 @@
+versao_schema: 1
+trilha:
+  id: trilha:ia/llm-transformer-rag
+  titulo: Do transformer ao RAG em produção
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:ia/rag-pipeline
+      nivel: avancado
+    - competencia: comp:ia/avaliacao-de-sistemas-llm
+      nivel: intermediario
+    - competencia: comp:ia/operacao-de-aplicacoes-llm
+      nivel: intermediario
+
+  etapas:
+    # --- Entrada ------------------------------------------------------------
+    - id: etapa:programacao/python-para-ia
+      titulo: Python para trabalho com dados e IA
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 600
+      opcional: true          # pule declarando a competência no perfil
+      requires: []
+      teaches:
+        - competencia: comp:programacao/python-dados
+          nivel_resultante: iniciante
+
+    - id: etapa:ia/panorama-llm-transformer-rag
+      titulo: Panorama — LLM, transformer e RAG
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 540
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:ia/arquitetura-transformer
+          nivel_resultante: iniciante
+        - competencia: comp:ia/uso-de-llm-por-api
+          nivel_resultante: iniciante
+        - competencia: comp:ia/rag-pipeline
+          nivel_resultante: iniciante
+
+    # --- Fundamento ---------------------------------------------------------
+    - id: etapa:ia/fundamentos-aprendizado-profundo
+      titulo: Fundamentos de aprendizado profundo
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1800
+      opcional: false
+      requires:
+        - competencia: comp:programacao/python-dados
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:ia/fundamentos-aprendizado-profundo
+          nivel_resultante: intermediario
+
+    - id: etapa:ia/transformer-por-dentro
+      titulo: O transformer por dentro
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1200
+      opcional: false
+      requires:
+        - competencia: comp:ia/fundamentos-aprendizado-profundo
+          nivel_minimo: intermediario
+        - competencia: comp:ia/arquitetura-transformer
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:ia/arquitetura-transformer
+          nivel_resultante: intermediario
+
+    - id: etapa:ia/llm-do-zero
+      titulo: Construir um LLM do zero
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 2400
+      opcional: true          # aprofundamento: não é exigido pelo objetivo da trilha
+      requires:
+        - competencia: comp:ia/arquitetura-transformer
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ia/arquitetura-transformer
+          nivel_resultante: avancado
+        - competencia: comp:ia/adaptacao-de-modelo
+          nivel_resultante: iniciante
+
+    # --- Caminho de aplicação (paralelo ao fundamento) ----------------------
+    - id: etapa:ia/embeddings-e-busca-semantica
+      titulo: Embeddings e busca semântica
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:ia/uso-de-llm-por-api
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:ia/representacao-vetorial
+          nivel_resultante: intermediario
+
+    - id: etapa:ia/engenharia-de-prompt
+      titulo: Engenharia de prompt como disciplina
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 720
+      opcional: false
+      requires:
+        - competencia: comp:ia/uso-de-llm-por-api
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:ia/engenharia-de-prompt
+          nivel_resultante: intermediario
+        - competencia: comp:ia/uso-de-llm-por-api
+          nivel_resultante: intermediario
+
+    - id: etapa:ia/recuperacao-e-ranqueamento
+      titulo: Recuperação, busca híbrida e reranqueamento
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1500
+      opcional: false
+      requires:
+        - competencia: comp:ia/representacao-vetorial
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ia/recuperacao-de-informacao
+          nivel_resultante: intermediario
+
+    # --- RAG ----------------------------------------------------------------
+    - id: etapa:ia/rag-fim-a-fim
+      titulo: RAG fim a fim
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1200
+      opcional: false
+      requires:
+        - competencia: comp:ia/rag-pipeline
+          nivel_minimo: iniciante
+        - competencia: comp:ia/recuperacao-de-informacao
+          nivel_minimo: intermediario
+        - competencia: comp:ia/engenharia-de-prompt
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ia/rag-pipeline
+          nivel_resultante: intermediario
+
+    - id: etapa:ia/fine-tuning-e-adaptacao
+      titulo: Fine-tuning e adaptação de modelo aberto
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1200
+      opcional: true          # só compensa depois de esgotar prompting e recuperação
+      requires:
+        - competencia: comp:ia/adaptacao-de-modelo
+          nivel_minimo: iniciante
+        - competencia: comp:ia/fundamentos-aprendizado-profundo
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ia/adaptacao-de-modelo
+          nivel_resultante: intermediario
+
+    - id: etapa:ia/avaliacao-de-sistemas-llm
+      titulo: Avaliar antes de ajustar
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:ia/rag-pipeline
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ia/avaliacao-de-sistemas-llm
+          nivel_resultante: intermediario
+
+    - id: etapa:ia/rag-em-producao
+      titulo: RAG em produção — custo, latência e qualidade
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1200
+      opcional: false
+      requires:
+        - competencia: comp:ia/rag-pipeline
+          nivel_minimo: intermediario
+        - competencia: comp:ia/avaliacao-de-sistemas-llm
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ia/rag-pipeline
+          nivel_resultante: avancado
+        - competencia: comp:ia/operacao-de-aplicacoes-llm
+          nivel_resultante: iniciante
+
+    - id: etapa:ia/projeto-assistente-rag
+      titulo: Projeto — assistente RAG sobre corpus próprio
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 2400
+      opcional: false
+      requires:
+        - competencia: comp:ia/rag-pipeline
+          nivel_minimo: avancado
+        - competencia: comp:ia/operacao-de-aplicacoes-llm
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:ia/operacao-de-aplicacoes-llm
+          nivel_resultante: intermediario
+
+  etapas_referenciadas: []

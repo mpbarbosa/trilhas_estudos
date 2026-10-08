@@ -9,6 +9,7 @@ começar pelo domínio está em [ADR-0001](docs/adr/0001-modelar-dominio-antes-d
 - [Domínio e glossário](docs/CONTEXT.md)
 - [Motor de sugestão (v1)](docs/motor-de-sugestao.md) — primeira capacidade a construir
 - [Catálogo](docs/catalogo.md) — autoria em YAML, identidade e versionamento
+- [Conteúdo do catálogo](catalogo/) — primeira trilha autorada: *Do transformer ao RAG em produção*
 - [Decisões de arquitetura](docs/README.md)
 
 ## Licença

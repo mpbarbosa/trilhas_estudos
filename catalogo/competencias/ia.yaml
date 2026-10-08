@@ -1,0 +1,113 @@
+versao_schema: 1
+competencias:
+  - id: comp:ia/fundamentos-aprendizado-profundo
+    titulo: Fundamentos de aprendizado profundo
+    rev: 1
+    status: ativo
+    descricao: >
+      Treinar, avaliar e diagnosticar redes neurais: função de perda, gradiente,
+      otimizador, regularização, sobreajuste.
+    verificacao: >
+      Treinar um classificador num conjunto de dados dado e, a partir das curvas de
+      treino e validação, diagnosticar sobreajuste ou subajuste e justificar uma
+      correção aplicada.
+
+  - id: comp:ia/arquitetura-transformer
+    titulo: Arquitetura transformer
+    rev: 1
+    status: ativo
+    descricao: >
+      Entender o caminho de um token da entrada à distribuição de saída: tokenização,
+      embeddings, atenção multi-cabeça, máscara causal, normalização, camada de saída.
+    verificacao: >
+      Sobre um diagrama em branco, descrever o percurso de um token nomeando cada
+      bloco, e explicar por que o custo de atenção cresce com o quadrado do contexto.
+
+  - id: comp:ia/representacao-vetorial
+    titulo: Representação vetorial e busca semântica
+    rev: 1
+    status: ativo
+    descricao: >
+      Produzir embeddings de texto, medir similaridade e usar um índice vetorial para
+      recuperar conteúdo por significado, não por palavra.
+    verificacao: >
+      Indexar um corpus de pelo menos mil documentos, recuperar os k vizinhos de uma
+      consulta e explicar um caso em que a busca léxica falharia e a vetorial acerta.
+
+  - id: comp:ia/uso-de-llm-por-api
+    titulo: Uso de LLM por API
+    rev: 1
+    status: ativo
+    descricao: >
+      Operar um modelo hospedado: parâmetros de decodificação, saída estruturada,
+      janela de contexto, custo e latência por chamada.
+    verificacao: >
+      Implementar uma chamada que devolva JSON válido conforme um esquema dado,
+      controlando temperatura e limite de tokens, e estimar o custo por mil chamadas.
+
+  - id: comp:ia/engenharia-de-prompt
+    titulo: Engenharia de prompt
+    rev: 1
+    status: ativo
+    descricao: >
+      Construir prompts como artefato de engenharia: contexto, exemplos, formato de
+      saída, decomposição em passos, e iteração guiada por casos.
+    verificacao: >
+      Partindo de um prompt que erra em 10 casos registrados, entregar uma versão que
+      melhore o acerto nos mesmos casos e justificar cada elemento mantido ou removido.
+
+  - id: comp:ia/recuperacao-de-informacao
+    titulo: Recuperação de informação
+    rev: 1
+    status: ativo
+    descricao: >
+      Indexação léxica e vetorial, busca híbrida, reranqueamento e métricas de
+      relevância aplicadas ao estágio de recuperação.
+    verificacao: >
+      Montar um índice híbrido com reranqueamento e reportar precisão@k e recall@k
+      sobre um conjunto de consultas rotulado, comparando com a linha de base léxica.
+
+  - id: comp:ia/rag-pipeline
+    titulo: Pipeline de RAG
+    rev: 1
+    status: ativo
+    descricao: >
+      Ligar recuperação e geração: ingestão, fatiamento, indexação, montagem de
+      contexto, citação de fonte e tratamento de ausência de evidência.
+    verificacao: >
+      Entregar um pipeline RAG sobre corpus próprio que responda citando as fontes
+      recuperadas e diga "não sei" quando a recuperação não sustentar a resposta;
+      justificar a estratégia de fatiamento escolhida.
+
+  - id: comp:ia/avaliacao-de-sistemas-llm
+    titulo: Avaliação de sistemas com LLM
+    rev: 1
+    status: ativo
+    descricao: >
+      Definir conjuntos de avaliação, métricas de fidelidade ao contexto e detecção de
+      regressão para decisões de mudança de prompt, de modelo ou de recuperação.
+    verificacao: >
+      Rodar uma avaliação própria que separe falha de recuperação de falha de geração
+      e sustentar, com os números, uma decisão de adotar ou rejeitar uma mudança.
+
+  - id: comp:ia/adaptacao-de-modelo
+    titulo: Adaptação de modelo
+    rev: 1
+    status: ativo
+    descricao: >
+      Ajustar um modelo aberto à tarefa: preparação de dados, fine-tuning supervisionado,
+      LoRA e quantização, e quando isso não compensa frente a prompting ou RAG.
+    verificacao: >
+      Ajustar um modelo aberto pequeno com LoRA para uma tarefa específica e comparar
+      com a linha de base por prompting no mesmo conjunto de avaliação.
+
+  - id: comp:ia/operacao-de-aplicacoes-llm
+    titulo: Operação de aplicações com LLM
+    rev: 1
+    status: ativo
+    descricao: >
+      Colocar e manter uma aplicação com LLM em serviço: observabilidade de custo e
+      latência, cache, limites de taxa, salvaguardas de entrada e saída, retrocesso.
+    verificacao: >
+      Servir uma aplicação com LLM instrumentada e apresentar custo por requisição e
+      latência p95 medidos, com a salvaguarda que impede a saída indevida demonstrada.

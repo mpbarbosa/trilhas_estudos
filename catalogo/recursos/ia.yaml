@@ -1,0 +1,355 @@
+# Convenções deste arquivo:
+#   custo  — em BRL, aproximado na data de `verificado_em`; 0 = gratuito.
+#   idioma — tag BCP 47; a maior parte da bibliografia de LLM só existe em en-US.
+versao_schema: 1
+recursos:
+  # --- etapa:programacao/python-para-ia -----------------------------------
+  - id: rec:programacao/python-fluente-2ed
+    etapa: etapa:programacao/python-para-ia
+    titulo: "Python Fluente, 2ª edição (Luciano Ramalho) — edição aberta em português"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 1200
+    url: https://pythonfluente.com/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:programacao/automate-boring-stuff
+    etapa: etapa:programacao/python-para-ia
+    titulo: "Automate the Boring Stuff with Python (Al Sweigart) — leitura aberta"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 900
+    url: https://automatetheboringstuff.com/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:ia/panorama-llm-transformer-rag ------------------------------
+  - id: rec:ia/ettucode-llm-transformer-rag
+    etapa: etapa:ia/panorama-llm-transformer-rag
+    titulo: "LLM, Transformer, RAG AI (Et Tu Code) — ISBN 9798882446481"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 25
+    duracao_min: 540
+    url: https://www.amazon.com.br/s?k=LLM+Transformer+RAG+AI+Et+Tu+Code
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:ia/fundamentos-aprendizado-profundo --------------------------
+  - id: rec:ia/deep-learning-book-br
+    etapa: etapa:ia/fundamentos-aprendizado-profundo
+    titulo: "Deep Learning Book (Data Science Academy) — 100 capítulos em português"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 1800
+    url: https://www.deeplearningbook.com.br/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:ia/handson-ml-3ed
+    etapa: etapa:ia/fundamentos-aprendizado-profundo
+    titulo: "Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow, 3ª ed. (Géron) — parte II"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 350
+    duracao_min: 1800
+    url: https://github.com/ageron/handson-ml3
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:ia/deep-learning-with-python-3ed
+    etapa: etapa:ia/fundamentos-aprendizado-profundo
+    titulo: "Deep Learning with Python, 3ª ed. (Chollet & Watson)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 320
+    duracao_min: 1500
+    url: https://github.com/fchollet/deep-learning-with-python-notebooks
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:ia/transformer-por-dentro ------------------------------------
+  - id: rec:ia/nlp-with-transformers
+    etapa: etapa:ia/transformer-por-dentro
+    titulo: "Natural Language Processing with Transformers (Tunstall, von Werra & Wolf) — caps. 1–4"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 280
+    duracao_min: 900
+    url: https://github.com/nlp-with-transformers/notebooks
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:ia/illustrated-transformer
+    etapa: etapa:ia/transformer-por-dentro
+    titulo: "The Illustrated Transformer (Jay Alammar)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://jalammar.github.io/illustrated-transformer/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:ia/paper-attention-is-all-you-need
+    etapa: etapa:ia/transformer-por-dentro
+    titulo: "Attention Is All You Need (Vaswani et al., 2017)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 150
+    url: https://arxiv.org/abs/1706.03762
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:ia/slp3-transformers
+    etapa: etapa:ia/transformer-por-dentro
+    titulo: "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — capítulos de transformers e LLM"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 600
+    url: https://web.stanford.edu/~jurafsky/slp3/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:ia/llm-do-zero -----------------------------------------------
+  - id: rec:ia/build-llm-from-scratch
+    etapa: etapa:ia/llm-do-zero
+    titulo: "Build a Large Language Model (From Scratch) (Sebastian Raschka, Manning)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 350
+    duracao_min: 1800
+    url: https://www.manning.com/books/build-a-large-language-model-from-scratch
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:ia/llms-from-scratch-codigo
+    etapa: etapa:ia/llm-do-zero
+    titulo: "LLMs-from-scratch — código e exercícios oficiais do livro de Raschka"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 1200
+    url: https://github.com/rasbt/LLMs-from-scratch
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:ia/embeddings-e-busca-semantica ------------------------------
+  - id: rec:ia/hands-on-llms-embeddings
+    etapa: etapa:ia/embeddings-e-busca-semantica
+    titulo: "Hands-On Large Language Models (Alammar & Grootendorst) — embeddings, busca e clusterização"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 320
+    duracao_min: 900
+    url: https://www.oreilly.com/library/view/hands-on-large-language/9781098150952/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:ia/hands-on-llms-notebooks
+    etapa: etapa:ia/embeddings-e-busca-semantica
+    titulo: "Hands-On Large Language Models — notebooks oficiais (Colab)"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 600
+    url: https://github.com/HandsOnLLM/Hands-On-Large-Language-Models
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:ia/engenharia-de-prompt --------------------------------------
+  - id: rec:ia/prompt-engineering-for-llms
+    etapa: etapa:ia/engenharia-de-prompt
+    titulo: "Prompt Engineering for LLMs (Berryman & Ziegler, O'Reilly)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 300
+    duracao_min: 720
+    url: https://www.oreilly.com/library/view/-/9781098156145
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:ia/recuperacao-e-ranqueamento --------------------------------
+  - id: rec:ia/ai-powered-search
+    etapa: etapa:ia/recuperacao-e-ranqueamento
+    titulo: "AI-Powered Search (Grainger, Turnbull & Irwin, Manning) — busca híbrida e reranqueamento"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 350
+    duracao_min: 1500
+    url: https://www.manning.com/books/ai-powered-search
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:ia/intro-information-retrieval
+    etapa: etapa:ia/recuperacao-e-ranqueamento
+    titulo: "Introduction to Information Retrieval (Manning, Raghavan & Schütze) — edição aberta"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 1200
+    url: https://nlp.stanford.edu/IR-book/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:ia/rag-fim-a-fim ---------------------------------------------
+  - id: rec:ia/llm-engineers-handbook-rag
+    etapa: etapa:ia/rag-fim-a-fim
+    titulo: "LLM Engineer's Handbook (Iusztin & Labonne, Packt) — ingestão, indexação e RAG"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 280
+    duracao_min: 900
+    url: https://www.oreilly.com/library/view/llm-engineers-handbook/9781836200079
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:ia/hands-on-llms-rag
+    etapa: etapa:ia/rag-fim-a-fim
+    titulo: "Hands-On Large Language Models — capítulo de RAG e geração com contexto"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 300
+    url: https://github.com/HandsOnLLM/Hands-On-Large-Language-Models
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:ia/fine-tuning-e-adaptacao -----------------------------------
+  - id: rec:ia/llm-engineers-handbook-finetuning
+    etapa: etapa:ia/fine-tuning-e-adaptacao
+    titulo: "LLM Engineer's Handbook — fine-tuning supervisionado, preferências e quantização"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 280
+    duracao_min: 900
+    url: https://www.oreilly.com/library/view/llm-engineers-handbook/9781836200079
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:ia/llms-from-scratch-finetuning
+    etapa: etapa:ia/fine-tuning-e-adaptacao
+    titulo: "LLMs-from-scratch — capítulos de fine-tuning para classificação e instruções"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 600
+    url: https://github.com/rasbt/LLMs-from-scratch
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:ia/avaliacao-de-sistemas-llm ---------------------------------
+  - id: rec:ia/ai-engineering-avaliacao
+    etapa: etapa:ia/avaliacao-de-sistemas-llm
+    titulo: "AI Engineering (Chip Huyen, O'Reilly) — metodologia de avaliação e avaliação de sistemas"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 350
+    duracao_min: 900
+    url: https://www.oreilly.com/library/view/ai-engineering/9781098166298/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:ia/aie-book-material
+    etapa: etapa:ia/avaliacao-de-sistemas-llm
+    titulo: "aie-book — material de apoio e estudos de caso do AI Engineering"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 300
+    url: https://github.com/chiphuyen/aie-book
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:ia/rag-em-producao -------------------------------------------
+  - id: rec:ia/ai-engineering-producao
+    etapa: etapa:ia/rag-em-producao
+    titulo: "AI Engineering — arquitetura de aplicação, cache, otimização de inferência e custo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 350
+    duracao_min: 900
+    url: https://www.oreilly.com/library/view/ai-engineering/9781098166298/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:ia/ai-powered-search-rag
+    etapa: etapa:ia/rag-em-producao
+    titulo: "AI-Powered Search — capítulos de RAG, resposta a perguntas e qualidade de recuperação"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 350
+    duracao_min: 600
+    url: https://www.manning.com/books/ai-powered-search
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:ia/projeto-assistente-rag ------------------------------------
+  - id: rec:ia/llm-twin-projeto
+    etapa: etapa:ia/projeto-assistente-rag
+    titulo: "LLM Engineer's Handbook — projeto LLM Twin: pipeline completo de coleta, treino, RAG e serviço"
+    rev: 1
+    status: ativo
+    formato: projeto
+    idioma: en-US
+    custo: 0
+    duracao_min: 2400
+    url: https://github.com/PacktPublishing/LLM-Engineers-Handbook
+    disponivel: true
+    verificado_em: 2026-10-08

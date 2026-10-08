@@ -1,0 +1,12 @@
+versao_schema: 1
+competencias:
+  - id: comp:programacao/python-dados
+    titulo: Python aplicado a dados
+    rev: 1
+    status: ativo
+    descricao: >
+      Escrever Python idiomático para manipular dados, usando ambientes isolados,
+      notebooks e bibliotecas de terceiros.
+    verificacao: >
+      Dado um CSV sujo, escrever um script que carregue, limpe e agregue os dados,
+      executando em ambiente isolado com dependências declaradas em arquivo.
