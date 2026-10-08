@@ -1,0 +1,141 @@
+versao_schema: 1
+trilha:
+  id: trilha:ia/claude-do-chat-ao-agente
+  titulo: Do chat ao agente em produção com Claude
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:ia/ferramentas-e-mcp
+      nivel: intermediario
+    - competencia: comp:ia/desenvolvimento-assistido-por-ia
+      nivel: intermediario
+    - competencia: comp:ia/agentes-llm
+      nivel: avancado
+
+  # Esta trilha é de *aplicação*: trata de operar um modelo hospedado, estendê-lo com
+  # ferramentas e transformá-lo em agente. Não reensina transformer nem RAG — para o
+  # fundamento e a recuperação, ver trilha:ia/llm-transformer-rag, que compartilha as
+  # competências comp:ia/uso-de-llm-por-api e comp:ia/engenharia-de-prompt.
+  etapas:
+    # --- Entrada ------------------------------------------------------------
+    - id: etapa:ia/claude-modelos-e-chat
+      titulo: Modelos, janela de contexto e a conversa como ferramenta de trabalho
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 300
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:ia/uso-de-llm-por-api
+          nivel_resultante: iniciante
+
+    - id: etapa:ia/claude-prompt-e-saida-estruturada
+      titulo: Prompt, contexto e saída estruturada
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 420
+      opcional: false
+      requires:
+        - competencia: comp:ia/uso-de-llm-por-api
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:ia/engenharia-de-prompt
+          nivel_resultante: iniciante
+        - competencia: comp:ia/uso-de-llm-por-api
+          nivel_resultante: intermediario
+
+    # --- Integração ---------------------------------------------------------
+    - id: etapa:ia/claude-api-e-sdk
+      titulo: A API por dentro — mensagens, streaming, cache e custo
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:ia/uso-de-llm-por-api
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ia/uso-de-llm-por-api
+          nivel_resultante: avancado
+
+    - id: etapa:ia/tool-use-e-mcp
+      titulo: Tool use e MCP — dar mãos ao modelo
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:ia/uso-de-llm-por-api
+          nivel_minimo: intermediario
+        - competencia: comp:ia/engenharia-de-prompt
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:ia/ferramentas-e-mcp
+          nivel_resultante: intermediario
+
+    # --- Trabalho assistido (paralelo à construção de agentes) --------------
+    - id: etapa:ia/claude-code-e-skills
+      titulo: Claude Code e Skills — o agente dentro do repositório
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 720
+      opcional: false
+      requires:
+        - competencia: comp:ia/ferramentas-e-mcp
+          nivel_minimo: iniciante
+        - competencia: comp:ia/engenharia-de-prompt
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:ia/desenvolvimento-assistido-por-ia
+          nivel_resultante: intermediario
+
+    # --- Agentes ------------------------------------------------------------
+    - id: etapa:ia/agentes-com-claude
+      titulo: Construir um agente — laço, memória, subagentes e parada
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1200
+      opcional: false
+      requires:
+        - competencia: comp:ia/ferramentas-e-mcp
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ia/agentes-llm
+          nivel_resultante: intermediario
+
+    - id: etapa:ia/agente-em-producao
+      titulo: Agente em produção — salvaguardas, avaliação, custo e latência
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:ia/agentes-llm
+          nivel_minimo: intermediario
+        - competencia: comp:ia/uso-de-llm-por-api
+          nivel_minimo: avancado
+      teaches:
+        - competencia: comp:ia/agentes-llm
+          nivel_resultante: avancado
+        - competencia: comp:ia/operacao-de-aplicacoes-llm
+          nivel_resultante: iniciante
+
+    - id: etapa:ia/projeto-agente-claude
+      titulo: Projeto — agente próprio em serviço
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1800
+      opcional: false
+      requires:
+        - competencia: comp:ia/agentes-llm
+          nivel_minimo: avancado
+        - competencia: comp:ia/desenvolvimento-assistido-por-ia
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ia/operacao-de-aplicacoes-llm
+          nivel_resultante: intermediario
+
+  # Aprofundamentos definidos na outra trilha. Não são redefinidos aqui (catalogo.md §1).
+  etapas_referenciadas:
+    - etapa:ia/panorama-llm-transformer-rag
+    - etapa:ia/engenharia-de-prompt

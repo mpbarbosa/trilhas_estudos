@@ -353,3 +353,217 @@ recursos:
     url: https://github.com/PacktPublishing/LLM-Engineers-Handbook
     disponivel: true
     verificado_em: 2026-10-08
+
+  # ========================================================================
+  # trilha:ia/claude-do-chat-ao-agente
+  #
+  # "A Bíblia do Claude AI" (Thierry Gustin, KDP) é um livro único de 605 páginas
+  # — tempo de leitura declarado pela loja: 12h06 (726 min). Entra como vários
+  # recursos porque um recurso pertence a exatamente uma etapa (catalogo.md §2); a
+  # soma de `duracao_min` das entradas abaixo é o livro inteiro. `custo` é por
+  # exemplar: pago uma vez, repetido em cada entrada por falta de modelagem de
+  # recurso composto — ver nota em docs/catalogo.md §7.
+  # ========================================================================
+
+  # --- etapa:ia/claude-modelos-e-chat -------------------------------------
+  - id: rec:ia/biblia-claude-chat
+    etapa: etapa:ia/claude-modelos-e-chat
+    titulo: "A Bíblia do Claude AI (Thierry Gustin) — modelos, chat e Cowork"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 30
+    duracao_min: 120
+    url: https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:ia/claude-docs-overview
+    etapa: etapa:ia/claude-modelos-e-chat
+    titulo: "Documentação oficial do Claude — visão geral, modelos e janela de contexto"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://docs.claude.com/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:ia/claude-prompt-e-saida-estruturada -------------------------
+  - id: rec:ia/biblia-claude-prompts
+    etapa: etapa:ia/claude-prompt-e-saida-estruturada
+    titulo: "A Bíblia do Claude AI — prompts, contexto e saída em formato longo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 30
+    duracao_min: 150
+    url: https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:ia/anthropic-cookbook-prompts
+    etapa: etapa:ia/claude-prompt-e-saida-estruturada
+    titulo: "anthropic-cookbook — notebooks de prompting e saída estruturada"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 240
+    url: https://github.com/anthropics/anthropic-cookbook
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:ia/claude-api-e-sdk ------------------------------------------
+  - id: rec:ia/biblia-claude-api
+    etapa: etapa:ia/claude-api-e-sdk
+    titulo: "A Bíblia do Claude AI — a API da Anthropic"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 30
+    duracao_min: 96
+    url: https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:ia/claude-docs-api
+    etapa: etapa:ia/claude-api-e-sdk
+    titulo: "Documentação oficial — Messages API, streaming, cache de prompt e contagem de tokens"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 360
+    url: https://docs.claude.com/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:ia/tool-use-e-mcp --------------------------------------------
+  - id: rec:ia/biblia-claude-mcp
+    etapa: etapa:ia/tool-use-e-mcp
+    titulo: "A Bíblia do Claude AI — MCP e conexão a dados e sistemas"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 30
+    duracao_min: 120
+    url: https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:ia/mcp-spec-e-guias
+    etapa: etapa:ia/tool-use-e-mcp
+    titulo: "Model Context Protocol — especificação, SDKs e guia de construção de servidor"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 480
+    url: https://modelcontextprotocol.io/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:ia/claude-code-e-skills --------------------------------------
+  - id: rec:ia/biblia-claude-code-skills
+    etapa: etapa:ia/claude-code-e-skills
+    titulo: "A Bíblia do Claude AI — Claude Code e Skills"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 30
+    duracao_min: 120
+    url: https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:ia/claude-code-docs
+    etapa: etapa:ia/claude-code-e-skills
+    titulo: "Documentação oficial do Claude Code — configuração, skills, subagentes e hooks"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 360
+    url: https://docs.claude.com/en/docs/claude-code/overview
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:ia/agentes-com-claude ----------------------------------------
+  - id: rec:ia/biblia-claude-agentes
+    etapa: etapa:ia/agentes-com-claude
+    titulo: "A Bíblia do Claude AI — do primeiro chat ao agente"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 30
+    duracao_min: 90
+    url: https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:ia/anthropic-cookbook-agentes
+    etapa: etapa:ia/agentes-com-claude
+    titulo: "anthropic-cookbook — padrões de agente, uso de ferramentas e orquestração"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 720
+    url: https://github.com/anthropics/anthropic-cookbook
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:ia/agente-em-producao ----------------------------------------
+  - id: rec:ia/biblia-claude-producao
+    etapa: etapa:ia/agente-em-producao
+    titulo: "A Bíblia do Claude AI — agente em produção"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 30
+    duracao_min: 30
+    url: https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:ia/ai-engineering-agentes-producao
+    etapa: etapa:ia/agente-em-producao
+    titulo: "AI Engineering (Chip Huyen) — agentes, salvaguardas, observabilidade e custo de inferência"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 350
+    duracao_min: 600
+    url: https://www.oreilly.com/library/view/ai-engineering/9781098166298/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:ia/projeto-agente-claude -------------------------------------
+  - id: rec:ia/projeto-agente-claude-sdk
+    etapa: etapa:ia/projeto-agente-claude
+    titulo: "Claude Agent SDK — construir e servir um agente próprio (documentação e exemplos)"
+    rev: 1
+    status: ativo
+    formato: projeto
+    idioma: en-US
+    custo: 0
+    duracao_min: 1800
+    url: https://docs.claude.com/en/api/agent-sdk/overview
+    disponivel: true
+    verificado_em: 2026-10-08

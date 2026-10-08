@@ -246,5 +246,11 @@ exigido pela validação §5.8 quando outra entidade ativa ainda aponta para a d
   junto do validador, não antes — sem validador não há como garantir que o fixture é válido.
 - **Internacionalização** de `titulo`/`descricao`: fora de escopo. Recurso já tem
   `idioma`; texto de entidade é pt-BR.
+- **Recurso composto**: um livro único que atende várias etapas (ex. *A Bíblia do Claude AI*
+  em `trilha:ia/claude-do-chat-ao-agente`) vira hoje várias entradas de `recurso`, porque
+  um recurso pertence a exatamente uma etapa (§2). Consequência: `custo` é repetido por
+  entrada embora o exemplar seja pago uma vez, o que superestima o custo de um caminho para
+  o filtro de `custo_maximo` ([motor §2.2](motor-de-sugestao.md)). A saída provável é uma
+  `obra` com recursos-parte, mas só vale decidir com um segundo caso real.
 - **Autoria por não-programadores**: YAML em PR exige git. Aceito por ora; se virar
   obstáculo, a saída é uma interface que gera o YAML, não uma segunda fonte da verdade.

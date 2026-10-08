@@ -111,3 +111,41 @@ competencias:
     verificacao: >
       Servir uma aplicação com LLM instrumentada e apresentar custo por requisição e
       latência p95 medidos, com a salvaguarda que impede a saída indevida demonstrada.
+
+  - id: comp:ia/ferramentas-e-mcp
+    titulo: Ferramentas e MCP
+    rev: 1
+    status: ativo
+    descricao: >
+      Estender um modelo além do texto: definição de ferramentas, laço de chamada e
+      devolução de resultado, e conexão a dados e sistemas externos por MCP
+      (Model Context Protocol), com limites de permissão explícitos.
+    verificacao: >
+      Expor uma ferramenta própria a um modelo por tool use e a mesma capacidade por
+      um servidor MCP, demonstrar o laço completo de chamada e resposta, e justificar
+      quais operações ficaram fora do que o modelo pode acionar.
+
+  - id: comp:ia/desenvolvimento-assistido-por-ia
+    titulo: Desenvolvimento assistido por agente de codificação
+    rev: 1
+    status: ativo
+    descricao: >
+      Trabalhar num repositório com um agente de codificação: instruções de projeto,
+      skills, subagentes, revisão do que o agente propõe e decisão sobre o que aceitar.
+    verificacao: >
+      Levar uma mudança não trivial num repositório real do início ao commit com um
+      agente de codificação, apresentando as instruções de projeto que a guiaram e ao
+      menos uma proposta do agente que foi rejeitada, com o motivo técnico.
+
+  - id: comp:ia/agentes-llm
+    titulo: Projeto de agentes com LLM
+    rev: 1
+    status: ativo
+    descricao: >
+      Montar um agente: laço de decisão, uso de ferramentas, memória e contexto,
+      delegação a subagentes, critérios de parada e salvaguardas — e reconhecer quando
+      um fluxo fixo resolve melhor que um agente.
+    verificacao: >
+      Entregar um agente que cumpra uma tarefa de vários passos com ferramentas,
+      apresentar o rastro de decisões de uma execução e sustentar, com os números de
+      custo e acerto, por que um fluxo fixo não daria o mesmo resultado.
