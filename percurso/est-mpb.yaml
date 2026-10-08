@@ -1,0 +1,29 @@
+# PERCURSO — estado de um estudante (CONTEXT.md §3.5: separado do catálogo).
+#
+# ATENÇÃO: formato provisório. A persistência do percurso depende da stack, ainda
+# indefinida (ADR-0001), e nenhuma ADR decidiu este esquema. É um registro em arquivo
+# para não perder o estado enquanto não há aplicação; espere que mude.
+versao_schema: 1
+
+estudante:
+  id: est:mpb
+  nome: Marcelo Pereira Barbosa
+
+perfil:
+  # Competência dominada exige evidência (CONTEXT.md §4). Nenhuma declarada ainda.
+  competencias_dominadas: []
+  restricoes:
+    idiomas: [pt-BR, en-US]
+
+matriculas:
+  - trilha: trilha:ia/llm-transformer-rag
+    rev: 1
+    iniciada_em: 2026-10-08
+    estado: em_andamento
+
+progresso:
+  - etapa: etapa:ia/panorama-llm-transformer-rag
+    rev: 1
+    estado: em_andamento
+    iniciada_em: 2026-10-08
+    recurso_em_uso: rec:ia/ettucode-llm-transformer-rag   # LLM, Transformer, RAG AI (Et Tu Code)
