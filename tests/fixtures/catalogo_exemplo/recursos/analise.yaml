@@ -1,0 +1,41 @@
+versao_schema: 1
+
+recursos:
+  - id: rec:analise/etl-basico-projeto
+    titulo: Projeto - carga de um CSV real
+    rev: 1
+    status: ativo
+    etapa: etapa:analise/etl-basico
+    formato: projeto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 120
+    url: https://exemplo.invalid/etl
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:analise/graficos-texto
+    titulo: Qual gráfico para qual pergunta
+    rev: 1
+    status: ativo
+    etapa: etapa:analise/graficos
+    formato: texto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 55
+    url: https://exemplo.invalid/graficos
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:analise/dashboards-projeto
+    titulo: Projeto - painel de vendas
+    rev: 1
+    status: ativo
+    etapa: etapa:analise/dashboards
+    formato: projeto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 150
+    url: https://exemplo.invalid/dashboards
+    disponivel: true
+    verificado_em: 2026-10-08

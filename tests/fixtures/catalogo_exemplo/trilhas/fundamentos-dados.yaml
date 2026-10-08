@@ -1,0 +1,72 @@
+versao_schema: 1
+
+trilha:
+  id: trilha:dados/fundamentos
+  titulo: Fundamentos de dados
+  rev: 1
+  status: ativo
+
+  objetivo_declarado:
+    - competencia: comp:dados/sql-consultas
+      nivel: intermediario
+    - competencia: comp:dados/sql-agregacao
+      nivel: iniciante
+
+  etapas:
+    # Sem pré-requisito: entra em paralelo com `sql-select`.
+    - id: etapa:dados/modelagem-basica
+      titulo: Entidades, relações e chaves
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 75
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:dados/modelagem-relacional
+          nivel_resultante: iniciante
+
+    - id: etapa:dados/sql-select
+      titulo: SELECT, WHERE e ORDER BY
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 60
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:dados/sql-consultas
+          nivel_resultante: iniciante
+
+    # Converge os três caminhos iniciais.
+    - id: etapa:dados/sql-join
+      titulo: JOINs e relacionamentos
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 90
+      opcional: false
+      requires:
+        - competencia: comp:dados/sql-consultas
+          nivel_minimo: iniciante
+        - competencia: comp:dados/modelagem-relacional
+          nivel_minimo: iniciante
+        - competencia: comp:programacao/logica-booleana
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:dados/sql-consultas
+          nivel_resultante: intermediario
+
+    # Paralela a `sql-join`: ambas só dependem de `sql-select`.
+    - id: etapa:dados/sql-group-by
+      titulo: GROUP BY, HAVING e funções de agregação
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 70
+      opcional: false
+      requires:
+        - competencia: comp:dados/sql-consultas
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:dados/sql-agregacao
+          nivel_resultante: iniciante
+
+  etapas_referenciadas:
+    - etapa:programacao/logica-booleana

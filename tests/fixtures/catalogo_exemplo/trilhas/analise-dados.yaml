@@ -1,0 +1,63 @@
+versao_schema: 1
+
+# Trilha de continuação: referencia as etapas de `fundamentos-dados` de que depende,
+# porque a validação §5.6 exige que o objetivo seja alcançável com as próprias etapas.
+trilha:
+  id: trilha:dados/analise
+  titulo: Análise de dados
+  rev: 1
+  status: ativo
+
+  objetivo_declarado:
+    - competencia: comp:dados/visualizacao
+      nivel: intermediario
+    - competencia: comp:dados/etl
+      nivel: iniciante
+
+  etapas:
+    - id: etapa:analise/etl-basico
+      titulo: Carga de CSV com limpeza e rejeição
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 120
+      opcional: false
+      requires:
+        - competencia: comp:dados/sql-consultas
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:dados/etl
+          nivel_resultante: iniciante
+
+    # Paralela a `etl-basico`: depende de agregação, não de consultas avançadas.
+    - id: etapa:analise/graficos
+      titulo: Escolha do gráfico segundo a pergunta
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 60
+      opcional: false
+      requires:
+        - competencia: comp:dados/sql-agregacao
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:dados/visualizacao
+          nivel_resultante: iniciante
+
+    - id: etapa:analise/dashboards
+      titulo: Composição de painéis
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 150
+      opcional: false
+      requires:
+        - competencia: comp:dados/visualizacao
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:dados/visualizacao
+          nivel_resultante: intermediario
+
+  etapas_referenciadas:
+    - etapa:dados/sql-select
+    - etapa:dados/modelagem-basica
+    - etapa:dados/sql-join
+    - etapa:dados/sql-group-by
+    - etapa:programacao/logica-booleana

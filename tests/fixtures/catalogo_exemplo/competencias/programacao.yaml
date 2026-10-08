@@ -1,0 +1,11 @@
+versao_schema: 1
+
+competencias:
+  - id: comp:programacao/logica-booleana
+    titulo: Lógica booleana
+    rev: 1
+    status: ativo
+    descricao: Compor e negar condições com E, OU e NÃO sem ambiguidade.
+    verificacao: >
+      Reescrever uma condição composta negada aplicando De Morgan e demonstrar a
+      equivalência por tabela-verdade.

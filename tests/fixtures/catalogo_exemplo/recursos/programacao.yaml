@@ -1,0 +1,15 @@
+versao_schema: 1
+
+recursos:
+  - id: rec:programacao/logica-booleana-exercicios
+    titulo: Tabelas-verdade e De Morgan
+    rev: 1
+    status: ativo
+    etapa: etapa:programacao/logica-booleana
+    formato: exercicio
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 40
+    url: https://exemplo.invalid/booleana
+    disponivel: true
+    verificado_em: 2026-10-08

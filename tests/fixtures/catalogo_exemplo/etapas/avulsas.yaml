@@ -1,0 +1,14 @@
+# Etapas que não nascem de uma trilha específica e são referenciadas por várias.
+versao_schema: 1
+
+etapas:
+  - id: etapa:programacao/logica-booleana
+    titulo: E, OU, NÃO e De Morgan
+    rev: 1
+    status: ativo
+    esforco_estimado_min: 40
+    opcional: false
+    requires: []
+    teaches:
+      - competencia: comp:programacao/logica-booleana
+        nivel_resultante: iniciante

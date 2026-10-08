@@ -1,0 +1,46 @@
+versao_schema: 1
+
+competencias:
+  - id: comp:dados/modelagem-relacional
+    titulo: Modelagem relacional
+    rev: 1
+    status: ativo
+    descricao: Traduzir requisitos em entidades, relações e chaves.
+    verificacao: >
+      Normalizar até 3FN um esquema dado em texto, justificando cada decomposição.
+
+  - id: comp:dados/sql-consultas
+    titulo: Consultas SQL
+    rev: 1
+    status: ativo
+    descricao: Recuperar dados de um esquema relacional com filtro, ordenação e junção.
+    verificacao: >
+      Escrever, sem consultar material, uma query com duas junções e filtro composto
+      que responda a uma pergunta de negócio dada em português.
+
+  - id: comp:dados/sql-agregacao
+    titulo: Agregação em SQL
+    rev: 1
+    status: ativo
+    descricao: Resumir dados por grupo com funções de agregação.
+    verificacao: >
+      Produzir um relatório por categoria usando GROUP BY e HAVING, e explicar por que
+      o filtro vai em HAVING e não em WHERE.
+
+  - id: comp:dados/etl
+    titulo: Extração e carga de dados
+    rev: 1
+    status: ativo
+    descricao: Mover dados entre origem e destino com transformação e verificação.
+    verificacao: >
+      Carregar um CSV sujo em uma tabela, declarando as regras de limpeza aplicadas e
+      a contagem de registros rejeitados.
+
+  - id: comp:dados/visualizacao
+    titulo: Visualização de dados
+    rev: 1
+    status: ativo
+    descricao: Escolher e construir a representação gráfica adequada a uma pergunta.
+    verificacao: >
+      Dado um conjunto e uma pergunta, justificar a escolha do tipo de gráfico e
+      apontar uma leitura equivocada que ele evita.

@@ -1,0 +1,1260 @@
+{
+  "versao_snapshot": 1,
+  "catalogo_versao": 1,
+  "gerado_em": "2026-10-08T15:26:16+00:00",
+  "hash": "sha256:037d2ac66485166650d91975ab69f4868acab70444115b18eb795a5771308b76",
+  "competencias": [
+    {
+      "id": "comp:ia/adaptacao-de-modelo",
+      "titulo": "Adaptação de modelo",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Ajustar um modelo aberto pequeno com LoRA para uma tarefa específica e comparar com a linha de base por prompting no mesmo conjunto de avaliação.",
+      "descricao": "Ajustar um modelo aberto à tarefa: preparação de dados, fine-tuning supervisionado, LoRA e quantização, e quando isso não compensa frente a prompting ou RAG.\n"
+    },
+    {
+      "id": "comp:ia/agentes-llm",
+      "titulo": "Projeto de agentes com LLM",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Entregar um agente que cumpra uma tarefa de vários passos com ferramentas, apresentar o rastro de decisões de uma execução e sustentar, com os números de custo e acerto, por que um fluxo fixo não daria o mesmo resultado.",
+      "descricao": "Montar um agente: laço de decisão, uso de ferramentas, memória e contexto, delegação a subagentes, critérios de parada e salvaguardas — e reconhecer quando um fluxo fixo resolve melhor que um agente.\n"
+    },
+    {
+      "id": "comp:ia/arquitetura-transformer",
+      "titulo": "Arquitetura transformer",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Sobre um diagrama em branco, descrever o percurso de um token nomeando cada bloco, e explicar por que o custo de atenção cresce com o quadrado do contexto.",
+      "descricao": "Entender o caminho de um token da entrada à distribuição de saída: tokenização, embeddings, atenção multi-cabeça, máscara causal, normalização, camada de saída.\n"
+    },
+    {
+      "id": "comp:ia/avaliacao-de-sistemas-llm",
+      "titulo": "Avaliação de sistemas com LLM",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Rodar uma avaliação própria que separe falha de recuperação de falha de geração e sustentar, com os números, uma decisão de adotar ou rejeitar uma mudança.",
+      "descricao": "Definir conjuntos de avaliação, métricas de fidelidade ao contexto e detecção de regressão para decisões de mudança de prompt, de modelo ou de recuperação.\n"
+    },
+    {
+      "id": "comp:ia/desenvolvimento-assistido-por-ia",
+      "titulo": "Desenvolvimento assistido por agente de codificação",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Levar uma mudança não trivial num repositório real do início ao commit com um agente de codificação, apresentando as instruções de projeto que a guiaram e ao menos uma proposta do agente que foi rejeitada, com o motivo técnico.",
+      "descricao": "Trabalhar num repositório com um agente de codificação: instruções de projeto, skills, subagentes, revisão do que o agente propõe e decisão sobre o que aceitar.\n"
+    },
+    {
+      "id": "comp:ia/engenharia-de-prompt",
+      "titulo": "Engenharia de prompt",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Partindo de um prompt que erra em 10 casos registrados, entregar uma versão que melhore o acerto nos mesmos casos e justificar cada elemento mantido ou removido.",
+      "descricao": "Construir prompts como artefato de engenharia: contexto, exemplos, formato de saída, decomposição em passos, e iteração guiada por casos.\n"
+    },
+    {
+      "id": "comp:ia/ferramentas-e-mcp",
+      "titulo": "Ferramentas e MCP",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Expor uma ferramenta própria a um modelo por tool use e a mesma capacidade por um servidor MCP, demonstrar o laço completo de chamada e resposta, e justificar quais operações ficaram fora do que o modelo pode acionar.",
+      "descricao": "Estender um modelo além do texto: definição de ferramentas, laço de chamada e devolução de resultado, e conexão a dados e sistemas externos por MCP (Model Context Protocol), com limites de permissão explícitos.\n"
+    },
+    {
+      "id": "comp:ia/fundamentos-aprendizado-profundo",
+      "titulo": "Fundamentos de aprendizado profundo",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Treinar um classificador num conjunto de dados dado e, a partir das curvas de treino e validação, diagnosticar sobreajuste ou subajuste e justificar uma correção aplicada.",
+      "descricao": "Treinar, avaliar e diagnosticar redes neurais: função de perda, gradiente, otimizador, regularização, sobreajuste.\n"
+    },
+    {
+      "id": "comp:ia/operacao-de-aplicacoes-llm",
+      "titulo": "Operação de aplicações com LLM",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Servir uma aplicação com LLM instrumentada e apresentar custo por requisição e latência p95 medidos, com a salvaguarda que impede a saída indevida demonstrada.",
+      "descricao": "Colocar e manter uma aplicação com LLM em serviço: observabilidade de custo e latência, cache, limites de taxa, salvaguardas de entrada e saída, retrocesso.\n"
+    },
+    {
+      "id": "comp:ia/rag-pipeline",
+      "titulo": "Pipeline de RAG",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Entregar um pipeline RAG sobre corpus próprio que responda citando as fontes recuperadas e diga \"não sei\" quando a recuperação não sustentar a resposta; justificar a estratégia de fatiamento escolhida.",
+      "descricao": "Ligar recuperação e geração: ingestão, fatiamento, indexação, montagem de contexto, citação de fonte e tratamento de ausência de evidência.\n"
+    },
+    {
+      "id": "comp:ia/recuperacao-de-informacao",
+      "titulo": "Recuperação de informação",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Montar um índice híbrido com reranqueamento e reportar precisão@k e recall@k sobre um conjunto de consultas rotulado, comparando com a linha de base léxica.",
+      "descricao": "Indexação léxica e vetorial, busca híbrida, reranqueamento e métricas de relevância aplicadas ao estágio de recuperação.\n"
+    },
+    {
+      "id": "comp:ia/representacao-vetorial",
+      "titulo": "Representação vetorial e busca semântica",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Indexar um corpus de pelo menos mil documentos, recuperar os k vizinhos de uma consulta e explicar um caso em que a busca léxica falharia e a vetorial acerta.",
+      "descricao": "Produzir embeddings de texto, medir similaridade e usar um índice vetorial para recuperar conteúdo por significado, não por palavra.\n"
+    },
+    {
+      "id": "comp:ia/uso-de-llm-por-api",
+      "titulo": "Uso de LLM por API",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Implementar uma chamada que devolva JSON válido conforme um esquema dado, controlando temperatura e limite de tokens, e estimar o custo por mil chamadas.",
+      "descricao": "Operar um modelo hospedado: parâmetros de decodificação, saída estruturada, janela de contexto, custo e latência por chamada.\n"
+    },
+    {
+      "id": "comp:programacao/python-dados",
+      "titulo": "Python aplicado a dados",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um CSV sujo, escrever um script que carregue, limpe e agregue os dados, executando em ambiente isolado com dependências declaradas em arquivo.",
+      "descricao": "Escrever Python idiomático para manipular dados, usando ambientes isolados, notebooks e bibliotecas de terceiros.\n"
+    }
+  ],
+  "etapas": [
+    {
+      "id": "etapa:ia/agente-em-producao",
+      "titulo": "Agente em produção — salvaguardas, avaliação, custo e latência",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:ia/claude-do-chat-ao-agente",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/agentes-llm",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:ia/uso-de-llm-por-api",
+          "nivel_minimo": "avancado"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/agentes-llm",
+          "nivel_resultante": "avancado"
+        },
+        {
+          "competencia": "comp:ia/operacao-de-aplicacoes-llm",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/agentes-com-claude",
+      "titulo": "Construir um agente — laço, memória, subagentes e parada",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "trilha": "trilha:ia/claude-do-chat-ao-agente",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/ferramentas-e-mcp",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/agentes-llm",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/avaliacao-de-sistemas-llm",
+      "titulo": "Avaliar antes de ajustar",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:ia/llm-transformer-rag",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/rag-pipeline",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/avaliacao-de-sistemas-llm",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/claude-api-e-sdk",
+      "titulo": "A API por dentro — mensagens, streaming, cache e custo",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "trilha": "trilha:ia/claude-do-chat-ao-agente",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/uso-de-llm-por-api",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/uso-de-llm-por-api",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/claude-code-e-skills",
+      "titulo": "Claude Code e Skills — o agente dentro do repositório",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 720,
+      "trilha": "trilha:ia/claude-do-chat-ao-agente",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/ferramentas-e-mcp",
+          "nivel_minimo": "iniciante"
+        },
+        {
+          "competencia": "comp:ia/engenharia-de-prompt",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/desenvolvimento-assistido-por-ia",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/claude-modelos-e-chat",
+      "titulo": "Modelos, janela de contexto e a conversa como ferramenta de trabalho",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "trilha": "trilha:ia/claude-do-chat-ao-agente",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:ia/uso-de-llm-por-api",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/claude-prompt-e-saida-estruturada",
+      "titulo": "Prompt, contexto e saída estruturada",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 420,
+      "trilha": "trilha:ia/claude-do-chat-ao-agente",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/uso-de-llm-por-api",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/engenharia-de-prompt",
+          "nivel_resultante": "iniciante"
+        },
+        {
+          "competencia": "comp:ia/uso-de-llm-por-api",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/embeddings-e-busca-semantica",
+      "titulo": "Embeddings e busca semântica",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:ia/llm-transformer-rag",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/uso-de-llm-por-api",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/representacao-vetorial",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/engenharia-de-prompt",
+      "titulo": "Engenharia de prompt como disciplina",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 720,
+      "trilha": "trilha:ia/llm-transformer-rag",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/uso-de-llm-por-api",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/engenharia-de-prompt",
+          "nivel_resultante": "intermediario"
+        },
+        {
+          "competencia": "comp:ia/uso-de-llm-por-api",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/fine-tuning-e-adaptacao",
+      "titulo": "Fine-tuning e adaptação de modelo aberto",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "trilha": "trilha:ia/llm-transformer-rag",
+      "opcional": true,
+      "requires": [
+        {
+          "competencia": "comp:ia/adaptacao-de-modelo",
+          "nivel_minimo": "iniciante"
+        },
+        {
+          "competencia": "comp:ia/fundamentos-aprendizado-profundo",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/adaptacao-de-modelo",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/fundamentos-aprendizado-profundo",
+      "titulo": "Fundamentos de aprendizado profundo",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1800,
+      "trilha": "trilha:ia/llm-transformer-rag",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:programacao/python-dados",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/fundamentos-aprendizado-profundo",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/llm-do-zero",
+      "titulo": "Construir um LLM do zero",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 2400,
+      "trilha": "trilha:ia/llm-transformer-rag",
+      "opcional": true,
+      "requires": [
+        {
+          "competencia": "comp:ia/arquitetura-transformer",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/arquitetura-transformer",
+          "nivel_resultante": "avancado"
+        },
+        {
+          "competencia": "comp:ia/adaptacao-de-modelo",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/panorama-llm-transformer-rag",
+      "titulo": "Panorama — LLM, transformer e RAG",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 540,
+      "trilha": "trilha:ia/llm-transformer-rag",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:ia/arquitetura-transformer",
+          "nivel_resultante": "iniciante"
+        },
+        {
+          "competencia": "comp:ia/uso-de-llm-por-api",
+          "nivel_resultante": "iniciante"
+        },
+        {
+          "competencia": "comp:ia/rag-pipeline",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/projeto-agente-claude",
+      "titulo": "Projeto — agente próprio em serviço",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1800,
+      "trilha": "trilha:ia/claude-do-chat-ao-agente",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/agentes-llm",
+          "nivel_minimo": "avancado"
+        },
+        {
+          "competencia": "comp:ia/desenvolvimento-assistido-por-ia",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/operacao-de-aplicacoes-llm",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/projeto-assistente-rag",
+      "titulo": "Projeto — assistente RAG sobre corpus próprio",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 2400,
+      "trilha": "trilha:ia/llm-transformer-rag",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/rag-pipeline",
+          "nivel_minimo": "avancado"
+        },
+        {
+          "competencia": "comp:ia/operacao-de-aplicacoes-llm",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/operacao-de-aplicacoes-llm",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/rag-em-producao",
+      "titulo": "RAG em produção — custo, latência e qualidade",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "trilha": "trilha:ia/llm-transformer-rag",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/rag-pipeline",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:ia/avaliacao-de-sistemas-llm",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/rag-pipeline",
+          "nivel_resultante": "avancado"
+        },
+        {
+          "competencia": "comp:ia/operacao-de-aplicacoes-llm",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/rag-fim-a-fim",
+      "titulo": "RAG fim a fim",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "trilha": "trilha:ia/llm-transformer-rag",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/rag-pipeline",
+          "nivel_minimo": "iniciante"
+        },
+        {
+          "competencia": "comp:ia/recuperacao-de-informacao",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:ia/engenharia-de-prompt",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/rag-pipeline",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/recuperacao-e-ranqueamento",
+      "titulo": "Recuperação, busca híbrida e reranqueamento",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1500,
+      "trilha": "trilha:ia/llm-transformer-rag",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/representacao-vetorial",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/recuperacao-de-informacao",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/tool-use-e-mcp",
+      "titulo": "Tool use e MCP — dar mãos ao modelo",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:ia/claude-do-chat-ao-agente",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/uso-de-llm-por-api",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:ia/engenharia-de-prompt",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/ferramentas-e-mcp",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/transformer-por-dentro",
+      "titulo": "O transformer por dentro",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "trilha": "trilha:ia/llm-transformer-rag",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/fundamentos-aprendizado-profundo",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:ia/arquitetura-transformer",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/arquitetura-transformer",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:programacao/python-para-ia",
+      "titulo": "Python para trabalho com dados e IA",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "trilha": "trilha:ia/llm-transformer-rag",
+      "opcional": true,
+      "teaches": [
+        {
+          "competencia": "comp:programacao/python-dados",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    }
+  ],
+  "trilhas": [
+    {
+      "id": "trilha:ia/claude-do-chat-ao-agente",
+      "titulo": "Do chat ao agente em produção com Claude",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:ia/ferramentas-e-mcp",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ia/desenvolvimento-assistido-por-ia",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ia/agentes-llm",
+          "nivel": "avancado"
+        }
+      ],
+      "etapas": [
+        "etapa:ia/claude-modelos-e-chat",
+        "etapa:ia/claude-prompt-e-saida-estruturada",
+        "etapa:ia/claude-api-e-sdk",
+        "etapa:ia/tool-use-e-mcp",
+        "etapa:ia/claude-code-e-skills",
+        "etapa:ia/agentes-com-claude",
+        "etapa:ia/agente-em-producao",
+        "etapa:ia/projeto-agente-claude"
+      ],
+      "etapas_referenciadas": [
+        "etapa:ia/panorama-llm-transformer-rag",
+        "etapa:ia/engenharia-de-prompt"
+      ]
+    },
+    {
+      "id": "trilha:ia/llm-transformer-rag",
+      "titulo": "Do transformer ao RAG em produção",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:ia/rag-pipeline",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:ia/avaliacao-de-sistemas-llm",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ia/operacao-de-aplicacoes-llm",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:programacao/python-para-ia",
+        "etapa:ia/panorama-llm-transformer-rag",
+        "etapa:ia/fundamentos-aprendizado-profundo",
+        "etapa:ia/transformer-por-dentro",
+        "etapa:ia/llm-do-zero",
+        "etapa:ia/embeddings-e-busca-semantica",
+        "etapa:ia/engenharia-de-prompt",
+        "etapa:ia/recuperacao-e-ranqueamento",
+        "etapa:ia/rag-fim-a-fim",
+        "etapa:ia/fine-tuning-e-adaptacao",
+        "etapa:ia/avaliacao-de-sistemas-llm",
+        "etapa:ia/rag-em-producao",
+        "etapa:ia/projeto-assistente-rag"
+      ]
+    }
+  ],
+  "recursos": [
+    {
+      "id": "rec:ia/ai-engineering-agentes-producao",
+      "titulo": "AI Engineering (Chip Huyen) — agentes, salvaguardas, observabilidade e custo de inferência",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/agente-em-producao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 350.0,
+      "duracao_min": 600,
+      "url": "https://www.oreilly.com/library/view/ai-engineering/9781098166298/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/ai-engineering-avaliacao",
+      "titulo": "AI Engineering (Chip Huyen, O'Reilly) — metodologia de avaliação e avaliação de sistemas",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/avaliacao-de-sistemas-llm",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 350.0,
+      "duracao_min": 900,
+      "url": "https://www.oreilly.com/library/view/ai-engineering/9781098166298/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/ai-engineering-producao",
+      "titulo": "AI Engineering — arquitetura de aplicação, cache, otimização de inferência e custo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/rag-em-producao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 350.0,
+      "duracao_min": 900,
+      "url": "https://www.oreilly.com/library/view/ai-engineering/9781098166298/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/ai-powered-search",
+      "titulo": "AI-Powered Search (Grainger, Turnbull & Irwin, Manning) — busca híbrida e reranqueamento",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/recuperacao-e-ranqueamento",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 350.0,
+      "duracao_min": 1500,
+      "url": "https://www.manning.com/books/ai-powered-search",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/ai-powered-search-rag",
+      "titulo": "AI-Powered Search — capítulos de RAG, resposta a perguntas e qualidade de recuperação",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/rag-em-producao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 350.0,
+      "duracao_min": 600,
+      "url": "https://www.manning.com/books/ai-powered-search",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/aie-book-material",
+      "titulo": "aie-book — material de apoio e estudos de caso do AI Engineering",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/avaliacao-de-sistemas-llm",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://github.com/chiphuyen/aie-book",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/anthropic-cookbook-agentes",
+      "titulo": "anthropic-cookbook — padrões de agente, uso de ferramentas e orquestração",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/agentes-com-claude",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 720,
+      "url": "https://github.com/anthropics/anthropic-cookbook",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/anthropic-cookbook-prompts",
+      "titulo": "anthropic-cookbook — notebooks de prompting e saída estruturada",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/claude-prompt-e-saida-estruturada",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://github.com/anthropics/anthropic-cookbook",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/biblia-claude-agentes",
+      "titulo": "A Bíblia do Claude AI — do primeiro chat ao agente",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/agentes-com-claude",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 30.0,
+      "duracao_min": 90,
+      "url": "https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/biblia-claude-api",
+      "titulo": "A Bíblia do Claude AI — a API da Anthropic",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/claude-api-e-sdk",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 30.0,
+      "duracao_min": 96,
+      "url": "https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/biblia-claude-chat",
+      "titulo": "A Bíblia do Claude AI (Thierry Gustin) — modelos, chat e Cowork",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/claude-modelos-e-chat",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 30.0,
+      "duracao_min": 120,
+      "url": "https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/biblia-claude-code-skills",
+      "titulo": "A Bíblia do Claude AI — Claude Code e Skills",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/claude-code-e-skills",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 30.0,
+      "duracao_min": 120,
+      "url": "https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/biblia-claude-mcp",
+      "titulo": "A Bíblia do Claude AI — MCP e conexão a dados e sistemas",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/tool-use-e-mcp",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 30.0,
+      "duracao_min": 120,
+      "url": "https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/biblia-claude-producao",
+      "titulo": "A Bíblia do Claude AI — agente em produção",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/agente-em-producao",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 30.0,
+      "duracao_min": 30,
+      "url": "https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/biblia-claude-prompts",
+      "titulo": "A Bíblia do Claude AI — prompts, contexto e saída em formato longo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/claude-prompt-e-saida-estruturada",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 30.0,
+      "duracao_min": 150,
+      "url": "https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/build-llm-from-scratch",
+      "titulo": "Build a Large Language Model (From Scratch) (Sebastian Raschka, Manning)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/llm-do-zero",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 350.0,
+      "duracao_min": 1800,
+      "url": "https://www.manning.com/books/build-a-large-language-model-from-scratch",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/claude-code-docs",
+      "titulo": "Documentação oficial do Claude Code — configuração, skills, subagentes e hooks",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/claude-code-e-skills",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 360,
+      "url": "https://docs.claude.com/en/docs/claude-code/overview",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/claude-docs-api",
+      "titulo": "Documentação oficial — Messages API, streaming, cache de prompt e contagem de tokens",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/claude-api-e-sdk",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 360,
+      "url": "https://docs.claude.com/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/claude-docs-overview",
+      "titulo": "Documentação oficial do Claude — visão geral, modelos e janela de contexto",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/claude-modelos-e-chat",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://docs.claude.com/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/deep-learning-book-br",
+      "titulo": "Deep Learning Book (Data Science Academy) — 100 capítulos em português",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/fundamentos-aprendizado-profundo",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 1800,
+      "url": "https://www.deeplearningbook.com.br/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/deep-learning-with-python-3ed",
+      "titulo": "Deep Learning with Python, 3ª ed. (Chollet & Watson)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/fundamentos-aprendizado-profundo",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 320.0,
+      "duracao_min": 1500,
+      "url": "https://github.com/fchollet/deep-learning-with-python-notebooks",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/ettucode-llm-transformer-rag",
+      "titulo": "LLM, Transformer, RAG AI (Et Tu Code) — ISBN 9798882446481",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/panorama-llm-transformer-rag",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 25.0,
+      "duracao_min": 540,
+      "url": "https://www.amazon.com.br/s?k=LLM+Transformer+RAG+AI+Et+Tu+Code",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/hands-on-llms-embeddings",
+      "titulo": "Hands-On Large Language Models (Alammar & Grootendorst) — embeddings, busca e clusterização",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/embeddings-e-busca-semantica",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 320.0,
+      "duracao_min": 900,
+      "url": "https://www.oreilly.com/library/view/hands-on-large-language/9781098150952/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/hands-on-llms-notebooks",
+      "titulo": "Hands-On Large Language Models — notebooks oficiais (Colab)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/embeddings-e-busca-semantica",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://github.com/HandsOnLLM/Hands-On-Large-Language-Models",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/hands-on-llms-rag",
+      "titulo": "Hands-On Large Language Models — capítulo de RAG e geração com contexto",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/rag-fim-a-fim",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://github.com/HandsOnLLM/Hands-On-Large-Language-Models",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/handson-ml-3ed",
+      "titulo": "Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow, 3ª ed. (Géron) — parte II",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/fundamentos-aprendizado-profundo",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 350.0,
+      "duracao_min": 1800,
+      "url": "https://github.com/ageron/handson-ml3",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/illustrated-transformer",
+      "titulo": "The Illustrated Transformer (Jay Alammar)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/transformer-por-dentro",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://jalammar.github.io/illustrated-transformer/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/intro-information-retrieval",
+      "titulo": "Introduction to Information Retrieval (Manning, Raghavan & Schütze) — edição aberta",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/recuperacao-e-ranqueamento",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 1200,
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/llm-engineers-handbook-finetuning",
+      "titulo": "LLM Engineer's Handbook — fine-tuning supervisionado, preferências e quantização",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/fine-tuning-e-adaptacao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 280.0,
+      "duracao_min": 900,
+      "url": "https://www.oreilly.com/library/view/llm-engineers-handbook/9781836200079",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/llm-engineers-handbook-rag",
+      "titulo": "LLM Engineer's Handbook (Iusztin & Labonne, Packt) — ingestão, indexação e RAG",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/rag-fim-a-fim",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 280.0,
+      "duracao_min": 900,
+      "url": "https://www.oreilly.com/library/view/llm-engineers-handbook/9781836200079",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/llm-twin-projeto",
+      "titulo": "LLM Engineer's Handbook — projeto LLM Twin: pipeline completo de coleta, treino, RAG e serviço",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/projeto-assistente-rag",
+      "formato": "projeto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 2400,
+      "url": "https://github.com/PacktPublishing/LLM-Engineers-Handbook",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/llms-from-scratch-codigo",
+      "titulo": "LLMs-from-scratch — código e exercícios oficiais do livro de Raschka",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/llm-do-zero",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 1200,
+      "url": "https://github.com/rasbt/LLMs-from-scratch",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/llms-from-scratch-finetuning",
+      "titulo": "LLMs-from-scratch — capítulos de fine-tuning para classificação e instruções",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/fine-tuning-e-adaptacao",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://github.com/rasbt/LLMs-from-scratch",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/mcp-spec-e-guias",
+      "titulo": "Model Context Protocol — especificação, SDKs e guia de construção de servidor",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/tool-use-e-mcp",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 480,
+      "url": "https://modelcontextprotocol.io/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/nlp-with-transformers",
+      "titulo": "Natural Language Processing with Transformers (Tunstall, von Werra & Wolf) — caps. 1–4",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/transformer-por-dentro",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 280.0,
+      "duracao_min": 900,
+      "url": "https://github.com/nlp-with-transformers/notebooks",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/paper-attention-is-all-you-need",
+      "titulo": "Attention Is All You Need (Vaswani et al., 2017)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/transformer-por-dentro",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 150,
+      "url": "https://arxiv.org/abs/1706.03762",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/projeto-agente-claude-sdk",
+      "titulo": "Claude Agent SDK — construir e servir um agente próprio (documentação e exemplos)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/projeto-agente-claude",
+      "formato": "projeto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 1800,
+      "url": "https://docs.claude.com/en/api/agent-sdk/overview",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/prompt-engineering-for-llms",
+      "titulo": "Prompt Engineering for LLMs (Berryman & Ziegler, O'Reilly)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/engenharia-de-prompt",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 300.0,
+      "duracao_min": 720,
+      "url": "https://www.oreilly.com/library/view/-/9781098156145",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/slp3-transformers",
+      "titulo": "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — capítulos de transformers e LLM",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/transformer-por-dentro",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://web.stanford.edu/~jurafsky/slp3/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:programacao/automate-boring-stuff",
+      "titulo": "Automate the Boring Stuff with Python (Al Sweigart) — leitura aberta",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/python-para-ia",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 900,
+      "url": "https://automatetheboringstuff.com/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:programacao/python-fluente-2ed",
+      "titulo": "Python Fluente, 2ª edição (Luciano Ramalho) — edição aberta em português",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/python-para-ia",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 1200,
+      "url": "https://pythonfluente.com/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    }
+  ]
+}

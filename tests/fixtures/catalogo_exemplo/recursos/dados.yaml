@@ -1,0 +1,67 @@
+versao_schema: 1
+
+recursos:
+  - id: rec:dados/modelagem-basica-texto
+    titulo: Modelagem relacional em 3 passos
+    rev: 1
+    status: ativo
+    etapa: etapa:dados/modelagem-basica
+    formato: texto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 70
+    url: https://exemplo.invalid/modelagem
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:dados/sql-select-video
+    titulo: SELECT na prática
+    rev: 1
+    status: ativo
+    etapa: etapa:dados/sql-select
+    formato: video
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 45
+    url: https://exemplo.invalid/select
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:dados/sql-select-exercicios
+    titulo: 30 exercícios de SELECT com correção
+    rev: 1
+    status: ativo
+    etapa: etapa:dados/sql-select
+    formato: exercicio
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 25
+    url: https://exemplo.invalid/select-exercicios
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:dados/sql-join-exercicios
+    titulo: 20 exercícios de JOIN com correção
+    rev: 1
+    status: ativo
+    etapa: etapa:dados/sql-join
+    formato: exercicio
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 90
+    url: https://exemplo.invalid/join
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:dados/sql-group-by-texto
+    titulo: GROUP BY e HAVING sem mistério
+    rev: 1
+    status: ativo
+    etapa: etapa:dados/sql-group-by
+    formato: texto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 65
+    url: https://exemplo.invalid/group-by
+    disponivel: true
+    verificado_em: 2026-10-08

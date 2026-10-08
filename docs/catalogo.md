@@ -69,7 +69,7 @@ sem referência. É o campo que liga catálogo a percurso.
 
 ```yaml
 trilha:
-  id: trilha:fundamentos-dados
+  id: trilha:dados/fundamentos
   titulo: Fundamentos de dados
   rev: 2
   status: ativo
@@ -134,13 +134,15 @@ há mais de 180 dias é reportado pela validação como aviso, não erro.
 
 ## 3. Identidade
 
-Formato: `<tipo>:<area>/<slug>` — `comp:`, `etapa:`, `trilha:`, `rec:`.
+Formato: `<tipo>:<area>/<slug>`, uniforme nos quatro tipos — `comp:`, `etapa:`,
+`trilha:`, `rec:`.
 
 - **O id é imutável.** Renomear o `titulo` não muda o id. Corrigir um slug é criar
   outra entidade e depreciar a anterior (§6).
 - **O id nunca é reaproveitado**, mesmo depois de depreciado.
 - `area` é organizacional, não semântica: uma etapa de `dados/` pode desenvolver
   competência de `programacao/`. O acoplamento real está em `requires`/`teaches`.
+- Minúsculas, dígitos e hífen apenas; sem acento, sem `_`, sem maiúscula.
 
 Motivo: progresso, evidência e sugestões históricas apontam para ids. Um id mutável
 reescreveria o passado do estudante — e a invariante de reprodutibilidade das
@@ -191,10 +193,10 @@ Erro bloqueia o snapshot. Aviso é reportado e permite compilar.
 
 1. **Ids** únicos, no formato de §3, e nenhum reaproveitado em relação ao snapshot anterior — *erro*.
 2. **Toda referência resolve** (`requires`, `teaches`, `etapa` de recurso, `etapas_referenciadas`) — *erro*.
-3. **Aciclicidade** do grafo de pré-requisitos, por trilha e global — *erro*. Exigido por [ADR-0002](adr/0002-trilha-como-grafo-de-etapas.md).
+3. **Toda etapa ativa é alcançável** a partir de perfil vazio — *erro*. Verificado por fecho progressivo, **não** por ordenação topológica: uma competência ensinada em mais de um nível gera arestas nos dois sentidos entre etapas corretamente ordenadas, e um ciclo nesse grafo não significa catálogo inordenável. Dependência circular real aparece como etapa que nunca destrava. Exigido por [ADR-0002](adr/0002-trilha-como-grafo-de-etapas.md).
 4. **Sem beco sem saída**: toda competência exigida por alguma etapa ativa é desenvolvida por ao menos uma etapa ativa — *erro*.
 5. **Toda etapa ativa tem ≥ 1 recurso** ativo e disponível — *erro*.
-6. **Objetivo alcançável**: para cada trilha ativa, existe ordem topológica partindo de perfil vazio que satisfaz `objetivo_declarado` — *erro*. É esta validação que torna `sem_caminho_no_catalogo` ([motor §4](motor-de-sugestao.md)) um defeito de catálogo detectável em CI, e não uma surpresa para o estudante.
+6. **Objetivo alcançável**: para cada trilha ativa, existe ordem de estudo partindo de perfil vazio que satisfaz `objetivo_declarado` — *erro*. É esta validação que torna `sem_caminho_no_catalogo` ([motor §4](motor-de-sugestao.md)) um defeito de catálogo detectável em CI, e não uma surpresa para o estudante.
 7. **Nível nunca rebaixa**: nenhum `nivel_resultante` é inferior a um `nivel_minimo` que a própria etapa exige da mesma competência — *erro*. Invariante de [CONTEXT.md §4](CONTEXT.md).
 8. **Depreciação coerente**: nenhuma etapa ativa depende de competência desenvolvida apenas por etapa depreciada; nenhum `objetivo_declarado` ativo cita competência depreciada — *erro*.
 9. **`rev` não decresce** em relação ao snapshot anterior — *erro*.
@@ -239,11 +241,25 @@ exigido pela validação §5.8 quando outra entidade ativa ainda aponta para a d
 
 ---
 
-## 7. Pendente
+## 7. Implementação
 
-- **Catálogo-fixture canônico** para os 7 cenários de teste de [motor §5](motor-de-sugestao.md):
-  mínimo necessário é 2 trilhas, 6 competências e um caminho paralelo. Será escrito
-  junto do validador, não antes — sem validador não há como garantir que o fixture é válido.
+O validador e o compilador estão em `src/trilhas/catalogo/`:
+`carregar` (YAML → modelo, só erros de forma) → `validar` (as 11 validações, função
+pura) → `compilar` (snapshot com hash e versão). A CLI `trilhas` é a interface de CI,
+e o código de saída é o contrato: `0` válido, `1` com erro.
+
+```bash
+trilhas validar                        # não grava nada
+trilhas compilar                       # grava catalogo.lock.json se o conteúdo mudou
+trilhas compilar --conferir            # falha se o snapshot estiver desatualizado
+```
+
+## 8. Pendente
+
+- **Catálogo-fixture canônico**: escrito em `tests/fixtures/catalogo_exemplo/` —
+  2 trilhas, 6 competências, caminhos paralelos e uma etapa avulsa compartilhada.
+  Serve de base para os 7 cenários de [motor §5](motor-de-sugestao.md), que ainda
+  dependem do motor.
 - **Internacionalização** de `titulo`/`descricao`: fora de escopo. Recurso já tem
   `idioma`; texto de entidade é pt-BR.
 - **Recurso composto**: um livro único que atende várias etapas (ex. *A Bíblia do Claude AI*
