@@ -1,0 +1,147 @@
+versao_schema: 1
+trilha:
+  id: trilha:web/do-protocolo-a-interface
+  titulo: Web, do protocolo à interface
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:web/interface-por-componentes
+      nivel: avancado
+    - competencia: comp:web/http-e-protocolo
+      nivel: intermediario
+    - competencia: comp:web/acessibilidade
+      nivel: intermediario
+
+  # A trilha sobe uma camada por vez: protocolo, documento, linguagem, tipos,
+  # componentes. As duas primeiras etapas não dependem uma da outra e podem ser
+  # cursadas em paralelo — é o grafo, não uma lista (ADR-0002).
+  etapas:
+    # --- Camada de transporte e de documento --------------------------------
+    - id: etapa:web/http-por-dentro
+      titulo: HTTP por dentro — o contrato antes do código
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 480
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:web/http-e-protocolo
+          nivel_resultante: intermediario
+
+    - id: etapa:web/documento-e-estilo
+      titulo: Documento e estilo — estrutura, cascata e layout
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:web/documento-e-estilo
+          nivel_resultante: intermediario
+
+    - id: etapa:web/acessibilidade-e-semantica
+      titulo: Semântica e acessibilidade — a interface para quem não usa o mouse
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:web/documento-e-estilo
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:web/acessibilidade
+          nivel_resultante: intermediario
+
+    # --- Linguagem ----------------------------------------------------------
+    - id: etapa:web/javascript-de-aplicacao
+      titulo: JavaScript de aplicação — escopo, objetos, módulos e DOM
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1200
+      opcional: false
+      requires:
+        - competencia: comp:web/documento-e-estilo
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:web/javascript-de-aplicacao
+          nivel_resultante: intermediario
+
+    - id: etapa:web/assincronia-no-navegador
+      titulo: Assincronia — laço de eventos, promessas e requisições concorrentes
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 720
+      opcional: false
+      requires:
+        - competencia: comp:web/javascript-de-aplicacao
+          nivel_minimo: intermediario
+        - competencia: comp:web/http-e-protocolo
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:web/javascript-de-aplicacao
+          nivel_resultante: avancado
+
+    - id: etapa:web/typescript-como-projeto
+      titulo: TypeScript — tipos como decisão de projeto
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 720
+      opcional: false
+      requires:
+        - competencia: comp:web/javascript-de-aplicacao
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:web/tipagem-estatica
+          nivel_resultante: intermediario
+
+    # --- Interface ----------------------------------------------------------
+    - id: etapa:web/interface-por-componentes
+      titulo: Interface por componentes — estado, renderização e dado remoto
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1200
+      opcional: false
+      requires:
+        - competencia: comp:web/javascript-de-aplicacao
+          nivel_minimo: avancado
+        - competencia: comp:web/tipagem-estatica
+          nivel_minimo: intermediario
+        - competencia: comp:web/acessibilidade
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:web/interface-por-componentes
+          nivel_resultante: intermediario
+
+    - id: etapa:web/visualizacao-com-d3
+      titulo: Visualização no navegador com D3
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: true          # ramo: não é exigido pelo objetivo da trilha
+      requires:
+        - competencia: comp:web/javascript-de-aplicacao
+          nivel_minimo: avancado
+        - competencia: comp:web/documento-e-estilo
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:web/visualizacao-no-navegador
+          nivel_resultante: intermediario
+
+    - id: etapa:web/projeto-aplicacao-web
+      titulo: Projeto — aplicação web acessível sobre API real
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1800
+      opcional: false
+      requires:
+        - competencia: comp:web/interface-por-componentes
+          nivel_minimo: intermediario
+        - competencia: comp:web/acessibilidade
+          nivel_minimo: intermediario
+        - competencia: comp:web/http-e-protocolo
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:web/interface-por-componentes
+          nivel_resultante: avancado
+
+  etapas_referenciadas: []

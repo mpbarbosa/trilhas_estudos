@@ -1,0 +1,270 @@
+# Convenções deste arquivo:
+#   custo  — em BRL, aproximado na data de `verificado_em`; 0 = gratuito.
+#   idioma — tag BCP 47.
+#
+# ATENÇÃO sobre `disponivel` (mesma ressalva de recursos/dados.yaml): os livros do
+# acervo Kindle entram como `disponivel: true`, mas parte do acervo é *amostra*, não
+# exemplar completo. Amostra deve virar `disponivel: false` — a §5.5 conta com
+# exemplar íntegro.
+#
+# ATENÇÃO sobre defasagem: os dois livros de D3 do acervo (Zhu, 2013; Castillo, 2014)
+# são de versões antigas da biblioteca, cuja API mudou substancialmente. Por isso a
+# documentação oficial é o recurso primário da etapa e os livros entram como apoio
+# conceitual — a ideia de associação de dados e escalas envelheceu bem; o código, não.
+versao_schema: 1
+recursos:
+  # --- etapa:web/http-por-dentro ------------------------------------------
+  - id: rec:web/what-every-web-developer-http
+    etapa: etapa:web/http-por-dentro
+    titulo: "What Every Web Developer Should Know About HTTP (K. Scott Allen)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 25
+    duracao_min: 240
+    url: https://www.amazon.com.br/s?k=What+Every+Web+Developer+Should+Know+About+HTTP
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:web/mdn-http
+    etapa: etapa:web/http-por-dentro
+    titulo: "MDN — HTTP: métodos, status, cabeçalhos, cache, cookies e CORS"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 480
+    url: https://developer.mozilla.org/en-US/docs/Web/HTTP
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:web/documento-e-estilo ---------------------------------------
+  - id: rec:web/meyer-css-and-documents
+    etapa: etapa:web/documento-e-estilo
+    titulo: "CSS and Documents (Eric A. Meyer) — extrato de CSS: The Definitive Guide sobre cascata e aplicação de estilo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 25
+    duracao_min: 180
+    url: https://www.amazon.com.br/s?k=CSS+and+Documents+Eric+Meyer
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:web/web-dev-learn-css
+    etapa: etapa:web/documento-e-estilo
+    titulo: "web.dev — Learn CSS e Learn HTML: modelo de caixa, cascata, grid e flexbox"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 720
+    url: https://web.dev/learn/css
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:web/css-layout-exercicios
+    etapa: etapa:web/documento-e-estilo
+    titulo: "MDN — exercícios de layout com CSS grid e flexbox"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 360
+    url: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:web/acessibilidade-e-semantica -------------------------------
+  - id: rec:web/web-dev-learn-accessibility
+    etapa: etapa:web/acessibilidade-e-semantica
+    titulo: "web.dev — Learn Accessibility: semântica, foco, contraste e nome acessível"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 480
+    url: https://web.dev/learn/accessibility
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:web/aria-authoring-practices
+    etapa: etapa:web/acessibilidade-e-semantica
+    titulo: "ARIA Authoring Practices Guide (W3C WAI) — padrões de componente com teclado e estado"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 480
+    url: https://www.w3.org/WAI/ARIA/apg/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:web/javascript-de-aplicacao ----------------------------------
+  - id: rec:web/eloquent-javascript
+    etapa: etapa:web/javascript-de-aplicacao
+    titulo: "Eloquent JavaScript, 4ª ed. (Marijn Haverbeke) — edição aberta, com exercícios"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 1200
+    url: https://eloquentjavascript.net/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:web/mdn-javascript-guide
+    etapa: etapa:web/javascript-de-aplicacao
+    titulo: "MDN — Guia de JavaScript e documentação do DOM"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 720
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:web/assincronia-no-navegador ---------------------------------
+  - id: rec:web/burnham-async-javascript
+    etapa: etapa:web/assincronia-no-navegador
+    titulo: "Async JavaScript: Build More Responsive Apps with Less Code (Trevor Burnham)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 40
+    duracao_min: 300
+    url: https://www.amazon.com.br/s?k=Async+JavaScript+Trevor+Burnham
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:web/mdn-assincronia
+    etapa: etapa:web/assincronia-no-navegador
+    titulo: "MDN — JavaScript assíncrono: laço de eventos, promessas, async/await e AbortController"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 420
+    url: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Async_JS
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:web/typescript-como-projeto ----------------------------------
+  - id: rec:web/typescript-basico-pt
+    etapa: etapa:web/typescript-como-projeto
+    titulo: "TypeScript Básico: fundamentos e práticas essenciais (Jardel Vieira Alves)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 30
+    duracao_min: 300
+    url: https://www.amazon.com.br/s?k=TypeScript+B%C3%A1sico+Jardel+Vieira+Alves
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:web/typescript-handbook
+    etapa: etapa:web/typescript-como-projeto
+    titulo: "TypeScript Handbook — estreitamento de tipo, genéricos e tipos de união discriminada"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 480
+    url: https://www.typescriptlang.org/docs/handbook/intro.html
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:web/interface-por-componentes --------------------------------
+  - id: rec:web/react-fluente
+    etapa: etapa:web/interface-por-componentes
+    titulo: "React Fluente: crie aplicações web rápidas, eficazes e intuitivas (Tejas Kumar)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 90
+    duracao_min: 900
+    url: https://www.amazon.com.br/s?k=React+Fluente+Tejas+Kumar
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:web/react-dev-learn
+    etapa: etapa:web/interface-por-componentes
+    titulo: "react.dev — Learn React: estado, efeitos, composição e tutorial guiado"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 720
+    url: https://react.dev/learn
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:web/visualizacao-com-d3 --------------------------------------
+  - id: rec:web/d3-documentacao
+    etapa: etapa:web/visualizacao-com-d3
+    titulo: "D3 — documentação oficial e galeria de exemplos (versão atual)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 600
+    url: https://d3js.org/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:web/d3-cookbook-zhu
+    etapa: etapa:web/visualizacao-com-d3
+    titulo: "Data Visualization with D3.js Cookbook (Nick Qi Zhu) — apoio conceitual; código de versão antiga da API"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 40
+    duracao_min: 480
+    url: https://www.amazon.com.br/s?k=Data+Visualization+with+D3.js+Cookbook
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:web/mastering-d3-castillo
+    etapa: etapa:web/visualizacao-com-d3
+    titulo: "Mastering D3.js (Pablo Navarro Castillo) — apoio conceitual; código de versão antiga da API"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 40
+    duracao_min: 480
+    url: https://www.amazon.com.br/s?k=Mastering+D3.js+Pablo+Navarro+Castillo
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:web/projeto-aplicacao-web ------------------------------------
+  - id: rec:web/projeto-aplicacao-api-publica
+    etapa: etapa:web/projeto-aplicacao-web
+    titulo: "Projeto — aplicação acessível sobre uma API pública, auditada por teclado e leitor de tela"
+    rev: 1
+    status: ativo
+    formato: projeto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 1800
+    url: https://dados.gov.br/
+    disponivel: true
+    verificado_em: 2026-10-08

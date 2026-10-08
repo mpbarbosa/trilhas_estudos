@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 2,
-  "gerado_em": "2026-10-08T15:48:25+00:00",
-  "hash": "sha256:9767bd63ec9c4c1d2eafb851e1dc39c3e8f5132995451a6069869b376f6d917a",
+  "catalogo_versao": 3,
+  "gerado_em": "2026-10-08T15:55:35+00:00",
+  "hash": "sha256:b2bdac71438740a7e5caa83e222e30b72dfbfcd4a4c01a75faf9120ee16f765c",
   "competencias": [
     {
       "id": "comp:dados/analise-exploratoria",
@@ -171,6 +171,62 @@
       "status": "ativo",
       "verificacao": "Dado um CSV sujo, escrever um script que carregue, limpe e agregue os dados, executando em ambiente isolado com dependências declaradas em arquivo.",
       "descricao": "Escrever Python idiomático para manipular dados, usando ambientes isolados, notebooks e bibliotecas de terceiros.\n"
+    },
+    {
+      "id": "comp:web/acessibilidade",
+      "titulo": "Acessibilidade de interface",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Operar um fluxo completo da sua própria interface usando apenas o teclado e um leitor de tela, e corrigir ao menos um ponto em que o componente não anuncia o próprio estado.",
+      "descricao": "Construir para quem não usa mouse nem enxerga a tela: semântica nativa antes de ARIA, foco visível e ordem de foco, contraste, nome acessível, estados anunciados.\n"
+    },
+    {
+      "id": "comp:web/documento-e-estilo",
+      "titulo": "Documento e estilo",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Reproduzir um layout de duas dimensões que se mantenha legível de 320px a 1920px sem valores fixos de altura, e explicar por que uma regra sua vence outra na cascata.",
+      "descricao": "HTML como estrutura com significado e CSS como camada de apresentação: fluxo normal, modelo de caixa, cascata e especificidade, layout por grid e flexbox, e adaptação a tamanhos de tela.\n"
+    },
+    {
+      "id": "comp:web/http-e-protocolo",
+      "titulo": "HTTP e o que acontece antes do código",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Diante do painel de rede de uma página lenta, apontar quais requisições são desnecessárias, quais poderiam ser servidas de cache e qual cabeçalho faria isso — justificando pela semântica do protocolo, não por tentativa.",
+      "descricao": "O protocolo como contrato: métodos, códigos de status, cabeçalhos, cache, cookies, CORS, TLS e o custo de cada ida ao servidor.\n"
+    },
+    {
+      "id": "comp:web/interface-por-componentes",
+      "titulo": "Interface por componentes",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Entregar uma interface com dado remoto que trate carregamento, erro e estado vazio, e justificar a posição escolhida para cada pedaço de estado.",
+      "descricao": "Compor uma interface em unidades com estado e limites claros: onde o estado mora, o que causa nova renderização, efeitos e sincronização com o servidor, e o custo de cada abstração.\n"
+    },
+    {
+      "id": "comp:web/javascript-de-aplicacao",
+      "titulo": "JavaScript de aplicação",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Explicar, sobre código seu, a ordem em que um conjunto de operações assíncronas executa, e corrigir uma condição de corrida sem recorrer a espera por tempo.",
+      "descricao": "A linguagem como ela roda: escopo e closures, o modelo de objetos, módulos, manipulação do DOM, e o laço de eventos com assincronia por promessas.\n"
+    },
+    {
+      "id": "comp:web/tipagem-estatica",
+      "titulo": "Tipagem estática em JavaScript",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Reescrever um tipo que admite estados impossíveis de modo que o compilador recuse o estado inválido, e demonstrar o erro que ele passa a pegar.",
+      "descricao": "Usar TypeScript como ferramenta de projeto, não de anotação: modelar estados possíveis, estreitar tipos, tipos genéricos, e reconhecer quando `any` ou uma asserção está escondendo um erro de modelagem.\n"
+    },
+    {
+      "id": "comp:web/visualizacao-no-navegador",
+      "titulo": "Visualização de dados no navegador",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Construir um gráfico interativo a partir de dado real, com escala e eixos corretos, que permaneça legível quando o conjunto dobra de tamanho.",
+      "descricao": "Ligar dado a elementos gráficos no navegador: escalas, eixos, seleção e associação de dados, transições e interação.\n"
     }
   ],
   "etapas": [
@@ -856,6 +912,207 @@
           "nivel_resultante": "iniciante"
         }
       ]
+    },
+    {
+      "id": "etapa:web/acessibilidade-e-semantica",
+      "titulo": "Semântica e acessibilidade — a interface para quem não usa o mouse",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "trilha": "trilha:web/do-protocolo-a-interface",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/documento-e-estilo",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/acessibilidade",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/assincronia-no-navegador",
+      "titulo": "Assincronia — laço de eventos, promessas e requisições concorrentes",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 720,
+      "trilha": "trilha:web/do-protocolo-a-interface",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/javascript-de-aplicacao",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:web/http-e-protocolo",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/javascript-de-aplicacao",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/documento-e-estilo",
+      "titulo": "Documento e estilo — estrutura, cascata e layout",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:web/do-protocolo-a-interface",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:web/documento-e-estilo",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/http-por-dentro",
+      "titulo": "HTTP por dentro — o contrato antes do código",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 480,
+      "trilha": "trilha:web/do-protocolo-a-interface",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:web/http-e-protocolo",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/interface-por-componentes",
+      "titulo": "Interface por componentes — estado, renderização e dado remoto",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "trilha": "trilha:web/do-protocolo-a-interface",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/javascript-de-aplicacao",
+          "nivel_minimo": "avancado"
+        },
+        {
+          "competencia": "comp:web/tipagem-estatica",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:web/acessibilidade",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/interface-por-componentes",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/javascript-de-aplicacao",
+      "titulo": "JavaScript de aplicação — escopo, objetos, módulos e DOM",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "trilha": "trilha:web/do-protocolo-a-interface",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/documento-e-estilo",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/javascript-de-aplicacao",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/projeto-aplicacao-web",
+      "titulo": "Projeto — aplicação web acessível sobre API real",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1800,
+      "trilha": "trilha:web/do-protocolo-a-interface",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/interface-por-componentes",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:web/acessibilidade",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:web/http-e-protocolo",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/interface-por-componentes",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/typescript-como-projeto",
+      "titulo": "TypeScript — tipos como decisão de projeto",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 720,
+      "trilha": "trilha:web/do-protocolo-a-interface",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/javascript-de-aplicacao",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/tipagem-estatica",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/visualizacao-com-d3",
+      "titulo": "Visualização no navegador com D3",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:web/do-protocolo-a-interface",
+      "opcional": true,
+      "requires": [
+        {
+          "competencia": "comp:web/javascript-de-aplicacao",
+          "nivel_minimo": "avancado"
+        },
+        {
+          "competencia": "comp:web/documento-e-estilo",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/visualizacao-no-navegador",
+          "nivel_resultante": "intermediario"
+        }
+      ]
     }
   ],
   "trilhas": [
@@ -959,6 +1216,37 @@
         "etapa:ia/avaliacao-de-sistemas-llm",
         "etapa:ia/rag-em-producao",
         "etapa:ia/projeto-assistente-rag"
+      ]
+    },
+    {
+      "id": "trilha:web/do-protocolo-a-interface",
+      "titulo": "Web, do protocolo à interface",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:web/interface-por-componentes",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:web/http-e-protocolo",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:web/acessibilidade",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:web/http-por-dentro",
+        "etapa:web/documento-e-estilo",
+        "etapa:web/acessibilidade-e-semantica",
+        "etapa:web/javascript-de-aplicacao",
+        "etapa:web/assincronia-no-navegador",
+        "etapa:web/typescript-como-projeto",
+        "etapa:web/interface-por-componentes",
+        "etapa:web/visualizacao-com-d3",
+        "etapa:web/projeto-aplicacao-web"
       ]
     }
   ],
@@ -1758,6 +2046,272 @@
       "custo": 0.0,
       "duracao_min": 1200,
       "url": "https://pythonfluente.com/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/aria-authoring-practices",
+      "titulo": "ARIA Authoring Practices Guide (W3C WAI) — padrões de componente com teclado e estado",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/acessibilidade-e-semantica",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 480,
+      "url": "https://www.w3.org/WAI/ARIA/apg/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/burnham-async-javascript",
+      "titulo": "Async JavaScript: Build More Responsive Apps with Less Code (Trevor Burnham)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/assincronia-no-navegador",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 40.0,
+      "duracao_min": 300,
+      "url": "https://www.amazon.com.br/s?k=Async+JavaScript+Trevor+Burnham",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/css-layout-exercicios",
+      "titulo": "MDN — exercícios de layout com CSS grid e flexbox",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/documento-e-estilo",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 360,
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/d3-cookbook-zhu",
+      "titulo": "Data Visualization with D3.js Cookbook (Nick Qi Zhu) — apoio conceitual; código de versão antiga da API",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/visualizacao-com-d3",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 40.0,
+      "duracao_min": 480,
+      "url": "https://www.amazon.com.br/s?k=Data+Visualization+with+D3.js+Cookbook",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/d3-documentacao",
+      "titulo": "D3 — documentação oficial e galeria de exemplos (versão atual)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/visualizacao-com-d3",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://d3js.org/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/eloquent-javascript",
+      "titulo": "Eloquent JavaScript, 4ª ed. (Marijn Haverbeke) — edição aberta, com exercícios",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/javascript-de-aplicacao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 1200,
+      "url": "https://eloquentjavascript.net/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/mastering-d3-castillo",
+      "titulo": "Mastering D3.js (Pablo Navarro Castillo) — apoio conceitual; código de versão antiga da API",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/visualizacao-com-d3",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 40.0,
+      "duracao_min": 480,
+      "url": "https://www.amazon.com.br/s?k=Mastering+D3.js+Pablo+Navarro+Castillo",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/mdn-assincronia",
+      "titulo": "MDN — JavaScript assíncrono: laço de eventos, promessas, async/await e AbortController",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/assincronia-no-navegador",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 420,
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Async_JS",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/mdn-http",
+      "titulo": "MDN — HTTP: métodos, status, cabeçalhos, cache, cookies e CORS",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/http-por-dentro",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 480,
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/mdn-javascript-guide",
+      "titulo": "MDN — Guia de JavaScript e documentação do DOM",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/javascript-de-aplicacao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 720,
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/meyer-css-and-documents",
+      "titulo": "CSS and Documents (Eric A. Meyer) — extrato de CSS: The Definitive Guide sobre cascata e aplicação de estilo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/documento-e-estilo",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 25.0,
+      "duracao_min": 180,
+      "url": "https://www.amazon.com.br/s?k=CSS+and+Documents+Eric+Meyer",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/projeto-aplicacao-api-publica",
+      "titulo": "Projeto — aplicação acessível sobre uma API pública, auditada por teclado e leitor de tela",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/projeto-aplicacao-web",
+      "formato": "projeto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 1800,
+      "url": "https://dados.gov.br/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/react-dev-learn",
+      "titulo": "react.dev — Learn React: estado, efeitos, composição e tutorial guiado",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/interface-por-componentes",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 720,
+      "url": "https://react.dev/learn",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/react-fluente",
+      "titulo": "React Fluente: crie aplicações web rápidas, eficazes e intuitivas (Tejas Kumar)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/interface-por-componentes",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 90.0,
+      "duracao_min": 900,
+      "url": "https://www.amazon.com.br/s?k=React+Fluente+Tejas+Kumar",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/typescript-basico-pt",
+      "titulo": "TypeScript Básico: fundamentos e práticas essenciais (Jardel Vieira Alves)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-como-projeto",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 30.0,
+      "duracao_min": 300,
+      "url": "https://www.amazon.com.br/s?k=TypeScript+B%C3%A1sico+Jardel+Vieira+Alves",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/typescript-handbook",
+      "titulo": "TypeScript Handbook — estreitamento de tipo, genéricos e tipos de união discriminada",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-como-projeto",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 480,
+      "url": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/web-dev-learn-accessibility",
+      "titulo": "web.dev — Learn Accessibility: semântica, foco, contraste e nome acessível",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/acessibilidade-e-semantica",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 480,
+      "url": "https://web.dev/learn/accessibility",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/web-dev-learn-css",
+      "titulo": "web.dev — Learn CSS e Learn HTML: modelo de caixa, cascata, grid e flexbox",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/documento-e-estilo",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 720,
+      "url": "https://web.dev/learn/css",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/what-every-web-developer-http",
+      "titulo": "What Every Web Developer Should Know About HTTP (K. Scott Allen)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/http-por-dentro",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 25.0,
+      "duracao_min": 240,
+      "url": "https://www.amazon.com.br/s?k=What+Every+Web+Developer+Should+Know+About+HTTP",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     }

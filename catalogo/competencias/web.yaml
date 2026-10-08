@@ -1,0 +1,84 @@
+versao_schema: 1
+competencias:
+  - id: comp:web/http-e-protocolo
+    titulo: HTTP e o que acontece antes do código
+    rev: 1
+    status: ativo
+    descricao: >
+      O protocolo como contrato: métodos, códigos de status, cabeçalhos, cache,
+      cookies, CORS, TLS e o custo de cada ida ao servidor.
+    verificacao: >
+      Diante do painel de rede de uma página lenta, apontar quais requisições são
+      desnecessárias, quais poderiam ser servidas de cache e qual cabeçalho faria
+      isso — justificando pela semântica do protocolo, não por tentativa.
+
+  - id: comp:web/documento-e-estilo
+    titulo: Documento e estilo
+    rev: 1
+    status: ativo
+    descricao: >
+      HTML como estrutura com significado e CSS como camada de apresentação: fluxo
+      normal, modelo de caixa, cascata e especificidade, layout por grid e flexbox,
+      e adaptação a tamanhos de tela.
+    verificacao: >
+      Reproduzir um layout de duas dimensões que se mantenha legível de 320px a
+      1920px sem valores fixos de altura, e explicar por que uma regra sua vence
+      outra na cascata.
+
+  - id: comp:web/acessibilidade
+    titulo: Acessibilidade de interface
+    rev: 1
+    status: ativo
+    descricao: >
+      Construir para quem não usa mouse nem enxerga a tela: semântica nativa antes de
+      ARIA, foco visível e ordem de foco, contraste, nome acessível, estados anunciados.
+    verificacao: >
+      Operar um fluxo completo da sua própria interface usando apenas o teclado e um
+      leitor de tela, e corrigir ao menos um ponto em que o componente não anuncia o
+      próprio estado.
+
+  - id: comp:web/javascript-de-aplicacao
+    titulo: JavaScript de aplicação
+    rev: 1
+    status: ativo
+    descricao: >
+      A linguagem como ela roda: escopo e closures, o modelo de objetos, módulos,
+      manipulação do DOM, e o laço de eventos com assincronia por promessas.
+    verificacao: >
+      Explicar, sobre código seu, a ordem em que um conjunto de operações assíncronas
+      executa, e corrigir uma condição de corrida sem recorrer a espera por tempo.
+
+  - id: comp:web/tipagem-estatica
+    titulo: Tipagem estática em JavaScript
+    rev: 1
+    status: ativo
+    descricao: >
+      Usar TypeScript como ferramenta de projeto, não de anotação: modelar estados
+      possíveis, estreitar tipos, tipos genéricos, e reconhecer quando `any` ou uma
+      asserção está escondendo um erro de modelagem.
+    verificacao: >
+      Reescrever um tipo que admite estados impossíveis de modo que o compilador
+      recuse o estado inválido, e demonstrar o erro que ele passa a pegar.
+
+  - id: comp:web/interface-por-componentes
+    titulo: Interface por componentes
+    rev: 1
+    status: ativo
+    descricao: >
+      Compor uma interface em unidades com estado e limites claros: onde o estado
+      mora, o que causa nova renderização, efeitos e sincronização com o servidor,
+      e o custo de cada abstração.
+    verificacao: >
+      Entregar uma interface com dado remoto que trate carregamento, erro e estado
+      vazio, e justificar a posição escolhida para cada pedaço de estado.
+
+  - id: comp:web/visualizacao-no-navegador
+    titulo: Visualização de dados no navegador
+    rev: 1
+    status: ativo
+    descricao: >
+      Ligar dado a elementos gráficos no navegador: escalas, eixos, seleção e
+      associação de dados, transições e interação.
+    verificacao: >
+      Construir um gráfico interativo a partir de dado real, com escala e eixos
+      corretos, que permaneça legível quando o conjunto dobra de tamanho.

@@ -31,6 +31,11 @@ matriculas:
     iniciada_em: 2026-10-08
     estado: em_andamento
 
+  - trilha: trilha:web/do-protocolo-a-interface
+    rev: 1
+    iniciada_em: 2026-10-08
+    estado: em_andamento
+
 progresso:
   - etapa: etapa:ia/panorama-llm-transformer-rag
     rev: 1
