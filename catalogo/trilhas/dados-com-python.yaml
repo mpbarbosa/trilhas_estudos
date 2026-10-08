@@ -1,0 +1,140 @@
+versao_schema: 1
+trilha:
+  id: trilha:dados/analise-de-dados-com-python
+  titulo: Análise de dados com Python
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:dados/analise-exploratoria
+      nivel: avancado
+    - competencia: comp:dados/inferencia-estatistica
+      nivel: intermediario
+    - competencia: comp:dados/enquadramento-analitico
+      nivel: intermediario
+
+  # A entrada em Python não é redefinida aqui: etapa:programacao/python-para-ia já
+  # existe e desenvolve comp:programacao/python-dados (catalogo.md §1). Quem já a
+  # concluiu em trilha:ia/llm-transformer-rag entra direto em numpy-e-pandas.
+  etapas:
+    # --- Base de manipulação ------------------------------------------------
+    - id: etapa:dados/numpy-e-pandas
+      titulo: NumPy e pandas — a tabela como estrutura de trabalho
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1200
+      opcional: false
+      requires:
+        - competencia: comp:programacao/python-dados
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:dados/manipulacao-tabular
+          nivel_resultante: intermediario
+        - competencia: comp:programacao/python-dados
+          nivel_resultante: intermediario
+
+    # --- Caminho da exploração ----------------------------------------------
+    - id: etapa:dados/analise-exploratoria
+      titulo: Análise exploratória — interrogar um conjunto desconhecido
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:dados/manipulacao-tabular
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:dados/analise-exploratoria
+          nivel_resultante: intermediario
+        - competencia: comp:dados/visualizacao-de-dados
+          nivel_resultante: iniciante
+
+    - id: etapa:dados/visualizacao-para-analise
+      titulo: Visualização a serviço da pergunta
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:dados/visualizacao-de-dados
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:dados/visualizacao-de-dados
+          nivel_resultante: intermediario
+
+    # --- Caminho do fundamento (paralelo à exploração) ----------------------
+    - id: etapa:dados/matematica-para-dados
+      titulo: Álgebra linear e cálculo na medida do método
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1800
+      opcional: false
+      requires:
+        - competencia: comp:programacao/python-dados
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:dados/matematica-para-dados
+          nivel_resultante: intermediario
+
+    - id: etapa:dados/estatistica-aplicada
+      titulo: Da amostra à afirmação — inferência aplicada
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1200
+      opcional: false
+      requires:
+        - competencia: comp:dados/manipulacao-tabular
+          nivel_minimo: intermediario
+        - competencia: comp:dados/matematica-para-dados
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:dados/inferencia-estatistica
+          nivel_resultante: intermediario
+
+    # --- Enquadramento e fechamento -----------------------------------------
+    - id: etapa:dados/enquadramento-de-problema
+      titulo: Enquadrar o problema antes de analisar
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:dados/analise-exploratoria
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:dados/enquadramento-analitico
+          nivel_resultante: intermediario
+
+    - id: etapa:dados/modelagem-preditiva-inicial
+      titulo: Primeiro modelo preditivo — linha de base, vazamento e métrica
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1200
+      opcional: true          # aprofundamento: o objetivo da trilha é análise, não predição
+      requires:
+        - competencia: comp:dados/inferencia-estatistica
+          nivel_minimo: intermediario
+        - competencia: comp:dados/enquadramento-analitico
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:dados/modelagem-preditiva
+          nivel_resultante: iniciante
+
+    - id: etapa:dados/projeto-analise-ponta-a-ponta
+      titulo: Projeto — análise ponta a ponta sobre dado real e sujo
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1800
+      opcional: false
+      requires:
+        - competencia: comp:dados/enquadramento-analitico
+          nivel_minimo: intermediario
+        - competencia: comp:dados/visualizacao-de-dados
+          nivel_minimo: intermediario
+        - competencia: comp:dados/inferencia-estatistica
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:dados/analise-exploratoria
+          nivel_resultante: avancado
+
+  etapas_referenciadas:
+    - etapa:programacao/python-para-ia

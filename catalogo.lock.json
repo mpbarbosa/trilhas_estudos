@@ -1,9 +1,65 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 1,
-  "gerado_em": "2026-10-08T15:26:16+00:00",
-  "hash": "sha256:037d2ac66485166650d91975ab69f4868acab70444115b18eb795a5771308b76",
+  "catalogo_versao": 2,
+  "gerado_em": "2026-10-08T15:48:25+00:00",
+  "hash": "sha256:9767bd63ec9c4c1d2eafb851e1dc39c3e8f5132995451a6069869b376f6d917a",
   "competencias": [
+    {
+      "id": "comp:dados/analise-exploratoria",
+      "titulo": "Análise exploratória de dados",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um conjunto que você não escolheu, entregar uma exploração que responda o que ele mede, quais variáveis são confiáveis e qual pergunta ele **não** pode responder — cada afirmação sustentada por um número ou um gráfico do próprio dado.",
+      "descricao": "Interrogar um conjunto desconhecido até entender sua forma: distribuições, dispersão, correlação, valores atípicos, dados faltantes e vieses de coleta.\n"
+    },
+    {
+      "id": "comp:dados/enquadramento-analitico",
+      "titulo": "Enquadramento analítico de um problema",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "A partir de um pedido vago de uma área não técnica, entregar o enquadramento: pergunta reformulada, dado necessário, critério de sucesso e o que faria você recomendar **não** seguir com a análise.",
+      "descricao": "Traduzir uma pergunta de negócio em pergunta respondível por dados: o que seria evidência, qual a unidade de análise, qual o custo de errar para cada lado, e quando os dados disponíveis não respondem à pergunta feita.\n"
+    },
+    {
+      "id": "comp:dados/inferencia-estatistica",
+      "titulo": "Inferência estatística aplicada",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Sobre uma diferença observada entre dois grupos, dizer se ela se sustenta, apresentando incerteza e tamanho de efeito, e explicar por que um p-valor isolado não responde à pergunta de decisão.",
+      "descricao": "Separar o que a amostra mostra do que a população sustenta: variabilidade amostral, intervalo de confiança, teste de hipótese, tamanho de efeito e os limites de cada um.\n"
+    },
+    {
+      "id": "comp:dados/manipulacao-tabular",
+      "titulo": "Manipulação de dados tabulares",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "A partir de dois arquivos com chaves inconsistentes e valores ausentes, produzir uma tabela agregada correta, justificando o tipo de junção escolhido e o tratamento dado a cada coluna com ausências.",
+      "descricao": "Carregar, limpar, combinar e agregar tabelas com arrays e dataframes: tipos, valores ausentes, junções, agrupamento, reformatação entre formato largo e longo.\n"
+    },
+    {
+      "id": "comp:dados/matematica-para-dados",
+      "titulo": "Matemática para ciência de dados",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Implementar uma regressão por mínimos quadrados usando apenas operações de álgebra linear, e explicar geometricamente o que a solução minimiza.",
+      "descricao": "Álgebra linear e cálculo na medida em que sustentam o método: vetores, matrizes, produto interno, derivada, gradiente e otimização — lidos como operação sobre dados, não como exercício simbólico.\n"
+    },
+    {
+      "id": "comp:dados/modelagem-preditiva",
+      "titulo": "Fundamentos de modelagem preditiva",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Entregar um modelo que supere uma linha de base trivial num conjunto de teste intocado, apontando onde houve risco de vazamento e por que a métrica escolhida corresponde ao custo real do erro.",
+      "descricao": "Ajustar e avaliar um modelo supervisionado com honestidade: separação de amostras, sobreajuste, vazamento de dado, linha de base e métrica adequada ao custo do erro.\n"
+    },
+    {
+      "id": "comp:dados/visualizacao-de-dados",
+      "titulo": "Visualização de dados para análise",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Refazer um gráfico enganoso identificando o que nele distorce a leitura, e defender a escolha de forma, escala e agregação da sua versão.",
+      "descricao": "Escolher a forma gráfica adequada à pergunta e à natureza da variável, e ler um gráfico criticamente: escala, agregação, o que foi omitido.\n"
+    },
     {
       "id": "comp:ia/adaptacao-de-modelo",
       "titulo": "Adaptação de modelo",
@@ -118,6 +174,198 @@
     }
   ],
   "etapas": [
+    {
+      "id": "etapa:dados/analise-exploratoria",
+      "titulo": "Análise exploratória — interrogar um conjunto desconhecido",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:dados/analise-de-dados-com-python",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:dados/manipulacao-tabular",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:dados/analise-exploratoria",
+          "nivel_resultante": "intermediario"
+        },
+        {
+          "competencia": "comp:dados/visualizacao-de-dados",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:dados/enquadramento-de-problema",
+      "titulo": "Enquadrar o problema antes de analisar",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:dados/analise-de-dados-com-python",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:dados/analise-exploratoria",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:dados/enquadramento-analitico",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:dados/estatistica-aplicada",
+      "titulo": "Da amostra à afirmação — inferência aplicada",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "trilha": "trilha:dados/analise-de-dados-com-python",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:dados/manipulacao-tabular",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:dados/matematica-para-dados",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:dados/inferencia-estatistica",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:dados/matematica-para-dados",
+      "titulo": "Álgebra linear e cálculo na medida do método",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1800,
+      "trilha": "trilha:dados/analise-de-dados-com-python",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:programacao/python-dados",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:dados/matematica-para-dados",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:dados/modelagem-preditiva-inicial",
+      "titulo": "Primeiro modelo preditivo — linha de base, vazamento e métrica",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "trilha": "trilha:dados/analise-de-dados-com-python",
+      "opcional": true,
+      "requires": [
+        {
+          "competencia": "comp:dados/inferencia-estatistica",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:dados/enquadramento-analitico",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:dados/modelagem-preditiva",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:dados/numpy-e-pandas",
+      "titulo": "NumPy e pandas — a tabela como estrutura de trabalho",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "trilha": "trilha:dados/analise-de-dados-com-python",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:programacao/python-dados",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:dados/manipulacao-tabular",
+          "nivel_resultante": "intermediario"
+        },
+        {
+          "competencia": "comp:programacao/python-dados",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:dados/projeto-analise-ponta-a-ponta",
+      "titulo": "Projeto — análise ponta a ponta sobre dado real e sujo",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1800,
+      "trilha": "trilha:dados/analise-de-dados-com-python",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:dados/enquadramento-analitico",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:dados/visualizacao-de-dados",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:dados/inferencia-estatistica",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:dados/analise-exploratoria",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:dados/visualizacao-para-analise",
+      "titulo": "Visualização a serviço da pergunta",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "trilha": "trilha:dados/analise-de-dados-com-python",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:dados/visualizacao-de-dados",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:dados/visualizacao-de-dados",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
     {
       "id": "etapa:ia/agente-em-producao",
       "titulo": "Agente em produção — salvaguardas, avaliação, custo e latência",
@@ -612,6 +860,39 @@
   ],
   "trilhas": [
     {
+      "id": "trilha:dados/analise-de-dados-com-python",
+      "titulo": "Análise de dados com Python",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:dados/analise-exploratoria",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:dados/inferencia-estatistica",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:dados/enquadramento-analitico",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:dados/numpy-e-pandas",
+        "etapa:dados/analise-exploratoria",
+        "etapa:dados/visualizacao-para-analise",
+        "etapa:dados/matematica-para-dados",
+        "etapa:dados/estatistica-aplicada",
+        "etapa:dados/enquadramento-de-problema",
+        "etapa:dados/modelagem-preditiva-inicial",
+        "etapa:dados/projeto-analise-ponta-a-ponta"
+      ],
+      "etapas_referenciadas": [
+        "etapa:programacao/python-para-ia"
+      ]
+    },
+    {
       "id": "trilha:ia/claude-do-chat-ao-agente",
       "titulo": "Do chat ao agente em produção com Claude",
       "rev": 1,
@@ -682,6 +963,230 @@
     }
   ],
   "recursos": [
+    {
+      "id": "rec:dados/data-science-para-negocios",
+      "titulo": "Data Science para Negócios (Provost & Fawcett)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/enquadramento-de-problema",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 90.0,
+      "duracao_min": 900,
+      "url": "https://www.amazon.com.br/s?k=Data+Science+para+Neg%C3%B3cios+Provost+Fawcett",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:dados/dianguila-matematica-ciencia-de-dados",
+      "titulo": "Matemática para Ciência de Dados: fundamentos teóricos e aplicações em Python (Eugenio Nelson Dianguila)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/matematica-para-dados",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 40.0,
+      "duracao_min": 900,
+      "url": "https://www.amazon.com.br/s?k=Matem%C3%A1tica+para+Ci%C3%AAncia+de+Dados+Dianguila",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:dados/dominando-python-exercicios",
+      "titulo": "Dominando Python: 100+ exercícios resolvidos e comentados (Ruhan Conceição)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/numpy-e-pandas",
+      "formato": "exercicio",
+      "idioma": "pt-BR",
+      "custo": 30.0,
+      "duracao_min": 600,
+      "url": "https://www.amazon.com.br/s?k=Dominando+Python+Ruhan+Concei%C3%A7%C3%A3o",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:dados/essence-of-linear-algebra",
+      "titulo": "Essence of Linear Algebra (3Blue1Brown) — leitura geométrica de vetores e matrizes",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/matematica-para-dados",
+      "formato": "video",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://www.3blue1brown.com/topics/linear-algebra",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:dados/feltrin-analise-exploratoria",
+      "titulo": "Análise Exploratória de Dados com Python, Pandas e NumPy (Fernando Feltrin)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/analise-exploratoria",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 30.0,
+      "duracao_min": 600,
+      "url": "https://www.amazon.com.br/s?k=An%C3%A1lise+Explorat%C3%B3ria+de+Dados+Fernando+Feltrin",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:dados/fundamentals-data-visualization",
+      "titulo": "Fundamentals of Data Visualization (Claus O. Wilke) — edição aberta",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/visualizacao-para-analise",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://clauswilke.com/dataviz/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:dados/handson-ml-parte1",
+      "titulo": "Hands-On Machine Learning, 3ª ed. (Géron) — parte I, aprendizado supervisionado clássico",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/modelagem-preditiva-inicial",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 350.0,
+      "duracao_min": 1200,
+      "url": "https://github.com/ageron/handson-ml3",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:dados/kline-calculus",
+      "titulo": "Calculus: An Intuitive and Physical Approach, 2ª ed. (Morris Kline) — derivada, gradiente e otimização",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/matematica-para-dados",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 90.0,
+      "duracao_min": 1200,
+      "url": "https://store.doverpublications.com/products/9780486404530",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:dados/matplotlib-e-seaborn-guias",
+      "titulo": "Matplotlib e seaborn — tutoriais oficiais de escolha de forma e escala",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/visualizacao-para-analise",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 360,
+      "url": "https://seaborn.pydata.org/tutorial.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:dados/mckinney-python-analise-3ed",
+      "titulo": "Python para Análise de Dados, 3ª edição (Wes McKinney)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/numpy-e-pandas",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 130.0,
+      "duracao_min": 1200,
+      "url": "https://wesmckinney.com/book/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:dados/pandas-guia-oficial",
+      "titulo": "pandas — guia do usuário oficial (10 minutes to pandas, merging, groupby, reshaping)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/numpy-e-pandas",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://pandas.pydata.org/docs/user_guide/index.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:dados/projeto-corpus-publico",
+      "titulo": "Projeto sobre microdados públicos brasileiros (IBGE, INEP ou Portal da Transparência)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/projeto-analise-ponta-a-ponta",
+      "formato": "projeto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 1800,
+      "url": "https://dados.gov.br/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:dados/python-data-science-handbook",
+      "titulo": "Python Data Science Handbook (Jake VanderPlas) — edição aberta, caps. 2–4",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/analise-exploratoria",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 900,
+      "url": "https://jakevdp.github.io/PythonDataScienceHandbook/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:dados/scikit-learn-guia",
+      "titulo": "scikit-learn — guia do usuário: validação cruzada, vazamento de dado e métricas",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/modelagem-preditiva-inicial",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 720,
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:dados/statistical-rethinking-aulas",
+      "titulo": "Statistical Rethinking (Richard McElreath) — aulas gravadas e material aberto",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/estatistica-aplicada",
+      "formato": "video",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 1200,
+      "url": "https://github.com/rmcelreath/stat_rethinking_2024",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:dados/think-stats",
+      "titulo": "Think Stats, 3ª ed. (Allen B. Downey) — estatística por simulação em Python, edição aberta",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/estatistica-aplicada",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 900,
+      "url": "https://allendowney.github.io/ThinkStats/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
     {
       "id": "rec:ia/ai-engineering-agentes-producao",
       "titulo": "AI Engineering (Chip Huyen) — agentes, salvaguardas, observabilidade e custo de inferência",

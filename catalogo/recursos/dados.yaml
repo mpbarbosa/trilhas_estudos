@@ -1,0 +1,225 @@
+# Convenções deste arquivo:
+#   custo  — em BRL, aproximado na data de `verificado_em`; 0 = gratuito.
+#   idioma — tag BCP 47.
+#
+# ATENÇÃO sobre `disponivel`: os livros abaixo vêm da biblioteca Kindle do estudante,
+# onde parte do acervo está como *amostra*, não exemplar completo. Aqui todos estão
+# como `disponivel: true`; os que forem amostra precisam virar `disponivel: false`
+# (ou ganhar recurso substituto), porque a validação §5.5 conta com recurso íntegro.
+versao_schema: 1
+recursos:
+  # --- etapa:dados/numpy-e-pandas -----------------------------------------
+  - id: rec:dados/mckinney-python-analise-3ed
+    etapa: etapa:dados/numpy-e-pandas
+    titulo: "Python para Análise de Dados, 3ª edição (Wes McKinney)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 130
+    duracao_min: 1200
+    url: https://wesmckinney.com/book/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:dados/pandas-guia-oficial
+    etapa: etapa:dados/numpy-e-pandas
+    titulo: "pandas — guia do usuário oficial (10 minutes to pandas, merging, groupby, reshaping)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 600
+    url: https://pandas.pydata.org/docs/user_guide/index.html
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:dados/dominando-python-exercicios
+    etapa: etapa:dados/numpy-e-pandas
+    titulo: "Dominando Python: 100+ exercícios resolvidos e comentados (Ruhan Conceição)"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: pt-BR
+    custo: 30
+    duracao_min: 600
+    url: https://www.amazon.com.br/s?k=Dominando+Python+Ruhan+Concei%C3%A7%C3%A3o
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:dados/analise-exploratoria ------------------------------------
+  - id: rec:dados/feltrin-analise-exploratoria
+    etapa: etapa:dados/analise-exploratoria
+    titulo: "Análise Exploratória de Dados com Python, Pandas e NumPy (Fernando Feltrin)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 30
+    duracao_min: 600
+    url: https://www.amazon.com.br/s?k=An%C3%A1lise+Explorat%C3%B3ria+de+Dados+Fernando+Feltrin
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:dados/python-data-science-handbook
+    etapa: etapa:dados/analise-exploratoria
+    titulo: "Python Data Science Handbook (Jake VanderPlas) — edição aberta, caps. 2–4"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 900
+    url: https://jakevdp.github.io/PythonDataScienceHandbook/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:dados/visualizacao-para-analise -------------------------------
+  - id: rec:dados/fundamentals-data-visualization
+    etapa: etapa:dados/visualizacao-para-analise
+    titulo: "Fundamentals of Data Visualization (Claus O. Wilke) — edição aberta"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 600
+    url: https://clauswilke.com/dataviz/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:dados/matplotlib-e-seaborn-guias
+    etapa: etapa:dados/visualizacao-para-analise
+    titulo: "Matplotlib e seaborn — tutoriais oficiais de escolha de forma e escala"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 360
+    url: https://seaborn.pydata.org/tutorial.html
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:dados/matematica-para-dados -----------------------------------
+  - id: rec:dados/dianguila-matematica-ciencia-de-dados
+    etapa: etapa:dados/matematica-para-dados
+    titulo: "Matemática para Ciência de Dados: fundamentos teóricos e aplicações em Python (Eugenio Nelson Dianguila)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 40
+    duracao_min: 900
+    url: https://www.amazon.com.br/s?k=Matem%C3%A1tica+para+Ci%C3%AAncia+de+Dados+Dianguila
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:dados/kline-calculus
+    etapa: etapa:dados/matematica-para-dados
+    titulo: "Calculus: An Intuitive and Physical Approach, 2ª ed. (Morris Kline) — derivada, gradiente e otimização"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 90
+    duracao_min: 1200
+    url: https://store.doverpublications.com/products/9780486404530
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:dados/essence-of-linear-algebra
+    etapa: etapa:dados/matematica-para-dados
+    titulo: "Essence of Linear Algebra (3Blue1Brown) — leitura geométrica de vetores e matrizes"
+    rev: 1
+    status: ativo
+    formato: video
+    idioma: en-US
+    custo: 0
+    duracao_min: 240
+    url: https://www.3blue1brown.com/topics/linear-algebra
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:dados/estatistica-aplicada ------------------------------------
+  - id: rec:dados/think-stats
+    etapa: etapa:dados/estatistica-aplicada
+    titulo: "Think Stats, 3ª ed. (Allen B. Downey) — estatística por simulação em Python, edição aberta"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 900
+    url: https://allendowney.github.io/ThinkStats/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:dados/statistical-rethinking-aulas
+    etapa: etapa:dados/estatistica-aplicada
+    titulo: "Statistical Rethinking (Richard McElreath) — aulas gravadas e material aberto"
+    rev: 1
+    status: ativo
+    formato: video
+    idioma: en-US
+    custo: 0
+    duracao_min: 1200
+    url: https://github.com/rmcelreath/stat_rethinking_2024
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:dados/enquadramento-de-problema -------------------------------
+  - id: rec:dados/data-science-para-negocios
+    etapa: etapa:dados/enquadramento-de-problema
+    titulo: "Data Science para Negócios (Provost & Fawcett)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 90
+    duracao_min: 900
+    url: https://www.amazon.com.br/s?k=Data+Science+para+Neg%C3%B3cios+Provost+Fawcett
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:dados/modelagem-preditiva-inicial -----------------------------
+  - id: rec:dados/scikit-learn-guia
+    etapa: etapa:dados/modelagem-preditiva-inicial
+    titulo: "scikit-learn — guia do usuário: validação cruzada, vazamento de dado e métricas"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 720
+    url: https://scikit-learn.org/stable/user_guide.html
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:dados/handson-ml-parte1
+    etapa: etapa:dados/modelagem-preditiva-inicial
+    titulo: "Hands-On Machine Learning, 3ª ed. (Géron) — parte I, aprendizado supervisionado clássico"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 350
+    duracao_min: 1200
+    url: https://github.com/ageron/handson-ml3
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:dados/projeto-analise-ponta-a-ponta ---------------------------
+  - id: rec:dados/projeto-corpus-publico
+    etapa: etapa:dados/projeto-analise-ponta-a-ponta
+    titulo: "Projeto sobre microdados públicos brasileiros (IBGE, INEP ou Portal da Transparência)"
+    rev: 1
+    status: ativo
+    formato: projeto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 1800
+    url: https://dados.gov.br/
+    disponivel: true
+    verificado_em: 2026-10-08

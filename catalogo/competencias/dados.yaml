@@ -1,0 +1,87 @@
+versao_schema: 1
+competencias:
+  - id: comp:dados/manipulacao-tabular
+    titulo: Manipulação de dados tabulares
+    rev: 1
+    status: ativo
+    descricao: >
+      Carregar, limpar, combinar e agregar tabelas com arrays e dataframes: tipos,
+      valores ausentes, junções, agrupamento, reformatação entre formato largo e longo.
+    verificacao: >
+      A partir de dois arquivos com chaves inconsistentes e valores ausentes, produzir
+      uma tabela agregada correta, justificando o tipo de junção escolhido e o
+      tratamento dado a cada coluna com ausências.
+
+  - id: comp:dados/analise-exploratoria
+    titulo: Análise exploratória de dados
+    rev: 1
+    status: ativo
+    descricao: >
+      Interrogar um conjunto desconhecido até entender sua forma: distribuições,
+      dispersão, correlação, valores atípicos, dados faltantes e vieses de coleta.
+    verificacao: >
+      Dado um conjunto que você não escolheu, entregar uma exploração que responda o
+      que ele mede, quais variáveis são confiáveis e qual pergunta ele **não** pode
+      responder — cada afirmação sustentada por um número ou um gráfico do próprio dado.
+
+  - id: comp:dados/visualizacao-de-dados
+    titulo: Visualização de dados para análise
+    rev: 1
+    status: ativo
+    descricao: >
+      Escolher a forma gráfica adequada à pergunta e à natureza da variável, e ler um
+      gráfico criticamente: escala, agregação, o que foi omitido.
+    verificacao: >
+      Refazer um gráfico enganoso identificando o que nele distorce a leitura, e
+      defender a escolha de forma, escala e agregação da sua versão.
+
+  - id: comp:dados/inferencia-estatistica
+    titulo: Inferência estatística aplicada
+    rev: 1
+    status: ativo
+    descricao: >
+      Separar o que a amostra mostra do que a população sustenta: variabilidade
+      amostral, intervalo de confiança, teste de hipótese, tamanho de efeito e os
+      limites de cada um.
+    verificacao: >
+      Sobre uma diferença observada entre dois grupos, dizer se ela se sustenta,
+      apresentando incerteza e tamanho de efeito, e explicar por que um p-valor
+      isolado não responde à pergunta de decisão.
+
+  - id: comp:dados/matematica-para-dados
+    titulo: Matemática para ciência de dados
+    rev: 1
+    status: ativo
+    descricao: >
+      Álgebra linear e cálculo na medida em que sustentam o método: vetores, matrizes,
+      produto interno, derivada, gradiente e otimização — lidos como operação sobre
+      dados, não como exercício simbólico.
+    verificacao: >
+      Implementar uma regressão por mínimos quadrados usando apenas operações de
+      álgebra linear, e explicar geometricamente o que a solução minimiza.
+
+  - id: comp:dados/enquadramento-analitico
+    titulo: Enquadramento analítico de um problema
+    rev: 1
+    status: ativo
+    descricao: >
+      Traduzir uma pergunta de negócio em pergunta respondível por dados: o que seria
+      evidência, qual a unidade de análise, qual o custo de errar para cada lado, e
+      quando os dados disponíveis não respondem à pergunta feita.
+    verificacao: >
+      A partir de um pedido vago de uma área não técnica, entregar o enquadramento:
+      pergunta reformulada, dado necessário, critério de sucesso e o que faria você
+      recomendar **não** seguir com a análise.
+
+  - id: comp:dados/modelagem-preditiva
+    titulo: Fundamentos de modelagem preditiva
+    rev: 1
+    status: ativo
+    descricao: >
+      Ajustar e avaliar um modelo supervisionado com honestidade: separação de
+      amostras, sobreajuste, vazamento de dado, linha de base e métrica adequada ao
+      custo do erro.
+    verificacao: >
+      Entregar um modelo que supere uma linha de base trivial num conjunto de teste
+      intocado, apontando onde houve risco de vazamento e por que a métrica escolhida
+      corresponde ao custo real do erro.
