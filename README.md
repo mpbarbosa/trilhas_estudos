@@ -15,6 +15,7 @@ percurso nem comando para pedir sugestões.
   - *Do chat ao agente em produção com Claude* ([trilha](catalogo/trilhas/claude-do-chat-ao-agente.yaml)) — aplicação: API, ferramentas, MCP e agentes
   - *Análise de dados com Python* ([trilha](catalogo/trilhas/dados-com-python.yaml)) — manipulação, exploração, estatística e enquadramento
   - *Web, do protocolo à interface* ([trilha](catalogo/trilhas/web-do-protocolo-a-interface.yaml)) — HTTP, documento, JavaScript, tipos e componentes
+  - *Sistemas operacionais, do conceito ao núcleo* ([trilha](catalogo/trilhas/so-projeto-e-implementacao.yaml)) — processos, memória, E/S, arquivos e prática no MINIX
 - [Decisões de arquitetura](docs/README.md)
 
 ## Uso
