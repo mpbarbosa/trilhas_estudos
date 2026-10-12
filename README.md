@@ -3,11 +3,12 @@
 Controle e sugestão de trilhas de estudo: acompanha o avanço do estudante numa
 trilha e recomenda o que estudar em seguida.
 
-**Estado atual:** domínio modelado e catálogo validável. O motor de sugestão ainda
-não foi implementado.
+**Estado atual:** domínio modelado, catálogo validável e uma interface de leitura do
+catálogo. O motor de sugestão ainda não foi implementado.
 
 - [Domínio e glossário](docs/CONTEXT.md)
 - [Motor de sugestão (v1)](docs/motor-de-sugestao.md) — primeira capacidade a construir
+- [Interface gráfica](docs/interface.md) — stack, telas e fases; a fase 1 está no ar
 - [Catálogo](docs/catalogo.md) — autoria em YAML, identidade e versionamento
 - [Conteúdo do catálogo](catalogo/) — trilhas autoradas:
   - *Do transformer ao RAG em produção* ([trilha](catalogo/trilhas/llm-transformer-rag.yaml)) — fundamento e recuperação
@@ -25,8 +26,20 @@ Requer Python 3.12+. O catálogo é autorado em `catalogo/` e compilado para
 ```bash
 uv run trilhas validar              # valida o catálogo (0 = válido, 1 = com erro)
 uv run trilhas compilar             # grava o snapshot se o conteúdo mudou
-uv run pytest                       # 46 testes
+uv run --extra dev pytest           # suíte completa
 ```
+
+### Interface
+
+Navegação do catálogo em `localhost`: grafo da trilha por onda de pré-requisito, etapa
+com os recursos comparados, competência com o critério de verificação, e as 11
+validações numa tela ([docs/interface.md](docs/interface.md)).
+
+```bash
+uv run --extra web trilhas-web      # http://127.0.0.1:8000
+```
+
+Somente leitura. Progresso, evidência e sugestão chegam nas fases seguintes.
 
 ## Licença
 

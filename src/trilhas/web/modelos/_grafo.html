@@ -1,0 +1,92 @@
+{# Grafo da trilha. Coordenadas vêm de apresentar/disposicao.py — nada é calculado aqui.
+   A tabela equivalente abaixo tem a mesma informação, e é a versão que leitor de tela
+   e navegação sem script recebem (docs/interface.md §4 e §6.9). #}
+<figure class="grafo">
+  <figcaption id="grafo-titulo">
+    Grafo de pré-requisitos — {{ d.faixas | length }} onda(s), {{ d.nos | length }} etapa(s),
+    {{ d.arestas | length }} aresta(s)
+  </figcaption>
+
+  <div class="grafo-controles">
+    <button type="button" data-zoom="mais" aria-label="Aproximar">+</button>
+    <button type="button" data-zoom="menos" aria-label="Afastar">−</button>
+    <button type="button" data-zoom="tudo">Ajustar</button>
+    <span class="fraco">arraste para mover · passe o cursor numa aresta para ver a competência</span>
+  </div>
+
+  <div class="grafo-janela" data-pan-zoom>
+    <svg role="img" aria-labelledby="grafo-titulo"
+         viewBox="0 0 {{ d.largura }} {{ d.altura }}"
+         width="{{ d.largura }}" height="{{ d.altura }}"
+         data-largura="{{ d.largura }}" data-altura="{{ d.altura }}"
+         preserveAspectRatio="xMinYMin meet">
+      <defs>
+        <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" />
+        </marker>
+      </defs>
+
+      <g class="faixas">
+        {% for f in d.faixas %}
+        <text class="faixa-rotulo" x="{{ f.x }}" y="18">{{ f.rotulo }} · {{ f.quantidade }}</text>
+        {% endfor %}
+      </g>
+
+      <g class="arestas" fill="none">
+        {% for a in d.arestas %}
+        <g class="aresta {% if a.retorno %}aresta-retorno{% endif %}">
+          <title>{{ a.rotulo }}</title>
+          <path d="{{ a.caminho }}" marker-end="url(#seta)" />
+        </g>
+        {% endfor %}
+      </g>
+
+      <g class="nos">
+        {% for n in d.nos %}
+        <a href="/etapa/{{ n.etapa_id }}" class="no
+            {% if n.opcional %}no-opcional{% endif %}
+            {% if n.emprestada %}no-emprestada{% endif %}
+            {% if n.entrada %}no-entrada{% endif %}
+            {% if n.status.value != 'ativo' %}no-{{ n.status.value }}{% endif %}">
+          <title>{{ n.titulo }} — onda {{ n.onda }}, {{ n.esforco }}{% if n.destrava %}, destrava {{ n.destrava }}{% endif %}</title>
+          <rect x="{{ n.x }}" y="{{ n.y }}" width="{{ n.largura }}" height="{{ n.altura }}" rx="6" />
+          {% for linha in n.linhas %}
+          <text class="no-titulo" x="{{ n.x + 10 }}" y="{{ n.y + 20 + loop.index0 * 14 }}">{{ linha }}</text>
+          {% endfor %}
+          <text class="no-meta" x="{{ n.x + 10 }}" y="{{ n.y + n.altura - 8 }}">
+            {{ n.esforco }}{% if n.opcional %} · opcional{% endif %}{% if n.emprestada %} · emprestada{% endif %}
+          </text>
+        </a>
+        {% endfor %}
+      </g>
+    </svg>
+  </div>
+
+  <ul class="legenda">
+    <li><span class="amostra amostra-entrada"></span> sem pré-requisito</li>
+    <li><span class="amostra"></span> etapa da trilha</li>
+    <li><span class="amostra amostra-emprestada"></span> emprestada de outra trilha</li>
+    <li><span class="amostra amostra-opcional"></span> opcional</li>
+    <li><span class="amostra amostra-aresta"></span> destrava</li>
+    <li><span class="amostra amostra-retorno"></span> aresta sem avanço de onda</li>
+  </ul>
+</figure>
+
+<details class="equivalente">
+  <summary>Tabela equivalente ao grafo ({{ d.arestas | length }} arestas)</summary>
+  <table class="tabela">
+    <caption class="oculto">Arestas do grafo, com a competência que as justifica</caption>
+    <thead>
+      <tr><th scope="col">Etapa</th><th scope="col">destrava</th><th scope="col">pela competência</th></tr>
+    </thead>
+    <tbody>
+      {% for a in d.arestas %}
+      <tr>
+        <td><a href="/etapa/{{ a.origem }}">{{ a.origem }}</a></td>
+        <td><a href="/etapa/{{ a.destino }}">{{ a.destino }}</a></td>
+        <td>{{ a.rotulo }}{% if a.retorno %} <span class="etiqueta">sem avanço de onda</span>{% endif %}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</details>

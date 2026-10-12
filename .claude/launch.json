@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "trilhas-web",
+      "runtimeExecutable": "uv",
+      "runtimeArgs": ["run", "--extra", "web", "trilhas-web", "--porta", "8042"],
+      "port": 8042
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h1>Catálogo</h1>
+
+<form class="filtro" method="get" action="/catalogo">
+  <label>Busca
+    <input type="search" name="q" value="{{ v.filtro.q }}" placeholder="título ou id">
+  </label>
+  <label>Tipo
+    <select name="tipo">
+      <option value="">todos</option>
+      {% for chave, rotulo in [('trilha','trilha'),('etapa','etapa'),('comp','competência'),('rec','recurso')] %}
+      <option value="{{ chave }}" {% if v.filtro.tipo == chave %}selected{% endif %}>{{ rotulo }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <label>Área
+    <select name="area">
+      <option value="">todas</option>
+      {% for a in v.areas %}
+      <option value="{{ a }}" {% if v.filtro.area == a %}selected{% endif %}>{{ a }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <label>Status
+    <select name="status">
+      <option value="">todos</option>
+      {% for s in v.status %}
+      <option value="{{ s }}" {% if v.filtro.status == s %}selected{% endif %}>{{ s }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <button type="submit">Filtrar</button>
+  {% if v.filtro.ativo %}<a class="limpar" href="/catalogo">limpar</a>{% endif %}
+</form>
+
+<p class="contagem">
+  {{ v.linhas | length }} de {{ v.total }} entidades{% for c in v.tipos %} · {{ c.quantidade }} {{ c.rotulo }}{% endfor %}
+</p>
+
+{% if v.linhas %}
+<table class="tabela">
+  <caption class="oculto">Entidades do catálogo</caption>
+  <thead>
+    <tr><th scope="col">Tipo</th><th scope="col">Título</th><th scope="col">Id</th><th scope="col">Detalhe</th></tr>
+  </thead>
+  <tbody>
+    {% for linha in v.linhas %}
+    <tr>
+      <td><span class="etiqueta tipo-{{ linha.tipo }}">{{ linha.tipo_rotulo }}</span></td>
+      <td><a href="{{ linha.href }}">{{ linha.titulo }}</a>
+        {% if linha.status.value != 'ativo' %}<span class="etiqueta aviso">{{ linha.status.value }}</span>{% endif %}
+      </td>
+      <td><code>{{ linha.id }}</code></td>
+      <td class="fraco">{{ linha.detalhe }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="vazio">Nada corresponde a este filtro.</p>
+{% endif %}
+{% endblock %}
