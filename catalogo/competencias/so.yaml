@@ -1,0 +1,90 @@
+versao_schema: 1
+competencias:
+  - id: comp:so/estrutura-e-chamadas-de-sistema
+    titulo: Estrutura do sistema operacional e chamadas de sistema
+    rev: 1
+    status: ativo
+    descricao: >
+      O sistema operacional como máquina estendida e como gerente de recursos:
+      modo núcleo e modo usuário, chamadas de sistema, e as formas de organizar o
+      núcleo (monolítico, em camadas, micronúcleo, cliente-servidor).
+    verificacao: >
+      Rastrear o que acontece entre um `read()` num programa de usuário e o retorno
+      do dado, nomeando cada troca de modo, e explicar o que muda nesse caminho num
+      micronúcleo como o MINIX em relação a um núcleo monolítico.
+
+  - id: comp:so/processos-e-concorrencia
+    titulo: Processos e concorrência
+    rev: 1
+    status: ativo
+    descricao: >
+      Processos e threads, condições de corrida, regiões críticas, exclusão mútua,
+      semáforos, monitores e troca de mensagens, e os problemas clássicos de
+      comunicação entre processos.
+    verificacao: >
+      Resolver o problema do produtor-consumidor com semáforos, mostrar uma
+      intercalação que quebra uma versão sem exclusão mútua, e justificar a ordem de
+      cada `down` na solução correta.
+
+  - id: comp:so/escalonamento
+    titulo: Escalonamento de processos
+    rev: 1
+    status: ativo
+    descricao: >
+      Critérios e políticas de escalonamento — FIFO, menor tarefa primeiro, round
+      robin, prioridades, filas múltiplas — e o custo de cada troca de contexto.
+    verificacao: >
+      Para uma carga dada de processos com chegada e duração, calcular tempo médio
+      de espera e de resposta em duas políticas e justificar qual escolher para um
+      sistema interativo.
+
+  - id: comp:so/entrada-saida-e-impasses
+    titulo: Entrada/saída e impasses
+    rev: 1
+    status: ativo
+    descricao: >
+      Hardware e software de E/S em camadas — interrupções, DMA, drivers, software
+      independente de dispositivo — e impasses: condições, detecção, prevenção e
+      o algoritmo do banqueiro.
+    verificacao: >
+      Diante de um estado de alocação de recursos, decidir se é seguro pelo
+      algoritmo do banqueiro, e apontar qual das quatro condições de impasse uma
+      política dada de fato quebra.
+
+  - id: comp:so/gerenciamento-de-memoria
+    titulo: Gerenciamento de memória
+    rev: 1
+    status: ativo
+    descricao: >
+      Partições, troca (swapping), memória virtual com paginação e tabelas de
+      página, TLB, algoritmos de substituição de página e segmentação.
+    verificacao: >
+      Simular à mão uma sequência de referências sob FIFO, LRU e relógio, contando
+      faltas de página, e traduzir um endereço virtual em físico dada a tabela de
+      páginas.
+
+  - id: comp:so/sistemas-de-arquivos
+    titulo: Sistemas de arquivos
+    rev: 1
+    status: ativo
+    descricao: >
+      Arquivos e diretórios como abstração, implementação por alocação contígua,
+      encadeada e i-nodes, gerenciamento de espaço livre, cache de blocos,
+      consistência e proteção.
+    verificacao: >
+      Calcular o maior arquivo representável num esquema de i-node com blocos
+      indiretos dado, e explicar o que uma verificação de consistência faz ao
+      encontrar um bloco marcado como livre e em uso ao mesmo tempo.
+
+  - id: comp:so/nucleo-na-pratica
+    titulo: Núcleo de sistema operacional na prática
+    rev: 1
+    status: ativo
+    descricao: >
+      Ler, compilar, modificar e depurar o código de um núcleo real e pequeno,
+      ligando cada conceito estudado à estrutura de dados e à função que o
+      implementa.
+    verificacao: >
+      Compilar o MINIX numa máquina virtual, introduzir uma mudança observável
+      (uma chamada de sistema nova ou uma alteração no escalonador) e demonstrar o
+      efeito por um programa de usuário.
