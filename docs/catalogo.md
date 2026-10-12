@@ -258,8 +258,7 @@ trilhas compilar --conferir            # falha se o snapshot estiver desatualiza
 
 - **Catálogo-fixture canônico**: escrito em `tests/fixtures/catalogo_exemplo/` —
   2 trilhas, 6 competências, caminhos paralelos e uma etapa avulsa compartilhada.
-  Serve de base para os 7 cenários de [motor §5](motor-de-sugestao.md), que ainda
-  dependem do motor.
+  Serve de base para os 7 cenários de [motor §5](motor-de-sugestao.md).
 - **Internacionalização** de `titulo`/`descricao`: fora de escopo. Recurso já tem
   `idioma`; texto de entidade é pt-BR.
 - **Recurso composto**: um livro único que atende várias etapas (ex. *A Bíblia do Claude AI*
