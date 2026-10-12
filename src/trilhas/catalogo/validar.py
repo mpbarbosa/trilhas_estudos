@@ -6,7 +6,7 @@ problemas. Sem I/O.
 
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Iterable, Mapping
 from datetime import date, timedelta
 
 from .modelo import FORMA_DO_ID, ID_PADROES, Catalogo, Etapa, Nivel, Status
@@ -147,7 +147,7 @@ def _v3_ordenavel(catalogo: Catalogo) -> list[Problema]:
     preciso; aqui só entram as que têm professor e ainda assim não destravam.
     """
     ativas = catalogo.etapas_ativas()
-    perfil, liberadas = _fecho(ativas)
+    perfil, liberadas = fecho(ativas)
 
     problemas: list[Problema] = []
     for etapa in ativas:
@@ -217,13 +217,16 @@ def _v5_recursos(catalogo: Catalogo) -> list[Problema]:
 # --- §5.6 ----------------------------------------------------------------------
 
 
-def _fecho(etapas: Iterable[Etapa]) -> tuple[dict[str, Nivel], set[str]]:
-    """Fecho progressivo a partir de perfil vazio.
+def fecho(
+    etapas: Iterable[Etapa], inicial: Mapping[str, Nivel] | None = None
+) -> tuple[dict[str, Nivel], set[str]]:
+    """Fecho progressivo a partir de um perfil (vazio, por padrão).
 
     Devolve o perfil alcançado e os ids das etapas que chegaram a ser liberadas.
     Avança por ponto fixo: aplica toda etapa cujos `requires` já estão satisfeitos.
+    Usado também pelo motor de sugestão, a partir do perfil do estudante.
     """
-    perfil: dict[str, Nivel] = {}
+    perfil: dict[str, Nivel] = dict(inicial or {})
     liberadas: set[str] = set()
     pendentes = list(etapas)
     avancou = True
@@ -258,7 +261,7 @@ def _v6_objetivo_alcancavel(catalogo: Catalogo) -> list[Problema]:
             for e in trilha.todas_as_etapas
             if e in catalogo.etapas and catalogo.etapas[e].status.ativo
         ]
-        perfil, _ = _fecho(proprias)
+        perfil, _ = fecho(proprias)
         faltam = [
             f"{alvo.competencia} ({alvo.nivel})"
             for alvo in trilha.objetivo_declarado

@@ -31,5 +31,5 @@
 
 1. ~~Compilador/validador de catálogo~~ — feito, em `src/trilhas/catalogo/` ([catalogo.md §7](catalogo.md)).
 2. ~~Catálogo-fixture~~ — feito, em `tests/fixtures/catalogo_exemplo/`.
-3. **Motor de sugestão como lógica pura**, com os 7 cenários de [motor §5](motor-de-sugestao.md). ← próximo
-4. Persistência de percurso e camada de entrega.
+3. ~~Motor de sugestão como lógica pura~~ — feito, em `src/trilhas/motor/`, com os 7 cenários de [motor §5](motor-de-sugestao.md).
+4. **Persistência de percurso e camada de entrega.** ← próximo

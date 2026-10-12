@@ -168,8 +168,9 @@ ressuscitar uma etapa concluída.
 
 ## 5. Como isto será verificado
 
-Sem código ainda, mas a especificação só se sustenta se for testável. Os testes da
-v1 serão **cenários de catálogo fixo** com asserções sobre ordem e explicação:
+A especificação só se sustenta se for testável. Os testes da v1 são **cenários de
+catálogo fixo** com asserções sobre ordem e explicação, em `tests/test_motor.py`
+sobre `tests/fixtures/catalogo_exemplo/`:
 
 1. Perfil vazio + objetivo → primeira etapa sem pré-requisitos da trilha mais curta.
 2. Competência destravada fora da trilha → etapa intermediária sugerida, iniciais puladas.
@@ -189,3 +190,44 @@ v1 serão **cenários de catálogo fixo** com asserções sobre ordem e explica�
 - **Calibração dos pesos**: os valores da §2.3 são ponto de partida declarado, não
   resultado de medição.
 - **Agenda e prazos**: o motor responde "o quê", não "quando".
+
+---
+
+## 7. Escolhas da implementação (v1)
+
+Implementado em `src/trilhas/motor/`. Onde esta especificação deixava margem, a v1
+decidiu assim — todos os números estão em `Config` e são palpites declarados, como
+os pesos:
+
+- **Entrada**: `sugerir(catalogo, percurso, momento, opcoes)`. O percurso chega já em
+  memória (`Percurso`); carregá-lo do disco é o passo 4 da ordem de construção.
+- **Perfil insuficiente** (§4): sem objetivo **e** sem matrícula. Com matrícula e
+  perfil vazio há para onde apontar — a relevância cai para o objetivo das trilhas.
+- **Etapa já dominada**: filtro duro a mais (`ja_dominada`) quando o perfil já tem
+  tudo o que a etapa ensina, no nível que ela entrega. É o que faz o cenário 2 pular
+  as etapas iniciais.
+- **Revisão** (§2.1): candidata quando a etapa ensina, num nível que o estudante já
+  tem, uma competência com urgência > 0. Meia-vida: iniciante 60 dias,
+  intermediário 120, avançado 240; urgência 0 até a meia-vida e cresce linearmente
+  até 1 em mais uma meia-vida.
+- **Exploração** (§2.1): etapas fora das trilhas matriculadas que alcançam uma
+  competência-alvo pendente, direta ou transitivamente — não só as que a ensinam
+  diretamente, senão um perfil vazio nunca teria por onde começar (cenário 1).
+- **Relevância** (§3.1): distância em etapas pelo grafo `teaches` → `requires`,
+  ignorando nível.
+- **Prontidão** (§3.2): por margem de nível — 0 → 0,6; 1 → 1,0; 2 → 0,7; 3 → 0,5 —,
+  multiplicada por `0,5 + 0,5 × confiança`; média dos requisitos. Etapa sem
+  requisito vale 0,8.
+- **Encaixe** (§3.4): sem `tempo_disponivel_min`, a sessão de referência é
+  `minutos_por_semana / 3`; sem nenhum dos dois, 0,5. A duração média das sessões
+  concluídas fica para quando o percurso registrar sessões.
+- **Trilha "mais recente"** (§3.3): a do evento de progresso mais recente; empates
+  contam todas.
+- **Restrições bloqueiam** (§4): as restrições são o último filtro, então qualquer
+  etapa eliminada por elas tinha passado em todos os outros. O detalhe é a
+  restrição que mais eliminou (`idioma`, `custo`, `formato`, `indisponivel`, `tempo`).
+- **Explicação** (§2.5): o fator que define o tipo vem primeiro quando existe
+  (`retomada` → momentum, `revisao` → urgência), completado pelo de maior
+  contribuição.
+- **Fora da v1**: a penalidade temporária de etapa abandonada (§4) — só o momentum
+  é zerado — e qualquer efeito de feedback `postergada`.
