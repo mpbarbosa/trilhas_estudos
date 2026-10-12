@@ -1,4 +1,9 @@
-"""Lê os arquivos YAML de `catalogo/` e monta um `Catalogo` indexado.
+"""Monta um `Catalogo` indexado a partir de dados externos.
+
+Duas entradas, um esquema: `carregar` lê os YAML de autoria de `catalogo/`, e
+`do_snapshot` lê o `catalogo.lock.json` compilado — que é o que a aplicação consome
+(ADR-0004). As duas usam os mesmos construtores de entidade, para que o esquema
+continue definido num lugar só.
 
 Só reporta erros de **forma** (YAML inválido, campo ausente, valor fora do domínio,
 id duplicado). Coerência entre entidades é trabalho de `validar`.
@@ -28,6 +33,7 @@ from .modelo import (
     Trilha,
 )
 from .problemas import Codigo, Problema, erro
+from .snapshot import VERSAO_SNAPSHOT
 
 SUBDIRETORIOS = ("competencias", "etapas", "trilhas", "recursos")
 
@@ -73,6 +79,69 @@ def carregar(raiz: Path) -> tuple[Catalogo, list[Problema]]:
         _absorver(dados, catalogo, col)
 
     return catalogo, col.problemas
+
+
+def do_snapshot(dados: Mapping[str, Any]) -> tuple[Catalogo, list[Problema]]:
+    """Monta o catálogo a partir do snapshot compilado.
+
+    O snapshot é plano (etapa carrega a trilha num campo, trilha lista ids de etapa),
+    ao contrário da autoria, onde a etapa mora dentro da trilha que a introduz.
+    Compilar já validou o conteúdo: aqui só se verifica a forma.
+    """
+    col = _Coletor()
+    col.arquivo("catalogo.lock.json")
+    catalogo = Catalogo()
+
+    versao = dados.get("versao_snapshot")
+    if versao != VERSAO_SNAPSHOT:
+        col.falha(
+            Codigo.SCHEMA_INVALIDO,
+            f"versao_snapshot {versao!r} não suportada (esperado {VERSAO_SNAPSHOT})",
+        )
+        return catalogo, col.problemas
+
+    for item in _lista(dados, "competencias", col):
+        _registrar(catalogo.competencias, _competencia(item, col), col)
+    for item in _lista(dados, "etapas", col):
+        trilha = item.get("trilha")
+        _registrar(
+            catalogo.etapas,
+            _etapa(item, col, trilha=str(trilha) if trilha else None),
+            col,
+        )
+    for item in _lista(dados, "recursos", col):
+        _registrar(catalogo.recursos, _recurso(item, col), col)
+    for item in _lista(dados, "trilhas", col):
+        _registrar(catalogo.trilhas, _trilha_do_snapshot(item, col), col)
+
+    return catalogo, col.problemas
+
+
+def _trilha_do_snapshot(item: Mapping[str, Any], col: _Coletor) -> Trilha | None:
+    ident = _texto(item, "id", col)
+    if ident is None:
+        return None
+    return Trilha(
+        id=ident,
+        titulo=_texto(item, "titulo", col, entidade=ident) or ident,
+        rev=_inteiro(item, "rev", col, ident),
+        status=_status(item, col, ident),
+        objetivo_declarado=tuple(
+            Alvo(c, n) for c, n in _pares(item, "objetivo_declarado", "nivel", col, ident)
+        ),
+        etapas=tuple(str(e) for e in _ids(item, "etapas", col, ident)),
+        etapas_referenciadas=tuple(str(e) for e in _ids(item, "etapas_referenciadas", col, ident)),
+        substituido_por=_opcional_texto(item, "substituido_por"),
+        depreciado_em=_data(item, "depreciado_em", col, ident),
+    )
+
+
+def _ids(item: Mapping[str, Any], chave: str, col: _Coletor, entidade: str) -> list[str]:
+    bruto = item.get(chave, []) or []
+    if not isinstance(bruto, list):
+        col.falha(Codigo.SCHEMA_INVALIDO, f"`{chave}` deve ser uma lista", entidade)
+        return []
+    return [str(e) for e in bruto]
 
 
 def _conferir_versao_schema(dados: Mapping[str, Any], col: _Coletor) -> None:

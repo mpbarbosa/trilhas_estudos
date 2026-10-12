@@ -6,9 +6,10 @@ problemas. Sem I/O.
 
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Iterable, Mapping
 from datetime import date, timedelta
 
+from .grafo import fecho_progressivo
 from .modelo import FORMA_DO_ID, ID_PADROES, Catalogo, Etapa, Nivel, Status
 from .problemas import Codigo, Problema, aviso, erro
 from .snapshot import EstadoAnterior
@@ -217,35 +218,10 @@ def _v5_recursos(catalogo: Catalogo) -> list[Problema]:
 # --- §5.6 ----------------------------------------------------------------------
 
 
-def _fecho(etapas: Iterable[Etapa]) -> tuple[dict[str, Nivel], set[str]]:
-    """Fecho progressivo a partir de perfil vazio.
-
-    Devolve o perfil alcançado e os ids das etapas que chegaram a ser liberadas.
-    Avança por ponto fixo: aplica toda etapa cujos `requires` já estão satisfeitos.
-    """
-    perfil: dict[str, Nivel] = {}
-    liberadas: set[str] = set()
-    pendentes = list(etapas)
-    avancou = True
-    while avancou:
-        avancou = False
-        restantes = []
-        for etapa in pendentes:
-            satisfeita = all(
-                perfil.get(r.competencia, Nivel.DESCONHECE) >= r.nivel_minimo
-                for r in etapa.requires
-            )
-            if not satisfeita:
-                restantes.append(etapa)
-                continue
-            liberadas.add(etapa.id)
-            for ens in etapa.teaches:
-                atual = perfil.get(ens.competencia, Nivel.DESCONHECE)
-                if ens.nivel_resultante > atual:
-                    perfil[ens.competencia] = ens.nivel_resultante
-            avancou = True
-        pendentes = restantes
-    return perfil, liberadas
+def _fecho(etapas: Iterable[Etapa]) -> tuple[Mapping[str, Nivel], frozenset[str]]:
+    """Fecho progressivo a partir de perfil vazio — ver `grafo.fecho_progressivo`."""
+    fecho = fecho_progressivo(etapas)
+    return fecho.perfil, fecho.liberadas
 
 
 def _v6_objetivo_alcancavel(catalogo: Catalogo) -> list[Problema]:
