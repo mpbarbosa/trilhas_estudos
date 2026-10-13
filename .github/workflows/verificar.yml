@@ -1,0 +1,45 @@
+# O gate de verificação do repositório, o mesmo que CLAUDE.md manda rodar à mão.
+#
+# `--all-extras` instala `dev` e `web`: sem `web`, os testes da camada de entrega
+# não importam Starlette e a suíte falha por coleta, não por regressão.
+name: verificar
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verificar-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      # Versão exata: setup-uv não mantém tag flutuante de major desde a v7.
+      - uses: astral-sh/setup-uv@v10.3.0
+        with:
+          enable-cache: true
+
+      # Primeiro passo porque é o que o olho não pega na revisão: o lock é
+      # gerado, e um YAML commitado sem recompilar passa por todo o resto.
+      - name: catálogo compilado e em dia
+        run: uv run --all-extras trilhas compilar --conferir
+
+      - name: testes
+        run: uv run --all-extras pytest
+
+      - name: lint
+        run: uv run --all-extras ruff check .
+
+      - name: formatação
+        run: uv run --all-extras ruff format --check .
+
+      - name: tipos
+        run: uv run --all-extras mypy

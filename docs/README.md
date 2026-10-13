@@ -21,9 +21,10 @@
 
 ## Pendente
 
-- Workflow de CI que rode `trilhas compilar --conferir`, `pytest`, `ruff` e
-  `mypy --strict` — vários documentos tratam a detecção em CI como garantia, e ela
-  ainda depende de execução manual.
+Nada no momento. O gate de verificação que vários documentos tratam como garantia
+roda em CI, em [.github/workflows/verificar.yml](../.github/workflows/verificar.yml):
+`trilhas compilar --conferir`, `pytest`, `ruff check`, `ruff format --check` e
+`mypy --strict`, a cada push em `main` e a cada pull request.
 
 ## Pendente de decisão
 

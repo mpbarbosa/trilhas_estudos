@@ -29,7 +29,10 @@ uv run mypy                         # --strict sobre src/trilhas (configurado em
 ```
 
 Antes de considerar uma mudança pronta: `validar` (ou `compilar`), `pytest`, `ruff`,
-`mypy`. Ainda **não há CI** — a verificação é manual (docs/README.md §Pendente).
+`mypy`. O mesmo gate roda em CI
+([.github/workflows/verificar.yml](.github/workflows/verificar.yml)) a cada push em
+`main` e a cada pull request, com `--all-extras`; rodar antes de commitar continua
+sendo o caminho curto, porque o CI só confirma.
 
 ## Estrutura
 
