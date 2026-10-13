@@ -32,6 +32,9 @@ uv run trilhas validar              # valida o catálogo; 0 = válido, 1 = com e
 uv run trilhas compilar             # grava catalogo.lock.json se o conteúdo mudou
 uv run trilhas compilar --conferir  # não grava; falha se o snapshot está desatualizado
 uv run pytest                       # suíte completa
+uv run trilhas-percurso mostrar     # projeção do percurso a partir do log
+uv run trilhas-percurso concluir <etapa>   # grava conclusão + evidência do que ela ensina
+uv run trilhas-percurso exportar    # log em JSONL, para commitar
 uv run ruff check . && uv run ruff format --check .
 uv run mypy                         # --strict sobre src/trilhas (configurado em pyproject)
 ```
@@ -70,7 +73,11 @@ docs/                CONTEXT, especificações e ADRs
    produziram, e a explicação nunca cita fator ausente de `fatores` (ADR-0003,
    motor §2.5).
 6. **Fato datado não retroage**: mudar o catálogo não recalcula evidência nem
-   progresso já gravados (docs/catalogo.md §4).
+   progresso já gravados (docs/catalogo.md §4). No percurso isso é estrutural: o
+   catálogo é consultado na **escrita** (`registrar.concluir_etapa` grava a evidência
+   do `teaches` daquele momento, com a `rev`), e a projeção nunca o reconsulta.
+   Corrigir um fato é **escrever outro evento**; o log proíbe `UPDATE` e `DELETE` por
+   trigger (ADR-0008).
 7. **Decisão estrutural vira ADR** em `docs/adr/`, no formato dos existentes
    (Contexto / Decisão / Consequências), e entra na tabela de docs/README.md.
    Não altere uma ADR aceita para mudar de rumo: escreva a seguinte, ou uma
