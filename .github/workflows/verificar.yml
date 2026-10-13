@@ -22,7 +22,8 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - uses: astral-sh/setup-uv@v10
+      # Versão exata: setup-uv não mantém tag flutuante de major desde a v7.
+      - uses: astral-sh/setup-uv@v10.3.0
         with:
           enable-cache: true
 
