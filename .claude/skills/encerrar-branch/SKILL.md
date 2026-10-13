@@ -184,7 +184,26 @@ Verificado: com `alheio.txt` staged, `git commit -m "…" -- meu.txt` levou só
 `meu.txt` e deixou `alheio.txt` no índice, intacto. O `git commit` seguinte, sem
 `--`, levou o `alheio.txt` sozinho.
 
-Corolário: **deixar algo staged é por si só o risco.** A janela entre `git add`
+### A ressalva que torna as duas defesas incompatíveis
+
+`git commit -- CAMINHO` commita a versão da **árvore de trabalho** desse caminho
+e **descarta em silêncio** o que você tinha preparado para ele. Verificado: com
+`versao-A` staged e `versao-B` na árvore, o commit levou `versao-B`.
+
+Logo, **não combine com a defesa da 6**. Se você usou `git add -p` para separar
+só as suas linhas num arquivo que outra sessão também editou, um
+`git commit -- CAMINHO` depois joga esse trabalho fora e commita o arquivo
+inteiro — inclusive as linhas alheias que você acabou de isolar. As duas
+orientações, seguidas nessa ordem, produzem exatamente o acidente da 6, e falham
+para quem estava sendo cuidadoso.
+
+| Situação | Defesa |
+|---|---|
+| Arquivo que **só você** tocou, índice sujo de outros | `git commit -m "…" -- CAMINHO` — a árvore é sua, não há o que preservar |
+| Arquivo que **outra sessão também** tocou | `git add -p`, conferir `git diff --cached --name-only`, e `git commit` **sem** pathspec |
+
+Corolário, que resolve os dois casos e dispensa a tabela: **deixar algo staged é
+por si só o risco.** A janela entre `git add`
 e `git commit` pertence a todas as sessões. Prepare e commite no mesmo comando,
 ou prepare nada e use `git commit -- CAMINHO` direto.
 
