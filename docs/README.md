@@ -6,6 +6,7 @@
 | [motor-de-sugestao.md](motor-de-sugestao.md) | Especificação do motor de sugestão (v1) |
 | [catalogo.md](catalogo.md) | Autoria, identidade e versionamento do catálogo |
 | [interface.md](interface.md) | Plano da interface gráfica: stack, entidades de leitura e telas |
+| [bibliografia.md](bibliografia.md) | Ficha bibliográfica de cada livro citado pelo catálogo |
 
 ## Decisões (ADR)
 
