@@ -39,11 +39,28 @@ verde()    { printf '\033[32m%s\033[0m\n' "$*"; }
 if [ -z "$ALVO" ]; then
   echo "HEAD destacado e nenhum branch informado." >&2; exit 2
 fi
-if ! git show-ref --verify --quiet "refs/heads/$ALVO"; then
-  echo "branch local inexistente: $ALVO" >&2; exit 2
-fi
-
 [ "$FETCH" -eq 1 ] && git fetch -q origin 2>/dev/null
+
+# Branch local já apagado: ainda pode haver ref de rastreio pendurada (3ª camada).
+if ! git show-ref --verify --quiet "refs/heads/$ALVO"; then
+  echo "branch local inexistente: $ALVO"
+  if git show-ref --verify --quiet "refs/remotes/origin/$ALVO"; then
+    if [ "$FETCH" -eq 0 ]; then
+      amarelo "⚠ há ref de rastreio origin/$ALVO; rode sem --sem-rede para saber se é obsoleta"
+      exit 1
+    fi
+    if [ -n "$(git ls-remote --heads origin "$ALVO" 2>/dev/null)" ]; then
+      amarelo "⚠ o branch existe só no origin — apagar lá perde o que não estiver na base:"
+      amarelo "    git log --oneline ${BASE}..origin/$ALVO"
+    else
+      amarelo "⚠ ref de rastreio OBSOLETA: origin/$ALVO não existe mais no servidor"
+      amarelo "    git remote prune origin"
+    fi
+    exit 1
+  fi
+  verde "✓ não existe em lugar nenhum: local, remoto nem ref de rastreio"
+  exit 0
+fi
 
 REMOTO="refs/remotes/origin/$ALVO"
 BASE_REF="refs/remotes/origin/$BASE"
@@ -114,6 +131,26 @@ if [ -n "$(git stash list)" ]; then
   echo
   amarelo "⚠ há stash guardado (pode ser de outra sessão):"
   git stash list | sed 's/^/    /'
+fi
+
+# --- 5. Refs de rastreio obsoletas (3ª camada) ---------------------------
+# `git branch -r` lê o clone, `git ls-remote` pergunta ao servidor. Apagar o
+# branch remoto NÃO remove a ref local: ela fica listada por tempo indefinido.
+if [ "$FETCH" -eq 1 ]; then
+  SERVIDOR="$(git ls-remote --heads origin 2>/dev/null | sed 's|.*refs/heads/||')"
+  if [ -n "$SERVIDOR" ]; then
+    mapfile -t OBSOLETAS < <(
+      git branch -r --format='%(refname:short)' |
+        sed -n 's|^origin/||p' | grep -v '^HEAD$' |
+        grep -vxF "$SERVIDOR"
+    )
+    if [ "${#OBSOLETAS[@]}" -gt 0 ]; then
+      echo
+      amarelo "⚠ ${#OBSOLETAS[@]} ref(s) de rastreio obsoleta(s) — não existem mais no servidor:"
+      printf '    origin/%s\n' "${OBSOLETAS[@]}"
+      amarelo "    git remote prune origin"
+    fi
+  fi
 fi
 
 echo
