@@ -258,7 +258,11 @@ Daí duas regras para quem mexer aqui:
 
 1. **Escreva a regra no escopo do teste, não no escopo da intuição.** Se você
    testou que um comando isola um caminho, escreva isso — não "é a defesa".
-2. **Toda correção desta skill até agora veio de revisão de outra sessão**, não
-   de quem escreveu. Se há sessão par trabalhando no mesmo checkout, mande o
-   texto antes de considerá-lo pronto; o custo é uma mensagem e o retorno foi
-   quatro defeitos que teriam ficado publicados.
+2. **Neste arquivo, até hoje, nenhuma correção partiu de quem escreveu** — todas
+   vieram de uma sessão par que leu o texto publicado. É uma skill num dia, não
+   uma lei: pode ser coincidência, ou efeito de o autor ter o eixo não testado
+   no ponto cego justamente por não tê-lo imaginado. O que a amostra sustenta é
+   mais modesto e ainda assim útil — quando houver sessão par no mesmo checkout,
+   mandar o texto custa uma mensagem, e aqui rendeu defeitos que já estavam
+   publicados. Quando não houver, releia procurando o eixo que o seu teste não
+   cobriu; é o mesmo movimento, com menos chance de dar certo.
