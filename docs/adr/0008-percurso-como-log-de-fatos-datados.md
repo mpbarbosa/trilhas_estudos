@@ -60,6 +60,12 @@ faz a invariante 2 valer por construção em vez de depender de ninguém recalcu
   fato. **Reconstruir o banco a partir dela não está implementado**: é cópia de
   auditoria, não segunda fonte da verdade — e isso precisa existir antes de alguém
   depender da exportação como backup.
+- A exportação é instantâneo e envelhece em silêncio a cada fato novo.
+  `trilhas-percurso exportar --conferir` acusa isso, como `trilhas compilar --conferir`
+  faz pelo catálogo — mas, ao contrário dele, **não pode entrar no CI**: o banco é
+  local e está fora do git, então no runner não existe log com que comparar. É
+  verificação da máquina de quem estuda, e isso é consequência direta de manter o
+  banco fora do versionamento.
 - Adotar o log sem migrar o YAML apagaria o progresso já declarado nele.
   `percurso/migrar.py` converte os fatos declarados preservando **as datas de lá**, e
   a importação recusa rodar duas vezes. Uma etapa já concluída não gera evidência na

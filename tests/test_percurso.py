@@ -395,3 +395,52 @@ def test_cli_exportar_gera_jsonl_commitavel(tmp_path: Path) -> None:
 def test_exportacao_e_estavel_entre_chamadas(repo: Repositorio) -> None:
     repo.anexar("est:x", registrar_autoavaliacao("comp:x/a", N.INICIANTE), em=EM)
     assert repo.exportar("est:x") == repo.exportar("est:x")
+
+
+# --- exportar --conferir ------------------------------------------------------
+
+
+def test_conferir_sem_log_local_nao_falha(tmp_path: Path, capsys) -> None:
+    """Clone novo não tem o banco (está no .gitignore): não há com o que comparar."""
+    destino, lock = _ambiente(tmp_path)
+    assert rodar(destino, lock, "exportar", "--conferir") == 0
+    assert "nada a conferir" in capsys.readouterr().out
+    assert not (destino / Repositorio.NOME_DO_ARQUIVO).exists(), "conferir não cria banco"
+
+
+def test_conferir_acusa_exportacao_ausente(tmp_path: Path, capsys) -> None:
+    destino, lock = _ambiente(tmp_path)
+    rodar(destino, lock, "concluir", "etapa:x/base")
+    assert rodar(destino, lock, "exportar", "--conferir") == 1
+    assert "não existe" in capsys.readouterr().err
+
+
+def test_conferir_passa_quando_em_dia(tmp_path: Path, capsys) -> None:
+    destino, lock = _ambiente(tmp_path)
+    rodar(destino, lock, "concluir", "etapa:x/base")
+    rodar(destino, lock, "exportar")
+    capsys.readouterr()
+    assert rodar(destino, lock, "exportar", "--conferir") == 0
+    assert "em dia" in capsys.readouterr().out
+
+
+def test_conferir_acusa_fato_novo_depois_da_exportacao(tmp_path: Path, capsys) -> None:
+    destino, lock = _ambiente(tmp_path)
+    rodar(destino, lock, "concluir", "etapa:x/base")
+    rodar(destino, lock, "exportar")
+    rodar(destino, lock, "reagir", "etapa:x/base", "aceita")
+    capsys.readouterr()
+    assert rodar(destino, lock, "exportar", "--conferir") == 1
+    erro = capsys.readouterr().err
+    assert "o log tem 3" in erro and "exportar" in erro
+
+
+def test_conferir_nao_grava_nada(tmp_path: Path) -> None:
+    destino, lock = _ambiente(tmp_path)
+    rodar(destino, lock, "concluir", "etapa:x/base")
+    rodar(destino, lock, "exportar")
+    saida = destino / "est-mpb.log.jsonl"
+    antes = saida.read_text(encoding="utf-8")
+    rodar(destino, lock, "reagir", "etapa:x/base", "aceita")
+    rodar(destino, lock, "exportar", "--conferir")
+    assert saida.read_text(encoding="utf-8") == antes, "conferir não deve reescrever"
