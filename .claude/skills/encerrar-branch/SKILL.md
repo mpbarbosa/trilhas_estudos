@@ -132,6 +132,34 @@ quando aquele branch for mesclado. Mover exige `git cherry-pick` mais remover o
 commit do branch da outra sessão — reescrever histórico de quem está trabalhando
 agora custa mais do que esperar.
 
+## 6. `git add <arquivo>` varre a edição alheia no mesmo arquivo
+
+A guarda da armadilha 5 confere **onde** você commita, não **o quê**. Se outra
+sessão editou o mesmo arquivo que você, `git add CAMINHO` leva as duas
+alterações, e a mensagem do commit descreve só a sua.
+
+Aconteceu nos dois sentidos no mesmo arquivo, no mesmo dia: uma sessão escrevia
+a seção de git do `CLAUDE.md` enquanto a outra corrigia duas frases ali perto —
+e o commit de uma levou 22 linhas da outra, sob uma mensagem que não as
+mencionava.
+
+Arquivo compartilhado (`CLAUDE.md`, `README.md`, `docs/README.md`) pede conferir
+o que está staged **antes** do commit:
+
+```bash
+git add CAMINHO && git diff --cached -- CAMINHO   # só então commitar
+```
+
+Se o diff staged tiver trecho que não é seu, desfaça com
+`git restore --staged CAMINHO` e separe com `git add -p` (modo interativo, que
+nem toda sessão tem). Sem `-p`, a saída honesta é pedir à outra sessão que
+commite primeiro — ou commitar o arquivo inteiro **dizendo na mensagem** o que
+veio junto e de quem.
+
+Se já aconteceu e o commit foi empurrado, **não reescreva**: o histórico
+publicado num checkout que outras sessões usam custa mais do que a atribuição
+errada. Avise a sessão autora, para ela não recommitar o mesmo texto.
+
 ## Sequência que funciona
 
 ```bash
