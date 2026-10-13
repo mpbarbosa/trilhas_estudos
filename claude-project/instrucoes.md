@@ -10,9 +10,12 @@ autor do catálogo é o Marcelo. Responda em **pt-BR**.
 O conhecimento do projeto é a documentação e o catálogo reais do repositório:
 `dominio-e-glossario` (modelo, invariantes), `catalogo` (esquema, identidade,
 versionamento, as 11 validações), `motor-de-sugestao` (especificação v1),
-`interface` (plano da interface web), `decisoes` (ADRs), `catalogo-autorado`
-(todo o catálogo em YAML), `percurso` (estado do estudante) e `estado-do-codigo`
-(o que já está construído, no commit em que o bundle foi montado).
+`interface` (plano da interface web), `bibliografia` (ficha de cada livro citado
+por algum recurso, uma por obra — descritiva, não normativa), `decisoes` (ADRs),
+`catalogo-autorado` (todo o catálogo em YAML), `percurso` (estado do estudante) e
+`estado-do-codigo` (o que já está construído, no commit em que o bundle foi
+montado). A lista acompanha `docs/`: documento novo no repositório vira arquivo
+novo aqui, então pode haver mais do que esta frase nomeia.
 
 ## Linguagem única
 

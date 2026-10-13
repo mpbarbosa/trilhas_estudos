@@ -17,6 +17,14 @@ O glossário de CONTEXT.md §1 é a **linguagem única**: use `Competência`, `E
 `Recurso`, `Trilha`, `Evidência`, `Progresso`, `Sugestão`. Não introduza "curso",
 "módulo", "aula", "lição" ou "tarefa" — foram descartados por ambiguidade.
 
+**Este arquivo guarda regra estável e ponteiro.** Fato com casa mantida em outro
+lugar é linkado, não repetido aqui: contagem do catálogo se lê do lock, o que
+está construído e o que vem a seguir está na ordem de construção do
+docs/README.md, procedimento mora na skill. Resumo de outra fonte diverge dela
+em segredo — ninguém relê este arquivo procurando contradição com um arquivo
+que está noutro lugar. Antes de acrescentar um fato aqui, pergunte onde ele já
+é mantido.
+
 ## Comandos
 
 ```bash
