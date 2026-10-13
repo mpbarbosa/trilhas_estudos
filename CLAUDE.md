@@ -10,7 +10,7 @@ inclusive identificadores de código — é a convenção do repositório (`carr
 |---|---|
 | [docs/CONTEXT.md](docs/CONTEXT.md) | sempre: glossário, entidades, invariantes |
 | [docs/catalogo.md](docs/catalogo.md) | ao tocar em `catalogo/` ou em `src/trilhas/catalogo/` |
-| [docs/motor-de-sugestao.md](docs/motor-de-sugestao.md) | ao construir o motor (próxima capacidade) |
+| [docs/motor-de-sugestao.md](docs/motor-de-sugestao.md) | ao mexer no motor: contrato, fatores e casos de borda |
 | [docs/README.md](docs/README.md) | índice de ADRs e ordem de construção |
 
 O glossário de CONTEXT.md §1 é a **linguagem única**: use `Competência`, `Etapa`,
@@ -41,7 +41,7 @@ catalogo/            autoria em YAML — fonte da verdade (competencias/ trilhas
 catalogo.lock.json   GERADO por `trilhas compilar`. Nunca editar à mão.
 percurso/            estado por estudante. Formato provisório, nenhuma ADR o decidiu.
 src/trilhas/catalogo/  carregar → validar → compilar; cli.py é a interface de CI
-src/trilhas/motor/     ainda não existe: próxima capacidade
+src/trilhas/motor/     sugerir: candidatos → filtros → fatores → top-N (lógica pura)
 tests/fixtures/catalogo_exemplo/  catálogo-fixture dos cenários do motor
 docs/                CONTEXT, especificações e ADRs
 ```
@@ -94,3 +94,25 @@ não commitado de outra sessão na árvore.
 
 Commits em pt-BR, no imperativo ou no padrão `catalogo: trilha "<título>"` usado
 no histórico.
+
+**O checkout é compartilhado, e isso inverte boa parte da intuição sobre git.**
+O procedimento está em
+[.claude/skills/encerrar-branch/SKILL.md](.claude/skills/encerrar-branch/SKILL.md):
+cinco armadilhas observadas aqui, entre elas `git branch -d` aceitar apagar o que
+só existe no `origin`, `git stash` tirar da árvore a edição ao vivo de outra
+sessão, e o branch em `HEAD` mudar entre dois comandos seus.
+
+Antes de apagar branch ou trocar de branch, rode o diagnóstico — ele só lê:
+
+```bash
+scripts/conferir-branch.sh [branch]   # 0 = pode apagar o local; 1 = não pode
+```
+
+Duas regras que valem mesmo sem ler a skill:
+
+1. **Guarda de branch que funciona compara o valor.** `git branch --show-current &&`
+   sai com 0 sempre e não aborta nada:
+   `[ "$(git branch --show-current)" = main ] && git add CAMINHO && git commit -m "…"`
+2. **Um branch mora em três lugares** — local, servidor e ref de rastreio — e
+   apagar num não apaga nos outros. Quem decide se o remoto existe é
+   `git ls-remote`, não `git branch -r`.
