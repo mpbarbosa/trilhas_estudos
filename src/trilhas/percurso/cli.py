@@ -62,12 +62,28 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("mostrar", help="imprime a projeção atual do percurso")
     p = sub.add_parser("exportar", help="grava o log em JSONL para commitar e auditar")
     p.add_argument("--saida", type=Path, help="padrão: <percurso>/<estudante>.log.jsonl")
+    p.add_argument(
+        "--conferir",
+        action="store_true",
+        help="não grava; sai com 1 se a exportação estiver atrás do log (uso local)",
+    )
     sub.add_parser(
         "importar",
         help="converte os fatos declarados no YAML em eventos, com as datas de lá",
     )
 
     args = parser.parse_args(argv)
+
+    saida_padrao = args.percurso / f"{args.estudante.replace(':', '-')}.log.jsonl"
+
+    # `--conferir` sem log local não tem com o que comparar — e abrir o repositório
+    # criaria um banco vazio, fazendo a conferência parecer "exportação adiantada".
+    # Acontece em qualquer clone novo, porque o banco está no .gitignore (ADR-0008).
+    if args.comando == "exportar" and args.conferir:
+        banco = args.percurso / Repositorio.NOME_DO_ARQUIVO
+        if not banco.is_file():
+            print(f"sem log em {banco}; nada a conferir")
+            return 0
 
     catalogo = _catalogo(args.lock)
     base = _base(args.percurso, args.estudante)
@@ -79,7 +95,9 @@ def main(argv: list[str] | None = None) -> int:
 
         if args.comando == "exportar":
             texto = repo.exportar(args.estudante)
-            saida = args.saida or (args.percurso / f"{args.estudante.replace(':', '-')}.log.jsonl")
+            saida = args.saida or saida_padrao
+            if args.conferir:
+                return _conferir_exportacao(saida, texto)
             saida.write_text(texto, encoding="utf-8")
             print(f"{saida}: {len(texto.splitlines())} fato(s)")
             return 0
@@ -140,6 +158,37 @@ def _de_etapa(args: argparse.Namespace, etapa: Etapa) -> list[Evento]:
     if args.comando == "concluir":
         return registrar.concluir_etapa(etapa)
     return registrar.abandonar_etapa(etapa, motivo=args.motivo)
+
+
+def _conferir_exportacao(saida: Path, esperado: str) -> int:
+    """Compara o arquivo exportado com o log, sem gravar nada.
+
+    A exportação é instantâneo: cada fato novo a deixa atrás, e nada avisa. Isto é o
+    equivalente de `trilhas compilar --conferir` para o percurso — com uma diferença
+    que importa: **não serve para CI**. O banco é estado local e está fora do git
+    (ADR-0008), então no runner não há log com que comparar. O lugar disto é a máquina
+    de quem estuda, antes de commitar.
+    """
+    atual = saida.read_text(encoding="utf-8") if saida.is_file() else ""
+    if atual == esperado:
+        print(f"{saida}: em dia ({len(esperado.splitlines())} fato(s))")
+        return 0
+
+    nossos = len(esperado.splitlines())
+    deles = len(atual.splitlines())
+    if not saida.is_file():
+        motivo = "não existe"
+    elif deles < nossos:
+        motivo = f"tem {deles} fato(s), o log tem {nossos}"
+    elif deles > nossos:
+        motivo = f"tem {deles} fato(s), mais que os {nossos} do log"
+    else:
+        motivo = f"divergente do log ({nossos} fato(s) em ambos)"
+    print(
+        f"{saida}: {motivo}; rode `trilhas-percurso exportar` e commite junto",
+        file=sys.stderr,
+    )
+    return 1
 
 
 def _catalogo(lock: Path) -> Catalogo:

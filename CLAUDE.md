@@ -35,12 +35,15 @@ uv run pytest                       # suíte completa
 uv run trilhas-percurso mostrar     # projeção do percurso a partir do log
 uv run trilhas-percurso concluir <etapa>   # grava conclusão + evidência do que ela ensina
 uv run trilhas-percurso exportar    # log em JSONL, para commitar
+uv run trilhas-percurso exportar --conferir   # falha se a exportação está atrás do log
 uv run ruff check . && uv run ruff format --check .
 uv run mypy                         # --strict sobre src/trilhas (configurado em pyproject)
 ```
 
 Antes de considerar uma mudança pronta: `validar` (ou `compilar`), `pytest`, `ruff`,
-`mypy`. O mesmo gate roda em CI
+`mypy`. Se você registrou fatos de percurso, também `exportar --conferir` — este
+**não** está no CI, e não pode estar: o banco é local e fica fora do git (ADR-0008),
+então no runner não há log com que comparar. O mesmo gate roda em CI
 ([.github/workflows/verificar.yml](.github/workflows/verificar.yml)) a cada push em
 `main` e a cada pull request, com `--all-extras`; rodar antes de commitar continua
 sendo o caminho curto, porque o CI só confirma.
