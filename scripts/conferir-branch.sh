@@ -80,18 +80,23 @@ elif git show-ref --verify --quiet "$REMOTO"; then
   remoto_incerto=1
 fi
 
-if [ "$ALVO" = "$BASE" ]; then
-  echo "$ALVO é a própria base — não há o que apagar."
-  exit 0
-fi
+# Na própria base não há o que apagar, mas as checagens de árvore, stash e refs
+# obsoletas continuam valendo — e é de lá que a pergunta "está tudo limpo?"
+# costuma ser feita. Suprimi-las por causa do alvo seria arbitrário.
+eh_base=0
+[ "$ALVO" = "$BASE" ] && eh_base=1
 
 echo "branch:  $ALVO"
 echo "base:    ${BASE_REF#refs/}"
+[ "$eh_base" -eq 1 ] && echo "         (é a própria base — nada a apagar; segue o estado da árvore)"
 echo
+
+EXCLUSIVOS=()
+problema=0
+if [ "$eh_base" -eq 0 ]; then
 
 # --- 1. O que existe aqui e não existe na base ---------------------------
 mapfile -t EXCLUSIVOS < <(git rev-list "$ALVO" "^$BASE_REF")
-problema=0
 
 if [ "${#EXCLUSIVOS[@]}" -eq 0 ]; then
   verde "✓ nada exclusivo: tudo deste branch já está na base"
@@ -125,6 +130,7 @@ if git worktree list --porcelain | grep -qx "branch refs/heads/$ALVO" &&
   vermelho "✗ este branch está em uso em outro worktree — apagar vai falhar"
   problema=1
 fi
+fi   # fim do bloco que só faz sentido fora da base
 
 # --- 3. A árvore pode trocar de branch? ----------------------------------
 echo
@@ -173,6 +179,11 @@ if [ "$problema" -ne 0 ]; then
   vermelho "NÃO PODE APAGAR — veja acima"
   exit 1
 fi
+if [ "$eh_base" -eq 1 ]; then
+  verde "NADA A APAGAR — $ALVO é a base; o que importava era o estado acima"
+  exit 0
+fi
+
 # O veredito cobre as TRÊS camadas: anunciar só o local faz a pessoa limpar o
 # clone e deixar a cópia do servidor para trás — a assimetria do §1 da skill.
 verde "PODE APAGAR — e são exclusões separadas:"
