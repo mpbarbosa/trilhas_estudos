@@ -238,31 +238,34 @@ declarado como tal, ou a próxima sessão o apaga achando que é lixo.
 
 ## Ao editar esta skill: "verificado" não autoriza a generalização
 
-Quatro das correções desta skill saíram do mesmo erro, cometido por quem a
-escreveu: um teste passou, e a regra escrita a partir dele foi mais ampla do que
-o teste sustentava.
+Esta skill foi corrigida quatro vezes em um dia, sempre por defeito de quem a
+escreveu. As quatro não têm a mesma causa, e a diferença importa:
 
-A escalada, que é a parte reconhecível:
-
-| O que foi testado | O que foi escrito | Veredito |
+| Correção | O que estava errado | Causa |
 |---|---|---|
-| `git commit -- CAMINHO` isola o caminho e preserva o resto do índice | "é a defesa da 7" | falso — pega a árvore, descarta o `add -p` |
-| a defesa da 7 funciona | "o corolário dispensa a tabela" | pior — mandava pular a linha que protegia |
+| `b0fd1c2` | `git branch --show-current &&` como guarda | recomendado **sem nunca ter sido executado** |
+| `67fdb02` | `git commit -- CAMINHO` "é a defesa da 7" | dois eixos testados, o terceiro nem imaginado |
+| `0314adc` | "o corolário dispensa a tabela" | generalização de uma defesa que funcionava |
+| `655062e` | a regra 2 abaixo, escrita como lei | generalização da própria lição |
 
-Nos dois casos a frase "verificado em repositório isolado" estava no texto, e era
-verdadeira: o eixo testado passou. O eixo não testado nem foi imaginado —
-verificar o que se imaginou e publicar com confiança o que não se imaginou é um
-único movimento, e não dá para senti-lo por dentro.
+A segunda é a mais instrutiva, porque **a frase "verificado em repositório
+isolado" estava no texto e era verdadeira**: o eixo testado passou. O eixo não
+testado nem foi imaginado — verificar o que se imaginou e publicar com confiança
+o que não se imaginou é um único movimento, e não dá para senti-lo por dentro.
+
+A primeira é mais banal e mais comum: escrever um comando que parece óbvio e não
+rodá-lo. Ela foi descoberta por alguém **executando** a recomendação, que é a
+única coisa que pega esse caso.
 
 Daí duas regras para quem mexer aqui:
 
 1. **Escreva a regra no escopo do teste, não no escopo da intuição.** Se você
    testou que um comando isola um caminho, escreva isso — não "é a defesa".
-2. **Neste arquivo, até hoje, nenhuma correção partiu de quem escreveu** — todas
-   vieram de uma sessão par que leu o texto publicado. É uma skill num dia, não
-   uma lei: pode ser coincidência, ou efeito de o autor ter o eixo não testado
-   no ponto cego justamente por não tê-lo imaginado. O que a amostra sustenta é
-   mais modesto e ainda assim útil — quando houver sessão par no mesmo checkout,
-   mandar o texto custa uma mensagem, e aqui rendeu defeitos que já estavam
-   publicados. Quando não houver, releia procurando o eixo que o seu teste não
-   cobriu; é o mesmo movimento, com menos chance de dar certo.
+2. **Olhe de onde vieram as quatro correções, não só quantas foram.** Duas
+   (`67fdb02`, `0314adc`) vieram de uma sessão par lendo o texto publicado; uma
+   (`b0fd1c2`) de alguém executar o comando recomendado, que falhou na frente de
+   quem o usava; uma (`655062e`) do próprio autor, relendo. É uma skill num dia
+   e não dá lei, mas as três origens são diferentes e nenhuma cobre as outras:
+   revisão pega a regra ampla demais, execução pega o comando que nunca rodou,
+   releitura pega o que você já sabe procurar. Quando houver sessão par no mesmo
+   checkout, mandar o texto custa uma mensagem.
