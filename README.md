@@ -4,8 +4,9 @@ Controle e sugestão de trilhas de estudo: acompanha o avanço do estudante numa
 trilha e recomenda o que estudar em seguida.
 
 **Estado atual:** domínio modelado, catálogo validável, motor de sugestão implementado
-como lógica pura (`src/trilhas/motor/`) e uma interface de leitura do catálogo. Ainda
-não há persistência do percurso nem comando para pedir sugestões.
+como lógica pura (`src/trilhas/motor/`) e uma interface de leitura. O painel *Agora*
+já mostra as sugestões do motor com os fatores que as produziram; o que ainda não há é
+persistência do percurso — nada do que o estudante faz é gravado.
 
 - [Domínio e glossário](docs/CONTEXT.md)
 - [Motor de sugestão (v1)](docs/motor-de-sugestao.md) — especificação e escolhas da implementação
@@ -34,15 +35,17 @@ uv run --extra dev pytest           # suíte completa
 
 ### Interface
 
-Navegação do catálogo em `localhost`: grafo da trilha por onda de pré-requisito, etapa
-com os recursos comparados, competência com o critério de verificação, e as 11
-validações numa tela ([docs/interface.md](docs/interface.md)).
+Em `localhost`: o painel *Agora* com as sugestões do motor e os fatores que as
+produziram, o grafo da trilha por onda de pré-requisito, a etapa com os recursos
+comparados, a competência com o critério de verificação, e as 11 validações numa
+tela ([docs/interface.md](docs/interface.md)).
 
 ```bash
 uv run --extra web trilhas-web      # http://127.0.0.1:8000
 ```
 
-Somente leitura. Progresso, evidência e sugestão chegam nas fases seguintes.
+Somente leitura: registrar progresso, evidência e feedback depende da decisão de
+persistência do percurso.
 
 ## Licença
 

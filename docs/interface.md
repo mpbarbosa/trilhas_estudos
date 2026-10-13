@@ -128,12 +128,14 @@ src/trilhas/
   web/           SEGUNDA BORDA DE I/O, no mesmo nível de cli.py
     app.py         montagem Starlette e injeção do contexto
     dados.py       leitura do snapshot e diagnóstico (o I/O fica aqui)
+    percurso.py    leitura do percurso do estudante — formato provisório, só leitura
     rotas.py       uma função por rota, sem lógica de domínio
     apresentar/    projeções (§3.3) — funções puras, testadas sem servidor
       comum.py       rótulos e formatação
       disposicao.py  layout do grafo (§4)
       acervo.py      abertura e explorador
       detalhe.py     trilha, etapa, competência
+      sugestao.py    painel Agora: cartões, fatores e candidatos eliminados
       diagnostico.py as 11 validações na tela
     modelos/       templates Jinja
     estatico/      estilo.css, pan-zoom.js
@@ -532,13 +534,17 @@ Até essa ADR existir, a fase 1 é **somente leitura** — e é por isso que ela
 |---|---|---|---|
 | ~~**1**~~ **entregue** | Explorador somente-leitura: `/`, `/catalogo`, `/trilha/{id}` com grafo, `/etapa/{id}`, `/competencia/{id}`, `/catalogo/diagnostico` | nada além do que existe | o acervo de 54 etapas e 109 recursos fica navegável e as lacunas aparecem |
 | **2** | Percurso: matrícula, progresso, evidência, autoavaliação, restrições | ADR de persistência (§9) + `src/trilhas/percurso/` | "controlar" do propósito do sistema |
-| **3** | Painel `/` com top-N, feedback e `/sugestao/{id}` | **motor de sugestão** (passo 3 da ordem de construção) | "sugerir" — a razão do projeto |
+| **3** *parcial* | Painel `/` com top-N, fatores à vista e "por que isto não apareceu". **Falta o feedback**, que é escrita e depende da fase 2 | ~~motor de sugestão~~ — feito | "sugerir" — a razão do projeto |
 | **4** | `/catalogo/autoria` gerando YAML | fases 1–2 maduras | autoria sem editar YAML à mão |
 
-A fase 1 não antecipa o motor nem o atrapalha: consome o snapshot, que é a fronteira já
-estabelecida por [ADR-0006](adr/0006-stack-python.md). **A ordem de construção do
-[docs/README.md](README.md) não muda** — o motor continua sendo o próximo passo do
-domínio, e a fase 3 é o que o torna visível.
+A fase 1 não antecipou o motor nem o atrapalhou: consome o snapshot, que é a fronteira
+já estabelecida por [ADR-0006](adr/0006-stack-python.md).
+
+A fase 3 chegou antes da 2 porque o motor ficou pronto primeiro, e porque **mostrar a
+sugestão não exige escrever percurso**: o painel lê `percurso/*.yaml` em
+`web/percurso.py` e nada mais. A fase 2 continua presa à ADR de persistência (§9), e é
+ela que destrava o feedback — sem o qual o ciclo do [motor §2](motor-de-sugestao.md)
+fica aberto: a sugestão é exibida, mas a reação do estudante não volta para o motor.
 
 ---
 

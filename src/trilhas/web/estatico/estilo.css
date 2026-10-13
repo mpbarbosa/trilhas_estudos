@@ -268,3 +268,53 @@ select:focus-visible, .no:focus-visible rect {
   .topo { flex-direction: column; align-items: start; }
   .tabela { font-size: .82rem; }
 }
+
+/* --- painel Agora --- */
+
+.sugestao {
+  background: var(--superficie); border: 1px solid var(--borda);
+  border-radius: var(--raio); padding: 1rem; margin: 1rem 0; box-shadow: var(--sombra);
+}
+.sugestao > header { display: flex; align-items: start; gap: .75rem; }
+.sugestao h2 { margin: 0; font-size: 1.1rem; }
+.sugestao header > div { flex: 1; }
+.sugestao .meta { margin: .2rem 0 0; }
+.posicao {
+  flex: none; width: 1.6rem; height: 1.6rem; border-radius: 50%;
+  background: var(--acento-fraco); color: var(--acento);
+  display: grid; place-items: center; font-size: .8rem; font-weight: 700;
+}
+.score {
+  flex: none; font-size: 1.4rem; font-weight: 700; font-variant-numeric: tabular-nums;
+  color: var(--acento);
+}
+.score::after { content: "%"; font-size: .7rem; font-weight: 400; color: var(--texto-fraco); }
+.explicacao { margin: .6rem 0 .8rem; max-width: 70ch; }
+
+.fatores { width: 100%; border-collapse: collapse; font-size: .8rem; }
+.fatores thead th {
+  text-align: left; font-size: .7rem; text-transform: uppercase;
+  letter-spacing: .04em; color: var(--texto-fraco); font-weight: 500; padding-bottom: .2rem;
+}
+.fatores tbody th { text-align: left; font-weight: 400; color: var(--texto-fraco); width: 10rem; }
+.fatores td { padding: .1rem 0; }
+.fatores .barra { width: 100%; }
+.fatores .num { white-space: nowrap; padding-left: .75rem; font-variant-numeric: tabular-nums; }
+.trilho {
+  display: inline-block; height: .7rem; background: var(--n0);
+  border-radius: 3px; vertical-align: middle; min-width: 2px;
+}
+.preenchida { display: block; height: 100%; background: var(--acento); border-radius: 3px; }
+
+.recurso { margin: .8rem 0 0; font-size: .9rem; }
+.recurso .rotulo-campo { display: inline; margin-right: .4rem; }
+
+.tipo-retomada { border-color: var(--acento); color: var(--acento); }
+.tipo-revisao { border-color: var(--aviso); color: var(--aviso); }
+
+.vazio-desenhado {
+  background: var(--superficie); border: 1px solid var(--borda-forte);
+  border-left: 3px solid var(--acento); border-radius: var(--raio);
+  padding: 1rem 1.25rem; margin: 1rem 0;
+}
+.vazio-desenhado h2 { margin-top: 0; }
