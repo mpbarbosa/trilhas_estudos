@@ -202,10 +202,15 @@ para quem estava sendo cuidadoso.
 | Arquivo que **só você** tocou, índice sujo de outros | `git commit -m "…" -- CAMINHO` — a árvore é sua, não há o que preservar |
 | Arquivo que **outra sessão também** tocou | `git add -p`, conferir `git diff --cached --name-only`, e `git commit` **sem** pathspec |
 
-Corolário, que resolve os dois casos e dispensa a tabela: **deixar algo staged é
-por si só o risco.** A janela entre `git add`
-e `git commit` pertence a todas as sessões. Prepare e commite no mesmo comando,
-ou prepare nada e use `git commit -- CAMINHO` direto.
+Corolário: **deixar algo staged é por si só o risco.** A janela entre `git add` e
+`git commit` pertence a todas as sessões do checkout, então prepare e commite no
+mesmo comando em vez de deixar o índice carregado.
+
+Isso elimina a janela do índice e **não dispensa a tabela acima**: a escolha
+entre as duas defesas se faz pelo *arquivo*, não pelo índice. Num arquivo que
+outra sessão também editou, `git commit -- CAMINHO` com índice vazio commita a
+árvore inteira daquele arquivo — as linhas dela junto. Ali a defesa continua
+sendo `git add -p` e commit sem pathspec.
 
 ## Sequência que funciona
 
