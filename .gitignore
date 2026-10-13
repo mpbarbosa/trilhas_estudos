@@ -10,3 +10,8 @@ build/
 
 # conhecimento do projeto no claude.ai: derivado, gerado por claude-project/montar.sh
 claude-project/conhecimento/
+
+# Log de percurso (ADR-0008): o banco é estado local e derivável; o histórico durável
+# é a exportação em texto (`trilhas-percurso exportar`), que vai para o git.
+percurso/*.sqlite3
+percurso/*.sqlite3-journal

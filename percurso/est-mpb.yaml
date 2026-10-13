@@ -1,8 +1,13 @@
 # PERCURSO — estado de um estudante (CONTEXT.md §3.5: separado do catálogo).
 #
-# ATENÇÃO: formato provisório. A persistência do percurso depende da stack, ainda
-# indefinida (ADR-0001), e nenhuma ADR decidiu este esquema. É um registro em arquivo
-# para não perder o estado enquanto não há aplicação; espere que mude.
+# ADR-0008 dividiu o percurso em duas naturezas. Este arquivo guarda o **estado
+# declarado** — estudante, perfil, restrições, objetivo e matrícula — que continua em
+# YAML, legível e versionado em git.
+#
+# Os **fatos datados** (evidência, progresso, sugestão, feedback) moram no log
+# append-only `percurso/percurso.sqlite3` e não se editam aqui: `competencias_dominadas`,
+# `progresso` e `feedback` abaixo são histórico pré-ADR, importável uma vez com
+# `trilhas-percurso importar`, e ignorados pela projeção depois disso.
 versao_schema: 1
 
 estudante:

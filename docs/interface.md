@@ -504,12 +504,13 @@ cria duas evidências.
 
 ---
 
-## 9. Escrita de percurso: a dívida a pagar antes da fase 2
+## 9. Escrita de percurso: dívida paga por ADR-0008
 
 `percurso/est-mpb.yaml` avisa de si mesmo: *"formato provisório… nenhuma ADR decidiu este
 esquema"*. Uma interface que escreve progresso e evidência não pode ficar em cima disso.
 
-Proposta a decidir em ADR (§13):
+**Decidido** em [ADR-0008](adr/0008-percurso-como-log-de-fatos-datados.md) e implementado em
+`src/trilhas/percurso/`, nos termos abaixo:
 
 - **Log de eventos append-only** para `Evidencia`, `Progresso`, `Sugestao` e `Feedback`,
   em SQLite via `sqlite3` da stdlib. O ajuste é conceitual, não técnico: esses quatro são
@@ -524,7 +525,13 @@ Proposta a decidir em ADR (§13):
   lock muda; uma sugestão guarda `catalogo_versao` e a tela de auditoria avisa se o
   catálogo avançou desde então.
 
-Até essa ADR existir, a fase 1 é **somente leitura** — e é por isso que ela cabe primeiro.
+A fase 1 segue somente leitura: a escrita existe hoje pela CLI `trilhas-percurso`, e
+ligá-la aos POST da interface é a fase 2. `registrar.*` e `Repositorio` são os mesmos
+em ambas — a interface não ganha regra de domínio própria (§3.3).
+
+Uma ressalva que a implementação acrescentou: adotar o log sem migrar o YAML apagaria
+o progresso já declarado nele. `percurso/migrar.py` converte os fatos declarados
+preservando **as datas de lá**, e recusa importar duas vezes.
 
 ---
 
@@ -590,7 +597,7 @@ vocabulário da §6.1).
 | Nº previsto | Decisão | Quando |
 |---|---|---|
 | ADR-0007 | Camada de entrega web em Python servindo HTML (§2.2), com `web/` como segunda borda de I/O ao lado de `cli.py` | antes da fase 1 |
-| ADR-0008 | Persistência de percurso como log append-only de fatos datados, perfil derivado (§9) | antes da fase 2 |
+| ADR-0008 | Persistência de percurso como log append-only de fatos datados, perfil derivado (§9) | ✅ escrita |
 | ADR-0009 | Interface de autoria gera diff de YAML e não substitui o fluxo de `compilar` (§5.7) | antes da fase 4 |
 
 Nenhuma delas altera uma ADR aceita. A 0007 exerce a porta que a

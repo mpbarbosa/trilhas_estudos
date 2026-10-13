@@ -9,6 +9,7 @@ dependencies = ["pyyaml>=6.0"]
 [project.scripts]
 trilhas = "trilhas.catalogo.cli:main"
 trilhas-web = "trilhas.web.__main__:main"
+trilhas-percurso = "trilhas.percurso.cli:main"
 
 [project.optional-dependencies]
 # Camada de entrega (ADR-0007). O domínio continua com pyyaml e nada mais.

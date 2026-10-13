@@ -19,6 +19,7 @@
 | [0005](adr/0005-identidade-imutavel-e-depreciacao.md) | Identidade imutável, revisão por entidade e depreciação em vez de remoção | aceito |
 | [0006](adr/0006-stack-python.md) | Stack: Python, domínio puro, CLI como primeira entrega | aceito |
 | [0007](adr/0007-entrega-web-em-python-html-no-servidor.md) | Camada de entrega web em Python, HTML no servidor | aceito |
+| [0008](adr/0008-percurso-como-log-de-fatos-datados.md) | Percurso como log append-only de fatos datados, perfil derivado | aceito |
 
 ## Pendente
 
