@@ -19,6 +19,14 @@ concurrency:
 jobs:
   verificar:
     runs-on: ubuntu-latest
+    strategy:
+      # Sem fail-fast: saber que 3.12 quebrou e 3.14 não é o diagnóstico.
+      fail-fast: false
+      matrix:
+        # Os extremos de `requires-python = ">=3.12"`. Sem declarar versão, o uv
+        # usava o Python do sistema do runner (3.12.3), que muda com a imagem.
+        python: ["3.12", "3.14"]
+
     steps:
       - uses: actions/checkout@v7
 
@@ -26,20 +34,28 @@ jobs:
       - uses: astral-sh/setup-uv@v10.3.0
         with:
           enable-cache: true
+          python-version: ${{ matrix.python }}
+
+      # `--locked` falha se o uv.lock não corresponder ao pyproject.toml, em vez
+      # de reresolver em silêncio. Mesmo motivo do passo seguinte: lock é
+      # artefato gerado, e defasagem passa por todo o resto sem aparecer.
+      # Construído aqui uma vez; os passos adiante usam `--no-sync`.
+      - name: ambiente a partir do lock
+        run: uv sync --locked --all-extras
 
       # Primeiro passo porque é o que o olho não pega na revisão: o lock é
       # gerado, e um YAML commitado sem recompilar passa por todo o resto.
       - name: catálogo compilado e em dia
-        run: uv run --all-extras trilhas compilar --conferir
+        run: uv run --no-sync trilhas compilar --conferir
 
       - name: testes
-        run: uv run --all-extras pytest
+        run: uv run --no-sync pytest
 
       - name: lint
-        run: uv run --all-extras ruff check .
+        run: uv run --no-sync ruff check .
 
       - name: formatação
-        run: uv run --all-extras ruff format --check .
+        run: uv run --no-sync ruff format --check .
 
       - name: tipos
-        run: uv run --all-extras mypy
+        run: uv run --no-sync mypy
