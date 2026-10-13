@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h1>Agora</h1>
+<p class="chamada">
+  O que estudar neste instante, e <strong>por quê</strong>. Nenhuma sugestão aparece sem
+  os fatores que a produziram (<code>docs/motor-de-sugestao.md</code> §2.5).
+</p>
+
+{% if v.sem_percurso %}
+<section class="nota">
+  <p>Nenhum percurso encontrado em <code>percurso/</code>. O motor precisa de um
+  estudante com objetivo ou matrícula para ter para onde apontar.</p>
+</section>
+{% else %}
+
+<form class="filtro" method="get" action="/">
+  {% if v.estudantes | length > 1 %}
+  <label>Estudante
+    <select name="estudante">
+      {% for e in v.estudantes %}
+      <option value="{{ e }}" {% if e == v.estudante_id %}selected{% endif %}>{{ e }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  {% endif %}
+  <label>Tenho
+    <input type="number" name="tempo" min="5" step="5" value="{{ v.tempo_disponivel_min or '' }}"
+           placeholder="min" inputmode="numeric">
+  </label>
+  <label>Quantas
+    <input type="number" name="quantidade" min="1" max="10" value="{{ v.quantidade }}">
+  </label>
+  <button type="submit">Sugerir</button>
+  {% if v.tempo_disponivel_min %}<a class="limpar" href="/">sem limite de tempo</a>{% endif %}
+</form>
+
+{% if v.tempo_disponivel_min %}
+<p class="fraco">
+  Sessão de {{ v.tempo_disponivel_min }} min: etapas cujo recurso não cabe são
+  <strong>filtradas</strong>, não apenas despontuadas.
+</p>
+{% endif %}
+
+{% if v.vazio %}
+<section class="vazio-desenhado">
+  <h2>{{ v.titulo_vazio or 'Nada a sugerir' }}</h2>
+  <p>{{ v.texto_vazio }}</p>
+  {% if v.bloqueio_principal %}
+  <p>
+    A restrição que mais eliminou: <strong>{{ v.bloqueio_principal.motivo }}</strong>,
+    em {{ v.bloqueio_principal.quantidade }} dos {{ v.total_eliminados }} candidatos
+    descartados.
+  </p>
+  {% if v.tempo_disponivel_min and v.bloqueio_principal.motivo_chave == 'nao_cabe_no_tempo' %}
+  <p><a href="/?quantidade={{ v.quantidade }}">Ver sem limite de tempo</a> — neste
+    catálogo os recursos são longos, e {{ v.tempo_disponivel_min }} min não alcançam
+    nenhum deles.</p>
+  {% endif %}
+  {% elif v.detalhe_vazio %}
+  <p class="fraco">{{ v.detalhe_vazio }}</p>
+  {% endif %}
+
+  {% if v.lacunas %}
+  <p class="rotulo-campo">Competências-alvo que o catálogo não alcança</p>
+  <ul class="ligacoes">
+    {% for ident, titulo, nivel in v.lacunas %}
+    <li><a href="/competencia/{{ ident }}">{{ titulo }}</a>
+      <span class="nivel nivel-{{ nivel }}">{{ nivel }}</span></li>
+    {% endfor %}
+  </ul>
+  <p class="fraco">
+    É lacuna de catálogo, e portanto dado útil: falta etapa que desenvolva isto.
+  </p>
+  {% endif %}
+
+  {% if v.motivo_vazio == 'perfil_insuficiente' %}
+  <p><a href="/acervo">Escolher uma trilha</a> é o primeiro passo.</p>
+  {% endif %}
+</section>
+{% endif %}
+
+{% for c in v.cartoes %}
+<article class="sugestao">
+  <header>
+    <span class="posicao">{{ c.posicao }}</span>
+    <div>
+      <h2><a href="{{ c.href }}">{{ c.titulo }}</a></h2>
+      <p class="meta">
+        <span class="etiqueta tipo-{{ c.tipo_chave }}">{{ c.tipo }}</span>
+        {% if c.trilha_titulo %}
+        <a href="/trilha/{{ c.trilha_id }}">{{ c.trilha_titulo }}</a> ·
+        {% endif %}
+        {{ c.esforco }}
+      </p>
+    </div>
+    <span class="score" title="soma das contribuições dos fatores">{{ c.score_pct }}</span>
+  </header>
+
+  <p class="explicacao">
+    {% for t in c.trechos %}{% if t.enfase %}<em>{{ t.texto }}</em>{% else %}{{ t.texto }}{% endif %}{% endfor %}
+  </p>
+
+  <table class="fatores">
+    <caption class="oculto">Fatores que produziram o score</caption>
+    <thead>
+      <tr><th scope="col">Fator</th><th scope="col">Contribuição</th><th scope="col">Peso × valor</th></tr>
+    </thead>
+    <tbody>
+      {% for b in c.barras %}
+      <tr>
+        <th scope="row">{{ b.rotulo }}</th>
+        <td class="barra">
+          <span class="trilho" style="width: {{ b.largura_trilho * 3 }}%">
+            <span class="preenchida" style="width: {{ (b.contribuicao / b.peso * 100) if b.peso else 0 }}%"></span>
+          </span>
+        </td>
+        <td class="num fraco">{{ b.conta }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% if c.recurso %}
+  <p class="recurso">
+    <span class="rotulo-campo">Recurso sugerido</span>
+    {% if c.recurso.url %}<a href="{{ c.recurso.url }}" rel="noreferrer nofollow">{{ c.recurso.titulo }}</a>
+    {% else %}{{ c.recurso.titulo }}{% endif %}
+    <span class="fraco">{{ c.recurso.formato }} · {{ c.recurso.idioma }} ·
+      {{ c.recurso.custo }} · {{ c.recurso.duracao }}</span>
+  </p>
+  {% endif %}
+</article>
+{% endfor %}
+
+{% if v.total_eliminados %}
+<details class="equivalente">
+  <summary>Por que isto não apareceu — {{ v.total_eliminados }} candidatos eliminados</summary>
+  <p class="fraco">
+    Filtro duro elimina sem pontuar, e todo candidato eliminado registra o motivo
+    (<code>docs/motor-de-sugestao.md</code> §2.2).
+  </p>
+  {% for g in v.eliminados %}
+  <section>
+    <h3>{{ g.motivo }} <span class="fraco">({{ g.quantidade }})</span></h3>
+    <ul class="ligacoes">
+      {% for ident, titulo, detalhe in g.etapas %}
+      <li><a href="/etapa/{{ ident }}">{{ titulo }}</a>
+        {% if detalhe %}<span class="fraco">{{ detalhe }}</span>{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</details>
+{% endif %}
+
+<p class="nota">
+  Gerada em {{ v.gerada_em }} sobre o catálogo versão {{ v.catalogo_versao }} —
+  toda sugestão guarda a versão que a produziu, para ser reproduzível
+  (<code>docs/catalogo.md</code> §5). Perfil: {{ v.competencias_dominadas }} competência(s)
+  dominada(s), {{ v.matriculas }} matrícula(s).
+</p>
+{% endif %}
+{% endblock %}

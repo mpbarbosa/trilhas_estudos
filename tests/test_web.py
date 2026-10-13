@@ -36,17 +36,17 @@ def cliente(lock: Path) -> TestClient:
     return TestClient(criar_app(lock=lock, hoje=lambda: HOJE))
 
 
-def test_abertura_mostra_o_acervo(cliente: TestClient) -> None:
-    resposta = cliente.get("/")
+def test_acervo_mostra_o_catalogo(cliente: TestClient) -> None:
+    resposta = cliente.get("/acervo")
     assert resposta.status_code == 200
     assert "Acervo" in resposta.text
     assert "trilha:dados/fundamentos" in resposta.text or "Fundamentos" in resposta.text
 
 
-def test_abertura_sem_snapshot_pede_para_compilar(tmp_path: Path) -> None:
+def test_acervo_sem_snapshot_pede_para_compilar(tmp_path: Path) -> None:
     """Estado vazio é tela desenhada, não erro 500 (docs/interface.md §1.2)."""
     cliente = TestClient(criar_app(lock=tmp_path / "nao-existe.json", hoje=lambda: HOJE))
-    resposta = cliente.get("/")
+    resposta = cliente.get("/acervo")
     assert resposta.status_code == 200
     assert "trilhas compilar" in resposta.text
 
@@ -123,11 +123,11 @@ def test_diagnostico_acusa_snapshot_desatualizado(tmp_path: Path, fixture_catalo
 
 def test_recarrega_quando_o_snapshot_muda(cliente: TestClient, lock: Path) -> None:
     """Dá para rodar `trilhas compilar` com a interface aberta."""
-    assert "catálogo v1" in cliente.get("/").text
+    assert "catálogo v1" in cliente.get("/acervo").text
     dados = json.loads(lock.read_text(encoding="utf-8"))
     dados["catalogo_versao"] = 99
     lock.write_text(json.dumps(dados, ensure_ascii=False), encoding="utf-8")
-    assert "catálogo v99" in cliente.get("/").text
+    assert "catálogo v99" in cliente.get("/acervo").text
 
 
 def test_estatico_e_servido(cliente: TestClient) -> None:
@@ -144,7 +144,7 @@ def test_template_nao_usa_termo_descartado(modelo: str) -> None:
 
 
 def _uma_trilha(cliente: TestClient) -> str:
-    achado = re.search(r"/trilha/(trilha:[\w\-/]+)", cliente.get("/").text)
+    achado = re.search(r"/trilha/(trilha:[\w\-/]+)", cliente.get("/acervo").text)
     assert achado
     return achado.group(1)
 
@@ -154,3 +154,123 @@ def _uma_etapa(cliente: TestClient) -> str:
     achado = re.search(r"/etapa/(etapa:[\w\-/]+)", pagina)
     assert achado
     return achado.group(1)
+
+
+# --- painel Agora --------------------------------------------------------------
+
+PERCURSO_MATRICULADO = """
+versao_schema: 1
+estudante:
+  id: est:teste
+  nome: Estudante de Teste
+perfil:
+  competencias_dominadas: []
+  restricoes:
+    idiomas: [pt-BR]
+matriculas:
+  - trilha: trilha:dados/fundamentos
+    rev: 1
+    iniciada_em: 2026-10-01
+    estado: em_andamento
+progresso:
+  - etapa: etapa:dados/sql-select
+    rev: 1
+    estado: em_andamento
+    iniciada_em: 2026-10-05
+"""
+
+PERCURSO_SEM_RUMO = """
+versao_schema: 1
+estudante:
+  id: est:novo
+  nome: Estudante Novo
+perfil:
+  competencias_dominadas: []
+"""
+
+
+@pytest.fixture
+def com_percurso(lock: Path) -> TestClient:
+    """Painel precisa de catálogo e percurso lado a lado, como no repositório."""
+    pasta = lock.parent / "percurso"
+    pasta.mkdir()
+    (pasta / "est-teste.yaml").write_text(PERCURSO_MATRICULADO, encoding="utf-8")
+    return TestClient(criar_app(lock=lock, hoje=lambda: HOJE))
+
+
+def test_painel_sugere_com_os_fatores_a_vista(com_percurso: TestClient) -> None:
+    """Sem os fatores o cartão não pode existir (docs/interface.md §6.2)."""
+    resposta = com_percurso.get("/")
+    assert resposta.status_code == 200
+    for fator in (
+        "relevância",
+        "prontidão",
+        "momentum",
+        "encaixe de esforço",
+        "desbloqueio",
+        "urgência de revisão",
+    ):
+        assert fator in resposta.text
+    assert "etapa:dados/sql-select" in resposta.text  # a etapa em andamento é retomada
+
+
+def test_painel_registra_a_versao_do_catalogo(com_percurso: TestClient) -> None:
+    """Toda sugestão guarda a versão que a produziu (CONTEXT.md §4)."""
+    assert "catálogo versão 1" in com_percurso.get("/").text
+
+
+def test_painel_explica_quem_nao_apareceu(com_percurso: TestClient) -> None:
+    """`motor §2.2`: candidato eliminado registra o motivo."""
+    resposta = com_percurso.get("/")
+    assert "Por que isto não apareceu" in resposta.text
+    assert "candidatos eliminados" in resposta.text
+
+
+def test_tempo_disponivel_entra_na_url(com_percurso: TestClient) -> None:
+    """Sugestão reproduzível exige estado na URL, não em sessão (ADR-0007)."""
+    resposta = com_percurso.get("/", params={"tempo": "15"})
+    assert resposta.status_code == 200
+    assert "Sessão de 15 min" in resposta.text
+
+
+def test_tempo_curto_filtra_em_vez_de_despontuar(com_percurso: TestClient) -> None:
+    sem_limite = com_percurso.get("/").text.count('class="sugestao"')
+    com_limite = com_percurso.get("/", params={"tempo": "5"}).text
+    assert com_limite.count('class="sugestao"') < sem_limite
+    assert "não cabe no tempo informado" in com_limite
+
+
+def test_restricao_que_bloqueia_tudo_e_nomeada_com_saida(com_percurso: TestClient) -> None:
+    """Estado vazio diz qual restrição eliminou mais e oferece afrouxá-la (§5.2)."""
+    resposta = com_percurso.get("/", params={"tempo": "5"}).text
+    assert "Suas restrições eliminaram tudo" in resposta
+    assert "A restrição que mais eliminou" in resposta
+    assert "Ver sem limite de tempo" in resposta
+
+
+def test_quantidade_controla_o_top_n(com_percurso: TestClient) -> None:
+    assert com_percurso.get("/", params={"quantidade": "1"}).text.count('class="sugestao"') == 1
+
+
+def test_perfil_insuficiente_e_tela_desenhada(lock: Path) -> None:
+    """Estudante novo não recebe sugestão inventada (motor §4)."""
+    pasta = lock.parent / "percurso"
+    pasta.mkdir()
+    (pasta / "est-novo.yaml").write_text(PERCURSO_SEM_RUMO, encoding="utf-8")
+    cliente = TestClient(criar_app(lock=lock, hoje=lambda: HOJE))
+
+    resposta = cliente.get("/")
+    assert resposta.status_code == 200
+    assert "Nada a sugerir ainda" in resposta.text
+    assert "Escolher uma trilha" in resposta.text
+
+
+def test_sem_percurso_nenhum_o_painel_diz_o_que_falta(cliente: TestClient) -> None:
+    resposta = cliente.get("/")
+    assert resposta.status_code == 200
+    assert "Nenhum percurso encontrado" in resposta.text
+
+
+def test_painel_nao_quebra_sem_catalogo(tmp_path: Path) -> None:
+    cliente = TestClient(criar_app(lock=tmp_path / "nao-existe.json", hoje=lambda: HOJE))
+    assert cliente.get("/").status_code == 200

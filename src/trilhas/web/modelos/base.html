@@ -11,7 +11,8 @@
   <header class="topo">
     <nav aria-label="Seções">
       <a class="marca" href="/">trilhas<span>de estudo</span></a>
-      <a href="/" {% if caminho == '/' %}aria-current="page"{% endif %}>Acervo</a>
+      <a href="/" {% if caminho == '/' %}aria-current="page"{% endif %}>Agora</a>
+      <a href="/acervo" {% if caminho == '/acervo' %}aria-current="page"{% endif %}>Acervo</a>
       <a href="/catalogo" {% if caminho == '/catalogo' %}aria-current="page"{% endif %}>Catálogo</a>
       <a href="/catalogo/diagnostico" {% if caminho == '/catalogo/diagnostico' %}aria-current="page"{% endif %}>Diagnóstico</a>
     </nav>
@@ -33,9 +34,8 @@
 
   <footer class="pe">
     <p>
-      Fase 1 da interface: catálogo somente leitura.
-      Progresso, evidência e sugestão chegam nas fases seguintes
-      (<code>docs/interface.md</code> §10).
+      Leitura apenas: o painel mostra a sugestão do motor, mas registrar progresso e
+      evidência depende da decisão de persistência (<code>docs/interface.md</code> §9).
     </p>
     <p class="fraco">
       snapshot {{ cabecalho.hash[7:19] }} · gerado em {{ cabecalho.gerado_em[:10] }}

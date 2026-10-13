@@ -7,14 +7,19 @@ errado (docs/interface.md §3.3).
 
 from __future__ import annotations
 
+from datetime import datetime
 from typing import TYPE_CHECKING, Any
 
 from starlette.requests import Request
 from starlette.responses import Response
 from starlette.routing import Route
 
+from ..motor import Opcoes, sugerir
+from ..motor.modelo import Percurso, Resultado
 from .apresentar import acervo as apresentar_acervo
 from .apresentar import detalhe, diagnostico
+from .apresentar import sugestao as apresentar_sugestao
+from .percurso import carregar_percurso, nome_do_estudante, percursos_em
 
 if TYPE_CHECKING:
     from .app import Contexto
@@ -38,10 +43,61 @@ def _responder(
     return ctx.templates.TemplateResponse(request, modelo, {**base, **contexto}, status_code=status)
 
 
+async def agora(request: Request) -> Response:
+    """Painel *Agora*: o que estudar neste instante, com os fatores à vista.
+
+    `?tempo=` e `?quantidade=` entram na URL de propósito — uma sugestão tem de ser
+    reproduzível, e estado só em sessão não se compartilha (ADR-0007).
+    """
+    ctx = _ctx(request)
+    acervo = ctx.fonte.acervo()
+    arquivos = percursos_em(ctx.fonte.percursos)
+    escolhido = request.query_params.get("estudante", "").strip()
+    caminho = arquivos.get(escolhido) or (next(iter(arquivos.values()), None))
+
+    percurso: Percurso | None = carregar_percurso(caminho) if caminho else None
+    tempo = _inteiro(request.query_params.get("tempo"))
+    quantidade = _inteiro(request.query_params.get("quantidade")) or 3
+    momento = datetime.combine(ctx.hoje(), datetime.min.time())
+
+    if percurso is None:
+        resultado = Resultado(sugestoes=())
+    else:
+        resultado = sugerir(
+            acervo.catalogo,
+            percurso,
+            momento,
+            Opcoes(quantidade=quantidade, tempo_disponivel_min=tempo),
+            catalogo_versao=acervo.cabecalho.catalogo_versao,
+        )
+
+    visao = apresentar_sugestao.painel(
+        resultado,
+        acervo.catalogo,
+        percurso,
+        estudante_nome=nome_do_estudante(caminho) if caminho else "",
+        estudantes=tuple(arquivos),
+        tempo_disponivel_min=tempo,
+        quantidade=quantidade,
+        momento=momento,
+        catalogo_versao=acervo.cabecalho.catalogo_versao,
+        hoje=ctx.hoje(),
+    )
+    return _responder(request, "agora.html", {"v": visao, "titulo": "Agora"})
+
+
 async def inicio(request: Request) -> Response:
     ctx = _ctx(request)
     visao = apresentar_acervo.inicio(ctx.fonte.acervo(), hoje=ctx.hoje())
     return _responder(request, "inicio.html", {"v": visao, "titulo": "Acervo"})
+
+
+def _inteiro(bruto: str | None) -> int | None:
+    try:
+        valor = int(bruto or "")
+    except ValueError:
+        return None
+    return valor if valor > 0 else None
 
 
 async def lista(request: Request) -> Response:
@@ -119,7 +175,8 @@ async def falhou(request: Request, exc: Exception) -> Response:
 
 
 ROTAS = [
-    Route("/", inicio),
+    Route("/", agora),
+    Route("/acervo", inicio),
     Route("/catalogo", lista),
     Route("/catalogo/diagnostico", diagnostico_do_catalogo),
     Route("/trilha/{ident:path}", trilha),

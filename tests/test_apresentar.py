@@ -268,3 +268,24 @@ def test_formato_tem_rotulo_para_todo_valor_do_dominio() -> None:
 
 def test_status_tem_rotulo_para_todo_valor_do_dominio() -> None:
     assert set(comum.ROTULO_STATUS) == set(Status)
+
+
+# --- painel Agora --------------------------------------------------------------
+
+
+def test_enfase_da_explicacao_vira_trecho_em_vez_de_html_cru() -> None:
+    """O motor escreve `*assim*`; marcar HTML como seguro no template seria pior."""
+    from trilhas.web.apresentar.sugestao import _trechos
+
+    trechos = _trechos("Retome: *SQL básico* — você já começou.")
+    assert [(t.texto, t.enfase) for t in trechos] == [
+        ("Retome: ", False),
+        ("SQL básico", True),
+        (" — você já começou.", False),
+    ]
+
+
+def test_explicacao_sem_enfase_vira_um_trecho_so() -> None:
+    from trilhas.web.apresentar.sugestao import _trechos
+
+    assert [t.texto for t in _trechos("sem ênfase")] == ["sem ênfase"]
