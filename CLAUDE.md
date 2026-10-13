@@ -97,22 +97,16 @@ no histórico.
 
 **O checkout é compartilhado, e isso inverte boa parte da intuição sobre git.**
 O procedimento está em
-[.claude/skills/encerrar-branch/SKILL.md](.claude/skills/encerrar-branch/SKILL.md):
-cinco armadilhas observadas aqui, entre elas `git branch -d` aceitar apagar o que
-só existe no `origin`, `git stash` tirar da árvore a edição ao vivo de outra
-sessão, e o branch em `HEAD` mudar entre dois comandos seus.
-
-Antes de apagar branch ou trocar de branch, rode o diagnóstico — ele só lê:
+[.claude/skills/encerrar-branch/SKILL.md](.claude/skills/encerrar-branch/SKILL.md),
+que a própria `description` carrega na hora certa. Antes de apagar ou trocar de
+branch, rode o diagnóstico — ele só lê:
 
 ```bash
 scripts/conferir-branch.sh [branch]   # 0 = pode apagar o local; 1 = não pode
 ```
 
-Duas regras que valem mesmo sem ler a skill:
-
-1. **Guarda de branch que funciona compara o valor.** `git branch --show-current &&`
-   sai com 0 sempre e não aborta nada:
-   `[ "$(git branch --show-current)" = main ] && git add CAMINHO && git commit -m "…"`
-2. **Um branch mora em três lugares** — local, servidor e ref de rastreio — e
-   apagar num não apaga nos outros. Quem decide se o remoto existe é
-   `git ls-remote`, não `git branch -r`.
+Duas regras ficam aqui por serem curtas e caras quando ignoradas: **guarda de
+branch compara o valor** (`[ "$(git branch --show-current)" = main ] && git add …`,
+porque `git branch --show-current &&` sai com 0 sempre), e **um branch mora em
+três lugares** — local, servidor e ref de rastreio —, sendo `git ls-remote`, não
+`git branch -r`, quem decide se o remoto existe.
