@@ -235,3 +235,30 @@ Rode os comandos de novo, não confie no que você relatou antes — é o que
 deixada de propósito** ou **de outra sessão**; só a primeira é falha. Branch
 remoto deixado de propósito (porque guarda commit ainda não mesclado) precisa ser
 declarado como tal, ou a próxima sessão o apaga achando que é lixo.
+
+## Ao editar esta skill: "verificado" não autoriza a generalização
+
+Quatro das correções desta skill saíram do mesmo erro, cometido por quem a
+escreveu: um teste passou, e a regra escrita a partir dele foi mais ampla do que
+o teste sustentava.
+
+A escalada, que é a parte reconhecível:
+
+| O que foi testado | O que foi escrito | Veredito |
+|---|---|---|
+| `git commit -- CAMINHO` isola o caminho e preserva o resto do índice | "é a defesa da 7" | falso — pega a árvore, descarta o `add -p` |
+| a defesa da 7 funciona | "o corolário dispensa a tabela" | pior — mandava pular a linha que protegia |
+
+Nos dois casos a frase "verificado em repositório isolado" estava no texto, e era
+verdadeira: o eixo testado passou. O eixo não testado nem foi imaginado —
+verificar o que se imaginou e publicar com confiança o que não se imaginou é um
+único movimento, e não dá para senti-lo por dentro.
+
+Daí duas regras para quem mexer aqui:
+
+1. **Escreva a regra no escopo do teste, não no escopo da intuição.** Se você
+   testou que um comando isola um caminho, escreva isso — não "é a defesa".
+2. **Toda correção desta skill até agora veio de revisão de outra sessão**, não
+   de quem escreveu. Se há sessão par trabalhando no mesmo checkout, mande o
+   texto antes de considerá-lo pronto; o custo é uma mensagem e o retorno foi
+   quatro defeitos que teriam ficado publicados.
