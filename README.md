@@ -3,11 +3,12 @@
 Controle e sugestão de trilhas de estudo: acompanha o avanço do estudante numa
 trilha e recomenda o que estudar em seguida.
 
-**Estado atual:** domínio modelado, catálogo validável e uma interface de leitura do
-catálogo. O motor de sugestão ainda não foi implementado.
+**Estado atual:** domínio modelado, catálogo validável, motor de sugestão implementado
+como lógica pura (`src/trilhas/motor/`) e uma interface de leitura do catálogo. Ainda
+não há persistência do percurso nem comando para pedir sugestões.
 
 - [Domínio e glossário](docs/CONTEXT.md)
-- [Motor de sugestão (v1)](docs/motor-de-sugestao.md) — primeira capacidade a construir
+- [Motor de sugestão (v1)](docs/motor-de-sugestao.md) — especificação e escolhas da implementação
 - [Interface gráfica](docs/interface.md) — stack, telas e fases; a fase 1 está no ar
 - [Catálogo](docs/catalogo.md) — autoria em YAML, identidade e versionamento
 - [Conteúdo do catálogo](catalogo/) — trilhas autoradas:
@@ -17,6 +18,7 @@ catálogo. O motor de sugestão ainda não foi implementado.
   - *Web, do protocolo à interface* ([trilha](catalogo/trilhas/web-do-protocolo-a-interface.yaml)) — HTTP, documento, JavaScript, tipos e componentes
   - *Arquitetura e entrega de software* ([trilha](catalogo/trilhas/arquitetura-e-entrega.yaml)) — requisitos, trade-off, decomposição, pipeline e operação
   - *Matemática — da demonstração ao cálculo* ([trilha](catalogo/trilhas/matematica-prova-e-calculo.yaml)) — prova, geometria axiomática, cálculo e simetria
+  - *Sistemas operacionais, do conceito ao núcleo* ([trilha](catalogo/trilhas/so-projeto-e-implementacao.yaml)) — processos, memória, E/S, arquivos e prática no MINIX
 - [Decisões de arquitetura](docs/README.md)
 
 ## Uso

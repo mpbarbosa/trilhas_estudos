@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 5,
-  "gerado_em": "2026-10-08T18:08:51+00:00",
-  "hash": "sha256:cd79abc0f82787b2e396920bddb5af9e98616754030839ffdd4b888a9fd93f27",
+  "catalogo_versao": 6,
+  "gerado_em": "2026-10-13T01:59:43+00:00",
+  "hash": "sha256:ef236f4697f07b70d921355ced06db77925a4eed78d936cc11250eaac36b587c",
   "competencias": [
     {
       "id": "comp:dados/analise-exploratoria",
@@ -275,6 +275,62 @@
       "status": "ativo",
       "verificacao": "Dado um CSV sujo, escrever um script que carregue, limpe e agregue os dados, executando em ambiente isolado com dependências declaradas em arquivo.",
       "descricao": "Escrever Python idiomático para manipular dados, usando ambientes isolados, notebooks e bibliotecas de terceiros.\n"
+    },
+    {
+      "id": "comp:so/entrada-saida-e-impasses",
+      "titulo": "Entrada/saída e impasses",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Diante de um estado de alocação de recursos, decidir se é seguro pelo algoritmo do banqueiro, e apontar qual das quatro condições de impasse uma política dada de fato quebra.",
+      "descricao": "Hardware e software de E/S em camadas — interrupções, DMA, drivers, software independente de dispositivo — e impasses: condições, detecção, prevenção e o algoritmo do banqueiro.\n"
+    },
+    {
+      "id": "comp:so/escalonamento",
+      "titulo": "Escalonamento de processos",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Para uma carga dada de processos com chegada e duração, calcular tempo médio de espera e de resposta em duas políticas e justificar qual escolher para um sistema interativo.",
+      "descricao": "Critérios e políticas de escalonamento — FIFO, menor tarefa primeiro, round robin, prioridades, filas múltiplas — e o custo de cada troca de contexto.\n"
+    },
+    {
+      "id": "comp:so/estrutura-e-chamadas-de-sistema",
+      "titulo": "Estrutura do sistema operacional e chamadas de sistema",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Rastrear o que acontece entre um `read()` num programa de usuário e o retorno do dado, nomeando cada troca de modo, e explicar o que muda nesse caminho num micronúcleo como o MINIX em relação a um núcleo monolítico.",
+      "descricao": "O sistema operacional como máquina estendida e como gerente de recursos: modo núcleo e modo usuário, chamadas de sistema, e as formas de organizar o núcleo (monolítico, em camadas, micronúcleo, cliente-servidor).\n"
+    },
+    {
+      "id": "comp:so/gerenciamento-de-memoria",
+      "titulo": "Gerenciamento de memória",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Simular à mão uma sequência de referências sob FIFO, LRU e relógio, contando faltas de página, e traduzir um endereço virtual em físico dada a tabela de páginas.",
+      "descricao": "Partições, troca (swapping), memória virtual com paginação e tabelas de página, TLB, algoritmos de substituição de página e segmentação.\n"
+    },
+    {
+      "id": "comp:so/nucleo-na-pratica",
+      "titulo": "Núcleo de sistema operacional na prática",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Compilar o MINIX numa máquina virtual, introduzir uma mudança observável (uma chamada de sistema nova ou uma alteração no escalonador) e demonstrar o efeito por um programa de usuário.",
+      "descricao": "Ler, compilar, modificar e depurar o código de um núcleo real e pequeno, ligando cada conceito estudado à estrutura de dados e à função que o implementa.\n"
+    },
+    {
+      "id": "comp:so/processos-e-concorrencia",
+      "titulo": "Processos e concorrência",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Resolver o problema do produtor-consumidor com semáforos, mostrar uma intercalação que quebra uma versão sem exclusão mútua, e justificar a ordem de cada `down` na solução correta.",
+      "descricao": "Processos e threads, condições de corrida, regiões críticas, exclusão mútua, semáforos, monitores e troca de mensagens, e os problemas clássicos de comunicação entre processos.\n"
+    },
+    {
+      "id": "comp:so/sistemas-de-arquivos",
+      "titulo": "Sistemas de arquivos",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Calcular o maior arquivo representável num esquema de i-node com blocos indiretos dado, e explicar o que uma verificação de consistência faz ao encontrar um bloco marcado como livre e em uso ao mesmo tempo.",
+      "descricao": "Arquivos e diretórios como abstração, implementação por alocação contígua, encadeada e i-nodes, gerenciamento de espaço livre, cache de blocos, consistência e proteção.\n"
     },
     {
       "id": "comp:web/acessibilidade",
@@ -1348,6 +1404,155 @@
       ]
     },
     {
+      "id": "etapa:so/entrada-saida-e-impasses",
+      "titulo": "Entrada/saída, drivers e impasses",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:so/projeto-e-implementacao",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:so/processos-e-concorrencia",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:so/entrada-saida-e-impasses",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:so/escalonamento-de-processos",
+      "titulo": "Escalonamento — políticas e o escalonador do MINIX",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 420,
+      "trilha": "trilha:so/projeto-e-implementacao",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:so/processos-e-concorrencia",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:so/escalonamento",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:so/gerenciamento-de-memoria",
+      "titulo": "Gerenciamento de memória — paginação, substituição e segmentação",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:so/projeto-e-implementacao",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:so/processos-e-concorrencia",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:so/gerenciamento-de-memoria",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:so/processos-e-concorrencia",
+      "titulo": "Processos, threads e comunicação entre processos",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:so/projeto-e-implementacao",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:so/estrutura-e-chamadas-de-sistema",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:so/processos-e-concorrencia",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:so/projeto-modificar-o-minix",
+      "titulo": "Projeto — compilar e modificar o MINIX",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1500,
+      "trilha": "trilha:so/projeto-e-implementacao",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:so/escalonamento",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:so/gerenciamento-de-memoria",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:so/sistemas-de-arquivos",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:so/nucleo-na-pratica",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:so/sistemas-de-arquivos",
+      "titulo": "Sistemas de arquivos — i-nodes, cache, consistência e proteção",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:so/projeto-e-implementacao",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:so/entrada-saida-e-impasses",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:so/sistemas-de-arquivos",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:so/visao-geral-e-chamadas-de-sistema",
+      "titulo": "Visão geral — o que é um SO, chamadas de sistema e estrutura do núcleo",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 480,
+      "trilha": "trilha:so/projeto-e-implementacao",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:so/estrutura-e-chamadas-de-sistema",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:web/acessibilidade-e-semantica",
       "titulo": "Semântica e acessibilidade — a interface para quem não usa o mouse",
       "rev": 1,
@@ -1710,6 +1915,39 @@
         "etapa:matematica/integral-e-acumulacao",
         "etapa:matematica/simetria-e-grupos",
         "etapa:matematica/projeto-demonstracao-propria"
+      ]
+    },
+    {
+      "id": "trilha:so/projeto-e-implementacao",
+      "titulo": "Sistemas operacionais, do conceito ao núcleo",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:so/processos-e-concorrencia",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:so/gerenciamento-de-memoria",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:so/sistemas-de-arquivos",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:so/nucleo-na-pratica",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:so/visao-geral-e-chamadas-de-sistema",
+        "etapa:so/processos-e-concorrencia",
+        "etapa:so/escalonamento-de-processos",
+        "etapa:so/entrada-saida-e-impasses",
+        "etapa:so/gerenciamento-de-memoria",
+        "etapa:so/sistemas-de-arquivos",
+        "etapa:so/projeto-modificar-o-minix"
       ]
     },
     {
@@ -3004,6 +3242,174 @@
       "url": "https://pythonfluente.com/",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:so/minix3-projeto",
+      "titulo": "Projeto — MINIX 3 em máquina virtual: compilar o núcleo, acrescentar uma chamada de sistema e alterar o escalonador",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/projeto-modificar-o-minix",
+      "formato": "projeto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 1500,
+      "url": "https://www.minix3.org/",
+      "disponivel": true,
+      "verificado_em": "2026-10-12"
+    },
+    {
+      "id": "rec:so/ostep-concorrencia",
+      "titulo": "Operating Systems: Three Easy Pieces — parte Concurrency: threads, travas, variáveis de condição e semáforos",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/processos-e-concorrencia",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "disponivel": true,
+      "verificado_em": "2026-10-12"
+    },
+    {
+      "id": "rec:so/ostep-escalonamento",
+      "titulo": "Operating Systems: Three Easy Pieces — escalonamento, filas multinível e lottery scheduling, com simuladores",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/escalonamento-de-processos",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "disponivel": true,
+      "verificado_em": "2026-10-12"
+    },
+    {
+      "id": "rec:so/ostep-introducao",
+      "titulo": "Operating Systems: Three Easy Pieces (Arpaci-Dusseau) — introdução e API de processos; edição aberta",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/visao-geral-e-chamadas-de-sistema",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "disponivel": true,
+      "verificado_em": "2026-10-12"
+    },
+    {
+      "id": "rec:so/ostep-memoria",
+      "titulo": "Operating Systems: Three Easy Pieces — parte Virtualization: espaço de endereçamento, paginação, TLB e substituição",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/gerenciamento-de-memoria",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "disponivel": true,
+      "verificado_em": "2026-10-12"
+    },
+    {
+      "id": "rec:so/ostep-persistencia",
+      "titulo": "Operating Systems: Three Easy Pieces — parte Persistence: implementação de sistema de arquivos, FFS e journaling",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/sistemas-de-arquivos",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 480,
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "disponivel": true,
+      "verificado_em": "2026-10-12"
+    },
+    {
+      "id": "rec:so/tanenbaum-woodhull-arquivos",
+      "titulo": "Sistemas Operacionais: Projeto e Implementação — cap. 5, sistema de arquivos",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/sistemas-de-arquivos",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 60.0,
+      "duracao_min": 540,
+      "url": "https://www.amazon.com.br/s?k=Sistemas+Operacionais+Projeto+e+Implementa%C3%A7%C3%A3o+Tanenbaum+Woodhull",
+      "disponivel": true,
+      "verificado_em": "2026-10-12"
+    },
+    {
+      "id": "rec:so/tanenbaum-woodhull-entrada-saida",
+      "titulo": "Sistemas Operacionais: Projeto e Implementação — cap. 3, entrada/saída e impasses",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/entrada-saida-e-impasses",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 60.0,
+      "duracao_min": 600,
+      "url": "https://www.amazon.com.br/s?k=Sistemas+Operacionais+Projeto+e+Implementa%C3%A7%C3%A3o+Tanenbaum+Woodhull",
+      "disponivel": true,
+      "verificado_em": "2026-10-12"
+    },
+    {
+      "id": "rec:so/tanenbaum-woodhull-escalonamento",
+      "titulo": "Sistemas Operacionais: Projeto e Implementação — cap. 2, escalonamento e processos no MINIX",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/escalonamento-de-processos",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 60.0,
+      "duracao_min": 300,
+      "url": "https://www.amazon.com.br/s?k=Sistemas+Operacionais+Projeto+e+Implementa%C3%A7%C3%A3o+Tanenbaum+Woodhull",
+      "disponivel": true,
+      "verificado_em": "2026-10-12"
+    },
+    {
+      "id": "rec:so/tanenbaum-woodhull-introducao",
+      "titulo": "Sistemas Operacionais: Projeto e Implementação, 2ª ed. (Tanenbaum & Woodhull) — cap. 1, introdução",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/visao-geral-e-chamadas-de-sistema",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 60.0,
+      "duracao_min": 300,
+      "url": "https://www.amazon.com.br/s?k=Sistemas+Operacionais+Projeto+e+Implementa%C3%A7%C3%A3o+Tanenbaum+Woodhull",
+      "disponivel": true,
+      "verificado_em": "2026-10-12"
+    },
+    {
+      "id": "rec:so/tanenbaum-woodhull-memoria",
+      "titulo": "Sistemas Operacionais: Projeto e Implementação — cap. 4, gerenciamento de memória",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/gerenciamento-de-memoria",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 60.0,
+      "duracao_min": 540,
+      "url": "https://www.amazon.com.br/s?k=Sistemas+Operacionais+Projeto+e+Implementa%C3%A7%C3%A3o+Tanenbaum+Woodhull",
+      "disponivel": true,
+      "verificado_em": "2026-10-12"
+    },
+    {
+      "id": "rec:so/tanenbaum-woodhull-processos",
+      "titulo": "Sistemas Operacionais: Projeto e Implementação — cap. 2, processos e comunicação entre processos",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/processos-e-concorrencia",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 60.0,
+      "duracao_min": 600,
+      "url": "https://www.amazon.com.br/s?k=Sistemas+Operacionais+Projeto+e+Implementa%C3%A7%C3%A3o+Tanenbaum+Woodhull",
+      "disponivel": true,
+      "verificado_em": "2026-10-12"
     },
     {
       "id": "rec:web/aria-authoring-practices",

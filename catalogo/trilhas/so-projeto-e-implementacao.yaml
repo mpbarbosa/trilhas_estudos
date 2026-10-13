@@ -1,0 +1,118 @@
+versao_schema: 1
+trilha:
+  id: trilha:so/projeto-e-implementacao
+  titulo: Sistemas operacionais, do conceito ao núcleo
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:so/processos-e-concorrencia
+      nivel: intermediario
+    - competencia: comp:so/gerenciamento-de-memoria
+      nivel: intermediario
+    - competencia: comp:so/sistemas-de-arquivos
+      nivel: intermediario
+    - competencia: comp:so/nucleo-na-pratica
+      nivel: intermediario
+
+  # Segue a espinha de Tanenbaum & Woodhull, *Sistemas Operacionais: Projeto e
+  # Implementação*: cada capítulo é conceito e, em seguida, a implementação no
+  # MINIX. Depois de processos, memória e E/S são independentes e podem ser
+  # cursadas em paralelo — é o grafo, não uma lista (ADR-0002).
+  etapas:
+    # --- Fundamento ---------------------------------------------------------
+    - id: etapa:so/visao-geral-e-chamadas-de-sistema
+      titulo: Visão geral — o que é um SO, chamadas de sistema e estrutura do núcleo
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 480
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:so/estrutura-e-chamadas-de-sistema
+          nivel_resultante: intermediario
+
+    - id: etapa:so/processos-e-concorrencia
+      titulo: Processos, threads e comunicação entre processos
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:so/estrutura-e-chamadas-de-sistema
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:so/processos-e-concorrencia
+          nivel_resultante: intermediario
+
+    - id: etapa:so/escalonamento-de-processos
+      titulo: Escalonamento — políticas e o escalonador do MINIX
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 420
+      opcional: false
+      requires:
+        - competencia: comp:so/processos-e-concorrencia
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:so/escalonamento
+          nivel_resultante: intermediario
+
+    # --- Recursos -----------------------------------------------------------
+    - id: etapa:so/entrada-saida-e-impasses
+      titulo: Entrada/saída, drivers e impasses
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:so/processos-e-concorrencia
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:so/entrada-saida-e-impasses
+          nivel_resultante: intermediario
+
+    - id: etapa:so/gerenciamento-de-memoria
+      titulo: Gerenciamento de memória — paginação, substituição e segmentação
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:so/processos-e-concorrencia
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:so/gerenciamento-de-memoria
+          nivel_resultante: intermediario
+
+    - id: etapa:so/sistemas-de-arquivos
+      titulo: Sistemas de arquivos — i-nodes, cache, consistência e proteção
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:so/entrada-saida-e-impasses
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:so/sistemas-de-arquivos
+          nivel_resultante: intermediario
+
+    # --- Prática ------------------------------------------------------------
+    - id: etapa:so/projeto-modificar-o-minix
+      titulo: Projeto — compilar e modificar o MINIX
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1500
+      opcional: false
+      requires:
+        - competencia: comp:so/escalonamento
+          nivel_minimo: intermediario
+        - competencia: comp:so/gerenciamento-de-memoria
+          nivel_minimo: intermediario
+        - competencia: comp:so/sistemas-de-arquivos
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:so/nucleo-na-pratica
+          nivel_resultante: intermediario
+
+  etapas_referenciadas: []

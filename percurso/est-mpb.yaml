@@ -41,9 +41,20 @@ matriculas:
     iniciada_em: 2026-10-08
     estado: em_andamento
 
+  - trilha: trilha:so/projeto-e-implementacao
+    rev: 1
+    iniciada_em: 2026-10-12
+    estado: em_andamento
+
 progresso:
   - etapa: etapa:ia/panorama-llm-transformer-rag
     rev: 1
     estado: em_andamento
     iniciada_em: 2026-10-08
     recurso_em_uso: rec:ia/ettucode-llm-transformer-rag   # LLM, Transformer, RAG AI (Et Tu Code)
+
+  - etapa: etapa:so/visao-geral-e-chamadas-de-sistema
+    rev: 1
+    estado: em_andamento
+    iniciada_em: 2026-10-12
+    recurso_em_uso: rec:so/tanenbaum-woodhull-introducao   # Sistemas Operacionais: Projeto e Implementação (Tanenbaum & Woodhull)

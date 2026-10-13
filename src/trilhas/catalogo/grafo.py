@@ -26,7 +26,7 @@ from .modelo import Etapa, Nivel
 
 @dataclass(frozen=True, slots=True)
 class Fecho:
-    """Resultado do fecho progressivo a partir de perfil vazio."""
+    """Resultado do fecho progressivo a partir de um perfil (vazio, por padrão)."""
 
     perfil: Mapping[str, Nivel]
     onda: Mapping[str, int]
@@ -57,14 +57,17 @@ class ArestaDerivada:
     competencias: tuple[str, ...] = field(default=())
 
 
-def fecho_progressivo(etapas: Iterable[Etapa]) -> Fecho:
+def fecho_progressivo(etapas: Iterable[Etapa], inicial: Mapping[str, Nivel] | None = None) -> Fecho:
     """Aplica, em rodadas, toda etapa cujos `requires` já estão satisfeitos.
 
     Cada rodada é uma onda: todas as etapas liberadas pelo perfil da rodada anterior
     entram juntas, e só depois o perfil avança. Sem isso a onda dependeria da ordem
     de iteração, e o layout da interface deixaria de ser determinístico.
+
+    `inicial` é o perfil de partida: vazio na validação, que ordena o catálogo em si,
+    e o perfil do estudante no motor de sugestão, que mede o que ele ainda alcança.
     """
-    perfil: dict[str, Nivel] = {}
+    perfil: dict[str, Nivel] = dict(inicial or {})
     onda: dict[str, int] = {}
     pendentes = sorted(etapas, key=lambda e: e.id)
     rodada = 0
