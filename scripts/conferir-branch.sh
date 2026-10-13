@@ -67,8 +67,18 @@ BASE_REF="refs/remotes/origin/$BASE"
 git show-ref --verify --quiet "$BASE_REF" || BASE_REF="refs/heads/$BASE"
 git show-ref --verify --quiet "$BASE_REF" || { echo "base inexistente: $BASE" >&2; exit 2; }
 
+# A existência do remoto se decide PERGUNTANDO AO SERVIDOR. A ref de rastreio
+# (refs/remotes/origin/X) sobrevive à exclusão do branch no servidor até alguém
+# rodar prune — confiar nela faz o script dizer "está no origin" sobre um branch
+# que já não existe lá, e declarar reversível uma exclusão que perde trabalho.
 tem_remoto=0
-git show-ref --verify --quiet "$REMOTO" && tem_remoto=1
+remoto_incerto=0
+if [ "$FETCH" -eq 1 ]; then
+  [ -n "$(git ls-remote --heads origin "$ALVO" 2>/dev/null)" ] && tem_remoto=1
+elif git show-ref --verify --quiet "$REMOTO"; then
+  tem_remoto=1
+  remoto_incerto=1
+fi
 
 if [ "$ALVO" = "$BASE" ]; then
   echo "$ALVO é a própria base — não há o que apagar."
@@ -89,8 +99,10 @@ else
   echo "${#EXCLUSIVOS[@]} commit(s) fora da base:"
   for c in "${EXCLUSIVOS[@]}"; do
     if [ "$tem_remoto" -eq 1 ] && git merge-base --is-ancestor "$c" "$REMOTO" 2>/dev/null; then
-      printf '  %s  %-56s [só no origin/%s]\n' \
-        "$(git rev-parse --short "$c")" "$(git log -1 --format=%s "$c" | cut -c1-56)" "$ALVO"
+      marca="[só no origin/$ALVO]"
+      [ "$remoto_incerto" -eq 1 ] && marca="[ref local diz origin/$ALVO — NÃO confirmado no servidor]"
+      printf '  %s  %-56s %s\n' \
+        "$(git rev-parse --short "$c")" "$(git log -1 --format=%s "$c" | cut -c1-56)" "$marca"
     else
       printf '  %s  %-56s ' "$(git rev-parse --short "$c")" "$(git log -1 --format=%s "$c" | cut -c1-56)"
       vermelho "[CÓPIA ÚNICA — não está em lugar nenhum além deste clone]"
@@ -98,7 +110,10 @@ else
     fi
   done
   echo
-  if [ "$problema" -eq 0 ]; then
+  if [ "$problema" -eq 0 ] && [ "$remoto_incerto" -eq 1 ]; then
+    amarelo "⚠ rodado com --sem-rede: a cópia remota NÃO foi confirmada no servidor."
+    amarelo "  Rode sem --sem-rede antes de apagar qualquer coisa."
+  elif [ "$problema" -eq 0 ]; then
     amarelo "⚠ apagar o branch LOCAL é reversível (os commits estão em origin/$ALVO),"
     amarelo "  mas NÃO apague o branch REMOTO antes de mesclá-lo à base."
   fi
@@ -158,10 +173,27 @@ if [ "$problema" -ne 0 ]; then
   vermelho "NÃO PODE APAGAR — veja acima"
   exit 1
 fi
+# O veredito cobre as TRÊS camadas: anunciar só o local faz a pessoa limpar o
+# clone e deixar a cópia do servidor para trás — a assimetria do §1 da skill.
+verde "PODE APAGAR — e são exclusões separadas:"
 if [ "$(git rev-parse --abbrev-ref HEAD)" = "$ALVO" ]; then
-  verde "PODE APAGAR, mas ele está em HEAD — saia dele primeiro:"
-  verde "  git switch $BASE && git branch -d $ALVO"
+  verde "  git switch $BASE                        # ele está em HEAD"
+fi
+verde "  git branch -d $ALVO"
+
+if [ "$tem_remoto" -eq 1 ]; then
+  if [ "$FETCH" -eq 1 ] && [ -z "$(git ls-remote --heads origin "$ALVO" 2>/dev/null)" ]; then
+    verde "  # o servidor já não tem este branch — nada a apagar lá"
+    verde "  git remote prune origin                 # some a ref de rastreio"
+  elif [ "${#EXCLUSIVOS[@]}" -gt 0 ]; then
+    amarelo "  ⚠ NÃO apague o remoto: ele é a única cópia de ${#EXCLUSIVOS[@]} commit(s)"
+    amarelo "    fora da base. Mescle primeiro; depois disso, aí sim:"
+    amarelo "      git push origin --delete $ALVO && git remote prune origin"
+  else
+    verde "  git push origin --delete $ALVO"
+    verde "  git remote prune origin                 # se a ref sobrar"
+  fi
 else
-  verde "PODE APAGAR o branch local: git branch -d $ALVO"
+  verde "  # não há cópia remota: só a camada local existe"
 fi
 exit 0
