@@ -16,6 +16,7 @@ catálogo. O motor de sugestão ainda não foi implementado.
   - *Análise de dados com Python* ([trilha](catalogo/trilhas/dados-com-python.yaml)) — manipulação, exploração, estatística e enquadramento
   - *Web, do protocolo à interface* ([trilha](catalogo/trilhas/web-do-protocolo-a-interface.yaml)) — HTTP, documento, JavaScript, tipos e componentes
   - *Arquitetura e entrega de software* ([trilha](catalogo/trilhas/arquitetura-e-entrega.yaml)) — requisitos, trade-off, decomposição, pipeline e operação
+  - *Matemática — da demonstração ao cálculo* ([trilha](catalogo/trilhas/matematica-prova-e-calculo.yaml)) — prova, geometria axiomática, cálculo e simetria
 - [Decisões de arquitetura](docs/README.md)
 
 ## Uso

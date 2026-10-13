@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 4,
-  "gerado_em": "2026-10-08T16:27:40+00:00",
-  "hash": "sha256:4e3bf796c16923c3050786db5a1d896fdbd94d3d036accd09af806ced43ea04d",
+  "catalogo_versao": 5,
+  "gerado_em": "2026-10-08T18:08:51+00:00",
+  "hash": "sha256:cd79abc0f82787b2e396920bddb5af9e98616754030839ffdd4b888a9fd93f27",
   "competencias": [
     {
       "id": "comp:dados/analise-exploratoria",
@@ -219,6 +219,54 @@
       "status": "ativo",
       "verificacao": "Implementar uma chamada que devolva JSON válido conforme um esquema dado, controlando temperatura e limite de tokens, e estimar o custo por mil chamadas.",
       "descricao": "Operar um modelo hospedado: parâmetros de decodificação, saída estruturada, janela de contexto, custo e latência por chamada.\n"
+    },
+    {
+      "id": "comp:matematica/calculo-diferencial",
+      "titulo": "Cálculo diferencial",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Modelar um problema de otimização a partir de um enunciado em prosa, resolvê-lo por derivação e interpretar o resultado na grandeza original — inclusive verificando que o ponto crítico encontrado é de fato máximo ou mínimo.",
+      "descricao": "A derivada como taxa de variação e como inclinação: regras de derivação, regra da cadeia, otimização, e a leitura física do que a derivada mede.\n"
+    },
+    {
+      "id": "comp:matematica/calculo-integral",
+      "titulo": "Cálculo integral",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Resolver um problema de acumulação montando a integral a partir do enunciado, e explicar em que sentido o teorema fundamental diz que derivar e integrar se desfazem — e em que sentido não.",
+      "descricao": "A integral como acumulação e como área: soma de Riemann, teorema fundamental, técnicas de integração e aplicação a grandezas acumuladas.\n"
+    },
+    {
+      "id": "comp:matematica/estrutura-e-simetria",
+      "titulo": "Estrutura algébrica e simetria",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Descrever o grupo de simetrias de uma figura dada listando seus elementos e a tabela da operação, e identificar um subgrupo justificando por que é fechado.",
+      "descricao": "Grupo como a formalização de simetria: operação, elemento neutro, inverso, subgrupo, e a ideia de classificar objetos pelas transformações que os preservam.\n"
+    },
+    {
+      "id": "comp:matematica/geometria-euclidiana",
+      "titulo": "Geometria euclidiana e método axiomático",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Reconstruir uma proposição dos Elementos indicando de quais postulados e proposições anteriores ela depende, e explicar por que o quinto postulado foi objeto de dois mil anos de tentativa de demonstração.",
+      "descricao": "A geometria plana como sistema dedutivo: noções comuns, postulados, construções com régua e compasso, e o que muda quando um postulado é retirado.\n"
+    },
+    {
+      "id": "comp:matematica/limite-e-continuidade",
+      "titulo": "Limite e continuidade",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Decidir se uma função dada é contínua num ponto e sustentar a resposta pela definição, não pelo gráfico; e exibir uma função cujo gráfico engana a intuição.",
+      "descricao": "O limite como o conceito que torna o infinitesimal tratável: aproximação, continuidade, comportamento assintótico, e por que a definição precisa ser tão desconfortável quanto é.\n"
+    },
+    {
+      "id": "comp:matematica/raciocinio-dedutivo",
+      "titulo": "Raciocínio dedutivo e demonstração",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Demonstrar uma proposição que você não viu antes, escolhendo a estratégia e justificando por que ela cabe; e, dada uma \"prova\" com erro sutil, localizar o passo inválido e dizer qual regra ele viola.",
+      "descricao": "Ler e escrever demonstração: quantificadores, implicação e sua recíproca, prova direta, contrapositiva, contradição, indução, contraexemplo — e distinguir argumento válido de argumento convincente.\n"
     },
     {
       "id": "comp:programacao/python-dados",
@@ -1140,6 +1188,151 @@
       ]
     },
     {
+      "id": "etapa:matematica/derivada-e-taxa-de-variacao",
+      "titulo": "Derivada — taxa de variação e otimização",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "trilha": "trilha:matematica/prova-e-calculo",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:matematica/limite-e-continuidade",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:matematica/calculo-diferencial",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:matematica/geometria-de-euclides",
+      "titulo": "Os Elementos — geometria como sistema axiomático",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "trilha": "trilha:matematica/prova-e-calculo",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:matematica/raciocinio-dedutivo",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:matematica/geometria-euclidiana",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:matematica/integral-e-acumulacao",
+      "titulo": "Integral — acumulação e o teorema fundamental",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "trilha": "trilha:matematica/prova-e-calculo",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:matematica/calculo-diferencial",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:matematica/calculo-integral",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:matematica/limite-e-continuidade",
+      "titulo": "Limite e continuidade — domar o infinitesimal",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:matematica/prova-e-calculo",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:matematica/raciocinio-dedutivo",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:matematica/limite-e-continuidade",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:matematica/o-que-e-uma-prova",
+      "titulo": "O que é uma prova — lógica, quantificador e estratégia de demonstração",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "trilha": "trilha:matematica/prova-e-calculo",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:matematica/raciocinio-dedutivo",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:matematica/projeto-demonstracao-propria",
+      "titulo": "Projeto — um resultado demonstrado do enunciado à escrita final",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "trilha": "trilha:matematica/prova-e-calculo",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:matematica/geometria-euclidiana",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:matematica/calculo-integral",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:matematica/raciocinio-dedutivo",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:matematica/simetria-e-grupos",
+      "titulo": "Simetria e grupos — classificar pelo que se preserva",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:matematica/prova-e-calculo",
+      "opcional": true,
+      "requires": [
+        {
+          "competencia": "comp:matematica/raciocinio-dedutivo",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:matematica/estrutura-e-simetria",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:programacao/python-para-ia",
       "titulo": "Python para trabalho com dados e IA",
       "rev": 1,
@@ -1488,6 +1681,35 @@
         "etapa:ia/avaliacao-de-sistemas-llm",
         "etapa:ia/rag-em-producao",
         "etapa:ia/projeto-assistente-rag"
+      ]
+    },
+    {
+      "id": "trilha:matematica/prova-e-calculo",
+      "titulo": "Matemática — da demonstração ao cálculo",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:matematica/raciocinio-dedutivo",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:matematica/geometria-euclidiana",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:matematica/calculo-integral",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:matematica/o-que-e-uma-prova",
+        "etapa:matematica/geometria-de-euclides",
+        "etapa:matematica/limite-e-continuidade",
+        "etapa:matematica/derivada-e-taxa-de-variacao",
+        "etapa:matematica/integral-e-acumulacao",
+        "etapa:matematica/simetria-e-grupos",
+        "etapa:matematica/projeto-demonstracao-propria"
       ]
     },
     {
@@ -2542,6 +2764,216 @@
       "custo": 0.0,
       "duracao_min": 600,
       "url": "https://web.stanford.edu/~jurafsky/slp3/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:matematica/book-of-proof",
+      "titulo": "Book of Proof, 3ª ed. (Richard Hammack) — edição aberta, com exercícios resolvidos",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:matematica/o-que-e-uma-prova",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 1200,
+      "url": "https://www.people.vcu.edu/~rhammack/BookOfProof/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:matematica/essence-of-calculus",
+      "titulo": "Essence of Calculus (3Blue1Brown) — a ideia geométrica antes da regra",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:matematica/derivada-e-taxa-de-variacao",
+      "formato": "video",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://www.3blue1brown.com/topics/calculus",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:matematica/euclides-elementos",
+      "titulo": "Elementos de Geometria (Euclides)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:matematica/geometria-de-euclides",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 20.0,
+      "duracao_min": 1200,
+      "url": "https://www.amazon.com.br/s?k=Elementos+de+Geometria+Euclides",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:matematica/euclides-interativo",
+      "titulo": "Euclid's Elements (David E. Joyce) — edição interativa com as dependências de cada proposição",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:matematica/geometria-de-euclides",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 900,
+      "url": "https://mathcs.clarku.edu/~djoyce/elements/elements.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:matematica/judson-abstract-algebra",
+      "titulo": "Abstract Algebra: Theory and Applications (Tom Judson) — edição aberta, grupos e grupos de simetria",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:matematica/simetria-e-grupos",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 900,
+      "url": "https://abstract.ups.edu/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:matematica/kline-calculus-derivada",
+      "titulo": "Kline, Calculus — derivada como taxa de variação, com a leitura física que dá nome ao livro",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:matematica/derivada-e-taxa-de-variacao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 90.0,
+      "duracao_min": 900,
+      "url": "https://store.doverpublications.com/products/9780486404530",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:matematica/kline-calculus-integral",
+      "titulo": "Kline, Calculus — integral, teorema fundamental e aplicações a grandezas acumuladas",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:matematica/integral-e-acumulacao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 90.0,
+      "duracao_min": 900,
+      "url": "https://store.doverpublications.com/products/9780486404530",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:matematica/kline-calculus-limites",
+      "titulo": "Calculus: An Intuitive and Physical Approach (Morris Kline) — capítulos de limite e continuidade",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:matematica/limite-e-continuidade",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 90.0,
+      "duracao_min": 600,
+      "url": "https://store.doverpublications.com/products/9780486404530",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:matematica/mathematical-proof-exercicios",
+      "titulo": "An Introduction to Mathematical Reasoning / listas abertas de exercícios de demonstração",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:matematica/o-que-e-uma-prova",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://math.libretexts.org/Bookshelves/Mathematical_Logic_and_Proof",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:matematica/openstax-calculus-v1",
+      "titulo": "OpenStax Calculus Volume 1 — limites e continuidade, com exercícios e respostas",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:matematica/limite-e-continuidade",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 720,
+      "url": "https://openstax.org/details/books/calculus-volume-1",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:matematica/openstax-calculus-v2",
+      "titulo": "OpenStax Calculus Volume 2 — integração e técnicas, com exercícios e respostas",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:matematica/integral-e-acumulacao",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 900,
+      "url": "https://openstax.org/details/books/calculus-volume-2",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:matematica/pauls-notes-derivadas",
+      "titulo": "Paul's Online Math Notes — derivação e otimização, com listas resolvidas",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:matematica/derivada-e-taxa-de-variacao",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 720,
+      "url": "https://tutorial.math.lamar.edu/Classes/CalcI/CalcI.aspx",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:matematica/projeto-demonstracao",
+      "titulo": "Projeto — escolher um resultado não trivial, demonstrá-lo e escrever a prova em LaTeX para leitura externa",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:matematica/projeto-demonstracao-propria",
+      "formato": "projeto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 1200,
+      "url": "https://www.people.vcu.edu/~rhammack/BookOfProof/",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:matematica/stewart-misterios",
+      "titulo": "Os mistérios matemáticos do professor Stewart (Ian Stewart) — divulgação: motiva e dá contexto, não treina demonstração",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:matematica/o-que-e-uma-prova",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 40.0,
+      "duracao_min": 480,
+      "url": "https://www.amazon.com.br/s?k=Os+mist%C3%A9rios+matem%C3%A1ticos+do+professor+Stewart",
+      "disponivel": true,
+      "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:matematica/stewart-simetria",
+      "titulo": "Uma história da simetria na matemática (Ian Stewart) — divulgação: dá o porquê histórico, não o formalismo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:matematica/simetria-e-grupos",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 40.0,
+      "duracao_min": 600,
+      "url": "https://www.amazon.com.br/s?k=Uma+hist%C3%B3ria+da+simetria+na+matem%C3%A1tica+Ian+Stewart",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
