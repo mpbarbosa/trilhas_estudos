@@ -97,6 +97,27 @@ imediatamente antes de agir, e desconfie de conclusão tirada de leitura anterio
 — aqui já houve `git stash list` vazio seguido, segundos depois, de um
 `git stash pop` que encontrou conteúdo.
 
+## 5. O branch em HEAD muda entre dois comandos seus
+
+A armadilha 4 vale também para `HEAD`: outra sessão pode rodar `git switch -c` no
+checkout compartilhado, e o seu `git commit` seguinte vai para o branch dela —
+sem erro, sem aviso, empilhado sobre trabalho que não é seu.
+
+Aconteceu assim: um `git status` confirmou `main`, e o `git add && git commit`
+logo depois reportou `[claude-project/montador-derivado 5e238d6]`.
+
+Não se perde nada, mas o commit fica refém do ciclo de revisão do branch alheio.
+**Confira o branch no mesmo comando que commita**, não antes:
+
+```bash
+git branch --show-current && git add <arquivos> && git commit
+```
+
+Se já foi para o branch errado, prefira deixar onde está: o commit entra na base
+quando aquele branch for mesclado. Mover exige `git cherry-pick` mais remover o
+commit do branch da outra sessão — reescrever histórico de quem está trabalhando
+agora custa mais do que esperar.
+
 ## Sequência que funciona
 
 ```bash
