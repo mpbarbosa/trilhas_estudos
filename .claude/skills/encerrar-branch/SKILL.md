@@ -107,11 +107,25 @@ Aconteceu assim: um `git status` confirmou `main`, e o `git add && git commit`
 logo depois reportou `[claude-project/montador-derivado 5e238d6]`.
 
 Não se perde nada, mas o commit fica refém do ciclo de revisão do branch alheio.
-**Confira o branch no mesmo comando que commita**, não antes:
+
+**Confira o branch no mesmo comando que commita**, e com uma guarda que de fato
+aborta. Isto **não** serve:
 
 ```bash
-git branch --show-current && git add <arquivos> && git commit
+git branch --show-current && git add CAMINHO && git commit   # NÃO protege
 ```
+
+`git branch --show-current` sai com 0 sempre: ele imprime o branch errado e o
+`&&` segue em frente. Aconteceu aqui — a saída mostrou
+`claude-project/montador-derivado` e o commit foi feito mesmo assim. Compare o
+valor:
+
+```bash
+[ "$(git branch --show-current)" = main ] && git add CAMINHO && git commit -m "…"
+```
+
+Agora o `[` falha quando o branch não é o esperado e a cadeia para antes do
+`add`. Troque `main` pelo branch em que você pretende estar.
 
 Se já foi para o branch errado, prefira deixar onde está: o commit entra na base
 quando aquele branch for mesclado. Mover exige `git cherry-pick` mais remover o
