@@ -160,6 +160,34 @@ Se já aconteceu e o commit foi empurrado, **não reescreva**: o histórico
 publicado num checkout que outras sessões usam custa mais do que a atribuição
 errada. Avise a sessão autora, para ela não recommitar o mesmo texto.
 
+## 7. `git commit` leva o índice inteiro, não o que você acabou de adicionar
+
+Variante da 6 com outro mecanismo e outra defesa. Na 6 o `git add CAMINHO` varre
+edição alheia **no mesmo arquivo**. Aqui o arquivo é outro e o `add` nem o tocou:
+num checkout compartilhado **o índice também é compartilhado**, e `git commit`
+sem `--` commita tudo que estiver nele, staged por quem for.
+
+Aconteceu em `8c87c15`: o comando foi
+`git add claude-project/instrucoes.md && git commit -m "Inclui a bibliografia…"`,
+um caminho só, explícito. O commit saiu com dois arquivos — o segundo era uma
+seção do `CLAUDE.md` que outra sessão tinha deixado staged minutos antes.
+
+Por isso `git diff --cached -- CAMINHO` **não** protege: ele confere o caminho
+que você já sabe que está lá. Duas defesas, e a segunda é a que fecha:
+
+```bash
+git diff --cached --name-only          # o índice INTEIRO, sem filtro
+git commit -m "…" -- CAMINHO           # commita só este caminho, ignora o resto
+```
+
+Verificado: com `alheio.txt` staged, `git commit -m "…" -- meu.txt` levou só
+`meu.txt` e deixou `alheio.txt` no índice, intacto. O `git commit` seguinte, sem
+`--`, levou o `alheio.txt` sozinho.
+
+Corolário: **deixar algo staged é por si só o risco.** A janela entre `git add`
+e `git commit` pertence a todas as sessões. Prepare e commite no mesmo comando,
+ou prepare nada e use `git commit -- CAMINHO` direto.
+
 ## Sequência que funciona
 
 ```bash
