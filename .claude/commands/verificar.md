@@ -3,8 +3,9 @@ description: Roda a verificação completa (catálogo, testes, lint, tipos) e re
 allowed-tools: Bash(uv run:*), Bash(git status:*), Bash(git diff:*)
 ---
 
-Não há CI neste repositório (docs/README.md §Pendente): esta é a verificação de merge,
-e é manual. Rode os quatro passos, **todos**, mesmo que um falhe antes:
+O CI roda este mesmo gate (`.github/workflows/verificar.yml`), mas só depois do push:
+aqui é onde a mudança se prova antes de virar commit. Rode os quatro passos, **todos**,
+mesmo que um falhe antes:
 
 ```bash
 uv run trilhas compilar --conferir
