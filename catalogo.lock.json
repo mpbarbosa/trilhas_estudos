@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 6,
-  "gerado_em": "2026-10-13T01:59:43+00:00",
-  "hash": "sha256:ef236f4697f07b70d921355ced06db77925a4eed78d936cc11250eaac36b587c",
+  "catalogo_versao": 7,
+  "gerado_em": "2026-10-13T03:03:14+00:00",
+  "hash": "sha256:153589ced8f5dfe533210de1a5d550db32fbaab52892f7c09f46525957f1bdfc",
   "competencias": [
     {
       "id": "comp:dados/analise-exploratoria",
@@ -1993,7 +1993,7 @@
       "idioma": "pt-BR",
       "custo": 90.0,
       "duracao_min": 900,
-      "url": "https://www.amazon.com.br/s?k=Data+Science+para+Neg%C3%B3cios+Provost+Fawcett",
+      "url": "https://www.amazon.com.br/dp/8576089726",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -2007,7 +2007,7 @@
       "idioma": "pt-BR",
       "custo": 40.0,
       "duracao_min": 900,
-      "url": "https://www.amazon.com.br/s?k=Matem%C3%A1tica+para+Ci%C3%AAncia+de+Dados+Dianguila",
+      "url": "https://www.amazon.com.br/dp/B0DQVMKS9N",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -2021,7 +2021,7 @@
       "idioma": "pt-BR",
       "custo": 30.0,
       "duracao_min": 600,
-      "url": "https://www.amazon.com.br/s?k=Dominando+Python+Ruhan+Concei%C3%A7%C3%A3o",
+      "url": "https://www.amazon.com.br/dp/B0C7NDPKFR",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -2049,7 +2049,7 @@
       "idioma": "pt-BR",
       "custo": 30.0,
       "duracao_min": 600,
-      "url": "https://www.amazon.com.br/s?k=An%C3%A1lise+Explorat%C3%B3ria+de+Dados+Fernando+Feltrin",
+      "url": "https://www.amazon.com.br/dp/B098DF8BZ5",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -2273,7 +2273,7 @@
       "idioma": "en-US",
       "custo": 90.0,
       "duracao_min": 900,
-      "url": "https://www.amazon.com.br/s?k=Effective+DevOps+Jennifer+Davis+Ryn+Daniels",
+      "url": "https://www.amazon.com.br/dp/1491926309",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -2329,7 +2329,7 @@
       "idioma": "en-US",
       "custo": 25.0,
       "duracao_min": 300,
-      "url": "https://www.amazon.com.br/s?k=Functional+and+Non-Functional+Requirements+Simply+Put",
+      "url": "https://www.amazon.com.br/dp/1534983481",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -2357,7 +2357,7 @@
       "idioma": "pt-BR",
       "custo": 120.0,
       "duracao_min": 900,
-      "url": "https://www.amazon.com.br/s?k=Arquitetura+de+software+as+partes+dif%C3%ADceis",
+      "url": "https://www.amazon.com.br/dp/8550819840",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -2371,7 +2371,7 @@
       "idioma": "pt-BR",
       "custo": 120.0,
       "duracao_min": 900,
-      "url": "https://www.amazon.com.br/s?k=Arquitetura+de+software+as+partes+dif%C3%ADceis",
+      "url": "https://www.amazon.com.br/dp/8550819840",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -2385,7 +2385,7 @@
       "idioma": "pt-BR",
       "custo": 120.0,
       "duracao_min": 480,
-      "url": "https://www.amazon.com.br/s?k=Arquitetura+de+software+as+partes+dif%C3%ADceis",
+      "url": "https://www.amazon.com.br/dp/8550819840",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -2441,7 +2441,7 @@
       "idioma": "en-US",
       "custo": 25.0,
       "duracao_min": 300,
-      "url": "https://www.amazon.com.br/s?k=Ry%27s+Git+Tutorial+Ryan+Hodson",
+      "url": "https://www.amazon.com.br/dp/B00QFIA5OC",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -2455,7 +2455,7 @@
       "idioma": "pt-BR",
       "custo": 70.0,
       "duracao_min": 900,
-      "url": "https://www.amazon.com.br/s?k=Engenharia+de+Requisitos+Vazquez+Sim%C3%B5es",
+      "url": "https://www.amazon.com.br/dp/B01M3S7HT7",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -2581,7 +2581,7 @@
       "idioma": "pt-BR",
       "custo": 30.0,
       "duracao_min": 90,
-      "url": "https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin",
+      "url": "https://www.amazon.com.br/dp/B0H8S9BKKZ",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -2595,7 +2595,7 @@
       "idioma": "pt-BR",
       "custo": 30.0,
       "duracao_min": 96,
-      "url": "https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin",
+      "url": "https://www.amazon.com.br/dp/B0H8S9BKKZ",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -2609,7 +2609,7 @@
       "idioma": "pt-BR",
       "custo": 30.0,
       "duracao_min": 120,
-      "url": "https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin",
+      "url": "https://www.amazon.com.br/dp/B0H8S9BKKZ",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -2623,7 +2623,7 @@
       "idioma": "pt-BR",
       "custo": 30.0,
       "duracao_min": 120,
-      "url": "https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin",
+      "url": "https://www.amazon.com.br/dp/B0H8S9BKKZ",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -2637,7 +2637,7 @@
       "idioma": "pt-BR",
       "custo": 30.0,
       "duracao_min": 120,
-      "url": "https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin",
+      "url": "https://www.amazon.com.br/dp/B0H8S9BKKZ",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -2651,7 +2651,7 @@
       "idioma": "pt-BR",
       "custo": 30.0,
       "duracao_min": 30,
-      "url": "https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin",
+      "url": "https://www.amazon.com.br/dp/B0H8S9BKKZ",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -2665,7 +2665,7 @@
       "idioma": "pt-BR",
       "custo": 30.0,
       "duracao_min": 150,
-      "url": "https://www.amazon.com.br/s?k=A+B%C3%ADblia+do+Claude+AI+Thierry+Gustin",
+      "url": "https://www.amazon.com.br/dp/B0H8S9BKKZ",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -3043,7 +3043,7 @@
       "idioma": "pt-BR",
       "custo": 20.0,
       "duracao_min": 1200,
-      "url": "https://www.amazon.com.br/s?k=Elementos+de+Geometria+Euclides",
+      "url": "https://www.amazon.com.br/dp/B00AGZCDLS",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -3197,7 +3197,7 @@
       "idioma": "pt-BR",
       "custo": 40.0,
       "duracao_min": 480,
-      "url": "https://www.amazon.com.br/s?k=Os+mist%C3%A9rios+matem%C3%A1ticos+do+professor+Stewart",
+      "url": "https://www.amazon.com.br/dp/8537814547",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -3211,7 +3211,7 @@
       "idioma": "pt-BR",
       "custo": 40.0,
       "duracao_min": 600,
-      "url": "https://www.amazon.com.br/s?k=Uma+hist%C3%B3ria+da+simetria+na+matem%C3%A1tica+Ian+Stewart",
+      "url": "https://www.amazon.com.br/dp/8537808210",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -3435,7 +3435,7 @@
       "idioma": "en-US",
       "custo": 40.0,
       "duracao_min": 300,
-      "url": "https://www.amazon.com.br/s?k=Async+JavaScript+Trevor+Burnham",
+      "url": "https://www.amazon.com.br/dp/1937785270",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -3463,7 +3463,7 @@
       "idioma": "en-US",
       "custo": 40.0,
       "duracao_min": 480,
-      "url": "https://www.amazon.com.br/s?k=Data+Visualization+with+D3.js+Cookbook",
+      "url": "https://www.amazon.com.br/dp/178216216X",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -3505,7 +3505,7 @@
       "idioma": "en-US",
       "custo": 40.0,
       "duracao_min": 480,
-      "url": "https://www.amazon.com.br/s?k=Mastering+D3.js+Pablo+Navarro+Castillo",
+      "url": "https://www.amazon.com.br/dp/B00N1X6926",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -3603,7 +3603,7 @@
       "idioma": "pt-BR",
       "custo": 90.0,
       "duracao_min": 900,
-      "url": "https://www.amazon.com.br/s?k=React+Fluente+Tejas+Kumar",
+      "url": "https://www.amazon.com.br/dp/B0D4FD47PW",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -3617,7 +3617,7 @@
       "idioma": "pt-BR",
       "custo": 30.0,
       "duracao_min": 300,
-      "url": "https://www.amazon.com.br/s?k=TypeScript+B%C3%A1sico+Jardel+Vieira+Alves",
+      "url": "https://www.amazon.com.br/dp/B0GGKMPH2X",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     },
@@ -3673,7 +3673,7 @@
       "idioma": "en-US",
       "custo": 25.0,
       "duracao_min": 240,
-      "url": "https://www.amazon.com.br/s?k=What+Every+Web+Developer+Should+Know+About+HTTP",
+      "url": "https://www.amazon.com.br/dp/B0076Z6VMI",
       "disponivel": true,
       "verificado_em": "2026-10-08"
     }

@@ -23,7 +23,7 @@ recursos:
     idioma: en-US
     custo: 25
     duracao_min: 240
-    url: https://www.amazon.com.br/s?k=What+Every+Web+Developer+Should+Know+About+HTTP
+    url: https://www.amazon.com.br/dp/B0076Z6VMI
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -144,7 +144,7 @@ recursos:
     idioma: en-US
     custo: 40
     duracao_min: 300
-    url: https://www.amazon.com.br/s?k=Async+JavaScript+Trevor+Burnham
+    url: https://www.amazon.com.br/dp/1937785270
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -171,7 +171,7 @@ recursos:
     idioma: pt-BR
     custo: 30
     duracao_min: 300
-    url: https://www.amazon.com.br/s?k=TypeScript+B%C3%A1sico+Jardel+Vieira+Alves
+    url: https://www.amazon.com.br/dp/B0GGKMPH2X
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -198,7 +198,7 @@ recursos:
     idioma: pt-BR
     custo: 90
     duracao_min: 900
-    url: https://www.amazon.com.br/s?k=React+Fluente+Tejas+Kumar
+    url: https://www.amazon.com.br/dp/B0D4FD47PW
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -238,7 +238,7 @@ recursos:
     idioma: en-US
     custo: 40
     duracao_min: 480
-    url: https://www.amazon.com.br/s?k=Data+Visualization+with+D3.js+Cookbook
+    url: https://www.amazon.com.br/dp/178216216X
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -251,7 +251,7 @@ recursos:
     idioma: en-US
     custo: 40
     duracao_min: 480
-    url: https://www.amazon.com.br/s?k=Mastering+D3.js+Pablo+Navarro+Castillo
+    url: https://www.amazon.com.br/dp/B00N1X6926
     disponivel: true
     verificado_em: 2026-10-08
 

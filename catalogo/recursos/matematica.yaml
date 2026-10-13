@@ -51,7 +51,7 @@ recursos:
     idioma: pt-BR
     custo: 40
     duracao_min: 480
-    url: https://www.amazon.com.br/s?k=Os+mist%C3%A9rios+matem%C3%A1ticos+do+professor+Stewart
+    url: https://www.amazon.com.br/dp/8537814547
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -65,7 +65,7 @@ recursos:
     idioma: pt-BR
     custo: 20
     duracao_min: 1200
-    url: https://www.amazon.com.br/s?k=Elementos+de+Geometria+Euclides
+    url: https://www.amazon.com.br/dp/B00AGZCDLS
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -186,7 +186,7 @@ recursos:
     idioma: pt-BR
     custo: 40
     duracao_min: 600
-    url: https://www.amazon.com.br/s?k=Uma+hist%C3%B3ria+da+simetria+na+matem%C3%A1tica+Ian+Stewart
+    url: https://www.amazon.com.br/dp/8537808210
     disponivel: true
     verificado_em: 2026-10-08
 

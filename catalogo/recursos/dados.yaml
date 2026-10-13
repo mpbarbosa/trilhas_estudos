@@ -44,7 +44,7 @@ recursos:
     idioma: pt-BR
     custo: 30
     duracao_min: 600
-    url: https://www.amazon.com.br/s?k=Dominando+Python+Ruhan+Concei%C3%A7%C3%A3o
+    url: https://www.amazon.com.br/dp/B0C7NDPKFR
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -58,7 +58,7 @@ recursos:
     idioma: pt-BR
     custo: 30
     duracao_min: 600
-    url: https://www.amazon.com.br/s?k=An%C3%A1lise+Explorat%C3%B3ria+de+Dados+Fernando+Feltrin
+    url: https://www.amazon.com.br/dp/B098DF8BZ5
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -112,7 +112,7 @@ recursos:
     idioma: pt-BR
     custo: 40
     duracao_min: 900
-    url: https://www.amazon.com.br/s?k=Matem%C3%A1tica+para+Ci%C3%AAncia+de+Dados+Dianguila
+    url: https://www.amazon.com.br/dp/B0DQVMKS9N
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -179,7 +179,7 @@ recursos:
     idioma: pt-BR
     custo: 90
     duracao_min: 900
-    url: https://www.amazon.com.br/s?k=Data+Science+para+Neg%C3%B3cios+Provost+Fawcett
+    url: https://www.amazon.com.br/dp/8576089726
     disponivel: true
     verificado_em: 2026-10-08
 

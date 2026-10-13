@@ -22,7 +22,7 @@ recursos:
     idioma: pt-BR
     custo: 70
     duracao_min: 900
-    url: https://www.amazon.com.br/s?k=Engenharia+de+Requisitos+Vazquez+Sim%C3%B5es
+    url: https://www.amazon.com.br/dp/B01M3S7HT7
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -35,7 +35,7 @@ recursos:
     idioma: en-US
     custo: 25
     duracao_min: 300
-    url: https://www.amazon.com.br/s?k=Functional+and+Non-Functional+Requirements+Simply+Put
+    url: https://www.amazon.com.br/dp/1534983481
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -62,7 +62,7 @@ recursos:
     idioma: pt-BR
     custo: 120
     duracao_min: 480
-    url: https://www.amazon.com.br/s?k=Arquitetura+de+software+as+partes+dif%C3%ADceis
+    url: https://www.amazon.com.br/dp/8550819840
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -89,7 +89,7 @@ recursos:
     idioma: pt-BR
     custo: 120
     duracao_min: 900
-    url: https://www.amazon.com.br/s?k=Arquitetura+de+software+as+partes+dif%C3%ADceis
+    url: https://www.amazon.com.br/dp/8550819840
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -116,7 +116,7 @@ recursos:
     idioma: pt-BR
     custo: 120
     duracao_min: 900
-    url: https://www.amazon.com.br/s?k=Arquitetura+de+software+as+partes+dif%C3%ADceis
+    url: https://www.amazon.com.br/dp/8550819840
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -170,7 +170,7 @@ recursos:
     idioma: en-US
     custo: 25
     duracao_min: 300
-    url: https://www.amazon.com.br/s?k=Ry%27s+Git+Tutorial+Ryan+Hodson
+    url: https://www.amazon.com.br/dp/B00QFIA5OC
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -224,7 +224,7 @@ recursos:
     idioma: en-US
     custo: 90
     duracao_min: 900
-    url: https://www.amazon.com.br/s?k=Effective+DevOps+Jennifer+Davis+Ryn+Daniels
+    url: https://www.amazon.com.br/dp/1491926309
     disponivel: true
     verificado_em: 2026-10-08
 
