@@ -67,16 +67,14 @@ docs/                CONTEXT, especificações e ADRs
 
 ## Catálogo atual
 
-6 trilhas, 41 competências, 54 etapas, 109 recursos (`catalogo_versao` 5):
+Não confie em contagem escrita aqui — ela envelhece a cada trilha nova. Consulte:
 
-| Trilha | Id |
-|---|---|
-| Do transformer ao RAG em produção | `trilha:ia/llm-transformer-rag` |
-| Do chat ao agente em produção com Claude | `trilha:ia/claude-do-chat-ao-agente` |
-| Análise de dados com Python | `trilha:dados/analise-de-dados-com-python` |
-| Web, do protocolo à interface | `trilha:web/do-protocolo-a-interface` |
-| Arquitetura e entrega de software | `trilha:engenharia/arquitetura-e-entrega` |
-| Matemática — da demonstração ao cálculo | `trilha:matematica/prova-e-calculo` |
+```bash
+python3 -c 'import json;d=json.load(open("catalogo.lock.json"));print(d["catalogo_versao"],{k:len(d[k]) for k in ("trilhas","competencias","etapas","recursos")});[print(t["id"],t["titulo"]) for t in d["trilhas"]]'
+```
+
+O estado do projeto — o que está construído e o que vem a seguir — se mantém na
+seção *Ordem de construção implicada* de [docs/README.md](docs/README.md).
 
 ## Autoria de trilha
 
