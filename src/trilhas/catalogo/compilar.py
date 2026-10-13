@@ -13,9 +13,7 @@ from datetime import UTC, date, datetime
 from typing import Any
 
 from .modelo import Catalogo
-from .snapshot import EstadoAnterior
-
-VERSAO_SNAPSHOT = 1
+from .snapshot import VERSAO_SNAPSHOT, EstadoAnterior
 
 
 def compilar(catalogo: Catalogo, anterior: EstadoAnterior | None = None) -> dict[str, Any]:

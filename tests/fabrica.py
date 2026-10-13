@@ -25,11 +25,16 @@ VERIFICADO_EM = date(2026, 10, 8)
 
 
 def competencia(
-    ident: str, *, rev: int = 1, status: Status = Status.ATIVO, **kw: object
+    ident: str,
+    *,
+    titulo: str | None = None,
+    rev: int = 1,
+    status: Status = Status.ATIVO,
+    **kw: object,
 ) -> Competencia:
     return Competencia(
         id=ident,
-        titulo=ident,
+        titulo=titulo or ident,
         rev=rev,
         status=status,
         verificacao="critério de verificação",
@@ -40,6 +45,7 @@ def competencia(
 def etapa(
     ident: str,
     *,
+    titulo: str | None = None,
     requires: list[tuple[str, Nivel]] | None = None,
     teaches: list[tuple[str, Nivel]] | None = None,
     rev: int = 1,
@@ -50,7 +56,7 @@ def etapa(
 ) -> Etapa:
     return Etapa(
         id=ident,
-        titulo=ident,
+        titulo=titulo or ident,
         rev=rev,
         status=status,
         esforco_estimado_min=esforco,
@@ -65,6 +71,11 @@ def recurso(
     ident: str,
     etapa_id: str,
     *,
+    titulo: str | None = None,
+    custo: float = 0.0,
+    formato: Formato = Formato.TEXTO,
+    idioma: str = "pt-BR",
+    duracao_min: int = 60,
     disponivel: bool = True,
     status: Status = Status.ATIVO,
     rev: int = 1,
@@ -73,14 +84,14 @@ def recurso(
 ) -> Recurso:
     return Recurso(
         id=ident,
-        titulo=ident,
+        titulo=titulo or ident,
         rev=rev,
         status=status,
         etapa=etapa_id,
-        formato=Formato.TEXTO,
-        idioma="pt-BR",
-        custo=0.0,
-        duracao_min=60,
+        formato=formato,
+        idioma=idioma,
+        custo=custo,
+        duracao_min=duracao_min,
         url="https://exemplo.invalid/x",
         disponivel=disponivel,
         verificado_em=verificado_em,
@@ -91,6 +102,7 @@ def recurso(
 def trilha(
     ident: str,
     *,
+    titulo: str | None = None,
     etapas: list[str] | None = None,
     referenciadas: list[str] | None = None,
     objetivo: list[tuple[str, Nivel]] | None = None,
@@ -100,7 +112,7 @@ def trilha(
 ) -> Trilha:
     return Trilha(
         id=ident,
-        titulo=ident,
+        titulo=titulo or ident,
         rev=rev,
         status=status,
         objetivo_declarado=tuple(Alvo(c, n) for c, n in (objetivo or [])),

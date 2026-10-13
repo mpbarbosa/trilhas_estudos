@@ -1,0 +1,95 @@
+# trilhas_estudos — instruções para o Claude Code
+
+Controle e sugestão de trilhas de estudo. **Escreva, comente e nomeie em pt-BR**,
+inclusive identificadores de código — é a convenção do repositório (`carregar`,
+`validar`, `compilar`, `Problema`, `Severidade`).
+
+## Leia antes de mexer
+
+| Arquivo | Quando |
+|---|---|
+| [docs/CONTEXT.md](docs/CONTEXT.md) | sempre: glossário, entidades, invariantes |
+| [docs/catalogo.md](docs/catalogo.md) | ao tocar em `catalogo/` ou em `src/trilhas/catalogo/` |
+| [docs/motor-de-sugestao.md](docs/motor-de-sugestao.md) | ao construir o motor (próxima capacidade) |
+| [docs/README.md](docs/README.md) | índice de ADRs e ordem de construção |
+
+O glossário de CONTEXT.md §1 é a **linguagem única**: use `Competência`, `Etapa`,
+`Recurso`, `Trilha`, `Evidência`, `Progresso`, `Sugestão`. Não introduza "curso",
+"módulo", "aula", "lição" ou "tarefa" — foram descartados por ambiguidade.
+
+## Comandos
+
+```bash
+uv run trilhas validar              # valida o catálogo; 0 = válido, 1 = com erro
+uv run trilhas compilar             # grava catalogo.lock.json se o conteúdo mudou
+uv run trilhas compilar --conferir  # não grava; falha se o snapshot está desatualizado
+uv run pytest                       # suíte completa
+uv run ruff check . && uv run ruff format --check .
+uv run mypy                         # --strict sobre src/trilhas (configurado em pyproject)
+```
+
+Antes de considerar uma mudança pronta: `validar` (ou `compilar`), `pytest`, `ruff`,
+`mypy`. Ainda **não há CI** — a verificação é manual (docs/README.md §Pendente).
+
+## Estrutura
+
+```
+catalogo/            autoria em YAML — fonte da verdade (competencias/ trilhas/ etapas/ recursos/)
+catalogo.lock.json   GERADO por `trilhas compilar`. Nunca editar à mão.
+percurso/            estado por estudante. Formato provisório, nenhuma ADR o decidiu.
+src/trilhas/catalogo/  carregar → validar → compilar; cli.py é a interface de CI
+src/trilhas/motor/     ainda não existe: próxima capacidade
+tests/fixtures/catalogo_exemplo/  catálogo-fixture dos cenários do motor
+docs/                CONTEXT, especificações e ADRs
+```
+
+## Regras duras
+
+1. **`catalogo.lock.json` é gerado.** Mudança de conteúdo se faz no YAML e se
+   propaga com `trilhas compilar`. Commite o lock junto com o YAML que o gerou.
+2. **Id de catálogo é imutável e nunca reaproveitado** — formato `<tipo>:<area>/<slug>`,
+   minúsculas, dígitos e hífen. Corrigir um slug = criar outra entidade e depreciar a
+   anterior com `substituido_por`. Nada é removido do catálogo (docs/catalogo.md §3 e §6).
+3. **`rev` sobe só em mudança substantiva**, pela tabela de docs/catalogo.md §4.
+   `titulo`, `descricao`, `url` equivalente e `verificado_em` são cosméticos.
+4. **Domínio puro**: nenhum módulo em `src/trilhas/` abaixo de `cli.py` faz I/O,
+   rede ou leitura de ambiente. `validar` é função pura. Modelo em `dataclasses`
+   congeladas (ADR-0006).
+5. **Sugestão é explicável por construção** — nenhuma sugestão sem os fatores que a
+   produziram, e a explicação nunca cita fator ausente de `fatores` (ADR-0003,
+   motor §2.5).
+6. **Fato datado não retroage**: mudar o catálogo não recalcula evidência nem
+   progresso já gravados (docs/catalogo.md §4).
+7. **Decisão estrutural vira ADR** em `docs/adr/`, no formato dos existentes
+   (Contexto / Decisão / Consequências), e entra na tabela de docs/README.md.
+   Não altere uma ADR aceita para mudar de rumo: escreva a seguinte, ou uma
+   "Nota de correção" como em ADR-0006.
+
+## Catálogo atual
+
+6 trilhas, 41 competências, 54 etapas, 109 recursos (`catalogo_versao` 5):
+
+| Trilha | Id |
+|---|---|
+| Do transformer ao RAG em produção | `trilha:ia/llm-transformer-rag` |
+| Do chat ao agente em produção com Claude | `trilha:ia/claude-do-chat-ao-agente` |
+| Análise de dados com Python | `trilha:dados/analise-de-dados-com-python` |
+| Web, do protocolo à interface | `trilha:web/do-protocolo-a-interface` |
+| Arquitetura e entrega de software | `trilha:engenharia/arquitetura-e-entrega` |
+| Matemática — da demonstração ao cálculo | `trilha:matematica/prova-e-calculo` |
+
+## Autoria de trilha
+
+Procedimento em [.claude/skills/autorar-catalogo/SKILL.md](.claude/skills/autorar-catalogo/SKILL.md).
+Em resumo: etapas moram no arquivo da trilha que as introduz; recursos ficam em
+`catalogo/recursos/<area>.yaml` por terem ciclo de vida próprio; outras trilhas
+referenciam etapas por id em `etapas_referenciadas`, nunca redefinem.
+
+## Git
+
+Outras sessões commitam neste repositório em paralelo. Confira `git status` e
+`git log` antes de escrever, e commite só o que você mudou: pode haver trabalho
+não commitado de outra sessão na árvore.
+
+Commits em pt-BR, no imperativo ou no padrão `catalogo: trilha "<título>"` usado
+no histórico.

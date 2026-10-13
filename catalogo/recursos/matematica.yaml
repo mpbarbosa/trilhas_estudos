@@ -1,0 +1,218 @@
+# Convenções deste arquivo:
+#   custo  — em BRL, aproximado na data de `verificado_em`; 0 = gratuito.
+#   idioma — tag BCP 47.
+#
+# ATENÇÃO sobre `disponivel` (mesma ressalva dos demais arquivos de recurso): parte
+# do acervo Kindle é *amostra*, não exemplar completo, e amostra deve virar
+# `disponivel: false` — a §5.5 conta com exemplar íntegro.
+#
+# NOTA sobre a composição desta trilha, para quem for revisá-la: o acervo contribui
+# com pouco aqui. Dos quatro títulos de matemática, dois (Stewart) são divulgação —
+# motivam e dão contexto histórico, mas não treinam competência, e entram marcados
+# como tal; um (Kline) já serve a etapa:dados/matematica-para-dados na trilha de
+# dados, onde o recorte é aplicado; e os Elementos sustentam uma etapa só. O corpo
+# da trilha é portanto material aberto, escolhido por ter exercício com resposta —
+# que é o que falta aos livros de divulgação.
+versao_schema: 1
+recursos:
+  # --- etapa:matematica/o-que-e-uma-prova ---------------------------------
+  - id: rec:matematica/book-of-proof
+    etapa: etapa:matematica/o-que-e-uma-prova
+    titulo: "Book of Proof, 3ª ed. (Richard Hammack) — edição aberta, com exercícios resolvidos"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 1200
+    url: https://www.people.vcu.edu/~rhammack/BookOfProof/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:matematica/mathematical-proof-exercicios
+    etapa: etapa:matematica/o-que-e-uma-prova
+    titulo: "An Introduction to Mathematical Reasoning / listas abertas de exercícios de demonstração"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 600
+    url: https://math.libretexts.org/Bookshelves/Mathematical_Logic_and_Proof
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:matematica/stewart-misterios
+    etapa: etapa:matematica/o-que-e-uma-prova
+    titulo: "Os mistérios matemáticos do professor Stewart (Ian Stewart) — divulgação: motiva e dá contexto, não treina demonstração"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 40
+    duracao_min: 480
+    url: https://www.amazon.com.br/s?k=Os+mist%C3%A9rios+matem%C3%A1ticos+do+professor+Stewart
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:matematica/geometria-de-euclides ------------------------------
+  - id: rec:matematica/euclides-elementos
+    etapa: etapa:matematica/geometria-de-euclides
+    titulo: "Elementos de Geometria (Euclides)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 20
+    duracao_min: 1200
+    url: https://www.amazon.com.br/s?k=Elementos+de+Geometria+Euclides
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:matematica/euclides-interativo
+    etapa: etapa:matematica/geometria-de-euclides
+    titulo: "Euclid's Elements (David E. Joyce) — edição interativa com as dependências de cada proposição"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 900
+    url: https://mathcs.clarku.edu/~djoyce/elements/elements.html
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:matematica/limite-e-continuidade ------------------------------
+  - id: rec:matematica/kline-calculus-limites
+    etapa: etapa:matematica/limite-e-continuidade
+    titulo: "Calculus: An Intuitive and Physical Approach (Morris Kline) — capítulos de limite e continuidade"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 90
+    duracao_min: 600
+    url: https://store.doverpublications.com/products/9780486404530
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:matematica/openstax-calculus-v1
+    etapa: etapa:matematica/limite-e-continuidade
+    titulo: "OpenStax Calculus Volume 1 — limites e continuidade, com exercícios e respostas"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 720
+    url: https://openstax.org/details/books/calculus-volume-1
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:matematica/derivada-e-taxa-de-variacao ------------------------
+  - id: rec:matematica/kline-calculus-derivada
+    etapa: etapa:matematica/derivada-e-taxa-de-variacao
+    titulo: "Kline, Calculus — derivada como taxa de variação, com a leitura física que dá nome ao livro"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 90
+    duracao_min: 900
+    url: https://store.doverpublications.com/products/9780486404530
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:matematica/essence-of-calculus
+    etapa: etapa:matematica/derivada-e-taxa-de-variacao
+    titulo: "Essence of Calculus (3Blue1Brown) — a ideia geométrica antes da regra"
+    rev: 1
+    status: ativo
+    formato: video
+    idioma: en-US
+    custo: 0
+    duracao_min: 240
+    url: https://www.3blue1brown.com/topics/calculus
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:matematica/pauls-notes-derivadas
+    etapa: etapa:matematica/derivada-e-taxa-de-variacao
+    titulo: "Paul's Online Math Notes — derivação e otimização, com listas resolvidas"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 720
+    url: https://tutorial.math.lamar.edu/Classes/CalcI/CalcI.aspx
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:matematica/integral-e-acumulacao ------------------------------
+  - id: rec:matematica/kline-calculus-integral
+    etapa: etapa:matematica/integral-e-acumulacao
+    titulo: "Kline, Calculus — integral, teorema fundamental e aplicações a grandezas acumuladas"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 90
+    duracao_min: 900
+    url: https://store.doverpublications.com/products/9780486404530
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:matematica/openstax-calculus-v2
+    etapa: etapa:matematica/integral-e-acumulacao
+    titulo: "OpenStax Calculus Volume 2 — integração e técnicas, com exercícios e respostas"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 900
+    url: https://openstax.org/details/books/calculus-volume-2
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:matematica/simetria-e-grupos ----------------------------------
+  - id: rec:matematica/stewart-simetria
+    etapa: etapa:matematica/simetria-e-grupos
+    titulo: "Uma história da simetria na matemática (Ian Stewart) — divulgação: dá o porquê histórico, não o formalismo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 40
+    duracao_min: 600
+    url: https://www.amazon.com.br/s?k=Uma+hist%C3%B3ria+da+simetria+na+matem%C3%A1tica+Ian+Stewart
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  - id: rec:matematica/judson-abstract-algebra
+    etapa: etapa:matematica/simetria-e-grupos
+    titulo: "Abstract Algebra: Theory and Applications (Tom Judson) — edição aberta, grupos e grupos de simetria"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 900
+    url: https://abstract.ups.edu/
+    disponivel: true
+    verificado_em: 2026-10-08
+
+  # --- etapa:matematica/projeto-demonstracao-propria -----------------------
+  - id: rec:matematica/projeto-demonstracao
+    etapa: etapa:matematica/projeto-demonstracao-propria
+    titulo: "Projeto — escolher um resultado não trivial, demonstrá-lo e escrever a prova em LaTeX para leitura externa"
+    rev: 1
+    status: ativo
+    formato: projeto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 1200
+    url: https://www.people.vcu.edu/~rhammack/BookOfProof/
+    disponivel: true
+    verificado_em: 2026-10-08

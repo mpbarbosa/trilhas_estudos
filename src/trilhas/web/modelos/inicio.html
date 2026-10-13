@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h1>Acervo</h1>
+<p class="chamada">
+  O que existe hoje no catálogo. A pergunta <em>“o que eu estudo agora?”</em> depende do
+  motor de sugestão e aparece aqui na fase 3.
+</p>
+
+{% if v.sem_snapshot %}
+<p class="vazio">Nenhum catálogo carregado. Rode <code>uv run trilhas compilar</code>.</p>
+{% else %}
+
+<ul class="numeros">
+  {% for c in v.totais %}
+  <li><strong>{{ c.quantidade }}</strong><span>{{ c.rotulo }}</span></li>
+  {% endfor %}
+  <li><strong>{{ v.esforco_total }}</strong><span>de esforço somado</span></li>
+  <li><strong>{{ v.ondas }}</strong><span>ondas de pré-requisito</span></li>
+</ul>
+
+<h2>Trilhas</h2>
+<div class="cartoes">
+  {% for t in v.trilhas %}
+  <article class="cartao">
+    <h3><a href="/trilha/{{ t.id }}">{{ t.titulo }}</a></h3>
+    <p class="meta">
+      <span class="etiqueta">{{ t.area }}</span>
+      {% if t.status.value != 'ativo' %}<span class="etiqueta aviso">{{ t.status.value }}</span>{% endif %}
+      {{ t.qtd_obrigatorias }} obrigatórias{% if t.qtd_opcionais %} · {{ t.qtd_opcionais }} opcionais{% endif %}
+      {% if t.qtd_emprestadas %} · {{ t.qtd_emprestadas }} emprestada(s){% endif %}
+      · {{ t.esforco }}
+      · ondas {{ t.ondas[0] }}–{{ t.ondas[1] }}
+    </p>
+    <p class="rotulo-campo">Objetivo declarado</p>
+    <ul class="alvos">
+      {% for a in t.objetivo %}
+      <li><a href="/competencia/{{ a.competencia_id }}">{{ a.titulo }}</a>
+        <span class="nivel nivel-{{ a.nivel }}">{{ a.nivel }}</span></li>
+      {% endfor %}
+    </ul>
+  </article>
+  {% endfor %}
+</div>
+
+<h2>Recursos</h2>
+<div class="colunas">
+  <div>
+    <p class="rotulo-campo">Por formato</p>
+    <ul class="barras">
+      {% for c in v.formatos %}
+      <li><span>{{ c.rotulo }}</span><b>{{ c.quantidade }}</b></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div>
+    <p class="rotulo-campo">Por idioma</p>
+    <ul class="barras">
+      {% for c in v.idiomas %}
+      <li><span>{{ c.rotulo }}</span><b>{{ c.quantidade }}</b></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div>
+    <p class="rotulo-campo">Custo e verificação</p>
+    <ul class="barras">
+      <li><span>gratuitos</span><b>{{ v.gratuitos }}</b></li>
+      <li><span>sem verificação há &gt; 180 dias</span><b>{{ v.recursos_vencidos }}</b></li>
+    </ul>
+  </div>
+</div>
+
+<p class="nota">
+  O grafo derivado tem {{ v.arestas }} arestas entre etapas, {{ v.arestas_sem_avanco }} delas
+  sem avanço de onda — por isso o layout usa fecho progressivo, e não ordenação topológica
+  (<code>docs/interface.md</code> §4).
+</p>
+{% endif %}
+{% endblock %}

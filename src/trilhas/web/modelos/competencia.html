@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<nav class="migalhas" aria-label="Onde estou"><a href="/">Acervo</a> › competência</nav>
+
+<h1>{{ v.competencia.titulo }}</h1>
+<p class="meta">
+  <code>{{ v.competencia.id }}</code> · rev {{ v.competencia.rev }}
+  <span class="etiqueta">{{ v.area }}</span>
+  {% if v.competencia.status.value != 'ativo' %}<span class="etiqueta aviso">{{ v.competencia.status.value }}</span>{% endif %}
+  · o catálogo leva até
+  <span class="nivel nivel-{{ v.nivel_no_catalogo_rotulo }}">{{ v.nivel_no_catalogo_rotulo }}</span>
+</p>
+
+{% for alerta in v.alertas %}
+<p class="alerta" role="alert">{{ alerta }}</p>
+{% endfor %}
+
+<section class="verificacao">
+  <h2>Como se verifica</h2>
+  <blockquote>{{ v.competencia.verificacao }}</blockquote>
+  <p class="fraco">
+    É o critério obrigatório que liga catálogo a percurso: sem ele, nenhuma evidência
+    sobre esta competência é defensável (<code>docs/catalogo.md</code> §2).
+  </p>
+</section>
+
+{% if v.competencia.descricao %}
+<section>
+  <h2>Descrição</h2>
+  <p class="prosa">{{ v.competencia.descricao }}</p>
+</section>
+{% endif %}
+
+<div class="colunas">
+  <section>
+    <h2>Desenvolvida por</h2>
+    {% if v.ensinada_por %}
+    <ul class="ligacoes">
+      {% for r, nivel in v.ensinada_por %}
+      <li><a href="{{ r.href }}">{{ r.titulo }}</a>
+        <span class="nivel nivel-{{ nivel }}">{{ nivel }}</span></li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="alerta">Nenhuma etapa a desenvolve.</p>
+    {% endif %}
+  </section>
+
+  <section>
+    <h2>Exigida por</h2>
+    {% if v.exigida_por %}
+    <ul class="ligacoes">
+      {% for r, nivel in v.exigida_por %}
+      <li><a href="{{ r.href }}">{{ r.titulo }}</a>
+        <span class="nivel nivel-{{ nivel }}">mínimo {{ nivel }}</span></li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="fraco">Nenhuma etapa a exige.</p>
+    {% endif %}
+  </section>
+</div>
+
+{% if v.objetivo_de %}
+<section>
+  <h2>Objetivo declarado de</h2>
+  <ul class="ligacoes">
+    {% for r in v.objetivo_de %}
+    <li><a href="{{ r.href }}">{{ r.titulo }}</a>
+      <span class="nivel nivel-{{ r.nota }}">{{ r.nota }}</span></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+{% endblock %}

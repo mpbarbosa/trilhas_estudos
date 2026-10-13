@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ titulo }} — trilhas de estudo</title>
+  <link rel="stylesheet" href="/estatico/estilo.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <header class="topo">
+    <nav aria-label="Seções">
+      <a class="marca" href="/">trilhas<span>de estudo</span></a>
+      <a href="/" {% if caminho == '/' %}aria-current="page"{% endif %}>Acervo</a>
+      <a href="/catalogo" {% if caminho == '/catalogo' %}aria-current="page"{% endif %}>Catálogo</a>
+      <a href="/catalogo/diagnostico" {% if caminho == '/catalogo/diagnostico' %}aria-current="page"{% endif %}>Diagnóstico</a>
+    </nav>
+    <p class="versao" title="versão do snapshot compilado">
+      catálogo v{{ cabecalho.catalogo_versao }}
+    </p>
+  </header>
+
+  {% if problemas_do_acervo %}
+  <div class="faixa-alerta" role="alert">
+    <strong>Snapshot com problema.</strong>
+    {% for p in problemas_do_acervo %}<span>{{ p }}</span>{% endfor %}
+  </div>
+  {% endif %}
+
+  <main id="conteudo">
+    {% block conteudo %}{% endblock %}
+  </main>
+
+  <footer class="pe">
+    <p>
+      Fase 1 da interface: catálogo somente leitura.
+      Progresso, evidência e sugestão chegam nas fases seguintes
+      (<code>docs/interface.md</code> §10).
+    </p>
+    <p class="fraco">
+      snapshot {{ cabecalho.hash[7:19] }} · gerado em {{ cabecalho.gerado_em[:10] }}
+    </p>
+  </footer>
+  <script src="/estatico/pan-zoom.js" defer></script>
+</body>
+</html>

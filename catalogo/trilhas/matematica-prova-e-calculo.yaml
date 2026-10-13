@@ -1,0 +1,121 @@
+versao_schema: 1
+trilha:
+  id: trilha:matematica/prova-e-calculo
+  titulo: Matemática — da demonstração ao cálculo
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:matematica/raciocinio-dedutivo
+      nivel: avancado
+    - competencia: comp:matematica/geometria-euclidiana
+      nivel: intermediario
+    - competencia: comp:matematica/calculo-integral
+      nivel: intermediario
+
+  # A raiz é demonstração, não cálculo: sem saber o que é uma prova, Euclides vira
+  # desenho e o cálculo vira receita. Dessa raiz saem três ramos — geometria,
+  # cálculo e estrutura — que o projeto final volta a juntar.
+  #
+  # Relação com trilha:dados/analise-de-dados-com-python: lá, comp:dados/
+  # matematica-para-dados trata de álgebra linear e cálculo *como operação sobre
+  # dados*, com verificação em código. Aqui o objeto é a matemática em si. São
+  # competências distintas de propósito; nenhuma substitui a outra, e nenhuma etapa
+  # é compartilhada.
+  etapas:
+    # --- Raiz ---------------------------------------------------------------
+    - id: etapa:matematica/o-que-e-uma-prova
+      titulo: O que é uma prova — lógica, quantificador e estratégia de demonstração
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1200
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:matematica/raciocinio-dedutivo
+          nivel_resultante: intermediario
+
+    # --- Ramo da geometria ---------------------------------------------------
+    - id: etapa:matematica/geometria-de-euclides
+      titulo: Os Elementos — geometria como sistema axiomático
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1200
+      opcional: false
+      requires:
+        - competencia: comp:matematica/raciocinio-dedutivo
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:matematica/geometria-euclidiana
+          nivel_resultante: intermediario
+
+    # --- Ramo do cálculo -----------------------------------------------------
+    - id: etapa:matematica/limite-e-continuidade
+      titulo: Limite e continuidade — domar o infinitesimal
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:matematica/raciocinio-dedutivo
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:matematica/limite-e-continuidade
+          nivel_resultante: intermediario
+
+    - id: etapa:matematica/derivada-e-taxa-de-variacao
+      titulo: Derivada — taxa de variação e otimização
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1200
+      opcional: false
+      requires:
+        - competencia: comp:matematica/limite-e-continuidade
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:matematica/calculo-diferencial
+          nivel_resultante: intermediario
+
+    - id: etapa:matematica/integral-e-acumulacao
+      titulo: Integral — acumulação e o teorema fundamental
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1200
+      opcional: false
+      requires:
+        - competencia: comp:matematica/calculo-diferencial
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:matematica/calculo-integral
+          nivel_resultante: intermediario
+
+    # --- Ramo da estrutura ---------------------------------------------------
+    - id: etapa:matematica/simetria-e-grupos
+      titulo: Simetria e grupos — classificar pelo que se preserva
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: true          # ramo: não é exigido pelo objetivo declarado
+      requires:
+        - competencia: comp:matematica/raciocinio-dedutivo
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:matematica/estrutura-e-simetria
+          nivel_resultante: intermediario
+
+    # --- Fechamento ----------------------------------------------------------
+    - id: etapa:matematica/projeto-demonstracao-propria
+      titulo: Projeto — um resultado demonstrado do enunciado à escrita final
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1200
+      opcional: false
+      requires:
+        - competencia: comp:matematica/geometria-euclidiana
+          nivel_minimo: intermediario
+        - competencia: comp:matematica/calculo-integral
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:matematica/raciocinio-dedutivo
+          nivel_resultante: avancado
+
+  etapas_referenciadas: []

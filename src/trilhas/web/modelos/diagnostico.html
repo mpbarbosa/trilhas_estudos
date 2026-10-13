@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h1>Diagnóstico do catálogo</h1>
+<p class="chamada">
+  As 11 validações de <code>docs/catalogo.md</code> §5, sobre <code>{{ v.fonte }}</code>.
+  Erro bloqueia o snapshot; aviso não. É o que <code>trilhas validar</code> diria.
+</p>
+
+<p class="{% if v.valido %}selo-ok{% else %}selo-ruim{% endif %}">
+  {% if v.valido %}Catálogo válido{% else %}{{ v.erros | length }} erro(s){% endif %}
+  {% if v.avisos %} · {{ v.avisos | length }} aviso(s){% endif %}
+</p>
+
+{% if v.lock_desatualizado is none %}
+<p class="nota">Não foi possível conferir se o snapshot está em dia.</p>
+{% elif v.lock_desatualizado %}
+<p class="alerta" role="alert">
+  Snapshot desatualizado: a autoria mudou desde a versão {{ v.catalogo_versao }}.
+  Rode <code>uv run trilhas compilar</code>.
+</p>
+{% else %}
+<p class="nota">
+  Snapshot em dia — versão {{ v.catalogo_versao }}, <code>{{ v.hash_curto }}</code>,
+  gerado em {{ v.gerado_em[:10] }}.
+</p>
+{% endif %}
+
+{% for grupo, linhas in [('Erros', v.erros), ('Avisos', v.avisos)] %}
+{% if linhas %}
+<section>
+  <h2>{{ grupo }}</h2>
+  <table class="tabela">
+    <caption class="oculto">{{ grupo }} de validação</caption>
+    <thead>
+      <tr><th scope="col">Código</th><th scope="col">Regra</th><th scope="col">Entidade</th><th scope="col">Mensagem</th></tr>
+    </thead>
+    <tbody>
+      {% for linha in linhas %}
+      <tr>
+        <td><code>{{ linha.codigo }}</code></td>
+        <td>{{ linha.regra }} <span class="fraco">{{ linha.secao }}</span></td>
+        <td>
+          {% if linha.href %}<a href="{{ linha.href }}"><code>{{ linha.entidade }}</code></a>
+          {% else %}<code>{{ linha.entidade }}</code>{% endif %}
+          {% if linha.local %}<br><span class="fraco">{{ linha.local }}</span>{% endif %}
+        </td>
+        <td>{{ linha.mensagem }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endif %}
+{% endfor %}
+
+{% if v.valido and not v.avisos %}
+<p class="vazio">Nenhum problema. As 11 validações passaram.</p>
+{% endif %}
+{% endblock %}

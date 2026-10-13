@@ -297,9 +297,7 @@ def test_recurso_verificado_no_limite_nao_avisa() -> None:
 
 def test_etapa_orfa_e_aviso() -> None:
     cat = minimo_valido()
-    cat.etapas["etapa:x/solta"] = etapa(
-        "etapa:x/solta", teaches=[("comp:x/base", N.INICIANTE)]
-    )
+    cat.etapas["etapa:x/solta"] = etapa("etapa:x/solta", teaches=[("comp:x/base", N.INICIANTE)])
     cat.recursos["rec:x/solta"] = recurso("rec:x/solta", "etapa:x/solta")
     problemas = validar(cat, hoje=HOJE)
     assert Codigo.ETAPA_ORFA in codigos(problemas)

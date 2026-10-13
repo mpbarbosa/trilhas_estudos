@@ -3,18 +3,21 @@
 Controle e sugestão de trilhas de estudo: acompanha o avanço do estudante numa
 trilha e recomenda o que estudar em seguida.
 
-**Estado atual:** domínio modelado, catálogo validável e motor de sugestão
-implementado como lógica pura (`src/trilhas/motor/`). Ainda não há persistência do
-percurso nem comando para pedir sugestões.
+**Estado atual:** domínio modelado, catálogo validável, motor de sugestão implementado
+como lógica pura (`src/trilhas/motor/`) e uma interface de leitura do catálogo. Ainda
+não há persistência do percurso nem comando para pedir sugestões.
 
 - [Domínio e glossário](docs/CONTEXT.md)
 - [Motor de sugestão (v1)](docs/motor-de-sugestao.md) — especificação e escolhas da implementação
+- [Interface gráfica](docs/interface.md) — stack, telas e fases; a fase 1 está no ar
 - [Catálogo](docs/catalogo.md) — autoria em YAML, identidade e versionamento
 - [Conteúdo do catálogo](catalogo/) — trilhas autoradas:
   - *Do transformer ao RAG em produção* ([trilha](catalogo/trilhas/llm-transformer-rag.yaml)) — fundamento e recuperação
   - *Do chat ao agente em produção com Claude* ([trilha](catalogo/trilhas/claude-do-chat-ao-agente.yaml)) — aplicação: API, ferramentas, MCP e agentes
   - *Análise de dados com Python* ([trilha](catalogo/trilhas/dados-com-python.yaml)) — manipulação, exploração, estatística e enquadramento
   - *Web, do protocolo à interface* ([trilha](catalogo/trilhas/web-do-protocolo-a-interface.yaml)) — HTTP, documento, JavaScript, tipos e componentes
+  - *Arquitetura e entrega de software* ([trilha](catalogo/trilhas/arquitetura-e-entrega.yaml)) — requisitos, trade-off, decomposição, pipeline e operação
+  - *Matemática — da demonstração ao cálculo* ([trilha](catalogo/trilhas/matematica-prova-e-calculo.yaml)) — prova, geometria axiomática, cálculo e simetria
   - *Sistemas operacionais, do conceito ao núcleo* ([trilha](catalogo/trilhas/so-projeto-e-implementacao.yaml)) — processos, memória, E/S, arquivos e prática no MINIX
 - [Decisões de arquitetura](docs/README.md)
 
@@ -26,8 +29,20 @@ Requer Python 3.12+. O catálogo é autorado em `catalogo/` e compilado para
 ```bash
 uv run trilhas validar              # valida o catálogo (0 = válido, 1 = com erro)
 uv run trilhas compilar             # grava o snapshot se o conteúdo mudou
-uv run pytest                       # 68 testes
+uv run --extra dev pytest           # suíte completa
 ```
+
+### Interface
+
+Navegação do catálogo em `localhost`: grafo da trilha por onda de pré-requisito, etapa
+com os recursos comparados, competência com o critério de verificação, e as 11
+validações numa tela ([docs/interface.md](docs/interface.md)).
+
+```bash
+uv run --extra web trilhas-web      # http://127.0.0.1:8000
+```
+
+Somente leitura. Progresso, evidência e sugestão chegam nas fases seguintes.
 
 ## Licença
 

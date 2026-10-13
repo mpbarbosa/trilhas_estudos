@@ -1,0 +1,141 @@
+versao_schema: 1
+trilha:
+  id: trilha:engenharia/arquitetura-e-entrega
+  titulo: Arquitetura e entrega de software
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:engenharia/decisao-arquitetural
+      nivel: avancado
+    - competencia: comp:engenharia/integracao-e-entrega-continua
+      nivel: intermediario
+    - competencia: comp:engenharia/operacao-e-cultura
+      nivel: intermediario
+
+  # Duas correntes que só se encontram no projeto final: a de *decidir* (requisitos →
+  # trade-off → decomposição → dados distribuídos) e a de *entregar* (versão →
+  # pipeline → operação). Mantê-las separadas até o fim é deliberado: decisão
+  # arquitetural sem entrega vira diagrama, e entrega sem decisão vira automação de
+  # um sistema que não se sustenta.
+  etapas:
+    # --- Corrente de decidir ------------------------------------------------
+    - id: etapa:engenharia/requisitos-e-atributos
+      titulo: Requisitos e atributos de qualidade mensuráveis
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:engenharia/requisitos
+          nivel_resultante: intermediario
+
+    - id: etapa:engenharia/trade-off-como-metodo
+      titulo: Trade-off como método — não existe arquitetura sem perda
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:engenharia/requisitos
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:engenharia/decisao-arquitetural
+          nivel_resultante: iniciante
+
+    - id: etapa:engenharia/decomposicao-de-sistemas
+      titulo: Onde cortar — granularidade, acoplamento e coesão
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1200
+      opcional: false
+      requires:
+        - competencia: comp:engenharia/decisao-arquitetural
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:engenharia/decomposicao-de-sistemas
+          nivel_resultante: intermediario
+
+    - id: etapa:engenharia/dados-atravessando-fronteiras
+      titulo: Dados atravessando fronteiras — propriedade, transação e contrato
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1200
+      opcional: false
+      requires:
+        - competencia: comp:engenharia/decomposicao-de-sistemas
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:engenharia/dados-em-sistemas-distribuidos
+          nivel_resultante: intermediario
+
+    - id: etapa:engenharia/registro-de-decisao
+      titulo: Registrar a decisão — ADR como artefato de engenharia
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 480
+      opcional: false
+      requires:
+        - competencia: comp:engenharia/decomposicao-de-sistemas
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:engenharia/decisao-arquitetural
+          nivel_resultante: intermediario
+
+    # --- Corrente de entregar -----------------------------------------------
+    - id: etapa:engenharia/controle-de-versao
+      titulo: Git por dentro — grafo, histórico e o commit como unidade de revisão
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 600
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:engenharia/controle-de-versao
+          nivel_resultante: intermediario
+
+    - id: etapa:engenharia/entrega-continua
+      titulo: Pipeline — da mudança à produção sem heroísmo
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1200
+      opcional: false
+      requires:
+        - competencia: comp:engenharia/controle-de-versao
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:engenharia/integracao-e-entrega-continua
+          nivel_resultante: intermediario
+
+    - id: etapa:engenharia/operacao-e-incidente
+      titulo: Depois do deploy — observabilidade, incidente e análise sem culpado
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:engenharia/integracao-e-entrega-continua
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:engenharia/operacao-e-cultura
+          nivel_resultante: intermediario
+
+    # --- Encontro das duas correntes ----------------------------------------
+    - id: etapa:engenharia/projeto-decisao-sustentada
+      titulo: Projeto — uma decisão arquitetural levada até a operação
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1800
+      opcional: false
+      requires:
+        - competencia: comp:engenharia/decisao-arquitetural
+          nivel_minimo: intermediario
+        - competencia: comp:engenharia/dados-em-sistemas-distribuidos
+          nivel_minimo: intermediario
+        - competencia: comp:engenharia/operacao-e-cultura
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:engenharia/decisao-arquitetural
+          nivel_resultante: avancado
+
+  etapas_referenciadas: []

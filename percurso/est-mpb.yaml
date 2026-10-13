@@ -36,6 +36,11 @@ matriculas:
     iniciada_em: 2026-10-08
     estado: em_andamento
 
+  - trilha: trilha:engenharia/arquitetura-e-entrega
+    rev: 1
+    iniciada_em: 2026-10-08
+    estado: em_andamento
+
   - trilha: trilha:so/projeto-e-implementacao
     rev: 1
     iniciada_em: 2026-10-12

@@ -12,8 +12,8 @@ from collections import Counter, deque
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta
 
+from trilhas.catalogo.grafo import fecho_progressivo
 from trilhas.catalogo.modelo import Alvo, Catalogo, Etapa, Nivel, Recurso
-from trilhas.catalogo.validar import fecho
 
 from .explicar import explicar
 from .modelo import (
@@ -205,7 +205,7 @@ class _Contexto:
         return min(1.0, max(0.0, (dias - meia_vida) / meia_vida))
 
     def lacunas(self) -> tuple[Alvo, ...]:
-        alcancado, _ = fecho(_ativas(self.catalogo), self.niveis)
+        alcancado = fecho_progressivo(_ativas(self.catalogo), self.niveis).perfil
         return tuple(a for a in self.alvos_pendentes if alcancado.get(a.competencia, _D) < a.nivel)
 
     def distancias(self, etapa: Etapa) -> dict[str, int]:

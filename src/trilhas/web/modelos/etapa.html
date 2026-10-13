@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<nav class="migalhas" aria-label="Onde estou">
+  <a href="/">Acervo</a> ›
+  {% if v.trilha %}<a href="{{ v.trilha.href }}">{{ v.trilha.titulo }}</a> ›{% endif %}
+  etapa
+</nav>
+
+<h1>{{ v.etapa.titulo }}</h1>
+<p class="meta">
+  <code>{{ v.etapa.id }}</code> · rev {{ v.etapa.rev }}
+  <span class="etiqueta">{{ v.area }}</span>
+  {% if v.etapa.opcional %}<span class="etiqueta">opcional</span>{% endif %}
+  {% if v.etapa.status.value != 'ativo' %}<span class="etiqueta aviso">{{ v.etapa.status.value }}</span>{% endif %}
+  · {{ v.esforco }} · onda {{ v.onda }}
+</p>
+
+{% for alerta in v.alertas %}
+<p class="alerta" role="alert">{{ alerta }}</p>
+{% endfor %}
+
+<div class="colunas">
+  <section>
+    <h2>Exige</h2>
+    {% if v.requisitos %}
+    <ul class="exigencias">
+      {% for e in v.requisitos %}
+      <li>
+        <a href="/competencia/{{ e.competencia_id }}">{{ e.titulo }}</a>
+        <span class="nivel nivel-{{ e.nivel_rotulo }}">{{ e.nivel_rotulo }}</span>
+        {% if e.ensinada_por %}
+        <p class="fraco">Chega a este nível por:
+          {% for r in e.ensinada_por %}<a href="{{ r.href }}">{{ r.titulo }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
+        </p>
+        {% else %}
+        <p class="alerta">Nenhuma etapa ativa leva a este nível (CAT-040).</p>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="fraco">Nada — é ponto de entrada do grafo.</p>
+    {% endif %}
+  </section>
+
+  <section>
+    <h2>Desenvolve</h2>
+    {% if v.desenvolve %}
+    <ul class="exigencias">
+      {% for d in v.desenvolve %}
+      <li>
+        <a href="/competencia/{{ d.competencia_id }}">{{ d.titulo }}</a>
+        <span class="nivel nivel-{{ d.nivel_rotulo }}">{{ d.nivel_rotulo }}</span>
+        <span class="fraco">exigida por {{ d.exigida_por }} etapa(s)</span>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="vazio">Nada — etapa que não desenvolve competência não muda o perfil.</p>
+    {% endif %}
+  </section>
+</div>
+
+<section>
+  <h2>Recursos</h2>
+  <p class="fraco">
+    Alternativas que realizam esta etapa. A escolha é do estudante: o filtro por idioma,
+    custo e formato entra com o perfil, na fase 2.
+  </p>
+  {% if v.recursos %}
+  <table class="tabela">
+    <caption class="oculto">Recursos da etapa, comparados</caption>
+    <thead>
+      <tr>
+        <th scope="col">Recurso</th><th scope="col">Formato</th><th scope="col">Idioma</th>
+        <th scope="col">Custo</th><th scope="col">Duração</th><th scope="col">Verificado</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for r in v.recursos %}
+      <tr id="{{ r.id }}" class="{% if not r.disponivel or r.status.value != 'ativo' %}esmaecido{% endif %}">
+        <td>
+          {% if r.url %}<a href="{{ r.url }}" rel="noreferrer nofollow">{{ r.titulo }}</a>
+          {% else %}{{ r.titulo }}{% endif %}
+          {% if not r.disponivel %}<span class="etiqueta ruim">indisponível</span>{% endif %}
+          {% if r.status.value != 'ativo' %}<span class="etiqueta aviso">{{ r.status.value }}</span>{% endif %}
+          <br><code class="fraco">{{ r.id }}</code>
+        </td>
+        <td>{{ r.formato }}</td>
+        <td>{{ r.idioma }}</td>
+        <td class="num">{{ r.custo }}</td>
+        <td class="num">{{ r.duracao }}</td>
+        <td class="num {% if r.vencido %}ruim{% endif %}">
+          {% if r.verificado_em %}{{ r.verificado_em }}<br><span class="fraco">{{ r.dias_sem_verificar }} dias</span>
+          {% else %}nunca{% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="alerta">Nenhum recurso — etapa não estudável (CAT-050).</p>
+  {% endif %}
+</section>
+
+<div class="colunas">
+  <section>
+    <h2>Destravada por</h2>
+    {% if v.destravada_por %}
+    <ul class="ligacoes">
+      {% for r in v.destravada_por %}
+      <li><a href="{{ r.href }}">{{ r.titulo }}</a><span class="fraco">{{ r.nota }}</span></li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="fraco">Nada — não depende de outra etapa.</p>
+    {% endif %}
+  </section>
+
+  <section>
+    <h2>Destrava</h2>
+    {% if v.destrava %}
+    <ul class="ligacoes">
+      {% for r in v.destrava %}
+      <li><a href="{{ r.href }}">{{ r.titulo }}</a><span class="fraco">{{ r.nota }}</span></li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="fraco">Nada — é folha do grafo.</p>
+    {% endif %}
+  </section>
+</div>
+
+{% if v.tambem_em %}
+<p class="nota">
+  Também referenciada por:
+  {% for r in v.tambem_em %}<a href="{{ r.href }}">{{ r.titulo }}</a>{% if not loop.last %}, {% endif %}{% endfor %}.
+</p>
+{% endif %}
+{% endblock %}
