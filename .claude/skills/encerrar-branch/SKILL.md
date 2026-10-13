@@ -244,7 +244,7 @@ escreveu. As quatro não têm a mesma causa, e a diferença importa:
 | Correção | O que estava errado | Causa |
 |---|---|---|
 | `b0fd1c2` | `git branch --show-current &&` como guarda | recomendado **sem nunca ter sido executado** |
-| `67fdb02` | `git commit -- CAMINHO` "é a defesa da 7" | dois eixos testados, o terceiro nem imaginado |
+| `67fdb02` | `git commit -- CAMINHO` "é a defesa da 7" | dois eixos testados, o terceiro nem imaginado — por duas sessões em sequência |
 | `0314adc` | "o corolário dispensa a tabela" | generalização de uma defesa que funcionava |
 | `655062e` | a regra 2 abaixo, escrita como lei | generalização da própria lição |
 
@@ -252,6 +252,14 @@ A segunda é a mais instrutiva, porque **a frase "verificado em repositório
 isolado" estava no texto e era verdadeira**: o eixo testado passou. O eixo não
 testado nem foi imaginado — verificar o que se imaginou e publicar com confiança
 o que não se imaginou é um único movimento, e não dá para senti-lo por dentro.
+
+Vale o detalhe de quem errou: o comando veio recomendado por uma sessão par, que
+não tinha testado esse eixo; quem o publicou como regra testou dois eixos e
+também não imaginou o terceiro; e foi a sessão que recomendou quem voltou, por
+conta própria, para dizer que tinha recomendado sem testar. **Duas sessões
+independentes não imaginaram o mesmo eixo** — revisão por pares reduz a chance
+de ponto cego, não a elimina, porque o ponto cego pode ser do formato do
+problema e não de quem olha.
 
 A primeira é mais banal e mais comum: escrever um comando que parece óbvio e não
 rodá-lo. Ela foi descoberta por alguém **executando** a recomendação, que é a
