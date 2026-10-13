@@ -22,9 +22,10 @@
 
 ## Pendente
 
-- Workflow de CI que rode `trilhas compilar --conferir`, `pytest`, `ruff` e
-  `mypy --strict` — vários documentos tratam a detecção em CI como garantia, e ela
-  ainda depende de execução manual.
+Nada no momento. O gate de verificação que vários documentos tratam como garantia
+roda em CI, em [.github/workflows/verificar.yml](../.github/workflows/verificar.yml):
+`trilhas compilar --conferir`, `pytest`, `ruff check`, `ruff format --check` e
+`mypy --strict`, a cada push em `main` e a cada pull request.
 
 ## Pendente de decisão
 
@@ -36,6 +37,6 @@
 2. ~~Catálogo-fixture~~ — feito, em `tests/fixtures/catalogo_exemplo/`.
 3. ~~Motor de sugestão como lógica pura~~ — feito, em `src/trilhas/motor/`, com os 7 cenários de [motor §5](motor-de-sugestao.md).
 4. **Persistência de percurso.** ← próximo
-5. Camada de entrega — fase 1 (explorador de catálogo, somente leitura) feita, em
-   `src/trilhas/web/` ([interface.md §10](interface.md)); as fases seguintes dependem
-   de 4.
+5. Camada de entrega — em `src/trilhas/web/`: explorador de catálogo e painel *Agora*
+   com os fatores à vista, ambos somente leitura. Registrar progresso, evidência e
+   feedback depende de 4 ([interface.md §10](interface.md)).

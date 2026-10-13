@@ -22,6 +22,7 @@ from ..catalogo.validar import validar
 
 NOME_DO_LOCK = "catalogo.lock.json"
 NOME_DA_AUTORIA = "catalogo"
+NOME_DO_PERCURSO = "percurso"
 
 
 @dataclass(frozen=True, slots=True)
@@ -85,6 +86,11 @@ class Fonte:
     @property
     def autoria(self) -> Path:
         return self.lock.parent / NOME_DA_AUTORIA
+
+    @property
+    def percursos(self) -> Path:
+        """Diretório de percurso, ao lado do snapshot. Leitura apenas (web/percurso.py)."""
+        return self.lock.parent / NOME_DO_PERCURSO
 
     def acervo(self) -> Acervo:
         mtime = self.lock.stat().st_mtime if self.lock.is_file() else None
