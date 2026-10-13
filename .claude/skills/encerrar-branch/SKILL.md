@@ -33,14 +33,27 @@ Esse aviso quer dizer: *o commit sumiu do seu clone e existe só no `origin`.*
 Não é erro — mas se alguém apagar o branch remoto depois (o merge de PR apaga,
 dependendo de `gh repo view --json deleteBranchOnMerge`), o trabalho some de vez.
 
-**Local e remoto são duas exclusões separadas.** `git branch -d` dar certo não
-diz nada sobre o `origin`, e o merge de um PR apagar o remoto não apaga o local.
-Confira os dois:
+**Um branch mora em três lugares, e apagar num não apaga nos outros.**
+`git branch -d` dar certo não diz nada sobre o `origin`; o merge de um PR apagar
+o remoto não apaga o local; e nenhum dos dois remove a **ref de rastreio**, que
+fica pendurada apontando para um branch que já não existe no servidor:
 
-```bash
-git ls-remote --heads origin
-git branch --format='%(refname:short)'
-```
+| Camada | Como conferir | Como remover |
+|---|---|---|
+| local | `git branch --format='%(refname:short)'` | `git branch -d X` |
+| remoto | `git ls-remote --heads origin` | `git push origin --delete X` |
+| ref de rastreio | `git branch -r` | `git remote prune origin` |
+
+A terceira é a que ninguém olha. `git ls-remote` pergunta ao servidor e dirá que
+o branch sumiu; `git branch -r` lê o seu clone e continuará listando
+`origin/X` por tempo indefinido. Quem conferir só a segunda conclui que está
+limpo, e quem conferir só a terceira conclui que sobrou algo — ambos errados.
+
+Se o repositório tem `deleteBranchOnMerge` ligado
+(`gh repo view --json deleteBranchOnMerge`), o merge já apaga o remoto, e o
+`--delete` depois falha com `remote ref does not exist`. **Isso é a limpeza
+tendo funcionado**, não um erro: confirme com `git ls-remote` antes de
+investigar, e rode o prune, que é o que de fato restava.
 
 ## 2. O branch que você criou pode não ser mais só seu
 
@@ -96,6 +109,8 @@ git branch -d meu-branch                  # 4. local
 # 5. remoto: o merge do PR costuma apagar. Confira e, se sobrou:
 git ls-remote --heads origin | grep meu-branch
 git push origin --delete meu-branch
+# 6. ref de rastreio: sobra mesmo quando 4 e 5 deram certo
+git remote prune origin
 ```
 
 ## Ao responder "posso encerrar?"
