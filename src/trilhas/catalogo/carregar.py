@@ -231,12 +231,10 @@ def _etapa(item: Mapping[str, Any], col: _Coletor, *, trilha: str | None) -> Eta
         trilha=trilha,
         opcional=bool(item.get("opcional", False)),
         requires=tuple(
-            Requisito(c, n)
-            for c, n in _pares(item, "requires", "nivel_minimo", col, ident)
+            Requisito(c, n) for c, n in _pares(item, "requires", "nivel_minimo", col, ident)
         ),
         teaches=tuple(
-            Ensino(c, n)
-            for c, n in _pares(item, "teaches", "nivel_resultante", col, ident)
+            Ensino(c, n) for c, n in _pares(item, "teaches", "nivel_resultante", col, ident)
         ),
         substituido_por=_opcional_texto(item, "substituido_por"),
         depreciado_em=_data(item, "depreciado_em", col, ident),
@@ -318,9 +316,7 @@ def _texto(
 ) -> str | None:
     valor = item.get(chave)
     if not isinstance(valor, str) or not valor.strip():
-        col.falha(
-            Codigo.SCHEMA_INVALIDO, f"campo obrigatório ausente ou vazio: {chave}", entidade
-        )
+        col.falha(Codigo.SCHEMA_INVALIDO, f"campo obrigatório ausente ou vazio: {chave}", entidade)
         return None
     return valor.strip()
 
@@ -333,9 +329,7 @@ def _opcional_texto(item: Mapping[str, Any], chave: str) -> str | None:
 def _inteiro(item: Mapping[str, Any], chave: str, col: _Coletor, entidade: str) -> int:
     valor = item.get(chave)
     if isinstance(valor, bool) or not isinstance(valor, int) or valor < 0:
-        col.falha(
-            Codigo.SCHEMA_INVALIDO, f"`{chave}` deve ser inteiro não negativo", entidade
-        )
+        col.falha(Codigo.SCHEMA_INVALIDO, f"`{chave}` deve ser inteiro não negativo", entidade)
         return 0
     return valor
 
@@ -353,9 +347,7 @@ def _status(item: Mapping[str, Any], col: _Coletor, entidade: str) -> Status:
         return Status.RASCUNHO
 
 
-def _data(
-    item: Mapping[str, Any], chave: str, col: _Coletor, entidade: str
-) -> date | None:
+def _data(item: Mapping[str, Any], chave: str, col: _Coletor, entidade: str) -> date | None:
     valor = item.get(chave)
     if valor is None:
         return None
