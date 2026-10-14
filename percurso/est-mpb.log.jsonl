@@ -6,3 +6,10 @@
 {"dados": {"competencia": "comp:ia/rag-pipeline", "confianca": 1.0, "etapa": "etapa:ia/panorama-llm-transformer-rag", "etapa_rev": 1, "nivel": "iniciante", "origem": "conclusao_de_etapa"}, "em": "2026-10-13T03:33:53.963275+00:00", "seq": 6, "tipo": "evidencia_registrada"}
 {"dados": {"etapa": "etapa:so/visao-geral-e-chamadas-de-sistema", "etapa_rev": 1}, "em": "2026-10-13T03:39:26.372326+00:00", "seq": 7, "tipo": "etapa_concluida"}
 {"dados": {"competencia": "comp:so/estrutura-e-chamadas-de-sistema", "confianca": 1.0, "etapa": "etapa:so/visao-geral-e-chamadas-de-sistema", "etapa_rev": 1, "nivel": "intermediario", "origem": "conclusao_de_etapa"}, "em": "2026-10-13T03:39:26.372326+00:00", "seq": 8, "tipo": "evidencia_registrada"}
+{"dados": {"etapa": "etapa:ia/claude-modelos-e-chat", "etapa_rev": 1, "recurso": "rec:ia/biblia-claude-chat"}, "em": "2026-10-14T13:05:09.949252+00:00", "seq": 9, "tipo": "etapa_iniciada"}
+{"dados": {"etapa": "etapa:ia/claude-prompt-e-saida-estruturada", "etapa_rev": 1, "recurso": "rec:ia/biblia-claude-prompts"}, "em": "2026-10-14T13:05:10.047686+00:00", "seq": 10, "tipo": "etapa_iniciada"}
+{"dados": {"etapa": "etapa:ia/claude-api-e-sdk", "etapa_rev": 1, "recurso": "rec:ia/biblia-claude-api"}, "em": "2026-10-14T13:05:10.141316+00:00", "seq": 11, "tipo": "etapa_iniciada"}
+{"dados": {"etapa": "etapa:ia/tool-use-e-mcp", "etapa_rev": 1, "recurso": "rec:ia/biblia-claude-mcp"}, "em": "2026-10-14T13:05:10.234838+00:00", "seq": 12, "tipo": "etapa_iniciada"}
+{"dados": {"etapa": "etapa:ia/claude-code-e-skills", "etapa_rev": 1, "recurso": "rec:ia/biblia-claude-code-skills"}, "em": "2026-10-14T13:05:10.332853+00:00", "seq": 13, "tipo": "etapa_iniciada"}
+{"dados": {"etapa": "etapa:ia/agentes-com-claude", "etapa_rev": 1, "recurso": "rec:ia/biblia-claude-agentes"}, "em": "2026-10-14T13:05:10.428412+00:00", "seq": 14, "tipo": "etapa_iniciada"}
+{"dados": {"etapa": "etapa:ia/agente-em-producao", "etapa_rev": 1, "recurso": "rec:ia/biblia-claude-producao"}, "em": "2026-10-14T13:05:10.522461+00:00", "seq": 15, "tipo": "etapa_iniciada"}
