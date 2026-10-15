@@ -43,10 +43,16 @@ Bash para servidor de desenvolvimento.
 Fora do harness, ou para smoke test:
 
 ```bash
+scripts/abrir-app.sh             # sobe e abre no navegador; Ctrl-C derruba
+scripts/abrir-app.sh --rota /catalogo/diagnostico   # abre numa rota
 scripts/fumaca-web.sh            # sobe, exercita todas as rotas, derruba; 0 = verde
 scripts/fumaca-web.sh --manter   # deixa de pé para você navegar
 uv run --extra web trilhas-web --porta 8042   # manual
 ```
+
+`abrir-app.sh` é para **olhar** o app: faz as mesmas checagens de árvore e de
+snapshot do smoke test, espera o servidor responder antes de chamar o navegador,
+e reaproveita um servidor que já esteja na porta em vez de falhar.
 
 O extra `web` não é instalado por padrão. Sem ele o `trilhas-web` avisa e sai 1 —
 não é falha de ambiente, é `uv run --extra web` faltando.

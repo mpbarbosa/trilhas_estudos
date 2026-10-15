@@ -71,8 +71,10 @@ if ! python3 -c "import json,sys; json.load(open(sys.argv[1]))" "$LOCK" 2>/dev/n
 fi
 
 # --- 3. Porta livre? ------------------------------------------------------
-if (exec 3<>"/dev/tcp/127.0.0.1/$PORTA") 2>/dev/null; then
-  exec 3<&- 2>/dev/null
+# Subshell: o descritor nasce e morre lá. `exec 3<&- 2>/dev/null` mandaria todo
+# o stderr seguinte do script para /dev/null — `exec` sem comando redireciona o
+# shell inteiro —, e a mensagem abaixo não apareceria.
+if (exec 3<>"/dev/tcp/127.0.0.1/$PORTA") >/dev/null 2>&1; then
   vermelho "porta $PORTA já ocupada — use --porta N ou derrube o servidor anterior."
   exit 1
 fi
