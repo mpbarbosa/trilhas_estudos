@@ -569,8 +569,9 @@ o livro — por isso não ganhou ficha.
 
 ## Divergências
 
-O que a pesquisa encontrou de desencontrado entre catálogo e obra. Nada foi alterado
-em `catalogo/` — são apontamentos para decidir depois.
+O que a pesquisa encontrou de desencontrado entre catálogo e obra. Fora a troca de
+`url` do item 3, nada foi alterado em `catalogo/` — são apontamentos para decidir
+depois.
 
 1. **`rec:ia/ettucode-llm-transformer-rag`** declara o ISBN 9798882446481 e
    `formato: texto`. Esse ISBN é o do **audiolivro**. Ou o formato está errado, ou o
@@ -581,13 +582,14 @@ em `catalogo/` — são apontamentos para decidir depois.
    assume.
 3. **URL de busca em vez de página de produto.** Eram 35 recursos assim
    (`/s?k=...`). Em 2026-10-13, 27 passaram a apontar para a página do produto, sem
-   subir `rev` — troca de `url` equivalente é cosmética (docs/catalogo.md §4). Os
-   outros 8 continuam em busca de propósito: os 6 de Tanenbaum & Woodhull, porque o
-   link direto seria o da 3ª edição e o título diz 2ª (item 2); o de *LLM,
-   Transformer, RAG AI*, porque não há página de produto (item 1); e o de *CSS and
-   Documents*, que só existe na loja americana (item 5). Em 2026-10-15 as oito fatias
-   de Date entraram também com URL de busca, e aí não há propósito: a 5ª edição
-   **tem** página de produto na loja brasileira, então a troca cabe e é cosmética.
+   subir `rev` — troca de `url` equivalente é cosmética (docs/catalogo.md §4). As
+   oito fatias de Date entraram em 2026-10-15 com URL de busca e, no mesmo dia e sem
+   subir `rev` pelo mesmo motivo, passaram para a página da capa dura (ISBN-10
+   `0201513811`), que é a tiragem à venda na loja brasileira. Seguem em busca, de
+   propósito, 8 recursos: os 6 de Tanenbaum & Woodhull, porque o link direto seria o
+   da 3ª edição e o título diz 2ª (item 2); o de *LLM, Transformer, RAG AI*, porque
+   não há página de produto (item 1); e o de *CSS and Documents*, que só existe na
+   loja americana (item 5).
 4. **`rec:programacao/python-fluente-2ed`** aponta para a 2ª edição aberta em
    português, que não existe impressa; a edição impressa em português é a 1ª (2015).
    O recurso está correto, mas o título dele pode induzir a procurar um livro que não

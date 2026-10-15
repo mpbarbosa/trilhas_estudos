@@ -254,7 +254,7 @@ recursos:
     custo: 90
     obra: date-vol1
     duracao_min: 300
-    url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
+    url: https://www.amazon.com.br/dp/0201513811
     disponivel: true
     verificado_em: 2026-10-15
 
@@ -282,7 +282,7 @@ recursos:
     custo: 90
     obra: date-vol1
     duracao_min: 420
-    url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
+    url: https://www.amazon.com.br/dp/0201513811
     disponivel: true
     verificado_em: 2026-10-15
 
@@ -310,7 +310,7 @@ recursos:
     custo: 90
     obra: date-vol1
     duracao_min: 420
-    url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
+    url: https://www.amazon.com.br/dp/0201513811
     disponivel: true
     verificado_em: 2026-10-15
 
@@ -325,7 +325,7 @@ recursos:
     custo: 90
     obra: date-vol1
     duracao_min: 420
-    url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
+    url: https://www.amazon.com.br/dp/0201513811
     disponivel: true
     verificado_em: 2026-10-15
 
@@ -353,7 +353,7 @@ recursos:
     custo: 90
     obra: date-vol1
     duracao_min: 480
-    url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
+    url: https://www.amazon.com.br/dp/0201513811
     disponivel: true
     verificado_em: 2026-10-15
 
@@ -368,7 +368,7 @@ recursos:
     custo: 90
     obra: date-vol1
     duracao_min: 300
-    url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
+    url: https://www.amazon.com.br/dp/0201513811
     disponivel: true
     verificado_em: 2026-10-15
 
@@ -383,7 +383,7 @@ recursos:
     custo: 90
     obra: date-vol1
     duracao_min: 360
-    url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
+    url: https://www.amazon.com.br/dp/0201513811
     disponivel: true
     verificado_em: 2026-10-15
 
@@ -411,7 +411,7 @@ recursos:
     custo: 90
     obra: date-vol1
     duracao_min: 480
-    url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
+    url: https://www.amazon.com.br/dp/0201513811
     disponivel: true
     verificado_em: 2026-10-15
 

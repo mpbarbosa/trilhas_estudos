@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 9,
-  "gerado_em": "2026-10-15T15:46:15+00:00",
-  "hash": "sha256:7d0a997f9b37b3b0e163cfe96592ab468912495def69789d83876df535f9dfa5",
+  "catalogo_versao": 10,
+  "gerado_em": "2026-10-15T15:59:55+00:00",
+  "hash": "sha256:d583507e6fded276dbbf21f0a7197ccbb5904b8618e52fbc97952e5178d33296",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -2321,7 +2321,7 @@
       "idioma": "en-US",
       "custo": 90.0,
       "duracao_min": 420,
-      "url": "https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date",
+      "url": "https://www.amazon.com.br/dp/0201513811",
       "disponivel": true,
       "obra": "date-vol1",
       "verificado_em": "2026-10-15"
@@ -2336,7 +2336,7 @@
       "idioma": "en-US",
       "custo": 90.0,
       "duracao_min": 360,
-      "url": "https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date",
+      "url": "https://www.amazon.com.br/dp/0201513811",
       "disponivel": true,
       "obra": "date-vol1",
       "verificado_em": "2026-10-15"
@@ -2351,7 +2351,7 @@
       "idioma": "en-US",
       "custo": 90.0,
       "duracao_min": 300,
-      "url": "https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date",
+      "url": "https://www.amazon.com.br/dp/0201513811",
       "disponivel": true,
       "obra": "date-vol1",
       "verificado_em": "2026-10-15"
@@ -2366,7 +2366,7 @@
       "idioma": "en-US",
       "custo": 90.0,
       "duracao_min": 420,
-      "url": "https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date",
+      "url": "https://www.amazon.com.br/dp/0201513811",
       "disponivel": true,
       "obra": "date-vol1",
       "verificado_em": "2026-10-15"
@@ -2381,7 +2381,7 @@
       "idioma": "en-US",
       "custo": 90.0,
       "duracao_min": 480,
-      "url": "https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date",
+      "url": "https://www.amazon.com.br/dp/0201513811",
       "disponivel": true,
       "obra": "date-vol1",
       "verificado_em": "2026-10-15"
@@ -2396,7 +2396,7 @@
       "idioma": "en-US",
       "custo": 90.0,
       "duracao_min": 300,
-      "url": "https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date",
+      "url": "https://www.amazon.com.br/dp/0201513811",
       "disponivel": true,
       "obra": "date-vol1",
       "verificado_em": "2026-10-15"
@@ -2411,7 +2411,7 @@
       "idioma": "en-US",
       "custo": 90.0,
       "duracao_min": 480,
-      "url": "https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date",
+      "url": "https://www.amazon.com.br/dp/0201513811",
       "disponivel": true,
       "obra": "date-vol1",
       "verificado_em": "2026-10-15"
@@ -2426,7 +2426,7 @@
       "idioma": "en-US",
       "custo": 90.0,
       "duracao_min": 420,
-      "url": "https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date",
+      "url": "https://www.amazon.com.br/dp/0201513811",
       "disponivel": true,
       "obra": "date-vol1",
       "verificado_em": "2026-10-15"
