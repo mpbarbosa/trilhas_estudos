@@ -20,6 +20,7 @@
 | [0006](adr/0006-stack-python.md) | Stack: Python, domínio puro, CLI como primeira entrega | aceito |
 | [0007](adr/0007-entrega-web-em-python-html-no-servidor.md) | Camada de entrega web em Python, HTML no servidor | aceito |
 | [0008](adr/0008-percurso-como-log-de-fatos-datados.md) | Percurso como log append-only de fatos datados, perfil derivado | aceito |
+| [0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md) | Obra como campo de agrupamento no recurso, não como entidade | aceito |
 
 ## Pendente
 

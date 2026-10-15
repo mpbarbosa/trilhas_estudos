@@ -261,11 +261,17 @@ trilhas compilar --conferir            # falha se o snapshot estiver desatualiza
   Serve de base para os 7 cenários de [motor §5](motor-de-sugestao.md).
 - **Internacionalização** de `titulo`/`descricao`: fora de escopo. Recurso já tem
   `idioma`; texto de entidade é pt-BR.
-- **Recurso composto**: um livro único que atende várias etapas (ex. *A Bíblia do Claude AI*
-  em `trilha:ia/claude-do-chat-ao-agente`) vira hoje várias entradas de `recurso`, porque
-  um recurso pertence a exatamente uma etapa (§2). Consequência: `custo` é repetido por
-  entrada embora o exemplar seja pago uma vez, o que superestima o custo de um caminho para
-  o filtro de `custo_maximo` ([motor §2.2](motor-de-sugestao.md)). A saída provável é uma
-  `obra` com recursos-parte, mas só vale decidir com um segundo caso real.
+- **Recurso composto** — **decidido em [ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md);
+  implementação pendente.** Um livro que atende várias etapas vira várias entradas de
+  `recurso`, porque um recurso pertence a exatamente uma etapa (§2): hoje são nove obras
+  pagas fatiadas em 37 recursos, e `custo` se repete em cada fatia embora o exemplar se
+  compre uma vez. A ADR decidiu um campo opcional `obra` no recurso — slug, não id —, com
+  `custo` ficando onde está e qualquer agregação contando cada obra uma vez; a validação
+  nova é "mesma `obra` ⇒ mesmo `custo`", *erro*. Nada disso existe em `carregar` nem em §2
+  ainda. Correção de rumo: a versão anterior desta pendência dizia que a repetição
+  superestima o custo de um caminho para o filtro de `custo_maximo`
+  ([motor §2.2](motor-de-sugestao.md)). Não superestima — o filtro é por recurso, nunca
+  por caminho, e nenhuma soma de `custo` existe no código. A distorção só aparece numa
+  soma de caminho, que ainda não tem consumidor.
 - **Autoria por não-programadores**: YAML em PR exige git. Aceito por ora; se virar
   obstáculo, a saída é uma interface que gera o YAML, não uma segunda fonte da verdade.
