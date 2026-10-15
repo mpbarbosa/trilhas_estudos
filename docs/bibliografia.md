@@ -29,9 +29,10 @@ valida.
 ASIN é o da edição Kindle ou, no caso do impresso, o próprio ISBN-10. Onde não foi
 possível confirmar uma página de produto, o link é de busca e a ficha diz isso.
 
-**Verificado em 2026-10-12.** Preço não entra aqui — vive em `custo` no recurso, com
-seu próprio `verificado_em`, que esta pesquisa não alterou: conferi link e edição,
-não preço.
+**Verificado em 2026-10-12**, exceto a ficha de *An Introduction to Database
+Systems*, conferida em 2026-10-15. Preço não entra aqui — vive em `custo` no
+recurso, com seu próprio `verificado_em`, que esta pesquisa não alterou: conferi
+link e edição, não preço.
 
 As divergências encontradas entre o catálogo e a obra real estão reunidas no
 [§ Divergências](#divergências) no fim.
@@ -39,6 +40,23 @@ As divergências encontradas entre o catálogo e a obra real estão reunidas no
 ---
 
 ## Dados
+
+### An Introduction to Database Systems, vol. I
+
+- **Autoria** — C. J. Date
+- **Edição** — 5ª ed., Addison-Wesley, 1990, 800 p., en-US. Fora de catálogo: só
+  circula usada. A mesma 5ª edição teve duas tiragens, capa dura (01/04/1990) e capa
+  comum (01/12/1990), e é daí que vêm os dois ISBN que as fontes trocam entre si.
+- **Identificadores** — capa dura: ISBN-13 978-0-201-51381-3 · ISBN-10 `0201513811` —
+  capa comum: ISBN-13 978-0-201-52878-7 · ISBN-10 `0201528789`
+- **Amazon** — https://www.amazon.com.br/dp/0201513811 (capa dura, só usada) ·
+  https://www.amazon.com.br/dp/0201528789 (capa comum, indisponível)
+- **Citada por** — `rec:dados/date-vol1-arquitetura`,
+  `rec:dados/date-vol1-modelo-relacional`, `rec:dados/date-vol1-algebra-e-calculo`,
+  `rec:dados/date-vol1-sql`, `rec:dados/date-vol1-normalizacao`,
+  `rec:dados/date-vol1-normalizacao-superior`, `rec:dados/date-vol1-armazenamento`,
+  `rec:dados/date-vol1-protecao` — as oito fatias declaram `obra: date-vol1`
+- **Nota** — ver [§ Divergências](#divergências)
 
 ### Análise Exploratória de Dados com Python, Pandas e Numpy
 
@@ -567,7 +585,9 @@ em `catalogo/` — são apontamentos para decidir depois.
    outros 8 continuam em busca de propósito: os 6 de Tanenbaum & Woodhull, porque o
    link direto seria o da 3ª edição e o título diz 2ª (item 2); o de *LLM,
    Transformer, RAG AI*, porque não há página de produto (item 1); e o de *CSS and
-   Documents*, que só existe na loja americana (item 5).
+   Documents*, que só existe na loja americana (item 5). Em 2026-10-15 as oito fatias
+   de Date entraram também com URL de busca, e aí não há propósito: a 5ª edição
+   **tem** página de produto na loja brasileira, então a troca cabe e é cosmética.
 4. **`rec:programacao/python-fluente-2ed`** aponta para a 2ª edição aberta em
    português, que não existe impressa; a edição impressa em português é a 1ª (2015).
    O recurso está correto, mas o título dele pode induzir a procurar um livro que não
@@ -577,3 +597,11 @@ em `catalogo/` — são apontamentos para decidir depois.
    brasileira.
 6. **`rec:engenharia/google-sre-books`** é uma coletânea de vários livros tratada como
    um recurso só. Se o motor for pesar esforço por recurso, isso vai distorcer.
+7. **`rec:dados/date-vol1-*`** declaram `custo: 90` cada uma, para um exemplar só
+   ([ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md) agrupou as oito
+   em `obra: date-vol1`). O comentário do YAML diz que 90 é o preço de um usado, mas em
+   2026-10-15 a loja brasileira pedia **R$ 548,00** pela capa dura usada, e a capa comum
+   estava indisponível. O mesmo comentário diz que o exemplar já está na estante — então
+   `custo` ora parece ser o que foi pago, ora o preço de reposição, e os dois não são a
+   mesma coisa para o filtro de `custo_maximo`. Vale fixar qual dos dois `custo`
+   significa antes de corrigir o número.
