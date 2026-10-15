@@ -223,3 +223,211 @@ recursos:
     url: https://dados.gov.br/
     disponivel: true
     verificado_em: 2026-10-08
+
+  # =========================================================================
+  # trilha:dados/bancos-de-dados-relacionais
+  #
+  # Date, *An Introduction to Database Systems*, vol. I, 5ª ed. (Addison-Wesley),
+  # aparece como uma entrada por etapa, uma por parte do livro — o caso de "recurso
+  # composto" de docs/catalogo.md §8, o segundo no catálogo depois da Bíblia do
+  # Claude AI. O `custo` repete por entrada embora o exemplar seja um só e já esteja
+  # na estante, o que superestima o custo do caminho para o filtro de `custo_maximo`.
+  # O valor é o de um exemplar usado: a 5ª edição está fora de catálogo.
+  #
+  # Sobre defasagem: a 5ª edição é de 1990. O modelo relacional, a álgebra, a
+  # normalização e o log de recuperação envelheceram bem; o SQL do livro é o do DB2
+  # da época (sem CTE, sem função de janela) e o capítulo de concorrência só conhece
+  # bloqueio, não MVCC. Por isso as etapas de SQL e de transação levam um recurso
+  # livre e atual ao lado do livro.
+  # =========================================================================
+
+  # --- etapa:dados/arquitetura-de-sgbd -------------------------------------
+  - id: rec:dados/date-vol1-arquitetura
+    etapa: etapa:dados/arquitetura-de-sgbd
+    titulo: "An Introduction to Database Systems, vol. I, 5ª ed. (C. J. Date) — parte I: conceitos básicos e a arquitetura ANSI/SPARC em três níveis"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 90
+    duracao_min: 300
+    url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
+    disponivel: true
+    verificado_em: 2026-10-15
+
+  - id: rec:dados/arquitetura-de-sgbd-hellerstein
+    etapa: etapa:dados/arquitetura-de-sgbd
+    titulo: "Architecture of a Database System (Hellerstein, Stonebraker & Hamilton) — como um SGBD moderno é organizado por dentro"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 240
+    url: https://dsf.berkeley.edu/papers/fntdb07-architecture.pdf
+    disponivel: true
+    verificado_em: 2026-10-15
+
+  # --- etapa:dados/modelo-relacional ---------------------------------------
+  - id: rec:dados/date-vol1-modelo-relacional
+    etapa: etapa:dados/modelo-relacional
+    titulo: "An Introduction to Database Systems, vol. I — parte II: domínios, relações, chaves e as regras de integridade"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 90
+    duracao_min: 420
+    url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
+    disponivel: true
+    verificado_em: 2026-10-15
+
+  - id: rec:dados/codd-modelo-relacional-1970
+    etapa: etapa:dados/modelo-relacional
+    titulo: "A Relational Model of Data for Large Shared Data Banks (E. F. Codd, 1970) — o artigo que funda o modelo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf
+    disponivel: true
+    verificado_em: 2026-10-15
+
+  # --- etapa:dados/algebra-e-calculo-relacional ----------------------------
+  - id: rec:dados/date-vol1-algebra-e-calculo
+    etapa: etapa:dados/algebra-e-calculo-relacional
+    titulo: "An Introduction to Database Systems, vol. I — álgebra relacional, cálculo relacional e completude"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 90
+    duracao_min: 420
+    url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
+    disponivel: true
+    verificado_em: 2026-10-15
+
+  # --- etapa:dados/sql-contra-o-modelo -------------------------------------
+  - id: rec:dados/date-vol1-sql
+    etapa: etapa:dados/sql-contra-o-modelo
+    titulo: "An Introduction to Database Systems, vol. I — SQL: a linguagem lida contra o modelo, com suas divergências"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 90
+    duracao_min: 420
+    url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
+    disponivel: true
+    verificado_em: 2026-10-15
+
+  - id: rec:dados/pgexercises
+    etapa: etapa:dados/sql-contra-o-modelo
+    titulo: "PostgreSQL Exercises — junção, agregação, subconsulta e nulos com correção automática"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 600
+    url: https://pgexercises.com/
+    disponivel: true
+    verificado_em: 2026-10-15
+
+  # --- etapa:dados/dependencia-e-normalizacao ------------------------------
+  - id: rec:dados/date-vol1-normalizacao
+    etapa: etapa:dados/dependencia-e-normalizacao
+    titulo: "An Introduction to Database Systems, vol. I — normalização I: dependência funcional, decomposição sem perda e as formas normais até a FNBC"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 90
+    duracao_min: 480
+    url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
+    disponivel: true
+    verificado_em: 2026-10-15
+
+  # --- etapa:dados/normalizacao-superior -----------------------------------
+  - id: rec:dados/date-vol1-normalizacao-superior
+    etapa: etapa:dados/normalizacao-superior
+    titulo: "An Introduction to Database Systems, vol. I — normalização II: dependência multivalorada, de junção, 4FN e 5FN"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 90
+    duracao_min: 300
+    url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
+    disponivel: true
+    verificado_em: 2026-10-15
+
+  # --- etapa:dados/armazenamento-e-indices ---------------------------------
+  - id: rec:dados/date-vol1-armazenamento
+    etapa: etapa:dados/armazenamento-e-indices
+    titulo: "An Introduction to Database Systems, vol. I — estruturas de armazenamento e métodos de acesso: indexação, hashing e árvore B"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 90
+    duracao_min: 360
+    url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
+    disponivel: true
+    verificado_em: 2026-10-15
+
+  - id: rec:dados/use-the-index-luke
+    etapa: etapa:dados/armazenamento-e-indices
+    titulo: "Use The Index, Luke! (Markus Winand) — o índice visto pelo plano de execução, em SGBDs atuais"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 360
+    url: https://use-the-index-luke.com/
+    disponivel: true
+    verificado_em: 2026-10-15
+
+  # --- etapa:dados/transacao-recuperacao-concorrencia ----------------------
+  - id: rec:dados/date-vol1-protecao
+    etapa: etapa:dados/transacao-recuperacao-concorrencia
+    titulo: "An Introduction to Database Systems, vol. I — parte de proteção: recuperação por log, controle de concorrência por bloqueio e impasse"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 90
+    duracao_min: 480
+    url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
+    disponivel: true
+    verificado_em: 2026-10-15
+
+  - id: rec:dados/postgres-isolamento-e-mvcc
+    etapa: etapa:dados/transacao-recuperacao-concorrencia
+    titulo: "PostgreSQL — controle de concorrência: níveis de isolamento, anomalias e MVCC (o que o livro de 1990 não alcança)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://www.postgresql.org/docs/current/transaction-iso.html
+    disponivel: true
+    verificado_em: 2026-10-15
+
+  # --- etapa:dados/projeto-esquema-ponta-a-ponta ---------------------------
+  - id: rec:dados/projeto-esquema-sqlite
+    etapa: etapa:dados/projeto-esquema-ponta-a-ponta
+    titulo: "Projeto: modelar um domínio em SQLite — esquema normalizado, consultas, índices e duas sessões concorrentes na CLI"
+    rev: 1
+    status: ativo
+    formato: projeto
+    idioma: en-US
+    custo: 0
+    duracao_min: 1500
+    url: https://sqlite.org/cli.html
+    disponivel: true
+    verificado_em: 2026-10-15

@@ -1,0 +1,153 @@
+versao_schema: 1
+trilha:
+  id: trilha:dados/bancos-de-dados-relacionais
+  titulo: Bancos de dados relacionais, do modelo à transação
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:dados/modelo-relacional
+      nivel: avancado
+    - competencia: comp:dados/sql-consultas
+      nivel: intermediario
+    - competencia: comp:dados/projeto-de-esquema
+      nivel: intermediario
+    - competencia: comp:dados/transacoes-e-concorrencia
+      nivel: intermediario
+
+  # Segue a espinha de C. J. Date, *An Introduction to Database Systems*, vol. I:
+  # arquitetura antes de modelo, modelo antes de linguagem, linguagem antes de
+  # proteção. O corte do livro é deliberado — ele trata SQL depois da álgebra, e não
+  # antes, para que a linguagem seja lida como implementação (parcial) do modelo.
+  #
+  # Depois do modelo relacional, projeto de esquema e armazenamento são
+  # independentes e podem ser cursados em paralelo — é o grafo, não uma lista
+  # (ADR-0002).
+  etapas:
+    # --- Fundamento ---------------------------------------------------------
+    - id: etapa:dados/arquitetura-de-sgbd
+      titulo: O que um SGBD faz — os três níveis e a independência de dados
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 480
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:dados/arquitetura-de-sgbd
+          nivel_resultante: intermediario
+
+    - id: etapa:dados/modelo-relacional
+      titulo: O modelo relacional — domínios, relações, chaves e integridade
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 720
+      opcional: false
+      requires:
+        - competencia: comp:dados/arquitetura-de-sgbd
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:dados/modelo-relacional
+          nivel_resultante: intermediario
+
+    # --- Linguagem ----------------------------------------------------------
+    - id: etapa:dados/algebra-e-calculo-relacional
+      titulo: Álgebra e cálculo relacional — duas formas de dizer a mesma consulta
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 720
+      opcional: false
+      requires:
+        - competencia: comp:dados/modelo-relacional
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:dados/algebra-relacional
+          nivel_resultante: intermediario
+
+    - id: etapa:dados/sql-contra-o-modelo
+      titulo: SQL lido contra o modelo — o que a linguagem cumpre e onde diverge
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:dados/algebra-relacional
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:dados/sql-consultas
+          nivel_resultante: intermediario
+
+    # --- Projeto de esquema (paralelo ao armazenamento) ---------------------
+    - id: etapa:dados/dependencia-e-normalizacao
+      titulo: Dependência funcional e normalização até a FNBC
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:dados/modelo-relacional
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:dados/projeto-de-esquema
+          nivel_resultante: intermediario
+
+    - id: etapa:dados/normalizacao-superior
+      titulo: 4FN, 5FN e os limites da decomposição
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 480
+      opcional: true          # aprofundamento: o objetivo da trilha para em FNBC
+      requires:
+        - competencia: comp:dados/projeto-de-esquema
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:dados/projeto-de-esquema
+          nivel_resultante: avancado
+
+    # --- Armazenamento (paralelo ao projeto de esquema) ---------------------
+    - id: etapa:dados/armazenamento-e-indices
+      titulo: Armazenamento e acesso — páginas, árvore B e hashing
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:dados/arquitetura-de-sgbd
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:dados/armazenamento-e-indexacao
+          nivel_resultante: intermediario
+
+    # --- Proteção -----------------------------------------------------------
+    - id: etapa:dados/transacao-recuperacao-concorrencia
+      titulo: Transação, recuperação e concorrência — o que protege o dado
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:dados/sql-consultas
+          nivel_minimo: intermediario
+        - competencia: comp:dados/armazenamento-e-indexacao
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:dados/transacoes-e-concorrencia
+          nivel_resultante: intermediario
+
+    # --- Prática ------------------------------------------------------------
+    - id: etapa:dados/projeto-esquema-ponta-a-ponta
+      titulo: Projeto — de requisito em texto a esquema normalizado sob concorrência
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1500
+      opcional: false
+      requires:
+        - competencia: comp:dados/projeto-de-esquema
+          nivel_minimo: intermediario
+        - competencia: comp:dados/sql-consultas
+          nivel_minimo: intermediario
+        - competencia: comp:dados/transacoes-e-concorrencia
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:dados/modelo-relacional
+          nivel_resultante: avancado
+
+  etapas_referenciadas: []

@@ -85,3 +85,95 @@ competencias:
       Entregar um modelo que supere uma linha de base trivial num conjunto de teste
       intocado, apontando onde houve risco de vazamento e por que a métrica escolhida
       corresponde ao custo real do erro.
+
+  # --- Banco de dados (trilha:dados/bancos-de-dados-relacionais) -----------
+  - id: comp:dados/arquitetura-de-sgbd
+    titulo: Arquitetura de um sistema de banco de dados
+    rev: 1
+    status: ativo
+    descricao: >
+      Os três níveis — externo, conceitual e interno —, a independência de dados que
+      a separação compra, o catálogo do próprio sistema e o que cabe ao SGBD em vez
+      de caber à aplicação.
+    verificacao: >
+      Diante de uma mudança física anunciada (índice novo, reorganização do
+      armazenamento, troca de disco), dizer quais aplicações precisam mudar e quais
+      não, nomeando o nível em que a mudança ocorre e o mapeamento que as protege.
+
+  - id: comp:dados/armazenamento-e-indexacao
+    titulo: Armazenamento e estruturas de acesso
+    rev: 1
+    status: ativo
+    descricao: >
+      Como a relação vira página em disco e como se chega a uma tupla sem varrer
+      tudo: índice denso e esparso, índice composto, árvore B, hashing e o custo que
+      cada estrutura cobra na escrita.
+    verificacao: >
+      Para uma consulta lenta sobre uma tabela grande, propor a estrutura de acesso
+      que a atende, estimar a ordem de grandeza dos acessos a disco com e sem ela, e
+      dizer o que a estrutura custa em inserção e em espaço.
+
+  - id: comp:dados/modelo-relacional
+    titulo: O modelo relacional
+    rev: 1
+    status: ativo
+    descricao: >
+      Relação como conjunto de tuplas sobre domínios — não como arquivo com linhas:
+      chave candidata, primária e estrangeira, as regras de integridade de entidade e
+      referencial, e o que o valor nulo faz com cada uma delas.
+    verificacao: >
+      Sobre um esquema dado, apontar as chaves candidatas e justificar a escolha da
+      primária, e dizer, para três operações de escrita propostas, qual regra de
+      integridade cada uma viola e qual ação referencial a resolveria.
+
+  - id: comp:dados/algebra-relacional
+    titulo: Álgebra e cálculo relacional
+    rev: 1
+    status: ativo
+    descricao: >
+      As operações fechadas sobre relações — restrição, projeção, produto, junção,
+      união, diferença, divisão — e a formulação equivalente em cálculo de tuplas,
+      com a noção de completude relacional que liga as duas.
+    verificacao: >
+      Escrever a mesma consulta não trivial (com divisão ou quantificação universal)
+      em álgebra e em cálculo relacional, e mostrar sobre um esquema concreto que as
+      duas devolvem a mesma relação.
+
+  - id: comp:dados/sql-consultas
+    titulo: Consulta em SQL
+    rev: 1
+    status: ativo
+    descricao: >
+      Escrever e ler SQL sabendo a que operação do modelo cada construção
+      corresponde: junção, agrupamento, subconsulta correlacionada, e os pontos em
+      que a linguagem diverge do modelo — duplicatas, ordem e nulos.
+    verificacao: >
+      Responder a uma pergunta que exija junção, agregação e subconsulta
+      correlacionada, e explicar por que a contagem muda quando uma coluna envolvida
+      tem nulos — nomeando a divergência entre SQL e o modelo que a produz.
+
+  - id: comp:dados/projeto-de-esquema
+    titulo: Projeto de esquema e normalização
+    rev: 1
+    status: ativo
+    descricao: >
+      Dependência funcional como critério de projeto: anomalia de atualização,
+      decomposição sem perda, preservação de dependências e as formas normais até a
+      FNBC — e quando desnormalizar é decisão consciente, não descuido.
+    verificacao: >
+      Normalizar até a FNBC um esquema dado em texto, justificando cada decomposição
+      pela dependência funcional que a motiva, mostrando que ela é sem perda e
+      apontando a anomalia que o esquema original admitia.
+
+  - id: comp:dados/transacoes-e-concorrencia
+    titulo: Transação, recuperação e concorrência
+    rev: 1
+    status: ativo
+    descricao: >
+      A transação como unidade atômica de trabalho: log e pontos de verificação na
+      recuperação, bloqueio e serialização no acesso concorrente, as anomalias que
+      cada nível de isolamento admite e o impasse que o bloqueio cria.
+    verificacao: >
+      Dado um entrelaçamento de duas transações, nomear a anomalia que ele produz e o
+      nível de isolamento que a impede, e descrever o que o log permite refazer e
+      desfazer numa falha ocorrida no meio do entrelaçamento.
