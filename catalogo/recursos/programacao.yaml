@@ -1,0 +1,122 @@
+# Convenções deste arquivo:
+#   custo  — em BRL, aproximado na data de `verificado_em`; 0 = gratuito.
+#   idioma — tag BCP 47.
+#
+# =========================================================================
+# Kernighan & Ritchie, *C: A Linguagem de Programação — Padrão ANSI*, 8ª ed.
+# (Editora Campus), tradução da 2ª edição americana. Uma fatia por etapa, todas com
+# `obra: kernighan-ritchie-c` e o custo do exemplar inteiro (ADR-0009). O estudante
+# já tem o exemplar; o valor é o de um usado.
+#
+# ATENÇÃO sobre defasagem: o livro descreve o C89 (ANSI). Tudo o que ele ensina
+# continua válido, mas não cobre C99/C11 (`//`, `bool`, `stdint.h`, declaração no
+# meio do bloco). Compile os exercícios com `-std=c89 -pedantic -Wall` para ler o
+# livro no padrão que ele descreve. O cap. 8 assume UNIX: em Linux ou macOS os
+# exemplos rodam quase sem mudança; em Windows, use WSL.
+# =========================================================================
+versao_schema: 1
+recursos:
+  # --- etapa:programacao/c-introducao-em-tutorial -------------------------------
+  - id: rec:programacao/kernighan-ritchie-introducao
+    etapa: etapa:programacao/c-introducao-em-tutorial
+    titulo: "C: A Linguagem de Programação — Padrão ANSI, 8ª ed. (Kernighan & Ritchie) — cap. 1, uma introdução em tutorial"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 70
+    obra: kernighan-ritchie-c
+    duracao_min: 480
+    url: https://www.amazon.com.br/s?k=C+A+Linguagem+de+Programa%C3%A7%C3%A3o+Padr%C3%A3o+ANSI+Kernighan+Ritchie
+    disponivel: true
+    verificado_em: 2026-10-15
+
+  # --- etapa:programacao/c-tipos-operadores-e-controle-de-fluxo -----------------
+  - id: rec:programacao/kernighan-ritchie-tipos-e-controle
+    etapa: etapa:programacao/c-tipos-operadores-e-controle-de-fluxo
+    titulo: "C: A Linguagem de Programação — Padrão ANSI — caps. 2 e 3, tipos, operadores e expressões; controle de fluxo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 70
+    obra: kernighan-ritchie-c
+    duracao_min: 420
+    url: https://www.amazon.com.br/s?k=C+A+Linguagem+de+Programa%C3%A7%C3%A3o+Padr%C3%A3o+ANSI+Kernighan+Ritchie
+    disponivel: true
+    verificado_em: 2026-10-15
+
+  # --- etapa:programacao/c-funcoes-e-estrutura-de-programa ----------------------
+  - id: rec:programacao/kernighan-ritchie-funcoes
+    etapa: etapa:programacao/c-funcoes-e-estrutura-de-programa
+    titulo: "C: A Linguagem de Programação — Padrão ANSI — cap. 4, funções e estrutura de programa"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 70
+    obra: kernighan-ritchie-c
+    duracao_min: 420
+    url: https://www.amazon.com.br/s?k=C+A+Linguagem+de+Programa%C3%A7%C3%A3o+Padr%C3%A3o+ANSI+Kernighan+Ritchie
+    disponivel: true
+    verificado_em: 2026-10-15
+
+  # --- etapa:programacao/c-apontadores-e-vetores --------------------------------
+  - id: rec:programacao/kernighan-ritchie-apontadores
+    etapa: etapa:programacao/c-apontadores-e-vetores
+    titulo: "C: A Linguagem de Programação — Padrão ANSI — cap. 5, apontadores e vetores"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 70
+    obra: kernighan-ritchie-c
+    duracao_min: 720
+    url: https://www.amazon.com.br/s?k=C+A+Linguagem+de+Programa%C3%A7%C3%A3o+Padr%C3%A3o+ANSI+Kernighan+Ritchie
+    disponivel: true
+    verificado_em: 2026-10-15
+
+  # --- etapa:programacao/c-estruturas -------------------------------------------
+  - id: rec:programacao/kernighan-ritchie-estruturas
+    etapa: etapa:programacao/c-estruturas
+    titulo: "C: A Linguagem de Programação — Padrão ANSI — cap. 6, estruturas"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 70
+    obra: kernighan-ritchie-c
+    duracao_min: 540
+    url: https://www.amazon.com.br/s?k=C+A+Linguagem+de+Programa%C3%A7%C3%A3o+Padr%C3%A3o+ANSI+Kernighan+Ritchie
+    disponivel: true
+    verificado_em: 2026-10-15
+
+  # --- etapa:programacao/c-entrada-e-saida --------------------------------------
+  - id: rec:programacao/kernighan-ritchie-entrada-e-saida
+    etapa: etapa:programacao/c-entrada-e-saida
+    titulo: "C: A Linguagem de Programação — Padrão ANSI — cap. 7, entrada e saída, e apêndice B, a biblioteca padrão"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 70
+    obra: kernighan-ritchie-c
+    duracao_min: 420
+    url: https://www.amazon.com.br/s?k=C+A+Linguagem+de+Programa%C3%A7%C3%A3o+Padr%C3%A3o+ANSI+Kernighan+Ritchie
+    disponivel: true
+    verificado_em: 2026-10-15
+
+  # --- etapa:programacao/c-interface-com-o-unix ---------------------------------
+  - id: rec:programacao/kernighan-ritchie-interface-unix
+    etapa: etapa:programacao/c-interface-com-o-unix
+    titulo: "C: A Linguagem de Programação — Padrão ANSI — cap. 8, a interface com o sistema UNIX"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 70
+    obra: kernighan-ritchie-c
+    duracao_min: 540
+    url: https://www.amazon.com.br/s?k=C+A+Linguagem+de+Programa%C3%A7%C3%A3o+Padr%C3%A3o+ANSI+Kernighan+Ritchie
+    disponivel: true
+    verificado_em: 2026-10-15

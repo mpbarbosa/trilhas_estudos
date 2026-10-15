@@ -1,0 +1,120 @@
+versao_schema: 1
+trilha:
+  id: trilha:programacao/linguagem-c-ansi
+  titulo: Linguagem C, do tutorial à interface com o UNIX
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:programacao/c-apontadores
+      nivel: intermediario
+    - competencia: comp:programacao/c-estruturas
+      nivel: intermediario
+    - competencia: comp:programacao/c-entrada-saida-e-biblioteca
+      nivel: intermediario
+    - competencia: comp:programacao/c-interface-unix
+      nivel: intermediario
+
+  # Segue a espinha de Kernighan & Ritchie, *C: A Linguagem de Programação — Padrão
+  # ANSI* (a tradução da 2ª edição americana): um tutorial que percorre a linguagem
+  # inteira por alto, depois a mesma linguagem em profundidade, capítulo a capítulo.
+  # Os exercícios do livro são a verificação natural de cada etapa.
+  #
+  # Depois de apontadores, estruturas e E/S são independentes e podem ser cursadas
+  # em paralelo; a interface com o UNIX volta a juntar as duas — é o grafo, não uma
+  # lista (ADR-0002).
+  etapas:
+    # --- Fundamento ---------------------------------------------------------
+    - id: etapa:programacao/c-introducao-em-tutorial
+      titulo: Uma introdução em tutorial — a linguagem inteira por alto
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 600
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:programacao/c-fundamentos
+          nivel_resultante: iniciante
+
+    - id: etapa:programacao/c-tipos-operadores-e-controle-de-fluxo
+      titulo: Tipos, operadores, expressões e controle de fluxo
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 540
+      opcional: false
+      requires:
+        - competencia: comp:programacao/c-fundamentos
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:programacao/c-fundamentos
+          nivel_resultante: intermediario
+
+    - id: etapa:programacao/c-funcoes-e-estrutura-de-programa
+      titulo: Funções e estrutura de programa — escopo, compilação separada e pré-processador
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 540
+      opcional: false
+      requires:
+        - competencia: comp:programacao/c-fundamentos
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:programacao/c-funcoes-e-estrutura-de-programa
+          nivel_resultante: intermediario
+
+    # --- Memória ------------------------------------------------------------
+    - id: etapa:programacao/c-apontadores-e-vetores
+      titulo: Apontadores e vetores
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:programacao/c-funcoes-e-estrutura-de-programa
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:programacao/c-apontadores
+          nivel_resultante: intermediario
+
+    - id: etapa:programacao/c-estruturas
+      titulo: Estruturas — listas, árvores, tabelas de dispersão e uniões
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 720
+      opcional: false
+      requires:
+        - competencia: comp:programacao/c-apontadores
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:programacao/c-estruturas
+          nivel_resultante: intermediario
+
+    - id: etapa:programacao/c-entrada-e-saida
+      titulo: Entrada e saída e a biblioteca padrão
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 540
+      opcional: false
+      requires:
+        - competencia: comp:programacao/c-apontadores
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:programacao/c-entrada-saida-e-biblioteca
+          nivel_resultante: intermediario
+
+    # --- Sistema ------------------------------------------------------------
+    - id: etapa:programacao/c-interface-com-o-unix
+      titulo: A interface com o sistema UNIX — descritores, diretórios e um alocador
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 720
+      opcional: false
+      requires:
+        - competencia: comp:programacao/c-estruturas
+          nivel_minimo: intermediario
+        - competencia: comp:programacao/c-entrada-saida-e-biblioteca
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:programacao/c-interface-unix
+          nivel_resultante: intermediario
+
+  etapas_referenciadas: []
