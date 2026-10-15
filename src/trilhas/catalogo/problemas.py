@@ -30,6 +30,7 @@ class Codigo(StrEnum):
     REV_DECRESCEU = "CAT-090"  # §5.9
     RECURSO_NAO_VERIFICADO = "CAT-100"  # §5.10 — aviso
     ETAPA_ORFA = "CAT-110"  # §5.11 — aviso
+    OBRA_CUSTO_DIVERGENTE = "CAT-120"  # §5.12
 
 
 @dataclass(frozen=True, slots=True)

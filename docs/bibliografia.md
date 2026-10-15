@@ -8,6 +8,12 @@ citam.
 Este documento é **descritivo**, não normativo: a fonte da verdade continua sendo
 `catalogo/`. Nada aqui entra na validação nem no `catalogo.lock.json`.
 
+O agrupamento de **Citada por** é mantido à mão aqui, mas desde
+[ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md) ele é **conferível**:
+as fatias pagas de um mesmo exemplar declaram `obra` no recurso
+([catalogo.md §2](catalogo.md)), e é esse campo, não esta lista, que a compilação
+valida.
+
 ## Como ler uma ficha
 
 | Campo | O que traz |

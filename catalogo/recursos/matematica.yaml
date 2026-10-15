@@ -86,11 +86,12 @@ recursos:
   - id: rec:matematica/kline-calculus-limites
     etapa: etapa:matematica/limite-e-continuidade
     titulo: "Calculus: An Intuitive and Physical Approach (Morris Kline) — capítulos de limite e continuidade"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 90
+    obra: kline-calculus
     duracao_min: 600
     url: https://store.doverpublications.com/products/9780486404530
     disponivel: true
@@ -113,11 +114,12 @@ recursos:
   - id: rec:matematica/kline-calculus-derivada
     etapa: etapa:matematica/derivada-e-taxa-de-variacao
     titulo: "Kline, Calculus — derivada como taxa de variação, com a leitura física que dá nome ao livro"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 90
+    obra: kline-calculus
     duracao_min: 900
     url: https://store.doverpublications.com/products/9780486404530
     disponivel: true
@@ -153,11 +155,12 @@ recursos:
   - id: rec:matematica/kline-calculus-integral
     etapa: etapa:matematica/integral-e-acumulacao
     titulo: "Kline, Calculus — integral, teorema fundamental e aplicações a grandezas acumuladas"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 90
+    obra: kline-calculus
     duracao_min: 900
     url: https://store.doverpublications.com/products/9780486404530
     disponivel: true

@@ -8,7 +8,7 @@ from datetime import date, timedelta
 import pytest
 
 from fabrica import N, catalogo, competencia, etapa, minimo_valido, recurso, trilha
-from trilhas.catalogo.modelo import Status
+from trilhas.catalogo.modelo import Catalogo, Status
 from trilhas.catalogo.problemas import Codigo, Severidade
 from trilhas.catalogo.snapshot import EstadoAnterior
 from trilhas.catalogo.validar import validar
@@ -302,3 +302,42 @@ def test_etapa_orfa_e_aviso() -> None:
     problemas = validar(cat, hoje=HOJE)
     assert Codigo.ETAPA_ORFA in codigos(problemas)
     assert all(p.severidade is Severidade.AVISO for p in problemas)
+
+
+# §5.12 -----------------------------------------------------------------------
+
+
+def _duas_fatias(custo_a: float, custo_b: float, **kw: object) -> Catalogo:
+    """Mesma obra, dois recursos — o caso que §5.12 julga."""
+    cat = minimo_valido()
+    cat.recursos["rec:x/fatia-a"] = recurso(
+        "rec:x/fatia-a", "etapa:x/inicial", custo=custo_a, obra="livro-x"
+    )
+    cat.recursos["rec:x/fatia-b"] = recurso(
+        "rec:x/fatia-b", "etapa:x/inicial", custo=custo_b, obra="livro-x", **kw
+    )
+    return cat
+
+
+def test_fatias_da_mesma_obra_com_custos_diferentes() -> None:
+    problemas = validar(_duas_fatias(90, 120), hoje=HOJE)
+    assert Codigo.OBRA_CUSTO_DIVERGENTE in codigos(problemas)
+    divergente = next(p for p in problemas if p.codigo is Codigo.OBRA_CUSTO_DIVERGENTE)
+    assert "90 em rec:x/fatia-a" in divergente.mensagem
+    assert "120 em rec:x/fatia-b" in divergente.mensagem
+
+
+def test_fatias_da_mesma_obra_com_o_mesmo_custo_nao_e_problema() -> None:
+    assert validar(_duas_fatias(90, 90), hoje=HOJE) == []
+
+
+def test_custo_diferente_em_obras_diferentes_nao_e_problema() -> None:
+    cat = _duas_fatias(90, 120)
+    cat.recursos["rec:x/fatia-b"] = replace(cat.recursos["rec:x/fatia-b"], obra="livro-y")
+    assert validar(cat, hoje=HOJE) == []
+
+
+def test_fatia_depreciada_nao_prende_o_custo_da_obra() -> None:
+    """Preço de recurso retirado não é fato do exemplar de hoje."""
+    cat = _duas_fatias(90, 120, status=Status.DEPRECIADO, depreciado_em=HOJE)
+    assert Codigo.OBRA_CUSTO_DIVERGENTE not in codigos(validar(cat, hoje=HOJE))

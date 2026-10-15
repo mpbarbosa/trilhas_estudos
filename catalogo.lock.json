@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 8,
-  "gerado_em": "2026-10-15T15:22:43+00:00",
-  "hash": "sha256:8c48d03627f7faf9d2243164febee760a30c6f4b77d2b02d7aba627cfabcb6ff",
+  "catalogo_versao": 9,
+  "gerado_em": "2026-10-15T15:46:15+00:00",
+  "hash": "sha256:7d0a997f9b37b3b0e163cfe96592ab468912495def69789d83876df535f9dfa5",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -2314,7 +2314,7 @@
     {
       "id": "rec:dados/date-vol1-algebra-e-calculo",
       "titulo": "An Introduction to Database Systems, vol. I — álgebra relacional, cálculo relacional e completude",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/algebra-e-calculo-relacional",
       "formato": "texto",
@@ -2323,12 +2323,13 @@
       "duracao_min": 420,
       "url": "https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date",
       "disponivel": true,
+      "obra": "date-vol1",
       "verificado_em": "2026-10-15"
     },
     {
       "id": "rec:dados/date-vol1-armazenamento",
       "titulo": "An Introduction to Database Systems, vol. I — estruturas de armazenamento e métodos de acesso: indexação, hashing e árvore B",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/armazenamento-e-indices",
       "formato": "texto",
@@ -2337,12 +2338,13 @@
       "duracao_min": 360,
       "url": "https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date",
       "disponivel": true,
+      "obra": "date-vol1",
       "verificado_em": "2026-10-15"
     },
     {
       "id": "rec:dados/date-vol1-arquitetura",
       "titulo": "An Introduction to Database Systems, vol. I, 5ª ed. (C. J. Date) — parte I: conceitos básicos e a arquitetura ANSI/SPARC em três níveis",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/arquitetura-de-sgbd",
       "formato": "texto",
@@ -2351,12 +2353,13 @@
       "duracao_min": 300,
       "url": "https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date",
       "disponivel": true,
+      "obra": "date-vol1",
       "verificado_em": "2026-10-15"
     },
     {
       "id": "rec:dados/date-vol1-modelo-relacional",
       "titulo": "An Introduction to Database Systems, vol. I — parte II: domínios, relações, chaves e as regras de integridade",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/modelo-relacional",
       "formato": "texto",
@@ -2365,12 +2368,13 @@
       "duracao_min": 420,
       "url": "https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date",
       "disponivel": true,
+      "obra": "date-vol1",
       "verificado_em": "2026-10-15"
     },
     {
       "id": "rec:dados/date-vol1-normalizacao",
       "titulo": "An Introduction to Database Systems, vol. I — normalização I: dependência funcional, decomposição sem perda e as formas normais até a FNBC",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/dependencia-e-normalizacao",
       "formato": "texto",
@@ -2379,12 +2383,13 @@
       "duracao_min": 480,
       "url": "https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date",
       "disponivel": true,
+      "obra": "date-vol1",
       "verificado_em": "2026-10-15"
     },
     {
       "id": "rec:dados/date-vol1-normalizacao-superior",
       "titulo": "An Introduction to Database Systems, vol. I — normalização II: dependência multivalorada, de junção, 4FN e 5FN",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/normalizacao-superior",
       "formato": "texto",
@@ -2393,12 +2398,13 @@
       "duracao_min": 300,
       "url": "https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date",
       "disponivel": true,
+      "obra": "date-vol1",
       "verificado_em": "2026-10-15"
     },
     {
       "id": "rec:dados/date-vol1-protecao",
       "titulo": "An Introduction to Database Systems, vol. I — parte de proteção: recuperação por log, controle de concorrência por bloqueio e impasse",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/transacao-recuperacao-concorrencia",
       "formato": "texto",
@@ -2407,12 +2413,13 @@
       "duracao_min": 480,
       "url": "https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date",
       "disponivel": true,
+      "obra": "date-vol1",
       "verificado_em": "2026-10-15"
     },
     {
       "id": "rec:dados/date-vol1-sql",
       "titulo": "An Introduction to Database Systems, vol. I — SQL: a linguagem lida contra o modelo, com suas divergências",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/sql-contra-o-modelo",
       "formato": "texto",
@@ -2421,6 +2428,7 @@
       "duracao_min": 420,
       "url": "https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date",
       "disponivel": true,
+      "obra": "date-vol1",
       "verificado_em": "2026-10-15"
     },
     {
@@ -2496,7 +2504,7 @@
     {
       "id": "rec:dados/handson-ml-parte1",
       "titulo": "Hands-On Machine Learning, 3ª ed. (Géron) — parte I, aprendizado supervisionado clássico",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/modelagem-preditiva-inicial",
       "formato": "texto",
@@ -2505,12 +2513,13 @@
       "duracao_min": 1200,
       "url": "https://github.com/ageron/handson-ml3",
       "disponivel": true,
+      "obra": "handson-ml",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:dados/kline-calculus",
       "titulo": "Calculus: An Intuitive and Physical Approach, 2ª ed. (Morris Kline) — derivada, gradiente e otimização",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/matematica-para-dados",
       "formato": "texto",
@@ -2519,6 +2528,7 @@
       "duracao_min": 1200,
       "url": "https://store.doverpublications.com/products/9780486404530",
       "disponivel": true,
+      "obra": "kline-calculus",
       "verificado_em": "2026-10-08"
     },
     {
@@ -2832,7 +2842,7 @@
     {
       "id": "rec:engenharia/partes-dificeis-dados",
       "titulo": "As partes difíceis — parte II: propriedade de dado, saga, contrato e consulta distribuída",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:engenharia/dados-atravessando-fronteiras",
       "formato": "texto",
@@ -2841,12 +2851,13 @@
       "duracao_min": 900,
       "url": "https://www.amazon.com.br/dp/8550819840",
       "disponivel": true,
+      "obra": "partes-dificeis",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:engenharia/partes-dificeis-decomposicao",
       "titulo": "As partes difíceis — parte I: granularidade de serviço, acoplamento e integradores/desintegradores",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:engenharia/decomposicao-de-sistemas",
       "formato": "texto",
@@ -2855,12 +2866,13 @@
       "duracao_min": 900,
       "url": "https://www.amazon.com.br/dp/8550819840",
       "disponivel": true,
+      "obra": "partes-dificeis",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:engenharia/partes-dificeis-trade-off",
       "titulo": "Arquitetura de software: as partes difíceis (Ford, Richards, Sadalage & Dehghani) — capítulos de análise de trade-off",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:engenharia/trade-off-como-metodo",
       "formato": "texto",
@@ -2869,6 +2881,7 @@
       "duracao_min": 480,
       "url": "https://www.amazon.com.br/dp/8550819840",
       "disponivel": true,
+      "obra": "partes-dificeis",
       "verificado_em": "2026-10-08"
     },
     {
@@ -2944,7 +2957,7 @@
     {
       "id": "rec:ia/ai-engineering-agentes-producao",
       "titulo": "AI Engineering (Chip Huyen) — agentes, salvaguardas, observabilidade e custo de inferência",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/agente-em-producao",
       "formato": "texto",
@@ -2953,12 +2966,13 @@
       "duracao_min": 600,
       "url": "https://www.oreilly.com/library/view/ai-engineering/9781098166298/",
       "disponivel": true,
+      "obra": "ai-engineering",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:ia/ai-engineering-avaliacao",
       "titulo": "AI Engineering (Chip Huyen, O'Reilly) — metodologia de avaliação e avaliação de sistemas",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/avaliacao-de-sistemas-llm",
       "formato": "texto",
@@ -2967,12 +2981,13 @@
       "duracao_min": 900,
       "url": "https://www.oreilly.com/library/view/ai-engineering/9781098166298/",
       "disponivel": true,
+      "obra": "ai-engineering",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:ia/ai-engineering-producao",
       "titulo": "AI Engineering — arquitetura de aplicação, cache, otimização de inferência e custo",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/rag-em-producao",
       "formato": "texto",
@@ -2981,12 +2996,13 @@
       "duracao_min": 900,
       "url": "https://www.oreilly.com/library/view/ai-engineering/9781098166298/",
       "disponivel": true,
+      "obra": "ai-engineering",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:ia/ai-powered-search",
       "titulo": "AI-Powered Search (Grainger, Turnbull & Irwin, Manning) — busca híbrida e reranqueamento",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/recuperacao-e-ranqueamento",
       "formato": "texto",
@@ -2995,12 +3011,13 @@
       "duracao_min": 1500,
       "url": "https://www.manning.com/books/ai-powered-search",
       "disponivel": true,
+      "obra": "ai-powered-search",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:ia/ai-powered-search-rag",
       "titulo": "AI-Powered Search — capítulos de RAG, resposta a perguntas e qualidade de recuperação",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/rag-em-producao",
       "formato": "texto",
@@ -3009,6 +3026,7 @@
       "duracao_min": 600,
       "url": "https://www.manning.com/books/ai-powered-search",
       "disponivel": true,
+      "obra": "ai-powered-search",
       "verificado_em": "2026-10-08"
     },
     {
@@ -3056,7 +3074,7 @@
     {
       "id": "rec:ia/biblia-claude-agentes",
       "titulo": "A Bíblia do Claude AI — do primeiro chat ao agente",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/agentes-com-claude",
       "formato": "texto",
@@ -3065,12 +3083,13 @@
       "duracao_min": 90,
       "url": "https://www.amazon.com.br/dp/B0H8S9BKKZ",
       "disponivel": true,
+      "obra": "biblia-claude",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:ia/biblia-claude-api",
       "titulo": "A Bíblia do Claude AI — a API da Anthropic",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/claude-api-e-sdk",
       "formato": "texto",
@@ -3079,12 +3098,13 @@
       "duracao_min": 96,
       "url": "https://www.amazon.com.br/dp/B0H8S9BKKZ",
       "disponivel": true,
+      "obra": "biblia-claude",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:ia/biblia-claude-chat",
       "titulo": "A Bíblia do Claude AI (Thierry Gustin) — modelos, chat e Cowork",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/claude-modelos-e-chat",
       "formato": "texto",
@@ -3093,12 +3113,13 @@
       "duracao_min": 120,
       "url": "https://www.amazon.com.br/dp/B0H8S9BKKZ",
       "disponivel": true,
+      "obra": "biblia-claude",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:ia/biblia-claude-code-skills",
       "titulo": "A Bíblia do Claude AI — Claude Code e Skills",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/claude-code-e-skills",
       "formato": "texto",
@@ -3107,12 +3128,13 @@
       "duracao_min": 120,
       "url": "https://www.amazon.com.br/dp/B0H8S9BKKZ",
       "disponivel": true,
+      "obra": "biblia-claude",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:ia/biblia-claude-mcp",
       "titulo": "A Bíblia do Claude AI — MCP e conexão a dados e sistemas",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/tool-use-e-mcp",
       "formato": "texto",
@@ -3121,12 +3143,13 @@
       "duracao_min": 120,
       "url": "https://www.amazon.com.br/dp/B0H8S9BKKZ",
       "disponivel": true,
+      "obra": "biblia-claude",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:ia/biblia-claude-producao",
       "titulo": "A Bíblia do Claude AI — agente em produção",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/agente-em-producao",
       "formato": "texto",
@@ -3135,12 +3158,13 @@
       "duracao_min": 30,
       "url": "https://www.amazon.com.br/dp/B0H8S9BKKZ",
       "disponivel": true,
+      "obra": "biblia-claude",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:ia/biblia-claude-prompts",
       "titulo": "A Bíblia do Claude AI — prompts, contexto e saída em formato longo",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/claude-prompt-e-saida-estruturada",
       "formato": "texto",
@@ -3149,6 +3173,7 @@
       "duracao_min": 150,
       "url": "https://www.amazon.com.br/dp/B0H8S9BKKZ",
       "disponivel": true,
+      "obra": "biblia-claude",
       "verificado_em": "2026-10-08"
     },
     {
@@ -3294,7 +3319,7 @@
     {
       "id": "rec:ia/handson-ml-3ed",
       "titulo": "Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow, 3ª ed. (Géron) — parte II",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/fundamentos-aprendizado-profundo",
       "formato": "texto",
@@ -3303,6 +3328,7 @@
       "duracao_min": 1800,
       "url": "https://github.com/ageron/handson-ml3",
       "disponivel": true,
+      "obra": "handson-ml",
       "verificado_em": "2026-10-08"
     },
     {
@@ -3336,7 +3362,7 @@
     {
       "id": "rec:ia/llm-engineers-handbook-finetuning",
       "titulo": "LLM Engineer's Handbook — fine-tuning supervisionado, preferências e quantização",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/fine-tuning-e-adaptacao",
       "formato": "texto",
@@ -3345,12 +3371,13 @@
       "duracao_min": 900,
       "url": "https://www.oreilly.com/library/view/llm-engineers-handbook/9781836200079",
       "disponivel": true,
+      "obra": "llm-eng-handbook",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:ia/llm-engineers-handbook-rag",
       "titulo": "LLM Engineer's Handbook (Iusztin & Labonne, Packt) — ingestão, indexação e RAG",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/rag-fim-a-fim",
       "formato": "texto",
@@ -3359,6 +3386,7 @@
       "duracao_min": 900,
       "url": "https://www.oreilly.com/library/view/llm-engineers-handbook/9781836200079",
       "disponivel": true,
+      "obra": "llm-eng-handbook",
       "verificado_em": "2026-10-08"
     },
     {
@@ -3560,7 +3588,7 @@
     {
       "id": "rec:matematica/kline-calculus-derivada",
       "titulo": "Kline, Calculus — derivada como taxa de variação, com a leitura física que dá nome ao livro",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:matematica/derivada-e-taxa-de-variacao",
       "formato": "texto",
@@ -3569,12 +3597,13 @@
       "duracao_min": 900,
       "url": "https://store.doverpublications.com/products/9780486404530",
       "disponivel": true,
+      "obra": "kline-calculus",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:matematica/kline-calculus-integral",
       "titulo": "Kline, Calculus — integral, teorema fundamental e aplicações a grandezas acumuladas",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:matematica/integral-e-acumulacao",
       "formato": "texto",
@@ -3583,12 +3612,13 @@
       "duracao_min": 900,
       "url": "https://store.doverpublications.com/products/9780486404530",
       "disponivel": true,
+      "obra": "kline-calculus",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:matematica/kline-calculus-limites",
       "titulo": "Calculus: An Intuitive and Physical Approach (Morris Kline) — capítulos de limite e continuidade",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:matematica/limite-e-continuidade",
       "formato": "texto",
@@ -3597,6 +3627,7 @@
       "duracao_min": 600,
       "url": "https://store.doverpublications.com/products/9780486404530",
       "disponivel": true,
+      "obra": "kline-calculus",
       "verificado_em": "2026-10-08"
     },
     {
@@ -3812,7 +3843,7 @@
     {
       "id": "rec:so/tanenbaum-woodhull-arquivos",
       "titulo": "Sistemas Operacionais: Projeto e Implementação — cap. 5, sistema de arquivos",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:so/sistemas-de-arquivos",
       "formato": "texto",
@@ -3821,12 +3852,13 @@
       "duracao_min": 540,
       "url": "https://www.amazon.com.br/s?k=Sistemas+Operacionais+Projeto+e+Implementa%C3%A7%C3%A3o+Tanenbaum+Woodhull",
       "disponivel": true,
+      "obra": "tanenbaum-woodhull",
       "verificado_em": "2026-10-12"
     },
     {
       "id": "rec:so/tanenbaum-woodhull-entrada-saida",
       "titulo": "Sistemas Operacionais: Projeto e Implementação — cap. 3, entrada/saída e impasses",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:so/entrada-saida-e-impasses",
       "formato": "texto",
@@ -3835,12 +3867,13 @@
       "duracao_min": 600,
       "url": "https://www.amazon.com.br/s?k=Sistemas+Operacionais+Projeto+e+Implementa%C3%A7%C3%A3o+Tanenbaum+Woodhull",
       "disponivel": true,
+      "obra": "tanenbaum-woodhull",
       "verificado_em": "2026-10-12"
     },
     {
       "id": "rec:so/tanenbaum-woodhull-escalonamento",
       "titulo": "Sistemas Operacionais: Projeto e Implementação — cap. 2, escalonamento e processos no MINIX",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:so/escalonamento-de-processos",
       "formato": "texto",
@@ -3849,12 +3882,13 @@
       "duracao_min": 300,
       "url": "https://www.amazon.com.br/s?k=Sistemas+Operacionais+Projeto+e+Implementa%C3%A7%C3%A3o+Tanenbaum+Woodhull",
       "disponivel": true,
+      "obra": "tanenbaum-woodhull",
       "verificado_em": "2026-10-12"
     },
     {
       "id": "rec:so/tanenbaum-woodhull-introducao",
       "titulo": "Sistemas Operacionais: Projeto e Implementação, 2ª ed. (Tanenbaum & Woodhull) — cap. 1, introdução",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:so/visao-geral-e-chamadas-de-sistema",
       "formato": "texto",
@@ -3863,12 +3897,13 @@
       "duracao_min": 300,
       "url": "https://www.amazon.com.br/s?k=Sistemas+Operacionais+Projeto+e+Implementa%C3%A7%C3%A3o+Tanenbaum+Woodhull",
       "disponivel": true,
+      "obra": "tanenbaum-woodhull",
       "verificado_em": "2026-10-12"
     },
     {
       "id": "rec:so/tanenbaum-woodhull-memoria",
       "titulo": "Sistemas Operacionais: Projeto e Implementação — cap. 4, gerenciamento de memória",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:so/gerenciamento-de-memoria",
       "formato": "texto",
@@ -3877,12 +3912,13 @@
       "duracao_min": 540,
       "url": "https://www.amazon.com.br/s?k=Sistemas+Operacionais+Projeto+e+Implementa%C3%A7%C3%A3o+Tanenbaum+Woodhull",
       "disponivel": true,
+      "obra": "tanenbaum-woodhull",
       "verificado_em": "2026-10-12"
     },
     {
       "id": "rec:so/tanenbaum-woodhull-processos",
       "titulo": "Sistemas Operacionais: Projeto e Implementação — cap. 2, processos e comunicação entre processos",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:so/processos-e-concorrencia",
       "formato": "texto",
@@ -3891,6 +3927,7 @@
       "duracao_min": 600,
       "url": "https://www.amazon.com.br/s?k=Sistemas+Operacionais+Projeto+e+Implementa%C3%A7%C3%A3o+Tanenbaum+Woodhull",
       "disponivel": true,
+      "obra": "tanenbaum-woodhull",
       "verificado_em": "2026-10-12"
     },
     {

@@ -19,6 +19,8 @@ from typing import Any
 import yaml
 
 from .modelo import (
+    FORMA_DA_OBRA,
+    OBRA_PADRAO,
     VERSAO_SCHEMA_SUPORTADA,
     Alvo,
     Catalogo,
@@ -270,6 +272,7 @@ def _recurso(item: Mapping[str, Any], col: _Coletor) -> Recurso | None:
         duracao_min=_inteiro(item, "duracao_min", col, ident),
         url=str(item.get("url", "")),
         disponivel=bool(item.get("disponivel", True)),
+        obra=_obra(item, col, ident),
         verificado_em=_data(item, "verificado_em", col, ident),
         substituido_por=_opcional_texto(item, "substituido_por"),
         depreciado_em=_data(item, "depreciado_em", col, ident),
@@ -324,6 +327,27 @@ def _texto(
 def _opcional_texto(item: Mapping[str, Any], chave: str) -> str | None:
     valor = item.get(chave)
     return valor.strip() if isinstance(valor, str) and valor.strip() else None
+
+
+def _obra(item: Mapping[str, Any], col: _Coletor, entidade: str) -> str | None:
+    """Agrupamento opcional de fatias do mesmo exemplar (ADR-0009).
+
+    Slug puro, sem prefixo `<tipo>:`, porque `obra` não é id de catálogo. Que as
+    fatias de uma obra declarem o mesmo `custo` é coerência entre entidades, e
+    portanto trabalho de `validar` (§5.12).
+    """
+    valor = _opcional_texto(item, "obra")
+    if valor is None:
+        return None
+    if not OBRA_PADRAO.match(valor):
+        col.falha(
+            Codigo.SCHEMA_INVALIDO,
+            f"`obra` {valor!r} fora do padrão `{FORMA_DA_OBRA}` em minúsculas, "
+            "dígitos e hífen — não leva prefixo de tipo, porque não é id",
+            entidade,
+        )
+        return None
+    return valor
 
 
 def _inteiro(item: Mapping[str, Any], chave: str, col: _Coletor, entidade: str) -> int:

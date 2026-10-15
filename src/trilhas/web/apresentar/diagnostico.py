@@ -1,4 +1,4 @@
-"""Visão do diagnóstico: as 11 validações, para quem não roda a CLI.
+"""Visão do diagnóstico: as 12 validações, para quem não roda a CLI.
 
 Cada código leva à seção de docs/catalogo.md §5 que o define — um problema que não diz
 qual regra foi violada obriga a procurar, e quem autora catálogo procura muito.

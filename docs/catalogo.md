@@ -130,6 +130,29 @@ recursos:
 estudos, e o motor filtra por `disponivel` (§2.2 do motor). Um recurso não verificado
 há mais de 180 dias é reportado pela validação como aviso, não erro.
 
+`obra` é campo **opcional** do recurso e agrupa as fatias de um mesmo exemplar
+([ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md)): um livro que
+atende sete etapas é sete recursos, porque um recurso pertence a uma etapa só, e as
+sete fatias declaram a mesma `obra`.
+
+```yaml
+  - id: rec:dados/date-vol1-sql
+    custo: 90
+    obra: date-vol1             # a mesma em todas as oito fatias do exemplar
+```
+
+O valor é slug em minúsculas, dígitos e hífen, **sem** prefixo `<tipo>:` — `obra` não
+é id de catálogo: não nomeia entidade, não tem `rev`, `status` nem depreciação, e
+renomeá-la é um rename mecânico entre as fatias, sem a cerimônia de §6.
+
+`custo` continua por recurso e continua querendo dizer "o que custa ter acesso a este
+recurso" — `obra` não o move nem o reinterpreta. O que ela fixa é como somar:
+**qualquer agregação monetária conta cada obra uma vez**, pelo `custo` de uma de suas
+fatias; recurso sem `obra` é obra de si mesmo. Nenhuma agregação monetária existe
+hoje — o filtro de `custo_maximo` do motor é por recurso, nunca por caminho
+([motor §2.2](motor-de-sugestao.md)) —, então o campo é inerte até aparecer um
+consumidor. Declará-lo agora é barato porque só o autor da fatia sabe a resposta.
+
 ---
 
 ## 3. Identidade
@@ -159,7 +182,7 @@ Cada entidade tem `rev`, inteiro monotônico. **`rev` sobe só em mudança subst
 | Competência | `verificacao`, `status` | `titulo`, `descricao` |
 | Etapa | `requires`, `teaches`, `opcional`, `status`, `esforco_estimado_min` com variação > 20% | `titulo`, ordem no arquivo, ajuste fino de esforço |
 | Trilha | incluir/remover etapa **obrigatória**, `objetivo_declarado`, `status` | `titulo`, ordem de apresentação, etapa opcional |
-| Recurso | `status`, `disponivel`, `custo`, `idioma`, `formato` | `titulo`, `verificado_em`, `url` que aponta ao mesmo material |
+| Recurso | `status`, `disponivel`, `custo`, `obra`, `idioma`, `formato` | `titulo`, `verificado_em`, `url` que aponta ao mesmo material |
 
 Mudança em recurso **nunca** altera a `rev` da etapa: trocar o vídeo não muda o que
 a etapa ensina.
@@ -202,6 +225,7 @@ Erro bloqueia o snapshot. Aviso é reportado e permite compilar.
 9. **`rev` não decresce** em relação ao snapshot anterior — *erro*.
 10. **Recurso verificado** há mais de 180 dias — *aviso*.
 11. **Etapa órfã**: ativa, fora de qualquer trilha ativa e não referenciada — *aviso* (alcançável só por `exploracao`).
+12. **Obra com custo único**: fatias ativas (ou em rascunho) que declaram a mesma `obra` declaram o mesmo `custo` — *erro*. Fatias de uma obra são um exemplar por definição; dois preços significam ou erro de digitação ou duas obras, e os dois casos se corrigem ([ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md)). Fatia depreciada fica de fora: preço de recurso retirado não é fato do exemplar de hoje.
 
 ### Snapshot
 
@@ -244,7 +268,7 @@ exigido pela validação §5.8 quando outra entidade ativa ainda aponta para a d
 ## 7. Implementação
 
 O validador e o compilador estão em `src/trilhas/catalogo/`:
-`carregar` (YAML → modelo, só erros de forma) → `validar` (as 11 validações, função
+`carregar` (YAML → modelo, só erros de forma) → `validar` (as 12 validações, função
 pura) → `compilar` (snapshot com hash e versão). A CLI `trilhas` é a interface de CI,
 e o código de saída é o contrato: `0` válido, `1` com erro.
 
@@ -261,17 +285,20 @@ trilhas compilar --conferir            # falha se o snapshot estiver desatualiza
   Serve de base para os 7 cenários de [motor §5](motor-de-sugestao.md).
 - **Internacionalização** de `titulo`/`descricao`: fora de escopo. Recurso já tem
   `idioma`; texto de entidade é pt-BR.
-- **Recurso composto** — **decidido em [ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md);
-  implementação pendente.** Um livro que atende várias etapas vira várias entradas de
-  `recurso`, porque um recurso pertence a exatamente uma etapa (§2): hoje são nove obras
-  pagas fatiadas em 37 recursos, e `custo` se repete em cada fatia embora o exemplar se
-  compre uma vez. A ADR decidiu um campo opcional `obra` no recurso — slug, não id —, com
-  `custo` ficando onde está e qualquer agregação contando cada obra uma vez; a validação
-  nova é "mesma `obra` ⇒ mesmo `custo`", *erro*. Nada disso existe em `carregar` nem em §2
-  ainda. Correção de rumo: a versão anterior desta pendência dizia que a repetição
-  superestima o custo de um caminho para o filtro de `custo_maximo`
+- **Recurso composto** — **implementado**, como
+  [ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md) o decidiu. Um livro
+  que atende várias etapas continua virando várias entradas de `recurso`, porque um
+  recurso pertence a exatamente uma etapa (§2); o que o fecha é o campo opcional `obra`
+  (§2), que agrupa as fatias de um exemplar, mais a validação §5.12 de que fatias da
+  mesma obra declaram o mesmo `custo`. `custo` ficou onde estava, por recurso, e
+  qualquer agregação monetária conta cada obra uma vez. Hoje são nove obras pagas,
+  fatiadas em 37 recursos, todas declaradas; os outros 98 recursos não declaram `obra`
+  — 73 gratuitos e 25 pagos de uma fatia só, que são obra de si mesmos. Correção de
+  rumo: a versão anterior desta pendência dizia que a repetição superestima o custo de
+  um caminho para o filtro de `custo_maximo`
   ([motor §2.2](motor-de-sugestao.md)). Não superestima — o filtro é por recurso, nunca
-  por caminho, e nenhuma soma de `custo` existe no código. A distorção só aparece numa
+  por caminho, e nenhuma soma de `custo` existe no código, o que agora é teste
+  (`test_filtro_de_custo_e_por_recurso_nao_por_caminho`). A distorção só aparece numa
   soma de caminho, que ainda não tem consumidor.
 - **Autoria por não-programadores**: YAML em PR exige git. Aceito por ora; se virar
   obstáculo, a saída é uma interface que gera o YAML, não uma segunda fonte da verdade.

@@ -61,11 +61,12 @@ recursos:
   - id: rec:ia/handson-ml-3ed
     etapa: etapa:ia/fundamentos-aprendizado-profundo
     titulo: "Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow, 3ª ed. (Géron) — parte II"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 350
+    obra: handson-ml
     duracao_min: 1800
     url: https://github.com/ageron/handson-ml3
     disponivel: true
@@ -209,11 +210,12 @@ recursos:
   - id: rec:ia/ai-powered-search
     etapa: etapa:ia/recuperacao-e-ranqueamento
     titulo: "AI-Powered Search (Grainger, Turnbull & Irwin, Manning) — busca híbrida e reranqueamento"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 350
+    obra: ai-powered-search
     duracao_min: 1500
     url: https://www.manning.com/books/ai-powered-search
     disponivel: true
@@ -236,11 +238,12 @@ recursos:
   - id: rec:ia/llm-engineers-handbook-rag
     etapa: etapa:ia/rag-fim-a-fim
     titulo: "LLM Engineer's Handbook (Iusztin & Labonne, Packt) — ingestão, indexação e RAG"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 280
+    obra: llm-eng-handbook
     duracao_min: 900
     url: https://www.oreilly.com/library/view/llm-engineers-handbook/9781836200079
     disponivel: true
@@ -263,11 +266,12 @@ recursos:
   - id: rec:ia/llm-engineers-handbook-finetuning
     etapa: etapa:ia/fine-tuning-e-adaptacao
     titulo: "LLM Engineer's Handbook — fine-tuning supervisionado, preferências e quantização"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 280
+    obra: llm-eng-handbook
     duracao_min: 900
     url: https://www.oreilly.com/library/view/llm-engineers-handbook/9781836200079
     disponivel: true
@@ -290,11 +294,12 @@ recursos:
   - id: rec:ia/ai-engineering-avaliacao
     etapa: etapa:ia/avaliacao-de-sistemas-llm
     titulo: "AI Engineering (Chip Huyen, O'Reilly) — metodologia de avaliação e avaliação de sistemas"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 350
+    obra: ai-engineering
     duracao_min: 900
     url: https://www.oreilly.com/library/view/ai-engineering/9781098166298/
     disponivel: true
@@ -317,11 +322,12 @@ recursos:
   - id: rec:ia/ai-engineering-producao
     etapa: etapa:ia/rag-em-producao
     titulo: "AI Engineering — arquitetura de aplicação, cache, otimização de inferência e custo"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 350
+    obra: ai-engineering
     duracao_min: 900
     url: https://www.oreilly.com/library/view/ai-engineering/9781098166298/
     disponivel: true
@@ -330,11 +336,12 @@ recursos:
   - id: rec:ia/ai-powered-search-rag
     etapa: etapa:ia/rag-em-producao
     titulo: "AI-Powered Search — capítulos de RAG, resposta a perguntas e qualidade de recuperação"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 350
+    obra: ai-powered-search
     duracao_min: 600
     url: https://www.manning.com/books/ai-powered-search
     disponivel: true
@@ -369,11 +376,12 @@ recursos:
   - id: rec:ia/biblia-claude-chat
     etapa: etapa:ia/claude-modelos-e-chat
     titulo: "A Bíblia do Claude AI (Thierry Gustin) — modelos, chat e Cowork"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 30
+    obra: biblia-claude
     duracao_min: 120
     url: https://www.amazon.com.br/dp/B0H8S9BKKZ
     disponivel: true
@@ -396,11 +404,12 @@ recursos:
   - id: rec:ia/biblia-claude-prompts
     etapa: etapa:ia/claude-prompt-e-saida-estruturada
     titulo: "A Bíblia do Claude AI — prompts, contexto e saída em formato longo"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 30
+    obra: biblia-claude
     duracao_min: 150
     url: https://www.amazon.com.br/dp/B0H8S9BKKZ
     disponivel: true
@@ -423,11 +432,12 @@ recursos:
   - id: rec:ia/biblia-claude-api
     etapa: etapa:ia/claude-api-e-sdk
     titulo: "A Bíblia do Claude AI — a API da Anthropic"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 30
+    obra: biblia-claude
     duracao_min: 96
     url: https://www.amazon.com.br/dp/B0H8S9BKKZ
     disponivel: true
@@ -450,11 +460,12 @@ recursos:
   - id: rec:ia/biblia-claude-mcp
     etapa: etapa:ia/tool-use-e-mcp
     titulo: "A Bíblia do Claude AI — MCP e conexão a dados e sistemas"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 30
+    obra: biblia-claude
     duracao_min: 120
     url: https://www.amazon.com.br/dp/B0H8S9BKKZ
     disponivel: true
@@ -477,11 +488,12 @@ recursos:
   - id: rec:ia/biblia-claude-code-skills
     etapa: etapa:ia/claude-code-e-skills
     titulo: "A Bíblia do Claude AI — Claude Code e Skills"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 30
+    obra: biblia-claude
     duracao_min: 120
     url: https://www.amazon.com.br/dp/B0H8S9BKKZ
     disponivel: true
@@ -504,11 +516,12 @@ recursos:
   - id: rec:ia/biblia-claude-agentes
     etapa: etapa:ia/agentes-com-claude
     titulo: "A Bíblia do Claude AI — do primeiro chat ao agente"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 30
+    obra: biblia-claude
     duracao_min: 90
     url: https://www.amazon.com.br/dp/B0H8S9BKKZ
     disponivel: true
@@ -531,11 +544,12 @@ recursos:
   - id: rec:ia/biblia-claude-producao
     etapa: etapa:ia/agente-em-producao
     titulo: "A Bíblia do Claude AI — agente em produção"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 30
+    obra: biblia-claude
     duracao_min: 30
     url: https://www.amazon.com.br/dp/B0H8S9BKKZ
     disponivel: true
@@ -544,11 +558,12 @@ recursos:
   - id: rec:ia/ai-engineering-agentes-producao
     etapa: etapa:ia/agente-em-producao
     titulo: "AI Engineering (Chip Huyen) — agentes, salvaguardas, observabilidade e custo de inferência"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 350
+    obra: ai-engineering
     duracao_min: 600
     url: https://www.oreilly.com/library/view/ai-engineering/9781098166298/
     disponivel: true

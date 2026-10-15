@@ -22,6 +22,12 @@ ID_PADROES = {
 
 FORMA_DO_ID = {prefixo: f"{prefixo}:<area>/<slug>" for prefixo in ID_PADROES}
 
+# `obra` agrupa as fatias de um mesmo exemplar (ADR-0009): slug puro, sem `<tipo>:`.
+# Não é id de catálogo — não nomeia entidade, não tem `rev` nem depreciação.
+OBRA_PADRAO = re.compile(r"^[a-z0-9][a-z0-9-]*$")
+
+FORMA_DA_OBRA = "<slug>"
+
 VERSAO_SCHEMA_SUPORTADA = 1
 
 
@@ -127,6 +133,7 @@ class Recurso:
     duracao_min: int
     url: str
     disponivel: bool
+    obra: str | None = None
     verificado_em: date | None = None
     substituido_por: str | None = None
     depreciado_em: date | None = None

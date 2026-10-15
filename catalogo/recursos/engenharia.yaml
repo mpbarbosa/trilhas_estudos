@@ -56,11 +56,12 @@ recursos:
   - id: rec:engenharia/partes-dificeis-trade-off
     etapa: etapa:engenharia/trade-off-como-metodo
     titulo: "Arquitetura de software: as partes difíceis (Ford, Richards, Sadalage & Dehghani) — capítulos de análise de trade-off"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 120
+    obra: partes-dificeis
     duracao_min: 480
     url: https://www.amazon.com.br/dp/8550819840
     disponivel: true
@@ -83,11 +84,12 @@ recursos:
   - id: rec:engenharia/partes-dificeis-decomposicao
     etapa: etapa:engenharia/decomposicao-de-sistemas
     titulo: "As partes difíceis — parte I: granularidade de serviço, acoplamento e integradores/desintegradores"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 120
+    obra: partes-dificeis
     duracao_min: 900
     url: https://www.amazon.com.br/dp/8550819840
     disponivel: true
@@ -110,11 +112,12 @@ recursos:
   - id: rec:engenharia/partes-dificeis-dados
     etapa: etapa:engenharia/dados-atravessando-fronteiras
     titulo: "As partes difíceis — parte II: propriedade de dado, saga, contrato e consulta distribuída"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 120
+    obra: partes-dificeis
     duracao_min: 900
     url: https://www.amazon.com.br/dp/8550819840
     disponivel: true

@@ -1,4 +1,4 @@
-"""As 11 validações de docs/catalogo.md §5.
+"""As 12 validações de docs/catalogo.md §5.
 
 Função pura: recebe catálogo em memória e o estado do snapshot anterior, devolve
 problemas. Sem I/O.
@@ -6,11 +6,12 @@ problemas. Sem I/O.
 
 from __future__ import annotations
 
+from collections import defaultdict
 from collections.abc import Iterable, Mapping
 from datetime import date, timedelta
 
 from .grafo import fecho_progressivo
-from .modelo import FORMA_DO_ID, ID_PADROES, Catalogo, Etapa, Nivel, Status
+from .modelo import FORMA_DO_ID, ID_PADROES, Catalogo, Etapa, Nivel, Recurso, Status
 from .problemas import Codigo, Problema, aviso, erro
 from .snapshot import EstadoAnterior
 
@@ -45,6 +46,7 @@ def validar(
     problemas += _v9_rev_nao_decresce(catalogo, anterior)
     problemas += _v10_recursos_verificados(catalogo, hoje)
     problemas += _v11_etapas_orfas(catalogo)
+    problemas += _v12_obra_com_custo_unico(catalogo)
     return problemas
 
 
@@ -395,3 +397,46 @@ def _v11_etapas_orfas(catalogo: Catalogo) -> list[Problema]:
         for etapa in catalogo.etapas_ativas()
         if etapa.id not in alcancadas
     ]
+
+
+# --- §5.12 ---------------------------------------------------------------------
+
+
+def _v12_obra_com_custo_unico(catalogo: Catalogo) -> list[Problema]:
+    """Fatias que declaram a mesma `obra` declaram o mesmo `custo` (ADR-0009).
+
+    `obra` agrupa as fatias de um exemplar que se compra uma vez; dois preços no
+    mesmo agrupamento significam ou erro de digitação ou duas obras, e os dois casos
+    se corrigem. Fatia depreciada fica de fora: preço de recurso retirado não é fato
+    do exemplar de hoje.
+    """
+    por_obra: dict[str, list[Recurso]] = defaultdict(list)
+    for recurso in catalogo.recursos.values():
+        if recurso.obra is not None and recurso.status is not Status.DEPRECIADO:
+            por_obra[recurso.obra].append(recurso)
+
+    problemas: list[Problema] = []
+    for obra, fatias in sorted(por_obra.items()):
+        if len({f.custo for f in fatias}) == 1:
+            continue
+        grupos: dict[float, list[str]] = defaultdict(list)
+        for fatia in sorted(fatias, key=lambda r: r.id):
+            grupos[fatia.custo].append(fatia.id)
+        # Maioria primeiro: o grupo pequeno é o candidato a erro de digitação.
+        por_tamanho = sorted(grupos.items(), key=lambda kv: (-len(kv[1]), kv[0]))
+        divergencia = "; ".join(f"{custo:g} em {_e_outras(ids)}" for custo, ids in por_tamanho)
+        problemas.append(
+            erro(
+                Codigo.OBRA_CUSTO_DIVERGENTE,
+                f"obra {obra!r} declara custos diferentes entre suas fatias "
+                f"({divergencia}); fatias de uma obra são um exemplar, que se compra "
+                "uma vez",
+                entidade=por_tamanho[-1][1][0],
+            )
+        )
+    return problemas
+
+
+def _e_outras(ids: list[str]) -> str:
+    """`rec:x/a` ou `rec:x/a e outras 6` — mantém a mensagem legível em obra longa."""
+    return ids[0] if len(ids) == 1 else f"{ids[0]} e outras {len(ids) - 1}"

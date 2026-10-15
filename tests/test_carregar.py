@@ -114,3 +114,39 @@ trilha:
 def test_niveis_sao_ordinais() -> None:
     assert Nivel.DESCONHECE < Nivel.INICIANTE < Nivel.INTERMEDIARIO < Nivel.AVANCADO
     assert str(Nivel.de_texto("AVANCADO")) == "avancado"
+
+
+RECURSO_COM_OBRA = """versao_schema: 1
+recursos:
+  - id: rec:x/fatia
+    etapa: etapa:x/a
+    titulo: Fatia
+    rev: 1
+    formato: texto
+    custo: 90
+    duracao_min: 60
+    obra: {obra}
+"""
+
+
+def test_obra_fora_do_formato_de_slug_e_erro_de_forma(tmp_path: Path) -> None:
+    """`obra` é slug puro: prefixo de tipo não passa, porque obra não é id."""
+    escrever(tmp_path, "recursos/x.yaml", RECURSO_COM_OBRA.format(obra="rec:dados/date-vol1"))
+    catalogo, problemas = carregar(tmp_path)
+    assert Codigo.SCHEMA_INVALIDO in codigos(problemas)
+    assert catalogo.recursos["rec:x/fatia"].obra is None
+
+
+def test_obra_em_slug_e_aceita(tmp_path: Path) -> None:
+    escrever(tmp_path, "recursos/x.yaml", RECURSO_COM_OBRA.format(obra="date-vol1"))
+    catalogo, problemas = carregar(tmp_path)
+    assert not tem_erro(problemas)
+    assert catalogo.recursos["rec:x/fatia"].obra == "date-vol1"
+
+
+def test_recurso_sem_obra_fica_sem_agrupamento(tmp_path: Path) -> None:
+    corpo = "\n".join(ln for ln in RECURSO_COM_OBRA.splitlines() if "obra:" not in ln) + "\n"
+    escrever(tmp_path, "recursos/x.yaml", corpo)
+    catalogo, problemas = carregar(tmp_path)
+    assert not tem_erro(problemas)
+    assert catalogo.recursos["rec:x/fatia"].obra is None

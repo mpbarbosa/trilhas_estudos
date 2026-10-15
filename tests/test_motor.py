@@ -289,6 +289,59 @@ def test_restricao_de_formato_escolhe_recurso_aceito(cat: Catalogo) -> None:
     assert resultado.sugestoes[0].recurso_sugerido_id == "rec:dados/sql-select-video"
 
 
+def _duas_fatias_do_mesmo_livro(obra: str | None = "livro-x") -> Catalogo:
+    """Duas etapas, cada uma com uma fatia de 90 do mesmo exemplar (ADR-0009)."""
+    return catalogo(
+        competencia("comp:x/a"),
+        competencia("comp:x/b"),
+        etapa("etapa:x/a", teaches=[("comp:x/a", N.INICIANTE)], trilha="trilha:x/t"),
+        etapa("etapa:x/b", teaches=[("comp:x/b", N.INICIANTE)], trilha="trilha:x/t"),
+        recurso("rec:x/a", "etapa:x/a", custo=90, obra=obra),
+        recurso("rec:x/b", "etapa:x/b", custo=90, obra=obra),
+        trilha(
+            "trilha:x/t",
+            etapas=["etapa:x/a", "etapa:x/b"],
+            objetivo=[("comp:x/a", N.INICIANTE)],
+        ),
+    )
+
+
+def _com_teto(teto: float | None, cat: Catalogo | None = None) -> Resultado:
+    percurso = Percurso(
+        "est:x",
+        matriculas=(matricula("trilha:x/t"),),
+        restricoes=Restricoes(custo_maximo=teto),
+    )
+    return sugerir(cat or _duas_fatias_do_mesmo_livro(), percurso, AGORA)
+
+
+def test_teto_abaixo_do_custo_do_recurso_elimina_a_etapa_por_custo() -> None:
+    resultado = _com_teto(89)
+    assert ids(resultado) == []
+    assert motivo_de(resultado, "etapa:x/a") is Motivo.SEM_RECURSO_VIAVEL
+    assert all(e.detalhe == "custo" for e in resultado.eliminadas)
+    assert resultado.motivo_vazio is MotivoVazio.RESTRICOES_BLOQUEIAM
+    assert resultado.detalhe == "custo"
+
+
+def test_teto_igual_ao_custo_do_recurso_nao_elimina() -> None:
+    """O corte é `custo > custo_maximo`: no limite o recurso ainda passa."""
+    resultado = _com_teto(90)
+    assert ids(resultado) == ["etapa:x/a", "etapa:x/b"]
+    assert resultado.eliminadas == ()
+
+
+def test_filtro_de_custo_e_por_recurso_nao_por_caminho() -> None:
+    """Teto de 90 passa, embora o caminho reúna duas fatias de 90 (soma 180).
+
+    `obra` não muda isso: o filtro compara uma fatia por vez, e nenhuma soma de
+    `custo` existe no motor (ADR-0009).
+    """
+    sem_obra = _duas_fatias_do_mesmo_livro(obra=None)
+    assert ids(_com_teto(90, sem_obra)) == ids(_com_teto(90)) == ["etapa:x/a", "etapa:x/b"]
+    assert ids(_com_teto(179)) == ["etapa:x/a", "etapa:x/b"]
+
+
 def test_etapa_em_andamento_entra_como_retomada(cat: Catalogo) -> None:
     percurso = Percurso(
         "est:x",

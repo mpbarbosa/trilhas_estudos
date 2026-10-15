@@ -17,11 +17,12 @@ recursos:
   - id: rec:so/tanenbaum-woodhull-introducao
     etapa: etapa:so/visao-geral-e-chamadas-de-sistema
     titulo: "Sistemas Operacionais: Projeto e Implementação, 2ª ed. (Tanenbaum & Woodhull) — cap. 1, introdução"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 60
+    obra: tanenbaum-woodhull
     duracao_min: 300
     url: https://www.amazon.com.br/s?k=Sistemas+Operacionais+Projeto+e+Implementa%C3%A7%C3%A3o+Tanenbaum+Woodhull
     disponivel: true
@@ -44,11 +45,12 @@ recursos:
   - id: rec:so/tanenbaum-woodhull-processos
     etapa: etapa:so/processos-e-concorrencia
     titulo: "Sistemas Operacionais: Projeto e Implementação — cap. 2, processos e comunicação entre processos"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 60
+    obra: tanenbaum-woodhull
     duracao_min: 600
     url: https://www.amazon.com.br/s?k=Sistemas+Operacionais+Projeto+e+Implementa%C3%A7%C3%A3o+Tanenbaum+Woodhull
     disponivel: true
@@ -71,11 +73,12 @@ recursos:
   - id: rec:so/tanenbaum-woodhull-escalonamento
     etapa: etapa:so/escalonamento-de-processos
     titulo: "Sistemas Operacionais: Projeto e Implementação — cap. 2, escalonamento e processos no MINIX"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 60
+    obra: tanenbaum-woodhull
     duracao_min: 300
     url: https://www.amazon.com.br/s?k=Sistemas+Operacionais+Projeto+e+Implementa%C3%A7%C3%A3o+Tanenbaum+Woodhull
     disponivel: true
@@ -98,11 +101,12 @@ recursos:
   - id: rec:so/tanenbaum-woodhull-entrada-saida
     etapa: etapa:so/entrada-saida-e-impasses
     titulo: "Sistemas Operacionais: Projeto e Implementação — cap. 3, entrada/saída e impasses"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 60
+    obra: tanenbaum-woodhull
     duracao_min: 600
     url: https://www.amazon.com.br/s?k=Sistemas+Operacionais+Projeto+e+Implementa%C3%A7%C3%A3o+Tanenbaum+Woodhull
     disponivel: true
@@ -112,11 +116,12 @@ recursos:
   - id: rec:so/tanenbaum-woodhull-memoria
     etapa: etapa:so/gerenciamento-de-memoria
     titulo: "Sistemas Operacionais: Projeto e Implementação — cap. 4, gerenciamento de memória"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 60
+    obra: tanenbaum-woodhull
     duracao_min: 540
     url: https://www.amazon.com.br/s?k=Sistemas+Operacionais+Projeto+e+Implementa%C3%A7%C3%A3o+Tanenbaum+Woodhull
     disponivel: true
@@ -139,11 +144,12 @@ recursos:
   - id: rec:so/tanenbaum-woodhull-arquivos
     etapa: etapa:so/sistemas-de-arquivos
     titulo: "Sistemas Operacionais: Projeto e Implementação — cap. 5, sistema de arquivos"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 60
+    obra: tanenbaum-woodhull
     duracao_min: 540
     url: https://www.amazon.com.br/s?k=Sistemas+Operacionais+Projeto+e+Implementa%C3%A7%C3%A3o+Tanenbaum+Woodhull
     disponivel: true

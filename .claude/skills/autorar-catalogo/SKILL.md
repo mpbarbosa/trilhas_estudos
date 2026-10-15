@@ -1,11 +1,11 @@
 ---
 name: autorar-catalogo
-description: Procedimento para autorar ou alterar o catálogo de trilhas_estudos — criar trilha, etapa, competência ou recurso em YAML, escolher ids, decidir se `rev` sobe, e fazer a compilação passar nas 11 validações. Use ao criar ou editar qualquer arquivo em catalogo/, ao depreciar uma entidade, ou quando `trilhas validar` falha.
+description: Procedimento para autorar ou alterar o catálogo de trilhas_estudos — criar trilha, etapa, competência ou recurso em YAML, escolher ids, decidir se `rev` sobe, e fazer a compilação passar nas 12 validações. Use ao criar ou editar qualquer arquivo em catalogo/, ao depreciar uma entidade, ou quando `trilhas validar` falha.
 ---
 
 # Autorar catálogo
 
-O esquema, a tabela de `rev` e as 11 validações estão em
+O esquema, a tabela de `rev` e as 12 validações estão em
 [docs/catalogo.md](../../../docs/catalogo.md) — leia a seção citada em cada passo em
 vez de confiar na memória. Esta skill é o **procedimento** e os erros que ele evita.
 
@@ -55,6 +55,10 @@ Ordem que reduz retrabalho:
    não parte de perfil vazio (validações 3 e 6).
 4. **≥ 1 recurso ativo e disponível por etapa ativa** (validação 5) — etapa sem
    recurso bloqueia o snapshot. Preencha `verificado_em` com a data de hoje.
+   Se o recurso é um capítulo de livro que outras etapas também usam, declare `obra`
+   com o mesmo slug em todas as fatias e o mesmo `custo` — o do exemplar inteiro, que
+   se compra uma vez (validação 12). Só você sabe o agrupamento no momento de
+   escrever; depois ele não se recupera senão por adivinhação (ADR-0009).
 5. Toda competência exigida por alguma etapa ativa tem de ser ensinada por alguma
    etapa ativa (validação 4) — inclusive as que você assumiu como "pré-requisito
    externo". Se vem de outra trilha, use `etapas_referenciadas`.
@@ -69,7 +73,7 @@ Consulte a tabela de docs/catalogo.md §4 e só então decida `rev`:
 - Substantivo (sobe `rev`): `requires`, `teaches`, `opcional`, `status`,
   `objetivo_declarado`, incluir/remover etapa **obrigatória** de uma trilha,
   `esforco_estimado_min` com variação > 20%, e em recurso `status`, `disponivel`,
-  `custo`, `idioma`, `formato`.
+  `custo`, `obra`, `idioma`, `formato`.
 - Cosmético (não sobe): `titulo`, `descricao`, ordem no arquivo, `verificado_em`,
   `url` para o mesmo material.
 

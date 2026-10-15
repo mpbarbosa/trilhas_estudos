@@ -119,11 +119,12 @@ recursos:
   - id: rec:dados/kline-calculus
     etapa: etapa:dados/matematica-para-dados
     titulo: "Calculus: An Intuitive and Physical Approach, 2ª ed. (Morris Kline) — derivada, gradiente e otimização"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 90
+    obra: kline-calculus
     duracao_min: 1200
     url: https://store.doverpublications.com/products/9780486404530
     disponivel: true
@@ -200,11 +201,12 @@ recursos:
   - id: rec:dados/handson-ml-parte1
     etapa: etapa:dados/modelagem-preditiva-inicial
     titulo: "Hands-On Machine Learning, 3ª ed. (Géron) — parte I, aprendizado supervisionado clássico"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 350
+    obra: handson-ml
     duracao_min: 1200
     url: https://github.com/ageron/handson-ml3
     disponivel: true
@@ -245,11 +247,12 @@ recursos:
   - id: rec:dados/date-vol1-arquitetura
     etapa: etapa:dados/arquitetura-de-sgbd
     titulo: "An Introduction to Database Systems, vol. I, 5ª ed. (C. J. Date) — parte I: conceitos básicos e a arquitetura ANSI/SPARC em três níveis"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 90
+    obra: date-vol1
     duracao_min: 300
     url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
     disponivel: true
@@ -272,11 +275,12 @@ recursos:
   - id: rec:dados/date-vol1-modelo-relacional
     etapa: etapa:dados/modelo-relacional
     titulo: "An Introduction to Database Systems, vol. I — parte II: domínios, relações, chaves e as regras de integridade"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 90
+    obra: date-vol1
     duracao_min: 420
     url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
     disponivel: true
@@ -299,11 +303,12 @@ recursos:
   - id: rec:dados/date-vol1-algebra-e-calculo
     etapa: etapa:dados/algebra-e-calculo-relacional
     titulo: "An Introduction to Database Systems, vol. I — álgebra relacional, cálculo relacional e completude"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 90
+    obra: date-vol1
     duracao_min: 420
     url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
     disponivel: true
@@ -313,11 +318,12 @@ recursos:
   - id: rec:dados/date-vol1-sql
     etapa: etapa:dados/sql-contra-o-modelo
     titulo: "An Introduction to Database Systems, vol. I — SQL: a linguagem lida contra o modelo, com suas divergências"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 90
+    obra: date-vol1
     duracao_min: 420
     url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
     disponivel: true
@@ -340,11 +346,12 @@ recursos:
   - id: rec:dados/date-vol1-normalizacao
     etapa: etapa:dados/dependencia-e-normalizacao
     titulo: "An Introduction to Database Systems, vol. I — normalização I: dependência funcional, decomposição sem perda e as formas normais até a FNBC"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 90
+    obra: date-vol1
     duracao_min: 480
     url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
     disponivel: true
@@ -354,11 +361,12 @@ recursos:
   - id: rec:dados/date-vol1-normalizacao-superior
     etapa: etapa:dados/normalizacao-superior
     titulo: "An Introduction to Database Systems, vol. I — normalização II: dependência multivalorada, de junção, 4FN e 5FN"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 90
+    obra: date-vol1
     duracao_min: 300
     url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
     disponivel: true
@@ -368,11 +376,12 @@ recursos:
   - id: rec:dados/date-vol1-armazenamento
     etapa: etapa:dados/armazenamento-e-indices
     titulo: "An Introduction to Database Systems, vol. I — estruturas de armazenamento e métodos de acesso: indexação, hashing e árvore B"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 90
+    obra: date-vol1
     duracao_min: 360
     url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
     disponivel: true
@@ -395,11 +404,12 @@ recursos:
   - id: rec:dados/date-vol1-protecao
     etapa: etapa:dados/transacao-recuperacao-concorrencia
     titulo: "An Introduction to Database Systems, vol. I — parte de proteção: recuperação por log, controle de concorrência por bloqueio e impasse"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 90
+    obra: date-vol1
     duracao_min: 480
     url: https://www.amazon.com.br/s?k=An+Introduction+to+Database+Systems+Date
     disponivel: true
