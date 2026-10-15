@@ -21,6 +21,7 @@ persistência do percurso — nada do que o estudante faz é gravado.
   - *Matemática — da demonstração ao cálculo* ([trilha](catalogo/trilhas/matematica-prova-e-calculo.yaml)) — prova, geometria axiomática, cálculo e simetria
   - *Sistemas operacionais, do conceito ao núcleo* ([trilha](catalogo/trilhas/so-projeto-e-implementacao.yaml)) — processos, memória, E/S, arquivos e prática no MINIX
   - *Bancos de dados relacionais, do modelo à transação* ([trilha](catalogo/trilhas/bancos-de-dados-relacionais.yaml)) — arquitetura, modelo relacional, álgebra, SQL, normalização e transação
+  - *Linguagem C, do tutorial à interface com o UNIX* ([trilha](catalogo/trilhas/linguagem-c-ansi.yaml)) — tipos, funções, apontadores, estruturas, E/S e chamadas de sistema
 - [Decisões de arquitetura](docs/README.md)
 
 ## Uso

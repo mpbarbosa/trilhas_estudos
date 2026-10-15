@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 10,
-  "gerado_em": "2026-10-15T15:59:55+00:00",
-  "hash": "sha256:d583507e6fded276dbbf21f0a7197ccbb5904b8618e52fbc97952e5178d33296",
+  "catalogo_versao": 11,
+  "gerado_em": "2026-10-15T22:45:35+00:00",
+  "hash": "sha256:2a94ef085bc377998b530485cbf95dbbef23b8d7be760f6fa312aabb82b27969",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -323,6 +323,54 @@
       "status": "ativo",
       "verificacao": "Demonstrar uma proposição que você não viu antes, escolhendo a estratégia e justificando por que ela cabe; e, dada uma \"prova\" com erro sutil, localizar o passo inválido e dizer qual regra ele viola.",
       "descricao": "Ler e escrever demonstração: quantificadores, implicação e sua recíproca, prova direta, contrapositiva, contradição, indução, contraexemplo — e distinguir argumento válido de argumento convincente.\n"
+    },
+    {
+      "id": "comp:programacao/c-apontadores",
+      "titulo": "C — apontadores, vetores e memória",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Implementar uma ordenação de linhas lidas da entrada com vetor de apontadores e função de comparação passada por apontador, sem vazamento nem acesso inválido sob `valgrind`, e decifrar em português uma declaração como `char (*(*x())[])()`.",
+      "descricao": "Apontadores e endereços, aritmética de apontadores, a relação entre vetor e apontador, cadeias de caracteres, vetores de apontadores, apontadores para funções, declarações complexas e alocação dinâmica.\n"
+    },
+    {
+      "id": "comp:programacao/c-entrada-saida-e-biblioteca",
+      "titulo": "C — entrada e saída e a biblioteca padrão",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Reescrever um utilitário como `cat` ou `cmp` que receba arquivos na linha de comando, reporte erro de abertura em `stderr` com código de saída diferente de zero, e implementar uma função com argumentos variáveis no estilo de `printf`.",
+      "descricao": "E/S padrão (`stdio.h`): formatação com `printf`/`scanf`, acesso a arquivos, tratamento de erro com `stderr` e `exit`, listas de argumentos variáveis, e o restante da biblioteca padrão ANSI (`string.h`, `ctype.h`, `stdlib.h`, `math.h`).\n"
+    },
+    {
+      "id": "comp:programacao/c-estruturas",
+      "titulo": "C — estruturas, uniões e estruturas autorreferentes",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Implementar uma árvore binária de busca ou uma tabela de dispersão para contar ocorrências de palavras, liberando toda a memória ao final, e justificar a escolha entre passar a estrutura por valor ou por apontador em cada função.",
+      "descricao": "Estruturas e funções, vetores de estruturas, apontadores para estruturas, estruturas autorreferentes (listas, árvores), tabelas de dispersão, `typedef`, uniões e campos de bits.\n"
+    },
+    {
+      "id": "comp:programacao/c-funcoes-e-estrutura-de-programa",
+      "titulo": "C — funções e estrutura de programa",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dividir um programa em pelo menos três arquivos-fonte com cabeçalho próprio, escondendo estado com `static`, compilar e ligar à mão, e explicar o que cada `extern` e cada `#include` resolve.",
+      "descricao": "Funções e protótipos, variáveis externas e escopo, classes de armazenamento (`static`, `extern`, `register`), compilação separada em vários arquivos, recursão e o pré-processador.\n"
+    },
+    {
+      "id": "comp:programacao/c-fundamentos",
+      "titulo": "C — tipos, operadores, expressões e controle de fluxo",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Escrever, compilando com `-std=c89 -pedantic -Wall` sem aviso, um programa que conte linhas, palavras e caracteres da entrada padrão, e explicar o resultado de uma expressão com conversão entre `char`, `int` e `unsigned` escolhida por outra pessoa.",
+      "descricao": "O núcleo da linguagem C: tipos básicos e seus limites, conversões implícitas, operadores (inclusive bit a bit e de atribuição composta), precedência, e as construções de controle de fluxo.\n"
+    },
+    {
+      "id": "comp:programacao/c-interface-unix",
+      "titulo": "C — interface com o sistema UNIX",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Implementar `fopen`/`getc` mínimos sobre `read` e um alocador `malloc`/`free` com lista livre, demonstrando-os num programa de teste, e explicar por que a E/S com buffer é mais rápida que um `read` por caractere.",
+      "descricao": "O que a biblioteca padrão esconde: descritores de arquivo, E/S de baixo nível (`read`, `write`, `open`, `lseek`), listagem de diretórios, e um alocador de memória escrito sobre o sistema.\n"
     },
     {
       "id": "comp:programacao/python-dados",
@@ -1640,6 +1688,151 @@
       ]
     },
     {
+      "id": "etapa:programacao/c-apontadores-e-vetores",
+      "titulo": "Apontadores e vetores",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:programacao/linguagem-c-ansi",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:programacao/c-funcoes-e-estrutura-de-programa",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:programacao/c-apontadores",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:programacao/c-entrada-e-saida",
+      "titulo": "Entrada e saída e a biblioteca padrão",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 540,
+      "trilha": "trilha:programacao/linguagem-c-ansi",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:programacao/c-apontadores",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:programacao/c-entrada-saida-e-biblioteca",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:programacao/c-estruturas",
+      "titulo": "Estruturas — listas, árvores, tabelas de dispersão e uniões",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 720,
+      "trilha": "trilha:programacao/linguagem-c-ansi",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:programacao/c-apontadores",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:programacao/c-estruturas",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:programacao/c-funcoes-e-estrutura-de-programa",
+      "titulo": "Funções e estrutura de programa — escopo, compilação separada e pré-processador",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 540,
+      "trilha": "trilha:programacao/linguagem-c-ansi",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:programacao/c-fundamentos",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:programacao/c-funcoes-e-estrutura-de-programa",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:programacao/c-interface-com-o-unix",
+      "titulo": "A interface com o sistema UNIX — descritores, diretórios e um alocador",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 720,
+      "trilha": "trilha:programacao/linguagem-c-ansi",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:programacao/c-estruturas",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:programacao/c-entrada-saida-e-biblioteca",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:programacao/c-interface-unix",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:programacao/c-introducao-em-tutorial",
+      "titulo": "Uma introdução em tutorial — a linguagem inteira por alto",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "trilha": "trilha:programacao/linguagem-c-ansi",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:programacao/c-fundamentos",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:programacao/c-tipos-operadores-e-controle-de-fluxo",
+      "titulo": "Tipos, operadores, expressões e controle de fluxo",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 540,
+      "trilha": "trilha:programacao/linguagem-c-ansi",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:programacao/c-fundamentos",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:programacao/c-fundamentos",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:programacao/python-para-ia",
       "titulo": "Python para trabalho com dados e IA",
       "rev": 1,
@@ -2201,6 +2394,39 @@
         "etapa:matematica/integral-e-acumulacao",
         "etapa:matematica/simetria-e-grupos",
         "etapa:matematica/projeto-demonstracao-propria"
+      ]
+    },
+    {
+      "id": "trilha:programacao/linguagem-c-ansi",
+      "titulo": "Linguagem C, do tutorial à interface com o UNIX",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:programacao/c-apontadores",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:programacao/c-estruturas",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:programacao/c-entrada-saida-e-biblioteca",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:programacao/c-interface-unix",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:programacao/c-introducao-em-tutorial",
+        "etapa:programacao/c-tipos-operadores-e-controle-de-fluxo",
+        "etapa:programacao/c-funcoes-e-estrutura-de-programa",
+        "etapa:programacao/c-apontadores-e-vetores",
+        "etapa:programacao/c-estruturas",
+        "etapa:programacao/c-entrada-e-saida",
+        "etapa:programacao/c-interface-com-o-unix"
       ]
     },
     {
@@ -3741,6 +3967,111 @@
       "url": "https://automatetheboringstuff.com/",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:programacao/kernighan-ritchie-apontadores",
+      "titulo": "C: A Linguagem de Programação — Padrão ANSI — cap. 5, apontadores e vetores",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/c-apontadores-e-vetores",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 70.0,
+      "duracao_min": 720,
+      "url": "https://www.amazon.com.br/s?k=C+A+Linguagem+de+Programa%C3%A7%C3%A3o+Padr%C3%A3o+ANSI+Kernighan+Ritchie",
+      "disponivel": true,
+      "obra": "kernighan-ritchie-c",
+      "verificado_em": "2026-10-15"
+    },
+    {
+      "id": "rec:programacao/kernighan-ritchie-entrada-e-saida",
+      "titulo": "C: A Linguagem de Programação — Padrão ANSI — cap. 7, entrada e saída, e apêndice B, a biblioteca padrão",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/c-entrada-e-saida",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 70.0,
+      "duracao_min": 420,
+      "url": "https://www.amazon.com.br/s?k=C+A+Linguagem+de+Programa%C3%A7%C3%A3o+Padr%C3%A3o+ANSI+Kernighan+Ritchie",
+      "disponivel": true,
+      "obra": "kernighan-ritchie-c",
+      "verificado_em": "2026-10-15"
+    },
+    {
+      "id": "rec:programacao/kernighan-ritchie-estruturas",
+      "titulo": "C: A Linguagem de Programação — Padrão ANSI — cap. 6, estruturas",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/c-estruturas",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 70.0,
+      "duracao_min": 540,
+      "url": "https://www.amazon.com.br/s?k=C+A+Linguagem+de+Programa%C3%A7%C3%A3o+Padr%C3%A3o+ANSI+Kernighan+Ritchie",
+      "disponivel": true,
+      "obra": "kernighan-ritchie-c",
+      "verificado_em": "2026-10-15"
+    },
+    {
+      "id": "rec:programacao/kernighan-ritchie-funcoes",
+      "titulo": "C: A Linguagem de Programação — Padrão ANSI — cap. 4, funções e estrutura de programa",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/c-funcoes-e-estrutura-de-programa",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 70.0,
+      "duracao_min": 420,
+      "url": "https://www.amazon.com.br/s?k=C+A+Linguagem+de+Programa%C3%A7%C3%A3o+Padr%C3%A3o+ANSI+Kernighan+Ritchie",
+      "disponivel": true,
+      "obra": "kernighan-ritchie-c",
+      "verificado_em": "2026-10-15"
+    },
+    {
+      "id": "rec:programacao/kernighan-ritchie-interface-unix",
+      "titulo": "C: A Linguagem de Programação — Padrão ANSI — cap. 8, a interface com o sistema UNIX",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/c-interface-com-o-unix",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 70.0,
+      "duracao_min": 540,
+      "url": "https://www.amazon.com.br/s?k=C+A+Linguagem+de+Programa%C3%A7%C3%A3o+Padr%C3%A3o+ANSI+Kernighan+Ritchie",
+      "disponivel": true,
+      "obra": "kernighan-ritchie-c",
+      "verificado_em": "2026-10-15"
+    },
+    {
+      "id": "rec:programacao/kernighan-ritchie-introducao",
+      "titulo": "C: A Linguagem de Programação — Padrão ANSI, 8ª ed. (Kernighan & Ritchie) — cap. 1, uma introdução em tutorial",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/c-introducao-em-tutorial",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 70.0,
+      "duracao_min": 480,
+      "url": "https://www.amazon.com.br/s?k=C+A+Linguagem+de+Programa%C3%A7%C3%A3o+Padr%C3%A3o+ANSI+Kernighan+Ritchie",
+      "disponivel": true,
+      "obra": "kernighan-ritchie-c",
+      "verificado_em": "2026-10-15"
+    },
+    {
+      "id": "rec:programacao/kernighan-ritchie-tipos-e-controle",
+      "titulo": "C: A Linguagem de Programação — Padrão ANSI — caps. 2 e 3, tipos, operadores e expressões; controle de fluxo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/c-tipos-operadores-e-controle-de-fluxo",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 70.0,
+      "duracao_min": 420,
+      "url": "https://www.amazon.com.br/s?k=C+A+Linguagem+de+Programa%C3%A7%C3%A3o+Padr%C3%A3o+ANSI+Kernighan+Ritchie",
+      "disponivel": true,
+      "obra": "kernighan-ritchie-c",
+      "verificado_em": "2026-10-15"
     },
     {
       "id": "rec:programacao/python-fluente-2ed",

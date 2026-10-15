@@ -10,3 +10,84 @@ competencias:
     verificacao: >
       Dado um CSV sujo, escrever um script que carregue, limpe e agregue os dados,
       executando em ambiente isolado com dependências declaradas em arquivo.
+
+  # --- Linguagem C (trilha:programacao/linguagem-c-ansi) ---------------------
+  - id: comp:programacao/c-fundamentos
+    titulo: C — tipos, operadores, expressões e controle de fluxo
+    rev: 1
+    status: ativo
+    descricao: >
+      O núcleo da linguagem C: tipos básicos e seus limites, conversões implícitas,
+      operadores (inclusive bit a bit e de atribuição composta), precedência, e as
+      construções de controle de fluxo.
+    verificacao: >
+      Escrever, compilando com `-std=c89 -pedantic -Wall` sem aviso, um programa que
+      conte linhas, palavras e caracteres da entrada padrão, e explicar o resultado de
+      uma expressão com conversão entre `char`, `int` e `unsigned` escolhida por outra
+      pessoa.
+
+  - id: comp:programacao/c-funcoes-e-estrutura-de-programa
+    titulo: C — funções e estrutura de programa
+    rev: 1
+    status: ativo
+    descricao: >
+      Funções e protótipos, variáveis externas e escopo, classes de armazenamento
+      (`static`, `extern`, `register`), compilação separada em vários arquivos,
+      recursão e o pré-processador.
+    verificacao: >
+      Dividir um programa em pelo menos três arquivos-fonte com cabeçalho próprio,
+      escondendo estado com `static`, compilar e ligar à mão, e explicar o que cada
+      `extern` e cada `#include` resolve.
+
+  - id: comp:programacao/c-apontadores
+    titulo: C — apontadores, vetores e memória
+    rev: 1
+    status: ativo
+    descricao: >
+      Apontadores e endereços, aritmética de apontadores, a relação entre vetor e
+      apontador, cadeias de caracteres, vetores de apontadores, apontadores para
+      funções, declarações complexas e alocação dinâmica.
+    verificacao: >
+      Implementar uma ordenação de linhas lidas da entrada com vetor de apontadores e
+      função de comparação passada por apontador, sem vazamento nem acesso inválido sob
+      `valgrind`, e decifrar em português uma declaração como `char (*(*x())[])()`.
+
+  - id: comp:programacao/c-estruturas
+    titulo: C — estruturas, uniões e estruturas autorreferentes
+    rev: 1
+    status: ativo
+    descricao: >
+      Estruturas e funções, vetores de estruturas, apontadores para estruturas,
+      estruturas autorreferentes (listas, árvores), tabelas de dispersão, `typedef`,
+      uniões e campos de bits.
+    verificacao: >
+      Implementar uma árvore binária de busca ou uma tabela de dispersão para contar
+      ocorrências de palavras, liberando toda a memória ao final, e justificar a
+      escolha entre passar a estrutura por valor ou por apontador em cada função.
+
+  - id: comp:programacao/c-entrada-saida-e-biblioteca
+    titulo: C — entrada e saída e a biblioteca padrão
+    rev: 1
+    status: ativo
+    descricao: >
+      E/S padrão (`stdio.h`): formatação com `printf`/`scanf`, acesso a arquivos,
+      tratamento de erro com `stderr` e `exit`, listas de argumentos variáveis, e o
+      restante da biblioteca padrão ANSI (`string.h`, `ctype.h`, `stdlib.h`,
+      `math.h`).
+    verificacao: >
+      Reescrever um utilitário como `cat` ou `cmp` que receba arquivos na linha de
+      comando, reporte erro de abertura em `stderr` com código de saída diferente de
+      zero, e implementar uma função com argumentos variáveis no estilo de `printf`.
+
+  - id: comp:programacao/c-interface-unix
+    titulo: C — interface com o sistema UNIX
+    rev: 1
+    status: ativo
+    descricao: >
+      O que a biblioteca padrão esconde: descritores de arquivo, E/S de baixo nível
+      (`read`, `write`, `open`, `lseek`), listagem de diretórios, e um alocador de
+      memória escrito sobre o sistema.
+    verificacao: >
+      Implementar `fopen`/`getc` mínimos sobre `read` e um alocador `malloc`/`free`
+      com lista livre, demonstrando-os num programa de teste, e explicar por que a E/S
+      com buffer é mais rápida que um `read` por caractere.

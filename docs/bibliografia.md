@@ -279,6 +279,23 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Citada por** — `rec:ia/build-llm-from-scratch`, `rec:ia/llms-from-scratch-codigo`,
   `rec:ia/llms-from-scratch-finetuning`
 
+### C: A Linguagem de Programação — Padrão ANSI
+
+- **Autoria** — Brian W. Kernighan, Dennis M. Ritchie
+- **Edição** — 8ª ed., Editora Campus, pt-BR; tradução da 2ª edição de *The C
+  Programming Language* (Prentice Hall, 1988). Identificada pela capa do exemplar do
+  estudante; data, páginas e ISBN desta edição não foram conferidos.
+- **Amazon** — link de busca, sem página de produto confirmada:
+  https://www.amazon.com.br/s?k=C+A+Linguagem+de+Programa%C3%A7%C3%A3o+Padr%C3%A3o+ANSI+Kernighan+Ritchie
+- **Citada por** — `rec:programacao/kernighan-ritchie-introducao`,
+  `rec:programacao/kernighan-ritchie-tipos-e-controle`,
+  `rec:programacao/kernighan-ritchie-funcoes`,
+  `rec:programacao/kernighan-ritchie-apontadores`,
+  `rec:programacao/kernighan-ritchie-estruturas`,
+  `rec:programacao/kernighan-ritchie-entrada-e-saida`,
+  `rec:programacao/kernighan-ritchie-interface-unix` — as sete fatias declaram
+  `obra: kernighan-ritchie-c`
+
 ### Deep Learning Book
 
 - **Autoria** — Data Science Academy
