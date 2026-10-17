@@ -623,20 +623,29 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 ### Pure React
 
 - **Autoria** — Dave Ceddia
-- **Edição** — edição do autor, versão 4.3 do livro, 21 capítulos, en-US. Só
-  digital: leitura no site, PDF, EPUB e MOBI; não há impresso.
-- **Identificadores** — sem ISBN nem ASIN: é venda direta do autor, sem registro
+- **Edição** — edição do autor, versão 4.3 do livro, 21 capítulos, en-US. Lançado em
+  2016 e revisado desde então; em 2019 ganhou também um curso em vídeo, vendido à
+  parte. Só digital: leitura no site, PDF, EPUB e MOBI; não há impresso. A contagem
+  de 158 p. que circula é da listagem do Gumroad e corresponde a uma revisão
+  anterior.
+- **Identificadores** — sem ISBN nem ASIN: venda direta do autor, sem registro
   editorial nem distribuição por livraria.
 - **Loja** — https://www.purereact.com/ · também em
   https://dceddia.gumroad.com/l/pure-react
-- **Citada por** — `rec:web/pure-react`
-- **Nota** — a página oficial não publica preço (o valor entra por script, e os
-  pacotes aparecem como `$--`). O `custo: 160` do recurso é conversão aproximada dos
-  US$ 29 da listagem do Gumroad, não preço conferido na loja. O livro trata de React
-  **isolado**, sem roteador, sem Redux e sem framework; cobre hooks (React 16.8 em
-  diante) com ferramental no estilo Create React App, hoje descontinuado — o que
-  envelheceu é o andaime do projeto, não a parte de componentes e estado, que é o que
-  a etapa pede.
+- **Editora** — https://daveceddia.com/ (venda direta)
+- **Citada por** — `rec:web/pure-react-ceddia`
+- **Nota sobre o preço** — a página oficial não publica valor: os dois pacotes
+  aparecem como `$--`, preenchidos por script. As duas consultas que sustentam o
+  `custo: 210` divergem — cerca de US$ 39 pelo pacote só do livro no site do autor e
+  US$ 29 na listagem do Gumroad. Nenhuma das duas é preço brasileiro nem foi
+  conferida no carrinho; ficam ambas registradas, e o `custo` segue pela maior até
+  que alguém confira.
+- **Nota** — o recorte do livro é deliberado: só React, sem Redux, roteador nem
+  ferramenta de build, em exercícios curtos de componente, props e estado. Por isso é
+  porta de entrada mais suave da etapa de interface por componentes que *React
+  Fluente*, que trata de reconciliação e desempenho. O ferramental é do tempo do
+  Create React App, hoje descontinuado — o que envelheceu é o andaime do projeto,
+  não a parte de componentes e estado, que é o que a etapa pede.
 
 ### React Fluente: crie aplicações web rápidas, eficazes e intuitivas
 
@@ -703,7 +712,9 @@ depois.
    propósito, 8 recursos: os 6 de Tanenbaum & Woodhull, porque o link direto seria o
    da 3ª edição e o título diz 2ª (item 2); o de *LLM, Transformer, RAG AI*, porque
    não há página de produto (item 1); e o de *CSS and Documents*, que só existe na
-   loja americana (item 5).
+   loja americana (item 5). `rec:web/pure-react-ceddia` **não** entra nesta
+   lista: o livro não é vendido na Amazon, e o recurso aponta para a loja do próprio
+   autor (https://www.purereact.com/), que é a página de produto.
 4. **`rec:programacao/python-fluente-2ed`** aponta para a 2ª edição aberta em
    português, que não existe impressa; a edição impressa em português é a 1ª (2015).
    O recurso está correto, mas o título dele pode induzir a procurar um livro que não
