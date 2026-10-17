@@ -16,3 +16,4 @@
 {"dados": {"etapa": "etapa:dados/arquitetura-de-sgbd", "etapa_rev": 1, "recurso": "rec:dados/date-vol1-arquitetura"}, "em": "2026-10-15T15:22:56.390975+00:00", "seq": 16, "tipo": "etapa_iniciada"}
 {"dados": {"etapa": "etapa:ia/engenharia-de-prompt", "etapa_rev": 1, "recurso": "rec:ia/prompt-engineering-for-llms"}, "em": "2026-10-16T11:41:11.266667+00:00", "seq": 17, "tipo": "etapa_iniciada"}
 {"dados": {"etapa": "etapa:web/interface-por-componentes", "etapa_rev": 1, "recurso": "rec:web/pure-react"}, "em": "2026-10-17T23:09:41.453943+00:00", "seq": 18, "tipo": "etapa_iniciada"}
+{"dados": {"etapa": "etapa:web/interface-por-componentes", "etapa_rev": 1, "recurso": "rec:web/pure-react-ceddia"}, "em": "2026-10-17T23:13:28.480133+00:00", "seq": 19, "tipo": "etapa_iniciada"}
