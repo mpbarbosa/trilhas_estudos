@@ -375,6 +375,16 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Citada por** — `rec:ia/ettucode-llm-transformer-rag`
 - **Nota** — ver [§ Divergências](#divergências)
 
+### Loops de Harness com LangGraph: construindo agentes que iteram até acertar
+
+- **Autoria** — Eduardo Vieira
+- **Edição** — edição do autor, 14/06/2026, 341 p., Kindle, pt-BR; livro 5 de 5 da
+  série *SDA + SDD Na Prática*
+- **Identificadores** — ASIN não conferido
+- **Amazon** — não localizei página de produto;
+  busca: https://www.amazon.com.br/s?k=Loops+de+Harness+com+LangGraph
+- **Citada por** — `rec:ia/loops-de-harness-langgraph`
+
 ### Natural Language Processing with Transformers, Revised Edition: Building Language Applications with Hugging Face
 
 - **Autoria** — Lewis Tunstall, Leandro von Werra, Thomas Wolf

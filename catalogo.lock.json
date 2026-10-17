@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 12,
-  "gerado_em": "2026-10-17T21:25:48+00:00",
-  "hash": "sha256:0ff1bf09627505b10f9a1f85c1273c889cbaedf229b139f4d7808aac542d53c3",
+  "catalogo_versao": 13,
+  "gerado_em": "2026-10-17T21:27:25+00:00",
+  "hash": "sha256:a22b5b0e18c67768128055b785404e9da9db2b49bc1d6bb665203210473b2346",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -4006,6 +4006,20 @@
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/loops-de-harness-langgraph",
+      "titulo": "Loops de Harness com LangGraph: construindo agentes que iteram até acertar (Eduardo Vieira)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/agentes-com-claude",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 15.0,
+      "duracao_min": 410,
+      "url": "https://www.amazon.com.br/s?k=Loops+de+Harness+com+LangGraph",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
     },
     {
       "id": "rec:ia/manning-schutze-etiquetagem",
