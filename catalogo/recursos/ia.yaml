@@ -138,6 +138,20 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-08
 
+  - id: rec:ia/koehn-nmt-seq2seq-atencional
+    etapa: etapa:ia/transformer-por-dentro
+    titulo: "Neural Machine Translation (Philipp Koehn) \u2014 caps. 7\u20139: modelo de linguagem neural, modelo de tradu\u00e7\u00e3o sequ\u00eancia-a-sequ\u00eancia com aten\u00e7\u00e3o e decodifica\u00e7\u00e3o"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 450
+    duracao_min: 720
+    obra: koehn-nmt
+    url: https://www.amazon.com.br/dp/1108497322
+    disponivel: true
+    verificado_em: 2026-10-17
+
   # --- etapa:ia/llm-do-zero -----------------------------------------------
   - id: rec:ia/build-llm-from-scratch
     etapa: etapa:ia/llm-do-zero

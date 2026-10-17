@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 13,
-  "gerado_em": "2026-10-17T21:27:25+00:00",
-  "hash": "sha256:a22b5b0e18c67768128055b785404e9da9db2b49bc1d6bb665203210473b2346",
+  "catalogo_versao": 14,
+  "gerado_em": "2026-10-17T21:50:04+00:00",
+  "hash": "sha256:470a618b538f32098c65de8826e6d8da011fc9927e3d56fda15bb8a83e7074c9",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -3933,6 +3933,21 @@
       "duracao_min": 180,
       "url": "https://www.cs.princeton.edu/~bwk/tpop.webpage/code.html",
       "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:ia/koehn-nmt-seq2seq-atencional",
+      "titulo": "Neural Machine Translation (Philipp Koehn) — caps. 7–9: modelo de linguagem neural, modelo de tradução sequência-a-sequência com atenção e decodificação",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/transformer-por-dentro",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 450.0,
+      "duracao_min": 720,
+      "url": "https://www.amazon.com.br/dp/1108497322",
+      "disponivel": true,
+      "obra": "koehn-nmt",
       "verificado_em": "2026-10-17"
     },
     {

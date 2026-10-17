@@ -385,6 +385,30 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
   busca: https://www.amazon.com.br/s?k=Loops+de+Harness+com+LangGraph
 - **Citada por** — `rec:ia/loops-de-harness-langgraph`
 
+### Neural Machine Translation
+
+- **Autoria** — Philipp Koehn
+- **Edição** — Cambridge University Press, 06/2020, 394 p. em capa dura, en-US.
+  As fontes divergem na contagem (393, 394 ou 406 p.) por contarem a matéria
+  pré-textual de formas diferentes; 394 é a do próprio autor.
+- **Identificadores** — ISBN-13 978-1-108-49732-9 · ISBN-10 `1108497322` —
+  e-book (epub): ISBN-13 978-1-108-60848-0
+- **Amazon** — https://www.amazon.com.br/dp/1108497322 — não foi possível confirmar
+  a página de produto no amazon.com.br; o link segue a convenção do ISBN-10. O
+  `custo: 450` do recurso é conversão aproximada de vendedores estrangeiros
+  (£63 no Reino Unido, €78 na Itália), não preço conferido no Brasil.
+- **Acesso aberto** — não há. A página do autor
+  (https://www2.statmt.org/nmt-book/) publica errata e os exemplos de código.
+- **Citada por** — `rec:ia/koehn-nmt-seq2seq-atencional` — declara `obra: koehn-nmt`
+- **Nota** — o precursor do livro é aberto: *Neural Machine Translation*
+  (arXiv:1709.07809, 09/2017), o capítulo de rascunho que Koehn escreveu para a aula
+  de MT na JHU e que depois virou a parte II desta obra. Serve de amostra, não de
+  substituto: o livro reorganiza e amplia o material em 17 capítulos. É a única
+  obra do catálogo em que o modelo sequência-a-sequência com atenção é **o
+  assunto**, e não um capítulo — caps. 7 a 9 cobrem modelo de linguagem neural,
+  codificador-decodificador com atenção e decodificação por feixe, que a trilha do
+  transformer pressupõe.
+
 ### Natural Language Processing with Transformers, Revised Edition: Building Language Applications with Hugging Face
 
 - **Autoria** — Lewis Tunstall, Leandro von Werra, Thomas Wolf
