@@ -31,7 +31,8 @@ possível confirmar uma página de produto, o link é de busca e a ficha diz iss
 
 **Verificado em 2026-10-12**, exceto a ficha de *An Introduction to Database
 Systems*, conferida em 2026-10-15, e as de *Foundations of Statistical Natural
-Language Processing* e *The Practice of Programming*, conferidas em 2026-10-17. Preço não entra aqui — vive em `custo` no
+Language Processing*, *The Practice of Programming*, *Neural Machine Translation*
+e *Pure React*, conferidas em 2026-10-17. Preço não entra aqui — vive em `custo` no
 recurso, com seu próprio `verificado_em`, que esta pesquisa não alterou: conferi
 link e edição, não preço.
 
@@ -618,6 +619,24 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Amazon** — https://www.amazon.com.br/dp/B00N1X6926
 - **Citada por** — `rec:web/mastering-d3-castillo`
 - **Nota** — o código é de uma versão antiga da API do D3; o recurso já marca isso.
+
+### Pure React
+
+- **Autoria** — Dave Ceddia
+- **Edição** — edição do autor, versão 4.3 do livro, 21 capítulos, en-US. Só
+  digital: leitura no site, PDF, EPUB e MOBI; não há impresso.
+- **Identificadores** — sem ISBN nem ASIN: é venda direta do autor, sem registro
+  editorial nem distribuição por livraria.
+- **Loja** — https://www.purereact.com/ · também em
+  https://dceddia.gumroad.com/l/pure-react
+- **Citada por** — `rec:web/pure-react`
+- **Nota** — a página oficial não publica preço (o valor entra por script, e os
+  pacotes aparecem como `$--`). O `custo: 160` do recurso é conversão aproximada dos
+  US$ 29 da listagem do Gumroad, não preço conferido na loja. O livro trata de React
+  **isolado**, sem roteador, sem Redux e sem framework; cobre hooks (React 16.8 em
+  diante) com ferramental no estilo Create React App, hoje descontinuado — o que
+  envelheceu é o andaime do projeto, não a parte de componentes e estado, que é o que
+  a etapa pede.
 
 ### React Fluente: crie aplicações web rápidas, eficazes e intuitivas
 

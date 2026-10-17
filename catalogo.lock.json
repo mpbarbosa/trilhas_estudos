@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 14,
-  "gerado_em": "2026-10-17T21:50:04+00:00",
-  "hash": "sha256:470a618b538f32098c65de8826e6d8da011fc9927e3d56fda15bb8a83e7074c9",
+  "catalogo_versao": 15,
+  "gerado_em": "2026-10-17T23:09:41+00:00",
+  "hash": "sha256:0d450b120f134d10ef6ce46ab1300a333a164a4379b34cf2c91348313d3d06e1",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -4940,6 +4940,20 @@
       "url": "https://dados.gov.br/",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/pure-react",
+      "titulo": "Pure React (Dave Ceddia) — React isolado, sem biblioteca extra: componentes, estado, hooks e 25 exercícios; ferramental no estilo Create React App",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/interface-por-componentes",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 160.0,
+      "duracao_min": 480,
+      "url": "https://www.purereact.com/",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
     },
     {
       "id": "rec:web/react-dev-learn",

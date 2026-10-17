@@ -215,6 +215,19 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-08
 
+  - id: rec:web/pure-react
+    etapa: etapa:web/interface-por-componentes
+    titulo: "Pure React (Dave Ceddia) \u2014 React isolado, sem biblioteca extra: componentes, estado, hooks e 25 exerc\u00edcios; ferramental no estilo Create React App"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 160
+    duracao_min: 480
+    url: https://www.purereact.com/
+    disponivel: true
+    verificado_em: 2026-10-17
+
   # --- etapa:web/visualizacao-com-d3 --------------------------------------
   - id: rec:web/d3-documentacao
     etapa: etapa:web/visualizacao-com-d3
