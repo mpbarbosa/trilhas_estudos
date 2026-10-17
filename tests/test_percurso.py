@@ -302,13 +302,19 @@ def test_percurso_do_log_alimenta_o_motor(repo: Repositorio) -> None:
 
 
 def _ambiente(tmp_path: Path) -> tuple[Path, Path]:
-    """Um diretório de percurso e um `catalogo.lock.json` mínimo mas real."""
+    """Um diretório de percurso e um `catalogo.lock.json` mínimo mas real.
+
+    Duas etapas, um recurso em cada: é o que permite distinguir "recurso que não
+    existe" de "recurso que existe, mas é de outra etapa".
+    """
     from trilhas.catalogo.compilar import compilar
 
     cat = catalogo(
         competencia("comp:x/base"),
         etapa("etapa:x/base", teaches=[("comp:x/base", N.INICIANTE)], trilha="trilha:x/t"),
         recurso("rec:x/base", "etapa:x/base"),
+        etapa("etapa:x/outra", trilha="trilha:x/t"),
+        recurso("rec:x/outra", "etapa:x/outra"),
     )
     lock = tmp_path / "catalogo.lock.json"
     import json
@@ -339,6 +345,40 @@ def test_cli_recusa_etapa_fora_do_catalogo(tmp_path: Path, capsys) -> None:
     destino, lock = _ambiente(tmp_path)
     assert rodar(destino, lock, "concluir", "etapa:x/inexistente") == 1
     assert "etapa desconhecida" in capsys.readouterr().err
+
+
+def test_cli_iniciar_aceita_recurso_da_etapa(tmp_path: Path, capsys) -> None:
+    destino, lock = _ambiente(tmp_path)
+    assert rodar(destino, lock, "iniciar", "etapa:x/base", "--recurso", "rec:x/base") == 0
+    assert "EtapaIniciada" in capsys.readouterr().out
+    with Repositorio.em_diretorio(destino) as repo:
+        (registro,) = repo.registros("est:mpb")
+    assert registro.evento.recurso == "rec:x/base"
+
+
+def test_cli_recusa_recurso_fora_do_catalogo(tmp_path: Path, capsys) -> None:
+    """O id errado passava calado e ficava no log para sempre (ADR-0008: sem UPDATE)."""
+    destino, lock = _ambiente(tmp_path)
+    assert rodar(destino, lock, "iniciar", "etapa:x/base", "--recurso", "rec:nao/existe") == 1
+    assert "recurso desconhecido" in capsys.readouterr().err
+    with Repositorio.em_diretorio(destino) as repo:
+        assert repo.registros("est:mpb") == [], "recusa não grava fato"
+
+
+def test_cli_recusa_recurso_de_outra_etapa(tmp_path: Path, capsys) -> None:
+    """Existir no catálogo não basta: um recurso pertence a uma etapa só (catalogo.md §2)."""
+    destino, lock = _ambiente(tmp_path)
+    assert rodar(destino, lock, "iniciar", "etapa:x/base", "--recurso", "rec:x/outra") == 1
+    erro = capsys.readouterr().err
+    assert "outra etapa" in erro and "etapa:x/outra" in erro
+    with Repositorio.em_diretorio(destino) as repo:
+        assert repo.registros("est:mpb") == [], "recusa não grava fato"
+
+
+def test_cli_iniciar_sem_recurso_segue_valendo(tmp_path: Path) -> None:
+    """`--recurso` é opcional; a conferência não o torna obrigatório."""
+    destino, lock = _ambiente(tmp_path)
+    assert rodar(destino, lock, "iniciar", "etapa:x/base") == 0
 
 
 def test_cli_recusa_competencia_fora_do_catalogo(tmp_path: Path, capsys) -> None:

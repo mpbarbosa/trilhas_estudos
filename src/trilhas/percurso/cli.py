@@ -41,7 +41,10 @@ def main(argv: list[str] | None = None) -> int:
 
     p = sub.add_parser("iniciar", help="marca uma etapa como em andamento")
     p.add_argument("etapa")
-    p.add_argument("--recurso")
+    p.add_argument(
+        "--recurso",
+        help="id do recurso pelo qual se está estudando; tem de ser um recurso desta etapa",
+    )
 
     p = sub.add_parser("concluir", help="conclui a etapa e grava a evidência do que ela ensina")
     p.add_argument("etapa")
@@ -139,6 +142,10 @@ def _eventos(
         etapa = catalogo.etapas.get(args.etapa)
         if etapa is None:
             return [], f"etapa desconhecida no catálogo: {args.etapa}"
+        if args.comando == "iniciar" and args.recurso is not None:
+            erro = _conferir_recurso(args.recurso, catalogo, etapa)
+            if erro is not None:
+                return [], erro
         return _de_etapa(args, etapa), None
 
     if args.comando == "sei":
@@ -150,6 +157,26 @@ def _eventos(
         return registrar.dar_feedback(args.etapa, Reacao(args.reacao), motivo=args.motivo), None
 
     return [], f"comando desconhecido: {args.comando}"
+
+
+def _conferir_recurso(recurso_id: str, catalogo: Catalogo, etapa: Etapa) -> str | None:
+    """Confere o `--recurso` de `iniciar` contra o catálogo. Devolve o erro, ou None.
+
+    Exige **pertencer à etapa**, não só existir: um recurso pertence a uma etapa só, e
+    um livro que atende sete etapas é sete recursos (catalogo.md §2, ADR-0009), então
+    "estudo esta etapa por aquele material" sempre tem um id próprio desta etapa — a
+    conferência mais forte não fecha porta nenhuma e pega a troca de fatia.
+
+    `status` e `disponivel` ficam de fora de propósito: estudar por recurso depreciado
+    ou que saiu do ar é fato legítimo de quem já tem o material em mãos, e fato datado
+    não se recusa pelo catálogo de hoje (catalogo.md §4).
+    """
+    recurso = catalogo.recursos.get(recurso_id)
+    if recurso is None:
+        return f"recurso desconhecido no catálogo: {recurso_id}"
+    if recurso.etapa != etapa.id:
+        return f"recurso de outra etapa: {recurso_id} é de {recurso.etapa}, não de {etapa.id}"
+    return None
 
 
 def _de_etapa(args: argparse.Namespace, etapa: Etapa) -> list[Evento]:
