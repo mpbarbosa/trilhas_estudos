@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 11,
-  "gerado_em": "2026-10-15T22:45:35+00:00",
-  "hash": "sha256:2a94ef085bc377998b530485cbf95dbbef23b8d7be760f6fa312aabb82b27969",
+  "catalogo_versao": 12,
+  "gerado_em": "2026-10-17T00:27:27+00:00",
+  "hash": "sha256:3ac8b6287d768ca5e76f46056569d2f2e323f18c9cffeab84bc9926092599d51",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -3656,6 +3656,20 @@
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/loops-de-harness-langgraph",
+      "titulo": "Loops de Harness com LangGraph: construindo agentes que iteram até acertar (Eduardo Vieira)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/agentes-com-claude",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 15.0,
+      "duracao_min": 410,
+      "url": "https://www.amazon.com.br/s?k=Loops+de+Harness+com+LangGraph",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
     },
     {
       "id": "rec:ia/mcp-spec-e-guias",

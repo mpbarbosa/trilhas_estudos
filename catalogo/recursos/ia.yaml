@@ -540,6 +540,24 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-08
 
+  # Livro 5 de 5 da série "SDA + SDD Na Prática" (KDP, 14/06/2026, 341 páginas).
+  # O laço de agente é implementado em LangGraph, não no SDK do Claude: o que a
+  # etapa ensina — laço, estado, critério de parada — independe do fornecedor.
+  # `duracao_min` estimada pela razão páginas/minuto da Bíblia do Claude (605 p.,
+  # 726 min). Sem ASIN conferido, a url é a busca da loja pelo título.
+  - id: rec:ia/loops-de-harness-langgraph
+    etapa: etapa:ia/agentes-com-claude
+    titulo: "Loops de Harness com LangGraph: construindo agentes que iteram até acertar (Eduardo Vieira)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 15
+    duracao_min: 410
+    url: https://www.amazon.com.br/s?k=Loops+de+Harness+com+LangGraph
+    disponivel: true
+    verificado_em: 2026-10-17
+
   # --- etapa:ia/agente-em-producao ----------------------------------------
   - id: rec:ia/biblia-claude-producao
     etapa: etapa:ia/agente-em-producao
