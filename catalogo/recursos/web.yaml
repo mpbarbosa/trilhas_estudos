@@ -215,6 +215,19 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-08
 
+  - id: rec:web/pure-react-ceddia
+    etapa: etapa:web/interface-por-componentes
+    titulo: "Pure React (Dave Ceddia) — componentes, JSX, props e estado, sem Redux nem roteador"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 210
+    duracao_min: 600
+    url: https://www.amazon.com.br/s?k=Pure+React+Dave+Ceddia
+    disponivel: true
+    verificado_em: 2026-10-17
+
   # --- etapa:web/visualizacao-com-d3 --------------------------------------
   - id: rec:web/d3-documentacao
     etapa: etapa:web/visualizacao-com-d3
