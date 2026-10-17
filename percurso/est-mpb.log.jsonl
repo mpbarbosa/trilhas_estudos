@@ -14,3 +14,5 @@
 {"dados": {"etapa": "etapa:ia/agentes-com-claude", "etapa_rev": 1, "recurso": "rec:ia/biblia-claude-agentes"}, "em": "2026-10-14T13:05:10.428412+00:00", "seq": 14, "tipo": "etapa_iniciada"}
 {"dados": {"etapa": "etapa:ia/agente-em-producao", "etapa_rev": 1, "recurso": "rec:ia/biblia-claude-producao"}, "em": "2026-10-14T13:05:10.522461+00:00", "seq": 15, "tipo": "etapa_iniciada"}
 {"dados": {"etapa": "etapa:dados/arquitetura-de-sgbd", "etapa_rev": 1, "recurso": "rec:dados/date-vol1-arquitetura"}, "em": "2026-10-15T15:22:56.390975+00:00", "seq": 16, "tipo": "etapa_iniciada"}
+{"dados": {"etapa": "etapa:ia/engenharia-de-prompt", "etapa_rev": 1, "recurso": "rec:ia/prompt-engineering-for-llms"}, "em": "2026-10-16T11:41:11.266667+00:00", "seq": 17, "tipo": "etapa_iniciada"}
+{"dados": {"etapa": "etapa:web/interface-por-componentes", "etapa_rev": 1, "recurso": "rec:web/pure-react"}, "em": "2026-10-17T23:09:41.453943+00:00", "seq": 18, "tipo": "etapa_iniciada"}
