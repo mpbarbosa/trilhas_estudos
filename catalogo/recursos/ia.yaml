@@ -582,3 +582,223 @@ recursos:
     url: https://docs.claude.com/en/api/agent-sdk/overview
     disponivel: true
     verificado_em: 2026-10-08
+
+  # =========================================================================
+  # trilha:ia/modelo-de-markov-da-linguagem
+  #
+  # Duas obras fatiadas e uma de fatia única sustentam a trilha:
+  #   obra: manning-schutze-fsnlp — Manning & Schütze, *Foundations of Statistical
+  #     Natural Language Processing* (MIT Press, 1999). Impresso, importado; o custo
+  #     declarado é o do exemplar inteiro (ADR-0009), aproximado na data de
+  #     `verificado_em`. Esgotado no mercado brasileiro: a via comum é usado ou
+  #     importação.
+  #   Jurafsky & Martin, *Speech and Language Processing*, 3ª ed. — rascunho aberto
+  #     em PDF, capítulo a capítulo, gratuito. Gratuito e fatiado não declara `obra`:
+  #     não há o que somar uma vez só.
+  #   obra: kernighan-pike-tpop — Kernighan & Pike, *The Practice of Programming*.
+  #     A outra fatia (o livro fora do cap. 3) está em recursos/programacao.yaml,
+  #     sustentando etapa:programacao/pratica-da-programacao.
+  #
+  # ATENÇÃO sobre defasagem: Manning & Schütze é de 1999 e Jurafsky & Martin
+  # reescreve a cada rascunho. O que a trilha usa dos dois — suposição de Markov,
+  # perplexidade, suavização, HMM — não envelheceu; o que envelheceu (estado da arte,
+  # corpora citados, ferramentas) está fora do objetivo declarado. A numeração de
+  # capítulo de Jurafsky & Martin muda entre rascunhos: confira o título, não o
+  # número, ao abrir o PDF.
+  # -------------------------------------------------------------------------
+
+  # --- etapa:ia/markov-shannon-e-a-entropia-da-lingua ---------------------
+  - id: rec:ia/shannon-1948-teoria-da-comunicacao
+    etapa: etapa:ia/markov-shannon-e-a-entropia-da-lingua
+    titulo: "A Mathematical Theory of Communication (Claude Shannon, 1948) — §§1-7, as aproximações de ordem n do inglês"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  - id: rec:ia/manning-schutze-fundamentos-matematicos
+    etapa: etapa:ia/markov-shannon-e-a-entropia-da-lingua
+    titulo: "Foundations of Statistical NLP (Manning & Schütze) — caps. 1 e 2: a virada estatística, probabilidade, entropia e informação mútua"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 420
+    obra: manning-schutze-fsnlp
+    duracao_min: 300
+    url: https://nlp.stanford.edu/fsnlp/
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  # --- etapa:ia/ngramas-e-perplexidade ------------------------------------
+  - id: rec:ia/jurafsky-martin-ngramas
+    etapa: etapa:ia/ngramas-e-perplexidade
+    titulo: "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — cap. 3, N-gram Language Models"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 360
+    url: https://web.stanford.edu/~jurafsky/slp3/3.pdf
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  - id: rec:ia/manning-schutze-inferencia-estatistica
+    etapa: etapa:ia/ngramas-e-perplexidade
+    titulo: "Foundations of Statistical NLP (Manning & Schütze) — cap. 6 §§6.1-6.2: n-gramas sobre dados esparsos e estimativa por máxima verossimilhança"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 420
+    obra: manning-schutze-fsnlp
+    duracao_min: 300
+    url: https://nlp.stanford.edu/fsnlp/
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  # --- etapa:ia/suavizacao-e-retrocesso -----------------------------------
+  - id: rec:ia/manning-schutze-suavizacao
+    etapa: etapa:ia/suavizacao-e-retrocesso
+    titulo: "Foundations of Statistical NLP (Manning & Schütze) — cap. 6 §§6.2-6.3: Laplace, Good-Turing, desconto, interpolação e retrocesso de Katz"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 420
+    obra: manning-schutze-fsnlp
+    duracao_min: 300
+    url: https://nlp.stanford.edu/fsnlp/
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  - id: rec:ia/jurafsky-martin-suavizacao
+    etapa: etapa:ia/suavizacao-e-retrocesso
+    titulo: "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — cap. 3, seções de smoothing, interpolação e Kneser-Ney"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://web.stanford.edu/~jurafsky/slp3/3.pdf
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  # --- etapa:ia/gerador-de-texto-por-cadeia-de-markov ---------------------
+  - id: rec:ia/kernighan-pike-cadeia-de-markov
+    etapa: etapa:ia/gerador-de-texto-por-cadeia-de-markov
+    titulo: "The Practice of Programming (Kernighan & Pike) — cap. 3, Design and Implementation: o gerador de Markov em C, Java, C++, Awk e Perl"
+    rev: 2
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 190
+    obra: kernighan-pike-tpop
+    duracao_min: 300
+    url: https://www.cs.princeton.edu/~bwk/tpop.webpage/
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  - id: rec:ia/kernighan-pike-codigo-markov
+    etapa: etapa:ia/gerador-de-texto-por-cadeia-de-markov
+    titulo: "Código-fonte de The Practice of Programming — as implementações do cap. 3 para comparar com a sua"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://www.cs.princeton.edu/~bwk/tpop.webpage/code.html
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  # --- etapa:ia/modelo-oculto-de-markov -----------------------------------
+  - id: rec:ia/manning-schutze-hmm
+    etapa: etapa:ia/modelo-oculto-de-markov
+    titulo: "Foundations of Statistical NLP (Manning & Schütze) — cap. 9, Markov Models: forward-backward, Viterbi e Baum-Welch"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 420
+    obra: manning-schutze-fsnlp
+    duracao_min: 420
+    url: https://nlp.stanford.edu/fsnlp/
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  - id: rec:ia/jurafsky-martin-apendice-hmm
+    etapa: etapa:ia/modelo-oculto-de-markov
+    titulo: "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — apêndice A, Hidden Markov Models"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 240
+    url: https://web.stanford.edu/~jurafsky/slp3/A.pdf
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  # --- etapa:ia/etiquetagem-morfossintatica-com-hmm -----------------------
+  - id: rec:ia/manning-schutze-etiquetagem
+    etapa: etapa:ia/etiquetagem-morfossintatica-com-hmm
+    titulo: "Foundations of Statistical NLP (Manning & Schütze) — cap. 10, Part-of-Speech Tagging: do etiquetador de Markov ao transformacional"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 420
+    obra: manning-schutze-fsnlp
+    duracao_min: 360
+    url: https://nlp.stanford.edu/fsnlp/
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  - id: rec:ia/jurafsky-martin-etiquetagem-sequencial
+    etapa: etapa:ia/etiquetagem-morfossintatica-com-hmm
+    titulo: "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — cap. 18, Sequence Labeling for Parts of Speech and Named Entities"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 300
+    url: https://web.stanford.edu/~jurafsky/slp3/18.pdf
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  # --- etapa:ia/projeto-modelo-de-linguagem-avaliado ----------------------
+  - id: rec:ia/manning-schutze-exercicios-inferencia
+    etapa: etapa:ia/projeto-modelo-de-linguagem-avaliado
+    titulo: "Foundations of Statistical NLP (Manning & Schütze) — exercícios do cap. 6 e o protocolo de avaliação do cap. 6 §6.4"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 420
+    obra: manning-schutze-fsnlp
+    duracao_min: 480
+    url: https://nlp.stanford.edu/fsnlp/
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  - id: rec:ia/corpus-gutenberg-para-modelo-de-linguagem
+    etapa: etapa:ia/projeto-modelo-de-linguagem-avaliado
+    titulo: "Projeto Gutenberg — corpus em domínio público para separar treino, validação e teste"
+    rev: 1
+    status: ativo
+    formato: projeto
+    idioma: en-US
+    custo: 0
+    duracao_min: 420
+    url: https://www.gutenberg.org/
+    disponivel: true
+    verificado_em: 2026-10-17

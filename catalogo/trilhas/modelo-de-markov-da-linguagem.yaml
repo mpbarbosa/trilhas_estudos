@@ -1,0 +1,132 @@
+versao_schema: 1
+trilha:
+  id: trilha:ia/modelo-de-markov-da-linguagem
+  titulo: O modelo de Markov da linguagem natural
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:ia/modelo-de-linguagem-ngrama
+      nivel: avancado
+    - competencia: comp:ia/modelo-oculto-de-markov
+      nivel: intermediario
+    - competencia: comp:ia/etiquetagem-morfossintatica
+      nivel: intermediario
+
+  # A ideia que esta trilha percorre é uma só: a próxima palavra depende apenas das
+  # k anteriores. Shannon a propôs em 1948, o n-grama a operacionaliza, a suavização
+  # a torna utilizável em corpus real, e o HMM a estende ao estado que não se observa.
+  # É o fundamento que a trilha do transformer (trilha:ia/llm-transformer-rag)
+  # pressupõe sem ensinar: perplexidade, amostragem e janela de contexto nascem aqui.
+  #
+  # Bibliografia: Manning & Schütze, *Foundations of Statistical NLP*, é a espinha —
+  # único texto que organiza o assunto em torno da suposição de Markov em vez de
+  # tratá-la como capítulo introdutório. Jurafsky & Martin, *Speech and Language
+  # Processing* (3ª ed., rascunho aberto), entra como a leitura gratuita paralela.
+  # Kernighan & Pike, *The Practice of Programming*, cap. 3, sustenta a etapa de
+  # implementação: o gerador de Markov é o estudo de caso do capítulo.
+  #
+  # Depois da perplexidade, a implementação do gerador, a suavização e o HMM são
+  # independentes entre si — é grafo, não lista (ADR-0002).
+  etapas:
+    # --- Entrada ------------------------------------------------------------
+    - id: etapa:ia/markov-shannon-e-a-entropia-da-lingua
+      titulo: Shannon, cadeias de Markov e a entropia da língua
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 300
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:ia/modelo-de-linguagem-ngrama
+          nivel_resultante: iniciante
+
+    # --- O modelo -----------------------------------------------------------
+    - id: etapa:ia/ngramas-e-perplexidade
+      titulo: N-gramas, máxima verossimilhança e perplexidade
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:ia/modelo-de-linguagem-ngrama
+          nivel_minimo: iniciante
+        - competencia: comp:programacao/python-dados
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:ia/modelo-de-linguagem-ngrama
+          nivel_resultante: intermediario
+
+    - id: etapa:ia/suavizacao-e-retrocesso
+      titulo: Suavização, desconto e retrocesso — o que fazer com o que não se viu
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 540
+      opcional: false
+      requires:
+        - competencia: comp:ia/modelo-de-linguagem-ngrama
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ia/suavizacao-e-retrocesso
+          nivel_resultante: intermediario
+
+    # --- Implementação (paralela à suavização) ------------------------------
+    - id: etapa:ia/gerador-de-texto-por-cadeia-de-markov
+      titulo: Implementar o gerador de texto por cadeia de Markov
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 480
+      opcional: false
+      requires:
+        - competencia: comp:ia/modelo-de-linguagem-ngrama
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:ia/geracao-por-cadeia-de-markov
+          nivel_resultante: intermediario
+
+    # --- O estado oculto ----------------------------------------------------
+    - id: etapa:ia/modelo-oculto-de-markov
+      titulo: O modelo oculto de Markov — forward, Viterbi e Baum-Welch
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 720
+      opcional: false
+      requires:
+        - competencia: comp:ia/modelo-de-linguagem-ngrama
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ia/modelo-oculto-de-markov
+          nivel_resultante: intermediario
+
+    - id: etapa:ia/etiquetagem-morfossintatica-com-hmm
+      titulo: Etiquetagem morfossintática com HMM
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:ia/modelo-oculto-de-markov
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ia/etiquetagem-morfossintatica
+          nivel_resultante: intermediario
+
+    # --- Fechamento ---------------------------------------------------------
+    - id: etapa:ia/projeto-modelo-de-linguagem-avaliado
+      titulo: Projeto — modelo de linguagem de n-gramas avaliado por perplexidade
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:ia/modelo-de-linguagem-ngrama
+          nivel_minimo: intermediario
+        - competencia: comp:ia/suavizacao-e-retrocesso
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ia/modelo-de-linguagem-ngrama
+          nivel_resultante: avancado
+
+  # A etapa de Python é introduzida pela trilha do transformer; aqui ela é
+  # pré-requisito das etapas de implementação, não conteúdo novo.
+  etapas_referenciadas:
+    - etapa:programacao/python-para-ia

@@ -149,3 +149,69 @@ competencias:
       Entregar um agente que cumpra uma tarefa de vários passos com ferramentas,
       apresentar o rastro de decisões de uma execução e sustentar, com os números de
       custo e acerto, por que um fluxo fixo não daria o mesmo resultado.
+
+  - id: comp:ia/modelo-de-linguagem-ngrama
+    titulo: Modelo de linguagem de n-gramas
+    rev: 1
+    status: ativo
+    descricao: >
+      Tratar a língua como cadeia de Markov: estimar a probabilidade da próxima
+      palavra pelas k anteriores, por contagem e máxima verossimilhança, e avaliar o
+      modelo por perplexidade em corpus retido.
+    verificacao: >
+      Treinar modelos de uni, bi e trigrama sobre um corpus dado, reportar a
+      perplexidade de cada um num conjunto retido, e explicar por que a estimativa
+      por máxima verossimilhança atribui probabilidade zero a sequências que o teste
+      contém e o treino não.
+
+  - id: comp:ia/suavizacao-e-retrocesso
+    titulo: Suavização e retrocesso
+    rev: 1
+    status: ativo
+    descricao: >
+      Redistribuir massa de probabilidade para o que não foi observado: suavização
+      aditiva, desconto, interpolação e retrocesso para ordens menores.
+    verificacao: >
+      Implementar duas estratégias sobre o mesmo modelo de trigrama — uma aditiva e
+      uma de desconto, como Katz ou Kneser-Ney — e sustentar pela perplexidade no
+      conjunto retido qual delas adotar.
+
+  - id: comp:ia/geracao-por-cadeia-de-markov
+    titulo: Geração de texto por cadeia de Markov
+    rev: 1
+    status: ativo
+    descricao: >
+      Implementar o gerador: ler um corpus, indexar prefixos de ordem k pelos sufixos
+      possíveis e amostrar a continuação — o algoritmo e a estrutura de dados que o
+      sustenta.
+    verificacao: >
+      Entregar um gerador de ordem k que produza texto novo a partir de um corpus,
+      justificar a estrutura de dados escolhida para o prefixo pelo custo de busca, e
+      demonstrar o efeito de aumentar k sobre a saída, até o ponto em que ela passa a
+      copiar o corpus.
+
+  - id: comp:ia/modelo-oculto-de-markov
+    titulo: Modelo oculto de Markov
+    rev: 1
+    status: ativo
+    descricao: >
+      Separar estado oculto de observação: probabilidade de transição e de emissão,
+      verossimilhança por forward, decodificação por Viterbi e treino sem rótulo por
+      Baum-Welch.
+    verificacao: >
+      Sobre um HMM dado, calcular a verossimilhança de uma sequência de observações
+      pelo algoritmo forward, decodificar a sequência de estados mais provável por
+      Viterbi, e dizer o que Baum-Welch estima e por que precisa iterar.
+
+  - id: comp:ia/etiquetagem-morfossintatica
+    titulo: Etiquetagem morfossintática
+    rev: 1
+    status: ativo
+    descricao: >
+      Aplicar o HMM à primeira tarefa linguística que ele resolveu: atribuir classe
+      gramatical a cada palavra de uma sentença, com a ambiguidade resolvida pelo
+      contexto.
+    verificacao: >
+      Etiquetar um corpus de teste com um HMM treinado em corpus rotulado, reportar a
+      acurácia global e por etiqueta, e analisar dois erros distinguindo falha do
+      modelo de ambiguidade que o contexto não resolve.

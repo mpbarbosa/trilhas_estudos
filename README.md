@@ -22,6 +22,7 @@ persistência do percurso — nada do que o estudante faz é gravado.
   - *Sistemas operacionais, do conceito ao núcleo* ([trilha](catalogo/trilhas/so-projeto-e-implementacao.yaml)) — processos, memória, E/S, arquivos e prática no MINIX
   - *Bancos de dados relacionais, do modelo à transação* ([trilha](catalogo/trilhas/bancos-de-dados-relacionais.yaml)) — arquitetura, modelo relacional, álgebra, SQL, normalização e transação
   - *Linguagem C, do tutorial à interface com o UNIX* ([trilha](catalogo/trilhas/linguagem-c-ansi.yaml)) — tipos, funções, apontadores, estruturas, E/S e chamadas de sistema
+  - *O modelo de Markov da linguagem natural* ([trilha](catalogo/trilhas/modelo-de-markov-da-linguagem.yaml)) — n-gramas, perplexidade, suavização, gerador de texto, HMM e etiquetagem
 - [Decisões de arquitetura](docs/README.md)
 
 ## Uso

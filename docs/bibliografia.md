@@ -30,7 +30,8 @@ ASIN é o da edição Kindle ou, no caso do impresso, o próprio ISBN-10. Onde n
 possível confirmar uma página de produto, o link é de busca e a ficha diz isso.
 
 **Verificado em 2026-10-12**, exceto a ficha de *An Introduction to Database
-Systems*, conferida em 2026-10-15. Preço não entra aqui — vive em `custo` no
+Systems*, conferida em 2026-10-15, e as de *Foundations of Statistical Natural
+Language Processing* e *The Practice of Programming*, conferidas em 2026-10-17. Preço não entra aqui — vive em `custo` no
 recurso, com seu próprio `verificado_em`, que esta pesquisa não alterou: conferi
 link e edição, não preço.
 
@@ -313,6 +314,26 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Código** — https://github.com/fchollet/deep-learning-with-python-notebooks
 - **Citada por** — `rec:ia/deep-learning-with-python-3ed`
 
+### Foundations of Statistical Natural Language Processing
+
+- **Autoria** — Christopher D. Manning, Hinrich Schütze
+- **Edição** — MIT Press, 1999, 680 p., en-US. Nunca teve 2ª edição nem tradução;
+  fora de catálogo no Brasil, circula importada ou usada.
+- **Identificadores** — ISBN-13 978-0-262-13360-9 · ISBN-10 `0262133601`
+- **Amazon** — https://www.amazon.com.br/dp/0262133601
+- **Acesso aberto** — não há edição livre. A página dos autores
+  (https://nlp.stanford.edu/fsnlp/) traz sumário, errata e os capítulos de amostra,
+  e é o endereço que as seis fatias citam.
+- **Citada por** — `rec:ia/manning-schutze-fundamentos-matematicos`,
+  `rec:ia/manning-schutze-inferencia-estatistica`,
+  `rec:ia/manning-schutze-suavizacao`, `rec:ia/manning-schutze-hmm`,
+  `rec:ia/manning-schutze-etiquetagem`,
+  `rec:ia/manning-schutze-exercicios-inferencia` — as seis fatias declaram
+  `obra: manning-schutze-fsnlp`
+- **Nota** — é de 1999 e anterior a tudo que é neural. O que a trilha usa dela —
+  suposição de Markov, perplexidade, suavização, HMM, etiquetagem — não envelheceu;
+  o estado da arte que ela descreve, sim.
+
 ### Hands-On Large Language Models: Language Understanding and Generation
 
 - **Autoria** — Jay Alammar, Maarten Grootendorst
@@ -391,7 +412,29 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Amazon** — https://www.amazon.com.br/s?k=9780131873216 (busca: a 2ª edição não tem
   página ativa na loja brasileira)
 - **Acesso aberto** — https://web.stanford.edu/~jurafsky/slp3/
-- **Citada por** — `rec:ia/slp3-transformers`
+- **Citada por** — `rec:ia/slp3-transformers`, `rec:ia/jurafsky-martin-ngramas`,
+  `rec:ia/jurafsky-martin-suavizacao`, `rec:ia/jurafsky-martin-apendice-hmm`,
+  `rec:ia/jurafsky-martin-etiquetagem-sequencial`
+- **Nota** — a numeração de capítulo muda entre rascunhos da 3ª edição, e os
+  recursos citam o PDF por número (`3.pdf`, `18.pdf`, `A.pdf`). Ao conferir um
+  link, confira o **título** do capítulo, não o número.
+
+### The Practice of Programming
+
+- **Autoria** — Brian W. Kernighan, Rob Pike
+- **Edição** — Addison-Wesley Professional (Professional Computing Series),
+  04/02/1999, 288 p., en-US
+- **Identificadores** — ISBN-13 978-0-201-61586-9 · ISBN-10 `020161586X`
+- **Amazon** — https://www.amazon.com.br/dp/020161586X
+- **Acesso aberto** — não há edição livre, mas a página do livro
+  (https://www.cs.princeton.edu/~bwk/tpop.webpage/) publica o código de todos os
+  capítulos, inclusive as cinco implementações do gerador de Markov do cap. 3.
+- **Código** — https://www.cs.princeton.edu/~bwk/tpop.webpage/code.html
+- **Citada por** — `rec:ia/kernighan-pike-cadeia-de-markov` (cap. 3, o gerador de
+  Markov) e `rec:programacao/kernighan-pike-tpop` (o resto do livro) — as duas
+  fatias declaram `obra: kernighan-pike-tpop`, cruzando as áreas `ia/` e
+  `programacao/`, que são organizacionais e não semânticas
+  ([catalogo.md §3](catalogo.md))
 
 ---
 
@@ -576,7 +619,8 @@ Recursos que não são livros ficam de fora: documentação oficial (MDN, pandas
 scikit-learn, TypeScript Handbook, react.dev, docs.claude.com, MCP), material aberto
 de referência (arc42, microservices.io, adr.github.io, DORA, web.dev, ARIA APG,
 Paul's Online Math Notes, LibreTexts), artigos (*Attention Is All You Need*, *The
-Illustrated Transformer*, Fowler, fitness functions), vídeo (3Blue1Brown, aulas de
+Illustrated Transformer*, Fowler, fitness functions, *A Mathematical Theory of
+Communication* de Shannon, *Notes on Programming in C* de Pike), vídeo (3Blue1Brown, aulas de
 *Statistical Rethinking*), repositórios de exercício (anthropic-cookbook) e os
 recursos de projeto.
 

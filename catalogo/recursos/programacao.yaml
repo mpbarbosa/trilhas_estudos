@@ -120,3 +120,36 @@ recursos:
     url: https://www.amazon.com.br/s?k=C+A+Linguagem+de+Programa%C3%A7%C3%A3o+Padr%C3%A3o+ANSI+Kernighan+Ritchie
     disponivel: true
     verificado_em: 2026-10-15
+
+  # --- etapa:programacao/pratica-da-programacao ----------------------------
+  # `obra: kernighan-pike-tpop` agrupa este exemplar com a fatia do cap. 3 que
+  # sustenta etapa:ia/gerador-de-texto-por-cadeia-de-markov, em recursos/ia.yaml:
+  # é um livro só, comprado uma vez, e as duas fatias declaram o mesmo `custo`
+  # (ADR-0009, validação 12). Obra fatiada entre dois arquivos de área é normal —
+  # `area` é organizacional, não semântica (docs/catalogo.md §3).
+  - id: rec:programacao/kernighan-pike-tpop
+    etapa: etapa:programacao/pratica-da-programacao
+    titulo: "The Practice of Programming (Kernighan & Pike) — caps. 1-2 e 4-8: estilo, algoritmos, interfaces, depuração, teste, desempenho, portabilidade"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 190
+    obra: kernighan-pike-tpop
+    duracao_min: 720
+    url: https://www.cs.princeton.edu/~bwk/tpop.webpage/
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  - id: rec:programacao/pike-notas-sobre-c
+    etapa: etapa:programacao/pratica-da-programacao
+    titulo: "Notes on Programming in C (Rob Pike) — o ensaio que antecede o livro: nomes, complexidade e a regra de medir antes de otimizar"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://www.lysator.liu.se/c/pikestyle.html
+    disponivel: true
+    verificado_em: 2026-10-17

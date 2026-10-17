@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 11,
-  "gerado_em": "2026-10-15T22:45:35+00:00",
-  "hash": "sha256:2a94ef085bc377998b530485cbf95dbbef23b8d7be760f6fa312aabb82b27969",
+  "catalogo_versao": 12,
+  "gerado_em": "2026-10-17T21:25:48+00:00",
+  "hash": "sha256:0ff1bf09627505b10f9a1f85c1273c889cbaedf229b139f4d7808aac542d53c3",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -221,6 +221,14 @@
       "descricao": "Construir prompts como artefato de engenharia: contexto, exemplos, formato de saída, decomposição em passos, e iteração guiada por casos.\n"
     },
     {
+      "id": "comp:ia/etiquetagem-morfossintatica",
+      "titulo": "Etiquetagem morfossintática",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Etiquetar um corpus de teste com um HMM treinado em corpus rotulado, reportar a acurácia global e por etiqueta, e analisar dois erros distinguindo falha do modelo de ambiguidade que o contexto não resolve.",
+      "descricao": "Aplicar o HMM à primeira tarefa linguística que ele resolveu: atribuir classe gramatical a cada palavra de uma sentença, com a ambiguidade resolvida pelo contexto.\n"
+    },
+    {
       "id": "comp:ia/ferramentas-e-mcp",
       "titulo": "Ferramentas e MCP",
       "rev": 1,
@@ -235,6 +243,30 @@
       "status": "ativo",
       "verificacao": "Treinar um classificador num conjunto de dados dado e, a partir das curvas de treino e validação, diagnosticar sobreajuste ou subajuste e justificar uma correção aplicada.",
       "descricao": "Treinar, avaliar e diagnosticar redes neurais: função de perda, gradiente, otimizador, regularização, sobreajuste.\n"
+    },
+    {
+      "id": "comp:ia/geracao-por-cadeia-de-markov",
+      "titulo": "Geração de texto por cadeia de Markov",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Entregar um gerador de ordem k que produza texto novo a partir de um corpus, justificar a estrutura de dados escolhida para o prefixo pelo custo de busca, e demonstrar o efeito de aumentar k sobre a saída, até o ponto em que ela passa a copiar o corpus.",
+      "descricao": "Implementar o gerador: ler um corpus, indexar prefixos de ordem k pelos sufixos possíveis e amostrar a continuação — o algoritmo e a estrutura de dados que o sustenta.\n"
+    },
+    {
+      "id": "comp:ia/modelo-de-linguagem-ngrama",
+      "titulo": "Modelo de linguagem de n-gramas",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Treinar modelos de uni, bi e trigrama sobre um corpus dado, reportar a perplexidade de cada um num conjunto retido, e explicar por que a estimativa por máxima verossimilhança atribui probabilidade zero a sequências que o teste contém e o treino não.",
+      "descricao": "Tratar a língua como cadeia de Markov: estimar a probabilidade da próxima palavra pelas k anteriores, por contagem e máxima verossimilhança, e avaliar o modelo por perplexidade em corpus retido.\n"
+    },
+    {
+      "id": "comp:ia/modelo-oculto-de-markov",
+      "titulo": "Modelo oculto de Markov",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Sobre um HMM dado, calcular a verossimilhança de uma sequência de observações pelo algoritmo forward, decodificar a sequência de estados mais provável por Viterbi, e dizer o que Baum-Welch estima e por que precisa iterar.",
+      "descricao": "Separar estado oculto de observação: probabilidade de transição e de emissão, verossimilhança por forward, decodificação por Viterbi e treino sem rótulo por Baum-Welch.\n"
     },
     {
       "id": "comp:ia/operacao-de-aplicacoes-llm",
@@ -267,6 +299,14 @@
       "status": "ativo",
       "verificacao": "Indexar um corpus de pelo menos mil documentos, recuperar os k vizinhos de uma consulta e explicar um caso em que a busca léxica falharia e a vetorial acerta.",
       "descricao": "Produzir embeddings de texto, medir similaridade e usar um índice vetorial para recuperar conteúdo por significado, não por palavra.\n"
+    },
+    {
+      "id": "comp:ia/suavizacao-e-retrocesso",
+      "titulo": "Suavização e retrocesso",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Implementar duas estratégias sobre o mesmo modelo de trigrama — uma aditiva e uma de desconto, como Katz ou Kneser-Ney — e sustentar pela perplexidade no conjunto retido qual delas adotar.",
+      "descricao": "Redistribuir massa de probabilidade para o que não foi observado: suavização aditiva, desconto, interpolação e retrocesso para ordens menores.\n"
     },
     {
       "id": "comp:ia/uso-de-llm-por-api",
@@ -371,6 +411,14 @@
       "status": "ativo",
       "verificacao": "Implementar `fopen`/`getc` mínimos sobre `read` e um alocador `malloc`/`free` com lista livre, demonstrando-os num programa de teste, e explicar por que a E/S com buffer é mais rápida que um `read` por caractere.",
       "descricao": "O que a biblioteca padrão esconde: descritores de arquivo, E/S de baixo nível (`read`, `write`, `open`, `lseek`), listagem de diretórios, e um alocador de memória escrito sobre o sistema.\n"
+    },
+    {
+      "id": "comp:programacao/pratica-da-programacao",
+      "titulo": "Prática da programação",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Partindo de um programa que funciona mas está lento ou ilegível, entregar uma versão revista sustentada por medição: apresentar o perfil que identificou o gargalo, o teste que impediu a regressão, e justificar uma otimização que foi descartada por não valer a complexidade que introduzia.",
+      "descricao": "O ofício em torno do código que compila: estilo e notação, escolha de algoritmo e estrutura de dados, depuração sistemática, teste, medição antes de otimizar, e portabilidade — independente de linguagem, exercido em C.\n"
     },
     {
       "id": "comp:programacao/python-dados",
@@ -1270,6 +1318,27 @@
       ]
     },
     {
+      "id": "etapa:ia/etiquetagem-morfossintatica-com-hmm",
+      "titulo": "Etiquetagem morfossintática com HMM",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "trilha": "trilha:ia/modelo-de-markov-da-linguagem",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/modelo-oculto-de-markov",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/etiquetagem-morfossintatica",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:ia/fine-tuning-e-adaptacao",
       "titulo": "Fine-tuning e adaptação de modelo aberto",
       "rev": 1,
@@ -1316,6 +1385,27 @@
       ]
     },
     {
+      "id": "etapa:ia/gerador-de-texto-por-cadeia-de-markov",
+      "titulo": "Implementar o gerador de texto por cadeia de Markov",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 480,
+      "trilha": "trilha:ia/modelo-de-markov-da-linguagem",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/modelo-de-linguagem-ngrama",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/geracao-por-cadeia-de-markov",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:ia/llm-do-zero",
       "titulo": "Construir um LLM do zero",
       "rev": 1,
@@ -1337,6 +1427,67 @@
         {
           "competencia": "comp:ia/adaptacao-de-modelo",
           "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/markov-shannon-e-a-entropia-da-lingua",
+      "titulo": "Shannon, cadeias de Markov e a entropia da língua",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "trilha": "trilha:ia/modelo-de-markov-da-linguagem",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:ia/modelo-de-linguagem-ngrama",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/modelo-oculto-de-markov",
+      "titulo": "O modelo oculto de Markov — forward, Viterbi e Baum-Welch",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 720,
+      "trilha": "trilha:ia/modelo-de-markov-da-linguagem",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/modelo-de-linguagem-ngrama",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/modelo-oculto-de-markov",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/ngramas-e-perplexidade",
+      "titulo": "N-gramas, máxima verossimilhança e perplexidade",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "trilha": "trilha:ia/modelo-de-markov-da-linguagem",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/modelo-de-linguagem-ngrama",
+          "nivel_minimo": "iniciante"
+        },
+        {
+          "competencia": "comp:programacao/python-dados",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/modelo-de-linguagem-ngrama",
+          "nivel_resultante": "intermediario"
         }
       ]
     },
@@ -1410,6 +1561,31 @@
         {
           "competencia": "comp:ia/operacao-de-aplicacoes-llm",
           "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/projeto-modelo-de-linguagem-avaliado",
+      "titulo": "Projeto — modelo de linguagem de n-gramas avaliado por perplexidade",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:ia/modelo-de-markov-da-linguagem",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/modelo-de-linguagem-ngrama",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:ia/suavizacao-e-retrocesso",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/modelo-de-linguagem-ngrama",
+          "nivel_resultante": "avancado"
         }
       ]
     },
@@ -1488,6 +1664,27 @@
       "teaches": [
         {
           "competencia": "comp:ia/recuperacao-de-informacao",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/suavizacao-e-retrocesso",
+      "titulo": "Suavização, desconto e retrocesso — o que fazer com o que não se viu",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 540,
+      "trilha": "trilha:ia/modelo-de-markov-da-linguagem",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/modelo-de-linguagem-ngrama",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/suavizacao-e-retrocesso",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -1828,6 +2025,27 @@
       "teaches": [
         {
           "competencia": "comp:programacao/c-fundamentos",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:programacao/pratica-da-programacao",
+      "titulo": "A prática da programação — estilo, depuração, teste e desempenho",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:programacao/linguagem-c-ansi",
+      "opcional": true,
+      "requires": [
+        {
+          "competencia": "comp:programacao/c-estruturas",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:programacao/pratica-da-programacao",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -2368,6 +2586,38 @@
       ]
     },
     {
+      "id": "trilha:ia/modelo-de-markov-da-linguagem",
+      "titulo": "O modelo de Markov da linguagem natural",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:ia/modelo-de-linguagem-ngrama",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:ia/modelo-oculto-de-markov",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ia/etiquetagem-morfossintatica",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:ia/markov-shannon-e-a-entropia-da-lingua",
+        "etapa:ia/ngramas-e-perplexidade",
+        "etapa:ia/suavizacao-e-retrocesso",
+        "etapa:ia/gerador-de-texto-por-cadeia-de-markov",
+        "etapa:ia/modelo-oculto-de-markov",
+        "etapa:ia/etiquetagem-morfossintatica-com-hmm",
+        "etapa:ia/projeto-modelo-de-linguagem-avaliado"
+      ],
+      "etapas_referenciadas": [
+        "etapa:programacao/python-para-ia"
+      ]
+    },
+    {
       "id": "trilha:matematica/prova-e-calculo",
       "titulo": "Matemática — da demonstração ao cálculo",
       "rev": 1,
@@ -2426,7 +2676,8 @@
         "etapa:programacao/c-apontadores-e-vetores",
         "etapa:programacao/c-estruturas",
         "etapa:programacao/c-entrada-e-saida",
-        "etapa:programacao/c-interface-com-o-unix"
+        "etapa:programacao/c-interface-com-o-unix",
+        "etapa:programacao/pratica-da-programacao"
       ]
     },
     {
@@ -3459,6 +3710,20 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:ia/corpus-gutenberg-para-modelo-de-linguagem",
+      "titulo": "Projeto Gutenberg — corpus em domínio público para separar treino, validação e teste",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/projeto-modelo-de-linguagem-avaliado",
+      "formato": "projeto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 420,
+      "url": "https://www.gutenberg.org/",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
       "id": "rec:ia/deep-learning-book-br",
       "titulo": "Deep Learning Book (Data Science Academy) — 100 capítulos em português",
       "rev": 1,
@@ -3586,6 +3851,91 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:ia/jurafsky-martin-apendice-hmm",
+      "titulo": "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — apêndice A, Hidden Markov Models",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/modelo-oculto-de-markov",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://web.stanford.edu/~jurafsky/slp3/A.pdf",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:ia/jurafsky-martin-etiquetagem-sequencial",
+      "titulo": "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — cap. 18, Sequence Labeling for Parts of Speech and Named Entities",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/etiquetagem-morfossintatica-com-hmm",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://web.stanford.edu/~jurafsky/slp3/18.pdf",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:ia/jurafsky-martin-ngramas",
+      "titulo": "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — cap. 3, N-gram Language Models",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/ngramas-e-perplexidade",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 360,
+      "url": "https://web.stanford.edu/~jurafsky/slp3/3.pdf",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:ia/jurafsky-martin-suavizacao",
+      "titulo": "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — cap. 3, seções de smoothing, interpolação e Kneser-Ney",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/suavizacao-e-retrocesso",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://web.stanford.edu/~jurafsky/slp3/3.pdf",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:ia/kernighan-pike-cadeia-de-markov",
+      "titulo": "The Practice of Programming (Kernighan & Pike) — cap. 3, Design and Implementation: o gerador de Markov em C, Java, C++, Awk e Perl",
+      "rev": 2,
+      "status": "ativo",
+      "etapa": "etapa:ia/gerador-de-texto-por-cadeia-de-markov",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 190.0,
+      "duracao_min": 300,
+      "url": "https://www.cs.princeton.edu/~bwk/tpop.webpage/",
+      "disponivel": true,
+      "obra": "kernighan-pike-tpop",
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:ia/kernighan-pike-codigo-markov",
+      "titulo": "Código-fonte de The Practice of Programming — as implementações do cap. 3 para comparar com a sua",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/gerador-de-texto-por-cadeia-de-markov",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://www.cs.princeton.edu/~bwk/tpop.webpage/code.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
       "id": "rec:ia/llm-engineers-handbook-finetuning",
       "titulo": "LLM Engineer's Handbook — fine-tuning supervisionado, preferências e quantização",
       "rev": 2,
@@ -3658,6 +4008,96 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:ia/manning-schutze-etiquetagem",
+      "titulo": "Foundations of Statistical NLP (Manning & Schütze) — cap. 10, Part-of-Speech Tagging: do etiquetador de Markov ao transformacional",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/etiquetagem-morfossintatica-com-hmm",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 420.0,
+      "duracao_min": 360,
+      "url": "https://nlp.stanford.edu/fsnlp/",
+      "disponivel": true,
+      "obra": "manning-schutze-fsnlp",
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:ia/manning-schutze-exercicios-inferencia",
+      "titulo": "Foundations of Statistical NLP (Manning & Schütze) — exercícios do cap. 6 e o protocolo de avaliação do cap. 6 §6.4",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/projeto-modelo-de-linguagem-avaliado",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 420.0,
+      "duracao_min": 480,
+      "url": "https://nlp.stanford.edu/fsnlp/",
+      "disponivel": true,
+      "obra": "manning-schutze-fsnlp",
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:ia/manning-schutze-fundamentos-matematicos",
+      "titulo": "Foundations of Statistical NLP (Manning & Schütze) — caps. 1 e 2: a virada estatística, probabilidade, entropia e informação mútua",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/markov-shannon-e-a-entropia-da-lingua",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 420.0,
+      "duracao_min": 300,
+      "url": "https://nlp.stanford.edu/fsnlp/",
+      "disponivel": true,
+      "obra": "manning-schutze-fsnlp",
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:ia/manning-schutze-hmm",
+      "titulo": "Foundations of Statistical NLP (Manning & Schütze) — cap. 9, Markov Models: forward-backward, Viterbi e Baum-Welch",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/modelo-oculto-de-markov",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 420.0,
+      "duracao_min": 420,
+      "url": "https://nlp.stanford.edu/fsnlp/",
+      "disponivel": true,
+      "obra": "manning-schutze-fsnlp",
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:ia/manning-schutze-inferencia-estatistica",
+      "titulo": "Foundations of Statistical NLP (Manning & Schütze) — cap. 6 §§6.1-6.2: n-gramas sobre dados esparsos e estimativa por máxima verossimilhança",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/ngramas-e-perplexidade",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 420.0,
+      "duracao_min": 300,
+      "url": "https://nlp.stanford.edu/fsnlp/",
+      "disponivel": true,
+      "obra": "manning-schutze-fsnlp",
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:ia/manning-schutze-suavizacao",
+      "titulo": "Foundations of Statistical NLP (Manning & Schütze) — cap. 6 §§6.2-6.3: Laplace, Good-Turing, desconto, interpolação e retrocesso de Katz",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/suavizacao-e-retrocesso",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 420.0,
+      "duracao_min": 300,
+      "url": "https://nlp.stanford.edu/fsnlp/",
+      "disponivel": true,
+      "obra": "manning-schutze-fsnlp",
+      "verificado_em": "2026-10-17"
+    },
+    {
       "id": "rec:ia/mcp-spec-e-guias",
       "titulo": "Model Context Protocol — especificação, SDKs e guia de construção de servidor",
       "rev": 1,
@@ -3726,6 +4166,20 @@
       "url": "https://www.oreilly.com/library/view/-/9781098156145",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/shannon-1948-teoria-da-comunicacao",
+      "titulo": "A Mathematical Theory of Communication (Claude Shannon, 1948) — §§1-7, as aproximações de ordem n do inglês",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/markov-shannon-e-a-entropia-da-lingua",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
     },
     {
       "id": "rec:ia/slp3-transformers",
@@ -3969,6 +4423,21 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:programacao/kernighan-pike-tpop",
+      "titulo": "The Practice of Programming (Kernighan & Pike) — caps. 1-2 e 4-8: estilo, algoritmos, interfaces, depuração, teste, desempenho, portabilidade",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/pratica-da-programacao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 190.0,
+      "duracao_min": 720,
+      "url": "https://www.cs.princeton.edu/~bwk/tpop.webpage/",
+      "disponivel": true,
+      "obra": "kernighan-pike-tpop",
+      "verificado_em": "2026-10-17"
+    },
+    {
       "id": "rec:programacao/kernighan-ritchie-apontadores",
       "titulo": "C: A Linguagem de Programação — Padrão ANSI — cap. 5, apontadores e vetores",
       "rev": 1,
@@ -4072,6 +4541,20 @@
       "disponivel": true,
       "obra": "kernighan-ritchie-c",
       "verificado_em": "2026-10-15"
+    },
+    {
+      "id": "rec:programacao/pike-notas-sobre-c",
+      "titulo": "Notes on Programming in C (Rob Pike) — o ensaio que antecede o livro: nomes, complexidade e a regra de medir antes de otimizar",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/pratica-da-programacao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://www.lysator.liu.se/c/pikestyle.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
     },
     {
       "id": "rec:programacao/python-fluente-2ed",

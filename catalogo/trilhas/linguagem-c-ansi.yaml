@@ -117,4 +117,24 @@ trilha:
         - competencia: comp:programacao/c-interface-unix
           nivel_resultante: intermediario
 
+
+    # --- Ofício (aprofundamento, fora do objetivo declarado) ----------------
+    # Kernighan & Pike, *The Practice of Programming*, é a continuação natural do
+    # K&R: a mesma dupla de autores tratando do que vem depois de a linguagem já
+    # ser conhecida. Opcional porque o objetivo desta trilha é a linguagem e a
+    # interface com o UNIX, não o ofício em volta — e etapa opcional não altera a
+    # `rev` da trilha (docs/catalogo.md §4).
+    - id: etapa:programacao/pratica-da-programacao
+      titulo: A prática da programação — estilo, depuração, teste e desempenho
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: true
+      requires:
+        - competencia: comp:programacao/c-estruturas
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:programacao/pratica-da-programacao
+          nivel_resultante: intermediario
+
   etapas_referenciadas: []

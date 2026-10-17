@@ -91,3 +91,17 @@ competencias:
       Implementar `fopen`/`getc` mínimos sobre `read` e um alocador `malloc`/`free`
       com lista livre, demonstrando-os num programa de teste, e explicar por que a E/S
       com buffer é mais rápida que um `read` por caractere.
+
+  - id: comp:programacao/pratica-da-programacao
+    titulo: Prática da programação
+    rev: 1
+    status: ativo
+    descricao: >
+      O ofício em torno do código que compila: estilo e notação, escolha de algoritmo
+      e estrutura de dados, depuração sistemática, teste, medição antes de otimizar,
+      e portabilidade — independente de linguagem, exercido em C.
+    verificacao: >
+      Partindo de um programa que funciona mas está lento ou ilegível, entregar uma
+      versão revista sustentada por medição: apresentar o perfil que identificou o
+      gargalo, o teste que impediu a regressão, e justificar uma otimização que foi
+      descartada por não valer a complexidade que introduzia.
