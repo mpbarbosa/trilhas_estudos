@@ -82,3 +82,17 @@ competencias:
     verificacao: >
       Construir um gráfico interativo a partir de dado real, com escala e eixos
       corretos, que permaneça legível quando o conjunto dobra de tamanho.
+
+  - id: comp:web/javascript-no-servidor
+    titulo: JavaScript no servidor
+    rev: 1
+    status: ativo
+    descricao: >
+      A mesma linguagem fora do navegador: o laço de eventos de Node sem DOM,
+      resolução de módulos (CommonJS e ESM), I/O de arquivo e de rede sem bloquear,
+      um servidor HTTP escrito à mão, e dependência de terceiro com o custo que ela
+      traz.
+    verificacao: >
+      Servir uma API HTTP própria, sem framework, que leia e escreva arquivo; depois
+      trocar a leitura pela variante síncrona e mostrar — medindo a latência de uma
+      segunda requisição concorrente — o que o bloqueio do laço de eventos custa.

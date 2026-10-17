@@ -268,6 +268,38 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-08
 
+  # --- etapa:web/javascript-no-servidor -----------------------------------
+  # ATENÇÃO sobre a edição: "Node.js Succinctly" tem duas edições da Syncfusion, de
+  # autores diferentes — Kurniawan (2014) e DelBono (2016) —, e a página de ebook
+  # gratuito da editora hoje serve a de DelBono. O exemplar do acervo é o de
+  # Kurniawan, e por isso a `url` aponta ao registro daquela edição, não à página da
+  # editora, que levaria a outro livro.
+  - id: rec:web/node-docs-learn
+    etapa: etapa:web/javascript-no-servidor
+    titulo: "Node.js — guias oficiais (Learn): laço de eventos, módulos, sistema de arquivos, HTTP, diagnóstico e test runner"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 600
+    url: https://nodejs.org/en/learn
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  - id: rec:web/node-succinctly-kurniawan
+    etapa: etapa:web/javascript-no-servidor
+    titulo: "Node.js Succinctly (Agus Kurniawan, 2014) — apoio conceitual; código da era Node 0.10, anterior a promessas, async/await e ESM"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://www.goodreads.com/en/book/show/22586795-node-js-succinctly
+    disponivel: true
+    verificado_em: 2026-10-17
+
   # --- etapa:web/projeto-aplicacao-web ------------------------------------
   - id: rec:web/projeto-aplicacao-api-publica
     etapa: etapa:web/projeto-aplicacao-web

@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 16,
-  "gerado_em": "2026-10-17T23:13:06+00:00",
-  "hash": "sha256:3bd70c4424e8c2d353fd0cea6d7d7640612a0d695fb9f196726e8145d8c6918e",
+  "catalogo_versao": 17,
+  "gerado_em": "2026-10-17T23:50:37+00:00",
+  "hash": "sha256:e845a52ced513c9ff8debebaa8013983d122917f2534c0947ab539c0f4945fa5",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -523,6 +523,14 @@
       "status": "ativo",
       "verificacao": "Explicar, sobre código seu, a ordem em que um conjunto de operações assíncronas executa, e corrigir uma condição de corrida sem recorrer a espera por tempo.",
       "descricao": "A linguagem como ela roda: escopo e closures, o modelo de objetos, módulos, manipulação do DOM, e o laço de eventos com assincronia por promessas.\n"
+    },
+    {
+      "id": "comp:web/javascript-no-servidor",
+      "titulo": "JavaScript no servidor",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Servir uma API HTTP própria, sem framework, que leia e escreva arquivo; depois trocar a leitura pela variante síncrona e mostrar — medindo a latência de uma segunda requisição concorrente — o que o bloqueio do laço de eventos custa.",
+      "descricao": "A mesma linguagem fora do navegador: o laço de eventos de Node sem DOM, resolução de módulos (CommonJS e ESM), I/O de arquivo e de rede sem bloquear, um servidor HTTP escrito à mão, e dependência de terceiro com o custo que ela traz.\n"
     },
     {
       "id": "comp:web/tipagem-estatica",
@@ -2341,6 +2349,31 @@
       ]
     },
     {
+      "id": "etapa:web/javascript-no-servidor",
+      "titulo": "JavaScript no servidor — Node, módulos, I/O não bloqueante e HTTP",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "trilha": "trilha:web/do-protocolo-a-interface",
+      "opcional": true,
+      "requires": [
+        {
+          "competencia": "comp:web/javascript-de-aplicacao",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:web/http-e-protocolo",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/javascript-no-servidor",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:web/projeto-aplicacao-web",
       "titulo": "Projeto — aplicação web acessível sobre API real",
       "rev": 1,
@@ -2741,6 +2774,7 @@
         "etapa:web/typescript-como-projeto",
         "etapa:web/interface-por-componentes",
         "etapa:web/visualizacao-com-d3",
+        "etapa:web/javascript-no-servidor",
         "etapa:web/projeto-aplicacao-web"
       ]
     }
@@ -4926,6 +4960,34 @@
       "url": "https://www.amazon.com.br/s?k=CSS+and+Documents+Eric+Meyer",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/node-docs-learn",
+      "titulo": "Node.js — guias oficiais (Learn): laço de eventos, módulos, sistema de arquivos, HTTP, diagnóstico e test runner",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/javascript-no-servidor",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://nodejs.org/en/learn",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:web/node-succinctly-kurniawan",
+      "titulo": "Node.js Succinctly (Agus Kurniawan, 2014) — apoio conceitual; código da era Node 0.10, anterior a promessas, async/await e ESM",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/javascript-no-servidor",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://www.goodreads.com/en/book/show/22586795-node-js-succinctly",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
     },
     {
       "id": "rec:web/projeto-aplicacao-api-publica",
