@@ -619,6 +619,24 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Citada por** — `rec:web/mastering-d3-castillo`
 - **Nota** — o código é de uma versão antiga da API do D3; o recurso já marca isso.
 
+### Pure React
+
+- **Autoria** — Dave Ceddia
+- **Edição** — edição do autor, e-book (PDF, EPUB e MOBI), en-US. Lançado em 2016 e
+  atualizado depois; em 2019 virou também curso em vídeo. Não confirmei qual revisão
+  está em circulação nem a contagem de páginas.
+- **Identificadores** — sem ISBN conhecido; vendido direto pelo autor
+- **Amazon** — https://www.amazon.com.br/s?k=Pure+React+Dave+Ceddia — **link de
+  busca**: não achei página de produto. O `custo: 210` do recurso é conversão
+  aproximada do preço do pacote só com o livro no site do autor (cerca de US$ 39),
+  não preço conferido no Brasil.
+- **Editora** — https://daveceddia.com/ (venda direta)
+- **Citada por** — `rec:web/pure-react-ceddia`
+- **Nota** — o recorte do livro é deliberado: só React, sem Redux, roteador nem
+  ferramenta de build, em exercícios curtos de componente, props e estado. Por isso é
+  porta de entrada mais suave da etapa de interface por componentes que *React
+  Fluente*, que trata de reconciliação e desempenho.
+
 ### React Fluente: crie aplicações web rápidas, eficazes e intuitivas
 
 - **Autoria** — Tejas Kumar
@@ -684,7 +702,8 @@ depois.
    propósito, 8 recursos: os 6 de Tanenbaum & Woodhull, porque o link direto seria o
    da 3ª edição e o título diz 2ª (item 2); o de *LLM, Transformer, RAG AI*, porque
    não há página de produto (item 1); e o de *CSS and Documents*, que só existe na
-   loja americana (item 5).
+   loja americana (item 5). Em 2026-10-17 entrou um nono, `rec:web/pure-react-ceddia`:
+   o livro é vendido direto pelo autor e não achei página de produto.
 4. **`rec:programacao/python-fluente-2ed`** aponta para a 2ª edição aberta em
    português, que não existe impressa; a edição impressa em português é a 1ª (2015).
    O recurso está correto, mas o título dele pode induzir a procurar um livro que não
