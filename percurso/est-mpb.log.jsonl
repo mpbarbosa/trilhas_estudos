@@ -17,3 +17,4 @@
 {"dados": {"etapa": "etapa:ia/engenharia-de-prompt", "etapa_rev": 1, "recurso": "rec:ia/prompt-engineering-for-llms"}, "em": "2026-10-16T11:41:11.266667+00:00", "seq": 17, "tipo": "etapa_iniciada"}
 {"dados": {"etapa": "etapa:web/interface-por-componentes", "etapa_rev": 1, "recurso": "rec:web/pure-react"}, "em": "2026-10-17T23:09:41.453943+00:00", "seq": 18, "tipo": "etapa_iniciada"}
 {"dados": {"etapa": "etapa:web/interface-por-componentes", "etapa_rev": 1, "recurso": "rec:web/pure-react-ceddia"}, "em": "2026-10-17T23:13:28.480133+00:00", "seq": 19, "tipo": "etapa_iniciada"}
+{"dados": {"etapa": "etapa:web/javascript-no-servidor", "etapa_rev": 1, "recurso": "rec:web/node-succinctly-kurniawan"}, "em": "2026-10-17T23:50:37.587148+00:00", "seq": 20, "tipo": "etapa_iniciada"}
