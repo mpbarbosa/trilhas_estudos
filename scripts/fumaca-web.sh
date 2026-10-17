@@ -142,6 +142,32 @@ if grep -qE 'Traceback|500 Internal' "$LOG"; then
   falhas=$((falhas + 1))
 fi
 
+# --- 7. O botão Desligar realmente derruba o servidor --------------------
+# Só faz sentido com o servidor descartável: em --manter o ponto é deixá-lo de pé.
+# Como POST /desligar encerra o processo, este é o último teste, e ele substitui o
+# `kill` do trap — se o processo não morrer sozinho, o trap ainda cobre.
+if [ "$MANTER" -eq 0 ]; then
+  codigo="$(curl -s -o /dev/null -w '%{http_code}' -X POST "$BASE/desligar" 2>/dev/null)"
+  if [ "$codigo" = "200" ]; then
+    printf '  %s  POST %s\n' "$codigo" "/desligar"
+  else
+    printf '  \033[31m%s\033[0m  POST %s — esperava 200\n' "${codigo:----}" "/desligar"
+    falhas=$((falhas + 1))
+  fi
+
+  morreu=0
+  for _ in $(seq 1 20); do
+    if ! kill -0 "$PID" 2>/dev/null; then morreu=1; break; fi
+    sleep 0.5
+  done
+  if [ "$morreu" -eq 1 ]; then
+    printf '  ok   servidor encerrou sozinho depois do POST\n'
+  else
+    vermelho "  o servidor seguiu de pé 10s depois de POST /desligar"
+    falhas=$((falhas + 1))
+  fi
+fi
+
 echo
 if [ "$falhas" -gt 0 ]; then
   vermelho "$falhas rota(s) com problema. Log completo: $LOG"

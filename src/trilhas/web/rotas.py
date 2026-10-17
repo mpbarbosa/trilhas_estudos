@@ -10,6 +10,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import TYPE_CHECKING, Any
 
+from starlette.background import BackgroundTask
 from starlette.requests import Request
 from starlette.responses import Response
 from starlette.routing import Route
@@ -148,6 +149,43 @@ async def diagnostico_do_catalogo(request: Request) -> Response:
     return _responder(request, "diagnostico.html", {"v": visao, "titulo": "Diagnóstico"})
 
 
+def _mesma_origem(request: Request) -> bool:
+    """Recusa POST vindo de outra origem.
+
+    Qualquer página aberta no navegador pode fazer POST para `localhost`, e desligar o
+    servidor é efeito colateral — não basta não ser GET. O navegador manda `Origin` em
+    POST; cliente sem navegador (teste, curl) não manda, e aí não há o que comparar.
+    """
+    origem = request.headers.get("origin")
+    if origem is None:
+        return True
+    hospedeiro = request.headers.get("host", "")
+    return origem in (f"http://{hospedeiro}", f"https://{hospedeiro}")
+
+
+async def desligar(request: Request) -> Response:
+    """Encerra o servidor a pedido da tela (docs/interface.md §5.9).
+
+    O encerramento vai numa tarefa de fundo: a resposta chega inteira ao navegador e só
+    então o processo recebe o sinal. Quem desliga é `ctx.desligar` — o teste injeta
+    outro, e por isso esta rota pode ser exercitada sem matar o pytest.
+    """
+    if not _mesma_origem(request):
+        return _responder(
+            request,
+            "erro.html",
+            {
+                "titulo": "Recusado",
+                "mensagem": "Desligar só pela própria interface.",
+                "detalhe": request.headers.get("origin", ""),
+            },
+            status=403,
+        )
+    resposta = _responder(request, "desligado.html", {"titulo": "Desligado"})
+    resposta.background = BackgroundTask(_ctx(request).desligar)
+    return resposta
+
+
 async def nao_encontrado(request: Request, exc: Exception | None = None) -> Response:
     return _responder(
         request,
@@ -182,4 +220,5 @@ ROTAS = [
     Route("/trilha/{ident:path}", trilha),
     Route("/etapa/{ident:path}", etapa),
     Route("/competencia/{ident:path}", competencia),
+    Route("/desligar", desligar, methods=["POST"]),
 ]

@@ -1,0 +1,24 @@
+{# Tela final: o servidor que a serviu está caindo.
+
+   Não estende base.html de propósito — o menu levaria a rotas que já não respondem, e
+   o rodapé fala de um catálogo que não há mais quem leia. #}
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Desligado — trilhas de estudo</title>
+  <link rel="stylesheet" href="/estatico/estilo.css">
+</head>
+<body class="despedida">
+  <main id="conteudo">
+    <h1>Servidor desligado</h1>
+    <p class="chamada">
+      A interface foi encerrada. Para voltar a estudar, suba de novo com
+      <code>scripts/abrir-app.sh</code>.
+    </p>
+    <p class="fraco" id="aviso-aba">Esta aba pode ser fechada.</p>
+  </main>
+  <script src="/estatico/desligar.js" defer></script>
+</body>
+</html>

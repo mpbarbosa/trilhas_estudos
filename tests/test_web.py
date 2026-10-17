@@ -274,3 +274,57 @@ def test_sem_percurso_nenhum_o_painel_diz_o_que_falta(cliente: TestClient) -> No
 def test_painel_nao_quebra_sem_catalogo(tmp_path: Path) -> None:
     cliente = TestClient(criar_app(lock=tmp_path / "nao-existe.json", hoje=lambda: HOJE))
     assert cliente.get("/").status_code == 200
+
+
+# --- desligar ------------------------------------------------------------------
+
+
+@pytest.fixture
+def desligamentos() -> list[int]:
+    return []
+
+
+@pytest.fixture
+def cliente_desligavel(lock: Path, desligamentos: list[int]) -> TestClient:
+    """Cliente com o desligamento substituído — senão o teste mataria o pytest."""
+    return TestClient(
+        criar_app(lock=lock, hoje=lambda: HOJE, desligar=lambda: desligamentos.append(1))
+    )
+
+
+def test_toda_tela_oferece_o_botao_de_desligar(cliente: TestClient) -> None:
+    """Quem subiu a interface pelo navegador não tem terminal para dar Ctrl-C."""
+    for rota in ("/", "/acervo", "/catalogo", "/catalogo/diagnostico"):
+        pagina = cliente.get(rota).text
+        assert 'action="/desligar"' in pagina, rota
+        assert ">Desligar<" in pagina, rota
+
+
+def test_desligar_encerra_o_servidor_depois_de_responder(
+    cliente_desligavel: TestClient, desligamentos: list[int]
+) -> None:
+    resposta = cliente_desligavel.post("/desligar")
+    assert resposta.status_code == 200
+    assert "Servidor desligado" in resposta.text
+    assert desligamentos == [1]
+
+
+def test_desligar_recusa_get(cliente_desligavel: TestClient, desligamentos: list[int]) -> None:
+    """Efeito colateral não mora em GET: link visitado ou pré-carregado derrubaria o app."""
+    assert cliente_desligavel.get("/desligar").status_code == 405
+    assert desligamentos == []
+
+
+def test_desligar_recusa_outra_origem(
+    cliente_desligavel: TestClient, desligamentos: list[int]
+) -> None:
+    """Qualquer página aberta no navegador pode fazer POST para localhost."""
+    resposta = cliente_desligavel.post("/desligar", headers={"origin": "http://exemplo.invalido"})
+    assert resposta.status_code == 403
+    assert desligamentos == []
+
+
+def test_desligado_nao_oferece_rota_que_nao_responde_mais(cliente_desligavel: TestClient) -> None:
+    pagina = cliente_desligavel.post("/desligar").text
+    assert 'href="/catalogo"' not in pagina
+    assert "abrir-app.sh" in pagina

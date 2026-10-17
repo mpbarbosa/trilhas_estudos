@@ -95,6 +95,18 @@ select:focus-visible, .no:focus-visible rect {
 .marca span { color: var(--texto-fraco); font-weight: 400; margin-left: .35rem; font-size: .85rem; }
 .versao { margin: 0; font-size: .8rem; color: var(--texto-fraco); font-family: var(--mono); }
 
+.topo-fim { display: flex; align-items: center; gap: .75rem; }
+.desligar { margin: 0; }
+.desligar button {
+  font: inherit; font-size: .8rem; cursor: pointer; padding: .2rem .55rem;
+  color: var(--texto-fraco); background: var(--superficie);
+  border: 1px solid var(--borda); border-radius: var(--raio);
+}
+.desligar button:hover { color: var(--erro); border-color: var(--erro); }
+
+/* Tela de despedida: nada de menu, só o recado centrado. */
+.despedida #conteudo { max-width: 40rem; margin: 4rem auto; padding: 0 1rem; }
+
 .pe {
   max-width: 72rem; margin: 0 auto; padding: 1rem;
   border-top: 1px solid var(--borda); font-size: .85rem; color: var(--texto-fraco);

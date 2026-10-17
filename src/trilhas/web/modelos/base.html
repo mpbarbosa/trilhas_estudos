@@ -16,9 +16,15 @@
       <a href="/catalogo" {% if caminho == '/catalogo' %}aria-current="page"{% endif %}>Catálogo</a>
       <a href="/catalogo/diagnostico" {% if caminho == '/catalogo/diagnostico' %}aria-current="page"{% endif %}>Diagnóstico</a>
     </nav>
-    <p class="versao" title="versão do snapshot compilado">
-      catálogo v{{ cabecalho.catalogo_versao }}
-    </p>
+    <div class="topo-fim">
+      <p class="versao" title="versão do snapshot compilado">
+        catálogo v{{ cabecalho.catalogo_versao }}
+      </p>
+      <form class="desligar" method="post" action="/desligar"
+            onsubmit="return confirm('Desligar o servidor? A interface deixa de responder.')">
+        <button type="submit" title="encerra o servidor local">Desligar</button>
+      </form>
+    </div>
   </header>
 
   {% if problemas_do_acervo %}

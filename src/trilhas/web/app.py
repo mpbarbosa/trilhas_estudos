@@ -19,6 +19,7 @@ from starlette.templating import Jinja2Templates
 
 from . import rotas
 from .dados import NOME_DO_LOCK, Fonte
+from .encerrar import encerrar_processo
 
 AQUI = Path(__file__).parent
 
@@ -30,12 +31,14 @@ class Contexto:
     fonte: Fonte
     templates: Jinja2Templates
     hoje: Callable[[], date] = field(default=date.today)
+    desligar: Callable[[], None] = field(default=encerrar_processo)
 
 
 def criar_app(
     *,
     lock: Path | None = None,
     hoje: Callable[[], date] | None = None,
+    desligar: Callable[[], None] | None = None,
 ) -> Starlette:
     caminho = lock or Path.cwd() / NOME_DO_LOCK
     templates = Jinja2Templates(directory=str(AQUI / "modelos"))
@@ -53,5 +56,6 @@ def criar_app(
         fonte=Fonte(caminho),
         templates=templates,
         hoje=hoje or date.today,
+        desligar=desligar or encerrar_processo,
     )
     return app

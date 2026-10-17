@@ -426,6 +426,32 @@ explicação, o feedback dado — e **a lista de candidatos eliminados com o mot
 eliminação** ([motor §2.2](motor-de-sugestao.md): *"um candidato eliminado deve registrar
 o motivo"*). É a resposta a "por que isto não apareceu", e nenhuma outra tela a dá.
 
+### 5.9 `POST /desligar` — encerrar o servidor pela própria tela
+
+A interface é um processo local que alguém subiu para estudar, não um serviço
+(§0). Quem a abre por `scripts/abrir-app.sh` ou pelo navegador não tem
+necessariamente um terminal à mão para dar Ctrl-C, e um uvicorn esquecido na porta
+8042 é o modo de falha seguinte. Daí o botão **Desligar** no topo de toda tela.
+
+Três propriedades, nessa ordem:
+
+1. **É POST.** Desligar tem efeito colateral; em GET, um link visitado, um
+   pré-carregamento do navegador ou um `curl` de rotina derrubariam o servidor.
+2. **É da própria origem.** Qualquer página aberta noutra aba pode fazer POST para
+   `localhost`. `Origin` divergente recebe 403. Cliente sem navegador não manda
+   `Origin` e não é barrado — o que vale, porque ele já tem o processo à mão.
+3. **Responde antes de cair.** O encerramento vai numa tarefa de fundo: o navegador
+   recebe a tela de despedida inteira e só então o processo toma `SIGINT`, que é o
+   encerramento gracioso que o uvicorn já implementa.
+
+A tela de despedida não estende `base.html`: o menu levaria a rotas que já não
+respondem. Ela diz como subir de novo e tenta `window.close()` — que o navegador
+ignora em aba que o usuário abriu, por isso o texto "esta aba pode ser fechada" é o
+caminho que sempre funciona, não acabamento.
+
+Quem desliga é uma função injetada no `Contexto`, como `hoje`. É o que permite
+exercitar a rota em teste sem matar o pytest.
+
 ---
 
 ## 6. Regras duras da interface
@@ -497,9 +523,11 @@ Nível é **rampa sequencial**, nunca quatro cores distintas: a escala é ordina
 | POST | `/feedback` | `{estudante, sugestao, reacao, motivo?}` |
 | POST | `/restricoes` | perfil |
 | POST | `/catalogo/autoria/gerar` | diff de YAML + resultado da validação |
+| POST | `/desligar` | tela de despedida; encerra o processo em seguida (§5.9) |
 
 Todo POST responde o fragmento HTML atualizado (htmx) e um `Location` para quem vier sem
-script. Todo POST é idempotente por `(estudante, entidade, data, tipo)` — clique duplo não
+script — exceto `/desligar`, que responde uma página inteira, porque depois dela não há
+servidor para atender fragmento nenhum. Todo POST é idempotente por `(estudante, entidade, data, tipo)` — clique duplo não
 cria duas evidências.
 
 ---
