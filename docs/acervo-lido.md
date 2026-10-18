@@ -43,7 +43,7 @@ veredito e o motivo.
 
 ---
 
-## 1. Já catalogada — 5 obras
+## 1. Já catalogada — 6 obras
 
 | # | Obra | Recurso | Etapa | Desde |
 |---|---|---|---|---|
@@ -52,13 +52,16 @@ veredito e o motivo.
 | 3 | *Engenharia de Prompts na Prática* (Edney Souza) | `rec:ia/souza-engenharia-de-prompts` | `etapa:ia/engenharia-de-prompt` | 2026-10-17 |
 | 39 | *Python for Everybody* (Charles Severance) | `rec:programacao/py4e-severance` | `etapa:programacao/python-para-ia` | 2026-10-17 |
 | 36 | *Álgebra Linear com Python* (Rafael F.V.C. Santos) | `rec:dados/santos-algebra-linear-python` | `etapa:dados/matematica-para-dados` | 2026-10-17 |
+| 2 | *Spec Driven Development — PT* (J.C. Ködel) | `rec:ia/kodel-spec-driven-development` | `etapa:ia/claude-code-e-skills` | 2026-10-17, `disponivel: false` |
 
 Ry's Git Tutorial era a **única** correspondência quando o cruzamento foi feito —
 16 das 17 obras técnicas da estante não estavam no catálogo, que foi construído
-sem consultá-la. As outras quatro entraram no mesmo dia, por decisão do estudante
+sem consultá-la. As outras cinco entraram no mesmo dia, por decisão do estudante
 sobre o § 2; o que a conferência de exemplar encontrou está abaixo, porque é o que
 justifica a forma como cada recurso ficou. Duas delas (#3 e #36) ficaram com o
-limite de cobertura dito no título, e é o padrão a seguir em casos iguais.
+limite de cobertura dito no título, e é o padrão a seguir em casos iguais; uma (#2)
+entrou **indisponível**, que é o outro padrão — o de registrar a obra sem fingir que
+o estudante consegue obtê-la hoje.
 
 **#90 Tufte** — 2ª ed., Graphics Press, 2001, 197 p., ISBN-10 `0961392142`.
 Confirmado pelo site do autor e pela loja brasileira. Entrou como `custo: 220`
@@ -101,6 +104,27 @@ o PDF em português respondeu 200 em 2026-10-17 com `Last-Modified` do mesmo dia
   `custo` é 10 (preço de compra) e não 0. A distinção importa: no § 1 acima, o
   `custo: 0` do Souza vem de um PDF liberado pelo autor, que é outra coisa.
 
+**#2 Ködel** — ASIN `B0H8Y7QD9N`, Independently Published, 14/07/2026, 270 p.,
+ISBN-13 979-8-1873-4808-4, capa comum e **sem edição Kindle**. Entrou com
+`disponivel: false`, por decisão do estudante depois de o § 2.7 deixar a escolha em
+aberto. Três coisas que a conferência fixou:
+
+- A loja brasileira diz **"Não disponível. Não temos previsão de quando este produto
+  estará disponível novamente"**. O motor filtra por `disponivel`, então o recurso
+  não gera candidato — e não poderia, porque não há como obtê-lo. A etapa segue
+  satisfeita pela §5.5 por `rec:ia/biblia-claude-code-skills` e
+  `rec:ia/claude-code-docs`.
+- `custo: 90` é **estimativa por comparável** (outro livro de SDD em pt-BR, capa
+  comum, a R$ 91,84 na mesma página), porque produto esgotado não exibe preço. Está
+  dito no YAML. Quando voltar ao estoque, `disponivel: true` é mudança substantiva —
+  sobe a `rev` para 2 — e é a hora de acertar o número.
+- A data de publicação é **14/07/2026**, não 2025 como dizia a primeira versão do
+  § 2.7 abaixo (corrigido lá).
+
+É o primeiro e único recurso do catálogo com `disponivel: false`. O campo já era
+previsto para isto — o cabeçalho de `catalogo/recursos/dados.yaml` manda usá-lo para
+amostra de acervo Kindle —, mas até aqui nenhum recurso o usava.
+
 Isso deixa à vista um limite do esquema, não um erro desta entrada: um recurso
 pertence a uma etapa e a realiza por inteiro ou não — não há como declarar que
 cobre uma das duas competências de `teaches`. Enquanto não houver,
@@ -119,7 +143,7 @@ custo que os recursos atuais da etapa não dão — os dois são filtros do moto
 
 **Esta seção está resolvida.** O estudante decidiu sobre ela em 2026-10-17 e a
 conferência de exemplar que ele pediu antes de criar cada recurso **derrubou três
-candidatas e qualificou duas**. O texto de cada subseção é o argumento original,
+candidatas, qualificou duas e pôs uma no catálogo como indisponível**. O texto de cada subseção é o argumento original,
 preservado; o veredito vem no fim dela. A numeração não foi remexida: 2.3 continua
 sendo 2.3 em qualquer referência a este relatório.
 
@@ -131,7 +155,7 @@ sendo 2.3 em qualquer referência a este relatório.
 | 2.4 | Downey, *Think Python* | descartada — redundante com 2.3 na mesma etapa |
 | 2.5 | Santos, *Álgebra Linear com Python* | **catalogada**, parcial → § 1 |
 | 2.6 | Tabak, *Algebra* | descartada — R$ 297 a R$ 709 o exemplar |
-| 2.7 | Ködel, *Spec Driven Development* | **pendente** — esgotada sem previsão |
+| 2.7 | Ködel, *Spec Driven Development* | **catalogada** com `disponivel: false` → § 1 |
 | 2.8 | Turner, *User Stories....Unleashed* | descartada — 35 páginas |
 | 2.9 | Battisti, *Fundamentos do React JS* | descartada, como já se recomendava |
 
@@ -212,7 +236,8 @@ para quase todo mundo.
 A competência é "trabalhar num repositório com um agente de codificação:
 instruções de projeto, skills, subagentes, **revisão do que o agente propõe e
 decisão sobre o que aceitar**". Especificar antes de gerar é método para
-exatamente essa última parte, e o livro é pt-BR e recente (2025) — raro nesta
+exatamente essa última parte, e o livro é pt-BR e recente (14/07/2026 — a
+primeira versão deste relatório dizia 2025, errado) — raro nesta
 etapa, onde o outro recurso pt-BR é uma fatia da Bíblia do Claude. Contra:
 nota 2 do estudante, e a etapa já tem dois recursos.
 
@@ -227,8 +252,10 @@ produto estará disponível novamente"**, só em capa comum, sem edição Kindle
 `disponivel: false`, que é estado legítimo do esquema e já previsto no cabeçalho de
 `recursos/dados.yaml` — mas criar o recurso é **irreversível**: id de catálogo não
 se remove nem se reaproveita, e desfazer seria depreciar
-([ADR-0005](adr/0005-identidade-imutavel-e-depreciacao.md)). Entre criar um recurso
-que o motor nunca vai sugerir e esperar, a entrada ficou pronta e não foi criada.
+([ADR-0005](adr/0005-identidade-imutavel-e-depreciacao.md)). A entrada ficou pronta
+e a escolha foi devolvida ao estudante, que **mandou catalogar** com
+`disponivel: false` — feito no mesmo dia, ver § 1. O veredito desta subseção passa a
+ser: **catalogada, indisponível.**
 
 ### 2.8 Mike Turner, *User Stories....Unleashed* (#116, sem nota)
 
@@ -434,17 +461,20 @@ que não ocorre em nenhuma das 122 linhas.
 ## 6. O que este relatório não decide
 
 - **Não decide catalogação.** O relatório recomenda; catalogar é decisão do
-  estudante. As quatro obras do § 1 datadas de 2026-10-17 entraram **por essa
-  decisão**, não por iniciativa do relatório, e nada do § 3 foi tocado. Nenhuma
-  etapa, competência ou trilha foi criada ou alterada em momento algum: as
-  mudanças são quatro recursos novos, e recurso não altera a `rev` da etapa
+  estudante. As cinco obras do § 1 datadas de 2026-10-17 entraram **por essa
+  decisão**, não por iniciativa do relatório — inclusive a #2, cujo § 2.7 devolveu
+  a escolha em vez de decidir sozinho —, e nada do § 3 foi tocado. Nenhuma etapa,
+  competência ou trilha foi criada ou alterada em momento algum: as mudanças são
+  cinco recursos novos, e recurso não altera a `rev` da etapa
   ([catalogo.md §4](catalogo.md)).
 - **O § 2 teve o exemplar conferido; o § 3 e o § 4, não.** Das nove candidatas do
   § 2, sete foram ao exemplar (2.9 não precisou, e 2.4 se resolveu contra 2.3).
   A conferência **derrubou duas** que o argumento aprovava (2.6 por preço, 2.8 por
-  extensão), **qualificou duas** como parciais (2.2 e 2.5) e **travou uma** por
-  indisponibilidade (2.7) — o que é a melhor medida do quanto o resto deste
-  relatório ainda não foi verificado. Os vereditos do § 3 e do § 4 seguem vindo
+  extensão), **qualificou duas** como parciais (2.2 e 2.5) e **mudou a forma de
+  outra** (2.7 entrou indisponível) — o que é a melhor medida do quanto o resto
+  deste relatório ainda não foi verificado. Também corrigiu dois fatos que o
+  relatório afirmara de memória: a data do livro do § 2.7 e a defasagem que
+  atribuía ao do § 2.2 (§ 4). Os vereditos do § 3 e do § 4 seguem vindo
   só de título, autor e data, e precisam do mesmo tratamento antes de virar
   recurso, sobretudo § 4 (edição do React e do Flask). A ressalva de `disponivel`
   dos comentários de `recursos/dados.yaml` vale aqui: parte do acervo Kindle é

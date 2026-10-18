@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 19,
-  "gerado_em": "2026-10-18T00:32:28+00:00",
-  "hash": "sha256:3690ddabbba7f6de6aac92385a561ea7dec5c32959192694e099fbc09768182a",
+  "catalogo_versao": 20,
+  "gerado_em": "2026-10-18T00:38:39+00:00",
+  "hash": "sha256:aef75dddccdc10afba010c97222f68ca96e4e9391e926016830a8a3bd81db4d4",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -3995,6 +3995,20 @@
       "duracao_min": 180,
       "url": "https://www.cs.princeton.edu/~bwk/tpop.webpage/code.html",
       "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:ia/kodel-spec-driven-development",
+      "titulo": "Spec Driven Development — PT: Da vibe-coding à engenharia de software (J.C. Ködel) — especificação antes de gerar, pelo GitHub Spec Kit; esgotado na loja desde 2026-10-17",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/claude-code-e-skills",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 90.0,
+      "duracao_min": 480,
+      "url": "https://www.amazon.com.br/dp/B0H8Y7QD9N",
+      "disponivel": false,
       "verificado_em": "2026-10-17"
     },
     {

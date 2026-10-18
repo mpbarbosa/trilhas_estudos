@@ -567,6 +567,42 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-08
 
+  # ATENÇÃO, duas ressalvas, e as duas estão no registro:
+  #
+  # 1. `disponivel: false` de propósito. Em 2026-10-17 a loja brasileira diz "Não
+  #    disponível. Não temos previsão de quando este produto estará disponível
+  #    novamente", só em capa comum e sem edição Kindle. O motor filtra por
+  #    `disponivel` (docs/motor-de-sugestao.md §2.2), então este recurso
+  #    não gera candidato — e não pode gerar, porque não há como obtê-lo. A etapa
+  #    continua servida por `rec:ia/biblia-claude-code-skills` e
+  #    `rec:ia/claude-code-docs`, que é o que satisfaz a validação §5.5. Quando voltar
+  #    ao estoque, virar `disponivel: true` é mudança substantiva: sobe a `rev` para 2
+  #    (docs/catalogo.md §4), e é a hora de corrigir o `custo`.
+  #
+  # 2. `custo: 90` é **estimativa**, não preço conferido: produto esgotado não exibe
+  #    preço. O valor vem do comparável mais próximo na mesma página de loja — outro
+  #    livro de SDD em pt-BR, capa comum, a R$ 91,84. O estudante já tem o exemplar,
+  #    então a estimativa é de reposição, não do que foi pago; a ambiguidade entre os
+  #    dois é a divergência 7 de docs/bibliografia.md e segue aberta.
+  #
+  # Sobre o encaixe: a competência da etapa é trabalhar num repositório com agente de
+  # codificação — instruções de projeto, skills, subagentes, revisão do que o agente
+  # propõe. O livro cobre a parte de instrução e revisão (constituição de projeto,
+  # especificação, plano, tarefa, e um aplicativo de ponta a ponta), com o eixo no
+  # GitHub Spec Kit; skills e subagentes ficam de fora.
+  - id: rec:ia/kodel-spec-driven-development
+    etapa: etapa:ia/claude-code-e-skills
+    titulo: "Spec Driven Development — PT: Da vibe-coding à engenharia de software (J.C. Ködel) — especificação antes de gerar, pelo GitHub Spec Kit; esgotado na loja desde 2026-10-17"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 90
+    duracao_min: 480
+    url: https://www.amazon.com.br/dp/B0H8Y7QD9N
+    disponivel: false
+    verificado_em: 2026-10-17
+
   # --- etapa:ia/agentes-com-claude ----------------------------------------
   - id: rec:ia/biblia-claude-agentes
     etapa: etapa:ia/agentes-com-claude
