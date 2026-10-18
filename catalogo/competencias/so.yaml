@@ -88,3 +88,42 @@ competencias:
       Compilar o MINIX numa máquina virtual, introduzir uma mudança observável
       (uma chamada de sistema nova ou uma alteração no escalonador) e demonstrar o
       efeito por um programa de usuário.
+
+  # --- A casca por cima do sistema (etapas avulsas) --------------------------
+  # Estas duas não nascem de trilha:so/projeto-e-implementacao: são o pré-requisito
+  # que ela e trilha:programacao/linguagem-c-ansi pressupunham sem declarar
+  # (ADR-0010). Ficam na área `so` porque a casca é a interface do sistema
+  # operacional com quem o usa — `area` é organizacional, não semântica
+  # (docs/catalogo.md §3), e por isso a mesma competência serve a uma etapa de
+  # `programacao/`.
+  - id: comp:so/linha-de-comando
+    titulo: Linha de comando do UNIX
+    rev: 1
+    status: ativo
+    descricao: >
+      Operar o sistema pela casca: percorrer e manipular arquivos e diretórios,
+      permissões, expansão de nomes pelo shell, redirecionamento e canos, variáveis
+      de ambiente, processos e sinais, e busca em texto e por arquivo com `grep` e
+      `find`. A transformação de texto fica em `comp:so/script-shell`, que é onde os
+      recursos que a ensinam estão.
+    verificacao: >
+      Resolver numa linha de comando uma tarefa de três passos sobre uma árvore de
+      arquivos — por exemplo, listar os dez `.c` com mais linhas sob um diretório — e
+      explicar, para um comando com `|` e `>`, quem cria cada processo e para onde vai
+      cada descritor de arquivo.
+
+  - id: comp:so/script-shell
+    titulo: Automação por script shell
+    rev: 1
+    status: ativo
+    descricao: >
+      Transformar comando repetido em script que se possa manter: variáveis e aspas,
+      condicional e laço, funções, parâmetros de linha de comando, código de saída e
+      tratamento de erro, o que separa o shell POSIX das extensões do bash, e a
+      transformação de texto que o script orquestra — `sed`, `gawk` e expressão
+      regular.
+    verificacao: >
+      Entregar um script que percorra um diretório, execute uma tarefa por arquivo,
+      reporte falha em `stderr` e devolva código de saída diferente de zero se algum
+      item falhou, e justificar cada par de aspas que impede a divisão de palavra num
+      nome de arquivo com espaço.
