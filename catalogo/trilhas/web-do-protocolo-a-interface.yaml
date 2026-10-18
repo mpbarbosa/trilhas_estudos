@@ -142,6 +142,28 @@ trilha:
         - competencia: comp:web/javascript-no-servidor
           nivel_resultante: intermediario
 
+    # Segundo ramo de servidor, irmão do de Node e distinto dele: aqui a página sai
+    # montada do servidor. Fecha a lacuna de docs/acervo-lido.md § 3.2 pela forma
+    # decidida em docs/adr/0011-python-no-servidor-como-ramo-da-trilha-web.md —
+    # opcional, porque não é exigido pelo objetivo declarado desta trilha, e é o que
+    # mantém a `rev` da trilha onde está (catalogo.md §4).
+    - id: etapa:web/python-no-servidor
+      titulo: Python no servidor — HTTP, template e a borda que não calcula domínio
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 720
+      opcional: true          # ramo: não é exigido pelo objetivo da trilha
+      requires:
+        - competencia: comp:web/http-e-protocolo
+          nivel_minimo: intermediario
+        - competencia: comp:web/documento-e-estilo
+          nivel_minimo: intermediario
+        - competencia: comp:programacao/python-dados
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:web/python-no-servidor
+          nivel_resultante: intermediario
+
     - id: etapa:web/projeto-aplicacao-web
       titulo: Projeto — aplicação web acessível sobre API real
       rev: 1
@@ -159,4 +181,11 @@ trilha:
         - competencia: comp:web/interface-por-componentes
           nivel_resultante: avancado
 
-  etapas_referenciadas: []
+  # Sem esta referência, comp:programacao/python-dados seria pré-requisito que a
+  # trilha exige e não oferece: a etapa que o desenvolve ficaria fora do grafo da
+  # matrícula e o estudante travaria sem receber o que o destrava — o mesmo efeito
+  # que ADR-0010 descreve em "Referenciar não é decoração". A etapa não é redefinida
+  # aqui (catalogo.md §1): ela mora em trilha:ia/llm-transformer-rag, é `opcional`
+  # lá e continua opcional aqui, e já é referenciada por outras duas trilhas.
+  etapas_referenciadas:
+    - etapa:programacao/python-para-ia

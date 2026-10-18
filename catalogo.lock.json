@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 20,
-  "gerado_em": "2026-10-18T00:53:27+00:00",
-  "hash": "sha256:b8b626f1f1403c532828833b29ecb0ba00cc363814ea611ecf5735d5823bade4",
+  "catalogo_versao": 21,
+  "gerado_em": "2026-10-18T01:01:04+00:00",
+  "hash": "sha256:77ef46b734822f7be501a0d4c912e8520acef53557a4a4d5f90fc2c3bc4d7518",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -547,6 +547,14 @@
       "status": "ativo",
       "verificacao": "Servir uma API HTTP própria, sem framework, que leia e escreva arquivo; depois trocar a leitura pela variante síncrona e mostrar — medindo a latência de uma segunda requisição concorrente — o que o bloqueio do laço de eventos custa.",
       "descricao": "A mesma linguagem fora do navegador: o laço de eventos de Node sem DOM, resolução de módulos (CommonJS e ESM), I/O de arquivo e de rede sem bloquear, um servidor HTTP escrito à mão, e dependência de terceiro com o custo que ela traz.\n"
+    },
+    {
+      "id": "comp:web/python-no-servidor",
+      "titulo": "Python no servidor — HTTP e HTML montado antes de sair",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Servir, a partir de um JSON de entrada, páginas de leitura em que cada URL abra sempre o mesmo conteúdo sem depender de estado de sessão, com um template base herdado pelos demais; depois mostrar que o cálculo exibido mora fora do template, exercitando-o por teste que não sobe servidor.",
+      "descricao": "Servir HTTP em Python com a página montada no servidor: roteamento e URL endereçável, requisição e resposta, template com herança e escape automático, arquivo estático e erro com página própria — e a borda de I/O separada do domínio, que continua testável sem subir servidor.\n"
     },
     {
       "id": "comp:web/tipagem-estatica",
@@ -2461,6 +2469,35 @@
       ]
     },
     {
+      "id": "etapa:web/python-no-servidor",
+      "titulo": "Python no servidor — HTTP, template e a borda que não calcula domínio",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 720,
+      "trilha": "trilha:web/do-protocolo-a-interface",
+      "opcional": true,
+      "requires": [
+        {
+          "competencia": "comp:web/http-e-protocolo",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:web/documento-e-estilo",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:programacao/python-dados",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/python-no-servidor",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:web/typescript-como-projeto",
       "titulo": "TypeScript — tipos como decisão de projeto",
       "rev": 1,
@@ -2840,7 +2877,11 @@
         "etapa:web/interface-por-componentes",
         "etapa:web/visualizacao-com-d3",
         "etapa:web/javascript-no-servidor",
+        "etapa:web/python-no-servidor",
         "etapa:web/projeto-aplicacao-web"
+      ],
+      "etapas_referenciadas": [
+        "etapa:programacao/python-para-ia"
       ]
     }
   ],
@@ -5113,6 +5154,34 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:web/flask-docs",
+      "titulo": "Flask — documentação oficial (3.1): Quickstart, Tutorial completo, Templates, Testing e Application Factory",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/python-no-servidor",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://flask.palletsprojects.com/en/stable/",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:web/grinberg-flask-pt",
+      "titulo": "Desenvolvimento Web com Flask (Miguel Grinberg, Novatec 2018) — apoio conceitual; tradução da 2ª ed. em inglês, anterior ao Flask 2, e o capítulo de banco usa Flask-SQLAlchemy 2",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/python-no-servidor",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 105.0,
+      "duracao_min": 900,
+      "url": "https://www.amazon.com.br/dp/8575226819",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
       "id": "rec:web/mastering-d3-castillo",
       "titulo": "Mastering D3.js (Pablo Navarro Castillo) — apoio conceitual; código de versão antiga da API",
       "rev": 1,
@@ -5265,6 +5334,20 @@
       "url": "https://www.amazon.com.br/dp/B0D4FD47PW",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/starlette-docs",
+      "titulo": "Starlette — documentação oficial: aplicação, rotas, requisição, resposta, templates Jinja2, arquivos estáticos e cliente de teste (ASGI)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/python-no-servidor",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://starlette.dev/",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
     },
     {
       "id": "rec:web/typescript-basico-pt",

@@ -23,6 +23,7 @@
 | [0008](adr/0008-percurso-como-log-de-fatos-datados.md) | Percurso como log append-only de fatos datados, perfil derivado | aceito |
 | [0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md) | Obra como campo de agrupamento no recurso, não como entidade | aceito |
 | [0010](adr/0010-shell-como-pre-requisito-declarado.md) | Shell como pré-requisito declarado, em etapa avulsa compartilhada | aceito |
+| [0011](adr/0011-python-no-servidor-como-ramo-da-trilha-web.md) | Python no servidor como ramo opcional da trilha web | aceito |
 
 ## Pendente
 

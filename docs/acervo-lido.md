@@ -43,7 +43,7 @@ veredito e o motivo.
 
 ---
 
-## 1. Já catalogada — 8 obras
+## 1. Já catalogada — 9 obras
 
 | # | Obra | Recurso | Etapa | Desde |
 |---|---|---|---|---|
@@ -55,13 +55,15 @@ veredito e o motivo.
 | 2 | *Spec Driven Development — PT* (J.C. Ködel) | `rec:ia/kodel-spec-driven-development` | `etapa:ia/claude-code-e-skills` | 2026-10-17, `disponivel: false` |
 | 16 | *Shell Script Profissional* (Aurélio Jargas) | `rec:so/jargas-shell-script-profissional` | `etapa:so/script-shell` | 2026-10-17 |
 | 13 | *Linux Command Line and Shell Scripting Bible* (Blum) | `rec:so/blum-bible-linha-de-comando`, `rec:so/blum-bible-script-shell` | `etapa:so/linha-de-comando`, `etapa:so/script-shell` | 2026-10-17 |
+| 32 | *Desenvolvimento Web com Flask* (Grinberg, trad. pt-BR) | `rec:web/grinberg-flask-pt` | `etapa:web/python-no-servidor` | 2026-10-17, apoio conceitual |
 
 Ry's Git Tutorial era a **única** correspondência quando o cruzamento foi feito —
 16 das 17 obras técnicas da estante não estavam no catálogo, que foi construído
-sem consultá-la. As outras sete entraram no mesmo dia, por decisão do estudante:
+sem consultá-la. As outras oito entraram no mesmo dia, por decisão do estudante:
 Tufte, Souza, Severance e Santos sobre o § 2, Ködel também sobre o § 2 mas
-**indisponível**, e Jargas e Blum sobre a lacuna do § 3.1, que deixou de ser
-lacuna. O que a conferência de exemplar encontrou está abaixo, porque é o que
+**indisponível**, Jargas e Blum sobre a lacuna do § 3.1 e Grinberg sobre a do § 3.2 —
+as duas deixaram de ser lacuna. O que a conferência de exemplar encontrou está abaixo,
+porque é o que
 justifica a forma como cada recurso ficou. Duas delas (#3 e #36) ficaram com o
 limite de cobertura dito no título, e é o padrão a seguir em casos iguais; uma (#2)
 entrou **indisponível**, que é o outro padrão — o de registrar a obra sem fingir que
@@ -166,6 +168,29 @@ pressupunham) e `etapa:so/script-shell` (opcional). Três achados mudaram as ent
   (*Introdução ao Shell Script*, 22 p.; o *Canivete Suíço*, tabela de consulta) são
   curtas demais para realizar uma etapa. Está em comentário em
   `catalogo/recursos/so.yaml` para não ser pesquisado de novo.
+
+**#32 Grinberg** — entrou pela lacuna do § 3.2, não pelo livro, e a forma está em
+[ADR-0011](adr/0011-python-no-servidor-como-ramo-da-trilha-web.md): uma etapa nova,
+`etapa:web/python-no-servidor`, **opcional**, dentro de
+`trilha:web/do-protocolo-a-interface`, no mesmo papel de ramo que
+`etapa:web/javascript-no-servidor` já tem. Dois achados mudaram a entrada:
+
+- **A tradução pt-BR é da 2ª edição, não da 1ª.** Novatec, 2018, 312 p., ISBN-13
+  978-85-7522-681-0, impresso a R$ 105,00 na editora. O § 4 abaixo dava a tradução
+  como sendo da 1ª edição em inglês (2014, Flask 0.10); a página da própria editora a
+  descreve como "edição atualizada" diante das "mudanças importantes de tecnologia
+  ocorridas nos últimos três anos", e as 312 páginas batem com a 2ª edição em inglês,
+  não com as 258 da 1ª. A correção está datada no § 4 e na ficha de
+  [bibliografia.md](bibliografia.md).
+- **A correção não mudou o veredito, só o tamanho dele.** Mesmo na 2ª edição o livro é
+  anterior ao Flask 2 — sem view assíncrona — e o capítulo de banco usa
+  Flask-SQLAlchemy 2, cujos padrões a versão 3 quebrou. Entrou como **apoio
+  conceitual**, com o limite dito no título do recurso, e os primários são as
+  documentações oficiais do Flask e do Starlette, as duas gratuitas: é a convenção que
+  `catalogo/recursos/web.yaml` já usava para os livros de D3. Sobrou um vão declarado,
+  simétrico ao da etapa de linha de comando: aqui o único recurso **pt-BR** é o pago, e
+  quem estudar com `custo_maximo: 0` fica com as duas documentações en-US. Está em
+  comentário no YAML.
 
 ---
 
@@ -324,13 +349,14 @@ conferência de exemplar: o descarte não dependia dela.
 
 ---
 
-## 3. Sem etapa que a comporte — 5 obras, 5 lacunas
+## 3. Sem etapa que a comporte — 4 obras, 4 lacunas
 
 Aqui a obra importa menos que a lacuna. Uma lacuna real não se fecha com o livro
 que a revelou: o livro é só a evidência de que ela existe.
 
-A numeração das subseções **não** foi remexida: 3.2 continua sendo 3.2 em qualquer
-referência a este relatório, e o 3.1 fica como registro da lacuna que se fechou.
+A numeração das subseções **não** foi remexida: 3.3 continua sendo 3.3 em qualquer
+referência a este relatório, e o 3.1 e o 3.2 ficam como registro das lacunas que se
+fecharam.
 
 ### 3.1 Linha de comando e shell — fechada em 2026-10-17
 
@@ -358,21 +384,34 @@ que foi recusado — inclusive a trilha de fundamentos de ambiente UNIX, que nã
 abriu — está em
 [ADR-0010](adr/0010-shell-como-pre-requisito-declarado.md).
 
-### 3.2 Aplicação de servidor em Python
+### 3.2 Aplicação de servidor em Python — fechada em 2026-10-17
 
-**#32** *Desenvolvimento Web com Flask* (Grinberg, trad. pt-BR)
+**#32** *Desenvolvimento Web com Flask* (Grinberg, trad. pt-BR) — **está no § 1.**
 
-`trilha:web/do-protocolo-a-interface` tem servidor — mas
-`etapa:web/javascript-no-servidor` é Node. Python aparece no catálogo em
-`trilha:dados/analise-de-dados-com-python` e em
-`etapa:programacao/python-para-ia`, sempre como linguagem de análise, nunca
-servindo HTTP.
+Era a segunda da ordem sugerida pelo § 6, e foi fechada nessa ordem, no mesmo dia que
+a § 3.1. `trilha:web/do-protocolo-a-interface` tinha servidor, mas
+`etapa:web/javascript-no-servidor` é Node; Python aparecia em
+`trilha:dados/analise-de-dados-com-python` e em `etapa:programacao/python-para-ia`,
+sempre como linguagem de análise, nunca servindo HTTP.
 
-A lacuna é visível de dentro do próprio repositório: a camada de entrega
-decidida em [ADR-0007](adr/0007-entrega-web-em-python-html-no-servidor.md) é
-Python com HTML no servidor, e nenhuma etapa do catálogo ensina a construí-la.
-Flask é o framework dessa forma exata de aplicação. Pesa contra: a tradução
-pt-BR é da 1ª edição (§ 4).
+Esta lacuna era a única do § 3 visível **de dentro do próprio repositório**: a camada
+de entrega decidida em
+[ADR-0007](adr/0007-entrega-web-em-python-html-no-servidor.md) é Python com HTML no
+servidor, está construída em `src/trilhas/web/`, e nenhuma etapa do catálogo ensinava a
+construí-la. Era o catálogo deixando de descrever uma competência que o projeto exerce.
+
+Hoje está descrita. `comp:web/python-no-servidor` é desenvolvida por
+`etapa:web/python-no-servidor`, **opcional**, dentro da trilha web — ramo irmão do de
+Node e distinto dele: lá se serve API sem framework, aqui a página sai montada do
+servidor, com URL endereçável e o domínio fora do template. A trilha também passou a
+referenciar `etapa:programacao/python-para-ia`, sem a qual o pré-requisito de Python
+seria exigido e não oferecido. Fechar esta lacuna **não subiu `rev` de nada**: etapa
+opcional acrescentada é cosmética para a trilha ([catalogo.md §4](catalogo.md)), ao
+contrário da § 3.1, que subiu quatro.
+
+O que foi decidido e o que foi recusado — a etapa avulsa, a trilha nova, e por que o
+framework primário é Flask na documentação e não o Starlette que o repositório usa —
+está em [ADR-0011](adr/0011-python-no-servidor-como-ramo-da-trilha-web.md).
 
 ### 3.3 Integração e movimentação de dado (ETL)
 
@@ -445,7 +484,7 @@ critério às obras da estante.
 | 64 | *Tableau 10 for Beginners* (2016) | Pior caso da lista: tutorial de ferramenta cuja interface e conjunto de recursos mudaram por completo desde a versão 10. Tutorial de ferramenta defasada não tem metade conceitual que se aproveite. |
 | 115 | *Pentaho Data Integration Beginner's Guide* (Kettle 4) | A ferramenta trocou de dono e o campo migrou para dbt/Airflow/Spark. O conceito de ETL (passo, salto, transformação, carga incremental) envelheceu bem; o produto, não. Serviria de apoio conceitual à lacuna de § 3.3 — nunca de recurso primário. |
 | 9 | *Learning GitHub Copilot* (Laster) | A categoria mais rápida de todas: modo agente e agente no repositório chegaram depois do livro. Exatamente o caso que o catálogo já resolve nos recursos de IA, onde a documentação oficial é primária e o livro é apoio. |
-| 32 | *Desenvolvimento Web com Flask* | Tradução pt-BR da **1ª** edição (2014, Flask 0.10). Flask 2/3 trouxe view assíncrona, e Flask-SQLAlchemy 3 quebrou os padrões do livro. Grinberg publicou 2ª edição (2018) — também anterior a Flask 2. |
+| 32 | *Desenvolvimento Web com Flask* | **Já catalogada** (§ 1), como apoio conceitual. **Correção de 2026-10-17:** a primeira versão desta linha dava a tradução pt-BR como sendo da **1ª** edição (2014, Flask 0.10). Errado — a tradução que a Novatec vende é da **2ª** (2018, 312 p.), descrita pela editora como "edição atualizada". O veredito não muda, só encolhe: a 2ª edição também é anterior ao Flask 2, e o capítulo de banco usa Flask-SQLAlchemy 2, cujos padrões a versão 3 quebrou. Por isso as documentações oficiais do Flask e do Starlette são os recursos primários da etapa, e o livro é apoio. |
 | 1 | *Fundamentos do React JS* | Conferir a edição antes de qualquer coisa. React introdutório anterior a 2019 ensina componente de classe, que é justamente o que os recursos atuais da etapa evitam (`rec:web/pure-react-ceddia` é descrito como "sem Redux nem ferramental"). |
 | 75 | *The Silent Intelligence* (2013) | Previsão de mercado de IoT de 2013 — hoje é documento histórico, não material de estudo. |
 
@@ -503,17 +542,19 @@ que não ocorre em nenhuma das 122 linhas.
 ## 6. O que este relatório não decide
 
 - **Não decide catalogação.** O relatório recomenda; catalogar é decisão do
-  estudante. As sete obras do § 1 datadas de 2026-10-17 entraram **por essa
+  estudante. As oito obras do § 1 datadas de 2026-10-17 entraram **por essa
   decisão**, não por iniciativa do relatório — inclusive a #2, cujo § 2.7 devolveu
   a escolha em vez de decidir sozinho. Cinco delas (Tufte, Souza, Severance, Santos
   e Ködel) não mexeram no modelo: são cinco recursos novos, e recurso não altera a
-  `rev` da etapa ([catalogo.md §4](catalogo.md)). Jargas e Blum mexeram, porque
-  entraram pela lacuna — duas competências, duas etapas avulsas, quatro `rev` que
-  subiram — e é o que
-  [ADR-0010](adr/0010-shell-como-pre-requisito-declarado.md) decide.
-  **Correção de 2026-10-17:** a versão anterior desta linha dizia que "nenhuma
-  etapa, competência ou trilha foi criada ou alterada em momento algum". Valia para
-  as cinco obras do § 2 e deixou de valer no mesmo dia.
+  `rev` da etapa ([catalogo.md §4](catalogo.md)). As outras três mexeram, porque
+  entraram pelas lacunas: Jargas e Blum pela § 3.1 — duas competências, duas etapas
+  avulsas, quatro `rev` que subiram, em
+  [ADR-0010](adr/0010-shell-como-pre-requisito-declarado.md) — e Grinberg pela § 3.2,
+  em [ADR-0011](adr/0011-python-no-servidor-como-ramo-da-trilha-web.md): uma
+  competência e uma etapa opcional, **sem subir `rev` de nada**, porque etapa opcional
+  é cosmética para a trilha. **Correção de 2026-10-17:** a versão anterior desta linha
+  dizia que "nenhuma etapa, competência ou trilha foi criada ou alterada em momento
+  algum". Valia para as cinco obras do § 2 e deixou de valer no mesmo dia.
 - **O § 2 teve o exemplar conferido; o § 3 e o § 4, não.** Das nove candidatas do
   § 2, sete foram ao exemplar (2.9 não precisou, e 2.4 se resolveu contra 2.3).
   A conferência **derrubou duas** que o argumento aprovava (2.6 por preço, 2.8 por
@@ -521,18 +562,30 @@ que não ocorre em nenhuma das 122 linhas.
   outra** (2.7 entrou indisponível) — o que é a melhor medida do quanto o resto
   deste relatório ainda não foi verificado. Também corrigiu dois fatos que o
   relatório afirmara de memória: a data do livro do § 2.7 e a defasagem que
-  atribuía ao do § 2.2 (§ 4). As obras de shell do § 3.1 também foram ao exemplar
-  quando a lacuna se fechou. Os vereditos do resto do § 3 e do § 4 seguem vindo
-  só de título, autor e data, e precisam do mesmo tratamento antes de virar
-  recurso, sobretudo § 4 (edição do React e do Flask). A ressalva de `disponivel`
-  dos comentários de `recursos/dados.yaml` vale aqui: parte do acervo Kindle é
-  amostra, não exemplar íntegro, e amostra não satisfaz a validação §5.5. Nos
-  recursos de shell a ressalva não morde, porque os pagos e os gratuitos apontam
-  para editora ou para o autor, não para o acervo Kindle do estudante.
-- **Não fecha lacuna — e uma se fechou depois.** § 3 nomeava seis lacunas; abrir
+  atribuía ao do § 2.2 (§ 4). As obras das lacunas fechadas — shell no § 3.1, Flask
+  no § 3.2 — também foram ao exemplar, e nas duas vezes a conferência mudou a entrada:
+  o Jargas trocou de etapa, e o Flask estava numa edição diferente da que o § 4
+  afirmava. **Das oito obras que foram ao exemplar e acabaram catalogadas, a
+  conferência mudou a entrada de todas as oito** — o § 1 registra o achado de cada
+  uma —, e entre as candidatas do § 2 ela ainda derrubou duas que o argumento
+  aprovava. É a melhor medida do quanto o resto deste relatório ainda não foi
+  verificado. Os vereditos do resto do § 3 e do § 4 seguem vindo só de título, autor e
+  data, e precisam do mesmo tratamento antes de virar recurso, sobretudo § 4 (edição do
+  React). A ressalva de `disponivel` dos comentários de `recursos/dados.yaml` vale
+  aqui: parte do acervo Kindle é amostra, não exemplar íntegro, e amostra não satisfaz
+  a validação §5.5. Nos recursos de shell e no de Flask a ressalva não morde, porque os
+  pagos e os gratuitos apontam para editora, autor ou documentação oficial, não para o
+  acervo Kindle do estudante.
+- **Não fecha lacuna — e duas se fecharam depois.** § 3 nomeava seis lacunas; abrir
   etapa ou trilha para qualquer uma é decisão de escopo, com ADR se for estrutural
   ([catalogo.md](catalogo.md), regra 7 do CLAUDE.md). A ordem sugerida era § 3.1
   (shell) primeiro, porque é pré-requisito implícito de duas trilhas que já existem;
   § 3.2 (servidor em Python) depois, porque é a forma de aplicação que o próprio
-  repositório construiu. **§ 3.1 foi fechada em 2026-10-17**, nessa ordem e por
-  decisão do estudante. Restam cinco, e § 3.2 segue sendo a próxima.
+  repositório construiu. **As duas foram fechadas em 2026-10-17**, nessa ordem e por
+  decisão do estudante. **Restam quatro**, e o relatório não propõe ordem entre elas:
+  a ordem que ele propunha acabou nas duas que se fecharam. As quatro que sobram —
+  ETL (§ 3.3), JVM (§ 3.4), o computador abaixo do SO (§ 3.5) e as três do § 3.6 —
+  são decisões de escopo sem pré-requisito implícito nem código no repositório a
+  justificá-las, que é o que ordenava as duas primeiras. Quem for fechar a próxima
+  decide a ordem de novo, e o § 3.5 (Petzold) é a única com material canônico e sem
+  defasagem.
