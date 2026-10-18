@@ -300,6 +300,64 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-17
 
+  # --- etapa:web/python-no-servidor ---------------------------------------
+  # Mesma convenção dos recursos de D3 no alto deste arquivo: a documentação oficial
+  # é o recurso primário e o livro entra como apoio conceitual. Aqui ela vale duas
+  # vezes, porque o livro do acervo é de Flask e a edição pt-BR é anterior ao Flask 2.
+  #
+  # Por que dois frameworks e não um: a competência é a *forma* — pedido, rota,
+  # template, resposta, domínio fora do template —, e os dois recursos oficiais
+  # mostram a mesma forma nos dois modelos de execução que Python oferece. Flask é
+  # WSGI e síncrono, e tem o tutorial canônico do assunto; Starlette é ASGI e é o que
+  # este repositório usa (docs/adr/0007-entrega-web-em-python-html-no-servidor.md),
+  # com o mesmo Jinja2 por baixo. A diferença entre WSGI e ASGI é conteúdo da etapa,
+  # não detalhe a esconder atrás da escolha de um só.
+  #
+  # Nota de endereço: a documentação do Starlette migrou de starlette.io para
+  # starlette.dev; o domínio antigo não resolve mais. A `url` aponta para o novo.
+  #
+  # Limite declarado: o único recurso pt-BR desta etapa é pago. Quem estuda com
+  # `custo_maximo: 0` fica com os dois de documentação, ambos en-US
+  # (docs/motor-de-sugestao.md §2.2).
+  - id: rec:web/flask-docs
+    etapa: etapa:web/python-no-servidor
+    titulo: "Flask — documentação oficial (3.1): Quickstart, Tutorial completo, Templates, Testing e Application Factory"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 600
+    url: https://flask.palletsprojects.com/en/stable/
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  - id: rec:web/starlette-docs
+    etapa: etapa:web/python-no-servidor
+    titulo: "Starlette — documentação oficial: aplicação, rotas, requisição, resposta, templates Jinja2, arquivos estáticos e cliente de teste (ASGI)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 300
+    url: https://starlette.dev/
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  - id: rec:web/grinberg-flask-pt
+    etapa: etapa:web/python-no-servidor
+    titulo: "Desenvolvimento Web com Flask (Miguel Grinberg, Novatec 2018) — apoio conceitual; tradução da 2ª ed. em inglês, anterior ao Flask 2, e o capítulo de banco usa Flask-SQLAlchemy 2"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 105
+    duracao_min: 900
+    url: https://www.amazon.com.br/dp/8575226819
+    disponivel: true
+    verificado_em: 2026-10-17
+
   # --- etapa:web/projeto-aplicacao-web ------------------------------------
   - id: rec:web/projeto-aplicacao-api-publica
     etapa: etapa:web/projeto-aplicacao-web

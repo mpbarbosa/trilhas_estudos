@@ -96,3 +96,25 @@ competencias:
       Servir uma API HTTP própria, sem framework, que leia e escreva arquivo; depois
       trocar a leitura pela variante síncrona e mostrar — medindo a latência de uma
       segunda requisição concorrente — o que o bloqueio do laço de eventos custa.
+
+  # Fecha a lacuna de docs/acervo-lido.md § 3.2, pela forma decidida em
+  # docs/adr/0011-python-no-servidor-como-ramo-da-trilha-web.md. Irmã de
+  # comp:web/javascript-no-servidor e distinta dela no que importa: lá o exercício é
+  # servir API sem framework e medir o custo de bloquear o laço de eventos; aqui a
+  # página sai montada do servidor, e o que se aprende é a borda — URL endereçável,
+  # template com escape, domínio puro atrás dela. É a camada que o próprio
+  # repositório construiu (docs/adr/0007-entrega-web-em-python-html-no-servidor.md).
+  - id: comp:web/python-no-servidor
+    titulo: Python no servidor — HTTP e HTML montado antes de sair
+    rev: 1
+    status: ativo
+    descricao: >
+      Servir HTTP em Python com a página montada no servidor: roteamento e URL
+      endereçável, requisição e resposta, template com herança e escape automático,
+      arquivo estático e erro com página própria — e a borda de I/O separada do
+      domínio, que continua testável sem subir servidor.
+    verificacao: >
+      Servir, a partir de um JSON de entrada, páginas de leitura em que cada URL
+      abra sempre o mesmo conteúdo sem depender de estado de sessão, com um template
+      base herdado pelos demais; depois mostrar que o cálculo exibido mora fora do
+      template, exercitando-o por teste que não sobe servidor.

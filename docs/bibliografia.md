@@ -35,12 +35,12 @@ Language Processing*, *The Practice of Programming*, *Neural Machine Translation
 e *Pure React*, conferidas em 2026-10-17, e as de *The Visual Display of
 Quantitative Information*, *Engenharia de Prompts na Prática*, *Álgebra Linear com
 Python*, *Python for Everybody*, *Spec Driven Development — PT*, *Linux Command Line
-and Shell Scripting Bible*, *Shell Script Profissional* e *The Linux Command Line*,
-acrescentadas em 2026-10-17.
+and Shell Scripting Bible*, *Shell Script Profissional*, *The Linux Command Line* e
+*Desenvolvimento Web com Flask*, acrescentadas em 2026-10-17.
 
 Preço, como regra, não entra aqui — vive em `custo` no recurso, com seu próprio
 `verificado_em`, e a pesquisa de 2026-10-12 não o alterou: conferiu link e edição,
-não preço. As oito fichas acrescentadas em 2026-10-17 são a exceção e **citam**
+não preço. As nove fichas acrescentadas em 2026-10-17 são a exceção e **citam**
 preço, porque nelas o `custo` do recurso foi fixado na mesma passada — no caso do
 Tufte o preço é o próprio motivo de a ficha dizer qual tiragem o recurso aponta, e no
 do *Shell Scripting Bible* ele registra que o Kindle sai mais caro que o impresso.
@@ -741,6 +741,29 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Amazon** — https://www.amazon.com.br/dp/178216216X
 - **Citada por** — `rec:web/d3-cookbook-zhu`
 - **Nota** — o código é de uma versão antiga da API do D3; o recurso já marca isso.
+
+### Desenvolvimento Web com Flask: Desenvolvendo aplicações web com Python
+
+- **Autoria** — Miguel Grinberg — tradução de *Flask Web Development* (O'Reilly)
+- **Edição** — Novatec, 2018, 312 p., pt-BR
+- **Identificadores** — ISBN-13 978-85-7522-681-0 · ISBN-10 `8575226819` · ebook
+  ISBN 978-85-7522-744-2 · ASIN `B07QH2SK7R` (Kindle)
+- **Amazon** — https://www.amazon.com.br/dp/8575226819 — impresso R$ 105,00 na
+  editora (preço do Kindle não confirmado)
+- **Citada por** — `rec:web/grinberg-flask-pt`
+- **Nota** — **a conferência corrigiu o relatório.**
+  [acervo-lido.md § 4](acervo-lido.md) dava esta tradução como sendo da **1ª** edição
+  em inglês (2014, Flask 0.10). A tradução que a Novatec publica e vende é a da **2ª**
+  (2018): a própria página da editora a descreve como "edição atualizada" que
+  considera "as mudanças importantes de tecnologia ocorridas nos últimos três anos",
+  e as 312 páginas batem com as da 2ª edição em inglês, não com as 258 da 1ª. A
+  defasagem é real, mas menor do que o relatório afirmava, e segue impedindo o uso
+  como recurso primário: a 2ª edição é anterior ao Flask 2 — sem view assíncrona — e
+  o capítulo 5, de banco, usa Flask-SQLAlchemy 2, cujos padrões a versão 3 quebrou. A
+  parte conceitual (ciclo de pedido e resposta, fábrica de aplicação, blueprint,
+  template, teste, implantação, a aplicação *Flasky* construída ao longo do livro)
+  envelheceu bem, e é como apoio conceitual que o recurso a cita, com o limite dito no
+  título — a mesma convenção dos livros de D3 acima.
 
 ### Eloquent JavaScript
 
