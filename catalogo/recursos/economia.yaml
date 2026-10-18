@@ -1,0 +1,92 @@
+# Convenções deste arquivo:
+#   custo  — em BRL, aproximado na data de `verificado_em`; 0 = gratuito.
+#   idioma — tag BCP 47.
+#
+# -------------------------------------------------------------------------
+# trilha:economia/tecnofeudalismo
+#
+#   obra: varoufakis-tecnofeudalismo — Yanis Varoufakis, *Tecnofeudalismo: o que
+#     matou o capitalismo* (Crítica/Planeta, 2025). O custo declarado é o do Kindle
+#     (R$ 44,46 em 2026-10-18; o impresso estava a R$ 79,90). Lido emprestado pelo
+#     Prime, que não é edição gratuita — por isso o custo não é 0.
+#     A edição Kindle tem 329 páginas e o impresso, 240. Os títulos de capítulo
+#     abaixo seguem a ordem do original (*Technofeudalism*, 2023): 1-2 são o
+#     vocabulário, 3-4 a tese, 5-7 e apêndices as consequências. Confira o título
+#     do capítulo na edição brasileira, não só o número.
+# -------------------------------------------------------------------------
+versao_schema: 1
+recursos:
+  # --- etapa:economia/lucro-renda-e-as-metamorfoses-do-capitalismo --------
+  - id: rec:economia/varoufakis-tecnofeudalismo-caps-1-2
+    etapa: etapa:economia/lucro-renda-e-as-metamorfoses-do-capitalismo
+    titulo: "Tecnofeudalismo (Yanis Varoufakis) — caps. 1 e 2: o lamento de Hesíodo e as metamorfoses do capitalismo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 44.46
+    obra: varoufakis-tecnofeudalismo
+    duracao_min: 240
+    url: https://www.amazon.com.br/s?k=9788542233841
+    disponivel: true
+    verificado_em: 2026-10-18
+
+  # --- etapa:economia/capital-de-nuvem-e-o-fim-do-lucro -------------------
+  - id: rec:economia/varoufakis-tecnofeudalismo-caps-3-4
+    etapa: etapa:economia/capital-de-nuvem-e-o-fim-do-lucro
+    titulo: "Tecnofeudalismo (Yanis Varoufakis) — caps. 3 e 4: capital de nuvem, a ascensão dos nuvemalistas e o fim do lucro"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 44.46
+    obra: varoufakis-tecnofeudalismo
+    duracao_min: 300
+    url: https://www.amazon.com.br/s?k=9788542233841
+    disponivel: true
+    verificado_em: 2026-10-18
+
+  # --- etapa:economia/tecnofeudalismo-no-mundo-e-a-fuga -------------------
+  - id: rec:economia/varoufakis-tecnofeudalismo-caps-5-7
+    etapa: etapa:economia/tecnofeudalismo-no-mundo-e-a-fuga
+    titulo: "Tecnofeudalismo (Yanis Varoufakis) — caps. 5 a 7 e apêndices: o que há num nome, a nova Guerra Fria e a fuga do tecnofeudalismo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 44.46
+    obra: varoufakis-tecnofeudalismo
+    duracao_min: 360
+    url: https://www.amazon.com.br/s?k=9788542233841
+    disponivel: true
+    verificado_em: 2026-10-18
+
+  # --- etapa:economia/tecnofeudalismo-em-debate ---------------------------
+  # Artigo pago avulso (£ 3 na data de `verificado_em`), convertido para BRL.
+  - id: rec:economia/morozov-critique-of-techno-feudal-reason
+    etapa: etapa:economia/tecnofeudalismo-em-debate
+    titulo: "Critique of Techno-Feudal Reason (Evgeny Morozov, New Left Review 133/134, 2022)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 22
+    duracao_min: 180
+    url: https://newleftreview.org/issues/ii133/articles/evgeny-morozov-critique-of-techno-feudal-reason
+    disponivel: true
+    verificado_em: 2026-10-18
+
+  # Episódio de 2022-07-08, gratuito. É áudio: o esquema não tem formato de áudio,
+  # e `video` é o mais próximo pelo que importa ao motor (escuta, não leitura).
+  - id: rec:economia/the-dig-its-still-capitalism
+    etapa: etapa:economia/tecnofeudalismo-em-debate
+    titulo: "It's Still Capitalism w/ Evgeny Morozov (podcast The Dig, Jacobin Radio) — a mesma crítica em entrevista"
+    rev: 1
+    status: ativo
+    formato: video
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://thedigradio.com/podcast/its-still-capitalism-w-evgeny-morozov/
+    disponivel: true
+    verificado_em: 2026-10-18

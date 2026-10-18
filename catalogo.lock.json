@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 23,
-  "gerado_em": "2026-10-18T01:15:55+00:00",
-  "hash": "sha256:00bc19720a6a857e135607d0edfcf31dbe34eaa8747298619a6eff04aa7f8bd3",
+  "catalogo_versao": 24,
+  "gerado_em": "2026-10-18T13:36:21+00:00",
+  "hash": "sha256:bcb6e2c0f2a071f6a987178eef28b001571cf36dd576f3743935e76cc9ca23c9",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -115,6 +115,30 @@
       "status": "ativo",
       "verificacao": "Refazer um gráfico enganoso identificando o que nele distorce a leitura, e defender a escolha de forma, escala e agregação da sua versão.",
       "descricao": "Escolher a forma gráfica adequada à pergunta e à natureza da variável, e ler um gráfico criticamente: escala, agregação, o que foi omitido.\n"
+    },
+    {
+      "id": "comp:economia/capital-de-nuvem",
+      "titulo": "Capital de nuvem e renda de nuvem",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Explicar a tese a quem não leu o livro, em até uma página, usando os quatro termos (capital de nuvem, renda de nuvem, servo de nuvem, vassalo) sobre uma plataforma que você usa, e dizer qual evidência o autor apresenta para afirmar que o lucro deixou de ser o motor do sistema.",
+      "descricao": "A tese do tecnofeudalismo de Varoufakis: o capital de nuvem como meio de modificação de comportamento, o feudo de nuvem que substitui o mercado, os servos de nuvem que trabalham sem salário, os vassalos capitalistas que pagam renda — e o que isso implica para bancos centrais, desigualdade e a disputa entre EUA e China.\n"
+    },
+    {
+      "id": "comp:economia/critica-do-tecnofeudalismo",
+      "titulo": "Avaliação crítica da tese tecnofeudal",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Escrever o melhor argumento contra a tese de Varoufakis, a resposta mais forte que ele daria, e dizer qual dos dois o caso de uma plataforma concreta favorece.",
+      "descricao": "Situar o tecnofeudalismo no debate: a objeção de que renda e expropriação sempre fizeram parte do capitalismo (Morozov), e o que a tese ganha e perde frente às leituras de \"capitalismo de plataforma\" e \"capitalismo de vigilância\".\n"
+    },
+    {
+      "id": "comp:economia/lucro-renda-e-capital",
+      "titulo": "Lucro, renda e capital",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dados dois casos reais — uma montadora e uma loja de aplicativos —, classificar a receita de cada um como lucro ou como renda e justificar pelo mecanismo que a produz, não pelo tamanho da empresa.",
+      "descricao": "O vocabulário com que a economia política descreve o capitalismo: mercado, capital como relação e não como coisa, mais-valia, lucro, renda (a do senhor da terra) e a diferença entre ganhar produzindo e ganhar cobrando acesso.\n"
     },
     {
       "id": "comp:engenharia/controle-de-versao",
@@ -958,6 +982,84 @@
         {
           "competencia": "comp:dados/visualizacao-de-dados",
           "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:economia/capital-de-nuvem-e-o-fim-do-lucro",
+      "titulo": "Capital de nuvem, nuvemalistas e o fim do lucro",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 360,
+      "trilha": "trilha:economia/tecnofeudalismo",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:economia/lucro-renda-e-capital",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:economia/capital-de-nuvem",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:economia/lucro-renda-e-as-metamorfoses-do-capitalismo",
+      "titulo": "Lucro, renda e as metamorfoses do capitalismo",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "trilha": "trilha:economia/tecnofeudalismo",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:economia/lucro-renda-e-capital",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:economia/tecnofeudalismo-em-debate",
+      "titulo": "Tecnofeudalismo em debate — ainda é capitalismo?",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 240,
+      "trilha": "trilha:economia/tecnofeudalismo",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:economia/capital-de-nuvem",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:economia/critica-do-tecnofeudalismo",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:economia/tecnofeudalismo-no-mundo-e-a-fuga",
+      "titulo": "O impacto global do tecnofeudalismo, a nova Guerra Fria e a fuga",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 420,
+      "trilha": "trilha:economia/tecnofeudalismo",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:economia/capital-de-nuvem",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:economia/capital-de-nuvem",
+          "nivel_resultante": "avancado"
         }
       ]
     },
@@ -2614,6 +2716,32 @@
       ]
     },
     {
+      "id": "trilha:economia/tecnofeudalismo",
+      "titulo": "Tecnofeudalismo — economia política do capital de nuvem",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:economia/lucro-renda-e-capital",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:economia/capital-de-nuvem",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:economia/critica-do-tecnofeudalismo",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:economia/lucro-renda-e-as-metamorfoses-do-capitalismo",
+        "etapa:economia/capital-de-nuvem-e-o-fim-do-lucro",
+        "etapa:economia/tecnofeudalismo-no-mundo-e-a-fuga",
+        "etapa:economia/tecnofeudalismo-em-debate"
+      ]
+    },
+    {
       "id": "trilha:engenharia/arquitetura-e-entrega",
       "titulo": "Arquitetura e entrega de software",
       "rev": 1,
@@ -3343,6 +3471,79 @@
       "url": "https://use-the-index-luke.com/",
       "disponivel": true,
       "verificado_em": "2026-10-15"
+    },
+    {
+      "id": "rec:economia/morozov-critique-of-techno-feudal-reason",
+      "titulo": "Critique of Techno-Feudal Reason (Evgeny Morozov, New Left Review 133/134, 2022)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:economia/tecnofeudalismo-em-debate",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 22.0,
+      "duracao_min": 180,
+      "url": "https://newleftreview.org/issues/ii133/articles/evgeny-morozov-critique-of-techno-feudal-reason",
+      "disponivel": true,
+      "verificado_em": "2026-10-18"
+    },
+    {
+      "id": "rec:economia/the-dig-its-still-capitalism",
+      "titulo": "It's Still Capitalism w/ Evgeny Morozov (podcast The Dig, Jacobin Radio) — a mesma crítica em entrevista",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:economia/tecnofeudalismo-em-debate",
+      "formato": "video",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://thedigradio.com/podcast/its-still-capitalism-w-evgeny-morozov/",
+      "disponivel": true,
+      "verificado_em": "2026-10-18"
+    },
+    {
+      "id": "rec:economia/varoufakis-tecnofeudalismo-caps-1-2",
+      "titulo": "Tecnofeudalismo (Yanis Varoufakis) — caps. 1 e 2: o lamento de Hesíodo e as metamorfoses do capitalismo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:economia/lucro-renda-e-as-metamorfoses-do-capitalismo",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 44.46,
+      "duracao_min": 240,
+      "url": "https://www.amazon.com.br/s?k=9788542233841",
+      "disponivel": true,
+      "obra": "varoufakis-tecnofeudalismo",
+      "verificado_em": "2026-10-18"
+    },
+    {
+      "id": "rec:economia/varoufakis-tecnofeudalismo-caps-3-4",
+      "titulo": "Tecnofeudalismo (Yanis Varoufakis) — caps. 3 e 4: capital de nuvem, a ascensão dos nuvemalistas e o fim do lucro",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:economia/capital-de-nuvem-e-o-fim-do-lucro",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 44.46,
+      "duracao_min": 300,
+      "url": "https://www.amazon.com.br/s?k=9788542233841",
+      "disponivel": true,
+      "obra": "varoufakis-tecnofeudalismo",
+      "verificado_em": "2026-10-18"
+    },
+    {
+      "id": "rec:economia/varoufakis-tecnofeudalismo-caps-5-7",
+      "titulo": "Tecnofeudalismo (Yanis Varoufakis) — caps. 5 a 7 e apêndices: o que há num nome, a nova Guerra Fria e a fuga do tecnofeudalismo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:economia/tecnofeudalismo-no-mundo-e-a-fuga",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 44.46,
+      "duracao_min": 360,
+      "url": "https://www.amazon.com.br/s?k=9788542233841",
+      "disponivel": true,
+      "obra": "varoufakis-tecnofeudalismo",
+      "verificado_em": "2026-10-18"
     },
     {
       "id": "rec:engenharia/adr-organization",

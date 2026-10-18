@@ -1,0 +1,42 @@
+versao_schema: 1
+competencias:
+  - id: comp:economia/lucro-renda-e-capital
+    titulo: Lucro, renda e capital
+    rev: 1
+    status: ativo
+    descricao: >
+      O vocabulário com que a economia política descreve o capitalismo: mercado,
+      capital como relação e não como coisa, mais-valia, lucro, renda (a do senhor
+      da terra) e a diferença entre ganhar produzindo e ganhar cobrando acesso.
+    verificacao: >
+      Dados dois casos reais — uma montadora e uma loja de aplicativos —, classificar
+      a receita de cada um como lucro ou como renda e justificar pelo mecanismo que a
+      produz, não pelo tamanho da empresa.
+
+  - id: comp:economia/capital-de-nuvem
+    titulo: Capital de nuvem e renda de nuvem
+    rev: 1
+    status: ativo
+    descricao: >
+      A tese do tecnofeudalismo de Varoufakis: o capital de nuvem como meio de
+      modificação de comportamento, o feudo de nuvem que substitui o mercado, os
+      servos de nuvem que trabalham sem salário, os vassalos capitalistas que pagam
+      renda — e o que isso implica para bancos centrais, desigualdade e a disputa
+      entre EUA e China.
+    verificacao: >
+      Explicar a tese a quem não leu o livro, em até uma página, usando os quatro
+      termos (capital de nuvem, renda de nuvem, servo de nuvem, vassalo) sobre uma
+      plataforma que você usa, e dizer qual evidência o autor apresenta para afirmar
+      que o lucro deixou de ser o motor do sistema.
+
+  - id: comp:economia/critica-do-tecnofeudalismo
+    titulo: Avaliação crítica da tese tecnofeudal
+    rev: 1
+    status: ativo
+    descricao: >
+      Situar o tecnofeudalismo no debate: a objeção de que renda e expropriação
+      sempre fizeram parte do capitalismo (Morozov), e o que a tese ganha e perde
+      frente às leituras de "capitalismo de plataforma" e "capitalismo de vigilância".
+    verificacao: >
+      Escrever o melhor argumento contra a tese de Varoufakis, a resposta mais forte
+      que ele daria, e dizer qual dos dois o caso de uma plataforma concreta favorece.
