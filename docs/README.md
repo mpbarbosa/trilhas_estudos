@@ -8,6 +8,7 @@
 | [interface.md](interface.md) | Plano da interface gráfica: stack, entidades de leitura e telas |
 | [bibliografia.md](bibliografia.md) | Ficha bibliográfica de cada livro citado pelo catálogo |
 | [acervo-lido.md](acervo-lido.md) | Cruzamento datado entre a estante lida do estudante e o catálogo |
+| [estante-goodreads.md](estante-goodreads.md) | Extração datada da estante lida do estudante, fonte do cruzamento |
 
 ## Decisões (ADR)
 
