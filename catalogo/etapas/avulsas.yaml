@@ -1,0 +1,42 @@
+# Etapas que não nascem de uma trilha e são referenciadas por mais de uma
+# (docs/catalogo.md §1). Uma etapa é definida em exatamente um arquivo; as trilhas
+# que precisam destas as citam em `etapas_referenciadas`, nunca as redefinem.
+#
+# As duas de agora fecham a lacuna de shell e linha de comando de
+# docs/acervo-lido.md § 3.1, pela forma decidida em
+# docs/adr/0010-shell-como-pre-requisito-declarado.md: o pré-requisito que
+# trilha:so/projeto-e-implementacao (compilar e modificar o MINIX) e
+# trilha:programacao/linguagem-c-ansi (compilação separada e `make`) pressupunham
+# sem declarar.
+#
+# Por que duas e não uma: só a primeira é pré-requisito daquelas trilhas. Exigir
+# também a escrita de script para destravar o projeto do MINIX seria exigir mais do
+# que o projeto cobra — e o ganho de tornar o pré-requisito explícito é justamente a
+# precisão. A segunda entra como aprofundamento opcional, no mesmo papel que
+# etapa:programacao/pratica-da-programacao tem na trilha de C.
+versao_schema: 1
+
+etapas:
+  - id: etapa:so/linha-de-comando
+    titulo: A linha de comando do UNIX — arquivos, permissões, canos e processos
+    rev: 1
+    status: ativo
+    esforco_estimado_min: 600
+    opcional: false
+    requires: []
+    teaches:
+      - competencia: comp:so/linha-de-comando
+        nivel_resultante: intermediario
+
+  - id: etapa:so/script-shell
+    titulo: Automação por script shell — do comando repetido ao script que se mantém
+    rev: 1
+    status: ativo
+    esforco_estimado_min: 540
+    opcional: true
+    requires:
+      - competencia: comp:so/linha-de-comando
+        nivel_minimo: intermediario
+    teaches:
+      - competencia: comp:so/script-shell
+        nivel_resultante: intermediario

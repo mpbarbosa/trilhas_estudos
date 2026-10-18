@@ -33,14 +33,16 @@ possível confirmar uma página de produto, o link é de busca e a ficha diz iss
 Systems*, conferida em 2026-10-15, e as de *Foundations of Statistical Natural
 Language Processing*, *The Practice of Programming*, *Neural Machine Translation*
 e *Pure React*, conferidas em 2026-10-17, e as de *The Visual Display of
-Quantitative Information* e *Engenharia de Prompts na Prática*, acrescentadas em
-2026-10-17.
+Quantitative Information*, *Engenharia de Prompts na Prática*, *Linux Command Line
+and Shell Scripting Bible*, *Shell Script Profissional* e *The Linux Command Line*,
+acrescentadas em 2026-10-17.
 
 Preço, como regra, não entra aqui — vive em `custo` no recurso, com seu próprio
 `verificado_em`, e a pesquisa de 2026-10-12 não o alterou: conferiu link e edição,
-não preço. As duas fichas acrescentadas em 2026-10-17 são a exceção e **citam**
-preço, porque nelas o `custo` do recurso foi fixado na mesma passada — e no caso do
-Tufte o preço é o próprio motivo de a ficha dizer qual tiragem o recurso aponta.
+não preço. As cinco fichas acrescentadas em 2026-10-17 são a exceção e **citam**
+preço, porque nelas o `custo` do recurso foi fixado na mesma passada — no caso do
+Tufte o preço é o próprio motivo de a ficha dizer qual tiragem o recurso aponta, e no
+do *Shell Scripting Bible* ele registra que o Kindle sai mais caro que o impresso.
 
 As divergências encontradas entre o catálogo e a obra real estão reunidas no
 [§ Divergências](#divergências) no fim.
@@ -581,6 +583,23 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 
 ## Sistemas operacionais
 
+### Linux Command Line and Shell Scripting Bible
+
+- **Autoria** — Richard Blum, Christine Bresnahan
+- **Edição** — 5ª ed., Wiley, 30/12/2025, 688 p., en-US
+- **Identificadores** — ISBN-13 978-1-394-36494-7 · ISBN-10 `1394364946`
+- **Amazon** — https://www.amazon.com.br/dp/1394364946 — capa comum R$ 268,78
+  (importado, tributos inclusos) e Kindle R$ 323,00: o eletrônico sai **mais caro**
+  que o impresso. `custo: 270` nos recursos segue o impresso.
+- **Citada por** — `rec:so/blum-bible-linha-de-comando`,
+  `rec:so/blum-bible-script-shell` — as duas fatias declaram `obra: blum-bible`
+- **Nota** — a 5ª edição é de dezembro de 2025 e é a que se compra; a edição do
+  exemplar da estante lida ([acervo-lido.md § 1](acervo-lido.md)) não se identificou.
+  A diferença não afeta as etapas que a citam: bash e o shell POSIX são
+  conservadores. O que a 5ª acrescenta — `zsh`, `tcsh`, ksh e implantação em nuvem —
+  está fora da competência das duas etapas, e é por isso que os títulos dos recursos
+  dizem quais partes do livro valem.
+
 ### Operating Systems: Three Easy Pieces
 
 - **Autoria** — Remzi H. Arpaci-Dusseau, Andrea C. Arpaci-Dusseau
@@ -590,6 +609,22 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Acesso aberto** — https://pages.cs.wisc.edu/~remzi/OSTEP/
 - **Citada por** — `rec:so/ostep-introducao`, `rec:so/ostep-concorrencia`,
   `rec:so/ostep-escalonamento`, `rec:so/ostep-memoria`, `rec:so/ostep-persistencia`
+
+### Shell Script Profissional
+
+- **Autoria** — Aurélio Marinho Jargas
+- **Edição** — 1ª ed., Novatec, 2008, 480 p., pt-BR. À venda na editora por R$ 109,00
+  (impresso); o e-book é vendido na Amazon.
+- **Identificadores** — impresso: ISBN-13 978-85-7522-152-5 · ISBN-10 `8575221525` —
+  e-book: ISBN-13 978-85-7522-576-9
+- **Amazon** — sem página de produto do impresso: `/dp/8575221525` devolve "não foi
+  possível encontrar esta página" na loja brasileira. O recurso aponta a editora.
+- **Editora** — https://novatec.com.br/livros/shellscript/
+- **Citada por** — `rec:so/jargas-shell-script-profissional`
+- **Nota** — é livro sobre **escrever script que se mantenha** (portabilidade, POSIX
+  contra bash, estilo), e pressupõe a linha de comando em vez de ensiná-la. Por isso
+  cita `etapa:so/script-shell` e não `etapa:so/linha-de-comando`
+  ([ADR-0010](adr/0010-shell-como-pre-requisito-declarado.md)).
 
 ### Sistemas Operacionais: Projeto e Implementação
 
@@ -604,6 +639,22 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
   `rec:so/tanenbaum-woodhull-entrada-saida`, `rec:so/tanenbaum-woodhull-memoria`,
   `rec:so/tanenbaum-woodhull-arquivos`
 - **Nota** — os recursos mapeiam capítulos por número; ver [§ Divergências](#divergências).
+
+### The Linux Command Line
+
+- **Autoria** — William Shotts
+- **Edição citada pelo catálogo** — 7ª edição de internet, 596 p., en-US, sem ISBN:
+  é o PDF que o autor publica, em licença Creative Commons BY-NC-ND
+- **Edição impressa** — 3ª ed., No Starch Press, 2026, 544 p.; ISBN-13
+  978-1-7185-0452-3 · ISBN-10 `1718504527`. Baseada na mesma 7ª edição de internet
+- **Acesso aberto** — https://linuxcommand.org/tlcl.php
+- **Citada por** — `rec:so/shotts-linha-de-comando`, `rec:so/shotts-script-shell` —
+  as duas fatias **não** declaram `obra`, pela mesma razão das cinco do OSTEP: obra
+  gratuita soma zero em qualquer agregação monetária
+  ([ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md))
+- **Nota** — a tradução para português está listada como em andamento no site do
+  autor, ainda sem versão publicada. É por isso que
+  `etapa:so/linha-de-comando` depende do Guia Foca para o par "gratuito e em pt-BR".
 
 ---
 
@@ -718,7 +769,7 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 Recursos que não são livros ficam de fora: documentação oficial (MDN, pandas,
 scikit-learn, TypeScript Handbook, react.dev, docs.claude.com, MCP), material aberto
 de referência (arc42, microservices.io, adr.github.io, DORA, web.dev, ARIA APG,
-Paul's Online Math Notes, LibreTexts), artigos (*Attention Is All You Need*, *The
+Paul's Online Math Notes, LibreTexts, Guia Foca Linux), artigos (*Attention Is All You Need*, *The
 Illustrated Transformer*, Fowler, fitness functions, *A Mathematical Theory of
 Communication* de Shannon, *Notes on Programming in C* de Pike), vídeo (3Blue1Brown, aulas de
 *Statistical Rethinking*), repositórios de exercício (anthropic-cookbook) e os

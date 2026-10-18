@@ -43,18 +43,21 @@ veredito e o motivo.
 
 ---
 
-## 1. Já catalogada — 3 obras
+## 1. Já catalogada — 5 obras
 
 | # | Obra | Recurso | Etapa | Desde |
 |---|---|---|---|---|
 | 11 | *Ry's Git Tutorial* (Ryan Hodson) | `rec:engenharia/rys-git-tutorial` | `etapa:engenharia/controle-de-versao` | antes deste cruzamento |
 | 90 | *The Visual Display of Quantitative Information* (Tufte) | `rec:dados/tufte-visual-display` | `etapa:dados/visualizacao-para-analise` | 2026-10-17 |
 | 3 | *Engenharia de Prompts na Prática* (Edney Souza) | `rec:ia/souza-engenharia-de-prompts` | `etapa:ia/engenharia-de-prompt` | 2026-10-17 |
+| 16 | *Shell Script Profissional* (Aurélio Jargas) | `rec:so/jargas-shell-script-profissional` | `etapa:so/script-shell` | 2026-10-17 |
+| 13 | *Linux Command Line and Shell Scripting Bible* (Blum) | `rec:so/blum-bible-linha-de-comando`, `rec:so/blum-bible-script-shell` | `etapa:so/linha-de-comando`, `etapa:so/script-shell` | 2026-10-17 |
 
 Ry's Git Tutorial era a **única** correspondência quando o cruzamento foi feito —
 16 das 17 obras técnicas da estante não estavam no catálogo, que foi construído
-sem consultá-la. As outras duas entraram no mesmo dia, por decisão do estudante
-sobre o § 2; o que a conferência de exemplar encontrou está abaixo, porque é o que
+sem consultá-la. As outras quatro entraram no mesmo dia, por decisão do estudante:
+Tufte e Souza sobre o § 2, Jargas e Blum sobre a lacuna do § 3.1, que deixou de ser
+lacuna. O que a conferência de exemplar encontrou está abaixo, porque é o que
 justifica a forma como cada recurso ficou.
 
 **#90 Tufte** — 2ª ed., Graphics Press, 2001, 197 p., ISBN-10 `0961392142`.
@@ -88,6 +91,37 @@ cobre uma das duas competências de `teaches`. Enquanto não houver,
 `etapa:ia/engenharia-de-prompt` credita `comp:ia/uso-de-llm-por-api` a quem a
 concluir só pelo Souza. Decidir se isso merece ADR, etapa separada ou nada é
 assunto de escopo, fora deste relatório.
+
+**#16 Jargas e #13 Blum** — entraram juntas, porque entraram pela lacuna e não pelo
+livro: a decisão de forma está em
+[ADR-0010](adr/0010-shell-como-pre-requisito-declarado.md), e as duas etapas novas
+são `etapa:so/linha-de-comando` (obrigatória, referenciada pelas duas trilhas que a
+pressupunham) e `etapa:so/script-shell` (opcional). Três achados mudaram as entradas:
+
+- **Jargas não serve a etapa de linha de comando.** 1ª ed., Novatec, 2008, 480 p.,
+  ISBN-13 978-85-7522-152-5, à venda na editora por R$ 109,00. Conferido o conteúdo,
+  é livro sobre **escrever script que se mantenha** — portabilidade, POSIX contra
+  bash, estilo — e pressupõe a casca em vez de ensiná-la. Foi para
+  `etapa:so/script-shell` só. O relatório o trazia como "livro pt-BR curto e bem
+  avaliado no assunto", o que era vago sobre qual metade do assunto.
+- **Blum está numa edição posterior à lida.** 5ª ed., Wiley, 30/12/2025, 688 p.,
+  ISBN-13 978-1-394-36494-7 — a edição do exemplar da estante não se identificou. O
+  catálogo aponta a 5ª, que é a que se compra, e a diferença não morde: é o caso de
+  defasagem tolerável do § 4. Fatiado em dois recursos, um por etapa, com
+  `obra: blum-bible` e `custo: 270` nas duas
+  ([ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md)). Curiosidade de
+  loja que ficou registrada na ficha: o Kindle (R$ 323,00) sai mais caro que a capa
+  comum (R$ 268,78).
+- **A estante não dava o gratuito, e as duas etapas precisavam de um.** Etapa servida
+  só por livro pago é filtrada por `custo_maximo` ([motor §2.2](motor-de-sugestao.md)).
+  Entrou *The Linux Command Line* de William Shotts, 7ª edição de internet, 596 p.,
+  PDF livre em Creative Commons, fatiado nas duas etapas. Sobrou um vão declarado:
+  para `etapa:so/linha-de-comando` **não há material gratuito e em pt-BR que a
+  carregue inteira** — a tradução do Shotts está em andamento, e o que entrou foi o
+  Guia Foca Linux, parado desde julho de 2020. As apostilas do próprio Jargas
+  (*Introdução ao Shell Script*, 22 p.; o *Canivete Suíço*, tabela de consulta) são
+  curtas demais para realizar uma etapa. Está em comentário em
+  `catalogo/recursos/so.yaml` para não ser pesquisado de novo.
 
 ---
 
@@ -178,32 +212,39 @@ descarte fique registrado, não como candidata.
 
 ---
 
-## 3. Sem etapa que a comporte — 7 obras, 6 lacunas
+## 3. Sem etapa que a comporte — 5 obras, 5 lacunas
 
 Aqui a obra importa menos que a lacuna. Uma lacuna real não se fecha com o livro
 que a revelou: o livro é só a evidência de que ela existe.
 
-### 3.1 Linha de comando e shell — a lacuna mais consequente
+A numeração das subseções **não** foi remexida: 3.2 continua sendo 3.2 em qualquer
+referência a este relatório, e o 3.1 fica como registro da lacuna que se fechou.
+
+### 3.1 Linha de comando e shell — fechada em 2026-10-17
 
 **#13** *Linux Command Line and Shell Scripting Bible* (Blum) · **#16** *Shell
-Script Profissional* (Aurélio Jargas, pt-BR)
+Script Profissional* (Aurélio Jargas, pt-BR) — **as duas estão no § 1.**
 
-Nenhuma etapa do catálogo trata linha de comando, shell ou automação de tarefa.
-O mais próximo é `etapa:programacao/c-interface-com-o-unix`, que é a API do
-UNIX vista do C (`read`, `write`, `open`, `lseek`) — o sistema por baixo da
-biblioteca padrão, não a casca por cima dele.
+Era a lacuna mais consequente do relatório, e foi a primeira a ser fechada, na ordem
+que o § 6 sugeria. Nenhuma etapa do catálogo tratava linha de comando, shell ou
+automação de tarefa. O mais próximo era `etapa:programacao/c-interface-com-o-unix`,
+que é a API do UNIX vista do C (`read`, `write`, `open`, `lseek`) — o sistema por
+baixo da biblioteca padrão, não a casca por cima dele.
 
-Isso é consequente porque **duas trilhas ativas pressupõem a casca sem ensiná-la**:
+Era consequente porque **duas trilhas ativas pressupunham a casca sem ensiná-la**:
 `trilha:so/projeto-e-implementacao` manda compilar e modificar o MINIX em
 máquina virtual (`rec:so/minix3-projeto`), e
 `trilha:programacao/linguagem-c-ansi` supõe compilação separada e `make`. O
-estudante que não domina shell não é barrado por nenhum `requires` — ele
-simplesmente trava no projeto. É o tipo de pré-requisito implícito que o modelo
+estudante que não dominasse shell não era barrado por nenhum `requires` — ele
+simplesmente travava no projeto. Era o tipo de pré-requisito implícito que o modelo
 de competências existe para tornar explícito ([CONTEXT.md §3.2](CONTEXT.md)).
 
-A estante traz os dois lados dessa lacuna: um livro de referência em inglês e um
-livro pt-BR curto e bem avaliado no assunto. Se alguma lacuna deste relatório
-merece virar etapa, é esta.
+Hoje é declarado. `comp:so/linha-de-comando` entrou nos `requires` das duas etapas
+que o pressupunham, e as duas etapas novas vivem em `catalogo/etapas/avulsas.yaml`,
+referenciadas pelas trilhas em vez de redefinidas por elas. O que foi decidido e o
+que foi recusado — inclusive a trilha de fundamentos de ambiente UNIX, que não se
+abriu — está em
+[ADR-0010](adr/0010-shell-como-pre-requisito-declarado.md).
 
 ### 3.2 Aplicação de servidor em Python
 
@@ -302,7 +343,7 @@ critério às obras da estante.
 |---|---|---|
 | 14 | *All About Java 8 Lambdas* | O recurso de linguagem em si não mudou; o que datou é tudo em volta (record, sealed, adições a stream, thread virtual) e o fato de que o LTS atual está muito à frente do 8. Se a JVM entrar no catálogo (§ 3.4), não entra por aqui. |
 | 11 | *Ry's Git Tutorial* (2014) | **Já catalogado.** O modelo de objetos do git é estável e a ficha de bibliografia.md já registra a data. Sem ação. |
-| 13 / 16 | *Shell Scripting Bible* · *Shell Script Profissional* | Bash e o shell POSIX são conservadores. As duas obras de § 3.1 estão entre as menos defasadas da estante, o que reforça a lacuna em vez de enfraquecê-la. |
+| 13 / 16 | *Shell Scripting Bible* · *Shell Script Profissional* | **Já catalogadas** (§ 1). Bash e o shell POSIX são conservadores, e as duas estão entre as menos defasadas da estante — o que reforçou a lacuna de § 3.1 em vez de enfraquecê-la, e foi parte do argumento para fechá-la. A conferência de exemplar acrescentou um dado: o Blum está na 5ª edição (12/2025), posterior ao exemplar lido, e o catálogo aponta a 5ª; para estas etapas a diferença entre edições não morde, que é exatamente o que "conservador" quer dizer aqui. O Jargas, de 2008, segue correto no que ensina. |
 | 39 / 108 | *Python for Everybody* · *Think Python* | Python 3 básico, estável, ambas de acesso aberto. |
 | 36 | *Álgebra Linear com Python* | API de NumPy estável. |
 | 83 | *The BPMN Graphic Handbook* | BPMN 2.0 (2011) **continua sendo o padrão corrente**. A obra não está defasada — é a lacuna que não convence (§ 3.6). |
@@ -350,21 +391,28 @@ que não ocorre em nenhuma das 122 linhas.
 ## 6. O que este relatório não decide
 
 - **Não decide catalogação.** O relatório recomenda; catalogar é decisão do
-  estudante. As duas obras do § 1 datadas de 2026-10-17 entraram **por essa
+  estudante. As quatro obras do § 1 datadas de 2026-10-17 entraram **por essa
   decisão**, não por iniciativa do relatório, e nada mais do § 2 ou do § 3 foi
-  tocado. Nenhuma etapa, competência ou trilha foi criada ou alterada em momento
-  algum: as duas mudanças são dois recursos novos, e recurso não altera a `rev`
-  da etapa ([catalogo.md §4](catalogo.md)).
+  tocado. Tufte e Souza não mexeram no modelo: são dois recursos novos, e recurso
+  não altera a `rev` da etapa ([catalogo.md §4](catalogo.md)). Jargas e Blum
+  mexeram, porque entraram pela lacuna — duas competências, duas etapas avulsas,
+  quatro `rev` que subiram — e é o que [ADR-0010](adr/0010-shell-como-pre-requisito-declarado.md)
+  decide. **Correção de 2026-10-17:** a versão anterior desta linha dizia que
+  "nenhuma etapa, competência ou trilha foi criada ou alterada em momento algum".
+  Valia para Tufte e Souza e deixou de valer no mesmo dia.
 - **Não confere exemplar, exceto onde diz que conferiu.** Os vereditos do § 2 e
-  do § 4 vêm de título, autor e data — só as duas obras do § 1 tiveram o exemplar
-  conferido, e nas duas a conferência mudou a entrada (§ 1). O resto precisa do
-  mesmo tratamento antes de virar recurso, sobretudo § 4 (edição do React e do
-  Flask). A ressalva de `disponivel` dos comentários de `recursos/dados.yaml`
-  vale aqui: parte do acervo Kindle é amostra, não exemplar íntegro, e amostra
-  não satisfaz a validação §5.5.
-- **Não fecha lacuna.** § 3 nomeia seis lacunas; abrir etapa ou trilha para
-  qualquer uma é decisão de escopo, com ADR se for estrutural
-  ([catalogo.md](catalogo.md), regra 7 do CLAUDE.md). A ordem sugerida, se
-  houver ordem: § 3.1 (shell) primeiro, porque é pré-requisito implícito de duas
-  trilhas que já existem; § 3.2 (servidor em Python) depois, porque é a forma de
-  aplicação que o próprio repositório construiu.
+  do § 4 vêm de título, autor e data — só as quatro obras do § 1 datadas de
+  2026-10-17 tiveram o exemplar conferido, e em todas a conferência mudou a entrada
+  (§ 1). O resto precisa do mesmo tratamento antes de virar recurso, sobretudo § 4
+  (edição do React e do Flask). A ressalva de `disponivel` dos comentários de
+  `recursos/dados.yaml` vale aqui: parte do acervo Kindle é amostra, não exemplar
+  íntegro, e amostra não satisfaz a validação §5.5. Nos recursos de shell a ressalva
+  não morde, porque os três pagos ou gratuitos apontam para editora ou para o autor,
+  não para o acervo Kindle do estudante.
+- **Não fecha lacuna — e uma se fechou depois.** § 3 nomeava seis lacunas; abrir
+  etapa ou trilha para qualquer uma é decisão de escopo, com ADR se for estrutural
+  ([catalogo.md](catalogo.md), regra 7 do CLAUDE.md). A ordem sugerida era § 3.1
+  (shell) primeiro, porque é pré-requisito implícito de duas trilhas que já existem;
+  § 3.2 (servidor em Python) depois, porque é a forma de aplicação que o próprio
+  repositório construiu. **§ 3.1 foi fechada em 2026-10-17**, nessa ordem e por
+  decisão do estudante. Restam cinco, e § 3.2 segue sendo a próxima.
