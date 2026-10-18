@@ -220,6 +220,29 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-08
 
+  # ATENÇÃO sobre cobertura parcial: esta etapa desenvolve DUAS competências —
+  # `comp:ia/engenharia-de-prompt` e `comp:ia/uso-de-llm-por-api`. O livro do Edney
+  # Souza cobre bem a primeira (15 capítulos, 30+ técnicas, encadeamento de
+  # instruções, biblioteca de prompts, critério de quando revisar a saída) e **não**
+  # cobre a segunda: é declaradamente "sem escrever código", e não trata parâmetro de
+  # decodificação, saída estruturada por API, custo nem latência por chamada. Entra
+  # como alternativa pt-BR e gratuita; `rec:ia/prompt-engineering-for-llms` segue
+  # sendo o único recurso que carrega a etapa inteira, e por isso não foi substituído
+  # nem depreciado. Mesma convenção dos livros de D3 em recursos/web.yaml: quando o
+  # recurso não carrega a etapa toda, o título diz o limite.
+  - id: rec:ia/souza-engenharia-de-prompts
+    etapa: etapa:ia/engenharia-de-prompt
+    titulo: "Engenharia de Prompts na Prática (Edney Souza) — a metade de técnica de prompt da etapa, não a de API; PDF gratuito do autor"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 420
+    url: https://interney.net/livro-ia
+    disponivel: true
+    verificado_em: 2026-10-17
+
   # --- etapa:ia/recuperacao-e-ranqueamento --------------------------------
   - id: rec:ia/ai-powered-search
     etapa: etapa:ia/recuperacao-e-ranqueamento

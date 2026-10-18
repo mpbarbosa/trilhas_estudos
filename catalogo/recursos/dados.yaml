@@ -89,6 +89,24 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-08
 
+  # Tufte não vem do acervo Kindle, então a ressalva de `disponivel` do cabeçalho
+  # não o alcança: é impresso e só impresso — Graphics Press nunca publicou edição
+  # eletrônica. `custo` aqui é preço de loja em 2026-10-17 (capa dura, R$ 218,80;
+  # capa comum, R$ 210,36), não o que foi pago — a ambiguidade entre os dois é a
+  # divergência 7 de docs/bibliografia.md e não se resolve nesta entrada.
+  - id: rec:dados/tufte-visual-display
+    etapa: etapa:dados/visualizacao-para-analise
+    titulo: "The Visual Display of Quantitative Information, 2ª ed. (Edward R. Tufte) — leitura crítica do gráfico: data-ink, chartjunk e fator de mentira"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 220
+    duracao_min: 480
+    url: https://www.amazon.com.br/dp/0961392142
+    disponivel: true
+    verificado_em: 2026-10-17
+
   - id: rec:dados/matplotlib-e-seaborn-guias
     etapa: etapa:dados/visualizacao-para-analise
     titulo: "Matplotlib e seaborn — tutoriais oficiais de escolha de forma e escala"

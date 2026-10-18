@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 17,
-  "gerado_em": "2026-10-17T23:50:37+00:00",
-  "hash": "sha256:e845a52ced513c9ff8debebaa8013983d122917f2534c0947ab539c0f4945fa5",
+  "catalogo_versao": 18,
+  "gerado_em": "2026-10-18T00:22:23+00:00",
+  "hash": "sha256:de493e6490b249b1913077cad50c42c9689caa99a1ce314117ac762be38dabd9",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -3197,6 +3197,20 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:dados/tufte-visual-display",
+      "titulo": "The Visual Display of Quantitative Information, 2ª ed. (Edward R. Tufte) — leitura crítica do gráfico: data-ink, chartjunk e fator de mentira",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/visualizacao-para-analise",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 220.0,
+      "duracao_min": 480,
+      "url": "https://www.amazon.com.br/dp/0961392142",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
       "id": "rec:dados/use-the-index-luke",
       "titulo": "Use The Index, Luke! (Markus Winand) — o índice visto pelo plano de execução, em SGBDs atuais",
       "rev": 1,
@@ -4257,6 +4271,20 @@
       "url": "https://web.stanford.edu/~jurafsky/slp3/",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/souza-engenharia-de-prompts",
+      "titulo": "Engenharia de Prompts na Prática (Edney Souza) — a metade de técnica de prompt da etapa, não a de API; PDF gratuito do autor",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/engenharia-de-prompt",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 420,
+      "url": "https://interney.net/livro-ia",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
     },
     {
       "id": "rec:matematica/book-of-proof",

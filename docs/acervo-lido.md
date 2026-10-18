@@ -24,7 +24,8 @@ veredito e o motivo.
   `system-analysis`, `web-development`, `data-migration`). A estante
   `system-analysis` não ocorre em nenhuma linha da lista — o filtro a cita, a
   estante não existe no recorte.
-- **Comparação.** Por título **e** autor contra os 163 recursos do snapshot, não
+- **Comparação.** Por título **e** autor contra os 163 recursos do snapshot de
+  então (`catalogo_versao` 17), não
   só por título: o catálogo tem obras de autor repetido em livros diferentes
   (Downey entra por *Think Stats*, não por *Think Python*).
 - **Fatias.** Uma obra do catálogo pode estar fatiada em vários recursos
@@ -42,54 +43,66 @@ veredito e o motivo.
 
 ---
 
-## 1. Já catalogada — 1 obra
+## 1. Já catalogada — 3 obras
 
-| # | Obra | Recurso | Etapa |
-|---|---|---|---|
-| 11 | *Ry's Git Tutorial* (Ryan Hodson) | `rec:engenharia/rys-git-tutorial` | `etapa:engenharia/controle-de-versao` |
+| # | Obra | Recurso | Etapa | Desde |
+|---|---|---|---|---|
+| 11 | *Ry's Git Tutorial* (Ryan Hodson) | `rec:engenharia/rys-git-tutorial` | `etapa:engenharia/controle-de-versao` | antes deste cruzamento |
+| 90 | *The Visual Display of Quantitative Information* (Tufte) | `rec:dados/tufte-visual-display` | `etapa:dados/visualizacao-para-analise` | 2026-10-17 |
+| 3 | *Engenharia de Prompts na Prática* (Edney Souza) | `rec:ia/souza-engenharia-de-prompts` | `etapa:ia/engenharia-de-prompt` | 2026-10-17 |
 
-Correspondência exata, confirmada contra a ficha de bibliografia.md (RyPress,
-2014, ASIN `B00QFIA5OC`). É a única: **16 das 17 obras técnicas da estante não
-estão no catálogo**, e o catálogo foi construído sem consultar a estante.
+Ry's Git Tutorial era a **única** correspondência quando o cruzamento foi feito —
+16 das 17 obras técnicas da estante não estavam no catálogo, que foi construído
+sem consultá-la. As outras duas entraram no mesmo dia, por decisão do estudante
+sobre o § 2; o que a conferência de exemplar encontrou está abaixo, porque é o que
+justifica a forma como cada recurso ficou.
+
+**#90 Tufte** — 2ª ed., Graphics Press, 2001, 197 p., ISBN-10 `0961392142`.
+Confirmado pelo site do autor e pela loja brasileira. Entrou como `custo: 220`
+(preço de loja em 2026-10-17), `idioma: en-US`, `formato: texto`. Achado que mudou
+a entrada: a obra **só existe em papel** — a Graphics Press nunca publicou edição
+eletrônica —, então a ressalva de `disponivel` do cabeçalho de
+`catalogo/recursos/dados.yaml`, que trata de amostra de acervo Kindle, não a
+alcança. O YAML registra isso num comentário, e também que `custo` ali é preço de
+reposição, não o que foi pago — a ambiguidade entre os dois é a divergência 7 de
+[bibliografia.md](bibliografia.md) e não se resolveu aqui.
+
+**#3 Souza** — ASIN `B0CKNQ92PK`, atualizado em outubro/2026, 320 p., 15 capítulos
+e 3 apêndices. Dois achados, em sentidos opostos:
+
+- *A favor, mais do que se previa:* o livro é **gratuito**, em PDF completo, pelo
+  próprio autor (https://interney.net/livro-ia, mediante formulário). O § 2.2
+  pedia "uma alternativa pt-BR e barata"; a etapa ganhou uma de `custo: 0`.
+- *Contra, e confirmado:* a ressalva do § 2.2 estava certa e é pior do que
+  "provavelmente". O livro é declaradamente "sem escrever código" e não trata
+  parâmetro de decodificação, saída estruturada por API, custo nem latência por
+  chamada — ou seja, **não cobre `comp:ia/uso-de-llm-por-api`**, que é a segunda
+  das duas competências que a etapa desenvolve. Foi catalogado como alternativa
+  parcial, com o limite dito no título do recurso e num comentário em
+  `catalogo/recursos/ia.yaml`; `rec:ia/prompt-engineering-for-llms` segue sendo o
+  único recurso que carrega a etapa inteira, e por isso não foi tocado.
+
+Isso deixa à vista um limite do esquema, não um erro desta entrada: um recurso
+pertence a uma etapa e a realiza por inteiro ou não — não há como declarar que
+cobre uma das duas competências de `teaches`. Enquanto não houver,
+`etapa:ia/engenharia-de-prompt` credita `comp:ia/uso-de-llm-por-api` a quem a
+concluir só pelo Souza. Decidir se isso merece ADR, etapa separada ou nada é
+assunto de escopo, fora deste relatório.
 
 ---
 
-## 2. Não catalogada, mas cabe numa etapa ativa — 8 obras
+## 2. Não catalogada, mas cabe numa etapa ativa — 6 obras
 
 Ordenadas por quanto acrescentam, não por nota. "Acrescenta" aqui é uma de duas
 coisas: cobrir uma etapa que hoje depende de um recurso só, ou dar idioma ou
 custo que os recursos atuais da etapa não dão — os dois são filtros do motor
 ([motor §2.2](motor-de-sugestao.md)).
 
-### 2.1 Tufte, *The Visual Display of Quantitative Information* (#90, nota 5)
+### 2.1 Tufte · 2.2 Souza — catalogadas em 2026-10-17
 
-→ `etapa:dados/visualizacao-para-analise`
-
-A competência da etapa é "escolher a forma gráfica adequada à pergunta e à
-natureza da variável, e ler um gráfico criticamente: escala, agregação, **o que
-foi omitido**". Isso é a tese do livro, não uma vizinhança dela: *lie factor*,
-*data-ink ratio* e *chartjunk* são exatamente o critério de leitura crítica que
-a competência pede. A etapa hoje tem dois recursos — Wilke (aberto) e os
-tutoriais de matplotlib/seaborn —, ambos sobre **como fazer**; nenhum é o
-clássico sobre **o que não fazer**. É a melhor candidata da estante inteira, e a
-única que não carrega risco de defasagem (§ 4).
-
-### 2.2 Edney Souza, *Engenharia de Prompts na Prática* (#3, nota 3)
-
-→ `etapa:ia/engenharia-de-prompt`
-
-A etapa de maior fragilidade de cobertura do catálogo: **um único recurso**
-(`rec:ia/prompt-engineering-for-llms`, en-US, R$ 300). A validação §5.5 exige
-≥ 1 recurso ativo e disponível, então a etapa passa — mas passa por um fio, e
-qualquer estudante com restrição de idioma ou `custo_maximo` abaixo de 300 vê a
-etapa filtrada. Uma alternativa pt-BR e barata é o maior ganho de cobertura
-disponível na estante.
-
-Ressalva honesta: a etapa também desenvolve `comp:ia/uso-de-llm-por-api`
-(parâmetros de decodificação, saída estruturada, janela de contexto, custo e
-latência). Um livro de prompts em português provavelmente não cobre essa
-metade — entraria como recurso **parcial** da etapa, e isso precisa ser
-verificado no exemplar antes de catalogar, não depois.
+As duas candidatas mais fortes saíram desta seção e estão no § 1, com o resultado
+da conferência de exemplar. A numeração das subseções seguintes **não** foi
+remexida: 2.3 continua sendo 2.3 em qualquer referência a este relatório.
 
 ### 2.3 Severance, *Python for Everybody* (#39, nota 3)
 
@@ -280,7 +293,6 @@ critério às obras da estante.
 | 115 | *Pentaho Data Integration Beginner's Guide* (Kettle 4) | A ferramenta trocou de dono e o campo migrou para dbt/Airflow/Spark. O conceito de ETL (passo, salto, transformação, carga incremental) envelheceu bem; o produto, não. Serviria de apoio conceitual à lacuna de § 3.3 — nunca de recurso primário. |
 | 9 | *Learning GitHub Copilot* (Laster) | A categoria mais rápida de todas: modo agente e agente no repositório chegaram depois do livro. Exatamente o caso que o catálogo já resolve nos recursos de IA, onde a documentação oficial é primária e o livro é apoio. |
 | 32 | *Desenvolvimento Web com Flask* | Tradução pt-BR da **1ª** edição (2014, Flask 0.10). Flask 2/3 trouxe view assíncrona, e Flask-SQLAlchemy 3 quebrou os padrões do livro. Grinberg publicou 2ª edição (2018) — também anterior a Flask 2. |
-| 3 | *Engenharia de Prompts na Prática* (2023) | Era GPT-3.5/4. As técnicas que sobreviveram estão no recurso que a etapa já tem. Não anula o argumento de cobertura de § 2.2, mas define o teto: apoio pt-BR, não autoridade. |
 | 1 | *Fundamentos do React JS* | Conferir a edição antes de qualquer coisa. React introdutório anterior a 2019 ensina componente de classe, que é justamente o que os recursos atuais da etapa evitam (`rec:web/pure-react-ceddia` é descrito como "sem Redux nem ferramental"). |
 | 75 | *The Silent Intelligence* (2013) | Previsão de mercado de IoT de 2013 — hoje é documento histórico, não material de estudo. |
 
@@ -294,7 +306,8 @@ critério às obras da estante.
 | 39 / 108 | *Python for Everybody* · *Think Python* | Python 3 básico, estável, ambas de acesso aberto. |
 | 36 | *Álgebra Linear com Python* | API de NumPy estável. |
 | 83 | *The BPMN Graphic Handbook* | BPMN 2.0 (2011) **continua sendo o padrão corrente**. A obra não está defasada — é a lacuna que não convence (§ 3.6). |
-| 90 / 97 | Tufte · Tabak | Fora do eixo: forma gráfica e história da álgebra não têm versão. A ausência de defasagem é parte do argumento de § 2.1. |
+| 90 / 97 | Tufte · Tabak | Fora do eixo: forma gráfica e história da álgebra não têm versão. A ausência de defasagem é parte do argumento que levou Tufte ao § 1. |
+| 3 | *Engenharia de Prompts na Prática* | **Correção de 2026-10-17.** A primeira versão deste relatório deu o livro como "de 2023, era GPT-3.5/4", pela data do ASIN. Errado: a obra é mantida — o exemplar conferido está "atualizado em outubro/2026" e já cobre Gemini, Claude e agentes. Não há defasagem a sinalizar. O que o exemplar revelou foi outra coisa, e é de cobertura, não de idade: § 1. |
 
 ---
 
@@ -323,7 +336,7 @@ do filtro declarado no pedido: **#16** *Shell Script Profissional* (§ 3.1),
 **#106** *Code* (§ 3.5), **#108** *Think Python* (§ 2.4) — as três já tratadas
 acima por serem relevantes — e mais duas que ficam aqui com veredito curto:
 **#38** *Data Visualization: Python, R and Tableau* (nota 1, e a etapa de
-visualização tem melhores opções em § 2.1) e **#49** *Excel Dashboards &
+visualização tem melhores opções, Tufte entre elas — § 1) e **#49** *Excel Dashboards &
 Reports* (planilha como ferramenta de análise não tem ponto de contato no
 catálogo, e provavelmente é escopo fora de propósito). A conclusão prática: a
 estante do Goodreads é dica, não esquema — um cruzamento futuro deve varrer a
@@ -336,14 +349,19 @@ que não ocorre em nenhuma das 122 linhas.
 
 ## 6. O que este relatório não decide
 
-- **Não altera o catálogo.** Nenhum recurso, etapa ou competência foi criado ou
-  editado. Catalogar é decisão do estudante.
-- **Não confere exemplar.** Os vereditos de § 2 e § 4 vêm de título, autor e
-  data; a edição e o sumário de cada obra precisam ser conferidos no exemplar
-  antes de virar recurso — sobretudo § 2.2 (cobertura da metade de API) e
-  § 4 (edição do React e do Flask). A ressalva de `disponivel` dos comentários
-  de `recursos/dados.yaml` vale aqui: parte do acervo Kindle é amostra, não
-  exemplar íntegro, e amostra não satisfaz a validação §5.5.
+- **Não decide catalogação.** O relatório recomenda; catalogar é decisão do
+  estudante. As duas obras do § 1 datadas de 2026-10-17 entraram **por essa
+  decisão**, não por iniciativa do relatório, e nada mais do § 2 ou do § 3 foi
+  tocado. Nenhuma etapa, competência ou trilha foi criada ou alterada em momento
+  algum: as duas mudanças são dois recursos novos, e recurso não altera a `rev`
+  da etapa ([catalogo.md §4](catalogo.md)).
+- **Não confere exemplar, exceto onde diz que conferiu.** Os vereditos do § 2 e
+  do § 4 vêm de título, autor e data — só as duas obras do § 1 tiveram o exemplar
+  conferido, e nas duas a conferência mudou a entrada (§ 1). O resto precisa do
+  mesmo tratamento antes de virar recurso, sobretudo § 4 (edição do React e do
+  Flask). A ressalva de `disponivel` dos comentários de `recursos/dados.yaml`
+  vale aqui: parte do acervo Kindle é amostra, não exemplar íntegro, e amostra
+  não satisfaz a validação §5.5.
 - **Não fecha lacuna.** § 3 nomeia seis lacunas; abrir etapa ou trilha para
   qualquer uma é decisão de escopo, com ADR se for estrutural
   ([catalogo.md](catalogo.md), regra 7 do CLAUDE.md). A ordem sugerida, se

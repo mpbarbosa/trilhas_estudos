@@ -32,9 +32,15 @@ possível confirmar uma página de produto, o link é de busca e a ficha diz iss
 **Verificado em 2026-10-12**, exceto a ficha de *An Introduction to Database
 Systems*, conferida em 2026-10-15, e as de *Foundations of Statistical Natural
 Language Processing*, *The Practice of Programming*, *Neural Machine Translation*
-e *Pure React*, conferidas em 2026-10-17. Preço não entra aqui — vive em `custo` no
-recurso, com seu próprio `verificado_em`, que esta pesquisa não alterou: conferi
-link e edição, não preço.
+e *Pure React*, conferidas em 2026-10-17, e as de *The Visual Display of
+Quantitative Information* e *Engenharia de Prompts na Prática*, acrescentadas em
+2026-10-17.
+
+Preço, como regra, não entra aqui — vive em `custo` no recurso, com seu próprio
+`verificado_em`, e a pesquisa de 2026-10-12 não o alterou: conferiu link e edição,
+não preço. As duas fichas acrescentadas em 2026-10-17 são a exceção e **citam**
+preço, porque nelas o `custo` do recurso foi fixado na mesma passada — e no caso do
+Tufte o preço é o próprio motivo de a ficha dizer qual tiragem o recurso aponta.
 
 As divergências encontradas entre o catálogo e a obra real estão reunidas no
 [§ Divergências](#divergências) no fim.
@@ -142,6 +148,20 @@ As divergências encontradas entre o catálogo e a obra real estão reunidas no
 - **Acesso aberto** — https://wesmckinney.com/book/ (3ª ed. em inglês, liberada pelo autor)
 - **Original** — *Python for Data Analysis*, 3rd ed., O'Reilly, 2022
 - **Citada por** — `rec:dados/mckinney-python-analise-3ed`
+
+### The Visual Display of Quantitative Information
+
+- **Autoria** — Edward R. Tufte
+- **Edição** — 2ª ed., Graphics Press, 01/05/2001, 197 p., en-US. A 1ª é de 1983; a 2ª
+  acrescenta reprodução em cor dos gráficos de William Playfair e incorpora as
+  correções acumuladas ao longo de 17 tiragens da primeira. **Só existe em papel**:
+  a Graphics Press nunca publicou edição eletrônica, e o site do autor vende apenas
+  capa dura (US$ 50) e capa comum (US$ 40).
+- **Identificadores** — capa dura: ISBN-13 978-0-9613921-4-7 · ISBN-10 `0961392142` —
+  a tiragem em capa comum circula sob ISBN-13 978-1-930824-13-3 · ISBN-10 `1930824130`
+- **Amazon** — https://www.amazon.com.br/dp/0961392142 (capa dura; em 2026-10-17,
+  R$ 218,80 com uma unidade em estoque, capa comum a R$ 210,36)
+- **Citada por** — `rec:dados/tufte-visual-display`
 
 ### Think Stats: Exploratory Data Analysis
 
@@ -314,6 +334,24 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Amazon** — https://www.amazon.com.br/dp/1633436586
 - **Código** — https://github.com/fchollet/deep-learning-with-python-notebooks
 - **Citada por** — `rec:ia/deep-learning-with-python-3ed`
+
+### Engenharia de Prompts na Prática: Do Zero ao Avançado com ChatGPT, Gemini e Claude
+
+- **Autoria** — Edney "InterNey" Souza
+- **Edição** — edição do autor, atualizada em outubro/2026; 320 p. no Kindle e 333 p.
+  no impresso (07/06/2026), pt-BR. 15 capítulos e 3 apêndices, com biblioteca de
+  prompts por área e glossário. Título anterior: *ChatGPT: Do Zero aos Prompts
+  Avançados* — **mesmo ASIN**, retitulado e ampliado com Gemini, Claude e agentes.
+- **Identificadores** — ASIN `B0CKNQ92PK` (Kindle) · ISBN-13 979-8-2556-8399-4 (impresso)
+- **Amazon** — https://www.amazon.com.br/dp/B0CKNQ92PK (Kindle R$ 0,00 na assinatura
+  ou R$ 5,99 para comprar; capa comum R$ 61,48)
+- **Acesso aberto** — https://interney.net/livro-ia — PDF do livro completo, de graça
+  pelo próprio autor, mediante formulário com nome e e-mail. É esta a URL do recurso,
+  e é por ela que `custo` é 0.
+- **Citada por** — `rec:ia/souza-engenharia-de-prompts`
+- **Nota** — cobre a metade de técnica de prompt de `etapa:ia/engenharia-de-prompt` e
+  não a de API: é declaradamente "sem escrever código". O comentário em
+  `catalogo/recursos/ia.yaml` registra o limite.
 
 ### Foundations of Statistical Natural Language Processing
 
