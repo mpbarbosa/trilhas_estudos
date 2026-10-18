@@ -13,7 +13,13 @@ from starlette.testclient import TestClient
 import fabrica
 from trilhas.catalogo.carregar import carregar
 from trilhas.catalogo.compilar import compilar
-from trilhas.percurso import Repositorio, concluir_etapa, iniciar_etapa
+from trilhas.percurso import (
+    EtapaAbandonada,
+    Repositorio,
+    concluir_etapa,
+    iniciar_etapa,
+)
+from trilhas.percurso.repositorio import registros_em
 from trilhas.web.app import criar_app
 
 HOJE = date(2026, 10, 12)
@@ -426,3 +432,137 @@ def test_classes_do_no_do_grafo_nao_saem_grudadas(com_log: TestClient) -> None:
     for tokens in atributos:
         for token in tokens:
             assert token in CLASSES_DO_NO, f"classe desconhecida no grafo: {token!r}"
+
+
+# --- escrita de percurso pela tela (docs/interface.md §5.10) --------------------
+
+TRAVADA = "etapa:dados/sql-join"
+"""Exige três competências e o log começa vazio — nenhuma está satisfeita."""
+
+
+def _fatos(cliente: TestClient, estudante: str = "est:teste") -> list[str]:
+    """Os fatos gravados, pelo nome do evento. Lê o log, não a tela."""
+    pasta = Path(cliente.app.state.ctx.fonte.percursos)  # type: ignore[attr-defined]
+    return [type(r.evento).__name__ for r in registros_em(pasta, estudante)]
+
+
+def test_etapa_oferece_iniciar_quando_ha_percurso(com_percurso: TestClient) -> None:
+    html = com_percurso.get(f"/etapa/{TRAVADA}").text
+    assert 'name="acao" value="iniciar"' in html
+    assert ">Iniciar<" in html
+
+
+def test_sem_percurso_a_tela_nao_oferece_registrar(cliente: TestClient) -> None:
+    """Um fato datado precisa de estudante; o botão faria o clique inventar um."""
+    html = cliente.get(f"/etapa/{TRAVADA}").text
+    assert 'name="acao"' not in html
+    assert "Declare" in html
+
+
+def test_iniciar_pela_tela_grava_o_fato_e_redireciona(com_percurso: TestClient) -> None:
+    resposta = com_percurso.post(
+        f"/etapa/{TRAVADA}",
+        data={"acao": "iniciar", "recurso": "rec:dados/sql-join-exercicios"},
+        follow_redirects=False,
+    )
+    assert resposta.status_code == 303
+    assert resposta.headers["location"] == f"/etapa/{TRAVADA}"
+    assert _fatos(com_percurso) == ["EtapaIniciada"]
+
+    html = com_percurso.get(f"/etapa/{TRAVADA}").text
+    assert "em andamento" in html
+    assert re.findall(r'<tr id="([^"]+)" class="recurso-em-uso', html) == [
+        "rec:dados/sql-join-exercicios"
+    ]
+
+
+def test_concluir_grava_conclusao_e_evidencia_numa_transacao(com_percurso: TestClient) -> None:
+    """Dois fatos, um POST: meia conclusão daria progresso sem a evidência que o funda."""
+    com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "concluir"})
+    assert _fatos(com_percurso) == ["EtapaConcluida", "EvidenciaRegistrada"]
+
+
+def test_concluir_etapa_travada_e_gravado(com_percurso: TestClient) -> None:
+    """O log é de fatos, não de permissões (web/escrever.py).
+
+    `sql-join` exige três competências e o estudante não tem nenhuma. Quem estudou
+    fora do sistema concluiu a etapa, e o sistema discordar não desfaz a leitura —
+    filtrar por fronteira satisfeita é papel do motor, ao escolher o que *sugerir*.
+    """
+    assert com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "concluir"}).status_code == 200
+    assert "EtapaConcluida" in _fatos(com_percurso)
+    assert "concluída" in com_percurso.get(f"/etapa/{TRAVADA}").text
+
+
+def test_f5_depois_do_post_nao_duplica_fato(com_percurso: TestClient) -> None:
+    """O 303 existe por isto: recarregar a página é GET, e GET não grava."""
+    com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "iniciar"})
+    depois = _fatos(com_percurso)
+    for _ in range(3):
+        assert com_percurso.get(f"/etapa/{TRAVADA}").status_code == 200
+    assert _fatos(com_percurso) == depois
+
+
+def test_abandonar_guarda_o_motivo(com_percurso: TestClient) -> None:
+    com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "iniciar"})
+    com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "abandonar", "motivo": "material ruim"})
+    pasta = Path(com_percurso.app.state.ctx.fonte.percursos)  # type: ignore[attr-defined]
+    ultimo = registros_em(pasta, "est:teste")[-1].evento
+    assert isinstance(ultimo, EtapaAbandonada)
+    assert ultimo.motivo == "material ruim"
+
+
+def test_etapa_concluida_pode_ser_reiniciada(com_percurso: TestClient) -> None:
+    """Enquanto não houver fato de retratação (ADR-0008), é a saída de quem clicou errado."""
+    com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "concluir"})
+    html = com_percurso.get(f"/etapa/{TRAVADA}").text
+    assert ">Estudar de novo<" in html
+
+    com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "iniciar"})
+    assert _fatos(com_percurso)[-1] == "EtapaIniciada"
+    assert "em andamento" in com_percurso.get(f"/etapa/{TRAVADA}").text
+
+
+def test_post_de_outra_origem_e_recusado(com_percurso: TestClient) -> None:
+    """Qualquer página aberta no navegador faz POST para localhost, e o log não desfaz."""
+    resposta = com_percurso.post(
+        f"/etapa/{TRAVADA}",
+        data={"acao": "concluir"},
+        headers={"origin": "http://exemplo.invalido"},
+    )
+    assert resposta.status_code == 403
+    assert _fatos(com_percurso) == []
+
+
+def test_recurso_de_outra_etapa_e_recusado_como_na_cli(com_percurso: TestClient) -> None:
+    """Mesma `registrar.conferir_recurso` da CLI — a tela não afrouxa nem aperta."""
+    resposta = com_percurso.post(
+        f"/etapa/{TRAVADA}",
+        data={"acao": "iniciar", "recurso": "rec:dados/sql-select-video"},
+    )
+    assert resposta.status_code == 400
+    assert "recurso de outra etapa" in resposta.text
+    assert _fatos(com_percurso) == []
+
+
+def test_acao_desconhecida_nao_grava(com_percurso: TestClient) -> None:
+    resposta = com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "apagar"})
+    assert resposta.status_code == 400
+    assert _fatos(com_percurso) == []
+
+
+def test_post_sem_percurso_nao_faz_nascer_log(cliente: TestClient, lock: Path) -> None:
+    """Desenhar — ou recusar — uma tela nunca cria banco (ADR-0008, interface.md §9.1)."""
+    resposta = cliente.post(f"/etapa/{TRAVADA}", data={"acao": "concluir"})
+    assert resposta.status_code == 409
+    assert not (lock.parent / "percurso").exists()
+
+
+def test_post_preserva_o_estudante_da_url(com_percurso: TestClient) -> None:
+    """O POST não troca de pessoa: quem a tela mostrava é quem recebe o fato."""
+    resposta = com_percurso.post(
+        f"/etapa/{TRAVADA}?estudante=est:teste",
+        data={"acao": "iniciar"},
+        follow_redirects=False,
+    )
+    assert resposta.headers["location"] == f"/etapa/{TRAVADA}?estudante=est%3Ateste"

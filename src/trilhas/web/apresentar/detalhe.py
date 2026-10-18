@@ -13,6 +13,7 @@ from datetime import date
 from ...catalogo.modelo import Competencia, Etapa, Nivel, Recurso, Status, Trilha
 from ...motor.modelo import EstadoEtapa, Percurso, ProgressoEtapa
 from ..dados import Acervo
+from ..escrever import Acao
 from . import comum
 from .disposicao import Disposicao, dispor
 
@@ -104,6 +105,36 @@ class VisaoTrilha:
 
 
 @dataclass(frozen=True, slots=True)
+class AcaoDeEtapa:
+    """Um botão de registro de progresso, já decidido pela projeção.
+
+    Quais ações a tela oferece sai **daqui**, não do template: é função do estado
+    projetado do log, e decidi-la em Jinja seria a segunda implementação que a §3.3
+    proíbe. `Acao` vem de `web/escrever.py` porque lá mora a única definição desse
+    vocabulário — importar o enum não é fazer I/O, e duplicá-lo é que seria o risco.
+    """
+
+    acao: Acao
+    rotulo: str
+    pede_recurso: bool = False
+    pede_motivo: bool = False
+
+
+# O último fato sobre a etapa vence (projecao.progresso_de), então reiniciar uma etapa
+# concluída ou abandonada é fato legítimo — e é a única saída de quem clicou errado,
+# enquanto não houver fato de retratação (ADR-0008, Consequências).
+ACOES_POR_ESTADO: Mapping[EstadoEtapa, tuple[AcaoDeEtapa, ...]] = {
+    EstadoEtapa.NAO_INICIADA: (AcaoDeEtapa(Acao.INICIAR, "Iniciar", pede_recurso=True),),
+    EstadoEtapa.EM_ANDAMENTO: (
+        AcaoDeEtapa(Acao.CONCLUIR, "Concluir"),
+        AcaoDeEtapa(Acao.ABANDONAR, "Abandonar", pede_motivo=True),
+    ),
+    EstadoEtapa.ABANDONADA: (AcaoDeEtapa(Acao.INICIAR, "Retomar", pede_recurso=True),),
+    EstadoEtapa.CONCLUIDA: (AcaoDeEtapa(Acao.INICIAR, "Estudar de novo", pede_recurso=True),),
+}
+
+
+@dataclass(frozen=True, slots=True)
 class VisaoEtapa:
     etapa: Etapa
     area: str
@@ -122,6 +153,9 @@ class VisaoEtapa:
     estado: EstadoEtapa = EstadoEtapa.NAO_INICIADA
     estado_rotulo: str = ""
     atualizado_em: date | None = None
+    acoes: tuple[AcaoDeEtapa, ...] = ()
+    """Vazio sem percurso carregado: um fato precisa de estudante a quem atribuí-lo,
+    e oferecer o botão faria o clique criar o estudante (docs/interface.md §5.10)."""
 
 
 @dataclass(frozen=True, slots=True)
@@ -275,6 +309,7 @@ def etapa(
         estado=_estado(progresso, etapa_id),
         estado_rotulo=comum.estado_de_etapa(_estado(progresso, etapa_id)),
         atualizado_em=aqui.atualizado_em if aqui else None,
+        acoes=ACOES_POR_ESTADO[_estado(progresso, etapa_id)] if percurso is not None else (),
     )
 
 

@@ -128,7 +128,8 @@ src/trilhas/
   web/           SEGUNDA BORDA DE I/O, no mesmo nível de cli.py
     app.py         montagem Starlette e injeção do contexto
     dados.py       leitura do snapshot e diagnóstico (o I/O fica aqui)
-    percurso.py    leitura do percurso do estudante — formato provisório, só leitura
+    percurso.py    leitura do percurso do estudante
+    escrever.py    escrita do percurso: POST de etapa vira evento no log (§5.10)
     rotas.py       uma função por rota, sem lógica de domínio
     apresentar/    projeções (§3.3) — funções puras, testadas sem servidor
       comum.py       rótulos e formatação
@@ -454,6 +455,60 @@ exercitar a rota em teste sem matar o pytest.
 
 ---
 
+### 5.10 `POST /etapa/{id}` — registrar progresso pela própria tela
+
+A fase 2 começa aqui: iniciar, concluir e abandonar uma etapa sem passar pela CLI
+`trilhas-percurso`. O POST vai para a **URL da própria etapa**, com um campo `acao`, e
+não para sub-rotas `/iniciar` e afins — uma entidade, uma URL (§2.1.3), e o destino do
+redirect é trivialmente a página que o estudante já está vendo.
+
+Seis propriedades, e cada uma existe por um modo de falha:
+
+1. **A interface não ganha regra de domínio.** `web/escrever.py` resolve parâmetro e
+   abre transação; quais eventos cada ação produz é de `percurso.registrar`, e a
+   conferência do recurso é `registrar.conferir_recurso` — a **mesma função** que a CLI
+   chama, movida para o domínio ao ligar a tela. Duas cópias divergiriam, e a tela
+   recusaria o que a CLI aceita (§3.3).
+2. **Uma transação por POST** (§9). Concluir emite dois fatos — a conclusão e a
+   evidência do `teaches` daquele momento —, e meia conclusão produziria progresso sem
+   a evidência que o justifica. Quem abre a transação é `Repositorio.anexar`.
+3. **É da própria origem.** Mesma defesa de `_mesma_origem` que a §5.9 usa: qualquer
+   página aberta noutra aba pode fazer POST para `localhost`, e gravar num log
+   append-only é efeito colateral que não se desfaz. `Origin` divergente recebe 403.
+4. **Responde 303, não HTML.** Um POST que respondesse a página deixaria o F5 e o botão
+   Voltar reenviando o formulário, e cada reenvio gravaria outro fato. Com o redirect
+   para a própria etapa, recarregar é GET. O `?estudante=` da URL é preservado: o POST
+   não troca de pessoa no meio do caminho.
+5. **Funciona sem script** (ADR-0007): um `<form method="post">` por ação, porque cada
+   uma pede um campo diferente — `iniciar` oferece o `<select>` de recursos da etapa,
+   `abandonar` oferece o motivo. O corpo é `urlencoded` e `rotas.py` o lê com
+   `parse_qsl`, não com `request.form()`: este último exige `python-multipart`
+   instalado mesmo sem envio de arquivo, e a interface não envia nenhum.
+6. **Só aparece com percurso carregado.** Um fato datado precisa de estudante a quem
+   atribuí-lo; oferecer o botão sem percurso faria o clique inventar um. Sem percurso o
+   POST responde 409 e **nenhum banco nasce** — a mesma razão de `registros_em` existir
+   (§9.1). Quais ações a tela oferece sai de `ACOES_POR_ESTADO`, em `apresentar/`, para
+   ser testável sem servidor.
+
+**Concluir etapa com pré-requisito não satisfeito é permitido, e isso é decisão, não
+descuido.** O log é de fatos, não de permissões: quem leu o livro antes de o sistema
+saber disso concluiu a etapa, e o sistema ter opinião contrária não desfaz a leitura.
+Quem filtra por fronteira satisfeita é o motor, ao escolher o que *sugerir*
+([motor §2.2](motor-de-sugestao.md)) — ali a regra protege uma recomendação, aqui ela
+estaria negando um acontecimento. Recusar também poria em `web/` uma comparação de
+`Nivel` que a §3.3 proíbe e que `registrar.concluir_etapa` não faz.
+
+Consequência aceita de olhos abertos: **clicar errado não tem desfazer.** O fato de
+retratação que a [ADR-0008](adr/0008-percurso-como-log-de-fatos-datados.md) previu e
+não decidiu continua não existindo. O que a tela oferece no lugar é reiniciar a etapa
+— o último fato sobre ela vence na projeção —, o que conserta o progresso e **não**
+conserta a evidência já emitida. É a primeira dívida que esta fase cobra.
+
+Fora desta fase, ainda pela CLI: feedback sobre sugestão (`reagir`), autoavaliação
+(`sei`) e edição de restrições e matrícula.
+
+---
+
 ## 6. Regras duras da interface
 
 1. **Vocabulário único.** A UI usa `Competência`, `Etapa`, `Recurso`, `Trilha`,
@@ -553,9 +608,10 @@ esquema"*. Uma interface que escreve progresso e evidência não pode ficar em c
   lock muda; uma sugestão guarda `catalogo_versao` e a tela de auditoria avisa se o
   catálogo avançou desde então.
 
-A fase 1 segue somente leitura: a escrita existe hoje pela CLI `trilhas-percurso`, e
-ligá-la aos POST da interface é a fase 2. `registrar.*` e `Repositorio` são os mesmos
-em ambas — a interface não ganha regra de domínio própria (§3.3).
+A escrita chegou primeiro pela CLI `trilhas-percurso` e hoje existe também na tela,
+para progresso de etapa (§5.10). `registrar.*` e `Repositorio` são os mesmos em ambas —
+a interface não ganha regra de domínio própria (§3.3), e a conferência do recurso
+passou a morar no domínio justamente para não ter duas cópias.
 
 Uma ressalva que a implementação acrescentou: adotar o log sem migrar o YAML apagaria
 o progresso já declarado nele. `percurso/migrar.py` converte os fatos declarados
@@ -590,7 +646,7 @@ vez de afirmar progresso zero.
 | Fase | Entrega | Depende de | Valor |
 |---|---|---|---|
 | ~~**1**~~ **entregue** | Explorador somente-leitura: `/`, `/catalogo`, `/trilha/{id}` com grafo, `/etapa/{id}`, `/competencia/{id}`, `/catalogo/diagnostico` | nada além do que existe | o acervo de 54 etapas e 109 recursos fica navegável e as lacunas aparecem |
-| **2** | Percurso: matrícula, progresso, evidência, autoavaliação, restrições | ADR de persistência (§9) + `src/trilhas/percurso/` | "controlar" do propósito do sistema |
+| **2** *parcial* | Percurso: **progresso de etapa pela tela, feito** (§5.10). Faltam matrícula, autoavaliação e restrições | ~~ADR de persistência (§9)~~ — [ADR-0008](adr/0008-percurso-como-log-de-fatos-datados.md) + `src/trilhas/percurso/` | "controlar" do propósito do sistema |
 | **3** *parcial* | Painel `/` com top-N, fatores à vista e "por que isto não apareceu". **Falta o feedback**, que é escrita e depende da fase 2 | ~~motor de sugestão~~ — feito | "sugerir" — a razão do projeto |
 | **4** | `/catalogo/autoria` gerando YAML | fases 1–2 maduras | autoria sem editar YAML à mão |
 
@@ -598,10 +654,11 @@ A fase 1 não antecipou o motor nem o atrapalhou: consome o snapshot, que é a f
 já estabelecida por [ADR-0006](adr/0006-stack-python.md).
 
 A fase 3 chegou antes da 2 porque o motor ficou pronto primeiro, e porque **mostrar a
-sugestão não exige escrever percurso**: o painel lê `percurso/*.yaml` em
-`web/percurso.py` e nada mais. A fase 2 continua presa à ADR de persistência (§9), e é
-ela que destrava o feedback — sem o qual o ciclo do [motor §2](motor-de-sugestao.md)
-fica aberto: a sugestão é exibida, mas a reação do estudante não volta para o motor.
+sugestão não exige escrever percurso**. A fase 2 destravou com a
+[ADR-0008](adr/0008-percurso-como-log-de-fatos-datados.md) e entrou pela metade que
+mais pesa: a tela da etapa registra progresso (§5.10), e a leitura projeta o log
+(§9.1). O ciclo do [motor §2](motor-de-sugestao.md) ainda não fecha na tela — a reação
+do estudante a uma sugestão só existe por `trilhas-percurso reagir`.
 
 ---
 
@@ -622,10 +679,12 @@ não inventa garantia que não existe.
 - `mypy --strict` estendido a `src/trilhas/web`; `ruff` como já está configurado;
 - Playwright fica de fora por ora: sem CI, teste de navegador vira peso morto.
 
-A fase 1 entregou 59 testes novos (107 no total): `tests/test_grafo.py` (fecho e
-arestas), `tests/test_apresentar.py` (projeções e teste de ouro do layout) e
-`tests/test_web.py` (rotas, estado vazio, recarga do snapshot e o teste de
-vocabulário da §6.1).
+A fase 1 entregou 59 testes novos: `tests/test_grafo.py` (fecho e arestas),
+`tests/test_apresentar.py` (projeções e teste de ouro do layout) e `tests/test_web.py`
+(rotas, estado vazio, recarga do snapshot e o teste de vocabulário da §6.1). A escrita
+da §5.10 acrescentou a `tests/test_web.py` o POST de outra origem recusado, o F5 depois
+do POST sem duplicar fato, a recusa que não faz nascer banco e a conclusão de etapa
+travada sendo gravada.
 
 ---
 
