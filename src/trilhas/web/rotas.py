@@ -10,10 +10,11 @@ from __future__ import annotations
 from datetime import datetime
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
+from urllib.parse import parse_qsl, quote
 
 from starlette.background import BackgroundTask
 from starlette.requests import Request
-from starlette.responses import Response
+from starlette.responses import RedirectResponse, Response
 from starlette.routing import Route
 
 from ..motor import Opcoes, sugerir
@@ -21,6 +22,7 @@ from ..motor.modelo import Percurso, Resultado
 from .apresentar import acervo as apresentar_acervo
 from .apresentar import detalhe, diagnostico
 from .apresentar import sugestao as apresentar_sugestao
+from .escrever import Acao, registrar_na_etapa
 from .percurso import nome_do_estudante, percurso_completo, percursos_em
 
 if TYPE_CHECKING:
@@ -58,6 +60,7 @@ def _responder(
         "cabecalho": acervo.cabecalho,
         "problemas_do_acervo": acervo.problemas,
         "caminho": request.url.path,
+        "estudante_atual": request.query_params.get("estudante", "").strip(),
     }
     return ctx.templates.TemplateResponse(request, modelo, {**base, **contexto}, status_code=status)
 
@@ -141,6 +144,8 @@ async def trilha(request: Request) -> Response:
 
 
 async def etapa(request: Request) -> Response:
+    if request.method == "POST":
+        return await _registrar_na_etapa(request)
     ctx = _ctx(request)
     visao = detalhe.etapa(
         ctx.fonte.acervo(),
@@ -151,6 +156,90 @@ async def etapa(request: Request) -> Response:
     if visao is None:
         return await nao_encontrado(request, None)
     return _responder(request, "etapa.html", {"v": visao, "titulo": visao.etapa.titulo})
+
+
+async def _registrar_na_etapa(request: Request) -> Response:
+    """Grava um fato de percurso e redireciona para a própria etapa (interface.md §5.10).
+
+    A resposta é **303**, não a página: um POST que respondesse HTML deixaria o F5 e o
+    botão Voltar reenviando o formulário, e cada reenvio gravaria outro fato num log
+    que não tem como desfazê-lo (ADR-0008). Com o redirect, recarregar é um GET.
+
+    Nenhuma decisão de domínio aqui: a rota resolve parâmetro, delega a `escrever` e
+    devolve resposta (§3.3).
+    """
+    if not _mesma_origem(request):
+        return _recusado(
+            request,
+            "Registrar progresso só pela própria interface.",
+            request.headers.get("origin", ""),
+            status=403,
+        )
+
+    arquivo = _arquivo_de_percurso(request)
+    percurso = percurso_completo(arquivo) if arquivo else None
+    if arquivo is None or percurso is None:
+        return _recusado(
+            request,
+            "Nenhum percurso para receber o fato — um fato precisa de estudante.",
+            f"crie {_ctx(request).fonte.percursos.name}/<estudante>.yaml",
+            status=409,
+        )
+
+    campos = await _campos(request)
+    try:
+        acao = Acao(campos.get("acao", ""))
+    except ValueError:
+        return _recusado(request, "Ação desconhecida.", campos.get("acao", ""))
+
+    erro = registrar_na_etapa(
+        arquivo.parent,
+        percurso.estudante_id,
+        _ctx(request).fonte.acervo().catalogo,
+        acao,
+        request.path_params["ident"],
+        recurso=_texto(campos.get("recurso")),
+        motivo=_texto(campos.get("motivo")),
+    )
+    if erro is not None:
+        return _recusado(request, "Nada foi gravado.", erro)
+    return RedirectResponse(_de_volta(request), status_code=303)
+
+
+async def _campos(request: Request) -> dict[str, str]:
+    """Lê o corpo de um formulário HTML, sem `request.form()`.
+
+    `request.form()` do Starlette exige `python-multipart` instalado **mesmo para
+    corpo `urlencoded`**, e nenhum formulário daqui envia arquivo: a dependência
+    pagaria por uma capacidade que a interface não tem. Corpo de outro tipo vira
+    dicionário vazio, e a ação sai como desconhecida.
+    """
+    tipo = request.headers.get("content-type", "").split(";")[0].strip()
+    if tipo != "application/x-www-form-urlencoded":
+        return {}
+    bruto = (await request.body()).decode("utf-8", errors="replace")
+    return dict(parse_qsl(bruto, keep_blank_values=True))
+
+
+def _texto(bruto: str | None) -> str | None:
+    """Campo de formulário vazio é ausência, não string vazia."""
+    return bruto.strip() or None if bruto else None
+
+
+def _de_volta(request: Request) -> str:
+    """A própria etapa, preservando `?estudante=`: o POST não troca de pessoa."""
+    estudante = request.query_params.get("estudante", "").strip()
+    sufixo = f"?estudante={quote(estudante)}" if estudante else ""
+    return f"{request.url.path}{sufixo}"
+
+
+def _recusado(request: Request, mensagem: str, detalhe: str = "", *, status: int = 400) -> Response:
+    return _responder(
+        request,
+        "erro.html",
+        {"titulo": "Recusado", "mensagem": mensagem, "detalhe": detalhe},
+        status=status,
+    )
 
 
 async def competencia(request: Request) -> Response:
@@ -195,14 +284,10 @@ async def desligar(request: Request) -> Response:
     outro, e por isso esta rota pode ser exercitada sem matar o pytest.
     """
     if not _mesma_origem(request):
-        return _responder(
+        return _recusado(
             request,
-            "erro.html",
-            {
-                "titulo": "Recusado",
-                "mensagem": "Desligar só pela própria interface.",
-                "detalhe": request.headers.get("origin", ""),
-            },
+            "Desligar só pela própria interface.",
+            request.headers.get("origin", ""),
             status=403,
         )
     resposta = _responder(request, "desligado.html", {"titulo": "Desligado"})
@@ -242,7 +327,7 @@ ROTAS = [
     Route("/catalogo", lista),
     Route("/catalogo/diagnostico", diagnostico_do_catalogo),
     Route("/trilha/{ident:path}", trilha),
-    Route("/etapa/{ident:path}", etapa),
+    Route("/etapa/{ident:path}", etapa, methods=["GET", "POST"]),
     Route("/competencia/{ident:path}", competencia),
     Route("/desligar", desligar, methods=["POST"]),
 ]

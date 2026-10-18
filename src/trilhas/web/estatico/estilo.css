@@ -347,3 +347,20 @@ select:focus-visible, .no:focus-visible rect {
 
 .amostra-concluida { background: var(--acento-fraco); border-color: var(--acento); }
 .amostra-em-andamento { border-color: var(--aviso); }
+
+/* Registro de progresso na tela da etapa (docs/interface.md §5.10). Sem script:
+   um formulário por ação, porque cada uma pede um campo diferente. */
+.registrar { border: 1px solid var(--borda); border-radius: .5rem; padding: .75rem 1rem; }
+.registrar h2 { margin-top: 0; }
+.acao {
+  display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+  margin: .5rem 0;
+}
+.acao label { font-size: .85rem; color: var(--texto-fraco); }
+.acao select, .acao input[type="text"] { max-width: 30rem; }
+.acao button {
+  background: var(--superficie); color: var(--texto);
+  border: 1px solid var(--borda); border-radius: .3rem;
+  padding: .3rem .9rem; font: inherit; cursor: pointer;
+}
+.acao button:hover { border-color: var(--acento); color: var(--acento); }

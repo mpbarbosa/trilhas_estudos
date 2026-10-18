@@ -22,6 +22,43 @@
 <p class="alerta" role="alert">{{ alerta }}</p>
 {% endfor %}
 
+{% set destino = caminho ~ ('?estudante=' ~ estudante_atual|urlencode if estudante_atual else '') %}
+<section class="registrar">
+  <h2>Registrar progresso</h2>
+  {% if v.acoes %}
+  <p class="fraco">
+    Grava um fato datado no log do percurso — o mesmo que <code>trilhas-percurso</code>
+    grava. O log só cresce: corrigir um clique errado é registrar outro fato, nunca
+    apagar (ADR-0008).
+  </p>
+  {% for a in v.acoes %}
+  <form class="acao" method="post" action="{{ destino }}">
+    <input type="hidden" name="acao" value="{{ a.acao.value }}">
+    {% if a.pede_recurso and v.recursos %}
+    <label for="recurso-{{ a.acao.value }}">Estudando por</label>
+    <select id="recurso-{{ a.acao.value }}" name="recurso">
+      <option value="">— não informar —</option>
+      {% for r in v.recursos %}
+      <option value="{{ r.id }}" {% if r.em_uso %}selected{% endif %}>{{ r.titulo }} · {{ r.formato }} · {{ r.idioma }} · {{ r.custo }}</option>
+      {% endfor %}
+    </select>
+    {% endif %}
+    {% if a.pede_motivo %}
+    <label for="motivo">Motivo</label>
+    <input id="motivo" name="motivo" type="text" maxlength="200" placeholder="opcional">
+    {% endif %}
+    <button type="submit">{{ a.rotulo }}</button>
+  </form>
+  {% endfor %}
+  {% else %}
+  <p class="fraco">
+    Nenhum percurso carregado — um fato datado precisa de estudante a quem atribuí-lo,
+    e o botão aqui faria o clique inventar um. Declare <code>percurso/&lt;estudante&gt;.yaml</code>
+    e esta seção aparece.
+  </p>
+  {% endif %}
+</section>
+
 <div class="colunas">
   <section>
     <h2>Exige</h2>

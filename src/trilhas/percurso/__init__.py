@@ -22,6 +22,7 @@ from .projecao import competencias_de, feedback_de, montar_percurso, progresso_d
 from .registrar import (
     abandonar_etapa,
     concluir_etapa,
+    conferir_recurso,
     dar_feedback,
     emitir_sugestao,
     iniciar_etapa,
@@ -43,6 +44,7 @@ __all__ = [
     "abandonar_etapa",
     "competencias_de",
     "concluir_etapa",
+    "conferir_recurso",
     "dar_feedback",
     "emitir_sugestao",
     "eventos_do_yaml",
