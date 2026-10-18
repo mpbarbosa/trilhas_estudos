@@ -43,19 +43,22 @@ veredito e o motivo.
 
 ---
 
-## 1. Já catalogada — 3 obras
+## 1. Já catalogada — 5 obras
 
 | # | Obra | Recurso | Etapa | Desde |
 |---|---|---|---|---|
 | 11 | *Ry's Git Tutorial* (Ryan Hodson) | `rec:engenharia/rys-git-tutorial` | `etapa:engenharia/controle-de-versao` | antes deste cruzamento |
 | 90 | *The Visual Display of Quantitative Information* (Tufte) | `rec:dados/tufte-visual-display` | `etapa:dados/visualizacao-para-analise` | 2026-10-17 |
 | 3 | *Engenharia de Prompts na Prática* (Edney Souza) | `rec:ia/souza-engenharia-de-prompts` | `etapa:ia/engenharia-de-prompt` | 2026-10-17 |
+| 39 | *Python for Everybody* (Charles Severance) | `rec:programacao/py4e-severance` | `etapa:programacao/python-para-ia` | 2026-10-17 |
+| 36 | *Álgebra Linear com Python* (Rafael F.V.C. Santos) | `rec:dados/santos-algebra-linear-python` | `etapa:dados/matematica-para-dados` | 2026-10-17 |
 
 Ry's Git Tutorial era a **única** correspondência quando o cruzamento foi feito —
 16 das 17 obras técnicas da estante não estavam no catálogo, que foi construído
-sem consultá-la. As outras duas entraram no mesmo dia, por decisão do estudante
+sem consultá-la. As outras quatro entraram no mesmo dia, por decisão do estudante
 sobre o § 2; o que a conferência de exemplar encontrou está abaixo, porque é o que
-justifica a forma como cada recurso ficou.
+justifica a forma como cada recurso ficou. Duas delas (#3 e #36) ficaram com o
+limite de cobertura dito no título, e é o padrão a seguir em casos iguais.
 
 **#90 Tufte** — 2ª ed., Graphics Press, 2001, 197 p., ISBN-10 `0961392142`.
 Confirmado pelo site do autor e pela loja brasileira. Entrou como `custo: 220`
@@ -82,6 +85,22 @@ e 3 apêndices. Dois achados, em sentidos opostos:
   `catalogo/recursos/ia.yaml`; `rec:ia/prompt-engineering-for-llms` segue sendo o
   único recurso que carrega a etapa inteira, e por isso não foi tocado.
 
+**#39 Severance** — CreateSpace, 2016, 246 p., ISBN-10 `1530051126`. Entrou como
+`custo: 0`, `idioma: pt-BR`, url da edição aberta (py4e.com/book, CC BY 4.0).
+Achado que decidiu o `idioma`: a tradução *Python Para Todos* não é um resquício —
+o PDF em português respondeu 200 em 2026-10-17 com `Last-Modified` do mesmo dia.
+É o único recurso da etapa no nível `iniciante` que ela concede.
+
+**#36 Santos** — ASIN `B07FNWM2P8`, 2018, **104 p.**, `custo: 10`. Dois achados:
+
+- As 104 páginas e o próprio texto ("material de apoio") desautorizam tratá-lo como
+  texto único: ele cobre a álgebra linear e **não** o cálculo que a mesma etapa pede
+  (derivada, gradiente, otimização). Catalogado como alternativa parcial, limite no
+  título, com Kline e Dianguila intactos.
+- O R$ 0,00 da loja é da **assinatura** Kindle, não uma edição gratuita, então
+  `custo` é 10 (preço de compra) e não 0. A distinção importa: no § 1 acima, o
+  `custo: 0` do Souza vem de um PDF liberado pelo autor, que é outra coisa.
+
 Isso deixa à vista um limite do esquema, não um erro desta entrada: um recurso
 pertence a uma etapa e a realiza por inteiro ou não — não há como declarar que
 cobre uma das duas competências de `teaches`. Enquanto não houver,
@@ -91,18 +110,35 @@ assunto de escopo, fora deste relatório.
 
 ---
 
-## 2. Não catalogada, mas cabe numa etapa ativa — 6 obras
+## 2. Cabe numa etapa ativa — as 9 candidatas e o que foi feito de cada uma
 
 Ordenadas por quanto acrescentam, não por nota. "Acrescenta" aqui é uma de duas
 coisas: cobrir uma etapa que hoje depende de um recurso só, ou dar idioma ou
 custo que os recursos atuais da etapa não dão — os dois são filtros do motor
 ([motor §2.2](motor-de-sugestao.md)).
 
+**Esta seção está resolvida.** O estudante decidiu sobre ela em 2026-10-17 e a
+conferência de exemplar que ele pediu antes de criar cada recurso **derrubou três
+candidatas e qualificou duas**. O texto de cada subseção é o argumento original,
+preservado; o veredito vem no fim dela. A numeração não foi remexida: 2.3 continua
+sendo 2.3 em qualquer referência a este relatório.
+
+| | Obra | Veredito |
+|---|---|---|
+| 2.1 | Tufte, *Visual Display* | **catalogada** → § 1 |
+| 2.2 | Souza, *Engenharia de Prompts* | **catalogada**, parcial → § 1 |
+| 2.3 | Severance, *Python for Everybody* | **catalogada** → § 1 |
+| 2.4 | Downey, *Think Python* | descartada — redundante com 2.3 na mesma etapa |
+| 2.5 | Santos, *Álgebra Linear com Python* | **catalogada**, parcial → § 1 |
+| 2.6 | Tabak, *Algebra* | descartada — R$ 297 a R$ 709 o exemplar |
+| 2.7 | Ködel, *Spec Driven Development* | **pendente** — esgotada sem previsão |
+| 2.8 | Turner, *User Stories....Unleashed* | descartada — 35 páginas |
+| 2.9 | Battisti, *Fundamentos do React JS* | descartada, como já se recomendava |
+
 ### 2.1 Tufte · 2.2 Souza — catalogadas em 2026-10-17
 
-As duas candidatas mais fortes saíram desta seção e estão no § 1, com o resultado
-da conferência de exemplar. A numeração das subseções seguintes **não** foi
-remexida: 2.3 continua sendo 2.3 em qualquer referência a este relatório.
+As duas primeiras não têm mais subseção própria: o argumento delas virou entrada de
+catálogo, e o § 1 traz o que a conferência de exemplar encontrou.
 
 ### 2.3 Severance, *Python for Everybody* (#39, nota 3)
 
@@ -114,6 +150,9 @@ livro de Python intermediário-avançado, e *Automate the Boring Stuff* é
 automação, não dado. PY4E é o único material de nível iniciante de fato, é de
 acesso aberto e tem tradução em português. Encaixe de nível, não só de assunto.
 
+**Veredito: catalogada** (`rec:programacao/py4e-severance`). A conferência
+confirmou o argumento e fixou o `idioma` em pt-BR — ver § 1.
+
 ### 2.4 Downey, *Think Python* (#108, sem nota de leitura, nota 4)
 
 → `etapa:programacao/python-para-ia`
@@ -123,6 +162,12 @@ PY4E, não como adição às duas: três recursos de introdução a Python na me
 etapa é redundância, não escolha. Atenção ao autor: o catálogo já cita Downey em
 `rec:dados/think-stats`, obra diferente — não é fatia, é outro livro.
 *(Fora do filtro por estante; ver § 5.)*
+
+**Veredito: descartada**, por este próprio argumento. Entre as duas, PY4E leva por
+encaixe de competência: *Think Python* é fundamentos de computação (funções,
+recursão, orientação a objetos) e PY4E é dado (arquivos, dicionários, expressão
+regular, web, banco), que é o que `comp:programacao/python-dados` pede. Se um dia
+PY4E sair do ar, este é o substituto já avaliado.
 
 ### 2.5 Rafael Santos, *Álgebra Linear com Python* (#36, nota 3)
 
@@ -136,6 +181,10 @@ tradução mental. Ficaria como quarto recurso ao lado de Dianguila (pt-BR),
 3Blue1Brown (vídeo) e Kline (cálculo) — a etapa está bem servida, então o ganho
 é de alternativa, não de cobertura.
 
+**Veredito: catalogada, parcial** (`rec:dados/santos-algebra-linear-python`). A
+conferência achou 104 páginas e um livro que se diz "material de apoio": cobre a
+álgebra linear, não o cálculo da etapa — ver § 1.
+
 ### 2.6 Tabak, *Algebra: Sets, Symbols, and the Language of Thought* (#97, nota 3)
 
 → `etapa:matematica/simetria-e-grupos`
@@ -145,6 +194,16 @@ A etapa já usa dois livros de divulgação do Ian Stewart (`stewart-simetria`,
 ao lado do Judson (texto formal aberto). Tabak é história da álgebra na mesma
 chave: motiva a abstração antes do formalismo. Entra num padrão já estabelecido
 pela etapa, o que é o melhor argumento que uma obra de divulgação pode ter aqui.
+
+**Veredito: descartada pela conferência de exemplar.** O argumento acima casou o
+gênero e errou a economia. Tabak não é livro de bolso como os dois do Stewart: é
+referência de biblioteca da Facts On File, e na loja brasileira em 2026-10-17 a
+edição de 2004 pedia **R$ 709,00** (outras ofertas a partir de R$ 548,00) e a
+*Revised Edition* de 2011, **R$ 296,87**, com estimativa de envio de seis semanas.
+O recurso mais caro de todo o catálogo hoje custa R$ 350. Pagar de R$ 297 a R$ 709
+por uma terceira obra de divulgação numa etapa que já tem duas e um texto formal
+aberto (Judson) não se sustenta, e o filtro de `custo_maximo` do motor a excluiria
+para quase todo mundo.
 
 ### 2.7 J.C. Ködel, *Spec Driven Development* (#2, nota 2)
 
@@ -157,6 +216,20 @@ exatamente essa última parte, e o livro é pt-BR e recente (2025) — raro nest
 etapa, onde o outro recurso pt-BR é uma fatia da Bíblia do Claude. Contra:
 nota 2 do estudante, e a etapa já tem dois recursos.
 
+**Veredito: pendente, à espera de decisão.** A conferência achou duas coisas. A
+favor: 270 p., e o conteúdo bate melhor do que se supunha — constituição de
+projeto, especificação, plano e tarefa que a IA segue, mais o ciclo completo num
+aplicativo real, o que é quase literalmente "instruções de projeto" e "revisão do
+que o agente propõe" da competência; o eixo é o GitHub Spec Kit, não Claude Code,
+e `skills` e subagentes ficam de fora. Contra, e é o que trava: na loja brasileira
+em 2026-10-17 o livro está **"Não disponível. Não temos previsão de quando este
+produto estará disponível novamente"**, só em capa comum, sem edição Kindle. Cabe
+`disponivel: false`, que é estado legítimo do esquema e já previsto no cabeçalho de
+`recursos/dados.yaml` — mas criar o recurso é **irreversível**: id de catálogo não
+se remove nem se reaproveita, e desfazer seria depreciar
+([ADR-0005](adr/0005-identidade-imutavel-e-depreciacao.md)). Entre criar um recurso
+que o motor nunca vai sugerir e esperar, a entrada ficou pronta e não foi criada.
+
 ### 2.8 Mike Turner, *User Stories....Unleashed* (#116, sem nota)
 
 → `etapa:engenharia/requisitos-e-atributos`
@@ -167,6 +240,14 @@ qualidade **mensurável**", que história de usuário notoriamente não entrega,
 justamente por isso que a etapa tem o arc42 e o Hathaway. Entraria como recurso
 da primeira metade. Sem nota de leitura registrada, o que também é sinal.
 
+**Veredito: descartada pela conferência de exemplar.** São **35 páginas**
+(ASIN `B00GZNGSTI`, 22/11/2013, 3,5 estrelas). O problema deixou de ser "cabe pela
+metade": um folheto de 35 páginas não **realiza** uma etapa cujos outros recursos
+são o arc42, o Hathaway e o Vazquez. Barato (R$ 2,56) e disponível, o que não
+resolve nada aqui. Se a etapa quiser história de usuário a sério, o livro é o
+*User Stories Applied* do Mike Cohn — que não está na estante e portanto está fora
+deste relatório.
+
 ### 2.9 Matheus Battisti, *Fundamentos do React JS* (#1, nota 2)
 
 → `etapa:web/interface-por-componentes`
@@ -175,6 +256,9 @@ Cabe pelo assunto e **não acrescenta**. A etapa já tem três recursos, entre e
 um pt-BR (*React Fluente*); a nota do estudante é 2; e o título sugere React
 introdutório, que é o caso em que a defasagem morde (§ 4). Listada para que o
 descarte fique registrado, não como candidata.
+
+**Veredito: descartada**, confirmado pelo estudante em 2026-10-17. Não houve
+conferência de exemplar: o descarte não dependia dela.
 
 ---
 
@@ -350,18 +434,21 @@ que não ocorre em nenhuma das 122 linhas.
 ## 6. O que este relatório não decide
 
 - **Não decide catalogação.** O relatório recomenda; catalogar é decisão do
-  estudante. As duas obras do § 1 datadas de 2026-10-17 entraram **por essa
-  decisão**, não por iniciativa do relatório, e nada mais do § 2 ou do § 3 foi
-  tocado. Nenhuma etapa, competência ou trilha foi criada ou alterada em momento
-  algum: as duas mudanças são dois recursos novos, e recurso não altera a `rev`
-  da etapa ([catalogo.md §4](catalogo.md)).
-- **Não confere exemplar, exceto onde diz que conferiu.** Os vereditos do § 2 e
-  do § 4 vêm de título, autor e data — só as duas obras do § 1 tiveram o exemplar
-  conferido, e nas duas a conferência mudou a entrada (§ 1). O resto precisa do
-  mesmo tratamento antes de virar recurso, sobretudo § 4 (edição do React e do
-  Flask). A ressalva de `disponivel` dos comentários de `recursos/dados.yaml`
-  vale aqui: parte do acervo Kindle é amostra, não exemplar íntegro, e amostra
-  não satisfaz a validação §5.5.
+  estudante. As quatro obras do § 1 datadas de 2026-10-17 entraram **por essa
+  decisão**, não por iniciativa do relatório, e nada do § 3 foi tocado. Nenhuma
+  etapa, competência ou trilha foi criada ou alterada em momento algum: as
+  mudanças são quatro recursos novos, e recurso não altera a `rev` da etapa
+  ([catalogo.md §4](catalogo.md)).
+- **O § 2 teve o exemplar conferido; o § 3 e o § 4, não.** Das nove candidatas do
+  § 2, sete foram ao exemplar (2.9 não precisou, e 2.4 se resolveu contra 2.3).
+  A conferência **derrubou duas** que o argumento aprovava (2.6 por preço, 2.8 por
+  extensão), **qualificou duas** como parciais (2.2 e 2.5) e **travou uma** por
+  indisponibilidade (2.7) — o que é a melhor medida do quanto o resto deste
+  relatório ainda não foi verificado. Os vereditos do § 3 e do § 4 seguem vindo
+  só de título, autor e data, e precisam do mesmo tratamento antes de virar
+  recurso, sobretudo § 4 (edição do React e do Flask). A ressalva de `disponivel`
+  dos comentários de `recursos/dados.yaml` vale aqui: parte do acervo Kindle é
+  amostra, não exemplar íntegro, e amostra não satisfaz a validação §5.5.
 - **Não fecha lacuna.** § 3 nomeia seis lacunas; abrir etapa ou trilha para
   qualquer uma é decisão de escopo, com ADR se for estrutural
   ([catalogo.md](catalogo.md), regra 7 do CLAUDE.md). A ordem sugerida, se

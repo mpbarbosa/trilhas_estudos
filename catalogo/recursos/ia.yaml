@@ -409,6 +409,24 @@ recursos:
   # recurso composto — ver nota em docs/catalogo.md §7.
   # ========================================================================
 
+  # Severance é o único recurso desta etapa no nível `iniciante` que ela concede:
+  # Python Fluente é Python intermediário-avançado e o Sweigart é automação, não dado.
+  # `idioma: pt-BR` pela tradução oficial listada em py4e.com/book — o PDF em português
+  # (do1.dr-chuck.com/pythonlearn/PT_br/pythonlearn.pdf) respondeu 200 em 2026-10-17,
+  # com Last-Modified do mesmo dia, então a tradução é viva, não um resquício.
+  - id: rec:programacao/py4e-severance
+    etapa: etapa:programacao/python-para-ia
+    titulo: "Python for Everybody / Python Para Todos: Explorando Dados com Python 3 (Charles Severance) — edição aberta CC BY, com tradução em português"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 720
+    url: https://www.py4e.com/book
+    disponivel: true
+    verificado_em: 2026-10-17
+
   # --- etapa:ia/claude-modelos-e-chat -------------------------------------
   - id: rec:ia/biblia-claude-chat
     etapa: etapa:ia/claude-modelos-e-chat

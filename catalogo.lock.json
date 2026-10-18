@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 18,
-  "gerado_em": "2026-10-18T00:22:23+00:00",
-  "hash": "sha256:de493e6490b249b1913077cad50c42c9689caa99a1ce314117ac762be38dabd9",
+  "catalogo_versao": 19,
+  "gerado_em": "2026-10-18T00:32:28+00:00",
+  "hash": "sha256:3690ddabbba7f6de6aac92385a561ea7dec5c32959192694e099fbc09768182a",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -3155,6 +3155,20 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:dados/santos-algebra-linear-python",
+      "titulo": "Álgebra Linear com Python (Rafael F.V.C. Santos) — só a álgebra linear da etapa, não o cálculo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/matematica-para-dados",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 10.0,
+      "duracao_min": 240,
+      "url": "https://www.amazon.com.br/dp/B07FNWM2P8",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
       "id": "rec:dados/scikit-learn-guia",
       "titulo": "scikit-learn — guia do usuário: validação cruzada, vazamento de dado e métricas",
       "rev": 1,
@@ -4644,6 +4658,20 @@
       "custo": 0.0,
       "duracao_min": 60,
       "url": "https://www.lysator.liu.se/c/pikestyle.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:programacao/py4e-severance",
+      "titulo": "Python for Everybody / Python Para Todos: Explorando Dados com Python 3 (Charles Severance) — edição aberta CC BY, com tradução em português",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/python-para-ia",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 720,
+      "url": "https://www.py4e.com/book",
       "disponivel": true,
       "verificado_em": "2026-10-17"
     },

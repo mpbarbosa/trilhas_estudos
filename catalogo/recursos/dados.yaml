@@ -161,6 +161,26 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-08
 
+  # ATENÇÃO sobre cobertura parcial: a etapa pede "álgebra linear **e** cálculo na
+  # medida do método" — vetores, matrizes, produto interno, derivada, gradiente e
+  # otimização. Este e-book tem 104 páginas e trata só da álgebra linear; derivada,
+  # gradiente e otimização ficam com o Kline e o Dianguila, que seguem intactos. Entra
+  # como alternativa pt-BR curta e barata, com o limite dito no título — mesma
+  # convenção de `rec:ia/souza-engenharia-de-prompts`. `custo: 10` é o preço de compra
+  # (R$ 9,99): o R$ 0,00 da loja é da assinatura Kindle, que não é edição gratuita.
+  - id: rec:dados/santos-algebra-linear-python
+    etapa: etapa:dados/matematica-para-dados
+    titulo: "Álgebra Linear com Python (Rafael F.V.C. Santos) — só a álgebra linear da etapa, não o cálculo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 10
+    duracao_min: 240
+    url: https://www.amazon.com.br/dp/B07FNWM2P8
+    disponivel: true
+    verificado_em: 2026-10-17
+
   # --- etapa:dados/estatistica-aplicada ------------------------------------
   - id: rec:dados/think-stats
     etapa: etapa:dados/estatistica-aplicada
