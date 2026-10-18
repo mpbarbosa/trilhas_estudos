@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 21,
-  "gerado_em": "2026-10-18T00:59:19+00:00",
-  "hash": "sha256:b8b626f1f1403c532828833b29ecb0ba00cc363814ea611ecf5735d5823bade4",
+  "catalogo_versao": 22,
+  "gerado_em": "2026-10-18T01:07:58+00:00",
+  "hash": "sha256:6ca53c6a0fe2b96ce9d835df33a9400578182e5539269f5595b5748787f88f5e",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -466,7 +466,7 @@
       "rev": 1,
       "status": "ativo",
       "verificacao": "Resolver numa linha de comando uma tarefa de três passos sobre uma árvore de arquivos — por exemplo, listar os dez `.c` com mais linhas sob um diretório — e explicar, para um comando com `|` e `>`, quem cria cada processo e para onde vai cada descritor de arquivo.",
-      "descricao": "Operar o sistema pela casca: percorrer e manipular arquivos e diretórios, permissões, expansão de nomes pelo shell, redirecionamento e canos, variáveis de ambiente, processos e sinais, e busca e transformação de texto com `grep`, `find` e `sed`.\n"
+      "descricao": "Operar o sistema pela casca: percorrer e manipular arquivos e diretórios, permissões, expansão de nomes pelo shell, redirecionamento e canos, variáveis de ambiente, processos e sinais, e busca em texto e por arquivo com `grep` e `find`. A transformação de texto fica em `comp:so/script-shell`, que é onde os recursos que a ensinam estão.\n"
     },
     {
       "id": "comp:so/nucleo-na-pratica",
@@ -490,7 +490,7 @@
       "rev": 1,
       "status": "ativo",
       "verificacao": "Entregar um script que percorra um diretório, execute uma tarefa por arquivo, reporte falha em `stderr` e devolva código de saída diferente de zero se algum item falhou, e justificar cada par de aspas que impede a divisão de palavra num nome de arquivo com espaço.",
-      "descricao": "Transformar comando repetido em script que se possa manter: variáveis e aspas, condicional e laço, funções, parâmetros de linha de comando, código de saída e tratamento de erro, e o que separa o shell POSIX das extensões do bash.\n"
+      "descricao": "Transformar comando repetido em script que se possa manter: variáveis e aspas, condicional e laço, funções, parâmetros de linha de comando, código de saída e tratamento de erro, o que separa o shell POSIX das extensões do bash, e a transformação de texto que o script orquestra — `sed`, `gawk` e expressão regular.\n"
     },
     {
       "id": "comp:so/sistemas-de-arquivos",
