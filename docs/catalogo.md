@@ -291,9 +291,12 @@ trilhas compilar --conferir            # falha se o snapshot estiver desatualiza
   recurso pertence a exatamente uma etapa (§2); o que o fecha é o campo opcional `obra`
   (§2), que agrupa as fatias de um exemplar, mais a validação §5.12 de que fatias da
   mesma obra declaram o mesmo `custo`. `custo` ficou onde estava, por recurso, e
-  qualquer agregação monetária conta cada obra uma vez. Hoje são nove obras pagas,
-  fatiadas em 37 recursos, todas declaradas; os outros 98 recursos não declaram `obra`
-  — 73 gratuitos e 25 pagos de uma fatia só, que são obra de si mesmos. Correção de
+  qualquer agregação monetária conta cada obra uma vez. **Correção de 2026-10-17:**
+  esta pendência trazia aqui a contagem de obras, fatias e recursos sem `obra`, e
+  todos os números já estavam errados — contagem de catálogo envelhece a cada trilha
+  nova e se lê do lock, não daqui (regra do CLAUDE.md). Para a de hoje:
+  `python3 -c 'import json,collections; d=json.load(open("catalogo.lock.json")); o=collections.Counter(x["obra"] for x in d["recursos"] if x.get("obra")); print(len(o),"obras em",sum(o.values()),"fatias;",len(d["recursos"])-sum(o.values()),"recursos sem obra")'`.
+  Correção de
   rumo: a versão anterior desta pendência dizia que a repetição superestima o custo de
   um caminho para o filtro de `custo_maximo`
   ([motor §2.2](motor-de-sugestao.md)). Não superestima — o filtro é por recurso, nunca

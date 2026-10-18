@@ -2,7 +2,10 @@ versao_schema: 1
 trilha:
   id: trilha:programacao/linguagem-c-ansi
   titulo: Linguagem C, do tutorial à interface com o UNIX
-  rev: 1
+  # rev 2: passou a referenciar `etapa:so/linha-de-comando`, obrigatória, que esta
+  # trilha pressupunha sem declarar — incluir etapa obrigatória é substantivo
+  # (docs/catalogo.md §4, ADR-0010).
+  rev: 2
   status: ativo
   objetivo_declarado:
     - competencia: comp:programacao/c-apontadores
@@ -48,13 +51,21 @@ trilha:
         - competencia: comp:programacao/c-fundamentos
           nivel_resultante: intermediario
 
+    # rev 2: `comp:so/linha-de-comando` entrou nos `requires`. É aqui que a casca
+    # deixa de ser dispensável: a verificação da competência pede dividir o programa
+    # em três arquivos-fonte e "compilar e ligar à mão", e daqui em diante a trilha
+    # supõe compilação separada e `make`. O cap. 1 ainda se faz com um `cc` só, e por
+    # isso a etapa de tutorial segue com `requires: []` (ADR-0010). As etapas
+    # seguintes herdam o pré-requisito por dependerem desta.
     - id: etapa:programacao/c-funcoes-e-estrutura-de-programa
       titulo: Funções e estrutura de programa — escopo, compilação separada e pré-processador
-      rev: 1
+      rev: 2
       status: ativo
       esforco_estimado_min: 540
       opcional: false
       requires:
+        - competencia: comp:so/linha-de-comando
+          nivel_minimo: intermediario
         - competencia: comp:programacao/c-fundamentos
           nivel_minimo: intermediario
       teaches:
@@ -137,4 +148,8 @@ trilha:
         - competencia: comp:programacao/pratica-da-programacao
           nivel_resultante: intermediario
 
-  etapas_referenciadas: []
+  # Definida em catalogo/etapas/avulsas.yaml, junto com a de script shell, que esta
+  # trilha **não** referencia: escrever script não é pré-requisito de compilar C, e
+  # referenciá-la aqui a incluiria na trilha sem razão (docs/catalogo.md §1).
+  etapas_referenciadas:
+    - etapa:so/linha-de-comando

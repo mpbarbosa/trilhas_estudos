@@ -181,3 +181,124 @@ recursos:
     url: https://www.minix3.org/
     disponivel: true
     verificado_em: 2026-10-12
+
+  # =======================================================================
+  # Shell e linha de comando — as duas etapas avulsas de catalogo/etapas/avulsas.yaml
+  # (ADR-0010). Exemplares conferidos em 2026-10-17, e a conferência mudou duas
+  # entradas:
+  #
+  # - *Shell Script Profissional* (Jargas) saiu de "livro pt-BR de shell" para
+  #   recurso da **segunda** etapa só. É um livro sobre escrever script que se
+  #   mantenha — portabilidade, POSIX vs. bash, estilo —, não sobre operar a linha
+  #   de comando, que ele pressupõe. Entrou onde cobre, e com isso
+  #   etapa:so/linha-de-comando fica **sem recurso pt-BR pago**.
+  # - *Linux Command Line and Shell Scripting Bible* está na 5ª edição, de
+  #   30/12/2025 — posterior ao exemplar da estante lida, cuja edição não se
+  #   identificou. O catálogo aponta a 5ª, que é a que se compra; bash e o shell
+  #   POSIX são conservadores e a diferença não afeta estas etapas
+  #   (docs/acervo-lido.md § 4). Na loja brasileira o Kindle (R$ 323,00) sai **mais
+  #   caro** que a capa comum (R$ 268,78, importado com tributos inclusos); `custo`
+  #   segue o impresso.
+  #
+  # Gratuito de acesso aberto: uma etapa servida só por livro pago é filtrada por
+  # `custo_maximo` (motor §2.2). As duas têm alternativa de `custo: 0`.
+  #
+  # O que **não** entrou, para não ser pesquisado de novo: não há material gratuito
+  # **e** em pt-BR que carregue etapa:so/linha-de-comando inteira. O Guia Foca
+  # (abaixo) é o que chega mais perto e entrou apesar de parado desde 2020; as
+  # apostilas do próprio Jargas (*Introdução ao Shell Script*, 22 p., e o *Canivete
+  # Suíço*, que é tabela de consulta) são curtas demais para realizar uma etapa.
+  #
+  # As duas fatias do Shotts **não** declaram `obra`, pela mesma razão das cinco do
+  # OSTEP acima: `obra` existe para que uma agregação monetária conte o exemplar uma
+  # vez (ADR-0009), e obra gratuita soma zero de qualquer maneira. As duas do Blum
+  # declaram.
+  # =======================================================================
+
+  # --- etapa:so/linha-de-comando ------------------------------------------
+  - id: rec:so/shotts-linha-de-comando
+    etapa: etapa:so/linha-de-comando
+    titulo: "The Linux Command Line, 7ª ed. de internet (William Shotts) — partes 1 a 3: o shell, configuração e as tarefas comuns; PDF livre em Creative Commons"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 600
+    url: https://linuxcommand.org/tlcl.php
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  - id: rec:so/blum-bible-linha-de-comando
+    etapa: etapa:so/linha-de-comando
+    titulo: "Linux Command Line and Shell Scripting Bible, 5ª ed. (Blum & Bresnahan) — parte I: o shell, o sistema de arquivos, permissões, ambiente e processos"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 270
+    obra: blum-bible
+    duracao_min: 480
+    url: https://www.amazon.com.br/dp/1394364946
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  # Gratuito e em pt-BR, e é o único que é as duas coisas nesta etapa. Sem versão
+  # desde 27/07/2020 (Iniciante v5.02, Iniciante+Intermediário v6.02) e com aviso de
+  # "todos os direitos reservados" no rodapé — o acesso é livre, a redistribuição
+  # não, e o catálogo só aponta. Entrou porque a linha de comando é conservadora
+  # (docs/acervo-lido.md § 4) e porque sem ele o estudante de orçamento zero que lê
+  # só pt-BR não tem caminho nesta etapa.
+  - id: rec:so/guiafoca-linha-de-comando
+    etapa: etapa:so/linha-de-comando
+    titulo: "Guia Foca Linux — Iniciante e Intermediário (Gleydson Mazioli da Silva): comandos, estrutura de diretórios, permissões e redirecionamento, em português"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 420
+    url: https://guiafoca.org/
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  # --- etapa:so/script-shell ----------------------------------------------
+  - id: rec:so/jargas-shell-script-profissional
+    etapa: etapa:so/script-shell
+    titulo: "Shell Script Profissional (Aurélio Marinho Jargas, Novatec) — script que se mantém: portabilidade, POSIX contra bash, estilo e depuração"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 109
+    duracao_min: 600
+    url: https://novatec.com.br/livros/shellscript/
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  - id: rec:so/shotts-script-shell
+    etapa: etapa:so/script-shell
+    titulo: "The Linux Command Line, 7ª ed. de internet — parte 4: escrevendo scripts shell, do primeiro script às funções e à depuração"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 300
+    url: https://linuxcommand.org/tlcl.php
+    disponivel: true
+    verificado_em: 2026-10-17
+
+  - id: rec:so/blum-bible-script-shell
+    etapa: etapa:so/script-shell
+    titulo: "Linux Command Line and Shell Scripting Bible, 5ª ed. — partes II e III: script, funções, `sed` e `gawk`, expressões regulares e agendamento"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 270
+    obra: blum-bible
+    duracao_min: 540
+    url: https://www.amazon.com.br/dp/1394364946
+    disponivel: true
+    verificado_em: 2026-10-17

@@ -2,7 +2,11 @@ versao_schema: 1
 trilha:
   id: trilha:so/projeto-e-implementacao
   titulo: Sistemas operacionais, do conceito ao núcleo
-  rev: 1
+  # rev 2: passou a referenciar `etapa:so/linha-de-comando`, obrigatória, que esta
+  # trilha pressupunha sem declarar — incluir etapa obrigatória é substantivo
+  # (docs/catalogo.md §4). `etapa:so/script-shell` veio junto, opcional, e essa parte
+  # seria cosmética.
+  rev: 2
   status: ativo
   objetivo_declarado:
     - competencia: comp:so/processos-e-concorrencia
@@ -98,13 +102,21 @@ trilha:
           nivel_resultante: intermediario
 
     # --- Prática ------------------------------------------------------------
+    # rev 2: `comp:so/linha-de-comando` entrou nos `requires`. O projeto manda
+    # compilar o MINIX em máquina virtual (`rec:so/minix3-projeto`) — sem a casca
+    # não se chega ao `make`. Antes disso nenhum `requires` barrava quem não
+    # dominasse shell: a pessoa simplesmente travava aqui (ADR-0010). Efeito no
+    # percurso: etapa `nao_iniciada` volta a travar, que é o comportamento correto
+    # da tabela de docs/catalogo.md §4.
     - id: etapa:so/projeto-modificar-o-minix
       titulo: Projeto — compilar e modificar o MINIX
-      rev: 1
+      rev: 2
       status: ativo
       esforco_estimado_min: 1500
       opcional: false
       requires:
+        - competencia: comp:so/linha-de-comando
+          nivel_minimo: intermediario
         - competencia: comp:so/escalonamento
           nivel_minimo: intermediario
         - competencia: comp:so/gerenciamento-de-memoria
@@ -115,4 +127,11 @@ trilha:
         - competencia: comp:so/nucleo-na-pratica
           nivel_resultante: intermediario
 
-  etapas_referenciadas: []
+  # Definidas em catalogo/etapas/avulsas.yaml, porque trilha:programacao/linguagem-c-ansi
+  # também as pressupõe e uma etapa é definida em um arquivo só (docs/catalogo.md §1).
+  # Referenciar é o que as torna alcançáveis: sem isso o motor não as geraria como
+  # `proxima_etapa` (só as etapas da trilha matriculada entram), e o estudante ficaria
+  # travado no projeto sem nada que o destravasse.
+  etapas_referenciadas:
+    - etapa:so/linha-de-comando
+    - etapa:so/script-shell

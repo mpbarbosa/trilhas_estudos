@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
   "catalogo_versao": 20,
-  "gerado_em": "2026-10-18T00:38:39+00:00",
-  "hash": "sha256:aef75dddccdc10afba010c97222f68ca96e4e9391e926016830a8a3bd81db4d4",
+  "gerado_em": "2026-10-18T00:53:27+00:00",
+  "hash": "sha256:b8b626f1f1403c532828833b29ecb0ba00cc363814ea611ecf5735d5823bade4",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -461,6 +461,14 @@
       "descricao": "Partições, troca (swapping), memória virtual com paginação e tabelas de página, TLB, algoritmos de substituição de página e segmentação.\n"
     },
     {
+      "id": "comp:so/linha-de-comando",
+      "titulo": "Linha de comando do UNIX",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Resolver numa linha de comando uma tarefa de três passos sobre uma árvore de arquivos — por exemplo, listar os dez `.c` com mais linhas sob um diretório — e explicar, para um comando com `|` e `>`, quem cria cada processo e para onde vai cada descritor de arquivo.",
+      "descricao": "Operar o sistema pela casca: percorrer e manipular arquivos e diretórios, permissões, expansão de nomes pelo shell, redirecionamento e canos, variáveis de ambiente, processos e sinais, e busca e transformação de texto com `grep`, `find` e `sed`.\n"
+    },
+    {
       "id": "comp:so/nucleo-na-pratica",
       "titulo": "Núcleo de sistema operacional na prática",
       "rev": 1,
@@ -475,6 +483,14 @@
       "status": "ativo",
       "verificacao": "Resolver o problema do produtor-consumidor com semáforos, mostrar uma intercalação que quebra uma versão sem exclusão mútua, e justificar a ordem de cada `down` na solução correta.",
       "descricao": "Processos e threads, condições de corrida, regiões críticas, exclusão mútua, semáforos, monitores e troca de mensagens, e os problemas clássicos de comunicação entre processos.\n"
+    },
+    {
+      "id": "comp:so/script-shell",
+      "titulo": "Automação por script shell",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Entregar um script que percorra um diretório, execute uma tarefa por arquivo, reporte falha em `stderr` e devolva código de saída diferente de zero se algum item falhou, e justificar cada par de aspas que impede a divisão de palavra num nome de arquivo com espaço.",
+      "descricao": "Transformar comando repetido em script que se possa manter: variáveis e aspas, condicional e laço, funções, parâmetros de linha de comando, código de saída e tratamento de erro, e o que separa o shell POSIX das extensões do bash.\n"
     },
     {
       "id": "comp:so/sistemas-de-arquivos",
@@ -1958,12 +1974,16 @@
     {
       "id": "etapa:programacao/c-funcoes-e-estrutura-de-programa",
       "titulo": "Funções e estrutura de programa — escopo, compilação separada e pré-processador",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "esforco_estimado_min": 540,
       "trilha": "trilha:programacao/linguagem-c-ansi",
       "opcional": false,
       "requires": [
+        {
+          "competencia": "comp:so/linha-de-comando",
+          "nivel_minimo": "intermediario"
+        },
         {
           "competencia": "comp:programacao/c-fundamentos",
           "nivel_minimo": "intermediario"
@@ -2137,6 +2157,20 @@
       ]
     },
     {
+      "id": "etapa:so/linha-de-comando",
+      "titulo": "A linha de comando do UNIX — arquivos, permissões, canos e processos",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:so/linha-de-comando",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:so/processos-e-concorrencia",
       "titulo": "Processos, threads e comunicação entre processos",
       "rev": 1,
@@ -2160,12 +2194,16 @@
     {
       "id": "etapa:so/projeto-modificar-o-minix",
       "titulo": "Projeto — compilar e modificar o MINIX",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "esforco_estimado_min": 1500,
       "trilha": "trilha:so/projeto-e-implementacao",
       "opcional": false,
       "requires": [
+        {
+          "competencia": "comp:so/linha-de-comando",
+          "nivel_minimo": "intermediario"
+        },
         {
           "competencia": "comp:so/escalonamento",
           "nivel_minimo": "intermediario"
@@ -2182,6 +2220,26 @@
       "teaches": [
         {
           "competencia": "comp:so/nucleo-na-pratica",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:so/script-shell",
+      "titulo": "Automação por script shell — do comando repetido ao script que se mantém",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 540,
+      "opcional": true,
+      "requires": [
+        {
+          "competencia": "comp:so/linha-de-comando",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:so/script-shell",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -2682,7 +2740,7 @@
     {
       "id": "trilha:programacao/linguagem-c-ansi",
       "titulo": "Linguagem C, do tutorial à interface com o UNIX",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "objetivo_declarado": [
         {
@@ -2711,12 +2769,15 @@
         "etapa:programacao/c-entrada-e-saida",
         "etapa:programacao/c-interface-com-o-unix",
         "etapa:programacao/pratica-da-programacao"
+      ],
+      "etapas_referenciadas": [
+        "etapa:so/linha-de-comando"
       ]
     },
     {
       "id": "trilha:so/projeto-e-implementacao",
       "titulo": "Sistemas operacionais, do conceito ao núcleo",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "objetivo_declarado": [
         {
@@ -2744,6 +2805,10 @@
         "etapa:so/gerenciamento-de-memoria",
         "etapa:so/sistemas-de-arquivos",
         "etapa:so/projeto-modificar-o-minix"
+      ],
+      "etapas_referenciadas": [
+        "etapa:so/linha-de-comando",
+        "etapa:so/script-shell"
       ]
     },
     {
@@ -4704,6 +4769,64 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:so/blum-bible-linha-de-comando",
+      "titulo": "Linux Command Line and Shell Scripting Bible, 5ª ed. (Blum & Bresnahan) — parte I: o shell, o sistema de arquivos, permissões, ambiente e processos",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/linha-de-comando",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 270.0,
+      "duracao_min": 480,
+      "url": "https://www.amazon.com.br/dp/1394364946",
+      "disponivel": true,
+      "obra": "blum-bible",
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:so/blum-bible-script-shell",
+      "titulo": "Linux Command Line and Shell Scripting Bible, 5ª ed. — partes II e III: script, funções, `sed` e `gawk`, expressões regulares e agendamento",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/script-shell",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 270.0,
+      "duracao_min": 540,
+      "url": "https://www.amazon.com.br/dp/1394364946",
+      "disponivel": true,
+      "obra": "blum-bible",
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:so/guiafoca-linha-de-comando",
+      "titulo": "Guia Foca Linux — Iniciante e Intermediário (Gleydson Mazioli da Silva): comandos, estrutura de diretórios, permissões e redirecionamento, em português",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/linha-de-comando",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 420,
+      "url": "https://guiafoca.org/",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:so/jargas-shell-script-profissional",
+      "titulo": "Shell Script Profissional (Aurélio Marinho Jargas, Novatec) — script que se mantém: portabilidade, POSIX contra bash, estilo e depuração",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/script-shell",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 109.0,
+      "duracao_min": 600,
+      "url": "https://novatec.com.br/livros/shellscript/",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
       "id": "rec:so/minix3-projeto",
       "titulo": "Projeto — MINIX 3 em máquina virtual: compilar o núcleo, acrescentar uma chamada de sistema e alterar o escalonador",
       "rev": 1,
@@ -4786,6 +4909,34 @@
       "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
       "disponivel": true,
       "verificado_em": "2026-10-12"
+    },
+    {
+      "id": "rec:so/shotts-linha-de-comando",
+      "titulo": "The Linux Command Line, 7ª ed. de internet (William Shotts) — partes 1 a 3: o shell, configuração e as tarefas comuns; PDF livre em Creative Commons",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/linha-de-comando",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://linuxcommand.org/tlcl.php",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:so/shotts-script-shell",
+      "titulo": "The Linux Command Line, 7ª ed. de internet — parte 4: escrevendo scripts shell, do primeiro script às funções e à depuração",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/script-shell",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://linuxcommand.org/tlcl.php",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
     },
     {
       "id": "rec:so/tanenbaum-woodhull-arquivos",

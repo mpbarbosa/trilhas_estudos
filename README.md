@@ -23,6 +23,10 @@ persistência do percurso — nada do que o estudante faz é gravado.
   - *Bancos de dados relacionais, do modelo à transação* ([trilha](catalogo/trilhas/bancos-de-dados-relacionais.yaml)) — arquitetura, modelo relacional, álgebra, SQL, normalização e transação
   - *Linguagem C, do tutorial à interface com o UNIX* ([trilha](catalogo/trilhas/linguagem-c-ansi.yaml)) — tipos, funções, apontadores, estruturas, E/S e chamadas de sistema
   - *O modelo de Markov da linguagem natural* ([trilha](catalogo/trilhas/modelo-de-markov-da-linguagem.yaml)) — n-gramas, perplexidade, suavização, gerador de texto, HMM e etiquetagem
+
+  Fora das trilhas, duas [etapas avulsas](catalogo/etapas/avulsas.yaml) de shell e
+  linha de comando: pré-requisito compartilhado das trilhas de SO e de C, declarado
+  em [ADR-0010](docs/adr/0010-shell-como-pre-requisito-declarado.md).
 - [Decisões de arquitetura](docs/README.md)
 
 ## Uso
