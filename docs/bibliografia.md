@@ -40,7 +40,7 @@ and Shell Scripting Bible*, *Shell Script Profissional*, *The Linux Command Line
 
 Preço, como regra, não entra aqui — vive em `custo` no recurso, com seu próprio
 `verificado_em`, e a pesquisa de 2026-10-12 não o alterou: conferiu link e edição,
-não preço. As fichas acrescentadas em 2026-10-17 são a exceção e **citam**
+não preço. As nove fichas acrescentadas em 2026-10-17 são a exceção e **citam**
 preço, porque nelas o `custo` do recurso foi fixado na mesma passada — no caso do
 Tufte o preço é o próprio motivo de a ficha dizer qual tiragem o recurso aponta, e no
 do *Shell Scripting Bible* ele registra que o Kindle sai mais caro que o impresso.

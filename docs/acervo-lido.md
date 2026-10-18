@@ -60,14 +60,15 @@ veredito e o motivo.
 Ry's Git Tutorial era a **única** correspondência quando o cruzamento foi feito —
 16 das 17 obras técnicas da estante não estavam no catálogo, que foi construído
 sem consultá-la. As outras oito entraram no mesmo dia, por decisão do estudante:
-Tufte, Souza, Severance e Santos sobre o § 2, Ködel também sobre o § 2 mas
-**indisponível**, Jargas e Blum sobre a lacuna do § 3.1 e Grinberg sobre a do § 3.2 —
-as duas deixaram de ser lacuna. O que a conferência de exemplar encontrou está abaixo,
-porque é o que
-justifica a forma como cada recurso ficou. Duas delas (#3 e #36) ficaram com o
-limite de cobertura dito no título, e é o padrão a seguir em casos iguais; uma (#2)
-entrou **indisponível**, que é o outro padrão — o de registrar a obra sem fingir que
-o estudante consegue obtê-la hoje.
+**cinco sobre o § 2**, **duas (#16 e #13) sobre a lacuna do § 3.1** e **uma (#32)
+sobre a do § 3.2**, que com elas deixaram de ser lacuna. O que a conferência de
+exemplar encontrou está abaixo, porque é o que justifica a forma como cada recurso
+ficou. Duas das cinco (#3 e #36) ficaram com o limite de cobertura dito no título, e
+é o padrão a seguir em casos iguais; uma (#2) entrou **indisponível**, que é o outro
+padrão — o de registrar a obra sem fingir que o estudante consegue obtê-la hoje. As
+três que entraram pelas lacunas são de outra natureza: mexeram no modelo em vez de só
+acrescentar recurso — embora a de Flask, por entrar como etapa **opcional**, não tenha
+subido `rev` de nada.
 
 **#90 Tufte** — 2ª ed., Graphics Press, 2001, 197 p., ISBN-10 `0961392142`.
 Confirmado pelo site do autor e pela loja brasileira. Entrou como `custo: 220`
@@ -544,38 +545,37 @@ que não ocorre em nenhuma das 122 linhas.
 - **Não decide catalogação.** O relatório recomenda; catalogar é decisão do
   estudante. As oito obras do § 1 datadas de 2026-10-17 entraram **por essa
   decisão**, não por iniciativa do relatório — inclusive a #2, cujo § 2.7 devolveu
-  a escolha em vez de decidir sozinho. Cinco delas (Tufte, Souza, Severance, Santos
-  e Ködel) não mexeram no modelo: são cinco recursos novos, e recurso não altera a
-  `rev` da etapa ([catalogo.md §4](catalogo.md)). As outras três mexeram, porque
-  entraram pelas lacunas: Jargas e Blum pela § 3.1 — duas competências, duas etapas
-  avulsas, quatro `rev` que subiram, em
-  [ADR-0010](adr/0010-shell-como-pre-requisito-declarado.md) — e Grinberg pela § 3.2,
-  em [ADR-0011](adr/0011-python-no-servidor-como-ramo-da-trilha-web.md): uma
-  competência e uma etapa opcional, **sem subir `rev` de nada**, porque etapa opcional
-  é cosmética para a trilha. **Correção de 2026-10-17:** a versão anterior desta linha
-  dizia que "nenhuma etapa, competência ou trilha foi criada ou alterada em momento
-  algum". Valia para as cinco obras do § 2 e deixou de valer no mesmo dia.
-- **O § 2 teve o exemplar conferido; o § 3 e o § 4, não.** Das nove candidatas do
+  a escolha em vez de decidir sozinho. As cinco do § 2 não mexeram no modelo: são
+  cinco recursos novos, e recurso não altera a `rev` da etapa
+  ([catalogo.md §4](catalogo.md)). As três das lacunas mexeram. As duas da § 3.1
+  custaram duas competências, duas etapas avulsas e quatro `rev` que subiram, e é o
+  que [ADR-0010](adr/0010-shell-como-pre-requisito-declarado.md) decide; a da § 3.2
+  custou uma competência e uma etapa, **sem subir `rev` de nada**, porque a etapa
+  entrou **opcional** e etapa opcional é cosmética para a trilha, e é o que
+  [ADR-0011](adr/0011-python-no-servidor-como-ramo-da-trilha-web.md) decide.
+  **Correção de 2026-10-17:** a versão anterior desta linha dizia que "nenhuma
+  etapa, competência ou trilha foi criada ou alterada em momento algum". Valia para
+  as cinco do § 2 e deixou de valer no mesmo dia, com as duas de shell.
+- **O § 2, a § 3.1 e a § 3.2 tiveram o exemplar conferido; o resto do § 3 e o § 4,
+  não.** Das nove candidatas do
   § 2, sete foram ao exemplar (2.9 não precisou, e 2.4 se resolveu contra 2.3).
   A conferência **derrubou duas** que o argumento aprovava (2.6 por preço, 2.8 por
   extensão), **qualificou duas** como parciais (2.2 e 2.5) e **mudou a forma de
   outra** (2.7 entrou indisponível) — o que é a melhor medida do quanto o resto
   deste relatório ainda não foi verificado. Também corrigiu dois fatos que o
   relatório afirmara de memória: a data do livro do § 2.7 e a defasagem que
-  atribuía ao do § 2.2 (§ 4). As obras das lacunas fechadas — shell no § 3.1, Flask
-  no § 3.2 — também foram ao exemplar, e nas duas vezes a conferência mudou a entrada:
-  o Jargas trocou de etapa, e o Flask estava numa edição diferente da que o § 4
-  afirmava. **Das oito obras que foram ao exemplar e acabaram catalogadas, a
-  conferência mudou a entrada de todas as oito** — o § 1 registra o achado de cada
-  uma —, e entre as candidatas do § 2 ela ainda derrubou duas que o argumento
-  aprovava. É a melhor medida do quanto o resto deste relatório ainda não foi
-  verificado. Os vereditos do resto do § 3 e do § 4 seguem vindo só de título, autor e
-  data, e precisam do mesmo tratamento antes de virar recurso, sobretudo § 4 (edição do
-  React). A ressalva de `disponivel` dos comentários de `recursos/dados.yaml` vale
-  aqui: parte do acervo Kindle é amostra, não exemplar íntegro, e amostra não satisfaz
-  a validação §5.5. Nos recursos de shell e no de Flask a ressalva não morde, porque os
-  pagos e os gratuitos apontam para editora, autor ou documentação oficial, não para o
-  acervo Kindle do estudante.
+  atribuía ao do § 2.2 (§ 4). Nas lacunas fechadas a conferência mudou **todas** as
+  entradas, e pelo mesmo tipo de achado: na § 3.1, o Jargas cobre uma metade do
+  assunto e não a outra, e o Blum está numa edição posterior à lida; na § 3.2, a
+  tradução do Grinberg é da 2ª edição em inglês, não da 1ª como o § 4 afirmava. Os
+  vereditos do resto do § 3 e do § 4 seguem vindo
+  só de título, autor e data, e precisam do mesmo tratamento antes de virar
+  recurso, sobretudo § 4 (edição do React). A ressalva de `disponivel`
+  dos comentários de `recursos/dados.yaml` vale aqui: parte do acervo Kindle é
+  amostra, não exemplar íntegro, e amostra não satisfaz a validação §5.5. Nos
+  recursos de shell e no de Flask ela não morde, porque apontam para editora, para
+  loja, para o próprio autor ou para documentação oficial, não para o acervo Kindle
+  do estudante.
 - **Não fecha lacuna — e duas se fecharam depois.** § 3 nomeava seis lacunas; abrir
   etapa ou trilha para qualquer uma é decisão de escopo, com ADR se for estrutural
   ([catalogo.md](catalogo.md), regra 7 do CLAUDE.md). A ordem sugerida era § 3.1
