@@ -33,13 +33,14 @@ possível confirmar uma página de produto, o link é de busca e a ficha diz iss
 Systems*, conferida em 2026-10-15, e as de *Foundations of Statistical Natural
 Language Processing*, *The Practice of Programming*, *Neural Machine Translation*
 e *Pure React*, conferidas em 2026-10-17, e as de *The Visual Display of
-Quantitative Information*, *Engenharia de Prompts na Prática*, *Linux Command Line
+Quantitative Information*, *Engenharia de Prompts na Prática*, *Álgebra Linear com
+Python*, *Python for Everybody*, *Spec Driven Development — PT*, *Linux Command Line
 and Shell Scripting Bible*, *Shell Script Profissional* e *The Linux Command Line*,
 acrescentadas em 2026-10-17.
 
 Preço, como regra, não entra aqui — vive em `custo` no recurso, com seu próprio
 `verificado_em`, e a pesquisa de 2026-10-12 não o alterou: conferiu link e edição,
-não preço. As cinco fichas acrescentadas em 2026-10-17 são a exceção e **citam**
+não preço. As oito fichas acrescentadas em 2026-10-17 são a exceção e **citam**
 preço, porque nelas o `custo` do recurso foi fixado na mesma passada — no caso do
 Tufte o preço é o próprio motivo de a ficha dizer qual tiragem o recurso aponta, e no
 do *Shell Scripting Bible* ele registra que o Kindle sai mais caro que o impresso.
@@ -50,6 +51,21 @@ As divergências encontradas entre o catálogo e a obra real estão reunidas no
 ---
 
 ## Dados
+
+### Álgebra Linear com Python: Aprenda na prática os principais conceitos
+
+- **Autoria** — Rafael F.V.C. Santos
+- **Edição** — 1ª ed., edição do autor, 17/07/2018, 104 p., Kindle, pt-BR. Livro 1 da
+  série *Cientista de dados — Analista Quant*. Apresenta-se como material de apoio,
+  não como texto único de álgebra linear.
+- **Identificadores** — ASIN `B07FNWM2P8` (sem ISBN)
+- **Amazon** — https://www.amazon.com.br/dp/B07FNWM2P8 (R$ 9,99 para comprar;
+  R$ 0,00 só na assinatura Kindle, que não é edição gratuita — por isso o recurso
+  declara `custo: 10`, não 0)
+- **Citada por** — `rec:dados/santos-algebra-linear-python`
+- **Nota** — cobre a álgebra linear de `etapa:dados/matematica-para-dados` e não o
+  cálculo que a mesma etapa pede (derivada, gradiente, otimização). O comentário em
+  `catalogo/recursos/dados.yaml` registra o limite.
 
 ### An Introduction to Database Systems, vol. I
 
@@ -477,6 +493,42 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
   pelo próprio autor. Não há edição impressa dela pela Novatec; a 2ª edição em papel
   existe em inglês (*Fluent Python*, O'Reilly, 2022).
 - **Citada por** — `rec:programacao/python-fluente-2ed`
+
+### Python for Everybody: Exploring Data in Python 3
+
+- **Autoria** — Charles R. Severance
+- **Edição** — CreateSpace, 2016, 246 p., en-US. A tradução em português, *Python Para
+  Todos: Explorando Dados com Python 3*, é listada pelo próprio autor entre as
+  traduções em py4e.com/book e está viva: o PDF respondeu 200 em 2026-10-17 com
+  `Last-Modified` do mesmo dia.
+- **Identificadores** — ISBN-13 978-1-5300-5112-0 · ISBN-10 `1530051126`
+- **Amazon** — https://www.amazon.com.br/dp/1530051126 (impresso, R$ 84,12 em
+  2026-10-17 — informativo: o recurso aponta para a edição aberta e declara `custo: 0`)
+- **Acesso aberto** — https://www.py4e.com/book (licença Creative Commons
+  Attribution 4.0; PDF e EPUB em vários idiomas). Direto em português:
+  http://do1.dr-chuck.com/pythonlearn/PT_br/pythonlearn.pdf
+- **Citada por** — `rec:programacao/py4e-severance`
+
+### Spec Driven Development — PT: Da vibe-coding à engenharia de software
+
+- **Autoria** — J.C. Ködel
+- **Edição** — Independently Published, 14/07/2026, 270 p., capa comum, pt-BR. **Sem
+  edição Kindle.** A edição em inglês tem outro título — *Spec Driven Design — EN:
+  From vibe-coding to software engineering* —, e são duas: capa comum (ISBN-13
+  979-8184775289, 267 p., 14/07/2026, ASIN `B0H8X2BFG2`) e Kindle (ASIN
+  `B0H73WV7Q7`, 01/07/2026). Não confundir com os vários outros livros de título
+  parecido publicados em 2026 por outros autores.
+- **Identificadores** — ASIN `B0H8Y7QD9N` · ISBN-13 979-8-1873-4808-4
+- **Amazon** — https://www.amazon.com.br/dp/B0H8Y7QD9N — em 2026-10-17, "Não
+  disponível. Não temos previsão de quando este produto estará disponível
+  novamente". Sem preço exibido, por isso o `custo: 90` do recurso é **estimativa**
+  por comparável, não preço conferido.
+- **Citada por** — `rec:ia/kodel-spec-driven-development` — único recurso do catálogo
+  com `disponivel: false`; o comentário em `catalogo/recursos/ia.yaml` diz por quê e
+  o que fazer quando voltar ao estoque.
+- **Nota** — o eixo do livro é o GitHub Spec Kit. Cobre a parte de instrução de
+  projeto e de revisão do que o agente propõe em `etapa:ia/claude-code-e-skills`;
+  skills e subagentes, que a mesma competência cita, ficam de fora.
 
 ### Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition
 

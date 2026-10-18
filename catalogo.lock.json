@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 19,
-  "gerado_em": "2026-10-18T00:42:53+00:00",
-  "hash": "sha256:9f5ce64113ce877a951e94d5a068c7536c84c64f281729a315106d1ee522cdf8",
+  "catalogo_versao": 21,
+  "gerado_em": "2026-10-18T00:59:19+00:00",
+  "hash": "sha256:b8b626f1f1403c532828833b29ecb0ba00cc363814ea611ecf5735d5823bade4",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -3220,6 +3220,20 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:dados/santos-algebra-linear-python",
+      "titulo": "Álgebra Linear com Python (Rafael F.V.C. Santos) — só a álgebra linear da etapa, não o cálculo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/matematica-para-dados",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 10.0,
+      "duracao_min": 240,
+      "url": "https://www.amazon.com.br/dp/B07FNWM2P8",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
       "id": "rec:dados/scikit-learn-guia",
       "titulo": "scikit-learn — guia do usuário: validação cruzada, vazamento de dado e métricas",
       "rev": 1,
@@ -4049,6 +4063,20 @@
       "verificado_em": "2026-10-17"
     },
     {
+      "id": "rec:ia/kodel-spec-driven-development",
+      "titulo": "Spec Driven Development — PT: Da vibe-coding à engenharia de software (J.C. Ködel) — especificação antes de gerar, pelo GitHub Spec Kit; esgotado na loja desde 2026-10-17",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/claude-code-e-skills",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 90.0,
+      "duracao_min": 480,
+      "url": "https://www.amazon.com.br/dp/B0H8Y7QD9N",
+      "disponivel": false,
+      "verificado_em": "2026-10-17"
+    },
+    {
       "id": "rec:ia/koehn-nmt-seq2seq-atencional",
       "titulo": "Neural Machine Translation (Philipp Koehn) — caps. 7–9: modelo de linguagem neural, modelo de tradução sequência-a-sequência com atenção e decodificação",
       "rev": 1,
@@ -4709,6 +4737,20 @@
       "custo": 0.0,
       "duracao_min": 60,
       "url": "https://www.lysator.liu.se/c/pikestyle.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:programacao/py4e-severance",
+      "titulo": "Python for Everybody / Python Para Todos: Explorando Dados com Python 3 (Charles Severance) — edição aberta CC BY, com tradução em português",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/python-para-ia",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 720,
+      "url": "https://www.py4e.com/book",
       "disponivel": true,
       "verificado_em": "2026-10-17"
     },
