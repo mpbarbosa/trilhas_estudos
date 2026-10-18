@@ -13,6 +13,7 @@ from starlette.testclient import TestClient
 import fabrica
 from trilhas.catalogo.carregar import carregar
 from trilhas.catalogo.compilar import compilar
+from trilhas.catalogo.modelo import Nivel
 from trilhas.percurso import (
     EtapaAbandonada,
     Repositorio,
@@ -21,6 +22,7 @@ from trilhas.percurso import (
 )
 from trilhas.percurso.repositorio import registros_em
 from trilhas.web.app import criar_app
+from trilhas.web.percurso import percurso_completo
 
 HOJE = date(2026, 10, 12)
 MODELOS = Path(__file__).resolve().parent.parent / "src" / "trilhas" / "web" / "modelos"
@@ -439,6 +441,14 @@ def test_classes_do_no_do_grafo_nao_saem_grudadas(com_log: TestClient) -> None:
 TRAVADA = "etapa:dados/sql-join"
 """Exige três competências e o log começa vazio — nenhuma está satisfeita."""
 
+DA_PAGINA = {"origin": "http://testserver"}
+"""O `Origin` que o navegador manda ao enviar o formulário da própria página.
+
+Sem ele o POST que grava é recusado de propósito (`rotas._da_propria_pagina`): um fato
+no log não se apaga, então ausência de origem é recusa, não dispensa. Os testes de
+`desligar` seguem sem o cabeçalho porque lá a dispensa é aceitável e proposital.
+"""
+
 
 def _fatos(cliente: TestClient, estudante: str = "est:teste") -> list[str]:
     """Os fatos gravados, pelo nome do evento. Lê o log, não a tela."""
@@ -463,6 +473,7 @@ def test_iniciar_pela_tela_grava_o_fato_e_redireciona(com_percurso: TestClient) 
     resposta = com_percurso.post(
         f"/etapa/{TRAVADA}",
         data={"acao": "iniciar", "recurso": "rec:dados/sql-join-exercicios"},
+        headers=DA_PAGINA,
         follow_redirects=False,
     )
     assert resposta.status_code == 303
@@ -478,7 +489,7 @@ def test_iniciar_pela_tela_grava_o_fato_e_redireciona(com_percurso: TestClient) 
 
 def test_concluir_grava_conclusao_e_evidencia_numa_transacao(com_percurso: TestClient) -> None:
     """Dois fatos, um POST: meia conclusão daria progresso sem a evidência que o funda."""
-    com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "concluir"})
+    com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "concluir"}, headers=DA_PAGINA)
     assert _fatos(com_percurso) == ["EtapaConcluida", "EvidenciaRegistrada"]
 
 
@@ -489,14 +500,19 @@ def test_concluir_etapa_travada_e_gravado(com_percurso: TestClient) -> None:
     fora do sistema concluiu a etapa, e o sistema discordar não desfaz a leitura —
     filtrar por fronteira satisfeita é papel do motor, ao escolher o que *sugerir*.
     """
-    assert com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "concluir"}).status_code == 200
+    assert (
+        com_percurso.post(
+            f"/etapa/{TRAVADA}", data={"acao": "concluir"}, headers=DA_PAGINA
+        ).status_code
+        == 200
+    )
     assert "EtapaConcluida" in _fatos(com_percurso)
     assert "concluída" in com_percurso.get(f"/etapa/{TRAVADA}").text
 
 
 def test_f5_depois_do_post_nao_duplica_fato(com_percurso: TestClient) -> None:
     """O 303 existe por isto: recarregar a página é GET, e GET não grava."""
-    com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "iniciar"})
+    com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "iniciar"}, headers=DA_PAGINA)
     depois = _fatos(com_percurso)
     for _ in range(3):
         assert com_percurso.get(f"/etapa/{TRAVADA}").status_code == 200
@@ -504,8 +520,12 @@ def test_f5_depois_do_post_nao_duplica_fato(com_percurso: TestClient) -> None:
 
 
 def test_abandonar_guarda_o_motivo(com_percurso: TestClient) -> None:
-    com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "iniciar"})
-    com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "abandonar", "motivo": "material ruim"})
+    com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "iniciar"}, headers=DA_PAGINA)
+    com_percurso.post(
+        f"/etapa/{TRAVADA}",
+        data={"acao": "abandonar", "motivo": "material ruim"},
+        headers=DA_PAGINA,
+    )
     pasta = Path(com_percurso.app.state.ctx.fonte.percursos)  # type: ignore[attr-defined]
     ultimo = registros_em(pasta, "est:teste")[-1].evento
     assert isinstance(ultimo, EtapaAbandonada)
@@ -514,11 +534,11 @@ def test_abandonar_guarda_o_motivo(com_percurso: TestClient) -> None:
 
 def test_etapa_concluida_pode_ser_reiniciada(com_percurso: TestClient) -> None:
     """Enquanto não houver fato de retratação (ADR-0008), é a saída de quem clicou errado."""
-    com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "concluir"})
+    com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "concluir"}, headers=DA_PAGINA)
     html = com_percurso.get(f"/etapa/{TRAVADA}").text
     assert ">Estudar de novo<" in html
 
-    com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "iniciar"})
+    com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "iniciar"}, headers=DA_PAGINA)
     assert _fatos(com_percurso)[-1] == "EtapaIniciada"
     assert "em andamento" in com_percurso.get(f"/etapa/{TRAVADA}").text
 
@@ -539,6 +559,7 @@ def test_recurso_de_outra_etapa_e_recusado_como_na_cli(com_percurso: TestClient)
     resposta = com_percurso.post(
         f"/etapa/{TRAVADA}",
         data={"acao": "iniciar", "recurso": "rec:dados/sql-select-video"},
+        headers=DA_PAGINA,
     )
     assert resposta.status_code == 400
     assert "recurso de outra etapa" in resposta.text
@@ -546,14 +567,14 @@ def test_recurso_de_outra_etapa_e_recusado_como_na_cli(com_percurso: TestClient)
 
 
 def test_acao_desconhecida_nao_grava(com_percurso: TestClient) -> None:
-    resposta = com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "apagar"})
+    resposta = com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "apagar"}, headers=DA_PAGINA)
     assert resposta.status_code == 400
     assert _fatos(com_percurso) == []
 
 
 def test_post_sem_percurso_nao_faz_nascer_log(cliente: TestClient, lock: Path) -> None:
     """Desenhar — ou recusar — uma tela nunca cria banco (ADR-0008, interface.md §9.1)."""
-    resposta = cliente.post(f"/etapa/{TRAVADA}", data={"acao": "concluir"})
+    resposta = cliente.post(f"/etapa/{TRAVADA}", data={"acao": "concluir"}, headers=DA_PAGINA)
     assert resposta.status_code == 409
     assert not (lock.parent / "percurso").exists()
 
@@ -563,6 +584,53 @@ def test_post_preserva_o_estudante_da_url(com_percurso: TestClient) -> None:
     resposta = com_percurso.post(
         f"/etapa/{TRAVADA}?estudante=est:teste",
         data={"acao": "iniciar"},
+        headers=DA_PAGINA,
         follow_redirects=False,
     )
     assert resposta.headers["location"] == f"/etapa/{TRAVADA}?estudante=est%3Ateste"
+
+
+def test_post_sem_origin_e_recusado_e_nao_grava(com_percurso: TestClient) -> None:
+    """Ausência de `Origin` é recusa, não dispensa — gravar não se desfaz (ADR-0008).
+
+    `_mesma_origem`, que `desligar` usa, deixa passar quem não manda o cabeçalho: lá o
+    estrago é derrubar um servidor local, e isso se conserta subindo outro. Aqui o
+    estrago é um fato que nenhum `DELETE` apaga, então o POST que grava exige
+    `_da_propria_pagina`. Medido antes da correção: respondia 303 e deixava
+    `EtapaConcluida` e `EvidenciaRegistrada` no log de quem rodasse `curl`.
+    """
+    resposta = com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": "concluir"})
+    assert resposta.status_code == 403
+    assert "sem cabeçalho Origin" in resposta.text
+    assert _fatos(com_percurso) == []
+
+
+def test_desligar_continua_aceitando_quem_nao_declara_origem(
+    cliente_desligavel: TestClient, desligamentos: list[int]
+) -> None:
+    """A assimetria é deliberada, e um teste a segura: apertar `desligar` junto
+    quebraria o `curl` de quem encerra o servidor, sem nada irreversível em jogo."""
+    assert cliente_desligavel.post("/desligar").status_code == 200
+    assert desligamentos == [1]
+
+
+def test_concluir_duas_vezes_duplica_a_evidencia_sem_duplicar_a_competencia(
+    com_percurso: TestClient, lock: Path
+) -> None:
+    """Reconcluir é fato legítimo, e a projeção absorve a repetição.
+
+    O log guarda as duas evidências — ele só cresce, e apagar uma seria reescrever
+    história. A projeção toma o **máximo nível evidenciado** e a data mais recente
+    nesse nível (`projecao.competencias_de`), então estudar de novo renova o relógio
+    de `urgencia_de_revisao` (motor §3.6) em vez de criar uma competência repetida.
+    """
+    for acao in ("concluir", "iniciar", "concluir"):
+        com_percurso.post(f"/etapa/{TRAVADA}", data={"acao": acao}, headers=DA_PAGINA)
+
+    assert _fatos(com_percurso).count("EvidenciaRegistrada") == 2
+
+    percurso = percurso_completo(lock.parent / "percurso" / "est-teste.yaml")
+    assert percurso is not None
+    ensinada = [c for c in percurso.competencias if c.competencia == "comp:dados/sql-consultas"]
+    assert len(ensinada) == 1
+    assert ensinada[0].nivel is Nivel.INTERMEDIARIO

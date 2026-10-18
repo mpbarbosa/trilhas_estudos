@@ -472,9 +472,14 @@ Seis propriedades, e cada uma existe por um modo de falha:
 2. **Uma transação por POST** (§9). Concluir emite dois fatos — a conclusão e a
    evidência do `teaches` daquele momento —, e meia conclusão produziria progresso sem
    a evidência que o justifica. Quem abre a transação é `Repositorio.anexar`.
-3. **É da própria origem.** Mesma defesa de `_mesma_origem` que a §5.9 usa: qualquer
-   página aberta noutra aba pode fazer POST para `localhost`, e gravar num log
-   append-only é efeito colateral que não se desfaz. `Origin` divergente recebe 403.
+3. **É da própria origem, e provar isso é obrigação de quem pede.** `Origin` tem de
+   estar presente **e** bater com o host (`_da_propria_pagina`); divergente ou ausente
+   recebe 403. É mais apertado que `_mesma_origem`, da §5.9, que dispensa quem não
+   manda o cabeçalho — e a assimetria é deliberada: desligar um servidor local se
+   conserta subindo outro, gravar num log que proíbe `DELETE` não se conserta.
+   Medido na primeira versão desta rota: `curl -X POST` sem `Origin` respondia 303 e
+   deixava `EtapaConcluida` e `EvidenciaRegistrada` no log. Navegador manda o
+   cabeçalho; quem não está num navegador tem a CLI `trilhas-percurso`.
 4. **Responde 303, não HTML.** Um POST que respondesse a página deixaria o F5 e o botão
    Voltar reenviando o formulário, e cada reenvio gravaria outro fato. Com o redirect
    para a própria etapa, recarregar é GET. O `?estudante=` da URL é preservado: o POST
@@ -627,8 +632,8 @@ competência evidenciada, e a mesma tela dizia "0 competência(s) dominada(s)", 
 nenhuma das duas estivesse errada.
 
 `percurso_completo()` fecha isso: lê o estado declarado do YAML e soma os fatos do log,
-com o mesmo `montar_percurso()` que a CLI usa. Continua **somente leitura** — a fase 1
-não muda de natureza. `repositorio.registros_em()` existe por causa disso: `Repositorio`
+com o mesmo `montar_percurso()` que a CLI usa. **Esta função só lê** — quem escreve é
+`web/escrever.py`, pelo POST da §5.10. `repositorio.registros_em()` existe por causa disso: `Repositorio`
 cria o arquivo e o esquema ao abrir, o que é certo para quem escreve e inaceitável para
 quem só desenha uma página, então a conexão é `mode=ro` e banco ausente vira lista
 vazia.

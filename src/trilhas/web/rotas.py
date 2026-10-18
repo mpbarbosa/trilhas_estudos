@@ -168,11 +168,11 @@ async def _registrar_na_etapa(request: Request) -> Response:
     Nenhuma decisão de domínio aqui: a rota resolve parâmetro, delega a `escrever` e
     devolve resposta (§3.3).
     """
-    if not _mesma_origem(request):
+    if not _da_propria_pagina(request):
         return _recusado(
             request,
             "Registrar progresso só pela própria interface.",
-            request.headers.get("origin", ""),
+            request.headers.get("origin") or "requisição sem cabeçalho Origin",
             status=403,
         )
 
@@ -262,18 +262,36 @@ async def diagnostico_do_catalogo(request: Request) -> Response:
     return _responder(request, "diagnostico.html", {"v": visao, "titulo": "Diagnóstico"})
 
 
+def _da_propria_pagina(request: Request) -> bool:
+    """Exige `Origin` **presente e igual** ao host. Para POST cujo efeito não se desfaz.
+
+    `_mesma_origem` dispensa quem não manda `Origin` — cliente sem navegador —, e para
+    `desligar` isso passa: derrubar um servidor local se conserta subindo outro. Gravar
+    no log de percurso não se conserta, porque ADR-0008 proíbe `UPDATE` e `DELETE` por
+    *trigger*. Aqui a ausência do cabeçalho é recusa, não dispensa: sem isso, qualquer
+    processo da máquina faz `curl -X POST` e deixa um fato que ninguém apaga — medido,
+    gravava `EtapaConcluida` e `EvidenciaRegistrada` e respondia 303.
+
+    O preço é conhecido e aceito: navegador que não mande `Origin` em POST de mesma
+    origem recebe 403 com a explicação, e `trilhas-percurso` continua sendo o caminho
+    de quem não está num navegador.
+    """
+    origem = request.headers.get("origin")
+    if not origem:
+        return False
+    hospedeiro = request.headers.get("host", "")
+    return origem in (f"http://{hospedeiro}", f"https://{hospedeiro}")
+
+
 def _mesma_origem(request: Request) -> bool:
-    """Recusa POST vindo de outra origem.
+    """Recusa POST de outra origem, e deixa passar quem não declara nenhuma.
 
     Qualquer página aberta no navegador pode fazer POST para `localhost`, e desligar o
     servidor é efeito colateral — não basta não ser GET. O navegador manda `Origin` em
     POST; cliente sem navegador (teste, curl) não manda, e aí não há o que comparar.
+    Para o que **grava**, essa dispensa é larga demais: veja `_da_propria_pagina`.
     """
-    origem = request.headers.get("origin")
-    if origem is None:
-        return True
-    hospedeiro = request.headers.get("host", "")
-    return origem in (f"http://{hospedeiro}", f"https://{hospedeiro}")
+    return request.headers.get("origin") is None or _da_propria_pagina(request)
 
 
 async def desligar(request: Request) -> Response:
