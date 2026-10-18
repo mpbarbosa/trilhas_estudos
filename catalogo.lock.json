@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 17,
-  "gerado_em": "2026-10-17T23:50:37+00:00",
-  "hash": "sha256:e845a52ced513c9ff8debebaa8013983d122917f2534c0947ab539c0f4945fa5",
+  "catalogo_versao": 20,
+  "gerado_em": "2026-10-18T00:38:39+00:00",
+  "hash": "sha256:aef75dddccdc10afba010c97222f68ca96e4e9391e926016830a8a3bd81db4d4",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -3155,6 +3155,20 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:dados/santos-algebra-linear-python",
+      "titulo": "Álgebra Linear com Python (Rafael F.V.C. Santos) — só a álgebra linear da etapa, não o cálculo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/matematica-para-dados",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 10.0,
+      "duracao_min": 240,
+      "url": "https://www.amazon.com.br/dp/B07FNWM2P8",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
       "id": "rec:dados/scikit-learn-guia",
       "titulo": "scikit-learn — guia do usuário: validação cruzada, vazamento de dado e métricas",
       "rev": 1,
@@ -3195,6 +3209,20 @@
       "url": "https://allendowney.github.io/ThinkStats/",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:dados/tufte-visual-display",
+      "titulo": "The Visual Display of Quantitative Information, 2ª ed. (Edward R. Tufte) — leitura crítica do gráfico: data-ink, chartjunk e fator de mentira",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/visualizacao-para-analise",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 220.0,
+      "duracao_min": 480,
+      "url": "https://www.amazon.com.br/dp/0961392142",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
     },
     {
       "id": "rec:dados/use-the-index-luke",
@@ -3970,6 +3998,20 @@
       "verificado_em": "2026-10-17"
     },
     {
+      "id": "rec:ia/kodel-spec-driven-development",
+      "titulo": "Spec Driven Development — PT: Da vibe-coding à engenharia de software (J.C. Ködel) — especificação antes de gerar, pelo GitHub Spec Kit; esgotado na loja desde 2026-10-17",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/claude-code-e-skills",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 90.0,
+      "duracao_min": 480,
+      "url": "https://www.amazon.com.br/dp/B0H8Y7QD9N",
+      "disponivel": false,
+      "verificado_em": "2026-10-17"
+    },
+    {
       "id": "rec:ia/koehn-nmt-seq2seq-atencional",
       "titulo": "Neural Machine Translation (Philipp Koehn) — caps. 7–9: modelo de linguagem neural, modelo de tradução sequência-a-sequência com atenção e decodificação",
       "rev": 1,
@@ -4257,6 +4299,20 @@
       "url": "https://web.stanford.edu/~jurafsky/slp3/",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/souza-engenharia-de-prompts",
+      "titulo": "Engenharia de Prompts na Prática (Edney Souza) — a metade de técnica de prompt da etapa, não a de API; PDF gratuito do autor",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/engenharia-de-prompt",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 420,
+      "url": "https://interney.net/livro-ia",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
     },
     {
       "id": "rec:matematica/book-of-proof",
@@ -4616,6 +4672,20 @@
       "custo": 0.0,
       "duracao_min": 60,
       "url": "https://www.lysator.liu.se/c/pikestyle.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:programacao/py4e-severance",
+      "titulo": "Python for Everybody / Python Para Todos: Explorando Dados com Python 3 (Charles Severance) — edição aberta CC BY, com tradução em português",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/python-para-ia",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 720,
+      "url": "https://www.py4e.com/book",
       "disponivel": true,
       "verificado_em": "2026-10-17"
     },

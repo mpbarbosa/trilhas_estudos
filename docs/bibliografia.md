@@ -32,9 +32,16 @@ possível confirmar uma página de produto, o link é de busca e a ficha diz iss
 **Verificado em 2026-10-12**, exceto a ficha de *An Introduction to Database
 Systems*, conferida em 2026-10-15, e as de *Foundations of Statistical Natural
 Language Processing*, *The Practice of Programming*, *Neural Machine Translation*
-e *Pure React*, conferidas em 2026-10-17. Preço não entra aqui — vive em `custo` no
-recurso, com seu próprio `verificado_em`, que esta pesquisa não alterou: conferi
-link e edição, não preço.
+e *Pure React*, conferidas em 2026-10-17, e as de *The Visual Display of
+Quantitative Information*, *Engenharia de Prompts na Prática*, *Álgebra Linear com
+Python*, *Python for Everybody* e *Spec Driven Development — PT*, acrescentadas em
+2026-10-17.
+
+Preço, como regra, não entra aqui — vive em `custo` no recurso, com seu próprio
+`verificado_em`, e a pesquisa de 2026-10-12 não o alterou: conferiu link e edição,
+não preço. As cinco fichas acrescentadas em 2026-10-17 são a exceção e **citam**
+preço, porque nelas o `custo` do recurso foi fixado na mesma passada — e no caso do
+Tufte o preço é o próprio motivo de a ficha dizer qual tiragem o recurso aponta.
 
 As divergências encontradas entre o catálogo e a obra real estão reunidas no
 [§ Divergências](#divergências) no fim.
@@ -42,6 +49,21 @@ As divergências encontradas entre o catálogo e a obra real estão reunidas no
 ---
 
 ## Dados
+
+### Álgebra Linear com Python: Aprenda na prática os principais conceitos
+
+- **Autoria** — Rafael F.V.C. Santos
+- **Edição** — 1ª ed., edição do autor, 17/07/2018, 104 p., Kindle, pt-BR. Livro 1 da
+  série *Cientista de dados — Analista Quant*. Apresenta-se como material de apoio,
+  não como texto único de álgebra linear.
+- **Identificadores** — ASIN `B07FNWM2P8` (sem ISBN)
+- **Amazon** — https://www.amazon.com.br/dp/B07FNWM2P8 (R$ 9,99 para comprar;
+  R$ 0,00 só na assinatura Kindle, que não é edição gratuita — por isso o recurso
+  declara `custo: 10`, não 0)
+- **Citada por** — `rec:dados/santos-algebra-linear-python`
+- **Nota** — cobre a álgebra linear de `etapa:dados/matematica-para-dados` e não o
+  cálculo que a mesma etapa pede (derivada, gradiente, otimização). O comentário em
+  `catalogo/recursos/dados.yaml` registra o limite.
 
 ### An Introduction to Database Systems, vol. I
 
@@ -142,6 +164,20 @@ As divergências encontradas entre o catálogo e a obra real estão reunidas no
 - **Acesso aberto** — https://wesmckinney.com/book/ (3ª ed. em inglês, liberada pelo autor)
 - **Original** — *Python for Data Analysis*, 3rd ed., O'Reilly, 2022
 - **Citada por** — `rec:dados/mckinney-python-analise-3ed`
+
+### The Visual Display of Quantitative Information
+
+- **Autoria** — Edward R. Tufte
+- **Edição** — 2ª ed., Graphics Press, 01/05/2001, 197 p., en-US. A 1ª é de 1983; a 2ª
+  acrescenta reprodução em cor dos gráficos de William Playfair e incorpora as
+  correções acumuladas ao longo de 17 tiragens da primeira. **Só existe em papel**:
+  a Graphics Press nunca publicou edição eletrônica, e o site do autor vende apenas
+  capa dura (US$ 50) e capa comum (US$ 40).
+- **Identificadores** — capa dura: ISBN-13 978-0-9613921-4-7 · ISBN-10 `0961392142` —
+  a tiragem em capa comum circula sob ISBN-13 978-1-930824-13-3 · ISBN-10 `1930824130`
+- **Amazon** — https://www.amazon.com.br/dp/0961392142 (capa dura; em 2026-10-17,
+  R$ 218,80 com uma unidade em estoque, capa comum a R$ 210,36)
+- **Citada por** — `rec:dados/tufte-visual-display`
 
 ### Think Stats: Exploratory Data Analysis
 
@@ -315,6 +351,24 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Código** — https://github.com/fchollet/deep-learning-with-python-notebooks
 - **Citada por** — `rec:ia/deep-learning-with-python-3ed`
 
+### Engenharia de Prompts na Prática: Do Zero ao Avançado com ChatGPT, Gemini e Claude
+
+- **Autoria** — Edney "InterNey" Souza
+- **Edição** — edição do autor, atualizada em outubro/2026; 320 p. no Kindle e 333 p.
+  no impresso (07/06/2026), pt-BR. 15 capítulos e 3 apêndices, com biblioteca de
+  prompts por área e glossário. Título anterior: *ChatGPT: Do Zero aos Prompts
+  Avançados* — **mesmo ASIN**, retitulado e ampliado com Gemini, Claude e agentes.
+- **Identificadores** — ASIN `B0CKNQ92PK` (Kindle) · ISBN-13 979-8-2556-8399-4 (impresso)
+- **Amazon** — https://www.amazon.com.br/dp/B0CKNQ92PK (Kindle R$ 0,00 na assinatura
+  ou R$ 5,99 para comprar; capa comum R$ 61,48)
+- **Acesso aberto** — https://interney.net/livro-ia — PDF do livro completo, de graça
+  pelo próprio autor, mediante formulário com nome e e-mail. É esta a URL do recurso,
+  e é por ela que `custo` é 0.
+- **Citada por** — `rec:ia/souza-engenharia-de-prompts`
+- **Nota** — cobre a metade de técnica de prompt de `etapa:ia/engenharia-de-prompt` e
+  não a de API: é declaradamente "sem escrever código". O comentário em
+  `catalogo/recursos/ia.yaml` registra o limite.
+
 ### Foundations of Statistical Natural Language Processing
 
 - **Autoria** — Christopher D. Manning, Hinrich Schütze
@@ -437,6 +491,42 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
   pelo próprio autor. Não há edição impressa dela pela Novatec; a 2ª edição em papel
   existe em inglês (*Fluent Python*, O'Reilly, 2022).
 - **Citada por** — `rec:programacao/python-fluente-2ed`
+
+### Python for Everybody: Exploring Data in Python 3
+
+- **Autoria** — Charles R. Severance
+- **Edição** — CreateSpace, 2016, 246 p., en-US. A tradução em português, *Python Para
+  Todos: Explorando Dados com Python 3*, é listada pelo próprio autor entre as
+  traduções em py4e.com/book e está viva: o PDF respondeu 200 em 2026-10-17 com
+  `Last-Modified` do mesmo dia.
+- **Identificadores** — ISBN-13 978-1-5300-5112-0 · ISBN-10 `1530051126`
+- **Amazon** — https://www.amazon.com.br/dp/1530051126 (impresso, R$ 84,12 em
+  2026-10-17 — informativo: o recurso aponta para a edição aberta e declara `custo: 0`)
+- **Acesso aberto** — https://www.py4e.com/book (licença Creative Commons
+  Attribution 4.0; PDF e EPUB em vários idiomas). Direto em português:
+  http://do1.dr-chuck.com/pythonlearn/PT_br/pythonlearn.pdf
+- **Citada por** — `rec:programacao/py4e-severance`
+
+### Spec Driven Development — PT: Da vibe-coding à engenharia de software
+
+- **Autoria** — J.C. Ködel
+- **Edição** — Independently Published, 14/07/2026, 270 p., capa comum, pt-BR. **Sem
+  edição Kindle.** A edição em inglês tem outro título — *Spec Driven Design — EN:
+  From vibe-coding to software engineering* —, e são duas: capa comum (ISBN-13
+  979-8184775289, 267 p., 14/07/2026, ASIN `B0H8X2BFG2`) e Kindle (ASIN
+  `B0H73WV7Q7`, 01/07/2026). Não confundir com os vários outros livros de título
+  parecido publicados em 2026 por outros autores.
+- **Identificadores** — ASIN `B0H8Y7QD9N` · ISBN-13 979-8-1873-4808-4
+- **Amazon** — https://www.amazon.com.br/dp/B0H8Y7QD9N — em 2026-10-17, "Não
+  disponível. Não temos previsão de quando este produto estará disponível
+  novamente". Sem preço exibido, por isso o `custo: 90` do recurso é **estimativa**
+  por comparável, não preço conferido.
+- **Citada por** — `rec:ia/kodel-spec-driven-development` — único recurso do catálogo
+  com `disponivel: false`; o comentário em `catalogo/recursos/ia.yaml` diz por quê e
+  o que fazer quando voltar ao estoque.
+- **Nota** — o eixo do livro é o GitHub Spec Kit. Cobre a parte de instrução de
+  projeto e de revisão do que o agente propõe em `etapa:ia/claude-code-e-skills`;
+  skills e subagentes, que a mesma competência cita, ficam de fora.
 
 ### Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition
 
