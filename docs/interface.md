@@ -561,6 +561,28 @@ Uma ressalva que a implementação acrescentou: adotar o log sem migrar o YAML a
 o progresso já declarado nele. `percurso/migrar.py` converte os fatos declarados
 preservando **as datas de lá**, e recusa importar duas vezes.
 
+### 9.1 Leitura: a tela projeta o log, não o YAML
+
+A ADR-0008 decidiu os dois lados, mas só o da escrita foi ligado de imediato: por um
+tempo `web/percurso.py` leu apenas o YAML, e os campos `competencias_dominadas` e
+`progresso` de lá são histórico pré-ADR, **ignorados pela projeção**. O efeito era uma
+divergência silenciosa — `trilhas-percurso mostrar` listava etapa concluída e
+competência evidenciada, e a mesma tela dizia "0 competência(s) dominada(s)", sem que
+nenhuma das duas estivesse errada.
+
+`percurso_completo()` fecha isso: lê o estado declarado do YAML e soma os fatos do log,
+com o mesmo `montar_percurso()` que a CLI usa. Continua **somente leitura** — a fase 1
+não muda de natureza. `repositorio.registros_em()` existe por causa disso: `Repositorio`
+cria o arquivo e o esquema ao abrir, o que é certo para quem escreve e inaceitável para
+quem só desenha uma página, então a conexão é `mode=ro` e banco ausente vira lista
+vazia.
+
+Consequência a aceitar de olhos abertos: **o log é local e fica fora do git**
+(ADR-0008). Num checkout sem ele — outra máquina, o runner do CI — as telas mostram o
+percurso declarado e nenhum fato. É o mesmo caso do estudante novo, que já tem tela, e
+as telas de detalhe distinguem "nada concluído" de "não há percurso para consultar" em
+vez de afirmar progresso zero.
+
 ---
 
 ## 10. Fases

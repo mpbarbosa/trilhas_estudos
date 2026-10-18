@@ -8,6 +8,7 @@ errado (docs/interface.md §3.3).
 from __future__ import annotations
 
 from datetime import datetime
+from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 from starlette.background import BackgroundTask
@@ -20,7 +21,7 @@ from ..motor.modelo import Percurso, Resultado
 from .apresentar import acervo as apresentar_acervo
 from .apresentar import detalhe, diagnostico
 from .apresentar import sugestao as apresentar_sugestao
-from .percurso import carregar_percurso, nome_do_estudante, percursos_em
+from .percurso import nome_do_estudante, percurso_completo, percursos_em
 
 if TYPE_CHECKING:
     from .app import Contexto
@@ -29,6 +30,23 @@ if TYPE_CHECKING:
 def _ctx(request: Request) -> Contexto:
     ctx: Contexto = request.app.state.ctx
     return ctx
+
+
+def _arquivo_de_percurso(request: Request) -> Path | None:
+    """O percurso a mostrar: o de `?estudante=`, ou o primeiro que houver.
+
+    Mesma escolha em todas as telas — se a home mostra o percurso de alguém, a página
+    da etapa tem de mostrar o progresso **dessa mesma pessoa**, ou as duas se
+    contradizem sem dizer por quê.
+    """
+    arquivos = percursos_em(_ctx(request).fonte.percursos)
+    escolhido = request.query_params.get("estudante", "").strip()
+    return arquivos.get(escolhido) or (next(iter(arquivos.values()), None))
+
+
+def _percurso(request: Request) -> Percurso | None:
+    caminho = _arquivo_de_percurso(request)
+    return percurso_completo(caminho) if caminho else None
 
 
 def _responder(
@@ -53,10 +71,9 @@ async def agora(request: Request) -> Response:
     ctx = _ctx(request)
     acervo = ctx.fonte.acervo()
     arquivos = percursos_em(ctx.fonte.percursos)
-    escolhido = request.query_params.get("estudante", "").strip()
-    caminho = arquivos.get(escolhido) or (next(iter(arquivos.values()), None))
+    caminho = _arquivo_de_percurso(request)
 
-    percurso: Percurso | None = carregar_percurso(caminho) if caminho else None
+    percurso: Percurso | None = percurso_completo(caminho) if caminho else None
     tempo = _inteiro(request.query_params.get("tempo"))
     quantidade = _inteiro(request.query_params.get("quantidade")) or 3
     momento = datetime.combine(ctx.hoje(), datetime.min.time())
@@ -115,7 +132,9 @@ async def lista(request: Request) -> Response:
 
 async def trilha(request: Request) -> Response:
     ctx = _ctx(request)
-    visao = detalhe.trilha(ctx.fonte.acervo(), request.path_params["ident"])
+    visao = detalhe.trilha(
+        ctx.fonte.acervo(), request.path_params["ident"], percurso=_percurso(request)
+    )
     if visao is None:
         return await nao_encontrado(request, None)
     return _responder(request, "trilha.html", {"v": visao, "titulo": visao.trilha.titulo})
@@ -123,7 +142,12 @@ async def trilha(request: Request) -> Response:
 
 async def etapa(request: Request) -> Response:
     ctx = _ctx(request)
-    visao = detalhe.etapa(ctx.fonte.acervo(), request.path_params["ident"], hoje=ctx.hoje())
+    visao = detalhe.etapa(
+        ctx.fonte.acervo(),
+        request.path_params["ident"],
+        hoje=ctx.hoje(),
+        percurso=_percurso(request),
+    )
     if visao is None:
         return await nao_encontrado(request, None)
     return _responder(request, "etapa.html", {"v": visao, "titulo": visao.etapa.titulo})

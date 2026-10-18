@@ -10,6 +10,7 @@ from __future__ import annotations
 from datetime import date
 
 from ...catalogo.modelo import Catalogo, Formato, Nivel, Status
+from ...motor.modelo import EstadoEtapa
 
 ROTULO_NIVEL = {
     Nivel.DESCONHECE: "desconhece",
@@ -29,6 +30,13 @@ ROTULO_STATUS = {
     Status.RASCUNHO: "rascunho",
     Status.ATIVO: "ativo",
     Status.DEPRECIADO: "depreciado",
+}
+
+ROTULO_ESTADO = {
+    EstadoEtapa.NAO_INICIADA: "não iniciada",
+    EstadoEtapa.EM_ANDAMENTO: "em andamento",
+    EstadoEtapa.CONCLUIDA: "concluída",
+    EstadoEtapa.ABANDONADA: "abandonada",
 }
 
 ROTULO_TIPO = {
@@ -54,6 +62,10 @@ def nivel(valor: Nivel) -> str:
 
 def formato(valor: Formato) -> str:
     return ROTULO_FORMATO[valor]
+
+
+def estado_de_etapa(valor: EstadoEtapa) -> str:
+    return ROTULO_ESTADO[valor]
 
 
 def duracao(minutos: int) -> str:

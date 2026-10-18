@@ -31,6 +31,8 @@ from ..motor.modelo import (
     Reacao,
     Restricoes,
 )
+from ..percurso.projecao import montar_percurso
+from ..percurso.repositorio import registros_em
 
 NOME_DO_DIRETORIO = "percurso"
 
@@ -53,6 +55,25 @@ def carregar_percurso(caminho: Path) -> Percurso | None:
         progresso=tuple(_progresso(dados.get("progresso"))),
         feedback=tuple(_feedback(dados.get("feedback"))),
     )
+
+
+def percurso_completo(caminho: Path) -> Percurso | None:
+    """O estado declarado no YAML somado aos fatos do log (ADR-0008).
+
+    `carregar_percurso` sozinho devolve só o que o estudante **declara** — identidade,
+    restrições, objetivo, matrícula. Competência, progresso e feedback são **projeção
+    do log**, e os campos homônimos do YAML são histórico pré-ADR, ignorados de
+    propósito. Ler apenas o YAML é o que fazia a tela discordar de
+    `trilhas-percurso mostrar` sem que nenhuma das duas estivesse errada.
+
+    O log é local e fica fora do git: num checkout sem ele — outra máquina, o CI —
+    isto devolve o percurso declarado e nenhum fato, que é o mesmo caso do estudante
+    novo e já tem tela.
+    """
+    base = carregar_percurso(caminho)
+    if base is None:
+        return None
+    return montar_percurso(base, registros_em(caminho.parent, base.estudante_id))
 
 
 def nome_do_estudante(caminho: Path) -> str:
@@ -181,7 +202,13 @@ def _progresso(bruto: Any) -> Iterable[ProgressoEtapa]:
         )
         if atualizado is None:
             continue
-        yield ProgressoEtapa(etapa=str(etapa), estado=estado, atualizado_em=atualizado)
+        recurso = item.get("recurso_em_uso")
+        yield ProgressoEtapa(
+            etapa=str(etapa),
+            estado=estado,
+            atualizado_em=atualizado,
+            recurso_em_uso=str(recurso) if recurso else None,
+        )
 
 
 def _feedback(bruto: Any) -> Iterable[Feedback]:

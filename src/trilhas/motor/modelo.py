@@ -69,6 +69,9 @@ class ProgressoEtapa:
     etapa: str
     estado: EstadoEtapa
     atualizado_em: date  # data do último evento: início, conclusão ou abandono
+    recurso_em_uso: str | None = None
+    """Recurso declarado ao iniciar a etapa, quando houve um. Opcional de propósito:
+    iniciar sem dizer por onde se estuda é legítimo, e concluir não repete o recurso."""
 
 
 @dataclass(frozen=True, slots=True)

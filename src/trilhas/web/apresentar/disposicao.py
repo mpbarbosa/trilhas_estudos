@@ -12,11 +12,12 @@ pré-requisito, e é a única ordenação honesta.
 
 from __future__ import annotations
 
-from collections.abc import Iterable, Sequence
+from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass
 
 from ...catalogo.grafo import ArestaDerivada, Fecho
 from ...catalogo.modelo import Catalogo, Etapa, Status
+from ...motor.modelo import EstadoEtapa
 from . import comum
 
 LARGURA_NO = 200
@@ -45,6 +46,9 @@ class No:
     esforco_min: int
     esforco: str
     destrava: int
+    estado: EstadoEtapa = EstadoEtapa.NAO_INICIADA
+    """Progresso do estudante nesta etapa. `NAO_INICIADA` também é o que se vê sem
+    percurso nenhum — o grafo do catálogo não deixa de ser desenhável por isso."""
 
     @property
     def largura(self) -> int:
@@ -98,6 +102,7 @@ def dispor(
     *,
     catalogo: Catalogo,
     proprias: Iterable[str] = (),
+    estados: Mapping[str, EstadoEtapa] | None = None,
 ) -> Disposicao:
     """Dispõe as `etapas` em colunas de onda, com as arestas entre elas.
 
@@ -105,6 +110,7 @@ def dispor(
     trilha conserva a profundidade real de pré-requisito, em vez de parecer inicial
     só porque esta trilha a introduz tarde.
     """
+    por_etapa = estados or {}
     do_escopo = {e.id for e in etapas}
     proprias_ids = set(proprias) or do_escopo
     arestas_do_escopo = [a for a in arestas if a.origem in do_escopo and a.destino in do_escopo]
@@ -141,6 +147,7 @@ def dispor(
                     esforco_min=etapa.esforco_estimado_min,
                     esforco=comum.duracao(etapa.esforco_estimado_min),
                     destrava=destrava.get(etapa.id, 0),
+                    estado=por_etapa.get(etapa.id, EstadoEtapa.NAO_INICIADA),
                 )
             )
 

@@ -6,10 +6,12 @@ vem depois, quem ensina o que ela exige, e o que ela destrava. O resto é cadast
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass
 from datetime import date
 
 from ...catalogo.modelo import Competencia, Etapa, Nivel, Recurso, Status, Trilha
+from ...motor.modelo import EstadoEtapa, Percurso, ProgressoEtapa
 from ..dados import Acervo
 from . import comum
 from .disposicao import Disposicao, dispor
@@ -60,6 +62,8 @@ class LinhaRecurso:
     verificado_em: date | None
     dias_sem_verificar: int | None
     vencido: bool
+    em_uso: bool = False
+    """Recurso declarado ao iniciar esta etapa — por onde o estudante de fato estudou."""
 
 
 @dataclass(frozen=True, slots=True)
@@ -76,6 +80,9 @@ class LinhaEtapaDaTrilha:
     destrava: int
     qtd_recursos: int
     requisitos: int
+    estado: EstadoEtapa = EstadoEtapa.NAO_INICIADA
+    estado_rotulo: str = ""
+    atualizado_em: date | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -89,6 +96,11 @@ class VisaoTrilha:
     qtd_obrigatorias: int
     qtd_opcionais: int
     emprestadas: tuple[Referencia, ...]
+    tem_percurso: bool = False
+    """Houve percurso para consultar. Distingue "nenhuma etapa concluída" de "não se
+    sabe": sem isso a tela afirmaria progresso zero a quem nunca declarou estudante."""
+    qtd_concluidas: int = 0
+    qtd_em_andamento: int = 0
 
 
 @dataclass(frozen=True, slots=True)
@@ -106,6 +118,10 @@ class VisaoEtapa:
     tambem_em: tuple[Referencia, ...]
     """Trilhas que referenciam esta etapa sem a definir (catalogo.md §1)."""
     alertas: tuple[str, ...]
+    tem_percurso: bool = False
+    estado: EstadoEtapa = EstadoEtapa.NAO_INICIADA
+    estado_rotulo: str = ""
+    atualizado_em: date | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -120,15 +136,25 @@ class VisaoCompetencia:
     alertas: tuple[str, ...]
 
 
-def trilha(acervo: Acervo, trilha_id: str) -> VisaoTrilha | None:
+def trilha(
+    acervo: Acervo, trilha_id: str, *, percurso: Percurso | None = None
+) -> VisaoTrilha | None:
     cat = acervo.catalogo
     alvo = cat.trilhas.get(trilha_id)
     if alvo is None:
         return None
 
+    progresso = _progresso_por_etapa(percurso)
     etapas = [cat.etapas[e] for e in alvo.todas_as_etapas if e in cat.etapas]
     proprias = set(alvo.etapas)
-    disposicao = dispor(etapas, acervo.fecho, acervo.arestas, catalogo=cat, proprias=proprias)
+    disposicao = dispor(
+        etapas,
+        acervo.fecho,
+        acervo.arestas,
+        catalogo=cat,
+        proprias=proprias,
+        estados={ident: p.estado for ident, p in progresso.items()},
+    )
     destrava = {n.etapa_id: n.destrava for n in disposicao.nos}
 
     linhas = tuple(
@@ -145,6 +171,9 @@ def trilha(acervo: Acervo, trilha_id: str) -> VisaoTrilha | None:
             destrava=destrava.get(e.id, 0),
             qtd_recursos=len(cat.recursos_da_etapa(e.id)),
             requisitos=len(e.requires),
+            estado=_estado(progresso, e.id),
+            estado_rotulo=comum.estado_de_etapa(_estado(progresso, e.id)),
+            atualizado_em=progresso[e.id].atualizado_em if e.id in progresso else None,
         )
         for e in sorted(etapas, key=lambda e: (acervo.fecho.onda.get(e.id, 0), e.titulo))
     )
@@ -167,17 +196,26 @@ def trilha(acervo: Acervo, trilha_id: str) -> VisaoTrilha | None:
             )
             for e in alvo.etapas_referenciadas
         ),
+        tem_percurso=percurso is not None,
+        qtd_concluidas=sum(1 for e in etapas if _estado(progresso, e.id) is EstadoEtapa.CONCLUIDA),
+        qtd_em_andamento=sum(
+            1 for e in etapas if _estado(progresso, e.id) is EstadoEtapa.EM_ANDAMENTO
+        ),
     )
 
 
-def etapa(acervo: Acervo, etapa_id: str, *, hoje: date) -> VisaoEtapa | None:
+def etapa(
+    acervo: Acervo, etapa_id: str, *, hoje: date, percurso: Percurso | None = None
+) -> VisaoEtapa | None:
     cat = acervo.catalogo
     alvo = cat.etapas.get(etapa_id)
     if alvo is None:
         return None
 
+    progresso = _progresso_por_etapa(percurso)
+    aqui = progresso.get(etapa_id)
     recursos = tuple(
-        _recurso(r, hoje=hoje)
+        _recurso(r, hoje=hoje, em_uso=aqui is not None and aqui.recurso_em_uso == r.id)
         for r in sorted(
             cat.recursos_da_etapa(etapa_id),
             key=lambda r: (not r.disponivel, r.custo, r.duracao_min, r.titulo),
@@ -233,6 +271,10 @@ def etapa(acervo: Acervo, etapa_id: str, *, hoje: date) -> VisaoEtapa | None:
             if etapa_id in t.etapas_referenciadas
         ),
         alertas=_alertas_da_etapa(alvo, recursos),
+        tem_percurso=percurso is not None,
+        estado=_estado(progresso, etapa_id),
+        estado_rotulo=comum.estado_de_etapa(_estado(progresso, etapa_id)),
+        atualizado_em=aqui.atualizado_em if aqui else None,
     )
 
 
@@ -301,7 +343,7 @@ def _exigencia(acervo: Acervo, competencia_id: str, nivel: Nivel) -> Exigencia:
     )
 
 
-def _recurso(recurso: Recurso, *, hoje: date) -> LinhaRecurso:
+def _recurso(recurso: Recurso, *, hoje: date, em_uso: bool = False) -> LinhaRecurso:
     dias = comum.dias_desde(recurso.verificado_em, hoje)
     return LinhaRecurso(
         id=recurso.id,
@@ -318,7 +360,25 @@ def _recurso(recurso: Recurso, *, hoje: date) -> LinhaRecurso:
         verificado_em=recurso.verificado_em,
         dias_sem_verificar=dias,
         vencido=comum.vencido(recurso.verificado_em, hoje),
+        em_uso=em_uso,
     )
+
+
+def _progresso_por_etapa(percurso: Percurso | None) -> dict[str, ProgressoEtapa]:
+    """Progresso indexado por etapa. Sem percurso, dicionário vazio — não um erro.
+
+    As três telas de detalhe existiam antes de o percurso chegar até elas e continuam
+    válidas sem ele: o catálogo é navegável por quem ainda não declarou estudante.
+    """
+    if percurso is None:
+        return {}
+    return {p.etapa: p for p in percurso.progresso}
+
+
+def _estado(progresso: Mapping[str, ProgressoEtapa], etapa_id: str) -> EstadoEtapa:
+    """Etapa ausente do progresso é não iniciada — ausência de fato, não fato negativo."""
+    aqui = progresso.get(etapa_id)
+    return aqui.estado if aqui else EstadoEtapa.NAO_INICIADA
 
 
 def _quantas_exigem(acervo: Acervo) -> dict[str, int]:

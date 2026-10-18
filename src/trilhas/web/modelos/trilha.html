@@ -9,6 +9,10 @@
   {% if v.trilha.status.value != 'ativo' %}<span class="etiqueta aviso">{{ v.trilha.status.value }}</span>{% endif %}
   · {{ v.qtd_obrigatorias }} etapas obrigatórias{% if v.qtd_opcionais %}, {{ v.qtd_opcionais }} opcionais{% endif %}
   · {{ v.esforco }}
+  {% if v.tem_percurso and (v.qtd_concluidas or v.qtd_em_andamento) %}
+  <span class="etiqueta estado estado-concluida">{{ v.qtd_concluidas }} concluída(s)</span>
+  {% if v.qtd_em_andamento %}<span class="etiqueta estado estado-em_andamento">{{ v.qtd_em_andamento }} em andamento</span>{% endif %}
+  {% endif %}
 </p>
 
 <section>
@@ -43,7 +47,8 @@
     <caption class="oculto">Etapas da trilha, em ordem de profundidade de pré-requisito</caption>
     <thead>
       <tr>
-        <th scope="col">Onda</th><th scope="col">Etapa</th><th scope="col">Esforço</th>
+        <th scope="col">Onda</th><th scope="col">Etapa</th><th scope="col">Estado</th>
+        <th scope="col">Esforço</th>
         <th scope="col">Exige</th><th scope="col">Destrava</th><th scope="col">Recursos</th>
       </tr>
     </thead>
@@ -56,6 +61,16 @@
           {% if e.opcional %}<span class="etiqueta">opcional</span>{% endif %}
           {% if e.emprestada %}<span class="etiqueta">emprestada</span>{% endif %}
           {% if e.status.value != 'ativo' %}<span class="etiqueta aviso">{{ e.status.value }}</span>{% endif %}
+        </td>
+        <td>
+          {% if e.estado.value != 'nao_iniciada' %}
+          <span class="etiqueta estado estado-{{ e.estado.value }}">{{ e.estado_rotulo }}</span>
+          {% if e.atualizado_em %}<br><span class="fraco">{{ e.atualizado_em }}</span>{% endif %}
+          {% elif v.tem_percurso %}
+          <span class="fraco">—</span>
+          {% else %}
+          <span class="fraco" title="Nenhum percurso para consultar">sem percurso</span>
+          {% endif %}
         </td>
         <td class="num">{{ e.esforco }}</td>
         <td class="num">{{ e.requisitos }}</td>

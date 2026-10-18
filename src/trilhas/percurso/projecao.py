@@ -60,7 +60,12 @@ def competencias_de(registros: Iterable[Registro]) -> tuple[CompetenciaDominada,
 
 
 def progresso_de(registros: Iterable[Registro]) -> tuple[ProgressoEtapa, ...]:
-    """O último fato sobre cada etapa vence, pela ordem do log."""
+    """O último fato sobre cada etapa vence, pela ordem do log.
+
+    `recurso_em_uso` é a exceção a "o último vence": só `EtapaIniciada` o carrega, e
+    concluir não o repete. Esquecê-lo na conclusão faria a etapa concluída perder por
+    qual recurso foi estudada — que é justamente o que se quer saber depois.
+    """
     estado: dict[str, ProgressoEtapa] = {}
     for registro in _ordenados(registros):
         evento = registro.evento
@@ -74,8 +79,13 @@ def progresso_de(registros: Iterable[Registro]) -> tuple[ProgressoEtapa, ...]:
             situacao = EstadoEtapa.ABANDONADA
         else:
             continue
+        anterior = estado.get(evento.etapa)
+        recurso = evento.recurso if isinstance(evento, EtapaIniciada) else None
         estado[evento.etapa] = ProgressoEtapa(
-            etapa=evento.etapa, estado=situacao, atualizado_em=registro.dia
+            etapa=evento.etapa,
+            estado=situacao,
+            atualizado_em=registro.dia,
+            recurso_em_uso=recurso or (anterior.recurso_em_uso if anterior else None),
         )
     return tuple(estado[chave] for chave in sorted(estado))
 

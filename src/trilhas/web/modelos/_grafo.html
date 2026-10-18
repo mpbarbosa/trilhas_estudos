@@ -43,18 +43,14 @@
 
       <g class="nos">
         {% for n in d.nos %}
-        <a href="/etapa/{{ n.etapa_id }}" class="no
-            {% if n.opcional %}no-opcional{% endif %}
-            {% if n.emprestada %}no-emprestada{% endif %}
-            {% if n.entrada %}no-entrada{% endif %}
-            {% if n.status.value != 'ativo' %}no-{{ n.status.value }}{% endif %}">
-          <title>{{ n.titulo }} — onda {{ n.onda }}, {{ n.esforco }}{% if n.destrava %}, destrava {{ n.destrava }}{% endif %}</title>
+        <a href="/etapa/{{ n.etapa_id }}" class="no{% if n.opcional %} no-opcional{% endif %}{% if n.emprestada %} no-emprestada{% endif %}{% if n.entrada %} no-entrada{% endif %}{% if n.status.value != 'ativo' %} no-{{ n.status.value }}{% endif %}{% if n.estado.value != 'nao_iniciada' %} no-estado-{{ n.estado.value }}{% endif %}">
+          <title>{{ n.titulo }} — onda {{ n.onda }}, {{ n.esforco }}{% if n.destrava %}, destrava {{ n.destrava }}{% endif %}{% if n.estado.value != 'nao_iniciada' %}, {{ n.estado.value.replace('_', ' ') }}{% endif %}</title>
           <rect x="{{ n.x }}" y="{{ n.y }}" width="{{ n.largura }}" height="{{ n.altura }}" rx="6" />
           {% for linha in n.linhas %}
           <text class="no-titulo" x="{{ n.x + 10 }}" y="{{ n.y + 20 + loop.index0 * 14 }}">{{ linha }}</text>
           {% endfor %}
           <text class="no-meta" x="{{ n.x + 10 }}" y="{{ n.y + n.altura - 8 }}">
-            {{ n.esforco }}{% if n.opcional %} · opcional{% endif %}{% if n.emprestada %} · emprestada{% endif %}
+            {{ n.esforco }}{% if n.opcional %} · opcional{% endif %}{% if n.emprestada %} · emprestada{% endif %}{% if n.estado.value == 'concluida' %} · ✓{% elif n.estado.value == 'em_andamento' %} · ⋯{% endif %}
           </text>
         </a>
         {% endfor %}
@@ -67,6 +63,8 @@
     <li><span class="amostra"></span> etapa da trilha</li>
     <li><span class="amostra amostra-emprestada"></span> emprestada de outra trilha</li>
     <li><span class="amostra amostra-opcional"></span> opcional</li>
+    <li><span class="amostra amostra-concluida"></span> concluída</li>
+    <li><span class="amostra amostra-em-andamento"></span> em andamento</li>
     <li><span class="amostra amostra-aresta"></span> destrava</li>
     <li><span class="amostra amostra-retorno"></span> aresta sem avanço de onda</li>
   </ul>

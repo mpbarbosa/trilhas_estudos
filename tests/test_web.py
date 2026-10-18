@@ -10,8 +10,10 @@ from pathlib import Path
 import pytest
 from starlette.testclient import TestClient
 
+import fabrica
 from trilhas.catalogo.carregar import carregar
 from trilhas.catalogo.compilar import compilar
+from trilhas.percurso import Repositorio, concluir_etapa, iniciar_etapa
 from trilhas.web.app import criar_app
 
 HOJE = date(2026, 10, 12)
@@ -328,3 +330,99 @@ def test_desligado_nao_oferece_rota_que_nao_responde_mais(cliente_desligavel: Te
     pagina = cliente_desligavel.post("/desligar").text
     assert 'href="/catalogo"' not in pagina
     assert "abrir-app.sh" in pagina
+
+
+# --- progresso do estudante nas telas de detalhe --------------------------------
+
+CLASSES_DO_NO = {
+    "no",
+    "no-opcional",
+    "no-emprestada",
+    "no-entrada",
+    "no-rascunho",
+    "no-depreciado",
+    "no-estado-concluida",
+    "no-estado-em_andamento",
+    "no-estado-abandonada",
+}
+
+
+@pytest.fixture
+def com_log(lock: Path) -> TestClient:
+    """Percurso declarado em YAML **mais** o log de fatos, como no repositório.
+
+    A etapa de entrada e a seguinte ficam concluídas; a de entrada é o nó que acumula
+    duas classes no grafo, e é por isso que ela entra aqui.
+    """
+    pasta = lock.parent / "percurso"
+    pasta.mkdir(exist_ok=True)
+    (pasta / "est-teste.yaml").write_text(PERCURSO_MATRICULADO, encoding="utf-8")
+    entrada = fabrica.etapa("etapa:dados/modelagem-basica")
+    seguinte = fabrica.etapa("etapa:dados/sql-select")
+    with Repositorio.em_diretorio(pasta) as repo:
+        repo.anexar(
+            "est:teste",
+            [
+                *iniciar_etapa(entrada, recurso="rec:dados/modelagem-basica-texto"),
+                *concluir_etapa(entrada),
+                *iniciar_etapa(seguinte, recurso="rec:dados/sql-select-video"),
+                *concluir_etapa(seguinte),
+            ],
+        )
+    return TestClient(criar_app(lock=lock, hoje=lambda: HOJE))
+
+
+def test_etapa_concluida_se_diz_concluida(com_log: TestClient) -> None:
+    resposta = com_log.get("/etapa/etapa:dados/sql-select")
+    assert resposta.status_code == 200
+    assert "concluída" in resposta.text
+
+
+def test_etapa_marca_o_recurso_pelo_qual_se_estudou(com_log: TestClient) -> None:
+    """A etapa tem mais de um recurso; marcar todos seria o mesmo que não marcar."""
+    html = com_log.get("/etapa/etapa:dados/sql-select").text
+    marcadas = re.findall(r'<tr id="([^"]+)" class="recurso-em-uso', html)
+    assert marcadas == ["rec:dados/sql-select-video"]
+
+
+def test_etapa_nao_tocada_nao_ganha_marca(com_log: TestClient) -> None:
+    html = com_log.get("/etapa/etapa:dados/sql-join").text
+    assert "recurso-em-uso" not in html
+    assert 'class="etiqueta estado' not in html
+
+
+def test_trilha_conta_as_etapas_concluidas(com_log: TestClient) -> None:
+    html = com_log.get("/trilha/trilha:dados/fundamentos").text
+    assert "2 concluída(s)" in html
+
+
+def test_sem_percurso_a_tela_nao_afirma_progresso_zero(cliente: TestClient) -> None:
+    """Não saber e saber que não houve são coisas diferentes (docs/interface.md §6)."""
+    html = cliente.get("/trilha/trilha:dados/fundamentos").text
+    assert "sem percurso" in html
+    assert "concluída(s)" not in html
+
+
+def test_progresso_declarado_no_yaml_nao_vale_mais_que_o_log(com_percurso: TestClient) -> None:
+    """ADR-0008: progresso é projeção do log, e o campo do YAML é histórico pré-ADR.
+
+    `PERCURSO_MATRICULADO` declara `sql-select` em andamento e não há log nenhum. Honrar
+    o YAML aqui faria a tela discordar de `trilhas-percurso mostrar` sem dizer por quê —
+    que foi exatamente o sintoma que motivou ligar a web ao log.
+    """
+    html = com_percurso.get("/etapa/etapa:dados/sql-select").text
+    assert "estado-em_andamento" not in html
+
+
+def test_classes_do_no_do_grafo_nao_saem_grudadas(com_log: TestClient) -> None:
+    """`trim_blocks` come a quebra de linha depois de `{% endif %}` e `lstrip_blocks`
+    come o recuo antes do `{% if %}` seguinte: duas classes condicionais em linhas
+    separadas saíam como `no-entradano-estado-concluida`, que não casa com seletor
+    nenhum e some sem erro — o nó fica sem marca e a tela mente em silêncio.
+    """
+    html = com_log.get("/trilha/trilha:dados/fundamentos").text
+    atributos = [v.split() for v in re.findall(r'class="(no(?:\s[^"]*)?)"', html)]
+    assert any(len(tokens) >= 2 for tokens in atributos), "nenhum nó acumulou classes"
+    for tokens in atributos:
+        for token in tokens:
+            assert token in CLASSES_DO_NO, f"classe desconhecida no grafo: {token!r}"

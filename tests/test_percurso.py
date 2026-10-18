@@ -30,6 +30,7 @@ from trilhas.percurso import (
     registrar_autoavaliacao,
 )
 from trilhas.percurso.eventos import EvidenciaRegistrada, Registro
+from trilhas.percurso.repositorio import registros_em
 
 EM = datetime(2026, 10, 13, tzinfo=UTC)
 
@@ -484,3 +485,53 @@ def test_conferir_nao_grava_nada(tmp_path: Path) -> None:
     rodar(destino, lock, "reagir", "etapa:x/base", "aceita")
     rodar(destino, lock, "exportar", "--conferir")
     assert saida.read_text(encoding="utf-8") == antes, "conferir não deve reescrever"
+
+
+# --- recurso pelo qual se estuda ------------------------------------------------
+
+
+def test_progresso_guarda_o_recurso_pelo_qual_se_iniciou() -> None:
+    log = registros((iniciar_etapa(etapa("etapa:x"), recurso="rec:x")[0], EM))
+    assert progresso_de(log)[0].recurso_em_uso == "rec:x"
+
+
+def test_concluir_nao_apaga_o_recurso_declarado_no_inicio() -> None:
+    """Só `EtapaIniciada` carrega o recurso; a conclusão não o repete.
+
+    Se a projeção deixasse o último fato sobrescrever tudo, a etapa concluída perderia
+    por qual recurso foi estudada — que é justamente o que se pergunta depois.
+    """
+    alvo = etapa("etapa:x")
+    log = registros(
+        (iniciar_etapa(alvo, recurso="rec:x")[0], EM),
+        (concluir_etapa(alvo)[0], EM),
+    )
+    (progresso,) = progresso_de(log)
+    assert progresso.estado is EstadoEtapa.CONCLUIDA
+    assert progresso.recurso_em_uso == "rec:x"
+
+
+def test_iniciar_sem_recurso_nao_inventa_um() -> None:
+    log = registros((iniciar_etapa(etapa("etapa:x"))[0], EM))
+    assert progresso_de(log)[0].recurso_em_uso is None
+
+
+# --- leitura do log por quem só lê ----------------------------------------------
+
+
+def test_registros_em_nao_cria_o_banco_quando_ele_nao_existe(tmp_path: Path) -> None:
+    """A interface é somente leitura: renderizar uma página não pode fazer nascer um log.
+
+    `Repositorio` cria o arquivo ao abrir, e é por isso que a web não o usa.
+    """
+    assert registros_em(tmp_path, "est:x") == []
+    assert not (tmp_path / Repositorio.NOME_DO_ARQUIVO).exists()
+
+
+def test_registros_em_le_o_que_o_repositorio_gravou(tmp_path: Path) -> None:
+    with Repositorio.em_diretorio(tmp_path) as repo:
+        repo.anexar("est:x", iniciar_etapa(etapa("etapa:x"), recurso="rec:x"))
+
+    lidos = registros_em(tmp_path, "est:x")
+    assert [r.evento.etapa for r in lidos] == ["etapa:x"]
+    assert registros_em(tmp_path, "est:outro") == []

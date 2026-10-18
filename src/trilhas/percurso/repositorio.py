@@ -191,6 +191,37 @@ class Repositorio:
         self.fechar()
 
 
+def registros_em(diretorio: Path, estudante: str) -> list[Registro]:
+    """Fatos de um estudante sem abrir o log para escrita. Para quem só lê.
+
+    `Repositorio` cria o arquivo e o esquema ao abrir — certo para quem escreve, errado
+    para quem lê: a interface é somente leitura (ADR-0007) e não pode fazer nascer um
+    log ao renderizar uma página. Daí a conexão em `mode=ro`, que o SQLite recusa se o
+    arquivo não existir, em vez de criá-lo.
+
+    Banco ausente, ilegível ou sem a tabela vira lista vazia — é o "percurso sem fatos"
+    do estudante novo, que a projeção já trata como caso normal (ADR-0008), e não um
+    erro que derrube a tela.
+    """
+    caminho = diretorio / Repositorio.NOME_DO_ARQUIVO
+    if not caminho.is_file():
+        return []
+    try:
+        con = sqlite3.connect(f"file:{caminho}?mode=ro", uri=True)
+    except sqlite3.Error:
+        return []
+    try:
+        linhas = con.execute(
+            "SELECT seq, estudante, tipo, em, dados FROM evento WHERE estudante = ? ORDER BY seq",
+            (estudante,),
+        ).fetchall()
+    except sqlite3.Error:
+        return []
+    finally:
+        con.close()
+    return [registro for registro in map(_de_linha, linhas) if registro is not None]
+
+
 def _de_linha(linha: tuple[Any, ...]) -> Registro | None:
     """Linha ilegível é ignorada, não derruba a leitura.
 

@@ -330,3 +330,20 @@ select:focus-visible, .no:focus-visible rect {
   padding: 1rem 1.25rem; margin: 1rem 0;
 }
 .vazio-desenhado h2 { margin-top: 0; }
+
+/* --- progresso do estudante ---
+   Cor sai dos tokens que já existem (--acento, --aviso), e não de valores novos:
+   é o que faz o modo escuro valer sem segunda tabela. */
+.etiqueta.estado { border-color: var(--acento); color: var(--acento); }
+.etiqueta.estado-em_andamento { border-color: var(--aviso); color: var(--aviso); }
+.etiqueta.estado-abandonada { border-color: var(--borda-forte); color: var(--texto-fraco); }
+
+.recurso-em-uso > td { background: var(--acento-fraco); }
+.recurso-em-uso > td:first-child { box-shadow: inset 3px 0 0 var(--acento); }
+
+.no-estado-concluida rect { fill: var(--acento-fraco); stroke: var(--acento); stroke-width: 2; }
+.no-estado-em_andamento rect { stroke: var(--aviso); stroke-width: 2; }
+.no-estado-abandonada { opacity: .6; }
+
+.amostra-concluida { background: var(--acento-fraco); border-color: var(--acento); }
+.amostra-em-andamento { border-color: var(--aviso); }
