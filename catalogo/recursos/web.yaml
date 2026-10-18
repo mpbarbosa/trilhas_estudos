@@ -134,6 +134,23 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-08
 
+  # `obra: flanagan-javascript-definitive-guide` agrupa esta fatia com as dos caps. 13
+  # (assincronia) e 16 (Node), se um dia forem escritas: é o mesmo exemplar, comprado
+  # uma vez, e o custo repetido em cada fatia é o do livro inteiro (ADR-0009).
+  - id: rec:web/flanagan-javascript-linguagem-e-dom
+    etapa: etapa:web/javascript-de-aplicacao
+    titulo: "JavaScript: The Definitive Guide, 7ª ed. (David Flanagan) — caps. 1 a 12, 14 e 15: léxico, tipos, objetos, funções, classes, módulos, metaprogramação e o DOM"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 300
+    obra: flanagan-javascript-definitive-guide
+    duracao_min: 1080
+    url: https://www.oreilly.com/library/view/javascript-the-definitive/9781491952016/
+    disponivel: true
+    verificado_em: 2026-10-18
+
   # --- etapa:web/assincronia-no-navegador ---------------------------------
   - id: rec:web/burnham-async-javascript
     etapa: etapa:web/assincronia-no-navegador

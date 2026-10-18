@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 24,
-  "gerado_em": "2026-10-18T13:36:21+00:00",
-  "hash": "sha256:bcb6e2c0f2a071f6a987178eef28b001571cf36dd576f3743935e76cc9ca23c9",
+  "catalogo_versao": 25,
+  "gerado_em": "2026-10-18T22:54:29+00:00",
+  "hash": "sha256:5e8a762712c03f871de1daff8689b861dfbb106bc9cf7388945668b38efd0885",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -5353,6 +5353,21 @@
       "url": "https://eloquentjavascript.net/",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/flanagan-javascript-linguagem-e-dom",
+      "titulo": "JavaScript: The Definitive Guide, 7ª ed. (David Flanagan) — caps. 1 a 12, 14 e 15: léxico, tipos, objetos, funções, classes, módulos, metaprogramação e o DOM",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/javascript-de-aplicacao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 300.0,
+      "duracao_min": 1080,
+      "url": "https://www.oreilly.com/library/view/javascript-the-definitive/9781491952016/",
+      "disponivel": true,
+      "obra": "flanagan-javascript-definitive-guide",
+      "verificado_em": "2026-10-18"
     },
     {
       "id": "rec:web/flask-docs",
