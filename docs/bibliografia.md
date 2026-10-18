@@ -839,6 +839,24 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 
 ---
 
+## Economia
+
+### Tecnofeudalismo: o que matou o capitalismo
+
+- **Autoria** — Yanis Varoufakis. Original: *Technofeudalism: What Killed
+  Capitalism* (Bodley Head, 2023).
+- **Edição** — 1ª ed., Crítica (selo da Planeta), 2025, pt-BR. Kindle publicado em
+  28/04/2025, 329 p.; o impresso tem 240 p.
+- **Identificadores** — ISBN-13 `9788542233193` (impresso), `9788542233841` (e-book)
+- **Amazon** — https://www.amazon.com.br/s?k=9788542233841 (link de busca: o ASIN
+  do Kindle não se confirmou. R$ 44,46 no Kindle em 2026-10-18, incluído no Prime;
+  o impresso estava a R$ 79,90 na Martins Fontes — o recurso declara o do Kindle)
+- **Citada por** — `rec:economia/varoufakis-tecnofeudalismo-caps-1-2`,
+  `rec:economia/varoufakis-tecnofeudalismo-caps-3-4`,
+  `rec:economia/varoufakis-tecnofeudalismo-caps-5-7`
+- **Nota** — o fatiamento por capítulo segue o original em inglês; os títulos da
+  edição brasileira não foram conferidos.
+
 ## O que não tem ficha
 
 Recursos que não são livros ficam de fora: documentação oficial (MDN, pandas,

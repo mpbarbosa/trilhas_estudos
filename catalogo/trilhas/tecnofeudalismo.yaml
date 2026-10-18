@@ -1,0 +1,79 @@
+versao_schema: 1
+trilha:
+  id: trilha:economia/tecnofeudalismo
+  titulo: Tecnofeudalismo — economia política do capital de nuvem
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:economia/lucro-renda-e-capital
+      nivel: intermediario
+    - competencia: comp:economia/capital-de-nuvem
+      nivel: avancado
+    - competencia: comp:economia/critica-do-tecnofeudalismo
+      nivel: intermediario
+
+  # Primeira trilha fora da computação e da matemática: economia política, não
+  # técnica. Nasce de uma leitura em curso — Varoufakis, *Tecnofeudalismo: o que
+  # matou o capitalismo* (Crítica, 2025) — e o livro é a espinha, fatiado em três
+  # (obra: varoufakis-tecnofeudalismo). A ordem segue a do livro porque o argumento
+  # é cumulativo: sem lucro e renda distintos, "renda de nuvem" é só metáfora.
+  #
+  # A última etapa sai do livro de propósito: uma tese que se lê só pela voz do
+  # autor não se avalia. Morozov, na New Left Review, é a objeção mais citada.
+  #
+  # Relação com as trilhas de IA: o capital de nuvem é, em boa parte, o que
+  # trilha:ia/llm-transformer-rag ensina a construir. Nenhuma competência é
+  # compartilhada — aqui o objeto é a economia, não a técnica.
+  etapas:
+    # --- Vocabulário --------------------------------------------------------
+    - id: etapa:economia/lucro-renda-e-as-metamorfoses-do-capitalismo
+      titulo: Lucro, renda e as metamorfoses do capitalismo
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 300
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:economia/lucro-renda-e-capital
+          nivel_resultante: intermediario
+
+    # --- A tese -------------------------------------------------------------
+    - id: etapa:economia/capital-de-nuvem-e-o-fim-do-lucro
+      titulo: Capital de nuvem, nuvemalistas e o fim do lucro
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 360
+      opcional: false
+      requires:
+        - competencia: comp:economia/lucro-renda-e-capital
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:economia/capital-de-nuvem
+          nivel_resultante: intermediario
+
+    - id: etapa:economia/tecnofeudalismo-no-mundo-e-a-fuga
+      titulo: O impacto global do tecnofeudalismo, a nova Guerra Fria e a fuga
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 420
+      opcional: false
+      requires:
+        - competencia: comp:economia/capital-de-nuvem
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:economia/capital-de-nuvem
+          nivel_resultante: avancado
+
+    # --- Fora do livro ------------------------------------------------------
+    - id: etapa:economia/tecnofeudalismo-em-debate
+      titulo: Tecnofeudalismo em debate — ainda é capitalismo?
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 240
+      opcional: false
+      requires:
+        - competencia: comp:economia/capital-de-nuvem
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:economia/critica-do-tecnofeudalismo
+          nivel_resultante: intermediario
