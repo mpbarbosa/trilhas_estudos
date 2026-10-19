@@ -31,7 +31,7 @@ from ..motor.modelo import (
     Reacao,
     Restricoes,
 )
-from ..percurso.projecao import montar_percurso
+from ..percurso.projecao import Evidencia, evidencias_de, montar_percurso
 from ..percurso.repositorio import registros_em
 
 NOME_DO_DIRETORIO = "percurso"
@@ -51,6 +51,7 @@ def carregar_percurso(caminho: Path) -> Percurso | None:
         competencias=tuple(_dominadas(perfil.get("competencias_dominadas"))),
         restricoes=_restricoes(_mapa(perfil.get("restricoes"))),
         objetivo=_objetivo(_mapa(dados.get("objetivo"))),
+        estante=_estante(perfil.get("estante")),
         matriculas=tuple(_matriculas(dados.get("matriculas"))),
         progresso=tuple(_progresso(dados.get("progresso"))),
         feedback=tuple(_feedback(dados.get("feedback"))),
@@ -74,6 +75,24 @@ def percurso_completo(caminho: Path) -> Percurso | None:
     if base is None:
         return None
     return montar_percurso(base, registros_em(caminho.parent, base.estudante_id))
+
+
+def evidencias_do_percurso(caminho: Path) -> tuple[Evidencia, ...]:
+    """As evidências do log, com o `seq` que as endereça (ADR-0016).
+
+    Segunda leitura do log ao lado de `percurso_completo`, e de propósito: `Percurso`
+    leva `CompetenciaDominada`, que é o nível vigente e nada mais — é o que o motor
+    consome. A tela de auditoria precisa do fato, não do nível, e o fato tem `seq`.
+    Pôr as evidências em `Percurso` para a tela as alcançar pelo caminho do motor
+    alargaria a entrada do motor por um consumidor que não é ele.
+
+    Só lê, como todo este módulo: banco ausente vira tupla vazia, porque `registros_em`
+    abre em `mode=ro` e desenhar uma página nunca faz nascer log (interface.md §9.1).
+    """
+    base = carregar_percurso(caminho)
+    if base is None:
+        return ()
+    return evidencias_de(registros_em(caminho.parent, base.estudante_id))
 
 
 def nome_do_estudante(caminho: Path) -> str:
@@ -162,6 +181,18 @@ def _restricoes(bruto: Mapping[str, Any]) -> Restricoes:
         custo_maximo=float(custo) if custo is not None else None,
         formatos_aceitos=frozenset(formatos),
     )
+
+
+def _estante(bruto: Any) -> frozenset[str]:
+    """Ids de recurso já adquiridos (ADR-0015). Tolerante como o resto do módulo.
+
+    Id inexistente no catálogo não é erro aqui: quem resolve a posse é o motor, contra
+    o catálogo que recebeu, e uma linha velha apontando para recurso que saiu de cena
+    simplesmente não casa com nada.
+    """
+    if not isinstance(bruto, list):
+        return frozenset()
+    return frozenset(str(item) for item in bruto if isinstance(item, str) and item.strip())
 
 
 def _objetivo(bruto: Mapping[str, Any]) -> Objetivo | None:

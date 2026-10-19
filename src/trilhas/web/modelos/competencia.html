@@ -9,6 +9,11 @@
   {% if v.competencia.status.value != 'ativo' %}<span class="etiqueta aviso">{{ v.competencia.status.value }}</span>{% endif %}
   · o catálogo leva até
   <span class="nivel nivel-{{ v.nivel_no_catalogo_rotulo }}">{{ v.nivel_no_catalogo_rotulo }}</span>
+  {% if v.nivel_no_percurso %}
+  · você está em
+  <span class="nivel nivel-{{ v.nivel_no_percurso_rotulo }}">{{ v.nivel_no_percurso_rotulo }}</span>
+  {% if v.ultima_evidencia_em %}<span class="fraco">desde {{ v.ultima_evidencia_em }}</span>{% endif %}
+  {% endif %}
 </p>
 
 {% for alerta in v.alertas %}
@@ -22,6 +27,133 @@
     É o critério obrigatório que liga catálogo a percurso: sem ele, nenhuma evidência
     sobre esta competência é defensável (<code>docs/catalogo.md</code> §2).
   </p>
+</section>
+
+{% set destino = caminho ~ ('?estudante=' ~ estudante_atual|urlencode if estudante_atual else '') %}
+<section class="evidencias">
+  <h2>Evidências no percurso</h2>
+  {% if not v.tem_percurso %}
+  <p class="fraco">
+    Nenhum percurso para consultar — a tela não sabe o que sustenta esta competência.
+    Declare um estudante em <code>percurso/&lt;estudante&gt;.yaml</code>.
+  </p>
+  {% elif not v.evidencias %}
+  <p class="fraco">
+    Nenhuma evidência. Competência sem evidência não existe no percurso
+    (<code>docs/CONTEXT.md</code> §4) — conclua uma etapa que a desenvolva, ou declare
+    abaixo que já sabe isto.
+  </p>
+  {% else %}
+  <p class="fraco">
+    Os fatos do log que sustentam o nível acima, na ordem em que aconteceram. O
+    <code>#seq</code> de cada um é o endereço dele no log: é o que <em>retratar</em>
+    aponta, e o mesmo que <code>trilhas-percurso retratar</code> recebe
+    (<code>docs/interface.md</code> §5.11).
+  </p>
+  <table class="tabela">
+    <caption class="oculto">Evidências desta competência, com o seq de cada fato</caption>
+    <thead>
+      <tr>
+        <th scope="col">#seq</th><th scope="col">Nível</th><th scope="col">Origem</th>
+        <th scope="col">Dia</th><th scope="col">Confiança</th><th scope="col">Retratar</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for e in v.evidencias %}
+      <tr id="evidencia-{{ e.seq }}" class="{% if e.retratada %}esmaecido{% endif %}">
+        <td><code>#{{ e.seq }}</code></td>
+        <td><span class="nivel nivel-{{ e.nivel_rotulo }}">{{ e.nivel_rotulo }}</span></td>
+        <td>
+          {{ e.origem_rotulo }}
+          {% if e.etapa %}<br><a href="{{ e.etapa.href }}">{{ e.etapa.titulo }}</a>
+          {% if e.etapa_rev %}<span class="fraco">rev {{ e.etapa_rev }}</span>{% endif %}
+          {% endif %}
+        </td>
+        <td class="num">{{ e.em }}</td>
+        <td class="num">{{ e.confianca }}</td>
+        <td>
+          {% if e.retratada %}
+          <span class="etiqueta aviso">retratada em {{ e.retratada_em }}</span>
+          {% if e.motivo_da_retratacao %}<br><span class="fraco">{{ e.motivo_da_retratacao }}</span>{% endif %}
+          {% elif v.pode_retratar %}
+          {# Sem `confirm()`: o POST que grava fato de percurso não pede confirmação em
+             §5.10, e pedir aqui diria que retratar é mais perigoso que concluir — é o
+             contrário, retratar é o conserto. Além disso só funcionaria com script. #}
+          <form class="acao" method="post" action="{{ destino }}">
+            <input type="hidden" name="acao" value="retratar">
+            <input type="hidden" name="seq" value="{{ e.seq }}">
+            <label class="oculto" for="motivo-{{ e.seq }}">Motivo</label>
+            <input id="motivo-{{ e.seq }}" type="text" name="motivo" placeholder="motivo (opcional)">
+            <button type="submit">Retratar</button>
+          </form>
+          {% else %}
+          <span class="fraco">—</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p class="fraco">
+    Retratar grava <code>EvidenciaRetratada</code>, um fato datado novo: a linha fica,
+    marcada, e o nível volta à evidência legítima de baixo — não a
+    <em>desconhece</em>, porque a retratação apaga um fato e não a história
+    (<code>ADR-0014</code>).
+  </p>
+  {% endif %}
+</section>
+
+<section class="registrar">
+  <h2>Declarar que já sei</h2>
+  {% if v.tem_percurso %}
+  <p class="fraco">
+    Autoavaliação: competência adquirida fora do sistema. Grava o mesmo fato que
+    <code>trilhas-percurso sei</code>, com confiança {{ v.confianca_da_autoavaliacao }}
+    contra 1.0 de uma etapa concluída — dizer que se sabe não é observável, e o motor
+    desconta a diferença ao medir prontidão
+    (<code>docs/motor-de-sugestao.md</code> §3.2).
+  </p>
+  <form class="acao" method="post" action="{{ destino }}">
+    <input type="hidden" name="acao" value="autoavaliar">
+    <label for="nivel">Sei esta competência em nível</label>
+    <select id="nivel" name="nivel" required>
+      <option value="">— escolha —</option>
+      {% for valor, rotulo in v.niveis_declaraveis %}
+      <option value="{{ valor }}">{{ rotulo }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit">Registrar autoavaliação</button>
+  </form>
+  {# `nota` e não `alerta`: a severidade (cor de aviso) é do diagnóstico do catálogo
+     (§7), e isto não é problema nenhum — é a regra que explica o que o clique faz. #}
+  <p class="nota">
+    {% if v.nivel_no_percurso %}
+    <strong>Declarar abaixo de {{ v.nivel_no_percurso_rotulo }} não rebaixa.</strong>
+    O nível vigente é o <em>maior</em> já evidenciado e não retratado: o fato novo entra
+    no log e aparece na tabela acima, e a linha “você está em
+    {{ v.nivel_no_percurso_rotulo }}” continua onde está — não é o botão que falhou.
+    Para descer, <em>retrate</em> acima a evidência que sustenta o nível
+    (<code>ADR-0014</code>).
+    {% else %}
+    <strong>O nível só sobe.</strong> Esta é a primeira evidência, então o que você
+    declarar passa a ser o nível vigente; daí em diante o nível é o <em>maior</em> já
+    evidenciado e não retratado, e declarar um menor grava o fato sem rebaixar. Para
+    descer, retrata-se a evidência que sustenta o nível (<code>ADR-0014</code>).
+    {% endif %}
+  </p>
+  <p class="fraco">
+    <em>desconhece</em> não está na lista: é a ausência de competência, não um grau
+    dela — uma evidência dizendo “não sei isto” não sustentaria nível nenhum e, pela
+    monotonia, nem rebaixaria. A CLI exclui o mesmo nível de
+    <code>trilhas-percurso sei</code>.
+  </p>
+  {% else %}
+  <p class="fraco">
+    Nenhum percurso carregado — um fato datado precisa de estudante a quem atribuí-lo,
+    e o botão aqui faria o clique inventar um. Declare
+    <code>percurso/&lt;estudante&gt;.yaml</code> e esta seção aparece.
+  </p>
+  {% endif %}
 </section>
 
 {% if v.competencia.descricao %}

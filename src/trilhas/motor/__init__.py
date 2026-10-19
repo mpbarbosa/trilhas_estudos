@@ -24,7 +24,7 @@ from .modelo import (
     Sugestao,
     Tipo,
 )
-from .sugerir import sugerir
+from .sugerir import possuidos_em, sugerir
 
 __all__ = [
     "CompetenciaDominada",
@@ -46,5 +46,6 @@ __all__ = [
     "Resultado",
     "Sugestao",
     "Tipo",
+    "possuidos_em",
     "sugerir",
 ]

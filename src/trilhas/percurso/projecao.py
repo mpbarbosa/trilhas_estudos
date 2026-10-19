@@ -12,6 +12,7 @@ from collections.abc import Iterable, Sequence
 from dataclasses import dataclass, replace
 from datetime import date
 
+from trilhas.catalogo.modelo import Nivel
 from trilhas.motor.modelo import (
     CompetenciaDominada,
     EstadoEtapa,
@@ -27,6 +28,7 @@ from .eventos import (
     EvidenciaRegistrada,
     EvidenciaRetratada,
     FeedbackDado,
+    Origem,
     RecursoPercorrido,
     Registro,
 )
@@ -45,6 +47,76 @@ class Percorrido:
     recurso: str
     recurso_rev: int
     percorrido_em: date
+
+
+@dataclass(frozen=True, slots=True)
+class Evidencia:
+    """Uma evidência do log, com o `seq` que a endereça (ADR-0016).
+
+    Mora aqui pelo mesmo motivo de `Percorrido`: o motor não a consome. `Percurso` leva
+    `CompetenciaDominada`, que é o **nível vigente** e nada mais — nível é o que o motor
+    filtra e despontua (motor §2.2, §3.6), e ele nunca pergunta qual fato o produziu.
+    Alargar `CompetenciaDominada` com as evidências que a sustentam anunciaria na
+    entrada do motor um consumidor que não existe.
+
+    Quem a consome é a auditoria: a tela que responde "por que o sistema acha que eu sei
+    isso" — e, desde ADR-0014, "por que ele deixou de achar". Para isso o `seq` tem de
+    aparecer, porque é o alvo de `retratar`.
+    """
+
+    seq: int
+    competencia: str
+    nivel: Nivel
+    origem: Origem
+    confianca: float
+    em: date
+    etapa: str | None = None
+    etapa_rev: int | None = None
+    retratada_em: date | None = None
+    """Dia da retratação, ou `None`. É o que distingue "não sustenta mais" de "nunca
+    sustentou": a evidência retratada continua no log, datada (ADR-0008)."""
+    motivo_da_retratacao: str | None = None
+
+    @property
+    def retratada(self) -> bool:
+        return self.retratada_em is not None
+
+
+def evidencias_de(registros: Iterable[Registro]) -> tuple[Evidencia, ...]:
+    """Toda evidência do log, em ordem, com o `seq` e a retratação que a alcançou.
+
+    Diferente de `competencias_de`, **nada é descartado**: a evidência retratada entra
+    marcada, e a de nível menor que não venceu o máximo entra igual. É a diferença entre
+    projetar o que a pessoa sabe hoje e exibir o histórico que o sustenta — e exibir o
+    histórico é o que torna o `seq` descobrível (ADR-0014, Consequências).
+    """
+    guardados = _ordenados(registros)
+    retratacoes: dict[int, tuple[date, str | None]] = {
+        r.evento.evidencia_seq: (r.dia, r.evento.motivo)
+        for r in guardados
+        if isinstance(r.evento, EvidenciaRetratada)
+    }
+    achadas = []
+    for registro in guardados:
+        evento = registro.evento
+        if not isinstance(evento, EvidenciaRegistrada):
+            continue
+        retratacao = retratacoes.get(registro.seq)
+        achadas.append(
+            Evidencia(
+                seq=registro.seq,
+                competencia=evento.competencia,
+                nivel=evento.nivel,
+                origem=evento.origem,
+                confianca=evento.confianca,
+                em=registro.dia,
+                etapa=evento.etapa,
+                etapa_rev=evento.etapa_rev,
+                retratada_em=retratacao[0] if retratacao else None,
+                motivo_da_retratacao=retratacao[1] if retratacao else None,
+            )
+        )
+    return tuple(achadas)
 
 
 def retratadas_em(registros: Iterable[Registro]) -> frozenset[int]:
@@ -67,7 +139,7 @@ def competencias_de(registros: Iterable[Registro]) -> tuple[CompetenciaDominada,
     qualquer nível — é o que faz `urgencia_de_revisao` (motor §3.6) medir o
     decaimento do que a pessoa sabe hoje, não de um nível que ela já superou.
 
-    O nível é monotônico por decisão (ADR-0012): evidência nova de nível menor nunca
+    O nível é monotônico por decisão (ADR-0014): evidência nova de nível menor nunca
     rebaixa, venha de `teaches` (CONTEXT §4) ou de autoavaliação. Só retratação baixa.
     Retratar a última evidência de uma competência a faz desaparecer — competência sem
     evidência não existe (CONTEXT §4) —, mas havendo evidência anterior legítima, o
@@ -163,8 +235,10 @@ def feedback_de(registros: Iterable[Registro]) -> tuple[Feedback, ...]:
 def montar_percurso(base: Percurso, registros: Iterable[Registro]) -> Percurso:
     """Combina o estado declarado (YAML) com os fatos do log.
 
-    Do `base` vêm identidade, restrições, objetivo e matrículas — o que o estudante
-    declara. Do log vêm competências, progresso e feedback — o que aconteceu.
+    Do `base` vêm identidade, restrições, objetivo, matrículas e estante — o que o
+    estudante declara. Do log vêm competências, progresso e feedback — o que
+    aconteceu. A estante é estado, não fato datado, e por isso atravessa daqui
+    intacta (ADR-0015).
 
     `RecursoPercorrido` fica fora de propósito (ADR-0012): o motor não o consome, e
     projetá-lo aqui o faria entrar na entrada do motor sem consumidor. Quem o quer
