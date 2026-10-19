@@ -40,8 +40,8 @@
   {% elif not v.evidencias %}
   <p class="fraco">
     Nenhuma evidência. Competência sem evidência não existe no percurso
-    (<code>docs/CONTEXT.md</code> §4) — conclua uma etapa que a desenvolva, ou registre
-    autoavaliação por <code>trilhas-percurso sei</code>.
+    (<code>docs/CONTEXT.md</code> §4) — conclua uma etapa que a desenvolva, ou declare
+    abaixo que já sabe isto.
   </p>
   {% else %}
   <p class="fraco">
@@ -80,6 +80,7 @@
              §5.10, e pedir aqui diria que retratar é mais perigoso que concluir — é o
              contrário, retratar é o conserto. Além disso só funcionaria com script. #}
           <form class="acao" method="post" action="{{ destino }}">
+            <input type="hidden" name="acao" value="retratar">
             <input type="hidden" name="seq" value="{{ e.seq }}">
             <label class="oculto" for="motivo-{{ e.seq }}">Motivo</label>
             <input id="motivo-{{ e.seq }}" type="text" name="motivo" placeholder="motivo (opcional)">
@@ -98,6 +99,59 @@
     marcada, e o nível volta à evidência legítima de baixo — não a
     <em>desconhece</em>, porque a retratação apaga um fato e não a história
     (<code>ADR-0014</code>).
+  </p>
+  {% endif %}
+</section>
+
+<section class="registrar">
+  <h2>Declarar que já sei</h2>
+  {% if v.tem_percurso %}
+  <p class="fraco">
+    Autoavaliação: competência adquirida fora do sistema. Grava o mesmo fato que
+    <code>trilhas-percurso sei</code>, com confiança {{ v.confianca_da_autoavaliacao }}
+    contra 1.0 de uma etapa concluída — dizer que se sabe não é observável, e o motor
+    desconta a diferença ao medir prontidão
+    (<code>docs/motor-de-sugestao.md</code> §3.2).
+  </p>
+  <form class="acao" method="post" action="{{ destino }}">
+    <input type="hidden" name="acao" value="autoavaliar">
+    <label for="nivel">Sei esta competência em nível</label>
+    <select id="nivel" name="nivel" required>
+      <option value="">— escolha —</option>
+      {% for valor, rotulo in v.niveis_declaraveis %}
+      <option value="{{ valor }}">{{ rotulo }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit">Registrar autoavaliação</button>
+  </form>
+  {# `nota` e não `alerta`: a severidade (cor de aviso) é do diagnóstico do catálogo
+     (§7), e isto não é problema nenhum — é a regra que explica o que o clique faz. #}
+  <p class="nota">
+    {% if v.nivel_no_percurso %}
+    <strong>Declarar abaixo de {{ v.nivel_no_percurso_rotulo }} não rebaixa.</strong>
+    O nível vigente é o <em>maior</em> já evidenciado e não retratado: o fato novo entra
+    no log e aparece na tabela acima, e a linha “você está em
+    {{ v.nivel_no_percurso_rotulo }}” continua onde está — não é o botão que falhou.
+    Para descer, <em>retrate</em> acima a evidência que sustenta o nível
+    (<code>ADR-0014</code>).
+    {% else %}
+    <strong>O nível só sobe.</strong> Esta é a primeira evidência, então o que você
+    declarar passa a ser o nível vigente; daí em diante o nível é o <em>maior</em> já
+    evidenciado e não retratado, e declarar um menor grava o fato sem rebaixar. Para
+    descer, retrata-se a evidência que sustenta o nível (<code>ADR-0014</code>).
+    {% endif %}
+  </p>
+  <p class="fraco">
+    <em>desconhece</em> não está na lista: é a ausência de competência, não um grau
+    dela — uma evidência dizendo “não sei isto” não sustentaria nível nenhum e, pela
+    monotonia, nem rebaixaria. A CLI exclui o mesmo nível de
+    <code>trilhas-percurso sei</code>.
+  </p>
+  {% else %}
+  <p class="fraco">
+    Nenhum percurso carregado — um fato datado precisa de estudante a quem atribuí-lo,
+    e o botão aqui faria o clique inventar um. Declare
+    <code>percurso/&lt;estudante&gt;.yaml</code> e esta seção aparece.
   </p>
   {% endif %}
 </section>

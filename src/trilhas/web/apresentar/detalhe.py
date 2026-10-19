@@ -13,6 +13,7 @@ from datetime import date
 from ...catalogo.modelo import Catalogo, Competencia, Etapa, Nivel, Recurso, Status, Trilha
 from ...motor.modelo import EstadoEtapa, Percurso, ProgressoEtapa
 from ...percurso.projecao import Evidencia
+from ...percurso.registrar import CONFIANCA_AUTOAVALIACAO, NIVEIS_DECLARAVEIS
 from ..dados import Acervo
 from ..escrever import Acao
 from . import comum
@@ -160,6 +161,16 @@ class VisaoEtapa:
     e oferecer o botão faria o clique criar o estudante (docs/interface.md §5.10)."""
 
 
+NIVEIS_PARA_DECLARAR: tuple[tuple[str, str], ...] = tuple(
+    (str(n), comum.nivel(n)) for n in NIVEIS_DECLARAVEIS
+)
+"""Cada nível declarável como `(valor do formulário, rótulo)`.
+
+O valor é o que `Nivel.de_texto` lê de volta no POST; o rótulo é o que a pessoa vê, e
+difere dele onde há acento (`intermediario` / `intermediário`). Quais níveis entram é
+decisão do domínio — aqui só se escreve como eles aparecem."""
+
+
 @dataclass(frozen=True, slots=True)
 class LinhaEvidencia:
     """Uma evidência na linha do tempo, com o `seq` à vista (docs/interface.md §5.11).
@@ -206,6 +217,17 @@ class VisaoCompetencia:
     pode_retratar: bool = False
     """Só com percurso carregado: retratar é escrita, e um fato precisa de estudante a
     quem atribuí-lo (docs/interface.md §5.10.6)."""
+    niveis_declaraveis: tuple[tuple[str, str], ...] = ()
+    """`(valor, rótulo)` de cada nível que a autoavaliação pode declarar (§5.12).
+
+    Sai de `registrar.NIVEIS_DECLARAVEIS`, a mesma lista de onde a CLI tira o `choices`
+    de `sei` — `desconhece` fica de fora nas duas. Montá-la aqui a partir de `Nivel`
+    seria a segunda implementação que a §3.3 proíbe, e a tela passaria a oferecer o que
+    a CLI recusa."""
+    confianca_da_autoavaliacao: float = CONFIANCA_AUTOAVALIACAO
+    """Com que peso o que se declara entra no log. Vem da constante do domínio e não de
+    um número escrito no template: a tela diz o preço antes do clique, e um literal em
+    Jinja passaria a mentir no dia em que a constante mudasse."""
 
 
 def trilha(
@@ -417,6 +439,7 @@ def competencia(
         ultima_evidencia_em=dominada.ultima_evidencia_em if dominada else None,
         evidencias=minhas,
         pode_retratar=percurso is not None,
+        niveis_declaraveis=NIVEIS_PARA_DECLARAR,
     )
 
 

@@ -378,8 +378,19 @@ evidências em **linha do tempo datada**, etapas que a ensinam, etapas que a exi
 menor, [motor §4](motor-de-sugestao.md)) ou evidência de exercício/projeto.
 
 A linha do tempo de evidências **está feita**, com o `seq` de cada fato à vista e o
-botão que a retrata ao lado (§5.11). O resto desta tela — o caminho mínimo, as ações de
-registro — segue pendente.
+botão que a retrata ao lado (§5.11), e **a autoavaliação também** (§5.12) — a tela que
+desfazia o fato agora também o faz. Falta o caminho mínimo, e falta a evidência de
+exercício/projeto, que não tem fato de domínio que a represente: `Origem` só conhece
+`conclusao_de_etapa` e `autoavaliacao`, e inventar a terceira é decisão de ADR, não de
+tela.
+
+**A tela diz que o nível não desce.** Declarar `iniciante` sobre uma competência já
+evidenciada em `avancado` grava o fato e **não** rebaixa: o nível vigente é o maior
+evidenciado e não retratado ([ADR-0014](adr/0014-retratacao-de-evidencia-por-seq.md)).
+Sem aviso, quem clica lê a tabela ganhando uma linha e o cabeçalho não mudando, e
+conclui que o botão falhou. O aviso nomeia o nível vigente — "declarar abaixo de
+avançado não rebaixa" —, porque regra enunciada em abstrato ninguém lê como sendo sobre
+si, e aponta a saída que existe: retratar a evidência que sustenta o nível.
 
 Restrições editáveis numa só tela, com o efeito previsto antes de salvar: "limitar a
 pt-BR elimina 80 dos 109 recursos e trava 19 etapas". Restrição é filtro **duro** — o
@@ -512,8 +523,8 @@ não tinha desfazer.** O que esta tela oferece é reiniciar a etapa — o últim
 ela vence na projeção —, o que conserta o progresso e **não** conserta a evidência já
 emitida. A evidência se conserta na tela da competência, por retratação.
 
-Fora desta fase, ainda pela CLI: feedback sobre sugestão (`reagir`), autoavaliação
-(`sei`) e edição de restrições e matrícula.
+Fora desta fase, ainda pela CLI: feedback sobre sugestão (`reagir`) e edição de
+restrições e matrícula. A autoavaliação saiu desta lista com a §5.12.
 
 ---
 
@@ -558,13 +569,66 @@ Cinco propriedades, além das seis da §5.10, que valem todas aqui:
    diria que retratar é mais perigoso que concluir, quando é o contrário — retratar é o
    conserto. E só funcionaria com script (§6.9).
 
-O resto é a §5.10 sem desvio: `Origin` presente e igual ao host senão 403, 303 em vez
-de HTML, `?estudante=` preservado, e 409 sem percurso — sem banco nascendo.
+O resto é a §5.10 sem desvio: `acao=retratar` no corpo, `Origin` presente e igual ao
+host senão 403, 303 em vez de HTML, `?estudante=` preservado, e 409 sem percurso — sem
+banco nascendo.
 
 **Retratar a última evidência faz a competência desaparecer** da projeção e da tela:
 competência sem evidência não existe ([CONTEXT §4](CONTEXT.md)). Havendo evidência
 anterior legítima, o nível cai *para ela* e não para `desconhece` — a retratação apaga
 um fato, não a história.
+
+---
+
+### 5.12 `POST /competencia/{id}` — declarar que já se sabe (autoavaliação)
+
+A [ADR-0016](adr/0016-retratacao-pela-tela-da-competencia.md) fechou as Consequências
+numa assimetria: a tela lista a evidência de autoavaliação e deixa retratá-la, e não
+deixa **criá-la** — `trilhas-percurso sei` era o único caminho. A tela oferecia como
+desfazer um fato que não oferecia como fazer. Esta rota fecha isso.
+
+**Mesma URL, campo `acao`.** As duas escritas da competência — `autoavaliar` e
+`retratar` — chegam ao mesmo endereço e se separam pelo campo, como `iniciar`,
+`concluir` e `abandonar` na §5.10. Uma entidade, uma URL (§2.1.3): sub-rotas por tipo
+de fato dariam à competência três endereços para a mesma tela, e o destino do redirect
+deixaria de ser trivial.
+
+O vocabulário é **enum próprio** (`AcaoDaCompetencia`), não `Acao` alargada: as duas
+URLs recebem fatos de naturezas diferentes, e um enum só faria `concluir` ser ação
+conhecida na competência, aceita na borda para só então não ter o que fazer. Cada URL
+recusa no mesmo lugar o que não é dela.
+
+Quatro propriedades, além das seis da §5.10:
+
+1. **A regra é `registrar.conferir_autoavaliacao`** — a mesma função que
+   `trilhas-percurso sei` chama, movida para o domínio ao ligar a tela, como
+   `conferir_recurso` foi na §5.10.1. Ela confere duas coisas: a competência existe no
+   catálogo, e o nível é declarável. A primeira impede evidência órfã —
+   `EvidenciaRegistrada` não valida `competencia` contra nada, então um id errado
+   viraria fato sobre coisa nenhuma, somado a uma competência que nenhuma tela mostra.
+2. **`desconhece` não se declara**, na tela como na CLI. A lista é
+   `registrar.NIVEIS_DECLARAVEIS`, de onde o `choices` de `sei` também sai: duas cópias
+   divergiriam e a tela ofereceria o que a CLI recusa (§3.3). `desconhece` é a
+   *ausência* de competência, não um grau dela — uma evidência dizendo "não sei isto"
+   não sustentaria nível nenhum e, pela monotonia da ADR-0014, nem rebaixaria: entraria
+   no log para não ter efeito algum. O `required` do `<select>` é do navegador; a
+   recusa existe no servidor, que é quem grava.
+3. **Confiança menor, e dita antes do clique.** `CONFIANCA_AUTOAVALIACAO` é 0.6 contra
+   1.0 de uma etapa concluída — dizer que se sabe não é observável, e o fator
+   `prontidao` ([motor §3.2](motor-de-sugestao.md)) desconta a diferença. O número sai
+   da constante do domínio e chega à tela pela visão; um literal no template passaria a
+   mentir no dia em que a constante mudasse.
+4. **A conferência fica fora da transação**, ao contrário da §5.11.3: o que ela afirma é
+   sobre o catálogo, que esta escrita não muda. A da retratação afirma coisa sobre o
+   próprio log, e conferi-la fora da transação que grava a deixaria valendo sobre um log
+   que já mudou.
+
+**O nível não desce, e a tela diz isso** — é o ponto de desenho desta rota, e está na
+§5.5. O fato declarado entra no log e aparece na tabela de evidências; o cabeçalho não
+muda. Sem o aviso, essa diferença se lê como botão quebrado.
+
+O resto é a §5.10 sem desvio: `Origin` presente e igual ao host senão 403, 303 em vez
+de HTML, `?estudante=` preservado, e 409 sem percurso — sem banco nascendo.
 
 ---
 
@@ -638,12 +702,15 @@ Nível é **rampa sequencial**, nunca quatro cores distintas: a escala é ordina
 | POST | `/restricoes` | perfil |
 | POST | `/catalogo/autoria/gerar` | diff de YAML + resultado da validação |
 | POST | `/etapa/{id}` | ✅ grava iniciar/concluir/abandonar e redireciona (§5.10) |
-| POST | `/competencia/{id}` | ✅ retrata a evidência de um `seq` e redireciona (§5.11) |
+| POST | `/competencia/{id}` | ✅ `acao=autoavaliar` grava autoavaliação (§5.12), `acao=retratar` retrata o `seq` (§5.11); redireciona |
 | POST | `/desligar` | ✅ tela de despedida; encerra o processo em seguida (§5.9) |
 
 As linhas sem ✅ são planejadas e ainda não respondem; as três marcadas são as que
 existem, e as duas de escrita de percurso vão para a **URL da própria entidade** — uma
-entidade, uma URL —, não para as sub-rotas por tipo de fato que esta tabela previa.
+entidade, uma URL —, não para as sub-rotas por tipo de fato que esta tabela previa. O
+que a tabela chamava de `POST /evidencia` é hoje `acao=autoavaliar` na competência: o
+fato é da competência, e a rota por tipo de fato deixaria de fora justamente o `seq`
+que a mesma tela precisa endereçar.
 
 Todo POST responde o fragmento HTML atualizado (htmx) e um `Location` para quem vier sem
 script — exceto `/desligar`, que responde uma página inteira, porque depois dela não há
@@ -711,7 +778,7 @@ vez de afirmar progresso zero.
 | Fase | Entrega | Depende de | Valor |
 |---|---|---|---|
 | ~~**1**~~ **entregue** | Explorador somente-leitura: `/`, `/catalogo`, `/trilha/{id}` com grafo, `/etapa/{id}`, `/competencia/{id}`, `/catalogo/diagnostico` | nada além do que existe | o acervo de 54 etapas e 109 recursos fica navegável e as lacunas aparecem |
-| **2** *parcial* | Percurso: **progresso de etapa pela tela** (§5.10) e **retratação de evidência** (§5.11), feitos. Faltam matrícula, autoavaliação e restrições | ~~ADR de persistência (§9)~~ — [ADR-0008](adr/0008-percurso-como-log-de-fatos-datados.md) + `src/trilhas/percurso/` | "controlar" do propósito do sistema |
+| **2** *parcial* | Percurso: **progresso de etapa** (§5.10), **retratação de evidência** (§5.11) e **autoavaliação** (§5.12) pela tela, feitos. Faltam matrícula e restrições | ~~ADR de persistência (§9)~~ — [ADR-0008](adr/0008-percurso-como-log-de-fatos-datados.md) + `src/trilhas/percurso/` | "controlar" do propósito do sistema |
 | **3** *parcial* | Painel `/` com top-N, fatores à vista e "por que isto não apareceu". **Falta o feedback**, que é escrita e depende da fase 2 | ~~motor de sugestão~~ — feito | "sugerir" — a razão do projeto |
 | **4** | `/catalogo/autoria` gerando YAML | fases 1–2 maduras | autoria sem editar YAML à mão |
 
@@ -721,8 +788,8 @@ já estabelecida por [ADR-0006](adr/0006-stack-python.md).
 A fase 3 chegou antes da 2 porque o motor ficou pronto primeiro, e porque **mostrar a
 sugestão não exige escrever percurso**. A fase 2 destravou com a
 [ADR-0008](adr/0008-percurso-como-log-de-fatos-datados.md) e entrou pela metade que
-mais pesa: a tela da etapa registra progresso (§5.10), e a leitura projeta o log
-(§9.1). O ciclo do [motor §2](motor-de-sugestao.md) ainda não fecha na tela — a reação
+mais pesa: a tela da etapa registra progresso (§5.10), a da competência registra e
+retrata evidência (§5.11, §5.12), e a leitura projeta o log (§9.1). O ciclo do [motor §2](motor-de-sugestao.md) ainda não fecha na tela — a reação
 do estudante a uma sugestão só existe por `trilhas-percurso reagir`.
 
 ---
@@ -753,7 +820,11 @@ travada sendo gravada. A §5.11 acrescentou o `seq` aparecendo na tela, o nível
 para a evidência de baixo em vez de sumir, a competência sumindo quando a última
 evidência é retratada, a autoavaliação sendo retratável pela competência — que é a
 razão de a tela morar ali — e as quatro recusas de alvo inválido: inexistente, não
-sendo evidência, já retratado e não numérico.
+sendo evidência, já retratado e não numérico. A §5.12 acrescentou o fato declarado com
+`etapa=None` e confiança menor, a declaração abaixo do vigente gravando sem rebaixar, o
+aviso nomeando o nível vigente, e as recusas de `desconhece`, nível fora da escala,
+nível ausente, competência fora do catálogo, ação da etapa chegando à competência e
+POST sem `acao`.
 
 ---
 
