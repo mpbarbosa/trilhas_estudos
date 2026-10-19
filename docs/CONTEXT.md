@@ -26,7 +26,7 @@ que provavelmente aparecerá no código, ele está entre parênteses.
 | **Restrição** (`Constraint`) | Limite duro do estudante: tempo disponível por semana, idioma, custo máximo, formato aceito. |
 | **Matrícula** (`Enrollment`) | Vínculo de um estudante com uma trilha, com data de início e status. |
 | **Progresso** (`Progress`) | Registro do avanço: estado por etapa (`nao_iniciada`, `em_andamento`, `concluida`, `abandonada`). |
-| **Evidência** (`Evidence`) | Justificativa de que uma competência foi atingida: autoavaliação, exercício correto, projeto entregue, etapa concluída. Carrega data e confiança. |
+| **Evidência** (`Evidence`) | Justificativa de que uma competência foi atingida: autoavaliação, exercício correto, projeto entregue, etapa concluída. Carrega data e confiança. Pode ser **retratada** por um fato novo — nunca apagada ([ADR-0014](adr/0014-retratacao-de-evidencia-por-seq.md)). |
 | **Sugestão** (`Suggestion`) | Recomendação de uma etapa (ou trilha) num instante, com score e **explicação**. É efêmera e auditável, nunca silenciosa. |
 | **Feedback** | Reação do estudante à sugestão: `aceita`, `postergada`, `rejeitada` (+ motivo). Alimenta as sugestões seguintes. |
 
@@ -110,7 +110,10 @@ erDiagram
 - Uma etapa só é **sugerível** se todos os seus `requires` estão satisfeitos pelo
   perfil no nível mínimo exigido.
 - `teaches` de uma etapa nunca rebaixa o nível de uma competência já dominada.
-- Toda `CompetenciaDominada` tem ao menos uma `Evidencia`.
+- Toda `CompetenciaDominada` tem ao menos uma `Evidencia` **não retratada**.
+- O nível de uma competência **nunca cai por evidência nova** de nível menor — nem por
+  `teaches`, nem por autoavaliação. Cai só por **retratação** da evidência que o
+  sustentava, que é um fato novo no log ([ADR-0014](adr/0014-retratacao-de-evidencia-por-seq.md)).
 - Toda `Sugestao` persiste os fatores de score usados **e a `catalogo_versao`** — reproduzível no tempo.
 - Todo id de catálogo é imutável e nunca reaproveitado; entidades são depreciadas, nunca removidas.
 - Uma trilha pode ser concluída com etapas `opcional: true` pendentes; nunca com

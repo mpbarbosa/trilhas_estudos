@@ -27,6 +27,7 @@
 | [0011](adr/0011-python-no-servidor-como-ramo-da-trilha-web.md) | Python no servidor como ramo opcional da trilha web | aceito |
 | [0012](adr/0012-fato-de-recurso-no-percurso.md) | Percurso registra fato de recurso; posse fica fora do log | aceito |
 | [0013](adr/0013-hospedagem-do-modelo-como-ramo-da-trilha-de-claude.md) | Hospedagem do modelo como ramo opcional da trilha de Claude | aceito |
+| [0014](adr/0014-retratacao-de-evidencia-por-seq.md) | Retratação de evidência como fato novo, endereçada pelo `seq` do log | aceito |
 
 ## Pendente
 
