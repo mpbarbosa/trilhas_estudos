@@ -293,7 +293,7 @@ def test_explicacao_sem_enfase_vira_um_trecho_so() -> None:
     assert [t.texto for t in _trechos("sem ênfase")] == ["sem ênfase"]
 
 
-# --- estante no cartão (ADR-0013) ----------------------------------------------
+# --- estante no cartão (ADR-0015) ----------------------------------------------
 
 
 def _cat_com_livro() -> Catalogo:
@@ -318,7 +318,7 @@ def _painel_do_livro(estante: frozenset[str]):  # type: ignore[no-untyped-def]
 
 
 def test_recurso_da_estante_mostra_o_preco_de_catalogo_e_que_ja_e_seu() -> None:
-    """Zerar o custo na tela chamaria de "grátis" um livro de R$ 350 (ADR-0013)."""
+    """Zerar o custo na tela chamaria de "grátis" um livro de R$ 350 (ADR-0015)."""
     visao = _painel_do_livro(frozenset({"rec:x/livro"}))
     sugerido = visao.cartoes[0].recurso
     assert sugerido is not None

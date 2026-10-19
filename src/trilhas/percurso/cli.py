@@ -20,9 +20,9 @@ from trilhas.motor.modelo import Percurso, Reacao
 from trilhas.web.percurso import carregar_percurso
 
 from . import registrar
-from .eventos import Evento
+from .eventos import Evento, EvidenciaRegistrada, Registro
 from .migrar import eventos_do_yaml
-from .projecao import Percorrido, montar_percurso, percorridos_de
+from .projecao import Percorrido, montar_percurso, percorridos_de, retratadas_em
 from .repositorio import Repositorio
 
 LOCK_PADRAO = Path("catalogo.lock.json")
@@ -63,6 +63,12 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("competencia")
     p.add_argument("nivel", choices=[str(n) for n in Nivel if n is not Nivel.DESCONHECE])
 
+    p = sub.add_parser(
+        "retratar", help="declara que uma evidência foi emitida por engano (ADR-0012)"
+    )
+    p.add_argument("seq", type=int, help="o #seq da evidência; `mostrar` os lista")
+    p.add_argument("--motivo")
+
     p = sub.add_parser("reagir", help="feedback sobre uma sugestão")
     p.add_argument("etapa")
     p.add_argument("reacao", choices=[str(r) for r in Reacao])
@@ -100,7 +106,27 @@ def main(argv: list[str] | None = None) -> int:
     with Repositorio.em_diretorio(args.percurso) as repo:
         if args.comando == "mostrar":
             guardados = repo.registros(args.estudante)
-            _mostrar(montar_percurso(base, guardados), percorridos_de(guardados), catalogo)
+            _mostrar(
+                montar_percurso(base, guardados),
+                guardados,
+                percorridos_de(guardados),
+                catalogo,
+            )
+            return 0
+
+        if args.comando == "retratar":
+            # Precisa do log, não do catálogo: o alvo é um fato gravado. Branch próprio
+            # por isso — `_eventos` recebe catálogo e percurso declarado, não registros.
+            guardados = repo.registros(args.estudante)
+            problema = registrar.conferir_retratacao(args.seq, guardados)
+            if problema is not None:
+                print(problema, file=sys.stderr)
+                return 1
+            gravado = repo.anexar(
+                args.estudante, registrar.retratar_evidencia(args.seq, motivo=args.motivo)
+            )
+            for registro in gravado:
+                print(f"#{registro.seq} {type(registro.evento).__name__} retrata #{args.seq}")
             return 0
 
         if args.comando == "exportar":
@@ -245,7 +271,12 @@ def _base(diretorio: Path, estudante: str) -> Percurso:
     return carregar_percurso(arquivo) or Percurso(estudante_id=estudante)
 
 
-def _mostrar(percurso: Percurso, percorridos: tuple[Percorrido, ...], catalogo: Catalogo) -> None:
+def _mostrar(
+    percurso: Percurso,
+    registros: list[Registro],
+    percorridos: tuple[Percorrido, ...],
+    catalogo: Catalogo,
+) -> None:
     print(f"estudante: {percurso.estudante_id}")
     print(f"matrículas: {len(percurso.matriculas)}")
     print("competências dominadas:")
@@ -269,6 +300,25 @@ def _mostrar(percurso: Percurso, percorridos: tuple[Percorrido, ...], catalogo: 
         print("feedback:")
         for f in percurso.feedback:
             print(f"  {f.etapa:46} {f.reacao!s:14} {f.em}")
+    _mostrar_evidencias(registros)
+
+
+def _mostrar_evidencias(registros: list[Registro]) -> None:
+    """Lista as evidências com seu `seq`, marcando as retratadas.
+
+    É o que torna `retratar` usável: o alvo é um `seq`, e sem isto a única forma de
+    achá-lo seria ler o JSONL à mão (ADR-0014).
+    """
+    evidencias = [r for r in registros if isinstance(r.evento, EvidenciaRegistrada)]
+    if not evidencias:
+        return
+    retratadas = retratadas_em(registros)
+    print("evidências:")
+    for r in evidencias:
+        ev = r.evento
+        assert isinstance(ev, EvidenciaRegistrada)  # para o verificador; filtrado acima
+        marca = " RETRATADA" if r.seq in retratadas else ""
+        print(f"  #{r.seq:<5} {ev.competencia:40} {ev.nivel!s:14} {r.dia} {ev.origem!s}{marca}")
 
 
 def _mostrar_obras(percorridos: tuple[Percorrido, ...], catalogo: Catalogo) -> None:

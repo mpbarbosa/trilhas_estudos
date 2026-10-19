@@ -636,7 +636,7 @@ def test_concluir_duas_vezes_duplica_a_evidencia_sem_duplicar_a_competencia(
     assert ensinada[0].nivel is Nivel.INTERMEDIARIO
 
 
-# --- estante no YAML de percurso (ADR-0013) ------------------------------------
+# --- estante no YAML de percurso (ADR-0015) ------------------------------------
 
 PERCURSO_COM_ESTANTE = """
 versao_schema: 1
@@ -670,7 +670,7 @@ def test_percurso_sem_estante_fica_com_estante_vazia(tmp_path: Path) -> None:
 
 
 def test_estante_atravessa_a_projecao_do_log(lock: Path) -> None:
-    """Estante é estado declarado, não fato datado: o log não a toca (ADR-0013)."""
+    """Estante é estado declarado, não fato datado: o log não a toca (ADR-0015)."""
     pasta = lock.parent / "percurso"
     pasta.mkdir(exist_ok=True)
     arquivo = pasta / "est-estante.yaml"

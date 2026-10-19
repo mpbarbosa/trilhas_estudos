@@ -58,6 +58,28 @@ class EvidenciaRegistrada:
 
 
 @dataclass(frozen=True, slots=True)
+class EvidenciaRetratada:
+    """Diz que uma `EvidenciaRegistrada` foi emitida por engano (ADR-0014).
+
+    Aponta para o `seq` do evento que retrata, e **não repete** a competência nem o
+    nível dele: seria redundância capaz de contradizer o alvo. Gravar o que a outra
+    fonte dizia — como `concluir_etapa` faz com `teaches` — existe porque o catálogo
+    muda; o evento #29 não muda. O log é append-only, então consultar o alvo depois dá
+    a mesma resposta que daria na escrita.
+    """
+
+    evidencia_seq: int
+    motivo: str | None = None
+
+    def como_dados(self) -> dict[str, Any]:
+        return {"evidencia_seq": self.evidencia_seq, "motivo": self.motivo}
+
+    @classmethod
+    def de_dados(cls, d: dict[str, Any]) -> Self:
+        return cls(int(d["evidencia_seq"]), d.get("motivo"))
+
+
+@dataclass(frozen=True, slots=True)
 class EtapaIniciada:
     etapa: str
     etapa_rev: int
@@ -171,6 +193,7 @@ class FeedbackDado:
 
 Evento = (
     EvidenciaRegistrada
+    | EvidenciaRetratada
     | EtapaIniciada
     | EtapaConcluida
     | EtapaAbandonada
@@ -181,6 +204,7 @@ Evento = (
 
 TIPOS: dict[str, type[Evento]] = {
     "evidencia_registrada": EvidenciaRegistrada,
+    "evidencia_retratada": EvidenciaRetratada,
     "etapa_iniciada": EtapaIniciada,
     "etapa_concluida": EtapaConcluida,
     "etapa_abandonada": EtapaAbandonada,
@@ -206,6 +230,8 @@ def evento_de_dados(tipo: str, dados: dict[str, Any]) -> Evento | None:
     match tipo:
         case "evidencia_registrada":
             return EvidenciaRegistrada.de_dados(dados)
+        case "evidencia_retratada":
+            return EvidenciaRetratada.de_dados(dados)
         case "etapa_iniciada":
             return EtapaIniciada.de_dados(dados)
         case "etapa_concluida":

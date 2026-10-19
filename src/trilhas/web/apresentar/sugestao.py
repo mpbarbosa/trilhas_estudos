@@ -117,7 +117,7 @@ class RecursoSugerido:
     duracao: str
     url: str
     na_estante: bool = False
-    """O exemplar já é do estudante (ADR-0013). O `custo` continua o de catálogo:
+    """O exemplar já é do estudante (ADR-0015). O `custo` continua o de catálogo:
     um livro de R$ 350 não vira "grátis" por estar pago — vira "R$ 350 · já seu"."""
 
 

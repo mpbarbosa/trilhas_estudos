@@ -166,7 +166,7 @@ def _restricoes(bruto: Mapping[str, Any]) -> Restricoes:
 
 
 def _estante(bruto: Any) -> frozenset[str]:
-    """Ids de recurso já adquiridos (ADR-0013). Tolerante como o resto do módulo.
+    """Ids de recurso já adquiridos (ADR-0015). Tolerante como o resto do módulo.
 
     Id inexistente no catálogo não é erro aqui: quem resolve a posse é o motor, contra
     o catálogo que recebeu, e uma linha velha apontando para recurso que saiu de cena

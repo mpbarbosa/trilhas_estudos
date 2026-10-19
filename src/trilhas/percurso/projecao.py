@@ -25,6 +25,7 @@ from .eventos import (
     EtapaConcluida,
     EtapaIniciada,
     EvidenciaRegistrada,
+    EvidenciaRetratada,
     FeedbackDado,
     RecursoPercorrido,
     Registro,
@@ -46,17 +47,40 @@ class Percorrido:
     percorrido_em: date
 
 
+def retratadas_em(registros: Iterable[Registro]) -> frozenset[int]:
+    """Os `seq` das evidências retratadas (ADR-0014).
+
+    Passada própria porque a retratação vem necessariamente **depois** do que retrata:
+    projetar numa varredura só obrigaria a desfazer um máximo já tomado, e tomar o
+    máximo não é operação que se desfaça — perdida a evidência anterior, não há como
+    saber a qual nível voltar.
+    """
+    return frozenset(
+        r.evento.evidencia_seq for r in registros if isinstance(r.evento, EvidenciaRetratada)
+    )
+
+
 def competencias_de(registros: Iterable[Registro]) -> tuple[CompetenciaDominada, ...]:
-    """Nível é o máximo evidenciado; a data é da evidência mais recente nesse nível.
+    """Nível é o máximo evidenciado **não retratado**; a data é da mais recente nesse nível.
 
     Usar a evidência mais recente *do nível vigente* — e não a mais recente de
     qualquer nível — é o que faz `urgencia_de_revisao` (motor §3.6) medir o
     decaimento do que a pessoa sabe hoje, não de um nível que ela já superou.
+
+    O nível é monotônico por decisão (ADR-0012): evidência nova de nível menor nunca
+    rebaixa, venha de `teaches` (CONTEXT §4) ou de autoavaliação. Só retratação baixa.
+    Retratar a última evidência de uma competência a faz desaparecer — competência sem
+    evidência não existe (CONTEXT §4) —, mas havendo evidência anterior legítima, o
+    nível cai *para ela*, não para `desconhece`.
     """
+    guardados = list(registros)
+    retratadas = retratadas_em(guardados)
     melhor: dict[str, CompetenciaDominada] = {}
-    for registro in _ordenados(registros):
+    for registro in _ordenados(guardados):
         evento = registro.evento
         if not isinstance(evento, EvidenciaRegistrada):
+            continue
+        if registro.seq in retratadas:
             continue
         atual = melhor.get(evento.competencia)
         if atual is not None and evento.nivel < atual.nivel:
@@ -142,7 +166,7 @@ def montar_percurso(base: Percurso, registros: Iterable[Registro]) -> Percurso:
     Do `base` vêm identidade, restrições, objetivo, matrículas e estante — o que o
     estudante declara. Do log vêm competências, progresso e feedback — o que
     aconteceu. A estante é estado, não fato datado, e por isso atravessa daqui
-    intacta (ADR-0013).
+    intacta (ADR-0015).
 
     `RecursoPercorrido` fica fora de propósito (ADR-0012): o motor não o consome, e
     projetá-lo aqui o faria entrar na entrada do motor sem consumidor. Quem o quer

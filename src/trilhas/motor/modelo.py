@@ -91,7 +91,7 @@ class Percurso:
     progresso: tuple[ProgressoEtapa, ...] = ()
     feedback: tuple[Feedback, ...] = ()
     estante: frozenset[str] = frozenset()
-    """Ids de recurso cujo exemplar o estudante já adquiriu (ADR-0013).
+    """Ids de recurso cujo exemplar o estudante já adquiriu (ADR-0015).
 
     Uma fatia basta: o motor propaga a posse às irmãs pela `obra` do catálogo de hoje
     (ADR-0009), e `estante` não guarda o agrupamento. Posse é estado declarado, não

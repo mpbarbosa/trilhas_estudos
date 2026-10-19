@@ -1,4 +1,4 @@
-# ADR-0013 — Posse de exemplar como estante declarada no perfil, aplicada ao custo efetivo
+# ADR-0015 — Posse de exemplar como estante declarada no perfil, aplicada ao custo efetivo
 
 - **Data**: 2026-10-18
 - **Status**: aceito
@@ -15,18 +15,28 @@ data da aquisição não é lida por ninguém, e posse muda enquanto o log proí
 deixou para cá duas perguntas: **em que chave** a posse é declarada, e **o que o motor
 faz com ela**.
 
-O acervo tem hoje 183 recursos, 92 pagos. Desses, 59 são fatias de 16 obras (14 com mais
+Entre a redação daquela ADR e esta,
+[ADR-0014](0014-retratacao-de-evidencia-por-seq.md) deu ao log um fato de retratação,
+endereçado pelo `seq`. Isso enfraquece **um** dos três argumentos de ADR-0012 contra
+posse no log — "desfazer exige o fato de retratação que ADR-0008 deixou pendente" —, e
+só esse: a retratação de ADR-0014 é de `EvidenciaRegistrada`, não um desfazimento geral,
+e os outros dois argumentos não dependem dela. Nada lê a data da aquisição, e o que o
+motor precisa saber é "possuo isto **agora**" — estado, não instante, que é o corte de
+natureza de ADR-0008. A direção de ADR-0012 segue de pé, com um apoio a menos, e isto
+fica registrado para que a releitura não a encontre apoiada em premissa vencida.
+
+O acervo tem hoje 186 recursos, 92 pagos. Desses, 59 são fatias de 16 obras (14 com mais
 de uma fatia); os outros **33 são pagos sem `obra`** — exemplares de fatia única, que se
 compram igual.
 
 ### O que já estava medido, e o que a frase não distinguia
 
 ADR-0012 mediu: 69 etapas têm dois ou mais recursos viáveis para `est:mpb`; em 25 o
-`custo` já troca o recurso escolhido em
-[`sugerir.py:370`](../../src/trilhas/motor/sugerir.py); e zerar o custo de uma fatia
-possuída trocaria a escolha em **14** etapas. Os dois primeiros números reproduzem
-exatamente. O terceiro é correto para a pergunta que a frase faz — "uma fatia" —, e
-essa não é a pergunta que o sistema responde:
+`custo` já troca o recurso escolhido em `_aplicar_filtros`; e zerar o custo de uma fatia
+possuída trocaria a escolha em **14** etapas. Os dois primeiros reproduzem — 69 virou 70
+com a etapa que [ADR-0013](0013-hospedagem-do-modelo-como-ramo-da-trilha-de-claude.md)
+acrescentou, e 25 está igual. O terceiro é correto para a pergunta que a frase faz —
+"uma fatia" —, e essa não é a pergunta que o sistema responde:
 
 | Pergunta | Etapas em que a escolha muda |
 |---|---|

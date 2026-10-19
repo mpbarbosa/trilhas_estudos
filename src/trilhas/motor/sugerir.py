@@ -132,7 +132,7 @@ class _Contexto:
     alvos: tuple[Alvo, ...]
     alvos_pendentes: tuple[Alvo, ...]
     requerentes: dict[str, tuple[Etapa, ...]]  # competência -> etapas que a exigem
-    possuidos: frozenset[str]  # `estante` mais as fatias irmãs por `obra` (ADR-0013)
+    possuidos: frozenset[str]  # `estante` mais as fatias irmãs por `obra` (ADR-0015)
 
     @classmethod
     def montar(
@@ -396,7 +396,7 @@ def possuidos_em(catalogo: Catalogo, estante: frozenset[str]) -> frozenset[str]:
     O exemplar se compra uma vez e atende várias etapas (ADR-0009), então declarar uma
     fatia declara a obra inteira. A propagação é de leitura, contra o catálogo deste
     instante: nada do agrupamento fica gravado no percurso, e renomear uma obra segue
-    sem cerimônia (ADR-0013).
+    sem cerimônia (ADR-0015).
 
     Pública porque a apresentação precisa da mesma regra para marcar o recurso como
     "já seu": duas implementações da propagação discordariam em silêncio.
@@ -410,7 +410,7 @@ def possuidos_em(catalogo: Catalogo, estante: frozenset[str]) -> frozenset[str]:
 
 
 def _custo_efetivo(ctx: _Contexto, recurso: Recurso) -> float:
-    """O que ainda falta pagar: zero para o que já está na estante (ADR-0013).
+    """O que ainda falta pagar: zero para o que já está na estante (ADR-0015).
 
     Deriva do percurso, nunca do catálogo — `Recurso.custo` continua sendo o preço para
     quem for comprar. Vale no filtro de `custo_maximo` e no desempate, que são a mesma

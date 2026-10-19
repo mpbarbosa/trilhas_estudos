@@ -342,7 +342,7 @@ def test_filtro_de_custo_e_por_recurso_nao_por_caminho() -> None:
     assert ids(_com_teto(179)) == ["etapa:x/a", "etapa:x/b"]
 
 
-# --- §5, cenário 8: estante (ADR-0013) ----------------------------------------
+# --- §5, cenário 8: estante (ADR-0015) ----------------------------------------
 
 
 def _livro_contra_gratuito() -> Catalogo:
@@ -453,7 +453,7 @@ def test_id_fora_do_catalogo_na_estante_nao_quebra_nem_propaga() -> None:
 
 
 def test_estante_nao_muda_a_explicacao_nem_os_fatores() -> None:
-    """A escolha do recurso não pontua etapa: §2.5 segue intacta (ADR-0013)."""
+    """A escolha do recurso não pontua etapa: §2.5 segue intacta (ADR-0015)."""
     sem = _com_estante(frozenset()).sugestoes[0]
     com = _com_estante(frozenset({"rec:x/livro"})).sugestoes[0]
     assert com.recurso_sugerido_id != sem.recurso_sugerido_id

@@ -24,10 +24,10 @@ que provavelmente aparecerá no código, ele está entre parênteses.
 | **Objetivo** (`Goal`) | O que o estudante quer alcançar, expresso como competências-alvo com nível-alvo — opcionalmente derivado de uma trilha escolhida. |
 | **Perfil** (`Profile`) | Estado declarado + inferido do estudante: competências dominadas e níveis, preferências e restrições. |
 | **Restrição** (`Constraint`) | Limite duro do estudante: tempo disponível por semana, idioma, custo máximo, formato aceito. |
-| **Estante** (`Shelf`) | Recursos cujo exemplar o estudante já adquiriu. Atributo declarado do **Perfil**, não entidade: lista de ids de recurso, propagada às fatias irmãs pela `obra` do catálogo na leitura ([ADR-0013](adr/0013-posse-de-exemplar-como-estante-declarada.md)). Zera o custo que o motor atribui ao material, nunca o `custo` do catálogo. |
+| **Estante** (`Shelf`) | Recursos cujo exemplar o estudante já adquiriu. Atributo declarado do **Perfil**, não entidade: lista de ids de recurso, propagada às fatias irmãs pela `obra` do catálogo na leitura ([ADR-0015](adr/0015-posse-de-exemplar-como-estante-declarada.md)). Zera o custo que o motor atribui ao material, nunca o `custo` do catálogo. |
 | **Matrícula** (`Enrollment`) | Vínculo de um estudante com uma trilha, com data de início e status. |
 | **Progresso** (`Progress`) | Registro do avanço: estado por etapa (`nao_iniciada`, `em_andamento`, `concluida`, `abandonada`). |
-| **Evidência** (`Evidence`) | Justificativa de que uma competência foi atingida: autoavaliação, exercício correto, projeto entregue, etapa concluída. Carrega data e confiança. |
+| **Evidência** (`Evidence`) | Justificativa de que uma competência foi atingida: autoavaliação, exercício correto, projeto entregue, etapa concluída. Carrega data e confiança. Pode ser **retratada** por um fato novo — nunca apagada ([ADR-0014](adr/0014-retratacao-de-evidencia-por-seq.md)). |
 | **Sugestão** (`Suggestion`) | Recomendação de uma etapa (ou trilha) num instante, com score e **explicação**. É efêmera e auditável, nunca silenciosa. |
 | **Feedback** | Reação do estudante à sugestão: `aceita`, `postergada`, `rejeitada` (+ motivo). Alimenta as sugestões seguintes. |
 
@@ -71,7 +71,7 @@ erDiagram
 - **CompetenciaDominada**: `nivel`, `confianca` (0–1), `ultima_evidencia_em`.
 - **Restrição**: `minutos_por_semana`, `idiomas[]`, `custo_maximo`, `formatos_aceitos[]`.
 - **Perfil**: `estante[]` — ids de recurso já adquiridos, que o motor lê como custo zero
-  no filtro de `custo_maximo` e no desempate entre recursos (ADR-0013).
+  no filtro de `custo_maximo` e no desempate entre recursos (ADR-0015).
 
 ---
 
@@ -113,7 +113,10 @@ erDiagram
 - Uma etapa só é **sugerível** se todos os seus `requires` estão satisfeitos pelo
   perfil no nível mínimo exigido.
 - `teaches` de uma etapa nunca rebaixa o nível de uma competência já dominada.
-- Toda `CompetenciaDominada` tem ao menos uma `Evidencia`.
+- Toda `CompetenciaDominada` tem ao menos uma `Evidencia` **não retratada**.
+- O nível de uma competência **nunca cai por evidência nova** de nível menor — nem por
+  `teaches`, nem por autoavaliação. Cai só por **retratação** da evidência que o
+  sustentava, que é um fato novo no log ([ADR-0014](adr/0014-retratacao-de-evidencia-por-seq.md)).
 - Toda `Sugestao` persiste os fatores de score usados **e a `catalogo_versao`** — reproduzível no tempo.
 - Todo id de catálogo é imutável e nunca reaproveitado; entidades são depreciadas, nunca removidas.
 - Uma trilha pode ser concluída com etapas `opcional: true` pendentes; nunca com
