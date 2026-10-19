@@ -312,7 +312,7 @@ def _mostrar_evidencias(registros: list[Registro]) -> None:
     achá-lo seria ler o JSONL à mão (ADR-0014).
 
     A varredura é de `projecao.evidencias_de` — a **mesma** que a tela da competência
-    projeta (ADR-0015). Duas listas de evidência montadas em lugares diferentes dariam
+    projeta (ADR-0016). Duas listas de evidência montadas em lugares diferentes dariam
     dois `seq` para o mesmo fato na hora em que uma delas errasse a retratação.
     """
     evidencias = evidencias_de(registros)

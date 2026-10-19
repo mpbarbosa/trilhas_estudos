@@ -533,7 +533,7 @@ restrições e matrícula. A autoavaliação saiu desta lista com a §5.12.
 A [ADR-0014](adr/0014-retratacao-de-evidencia-por-seq.md) criou o fato de retratação e
 deixou para cá a pergunta de tela: a retratação endereça um fato do log pelo `seq`, e
 `seq` não aparecia em página nenhuma. A resposta está em
-[ADR-0015](adr/0015-retratacao-pela-tela-da-competencia.md) e é esta rota.
+[ADR-0016](adr/0016-retratacao-pela-tela-da-competencia.md) e é esta rota.
 
 **A casa é a competência, e não a etapa nem uma tela de histórico.** Toda
 `EvidenciaRegistrada` carrega `competencia` — campo obrigatório — e **nem toda carrega
@@ -561,7 +561,7 @@ Cinco propriedades, além das seis da §5.10, que valem todas aqui:
 4. **A leitura não passa por `Percurso`.** `projecao.evidencias_de` é uma segunda
    projeção, pura, que devolve o fato com `seq` em vez do nível vigente. `Percurso` é a
    entrada do motor, e o motor nunca pergunta qual fato produziu um nível — alargá-lo
-   anunciaria um consumidor que não existe (ADR-0015, e o mesmo argumento de
+   anunciaria um consumidor que não existe (ADR-0016, e o mesmo argumento de
    [ADR-0012](adr/0012-fato-de-recurso-no-percurso.md) para `RecursoPercorrido`).
    `trilhas-percurso mostrar` usa a **mesma** `evidencias_de`: duas varreduras do mesmo
    log divergiriam no `seq` que uma delas deixasse de marcar como retratado (§3.3).

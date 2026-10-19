@@ -1,4 +1,4 @@
-# ADR-0015 — Retratação pela tela da competência, com a evidência lida do log
+# ADR-0016 — Retratação pela tela da competência, com a evidência lida do log
 
 - **Data**: 2026-10-18
 - **Status**: aceito

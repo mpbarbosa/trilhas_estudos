@@ -48,3 +48,5 @@
 {"dados": {"etapa": "etapa:ia/claude-modelos-e-chat", "etapa_rev": 1}, "em": "2026-10-19T00:14:28.425795+00:00", "seq": 48, "tipo": "etapa_concluida"}
 {"dados": {"competencia": "comp:ia/uso-de-llm-por-api", "confianca": 1.0, "etapa": "etapa:ia/claude-modelos-e-chat", "etapa_rev": 1, "nivel": "iniciante", "origem": "conclusao_de_etapa"}, "em": "2026-10-19T00:14:28.425795+00:00", "seq": 49, "tipo": "evidencia_registrada"}
 {"dados": {"etapa": "etapa:ia/claude-api-e-sdk", "etapa_rev": 1, "recurso": "rec:ia/claude-docs-bedrock"}, "em": "2026-10-19T00:21:44.264164+00:00", "seq": 50, "tipo": "etapa_iniciada"}
+{"dados": {"evidencia_seq": 29, "motivo": "conclusão prematura: só o capítulo 1 de rec:ia/prompt-engineering-for-llms foi lido"}, "em": "2026-10-19T01:22:32.724883+00:00", "seq": 51, "tipo": "evidencia_retratada"}
+{"dados": {"evidencia_seq": 30, "motivo": "conclusão prematura: só o capítulo 1 de rec:ia/prompt-engineering-for-llms foi lido"}, "em": "2026-10-19T01:22:32.839475+00:00", "seq": 52, "tipo": "evidencia_retratada"}
