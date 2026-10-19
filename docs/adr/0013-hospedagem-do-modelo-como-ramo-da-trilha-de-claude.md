@@ -1,4 +1,4 @@
-# ADR-0012 — Hospedagem do modelo como ramo opcional da trilha de Claude
+# ADR-0013 — Hospedagem do modelo como ramo opcional da trilha de Claude
 
 - **Data**: 2026-10-18
 - **Status**: aceito

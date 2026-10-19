@@ -113,7 +113,7 @@ competencias:
       latência p95 medidos, com a salvaguarda que impede a saída indevida demonstrada.
 
   # Irmã de comp:ia/operacao-de-aplicacoes-llm e distinta dela — a divisão está em
-  # docs/adr/0012-hospedagem-do-modelo-como-ramo-da-trilha-de-claude.md. Lá a
+  # docs/adr/0013-hospedagem-do-modelo-como-ramo-da-trilha-de-claude.md. Lá a
   # `verificacao` cobra a aplicação instrumentada: custo por requisição, latência p95
   # e salvaguarda de saída. Aqui o objeto é *onde o modelo é servido* — de quem é o
   # limite de segurança, qual credencial entra, em que região o dado fica e o que a

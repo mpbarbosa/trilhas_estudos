@@ -62,7 +62,7 @@ trilha:
     # declarados da trilha — quem leva o agente ao fim pela API da Anthropic não passa
     # por aqui —, então `opcional: true` e a `rev` da trilha fica em 1
     # (docs/catalogo.md §4). Decidido em
-    # docs/adr/0012-hospedagem-do-modelo-como-ramo-da-trilha-de-claude.md.
+    # docs/adr/0013-hospedagem-do-modelo-como-ramo-da-trilha-de-claude.md.
     - id: etapa:ia/claude-em-plataforma-de-nuvem
       titulo: Onde o modelo roda — Bedrock, Google Cloud e Claude Platform on AWS
       rev: 1

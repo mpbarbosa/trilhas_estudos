@@ -188,7 +188,7 @@ Mudança em recurso **nunca** altera a `rev` da etapa: trocar o vídeo não muda
 a etapa ensina.
 
 `etapa` entrou na coluna substantiva em 2026-10-18, quando
-[ADR-0012](adr/0012-hospedagem-do-modelo-como-ramo-da-trilha-de-claude.md) precisou
+[ADR-0013](adr/0013-hospedagem-do-modelo-como-ramo-da-trilha-de-claude.md) precisou
 mover um recurso de etapa e a tabela não dizia nada sobre o campo. É substantivo pelo
 que ele decide: a `etapa` é a casa do recurso, re-encaixá-lo muda o que a etapa de
 origem oferece ao estudante e pode tirar dela o último recurso, que é erro de

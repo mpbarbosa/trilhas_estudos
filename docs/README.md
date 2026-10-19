@@ -25,8 +25,8 @@
 | [0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md) | Obra como campo de agrupamento no recurso, não como entidade | aceito |
 | [0010](adr/0010-shell-como-pre-requisito-declarado.md) | Shell como pré-requisito declarado, em etapa avulsa compartilhada | aceito |
 | [0011](adr/0011-python-no-servidor-como-ramo-da-trilha-web.md) | Python no servidor como ramo opcional da trilha web | aceito |
-| [0012](adr/0012-hospedagem-do-modelo-como-ramo-da-trilha-de-claude.md) | Hospedagem do modelo como ramo opcional da trilha de Claude | aceito |
 | [0012](adr/0012-fato-de-recurso-no-percurso.md) | Percurso registra fato de recurso; posse fica fora do log | aceito |
+| [0013](adr/0013-hospedagem-do-modelo-como-ramo-da-trilha-de-claude.md) | Hospedagem do modelo como ramo opcional da trilha de Claude | aceito |
 
 ## Pendente
 
