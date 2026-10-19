@@ -112,10 +112,50 @@ def abandonar_etapa(etapa: Etapa, *, motivo: str | None = None) -> list[Evento]:
     return [EtapaAbandonada(etapa=etapa.id, etapa_rev=etapa.rev, motivo=motivo)]
 
 
+NIVEIS_DECLARAVEIS: tuple[Nivel, ...] = tuple(n for n in Nivel if n is not Nivel.DESCONHECE)
+"""Os níveis que uma autoavaliação pode declarar — todos menos `desconhece`.
+
+`desconhece` é a **ausência** de competência, não um grau dela: competência sem
+evidência não existe (CONTEXT §4), e o que a projeção devolve para quem nunca
+evidenciou nada já é a ausência. Uma evidência dizendo "não sei isto" seria evidência
+que não sustenta nível nenhum — e, pela monotonia da ADR-0014, nem rebaixaria: entraria
+no log para não ter efeito algum, que é o evento inerte de que `conferir_retratacao`
+fala. Quem quer descer retrata a evidência que sustenta o nível.
+
+Mora aqui para a CLI e a tela escolherem da **mesma** lista (interface.md §3.3): duas
+cópias divergiriam, e a tela ofereceria o que a CLI recusa.
+"""
+
+
+def conferir_autoavaliacao(competencia_id: str, nivel: Nivel, catalogo: Catalogo) -> str | None:
+    """Confere o que uma autoavaliação declara. Devolve o erro, ou `None`.
+
+    Duas regras: a competência existe no catálogo, e o nível é declarável. A primeira
+    é o que impede evidência órfã — `EvidenciaRegistrada` não valida `competencia`
+    contra nada, então um id errado viraria um fato sobre coisa nenhuma, e a projeção
+    o somaria a uma competência que nenhuma tela mostra.
+
+    Pura, e **fora** da transação de propósito, ao contrário de `conferir_retratacao`:
+    o que ela afirma é sobre o catálogo, que não muda enquanto o log é escrito; o que
+    aquela afirma é sobre o próprio log.
+
+    Mora aqui, e não na CLI, pelo mesmo motivo de `conferir_recurso`: a tela da
+    competência também autoavalia (interface.md §5.12).
+    """
+    if competencia_id not in catalogo.competencias:
+        return f"competência desconhecida no catálogo: {competencia_id}"
+    if nivel not in NIVEIS_DECLARAVEIS:
+        return f"nível não declarável: {nivel} é a ausência de competência, não um grau dela"
+    return None
+
+
 def registrar_autoavaliacao(
     competencia: str, nivel: Nivel, *, confianca: float = CONFIANCA_AUTOAVALIACAO
 ) -> list[Evento]:
-    """Competência adquirida fora do sistema (motor §4), com confiança menor."""
+    """Competência adquirida fora do sistema (motor §4), com confiança menor.
+
+    Confira o que se declara com `conferir_autoavaliacao` antes de gravar.
+    """
     return [
         EvidenciaRegistrada(
             competencia=competencia,

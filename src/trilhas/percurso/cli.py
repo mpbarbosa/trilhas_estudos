@@ -61,7 +61,7 @@ def main(argv: list[str] | None = None) -> int:
 
     p = sub.add_parser("sei", help="autoavaliação de competência adquirida fora do sistema")
     p.add_argument("competencia")
-    p.add_argument("nivel", choices=[str(n) for n in Nivel if n is not Nivel.DESCONHECE])
+    p.add_argument("nivel", choices=[str(n) for n in registrar.NIVEIS_DECLARAVEIS])
 
     p = sub.add_parser(
         "retratar", help="declara que uma evidência foi emitida por engano (ADR-0014)"
@@ -188,9 +188,11 @@ def _eventos(
         return registrar.percorrer_recurso(catalogo.recursos[args.recurso]), None
 
     if args.comando == "sei":
-        if args.competencia not in catalogo.competencias:
-            return [], f"competência desconhecida no catálogo: {args.competencia}"
-        return registrar.registrar_autoavaliacao(args.competencia, Nivel.de_texto(args.nivel)), None
+        nivel = Nivel.de_texto(args.nivel)
+        erro = registrar.conferir_autoavaliacao(args.competencia, nivel, catalogo)
+        if erro is not None:
+            return [], erro
+        return registrar.registrar_autoavaliacao(args.competencia, nivel), None
 
     if args.comando == "reagir":
         return registrar.dar_feedback(args.etapa, Reacao(args.reacao), motivo=args.motivo), None

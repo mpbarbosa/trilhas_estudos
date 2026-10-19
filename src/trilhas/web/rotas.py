@@ -22,7 +22,13 @@ from ..motor.modelo import Percurso, Resultado
 from .apresentar import acervo as apresentar_acervo
 from .apresentar import detalhe, diagnostico
 from .apresentar import sugestao as apresentar_sugestao
-from .escrever import Acao, registrar_na_etapa, retratar_na_competencia
+from .escrever import (
+    Acao,
+    AcaoDaCompetencia,
+    autoavaliar_competencia,
+    registrar_na_etapa,
+    retratar_na_competencia,
+)
 from .percurso import (
     evidencias_do_percurso,
     nome_do_estudante,
@@ -249,7 +255,7 @@ def _recusado(request: Request, mensagem: str, detalhe: str = "", *, status: int
 
 async def competencia(request: Request) -> Response:
     if request.method == "POST":
-        return await _retratar_na_competencia(request)
+        return await _escrever_na_competencia(request)
     ctx = _ctx(request)
     arquivo = _arquivo_de_percurso(request)
     visao = detalhe.competencia(
@@ -263,17 +269,21 @@ async def competencia(request: Request) -> Response:
     return _responder(request, "competencia.html", {"v": visao, "titulo": visao.competencia.titulo})
 
 
-async def _retratar_na_competencia(request: Request) -> Response:
-    """Retrata a evidência de um `seq` e volta para a própria competência (§5.11).
+async def _escrever_na_competencia(request: Request) -> Response:
+    """Grava um fato de competência e volta para a própria tela (§5.11 e §5.12).
 
-    Mesma forma do POST da etapa (§5.10): `Origin` presente e igual, 303 em vez de HTML,
-    e nenhuma decisão de domínio aqui. O que muda é só o alvo — um fato do log, pelo
-    `seq` que esta tela lista, e não a entidade da URL.
+    Duas escritas na mesma URL, separadas pelo campo `acao` como no POST da etapa
+    (§5.10): `autoavaliar` declara que se sabe algo, `retratar` desfaz uma evidência
+    emitida por engano. Uma entidade, uma URL — sub-rotas por tipo de fato dariam à
+    competência três endereços para a mesma tela.
+
+    Tudo que a §5.10 exige vale para as duas: `Origin` presente e igual, 303 em vez de
+    HTML, `?estudante=` preservado, 409 sem percurso, e nenhuma decisão de domínio aqui.
     """
     if not _da_propria_pagina(request):
         return _recusado(
             request,
-            "Retratar evidência só pela própria interface.",
+            "Registrar no percurso só pela própria interface.",
             request.headers.get("origin") or "requisição sem cabeçalho Origin",
             status=403,
         )
@@ -283,18 +293,32 @@ async def _retratar_na_competencia(request: Request) -> Response:
     if arquivo is None or percurso is None:
         return _recusado(
             request,
-            "Nenhum percurso de onde retratar — a retratação é um fato de alguém.",
+            "Nenhum percurso para receber o fato — um fato é de alguém.",
             f"crie {_ctx(request).fonte.percursos.name}/<estudante>.yaml",
             status=409,
         )
 
     campos = await _campos(request)
-    erro = retratar_na_competencia(
-        arquivo.parent,
-        percurso.estudante_id,
-        campos.get("seq"),
-        motivo=_texto(campos.get("motivo")),
-    )
+    try:
+        acao = AcaoDaCompetencia(campos.get("acao", ""))
+    except ValueError:
+        return _recusado(request, "Ação desconhecida.", campos.get("acao", ""))
+
+    if acao is AcaoDaCompetencia.AUTOAVALIAR:
+        erro = autoavaliar_competencia(
+            arquivo.parent,
+            percurso.estudante_id,
+            _ctx(request).fonte.acervo().catalogo,
+            request.path_params["ident"],
+            campos.get("nivel"),
+        )
+    else:
+        erro = retratar_na_competencia(
+            arquivo.parent,
+            percurso.estudante_id,
+            campos.get("seq"),
+            motivo=_texto(campos.get("motivo")),
+        )
     if erro is not None:
         return _recusado(request, "Nada foi gravado.", erro)
     return RedirectResponse(_de_volta(request), status_code=303)
