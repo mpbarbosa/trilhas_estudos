@@ -108,9 +108,9 @@ def main(argv: list[str] | None = None) -> int:
             guardados = repo.registros(args.estudante)
             _mostrar(
                 montar_percurso(base, guardados),
+                guardados,
                 percorridos_de(guardados),
                 catalogo,
-                guardados,
             )
             return 0
 
@@ -273,9 +273,9 @@ def _base(diretorio: Path, estudante: str) -> Percurso:
 
 def _mostrar(
     percurso: Percurso,
+    registros: list[Registro],
     percorridos: tuple[Percorrido, ...],
     catalogo: Catalogo,
-    registros: list[Registro],
 ) -> None:
     print(f"estudante: {percurso.estudante_id}")
     print(f"matrículas: {len(percurso.matriculas)}")

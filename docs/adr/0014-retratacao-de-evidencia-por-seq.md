@@ -20,11 +20,12 @@ Reabrir a etapa com `iniciar` (evento **#31**) corrigiu o progresso, porque
 `competencias_de`, em [`projecao.py`](../../src/trilhas/percurso/projecao.py), toma o
 **máximo** nível já evidenciado e descarta de propósito evidência posterior de nível
 menor. Não existe evento que retire evidência, e `sei <competencia> iniciante` não
-baixa nada: o nível é monotônico por construção. Uma busca exaustiva sobre as seis
-ações hoje registráveis — `iniciar`, `concluir`, `abandonar`, `sei`, `reagir` e
-conclusão de etapa que ensina nível menor — em todas as permutações de até três
-delas aplicadas sobre um `avancado` já evidenciado, não encontrou **nenhuma**
-sequência que o rebaixasse. É invariante de fato, não acidente de um caminho.
+baixa nada: o nível é monotônico por construção. Uma busca exaustiva sobre as ações
+hoje registráveis — `iniciar`, `concluir`, `abandonar`, `sei`, `reagir`, `percorrer`
+([ADR-0012](0012-fato-de-recurso-no-percurso.md)) e conclusão de etapa que ensina
+nível menor — em todas as permutações de até três delas aplicadas sobre um `avancado`
+já evidenciado, não encontrou **nenhuma** sequência que o rebaixasse. É invariante de
+fato, não acidente de um caminho.
 
 O dano não é estético. O motor filtra candidatos por `requires`/`nivel_minimo`
 ([motor §2.2](../motor-de-sugestao.md)), então competência inflada libera etapas para
@@ -138,5 +139,9 @@ função para a CLI e para quem mais venha a escrever, para que não haja duas m
   do log por `seq`, que não tem tela a que pertencer. Fica para
   [interface.md](../interface.md) decidir, quando houver uma tela de histórico onde o
   `seq` apareça — e até lá é correção de linha de comando.
+- [ADR-0012](0012-fato-de-recurso-no-percurso.md) deixou a posse fora do log em parte
+  porque desfazê-la exigiria "o fato de retratação que ADR-0008 deixou pendente". Este
+  é esse fato, mas ele **não** reabre a questão: a retratação aqui retrata evidência,
+  e posse continua sendo estado declarado, não evento. Nada em ADR-0012 muda.
 - O caso de `est:mpb` fica com comando pronto e **não rodado**: quem estuda decide se e
   quando corrige o próprio percurso. Os alvos são os eventos #29 e #30.

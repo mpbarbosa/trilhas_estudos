@@ -313,6 +313,10 @@ def test_nenhuma_sequencia_de_eventos_baixa_um_nivel_evidenciado() -> None:
     Varre as ações registráveis — todas menos `retratar` — em cada permutação de até
     três, aplicadas sobre um `avancado` já evidenciado. Se alguma rebaixar, a decisão
     de ADR-0014 perdeu a premissa: haveria remédio sem evento novo.
+
+    `percorrer` entra aqui porque é ação de escrita (ADR-0012) e a varredura tem de
+    cobrir o vocabulário inteiro; ela não emite evidência, então não rebaixa — mas é
+    isto que o teste afirma, em vez de supor.
     """
     comp = "comp:x/a"
     baixa = etapa("etapa:x/baixa", teaches=[(comp, N.INICIANTE)])
@@ -323,6 +327,7 @@ def test_nenhuma_sequencia_de_eventos_baixa_um_nivel_evidenciado() -> None:
         abandonar_etapa(baixa),
         iniciar_etapa(baixa),
         dar_feedback("etapa:x/alta", Reacao.REJEITADA),
+        percorrer_recurso(recurso("rec:x/fatia", "etapa:x/baixa")),
     ]
     base = concluir_etapa(etapa("etapa:x/alta", teaches=[(comp, N.AVANCADO)]))
 
@@ -833,6 +838,9 @@ def test_cli_mostrar_agrupa_as_fatias_por_obra(tmp_path: Path, capsys) -> None:
     assert rodar(destino, lock, "mostrar") == 0
     completa = capsys.readouterr().out
     assert "2/2 fatia(s)" in completa and "completa" in completa
+
+
+# --- CLI de `retratar` (ADR-0014) ----------------------------------------------
 
 
 def test_cli_retratar_desfaz_a_competencia_e_a_marca_em_mostrar(tmp_path: Path, capsys) -> None:
