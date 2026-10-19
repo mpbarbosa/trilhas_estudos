@@ -22,7 +22,7 @@ from trilhas.percurso import (
 )
 from trilhas.percurso.repositorio import registros_em
 from trilhas.web.app import criar_app
-from trilhas.web.percurso import percurso_completo
+from trilhas.web.percurso import carregar_percurso, percurso_completo
 
 HOJE = date(2026, 10, 12)
 MODELOS = Path(__file__).resolve().parent.parent / "src" / "trilhas" / "web" / "modelos"
@@ -634,3 +634,47 @@ def test_concluir_duas_vezes_duplica_a_evidencia_sem_duplicar_a_competencia(
     ensinada = [c for c in percurso.competencias if c.competencia == "comp:dados/sql-consultas"]
     assert len(ensinada) == 1
     assert ensinada[0].nivel is Nivel.INTERMEDIARIO
+
+
+# --- estante no YAML de percurso (ADR-0015) ------------------------------------
+
+PERCURSO_COM_ESTANTE = """
+versao_schema: 1
+estudante:
+  id: est:estante
+perfil:
+  restricoes:
+    idiomas: [pt-BR]
+  estante:
+    - rec:dados/sql-select-video
+    - 17
+    - ""
+"""
+
+
+def test_estante_do_yaml_chega_ao_percurso(tmp_path: Path) -> None:
+    arquivo = tmp_path / "est-estante.yaml"
+    arquivo.write_text(PERCURSO_COM_ESTANTE, encoding="utf-8")
+    percurso = carregar_percurso(arquivo)
+    assert percurso is not None
+    # Tolerante como o resto do módulo: o que não é id de texto simplesmente não entra.
+    assert percurso.estante == frozenset({"rec:dados/sql-select-video"})
+
+
+def test_percurso_sem_estante_fica_com_estante_vazia(tmp_path: Path) -> None:
+    arquivo = tmp_path / "est-novo.yaml"
+    arquivo.write_text(PERCURSO_SEM_RUMO, encoding="utf-8")
+    percurso = carregar_percurso(arquivo)
+    assert percurso is not None
+    assert percurso.estante == frozenset()
+
+
+def test_estante_atravessa_a_projecao_do_log(lock: Path) -> None:
+    """Estante é estado declarado, não fato datado: o log não a toca (ADR-0015)."""
+    pasta = lock.parent / "percurso"
+    pasta.mkdir(exist_ok=True)
+    arquivo = pasta / "est-estante.yaml"
+    arquivo.write_text(PERCURSO_COM_ESTANTE, encoding="utf-8")
+    percurso = percurso_completo(arquivo)
+    assert percurso is not None
+    assert percurso.estante == frozenset({"rec:dados/sql-select-video"})

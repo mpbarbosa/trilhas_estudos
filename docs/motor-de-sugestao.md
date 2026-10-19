@@ -31,7 +31,9 @@ sugerir(estudante_id, momento, opcoes?) -> Sugestao[]
 ```
 Sugestao {
   etapa_id
-  recurso_sugerido_id        # melhor recurso da etapa dadas as restrições
+  recurso_sugerido_id        # melhor recurso da etapa dadas as restrições:
+                             # maior encaixe de esforço, menor custo efetivo,
+                             # menor duração, id (determinismo)
   score                      # 0..1
   fatores: [{nome, peso, valor, contribuicao}]
   explicacao: string         # gerada a partir dos fatores, não escrita à mão
@@ -74,7 +76,9 @@ Eliminam candidatos, sem pontuar. Um candidato eliminado deve registrar o motivo
 
 - `requires` não satisfeito no nível mínimo (exceto candidatos de `revisao`);
 - etapa concluída (exceto `revisao`);
-- nenhum recurso da etapa passa as restrições (idioma, custo, formato, disponível);
+- nenhum recurso da etapa passa as restrições (idioma, custo, formato, disponível) —
+  onde "custo" é o **custo efetivo**: zero para o que está na `estante` do estudante,
+  o `custo` do catálogo para o resto ([ADR-0015](adr/0015-posse-de-exemplar-como-estante-declarada.md));
 - etapa rejeitada pelo estudante nos últimos N dias (padrão: 30), salvo se o
   objetivo mudou desde a rejeição;
 - `opcoes.tempo_disponivel_min` informado e **nenhum** recurso da etapa cabe nele.
@@ -179,6 +183,9 @@ sobre `tests/fixtures/catalogo_exemplo/`:
 5. Rejeição → etapa ausente por 30 dias; mudança de objetivo → volta antes disso.
 6. Mesma entrada duas vezes → mesma saída, na mesma ordem (determinismo).
 7. Grafo com ciclo no catálogo → erro de validação de catálogo, não laço infinito.
+8. Recurso na `estante` → vence alternativa gratuita mais longa no desempate, e
+   passa o filtro de `custo_maximo` abaixo do seu preço de catálogo
+   ([ADR-0015](adr/0015-posse-de-exemplar-como-estante-declarada.md)).
 
 ---
 

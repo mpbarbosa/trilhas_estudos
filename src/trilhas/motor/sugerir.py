@@ -132,6 +132,7 @@ class _Contexto:
     alvos: tuple[Alvo, ...]
     alvos_pendentes: tuple[Alvo, ...]
     requerentes: dict[str, tuple[Etapa, ...]]  # competência -> etapas que a exigem
+    possuidos: frozenset[str]  # `estante` mais as fatias irmãs por `obra` (ADR-0015)
 
     @classmethod
     def montar(
@@ -187,6 +188,7 @@ class _Contexto:
             alvos=alvos,
             alvos_pendentes=pendentes,
             requerentes={c: tuple(es) for c, es in requerentes.items()},
+            possuidos=possuidos_em(catalogo, percurso.estante),
         )
 
     def estado_de(self, etapa_id: str) -> EstadoEtapa:
@@ -367,7 +369,10 @@ def _aplicar_filtros(ctx: _Contexto, etapa: Etapa, tipo: Tipo) -> Recurso | Elim
         if not viaveis:
             return fora(Motivo.NAO_CABE_NO_TEMPO, "tempo")
 
-    return min(viaveis, key=lambda r: (-_encaixe(ctx, r.duracao_min), r.custo, r.duracao_min, r.id))
+    return min(
+        viaveis,
+        key=lambda r: (-_encaixe(ctx, r.duracao_min), _custo_efetivo(ctx, r), r.duracao_min, r.id),
+    )
 
 
 def _rejeicao_vigente(ctx: _Contexto, etapa_id: str) -> date | None:
@@ -385,6 +390,35 @@ def _rejeicao_vigente(ctx: _Contexto, etapa_id: str) -> date | None:
     return max(rejeicoes) if rejeicoes else None
 
 
+def possuidos_em(catalogo: Catalogo, estante: frozenset[str]) -> frozenset[str]:
+    """Fecha a `estante` sobre as fatias irmãs, pela `obra` do catálogo de hoje.
+
+    O exemplar se compra uma vez e atende várias etapas (ADR-0009), então declarar uma
+    fatia declara a obra inteira. A propagação é de leitura, contra o catálogo deste
+    instante: nada do agrupamento fica gravado no percurso, e renomear uma obra segue
+    sem cerimônia (ADR-0015).
+
+    Pública porque a apresentação precisa da mesma regra para marcar o recurso como
+    "já seu": duas implementações da propagação discordariam em silêncio.
+    """
+    obras = {rec.obra for ident in estante if (rec := catalogo.recursos.get(ident)) and rec.obra}
+    return frozenset(
+        ident
+        for ident, rec in catalogo.recursos.items()
+        if ident in estante or (rec.obra is not None and rec.obra in obras)
+    )
+
+
+def _custo_efetivo(ctx: _Contexto, recurso: Recurso) -> float:
+    """O que ainda falta pagar: zero para o que já está na estante (ADR-0015).
+
+    Deriva do percurso, nunca do catálogo — `Recurso.custo` continua sendo o preço para
+    quem for comprar. Vale no filtro de `custo_maximo` e no desempate, que são a mesma
+    grandeza vista de dois lugares.
+    """
+    return 0.0 if recurso.id in ctx.possuidos else recurso.custo
+
+
 def _recursos_viaveis(ctx: _Contexto, etapa: Etapa) -> tuple[list[Recurso], str]:
     """Recursos que passam as restrições e a restrição que mais eliminou."""
     r = ctx.percurso.restricoes
@@ -395,7 +429,7 @@ def _recursos_viaveis(ctx: _Contexto, etapa: Etapa) -> tuple[list[Recurso], str]
             culpas["indisponivel"] += 1
         elif r.idiomas and rec.idioma not in r.idiomas:
             culpas["idioma"] += 1
-        elif r.custo_maximo is not None and rec.custo > r.custo_maximo:
+        elif r.custo_maximo is not None and _custo_efetivo(ctx, rec) > r.custo_maximo:
             culpas["custo"] += 1
         elif r.formatos_aceitos and rec.formato not in r.formatos_aceitos:
             culpas["formato"] += 1

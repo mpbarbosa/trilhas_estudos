@@ -126,7 +126,8 @@
     {% if c.recurso.url %}<a href="{{ c.recurso.url }}" rel="noreferrer nofollow">{{ c.recurso.titulo }}</a>
     {% else %}{{ c.recurso.titulo }}{% endif %}
     <span class="fraco">{{ c.recurso.formato }} · {{ c.recurso.idioma }} ·
-      {{ c.recurso.custo }} · {{ c.recurso.duracao }}</span>
+      {{ c.recurso.custo }}{% if c.recurso.na_estante %} · já seu{% endif %} ·
+      {{ c.recurso.duracao }}</span>
   </p>
   {% endif %}
 </article>
