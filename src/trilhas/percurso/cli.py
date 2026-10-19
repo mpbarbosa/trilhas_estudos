@@ -64,7 +64,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("nivel", choices=[str(n) for n in Nivel if n is not Nivel.DESCONHECE])
 
     p = sub.add_parser(
-        "retratar", help="declara que uma evidência foi emitida por engano (ADR-0012)"
+        "retratar", help="declara que uma evidência foi emitida por engano (ADR-0014)"
     )
     p.add_argument("seq", type=int, help="o #seq da evidência; `mostrar` os lista")
     p.add_argument("--motivo")
