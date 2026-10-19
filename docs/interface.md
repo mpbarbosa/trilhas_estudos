@@ -296,7 +296,7 @@ flowchart TD
     A --> C["/etapa/{id}"]
     A --> E["/sugestao/{id} — auditoria"]
     B --> C
-    C --> F["/competencia/{id}"]
+    C --> F["/competencia/{id} — critério, evidências, retratar"]
     A --> G["/perfil — competências e restrições"]
     G --> F
     A --> H["/catalogo — explorador"]
@@ -376,6 +376,10 @@ relativa à meia-vida do nível ([motor §3.6](motor-de-sugestao.md)). É o que 
 evidências em **linha do tempo datada**, etapas que a ensinam, etapas que a exigem, e
 "como chego a ⟨nível⟩" com o caminho mínimo. Ações: registrar autoavaliação (confiança
 menor, [motor §4](motor-de-sugestao.md)) ou evidência de exercício/projeto.
+
+A linha do tempo de evidências **está feita**, com o `seq` de cada fato à vista e o
+botão que a retrata ao lado (§5.11). O resto desta tela — o caminho mínimo, as ações de
+registro — segue pendente.
 
 Restrições editáveis numa só tela, com o efeito previsto antes de salvar: "limitar a
 pt-BR elimina 80 dos 109 recursos e trava 19 etapas". Restrição é filtro **duro** — o
@@ -503,14 +507,64 @@ Quem filtra por fronteira satisfeita é o motor, ao escolher o que *sugerir*
 estaria negando um acontecimento. Recusar também poria em `web/` uma comparação de
 `Nivel` que a §3.3 proíbe e que `registrar.concluir_etapa` não faz.
 
-Consequência aceita de olhos abertos: **clicar errado não tem desfazer.** O fato de
-retratação que a [ADR-0008](adr/0008-percurso-como-log-de-fatos-datados.md) previu e
-não decidiu continua não existindo. O que a tela oferece no lugar é reiniciar a etapa
-— o último fato sobre ela vence na projeção —, o que conserta o progresso e **não**
-conserta a evidência já emitida. É a primeira dívida que esta fase cobra.
+Consequência que esta rota aceitou de olhos abertos e a §5.11 pagou: **clicar errado
+não tinha desfazer.** O que esta tela oferece é reiniciar a etapa — o último fato sobre
+ela vence na projeção —, o que conserta o progresso e **não** conserta a evidência já
+emitida. A evidência se conserta na tela da competência, por retratação.
 
 Fora desta fase, ainda pela CLI: feedback sobre sugestão (`reagir`), autoavaliação
 (`sei`) e edição de restrições e matrícula.
+
+---
+
+### 5.11 `POST /competencia/{id}` — retratar uma evidência emitida por engano
+
+A [ADR-0014](adr/0014-retratacao-de-evidencia-por-seq.md) criou o fato de retratação e
+deixou para cá a pergunta de tela: a retratação endereça um fato do log pelo `seq`, e
+`seq` não aparecia em página nenhuma. A resposta está em
+[ADR-0016](adr/0016-retratacao-pela-tela-da-competencia.md) e é esta rota.
+
+**A casa é a competência, e não a etapa nem uma tela de histórico.** Toda
+`EvidenciaRegistrada` carrega `competencia` — campo obrigatório — e **nem toda carrega
+`etapa`**: autoavaliação grava com `etapa=None`. A competência é a única entidade a que
+todas as evidências pertencem; uma tela de etapa deixaria a autoavaliação sem alcance,
+e a retratação seria metade de um mecanismo. Uma tela de histórico listaria os mesmos
+fatos sem o critério de verificação ao lado, que é o que explica cada um.
+
+Cinco propriedades, além das seis da §5.10, que valem todas aqui:
+
+1. **O bloco "Evidências no percurso" lista o `seq`.** É a linha do tempo que a §5.5 já
+   previa, agora com o endereço de cada fato à vista — sem isso o botão não teria o que
+   enviar, e o `seq` só se acharia lendo o JSONL à mão (ADR-0014, Consequências).
+   Evidência retratada **continua listada**, esmaecida, com a data e o motivo da
+   retratação: é assim que a tela responde "por que ele deixou de achar que eu sei
+   isso".
+2. **A competência da URL é a tela, não o alvo.** O alvo é o `seq` e só ele;
+   `registrar.conferir_retratacao` — a mesma função da CLI — é a regra inteira.
+   Conferir "o `seq` é desta competência?" poria em `web/` uma regra sobre fatos do log
+   que o domínio não tem, e não protegeria nada: `EvidenciaRetratada` não afirma
+   competência nenhuma (ADR-0014).
+3. **Conferência e escrita na mesma transação.** "O alvo existe e está de pé" é
+   afirmação sobre o log; conferi-la fora da transação que grava a deixaria valendo
+   sobre um log que já mudou.
+4. **A leitura não passa por `Percurso`.** `projecao.evidencias_de` é uma segunda
+   projeção, pura, que devolve o fato com `seq` em vez do nível vigente. `Percurso` é a
+   entrada do motor, e o motor nunca pergunta qual fato produziu um nível — alargá-lo
+   anunciaria um consumidor que não existe (ADR-0016, e o mesmo argumento de
+   [ADR-0012](adr/0012-fato-de-recurso-no-percurso.md) para `RecursoPercorrido`).
+   `trilhas-percurso mostrar` usa a **mesma** `evidencias_de`: duas varreduras do mesmo
+   log divergiriam no `seq` que uma delas deixasse de marcar como retratado (§3.3).
+5. **Sem `confirm()`.** O POST que conclui etapa não pede confirmação; pedi-la aqui
+   diria que retratar é mais perigoso que concluir, quando é o contrário — retratar é o
+   conserto. E só funcionaria com script (§6.9).
+
+O resto é a §5.10 sem desvio: `Origin` presente e igual ao host senão 403, 303 em vez
+de HTML, `?estudante=` preservado, e 409 sem percurso — sem banco nascendo.
+
+**Retratar a última evidência faz a competência desaparecer** da projeção e da tela:
+competência sem evidência não existe ([CONTEXT §4](CONTEXT.md)). Havendo evidência
+anterior legítima, o nível cai *para ela* e não para `desconhece` — a retratação apaga
+um fato, não a história.
 
 ---
 
@@ -571,7 +625,7 @@ Nível é **rampa sequencial**, nunca quatro cores distintas: a escala é ordina
 | GET | `/trilha/{id}` | grafo + objetivo + progresso |
 | GET | `/trilha/{id}/grafo.svg` | SVG do layout (cacheável por `hash` do snapshot) |
 | GET | `/etapa/{id}` | etapa, recursos comparados, histórico |
-| GET | `/competencia/{id}` | critério, evidências, caminhos |
+| GET | `/competencia/{id}` | critério, evidências **com `seq`**, caminhos (§5.11) |
 | GET | `/perfil` | mapa de domínio e restrições |
 | GET | `/catalogo` | explorador |
 | GET | `/catalogo/diagnostico` | as 11 validações sobre o catálogo atual |
@@ -583,7 +637,13 @@ Nível é **rampa sequencial**, nunca quatro cores distintas: a escala é ordina
 | POST | `/feedback` | `{estudante, sugestao, reacao, motivo?}` |
 | POST | `/restricoes` | perfil |
 | POST | `/catalogo/autoria/gerar` | diff de YAML + resultado da validação |
-| POST | `/desligar` | tela de despedida; encerra o processo em seguida (§5.9) |
+| POST | `/etapa/{id}` | ✅ grava iniciar/concluir/abandonar e redireciona (§5.10) |
+| POST | `/competencia/{id}` | ✅ retrata a evidência de um `seq` e redireciona (§5.11) |
+| POST | `/desligar` | ✅ tela de despedida; encerra o processo em seguida (§5.9) |
+
+As linhas sem ✅ são planejadas e ainda não respondem; as três marcadas são as que
+existem, e as duas de escrita de percurso vão para a **URL da própria entidade** — uma
+entidade, uma URL —, não para as sub-rotas por tipo de fato que esta tabela previa.
 
 Todo POST responde o fragmento HTML atualizado (htmx) e um `Location` para quem vier sem
 script — exceto `/desligar`, que responde uma página inteira, porque depois dela não há
@@ -651,7 +711,7 @@ vez de afirmar progresso zero.
 | Fase | Entrega | Depende de | Valor |
 |---|---|---|---|
 | ~~**1**~~ **entregue** | Explorador somente-leitura: `/`, `/catalogo`, `/trilha/{id}` com grafo, `/etapa/{id}`, `/competencia/{id}`, `/catalogo/diagnostico` | nada além do que existe | o acervo de 54 etapas e 109 recursos fica navegável e as lacunas aparecem |
-| **2** *parcial* | Percurso: **progresso de etapa pela tela, feito** (§5.10). Faltam matrícula, autoavaliação e restrições | ~~ADR de persistência (§9)~~ — [ADR-0008](adr/0008-percurso-como-log-de-fatos-datados.md) + `src/trilhas/percurso/` | "controlar" do propósito do sistema |
+| **2** *parcial* | Percurso: **progresso de etapa pela tela** (§5.10) e **retratação de evidência** (§5.11), feitos. Faltam matrícula, autoavaliação e restrições | ~~ADR de persistência (§9)~~ — [ADR-0008](adr/0008-percurso-como-log-de-fatos-datados.md) + `src/trilhas/percurso/` | "controlar" do propósito do sistema |
 | **3** *parcial* | Painel `/` com top-N, fatores à vista e "por que isto não apareceu". **Falta o feedback**, que é escrita e depende da fase 2 | ~~motor de sugestão~~ — feito | "sugerir" — a razão do projeto |
 | **4** | `/catalogo/autoria` gerando YAML | fases 1–2 maduras | autoria sem editar YAML à mão |
 
@@ -689,7 +749,11 @@ A fase 1 entregou 59 testes novos: `tests/test_grafo.py` (fecho e arestas),
 (rotas, estado vazio, recarga do snapshot e o teste de vocabulário da §6.1). A escrita
 da §5.10 acrescentou a `tests/test_web.py` o POST de outra origem recusado, o F5 depois
 do POST sem duplicar fato, a recusa que não faz nascer banco e a conclusão de etapa
-travada sendo gravada.
+travada sendo gravada. A §5.11 acrescentou o `seq` aparecendo na tela, o nível caindo
+para a evidência de baixo em vez de sumir, a competência sumindo quando a última
+evidência é retratada, a autoavaliação sendo retratável pela competência — que é a
+razão de a tela morar ali — e as quatro recusas de alvo inválido: inexistente, não
+sendo evidência, já retratado e não numérico.
 
 ---
 

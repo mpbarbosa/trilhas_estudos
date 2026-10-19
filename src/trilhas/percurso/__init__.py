@@ -21,8 +21,10 @@ from .eventos import (
 )
 from .migrar import eventos_do_yaml
 from .projecao import (
+    Evidencia,
     Percorrido,
     competencias_de,
+    evidencias_de,
     feedback_de,
     montar_percurso,
     percorridos_de,
@@ -49,6 +51,7 @@ __all__ = [
     "EtapaConcluida",
     "EtapaIniciada",
     "Evento",
+    "Evidencia",
     "EvidenciaRegistrada",
     "EvidenciaRetratada",
     "FeedbackDado",
@@ -67,6 +70,7 @@ __all__ = [
     "dar_feedback",
     "emitir_sugestao",
     "eventos_do_yaml",
+    "evidencias_de",
     "feedback_de",
     "iniciar_etapa",
     "montar_percurso",

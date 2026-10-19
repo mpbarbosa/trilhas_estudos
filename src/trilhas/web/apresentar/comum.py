@@ -11,6 +11,7 @@ from datetime import date
 
 from ...catalogo.modelo import Catalogo, Formato, Nivel, Status
 from ...motor.modelo import EstadoEtapa
+from ...percurso.eventos import Origem
 
 ROTULO_NIVEL = {
     Nivel.DESCONHECE: "desconhece",
@@ -38,6 +39,13 @@ ROTULO_ESTADO = {
     EstadoEtapa.CONCLUIDA: "concluída",
     EstadoEtapa.ABANDONADA: "abandonada",
 }
+
+ROTULO_ORIGEM = {
+    Origem.CONCLUSAO_DE_ETAPA: "conclusão de etapa",
+    Origem.AUTOAVALIACAO: "autoavaliação",
+}
+"""De onde veio a evidência. Pesa na confiança (CONTEXT §1), e por isso a tela a diz
+por extenso em vez de mostrar o token."""
 
 ROTULO_TIPO = {
     "trilha": "trilha",

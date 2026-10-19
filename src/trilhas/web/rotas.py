@@ -22,8 +22,13 @@ from ..motor.modelo import Percurso, Resultado
 from .apresentar import acervo as apresentar_acervo
 from .apresentar import detalhe, diagnostico
 from .apresentar import sugestao as apresentar_sugestao
-from .escrever import Acao, registrar_na_etapa
-from .percurso import nome_do_estudante, percurso_completo, percursos_em
+from .escrever import Acao, registrar_na_etapa, retratar_na_competencia
+from .percurso import (
+    evidencias_do_percurso,
+    nome_do_estudante,
+    percurso_completo,
+    percursos_em,
+)
 
 if TYPE_CHECKING:
     from .app import Contexto
@@ -243,11 +248,56 @@ def _recusado(request: Request, mensagem: str, detalhe: str = "", *, status: int
 
 
 async def competencia(request: Request) -> Response:
+    if request.method == "POST":
+        return await _retratar_na_competencia(request)
     ctx = _ctx(request)
-    visao = detalhe.competencia(ctx.fonte.acervo(), request.path_params["ident"])
+    arquivo = _arquivo_de_percurso(request)
+    visao = detalhe.competencia(
+        ctx.fonte.acervo(),
+        request.path_params["ident"],
+        percurso=percurso_completo(arquivo) if arquivo else None,
+        evidencias=evidencias_do_percurso(arquivo) if arquivo else (),
+    )
     if visao is None:
         return await nao_encontrado(request, None)
     return _responder(request, "competencia.html", {"v": visao, "titulo": visao.competencia.titulo})
+
+
+async def _retratar_na_competencia(request: Request) -> Response:
+    """Retrata a evidência de um `seq` e volta para a própria competência (§5.11).
+
+    Mesma forma do POST da etapa (§5.10): `Origin` presente e igual, 303 em vez de HTML,
+    e nenhuma decisão de domínio aqui. O que muda é só o alvo — um fato do log, pelo
+    `seq` que esta tela lista, e não a entidade da URL.
+    """
+    if not _da_propria_pagina(request):
+        return _recusado(
+            request,
+            "Retratar evidência só pela própria interface.",
+            request.headers.get("origin") or "requisição sem cabeçalho Origin",
+            status=403,
+        )
+
+    arquivo = _arquivo_de_percurso(request)
+    percurso = percurso_completo(arquivo) if arquivo else None
+    if arquivo is None or percurso is None:
+        return _recusado(
+            request,
+            "Nenhum percurso de onde retratar — a retratação é um fato de alguém.",
+            f"crie {_ctx(request).fonte.percursos.name}/<estudante>.yaml",
+            status=409,
+        )
+
+    campos = await _campos(request)
+    erro = retratar_na_competencia(
+        arquivo.parent,
+        percurso.estudante_id,
+        campos.get("seq"),
+        motivo=_texto(campos.get("motivo")),
+    )
+    if erro is not None:
+        return _recusado(request, "Nada foi gravado.", erro)
+    return RedirectResponse(_de_volta(request), status_code=303)
 
 
 async def diagnostico_do_catalogo(request: Request) -> Response:
@@ -346,6 +396,6 @@ ROTAS = [
     Route("/catalogo/diagnostico", diagnostico_do_catalogo),
     Route("/trilha/{ident:path}", trilha),
     Route("/etapa/{ident:path}", etapa, methods=["GET", "POST"]),
-    Route("/competencia/{ident:path}", competencia),
+    Route("/competencia/{ident:path}", competencia, methods=["GET", "POST"]),
     Route("/desligar", desligar, methods=["POST"]),
 ]

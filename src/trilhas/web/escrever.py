@@ -63,6 +63,39 @@ def registrar_na_etapa(
     return None
 
 
+def retratar_na_competencia(
+    diretorio: Path,
+    estudante_id: str,
+    seq_bruto: str | None,
+    *,
+    motivo: str | None = None,
+) -> str | None:
+    """Retrata a evidência de `seq`. Devolve o erro, ou `None` (ADR-0016).
+
+    O alvo é o `seq`, não a competência da URL: a competência diz de qual tela o pedido
+    saiu e para onde voltar, e repeti-la como alvo seria a redundância capaz de
+    contradizer o fato que a [ADR-0014](../../../docs/adr/0014-retratacao-de-evidencia-por-seq.md)
+    recusou dentro do próprio evento. A única regra é `registrar.conferir_retratacao` —
+    a **mesma** que `trilhas-percurso retratar` chama, e por isso a tela recusa
+    exatamente o que a CLI recusa (docs/interface.md §3.3).
+
+    Conferência e escrita entram na mesma transação, como em `registrar_na_etapa`: o
+    alvo "existe e não está retratado" é afirmação sobre o log, e conferi-la fora da
+    transação que grava a deixaria valendo sobre um log que já mudou.
+    """
+    try:
+        seq = int(seq_bruto or "")
+    except ValueError:
+        return f"seq inválido: {seq_bruto!r} não é um número de evento"
+
+    with Repositorio.em_diretorio(diretorio) as repo:
+        problema = registrar.conferir_retratacao(seq, repo.registros(estudante_id))
+        if problema is not None:
+            return problema
+        repo.anexar(estudante_id, registrar.retratar_evidencia(seq, motivo=motivo))
+    return None
+
+
 def _eventos(acao: Acao, etapa: Etapa, *, recurso: str | None, motivo: str | None) -> list[Evento]:
     if acao is Acao.INICIAR:
         return registrar.iniciar_etapa(etapa, recurso=recurso or None)
