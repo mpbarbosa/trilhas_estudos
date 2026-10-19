@@ -12,21 +12,30 @@ from .eventos import (
     EtapaIniciada,
     Evento,
     EvidenciaRegistrada,
+    EvidenciaRetratada,
     FeedbackDado,
     Origem,
     Registro,
     SugestaoEmitida,
 )
 from .migrar import eventos_do_yaml
-from .projecao import competencias_de, feedback_de, montar_percurso, progresso_de
+from .projecao import (
+    competencias_de,
+    feedback_de,
+    montar_percurso,
+    progresso_de,
+    retratadas_em,
+)
 from .registrar import (
     abandonar_etapa,
     concluir_etapa,
     conferir_recurso,
+    conferir_retratacao,
     dar_feedback,
     emitir_sugestao,
     iniciar_etapa,
     registrar_autoavaliacao,
+    retratar_evidencia,
 )
 from .repositorio import Repositorio
 
@@ -36,6 +45,7 @@ __all__ = [
     "EtapaIniciada",
     "Evento",
     "EvidenciaRegistrada",
+    "EvidenciaRetratada",
     "FeedbackDado",
     "Origem",
     "Registro",
@@ -45,6 +55,7 @@ __all__ = [
     "competencias_de",
     "concluir_etapa",
     "conferir_recurso",
+    "conferir_retratacao",
     "dar_feedback",
     "emitir_sugestao",
     "eventos_do_yaml",
@@ -53,4 +64,6 @@ __all__ = [
     "montar_percurso",
     "progresso_de",
     "registrar_autoavaliacao",
+    "retratadas_em",
+    "retratar_evidencia",
 ]

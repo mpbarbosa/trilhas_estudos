@@ -8,6 +8,8 @@ reconsulta `teaches`. É o que faz "fato datado não retroage" valer por constru
 
 from __future__ import annotations
 
+from collections.abc import Iterable
+
 from trilhas.catalogo.modelo import Catalogo, Etapa, Nivel
 from trilhas.motor.modelo import Reacao, Sugestao
 
@@ -17,10 +19,13 @@ from .eventos import (
     EtapaIniciada,
     Evento,
     EvidenciaRegistrada,
+    EvidenciaRetratada,
     FeedbackDado,
     Origem,
+    Registro,
     SugestaoEmitida,
 )
+from .projecao import retratadas_em
 
 # Concluir uma etapa é observável; dizer que se sabe algo, não. A diferença pesa no
 # fator `prontidao` (motor §3.2), que desconta confiança baixa.
@@ -92,6 +97,45 @@ def registrar_autoavaliacao(
             confianca=confianca,
         )
     ]
+
+
+def conferir_retratacao(seq: int, registros: Iterable[Registro]) -> str | None:
+    """Confere o alvo de uma retratação. Devolve o erro, ou `None` (ADR-0012).
+
+    Exige que o alvo exista **entre os registros deste estudante**, seja uma
+    `EvidenciaRegistrada` e não esteja retratado. Os três erros são do mesmo tipo:
+    retratação que não encontra o alvo seria evento inerte, aceito na escrita e sem
+    efeito na projeção — o pior dos dois mundos, porque o estudante vê "#43 gravado" e
+    a competência inflada continua lá.
+
+    Retratar retratação não está modelado: quem retratou por engano escreve evidência
+    nova (`sei`, ou concluir a etapa de novo), que é um fato datado honesto em vez de
+    uma pilha de negações.
+
+    Mora aqui, e não na CLI, pelo mesmo motivo de `conferir_recurso`: é regra de
+    domínio, e duas cópias divergiriam (interface.md §3.3). Pura — recebe os registros
+    de quem os leu.
+    """
+    guardados = list(registros)
+    alvo = next((r for r in guardados if r.seq == seq), None)
+    if alvo is None:
+        return f"não há evento #{seq} no log deste estudante"
+    if not isinstance(alvo.evento, EvidenciaRegistrada):
+        return (
+            f"#{seq} é {type(alvo.evento).__name__}, não uma evidência; "
+            "só evidência se retrata"
+        )
+    if seq in retratadas_em(guardados):
+        return f"#{seq} já está retratada"
+    return None
+
+
+def retratar_evidencia(seq: int, *, motivo: str | None = None) -> list[Evento]:
+    """Retrata a evidência do evento `seq` — corrigir é escrever outro fato (ADR-0008).
+
+    Confira o alvo com `conferir_retratacao` antes de gravar.
+    """
+    return [EvidenciaRetratada(evidencia_seq=seq, motivo=motivo)]
 
 
 def dar_feedback(etapa_id: str, reacao: Reacao, *, motivo: str | None = None) -> list[Evento]:

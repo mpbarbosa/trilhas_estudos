@@ -8,6 +8,7 @@ from __future__ import annotations
 
 from dataclasses import replace
 from datetime import UTC, date, datetime
+from itertools import permutations
 from pathlib import Path
 
 import pytest
@@ -22,14 +23,16 @@ from trilhas.percurso import (
     abandonar_etapa,
     competencias_de,
     concluir_etapa,
+    conferir_retratacao,
     dar_feedback,
     eventos_do_yaml,
     iniciar_etapa,
     montar_percurso,
     progresso_de,
     registrar_autoavaliacao,
+    retratar_evidencia,
 )
-from trilhas.percurso.eventos import EvidenciaRegistrada, Registro
+from trilhas.percurso.eventos import EvidenciaRegistrada, EvidenciaRetratada, Registro
 from trilhas.percurso.repositorio import registros_em
 
 EM = datetime(2026, 10, 13, tzinfo=UTC)
@@ -299,6 +302,153 @@ def test_percurso_do_log_alimenta_o_motor(repo: Repositorio) -> None:
     assert [s.etapa_id for s in resultado.sugestoes] == ["etapa:x/seq"]
 
 
+# --- retratação de evidência (ADR-0012) ---------------------------------------
+
+
+def test_nenhuma_sequencia_de_eventos_baixa_um_nivel_evidenciado() -> None:
+    """A monotonia é invariante de fato, não acidente de um caminho (ADR-0012 §Contexto).
+
+    Varre as ações registráveis — todas menos `retratar` — em cada permutação de até
+    três, aplicadas sobre um `avancado` já evidenciado. Se alguma rebaixar, a decisão
+    de ADR-0012 perdeu a premissa: haveria remédio sem evento novo.
+    """
+    comp = "comp:x/a"
+    baixa = etapa("etapa:x/baixa", teaches=[(comp, N.INICIANTE)])
+    acoes = [
+        registrar_autoavaliacao(comp, N.INICIANTE),
+        registrar_autoavaliacao(comp, N.INTERMEDIARIO),
+        concluir_etapa(baixa),
+        abandonar_etapa(baixa),
+        iniciar_etapa(baixa),
+        dar_feedback("etapa:x/alta", Reacao.REJEITADA),
+    ]
+    base = concluir_etapa(etapa("etapa:x/alta", teaches=[(comp, N.AVANCADO)]))
+
+    for tamanho in (1, 2, 3):
+        for combinacao in permutations(acoes, tamanho):
+            eventos = list(base)
+            for acao in combinacao:
+                eventos += acao
+            projetadas = competencias_de(registros(*[(e, EM) for e in eventos]))
+            assert projetadas[0].nivel is Nivel.AVANCADO
+
+
+def test_retratacao_tira_a_evidencia_da_projecao() -> None:
+    """O guarda de `competencias_de`: a evidência retratada projeta como se não existisse."""
+    log = registros(
+        (EvidenciaRegistrada("comp:x/a", Nivel.INTERMEDIARIO, Origem.CONCLUSAO_DE_ETAPA), EM),
+        (retratar_evidencia(1)[0], EM),
+    )
+    assert competencias_de(log) == ()
+
+
+def test_retratar_a_unica_evidencia_apaga_a_competencia() -> None:
+    """CONTEXT §4: competência sem evidência não retratada não existe."""
+    passo = etapa("etapa:x/a", teaches=[("comp:x/a", N.INTERMEDIARIO)])
+    conclusao, evidencia = concluir_etapa(passo)
+    log = registros(
+        (conclusao, dia("2026-01-01")),
+        (evidencia, dia("2026-01-01")),
+        (retratar_evidencia(2, motivo="li só o capítulo 1")[0], dia("2026-02-01")),
+    )
+    assert competencias_de(log) == ()
+    # o progresso não é afetado: retratação fala de evidência, não de etapa
+    assert progresso_de(log)[0].estado is EstadoEtapa.CONCLUIDA
+
+
+def test_retratacao_cai_para_a_evidencia_anterior_nao_para_desconhece() -> None:
+    """O caso de `est:mpb` #30: havia um `iniciante` legítimo embaixo (ADR-0012)."""
+    ev = EvidenciaRegistrada
+    log = registros(
+        (ev("comp:x/a", Nivel.INICIANTE, Origem.CONCLUSAO_DE_ETAPA), dia("2026-01-01")),
+        (ev("comp:x/a", Nivel.INTERMEDIARIO, Origem.CONCLUSAO_DE_ETAPA), dia("2026-10-18")),
+        (retratar_evidencia(2)[0], dia("2026-10-19")),
+    )
+    (projetada,) = competencias_de(log)
+    assert projetada.nivel is Nivel.INICIANTE
+    assert projetada.ultima_evidencia_em == date(2026, 1, 1)
+
+
+def test_retratacao_alcanca_uma_evidencia_so_do_lote_da_conclusao() -> None:
+    """Granularidade por `seq`: a conclusão emitiu duas evidências, retrata-se uma.
+
+    É a razão de a retratação apontar para `seq` e não para (competência, etapa).
+    """
+    passo = etapa(
+        "etapa:x/a", teaches=[("comp:x/a", N.INTERMEDIARIO), ("comp:x/b", N.INTERMEDIARIO)]
+    )
+    conclusao, de_a, de_b = concluir_etapa(passo)
+    # #1 conclusão, #2 evidência de comp:x/a, #3 evidência de comp:x/b
+    log = registros((conclusao, EM), (de_a, EM), (de_b, EM), (retratar_evidencia(2)[0], EM))
+    assert [c.competencia for c in competencias_de(log)] == ["comp:x/b"]
+
+
+def test_retratacao_alcanca_autoavaliacao() -> None:
+    """Evidência de `sei` tem `etapa=None`; o par (competência, etapa) não a endereçaria."""
+    log = registros(
+        (registrar_autoavaliacao("comp:x/a", N.AVANCADO)[0], EM),
+        (retratar_evidencia(1)[0], EM),
+    )
+    assert competencias_de(log) == ()
+
+
+def test_retratacao_sobrevive_ao_banco(repo: Repositorio) -> None:
+    repo.anexar("est:x", registrar_autoavaliacao("comp:x/a", N.AVANCADO))
+    repo.anexar("est:x", retratar_evidencia(1, motivo="engano"))
+    lidos = repo.registros("est:x")
+    assert isinstance(lidos[1].evento, EvidenciaRetratada)
+    assert lidos[1].evento.evidencia_seq == 1
+    assert lidos[1].evento.motivo == "engano"
+    assert competencias_de(lidos) == ()
+
+
+def test_retratacao_consta_da_exportacao(repo: Repositorio) -> None:
+    """Quem lê o JSONL tem de ver a retratação, ou superestima competências."""
+    repo.anexar("est:x", registrar_autoavaliacao("comp:x/a", N.AVANCADO))
+    repo.anexar("est:x", retratar_evidencia(1))
+    assert "evidencia_retratada" in repo.exportar("est:x")
+
+
+# --- a conferência do alvo, na escrita (ADR-0012) -----------------------------
+
+
+def test_conferir_retratacao_aceita_uma_evidencia_do_estudante() -> None:
+    log = registros((registrar_autoavaliacao("comp:x/a", N.AVANCADO)[0], EM))
+    assert conferir_retratacao(1, log) is None
+
+
+def test_conferir_retratacao_recusa_seq_que_nao_existe() -> None:
+    """Guarda: retratação sem alvo seria evento inerte — gravado e sem efeito."""
+    log = registros((registrar_autoavaliacao("comp:x/a", N.AVANCADO)[0], EM))
+    problema = conferir_retratacao(999, log)
+    assert problema is not None and "#999" in problema
+
+
+def test_conferir_retratacao_recusa_evento_que_nao_e_evidencia() -> None:
+    """Guarda: só evidência se retrata. Progresso se corrige com `iniciar`/`abandonar`."""
+    log = registros((concluir_etapa(etapa("etapa:x/a"))[0], EM))
+    problema = conferir_retratacao(1, log)
+    assert problema is not None and "não uma evidência" in problema
+
+
+def test_conferir_retratacao_recusa_retratar_duas_vezes() -> None:
+    """Guarda: retratação de retratação não está modelada (ADR-0012)."""
+    log = registros(
+        (registrar_autoavaliacao("comp:x/a", N.AVANCADO)[0], EM),
+        (retratar_evidencia(1)[0], EM),
+    )
+    problema = conferir_retratacao(1, log)
+    assert problema is not None and "já está retratada" in problema
+
+
+def test_conferir_retratacao_nao_alcanca_evidencia_de_outro_estudante(
+    repo: Repositorio,
+) -> None:
+    """A CLI passa os registros de um estudante só; o alvo não existe fora deles."""
+    repo.anexar("est:outro", registrar_autoavaliacao("comp:x/a", N.AVANCADO))
+    assert conferir_retratacao(1, repo.registros("est:x")) is not None
+
+
 # --- CLI de escrita -----------------------------------------------------------
 
 
@@ -535,3 +685,32 @@ def test_registros_em_le_o_que_o_repositorio_gravou(tmp_path: Path) -> None:
     lidos = registros_em(tmp_path, "est:x")
     assert [r.evento.etapa for r in lidos] == ["etapa:x"]
     assert registros_em(tmp_path, "est:outro") == []
+
+
+def test_cli_retratar_desfaz_a_competencia_e_a_marca_em_mostrar(
+    tmp_path: Path, capsys
+) -> None:
+    destino, lock = _ambiente(tmp_path)
+    assert rodar(destino, lock, "concluir", "etapa:x/base") == 0
+    capsys.readouterr()
+
+    assert rodar(destino, lock, "mostrar") == 0
+    saida = capsys.readouterr().out
+    assert "comp:x/base" in saida
+    assert "evidências:" in saida and "#2" in saida  # o seq é descobrível
+
+    assert rodar(destino, lock, "retratar", "2", "--motivo", "li só o capítulo 1") == 0
+    assert "retrata #2" in capsys.readouterr().out
+
+    assert rodar(destino, lock, "mostrar") == 0
+    saida = capsys.readouterr().out
+    assert "(nenhuma — toda competência exige evidência)" in saida
+    assert "RETRATADA" in saida
+
+
+def test_cli_retratar_recusa_alvo_que_nao_e_evidencia(tmp_path: Path, capsys) -> None:
+    destino, lock = _ambiente(tmp_path)
+    assert rodar(destino, lock, "concluir", "etapa:x/base") == 0
+    capsys.readouterr()
+    assert rodar(destino, lock, "retratar", "1") == 1
+    assert "não uma evidência" in capsys.readouterr().err
