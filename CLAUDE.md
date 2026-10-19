@@ -71,9 +71,15 @@ docs/                CONTEXT, especificações e ADRs
    anterior com `substituido_por`. Nada é removido do catálogo (docs/catalogo.md §3 e §6).
 3. **`rev` sobe só em mudança substantiva**, pela tabela de docs/catalogo.md §4.
    `titulo`, `descricao`, `url` equivalente e `verificado_em` são cosméticos.
-4. **Domínio puro**: nenhum módulo em `src/trilhas/` abaixo de `cli.py` faz I/O,
-   rede ou leitura de ambiente. `validar` é função pura. Modelo em `dataclasses`
-   congeladas (ADR-0006).
+4. **Núcleo puro, efeito na borda**: o domínio não faz I/O, rede nem leitura de
+   ambiente — `modelo`, `validar`, `compilar`, `grafo`, `snapshot`, `motor/`,
+   `percurso/{eventos,projecao,registrar}` e `web/apresentar/`. `validar` é função
+   pura. Modelo em `dataclasses` congeladas (ADR-0006).
+   **`cli.py` não é a única borda**: `catalogo/carregar.py` lê os YAML de autoria
+   (só em `carregar(raiz)` — `do_snapshot(dados)` é puro), `percurso/repositorio.py`
+   abre o SQLite (ADR-0008), e a camada `web/` lê lock, percurso e ambiente (ADR-0007).
+   A fronteira real se confere, não se recita:
+   `grep -rln 'read_text\|write_text\|sqlite3\.connect\|yaml\.safe_load\|Path\.cwd\|os\.kill\|uvicorn\.run' src/trilhas/ --include='*.py'`
 5. **Sugestão é explicável por construção** — nenhuma sugestão sem os fatores que a
    produziram, e a explicação nunca cita fator ausente de `fatores` (ADR-0003,
    motor §2.5).

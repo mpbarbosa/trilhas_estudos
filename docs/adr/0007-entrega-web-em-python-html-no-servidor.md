@@ -72,6 +72,28 @@ modelo das entidades ao lado das `dataclasses` congeladas — divergência garan
 primeiro campo novo. Como as respostas são HTML, serialização automática não resolve
 problema que exista aqui. Se houver API JSON pública, FastAPI entra por cima.
 
+## Nota de correção (2026-10-19)
+
+A **Decisão** acima afirma que *"`cli.py` e `web/` são as bordas; nada abaixo delas faz
+I/O"*. A frase é falsa, e já era no dia em que foi escrita: `catalogo/carregar.py` lê os
+YAML de autoria do disco — `read_text` mais `yaml.safe_load`, dentro de `carregar(raiz)` —
+e não é `cli.py` nem está sob `web/`. O bullet seguinte desta mesma seção já dizia a
+metade certa, que `carregar.do_snapshot` é função pura: o que existe é um **módulo com
+duas entradas**, uma pura e uma de borda, não uma camada com duas bordas. No dia seguinte,
+[ADR-0008](0008-percurso-como-log-de-fatos-datados.md) acrescentou o segundo
+contraexemplo, `percurso/repositorio.py`, que abre o SQLite.
+
+A regra passa a se ler **por módulo nomeado, não por camada**. O núcleo é puro — `modelo`,
+`validar`, `compilar`, `grafo`, `snapshot`, `motor/`, `percurso/{eventos,projecao,registrar}`
+e `web/apresentar/` — e o efeito mora em borda nomeada: `catalogo/carregar.py`,
+`catalogo/cli.py`, `percurso/cli.py`, `percurso/repositorio.py` e a camada `web/`. Lista de
+arquivo envelhece, então a fronteira se confere em vez de se recitar; o grep que a apura
+mora na regra 4 do CLAUDE.md, que é onde a regra se mantém.
+
+A decisão desta ADR não muda: HTML renderizado no servidor, `web/` como camada de entrega
+e `apresentar/` puro de propósito seguem valendo, e nenhum dos descartes se reabre. O que
+estava errado era o alcance de uma frase sobre I/O, não o desenho da camada.
+
 ## Consequências
 
 - O repositório continua com uma linguagem só, e o domínio continua testável sem rede,
