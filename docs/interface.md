@@ -582,7 +582,7 @@ um fato, não a história.
 
 ### 5.12 `POST /competencia/{id}` — declarar que já se sabe (autoavaliação)
 
-A [ADR-0015](adr/0015-retratacao-pela-tela-da-competencia.md) fechou as Consequências
+A [ADR-0016](adr/0016-retratacao-pela-tela-da-competencia.md) fechou as Consequências
 numa assimetria: a tela lista a evidência de autoavaliação e deixa retratá-la, e não
 deixa **criá-la** — `trilhas-percurso sei` era o único caminho. A tela oferecia como
 desfazer um fato que não oferecia como fazer. Esta rota fecha isso.

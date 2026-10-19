@@ -895,7 +895,7 @@ def test_autoavaliacao_so_tem_casa_na_tela_da_competencia(
 
 
 def test_competencia_oferece_declarar_o_que_ja_se_sabe(com_percurso: TestClient) -> None:
-    """A assimetria que a ADR-0015 anotou: a tela retratava o que não deixava criar."""
+    """A assimetria que a ADR-0016 anotou: a tela retratava o que não deixava criar."""
     html = com_percurso.get(f"/competencia/{COMPETENCIA}").text
     assert 'value="autoavaliar"' in html
     assert ">Registrar autoavaliação<" in html
@@ -1107,7 +1107,7 @@ def test_post_de_competencia_sem_acao_nao_grava(com_percurso: TestClient) -> Non
 def test_autoavaliacao_pela_tela_pode_ser_retratada_ali_mesmo(
     com_percurso: TestClient, lock: Path
 ) -> None:
-    """O ciclo fecha: o que a tela cria, a tela desfaz — a assimetria da ADR-0015."""
+    """O ciclo fecha: o que a tela cria, a tela desfaz — a assimetria da ADR-0016."""
     com_percurso.post(
         f"/competencia/{COMPETENCIA}",
         data={"acao": "autoavaliar", "nivel": "avancado"},
