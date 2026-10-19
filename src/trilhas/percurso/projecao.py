@@ -9,7 +9,8 @@ em `registrar` para migrar um percurso que ainda o declare.
 from __future__ import annotations
 
 from collections.abc import Iterable, Sequence
-from dataclasses import replace
+from dataclasses import dataclass, replace
+from datetime import date
 
 from trilhas.motor.modelo import (
     CompetenciaDominada,
@@ -25,8 +26,24 @@ from .eventos import (
     EtapaIniciada,
     EvidenciaRegistrada,
     FeedbackDado,
+    RecursoPercorrido,
     Registro,
 )
+
+
+@dataclass(frozen=True, slots=True)
+class Percorrido:
+    """Um recurso percorrido, com a revisão de então e a data (ADR-0012).
+
+    Mora aqui, e não em `motor.modelo` ao lado de `ProgressoEtapa`, porque o motor não
+    consome este fato: ADR-0012 decidiu que `RecursoPercorrido` não entra em `Percurso`
+    e que `_recursos_viaveis` fica como está. Pôr o tipo na entrada do motor anunciaria
+    um consumidor que não existe.
+    """
+
+    recurso: str
+    recurso_rev: int
+    percorrido_em: date
 
 
 def competencias_de(registros: Iterable[Registro]) -> tuple[CompetenciaDominada, ...]:
@@ -90,6 +107,26 @@ def progresso_de(registros: Iterable[Registro]) -> tuple[ProgressoEtapa, ...]:
     return tuple(estado[chave] for chave in sorted(estado))
 
 
+def percorridos_de(registros: Iterable[Registro]) -> tuple[Percorrido, ...]:
+    """Recursos percorridos, um por recurso, em ordem de id.
+
+    O último fato sobre o mesmo recurso vence, como em `progresso_de`: percorrer de novo
+    é fato novo sobre o mesmo material, e a data que interessa depois é a da última
+    passagem. As passagens anteriores continuam no log, que é quem guarda história.
+    """
+    ultimo: dict[str, Percorrido] = {}
+    for registro in _ordenados(registros):
+        evento = registro.evento
+        if not isinstance(evento, RecursoPercorrido):
+            continue
+        ultimo[evento.recurso] = Percorrido(
+            recurso=evento.recurso,
+            recurso_rev=evento.recurso_rev,
+            percorrido_em=registro.dia,
+        )
+    return tuple(ultimo[chave] for chave in sorted(ultimo))
+
+
 def feedback_de(registros: Iterable[Registro]) -> tuple[Feedback, ...]:
     """Todo feedback é mantido: o motor conta rejeições numa janela (motor §4)."""
     return tuple(
@@ -104,6 +141,10 @@ def montar_percurso(base: Percurso, registros: Iterable[Registro]) -> Percurso:
 
     Do `base` vêm identidade, restrições, objetivo e matrículas — o que o estudante
     declara. Do log vêm competências, progresso e feedback — o que aconteceu.
+
+    `RecursoPercorrido` fica fora de propósito (ADR-0012): o motor não o consome, e
+    projetá-lo aqui o faria entrar na entrada do motor sem consumidor. Quem o quer
+    chama `percorridos_de`.
     """
     guardados = list(registros)
     return replace(

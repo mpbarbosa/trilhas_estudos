@@ -34,6 +34,7 @@ uv run trilhas compilar --conferir  # não grava; falha se o snapshot está desa
 uv run pytest                       # suíte completa
 uv run trilhas-percurso mostrar     # projeção do percurso a partir do log
 uv run trilhas-percurso concluir <etapa>   # grava conclusão + evidência do que ela ensina
+uv run trilhas-percurso percorrer <recurso>  # material percorrido; NÃO emite evidência (ADR-0012)
 uv run trilhas-percurso exportar    # log em JSONL, para commitar
 uv run trilhas-percurso exportar --conferir   # falha se a exportação está atrás do log
 uv run ruff check . && uv run ruff format --check .
