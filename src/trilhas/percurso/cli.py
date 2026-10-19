@@ -22,7 +22,7 @@ from trilhas.web.percurso import carregar_percurso
 from . import registrar
 from .eventos import Evento, EvidenciaRegistrada, Registro
 from .migrar import eventos_do_yaml
-from .projecao import montar_percurso, retratadas_em
+from .projecao import Percorrido, montar_percurso, percorridos_de, retratadas_em
 from .repositorio import Repositorio
 
 LOCK_PADRAO = Path("catalogo.lock.json")
@@ -52,6 +52,12 @@ def main(argv: list[str] | None = None) -> int:
     p = sub.add_parser("abandonar", help="abandona a etapa; evidência já emitida permanece")
     p.add_argument("etapa")
     p.add_argument("--motivo")
+
+    p = sub.add_parser(
+        "percorrer",
+        help="registra material percorrido de ponta a ponta; não emite evidência",
+    )
+    p.add_argument("recurso")
 
     p = sub.add_parser("sei", help="autoavaliação de competência adquirida fora do sistema")
     p.add_argument("competencia")
@@ -100,7 +106,12 @@ def main(argv: list[str] | None = None) -> int:
     with Repositorio.em_diretorio(args.percurso) as repo:
         if args.comando == "mostrar":
             guardados = repo.registros(args.estudante)
-            _mostrar(montar_percurso(base, guardados), guardados)
+            _mostrar(
+                montar_percurso(base, guardados),
+                guardados,
+                percorridos_de(guardados),
+                catalogo,
+            )
             return 0
 
         if args.comando == "retratar":
@@ -169,6 +180,12 @@ def _eventos(
             if erro is not None:
                 return [], erro
         return _de_etapa(args, etapa), None
+
+    if args.comando == "percorrer":
+        erro = registrar.conferir_recurso_avulso(args.recurso, catalogo)
+        if erro is not None:
+            return [], erro
+        return registrar.percorrer_recurso(catalogo.recursos[args.recurso]), None
 
     if args.comando == "sei":
         if args.competencia not in catalogo.competencias:
@@ -254,7 +271,12 @@ def _base(diretorio: Path, estudante: str) -> Percurso:
     return carregar_percurso(arquivo) or Percurso(estudante_id=estudante)
 
 
-def _mostrar(percurso: Percurso, registros: list[Registro] | None = None) -> None:
+def _mostrar(
+    percurso: Percurso,
+    registros: list[Registro],
+    percorridos: tuple[Percorrido, ...],
+    catalogo: Catalogo,
+) -> None:
     print(f"estudante: {percurso.estudante_id}")
     print(f"matrículas: {len(percurso.matriculas)}")
     print("competências dominadas:")
@@ -269,18 +291,23 @@ def _mostrar(percurso: Percurso, registros: list[Registro] | None = None) -> Non
         print(f"  {p.etapa:46} {p.estado!s:14} {p.atualizado_em}")
     if not percurso.progresso:
         print("  (nenhum)")
+    if percorridos:
+        print("recursos percorridos:")
+        for r in percorridos:
+            print(f"  {r.recurso:46} rev {r.recurso_rev:<3} {r.percorrido_em}")
+        _mostrar_obras(percorridos, catalogo)
     if percurso.feedback:
         print("feedback:")
         for f in percurso.feedback:
             print(f"  {f.etapa:46} {f.reacao!s:14} {f.em}")
-    _mostrar_evidencias(registros or [])
+    _mostrar_evidencias(registros)
 
 
 def _mostrar_evidencias(registros: list[Registro]) -> None:
     """Lista as evidências com seu `seq`, marcando as retratadas.
 
     É o que torna `retratar` usável: o alvo é um `seq`, e sem isto a única forma de
-    achá-lo seria ler o JSONL à mão (ADR-0012).
+    achá-lo seria ler o JSONL à mão (ADR-0014).
     """
     evidencias = [r for r in registros if isinstance(r.evento, EvidenciaRegistrada)]
     if not evidencias:
@@ -292,6 +319,30 @@ def _mostrar_evidencias(registros: list[Registro]) -> None:
         assert isinstance(ev, EvidenciaRegistrada)  # para o verificador; filtrado acima
         marca = " RETRATADA" if r.seq in retratadas else ""
         print(f"  #{r.seq:<5} {ev.competencia:40} {ev.nivel!s:14} {r.dia} {ev.origem!s}{marca}")
+
+
+def _mostrar_obras(percorridos: tuple[Percorrido, ...], catalogo: Catalogo) -> None:
+    """Agrupa as fatias percorridas por obra, contra o catálogo de **hoje** (ADR-0012).
+
+    É o que responde "li este livro" em vez de listar sete ids soltos. O agrupamento não
+    está no fato de propósito: `obra` é apresentação, e resolvê-la na leitura é o que
+    mantém o renomear-obra mecânico de ADR-0009.
+    """
+    vistos = {p.recurso for p in percorridos}
+    fatias: dict[str, list[str]] = {}
+    for recurso in catalogo.recursos.values():
+        if recurso.obra is not None:
+            fatias.setdefault(recurso.obra, []).append(recurso.id)
+    tocadas = {
+        obra: sorted(vistos.intersection(ids)) for obra, ids in fatias.items() if vistos & set(ids)
+    }
+    if not tocadas:
+        return
+    print("obras:")
+    for obra, lidas in sorted(tocadas.items()):
+        total = len(fatias[obra])
+        marca = "completa" if len(lidas) == total else "em parte"
+        print(f"  {obra:46} {len(lidas)}/{total} fatia(s)  {marca}")
 
 
 if __name__ == "__main__":  # pragma: no cover

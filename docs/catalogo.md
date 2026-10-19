@@ -182,10 +182,18 @@ Cada entidade tem `rev`, inteiro monotônico. **`rev` sobe só em mudança subst
 | Competência | `verificacao`, `status` | `titulo`, `descricao` |
 | Etapa | `requires`, `teaches`, `opcional`, `status`, `esforco_estimado_min` com variação > 20% | `titulo`, ordem no arquivo, ajuste fino de esforço |
 | Trilha | incluir/remover etapa **obrigatória**, `objetivo_declarado`, `status` | `titulo`, ordem de apresentação, etapa opcional |
-| Recurso | `status`, `disponivel`, `custo`, `obra`, `idioma`, `formato` | `titulo`, `verificado_em`, `url` que aponta ao mesmo material |
+| Recurso | `etapa`, `status`, `disponivel`, `custo`, `obra`, `idioma`, `formato` | `titulo`, `verificado_em`, `url` que aponta ao mesmo material |
 
 Mudança em recurso **nunca** altera a `rev` da etapa: trocar o vídeo não muda o que
 a etapa ensina.
+
+`etapa` entrou na coluna substantiva em 2026-10-18, quando
+[ADR-0013](adr/0013-hospedagem-do-modelo-como-ramo-da-trilha-de-claude.md) precisou
+mover um recurso de etapa e a tabela não dizia nada sobre o campo. É substantivo pelo
+que ele decide: a `etapa` é a casa do recurso, re-encaixá-lo muda o que a etapa de
+origem oferece ao estudante e pode tirar dela o último recurso, que é erro de
+compilação (§5.5). Nem por isso mexe na `rev` de etapa alguma — a regra do parágrafo
+acima vale também aqui.
 
 O progresso grava `(etapa_id, rev)` no momento da conclusão. Isso é o que permite
 responder "o estudante concluiu *qual versão* desta etapa" sem versionar o catálogo

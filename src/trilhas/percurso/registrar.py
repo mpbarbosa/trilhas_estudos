@@ -10,7 +10,7 @@ from __future__ import annotations
 
 from collections.abc import Iterable
 
-from trilhas.catalogo.modelo import Catalogo, Etapa, Nivel
+from trilhas.catalogo.modelo import Catalogo, Etapa, Nivel, Recurso
 from trilhas.motor.modelo import Reacao, Sugestao
 
 from .eventos import (
@@ -22,6 +22,7 @@ from .eventos import (
     EvidenciaRetratada,
     FeedbackDado,
     Origem,
+    RecursoPercorrido,
     Registro,
     SugestaoEmitida,
 )
@@ -54,6 +55,32 @@ def conferir_recurso(recurso_id: str, catalogo: Catalogo, etapa: Etapa) -> str |
     if recurso.etapa != etapa.id:
         return f"recurso de outra etapa: {recurso_id} é de {recurso.etapa}, não de {etapa.id}"
     return None
+
+
+def conferir_recurso_avulso(recurso_id: str, catalogo: Catalogo) -> str | None:
+    """Confere o recurso que se percorreu. Devolve o erro, ou `None` (ADR-0012).
+
+    Mais fraca que `conferir_recurso` de propósito: percorrer material não é sobre uma
+    etapa, então não há com que comparar o `etapa` do recurso — existir no catálogo é
+    tudo que se pode exigir.
+
+    `status` e `disponivel` ficam de fora pelo mesmo motivo de lá: percorrer material
+    depreciado ou fora do ar é fato legítimo de quem o tem em mãos, e fato datado não se
+    recusa pelo catálogo de hoje (catalogo.md §4).
+    """
+    if recurso_id not in catalogo.recursos:
+        return f"recurso desconhecido no catálogo: {recurso_id}"
+    return None
+
+
+def percorrer_recurso(recurso: Recurso) -> list[Evento]:
+    """Material percorrido de ponta a ponta. **Sem evidência de competência** (ADR-0012).
+
+    O verbo é `percorrer`, não `concluir`: CONTEXT §1 reserva "concluível" à etapa, e
+    `concluir_etapa` emite evidência. Um `concluir_recurso` que não emitisse faria o
+    mesmo verbo significar duas forças de fato — a confusão que a ADR existe para evitar.
+    """
+    return [RecursoPercorrido(recurso=recurso.id, recurso_rev=recurso.rev)]
 
 
 def iniciar_etapa(etapa: Etapa, *, recurso: str | None = None) -> list[Evento]:
@@ -100,7 +127,7 @@ def registrar_autoavaliacao(
 
 
 def conferir_retratacao(seq: int, registros: Iterable[Registro]) -> str | None:
-    """Confere o alvo de uma retratação. Devolve o erro, ou `None` (ADR-0012).
+    """Confere o alvo de uma retratação. Devolve o erro, ou `None` (ADR-0014).
 
     Exige que o alvo exista **entre os registros deste estudante**, seja uma
     `EvidenciaRegistrada` e não esteja retratado. Os três erros são do mesmo tipo:
@@ -121,10 +148,7 @@ def conferir_retratacao(seq: int, registros: Iterable[Registro]) -> str | None:
     if alvo is None:
         return f"não há evento #{seq} no log deste estudante"
     if not isinstance(alvo.evento, EvidenciaRegistrada):
-        return (
-            f"#{seq} é {type(alvo.evento).__name__}, não uma evidência; "
-            "só evidência se retrata"
-        )
+        return f"#{seq} é {type(alvo.evento).__name__}, não uma evidência; só evidência se retrata"
     if seq in retratadas_em(guardados):
         return f"#{seq} já está retratada"
     return None

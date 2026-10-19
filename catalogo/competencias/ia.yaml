@@ -112,6 +112,31 @@ competencias:
       Servir uma aplicação com LLM instrumentada e apresentar custo por requisição e
       latência p95 medidos, com a salvaguarda que impede a saída indevida demonstrada.
 
+  # Irmã de comp:ia/operacao-de-aplicacoes-llm e distinta dela — a divisão está em
+  # docs/adr/0013-hospedagem-do-modelo-como-ramo-da-trilha-de-claude.md. Lá a
+  # `verificacao` cobra a aplicação instrumentada: custo por requisição, latência p95
+  # e salvaguarda de saída. Aqui o objeto é *onde o modelo é servido* — de quem é o
+  # limite de segurança, qual credencial entra, em que região o dado fica e o que a
+  # plataforma deixa de oferecer. Nada disso se mede em p95.
+  - id: comp:ia/hospedagem-de-modelo-em-nuvem
+    titulo: Hospedagem de modelo em plataforma de nuvem
+    rev: 1
+    status: ativo
+    descricao: >
+      Escolher e operar a hospedagem do modelo: limite de segurança do provedor,
+      autenticação pela nuvem (função de serviço, identidade federada, token de curta
+      duração), id de modelo e endpoint por plataforma, endpoint global, multirregional
+      e regional, cota por região, paridade de recursos, retenção de dados e log de
+      atividade.
+    verificacao: >
+      Fazer a mesma requisição de mensagens ao mesmo modelo por duas hospedagens — a
+      API da Anthropic e uma plataforma de nuvem (Amazon Bedrock, Google Cloud ou
+      Claude Platform on AWS) — e apresentar o que mudou e o que não mudou: credencial
+      e caminho de autenticação, id de modelo, endpoint e região. Depois, para um
+      requisito dado de residência de dados, escolher uma das hospedagens e sustentar
+      a escolha nomeando o recurso que ela não oferece, a cota que a limita e onde o
+      log de atividade fica.
+
   - id: comp:ia/ferramentas-e-mcp
     titulo: Ferramentas e MCP
     rev: 1

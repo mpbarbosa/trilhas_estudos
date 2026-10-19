@@ -28,6 +28,8 @@ from trilhas.percurso import (
     eventos_do_yaml,
     iniciar_etapa,
     montar_percurso,
+    percorrer_recurso,
+    percorridos_de,
     progresso_de,
     registrar_autoavaliacao,
     retratar_evidencia,
@@ -302,15 +304,19 @@ def test_percurso_do_log_alimenta_o_motor(repo: Repositorio) -> None:
     assert [s.etapa_id for s in resultado.sugestoes] == ["etapa:x/seq"]
 
 
-# --- retratação de evidência (ADR-0012) ---------------------------------------
+# --- retratação de evidência (ADR-0014) ---------------------------------------
 
 
 def test_nenhuma_sequencia_de_eventos_baixa_um_nivel_evidenciado() -> None:
-    """A monotonia é invariante de fato, não acidente de um caminho (ADR-0012 §Contexto).
+    """A monotonia é invariante de fato, não acidente de um caminho (ADR-0014 §Contexto).
 
     Varre as ações registráveis — todas menos `retratar` — em cada permutação de até
     três, aplicadas sobre um `avancado` já evidenciado. Se alguma rebaixar, a decisão
-    de ADR-0012 perdeu a premissa: haveria remédio sem evento novo.
+    de ADR-0014 perdeu a premissa: haveria remédio sem evento novo.
+
+    `percorrer` entra aqui porque é ação de escrita (ADR-0012) e a varredura tem de
+    cobrir o vocabulário inteiro; ela não emite evidência, então não rebaixa — mas é
+    isto que o teste afirma, em vez de supor.
     """
     comp = "comp:x/a"
     baixa = etapa("etapa:x/baixa", teaches=[(comp, N.INICIANTE)])
@@ -321,6 +327,7 @@ def test_nenhuma_sequencia_de_eventos_baixa_um_nivel_evidenciado() -> None:
         abandonar_etapa(baixa),
         iniciar_etapa(baixa),
         dar_feedback("etapa:x/alta", Reacao.REJEITADA),
+        percorrer_recurso(recurso("rec:x/fatia", "etapa:x/baixa")),
     ]
     base = concluir_etapa(etapa("etapa:x/alta", teaches=[(comp, N.AVANCADO)]))
 
@@ -357,7 +364,7 @@ def test_retratar_a_unica_evidencia_apaga_a_competencia() -> None:
 
 
 def test_retratacao_cai_para_a_evidencia_anterior_nao_para_desconhece() -> None:
-    """O caso de `est:mpb` #30: havia um `iniciante` legítimo embaixo (ADR-0012)."""
+    """O caso de `est:mpb` #30: havia um `iniciante` legítimo embaixo (ADR-0014)."""
     ev = EvidenciaRegistrada
     log = registros(
         (ev("comp:x/a", Nivel.INICIANTE, Origem.CONCLUSAO_DE_ETAPA), dia("2026-01-01")),
@@ -409,7 +416,7 @@ def test_retratacao_consta_da_exportacao(repo: Repositorio) -> None:
     assert "evidencia_retratada" in repo.exportar("est:x")
 
 
-# --- a conferência do alvo, na escrita (ADR-0012) -----------------------------
+# --- a conferência do alvo, na escrita (ADR-0014) -----------------------------
 
 
 def test_conferir_retratacao_aceita_uma_evidencia_do_estudante() -> None:
@@ -432,7 +439,7 @@ def test_conferir_retratacao_recusa_evento_que_nao_e_evidencia() -> None:
 
 
 def test_conferir_retratacao_recusa_retratar_duas_vezes() -> None:
-    """Guarda: retratação de retratação não está modelada (ADR-0012)."""
+    """Guarda: retratação de retratação não está modelada (ADR-0014)."""
     log = registros(
         (registrar_autoavaliacao("comp:x/a", N.AVANCADO)[0], EM),
         (retratar_evidencia(1)[0], EM),
@@ -687,9 +694,156 @@ def test_registros_em_le_o_que_o_repositorio_gravou(tmp_path: Path) -> None:
     assert registros_em(tmp_path, "est:outro") == []
 
 
-def test_cli_retratar_desfaz_a_competencia_e_a_marca_em_mostrar(
-    tmp_path: Path, capsys
-) -> None:
+# --- fato de recurso: percorrer não é concluir (ADR-0012) -----------------------
+
+
+def test_percorrer_recurso_nao_emite_evidencia() -> None:
+    """O ponto todo da ADR: a fatia vale uma fração do esforço da etapa.
+
+    Era concluir etapa — e só isso — que dava para registrar "li o livro", e concluir
+    etapa concede competência que o log depois não retira.
+    """
+    eventos = percorrer_recurso(recurso("rec:x/fatia", "etapa:x/inicial"))
+    assert len(eventos) == 1
+    assert not any(isinstance(ev, EvidenciaRegistrada) for ev in eventos)
+    assert competencias_de(registros((eventos[0], EM))) == ()
+
+
+def test_percorrer_grava_a_revisao_da_fatia_de_entao() -> None:
+    """Como `etapa_rev` nos eventos de etapa: repontar a fatia depois não retroage."""
+    (evento,) = percorrer_recurso(recurso("rec:x/fatia", "etapa:x/inicial", rev=3))
+    log = registros((evento, EM))
+    (percorrido,) = percorridos_de(log)
+    assert (percorrido.recurso, percorrido.recurso_rev) == ("rec:x/fatia", 3)
+    assert percorrido.percorrido_em == EM.date()
+
+
+def test_percorrer_nao_mexe_no_progresso_da_etapa() -> None:
+    """Etapa parcialmente percorrida não vira estado de `Progresso` (ADR-0012)."""
+    alvo = etapa("etapa:x/inicial")
+    log = registros(
+        (iniciar_etapa(alvo)[0], EM),
+        (percorrer_recurso(recurso("rec:x/fatia", "etapa:x/inicial"))[0], EM),
+    )
+    (progresso,) = progresso_de(log)
+    assert progresso.estado is EstadoEtapa.EM_ANDAMENTO
+
+
+def test_percorrer_de_novo_fica_com_a_ultima_passagem() -> None:
+    """O último fato sobre o mesmo recurso vence, como em `progresso_de`."""
+    fatia = recurso("rec:x/fatia", "etapa:x/inicial")
+    log = registros(
+        (percorrer_recurso(fatia)[0], dia("2026-10-01")),
+        (percorrer_recurso(fatia)[0], dia("2026-10-15")),
+    )
+    (percorrido,) = percorridos_de(log)
+    assert percorrido.percorrido_em == date(2026, 10, 15)
+
+
+def test_o_fato_de_recurso_fica_fora_da_entrada_do_motor() -> None:
+    """ADR-0012: `RecursoPercorrido` não entra em `Percurso`; o motor não o consome.
+
+    Se um dia entrar, é decisão nova — e este teste é quem avisa que ela foi tomada
+    por acidente.
+    """
+    log = registros((percorrer_recurso(recurso("rec:x/fatia", "etapa:x/inicial"))[0], EM))
+    projetado = montar_percurso(Percurso(estudante_id="est:x"), log)
+    assert projetado.progresso == ()
+    assert projetado.competencias == ()
+    assert projetado.feedback == ()
+
+
+def test_percorrer_e_concluir_sao_independentes_nos_dois_sentidos() -> None:
+    alvo = etapa("etapa:x/inicial", teaches=[("comp:x/base", N.INICIANTE)])
+    so_percorrido = registros((percorrer_recurso(recurso("rec:x/f", "etapa:x/inicial"))[0], EM))
+    assert percorridos_de(so_percorrido) and progresso_de(so_percorrido) == ()
+
+    so_concluido = registros(*[(ev, EM) for ev in concluir_etapa(alvo)])
+    assert progresso_de(so_concluido) and percorridos_de(so_concluido) == ()
+
+
+def test_fato_de_recurso_vai_e_volta_pelo_banco(repo: Repositorio) -> None:
+    """Tipo novo no log: gravar, desserializar e exportar têm de fechar o laço."""
+    repo.anexar("est:x", percorrer_recurso(recurso("rec:x/fatia", "etapa:x/inicial", rev=2)))
+    (registro,) = repo.registros("est:x")
+    assert (registro.evento.recurso, registro.evento.recurso_rev) == ("rec:x/fatia", 2)
+
+    import json as _json
+
+    (linha,) = [_json.loads(x) for x in repo.exportar("est:x").splitlines()]
+    assert linha["tipo"] == "recurso_percorrido"
+    assert linha["dados"] == {"recurso": "rec:x/fatia", "recurso_rev": 2}
+
+
+# --- CLI de `percorrer` ---------------------------------------------------------
+
+
+def test_cli_percorrer_registra_sem_evidencia(tmp_path: Path, capsys) -> None:
+    destino, lock = _ambiente(tmp_path)
+    assert rodar(destino, lock, "percorrer", "rec:x/base") == 0
+    saida = capsys.readouterr().out
+    assert "RecursoPercorrido" in saida and "EvidenciaRegistrada" not in saida
+
+    assert rodar(destino, lock, "mostrar") == 0
+    mostrado = capsys.readouterr().out
+    assert "rec:x/base" in mostrado
+    assert "(nenhuma — toda competência exige evidência)" in mostrado
+
+
+def test_cli_percorrer_recusa_recurso_fora_do_catalogo(tmp_path: Path, capsys) -> None:
+    destino, lock = _ambiente(tmp_path)
+    assert rodar(destino, lock, "percorrer", "rec:nao/existe") == 1
+    assert "recurso desconhecido" in capsys.readouterr().err
+    with Repositorio.em_diretorio(destino) as repo:
+        assert repo.registros("est:mpb") == [], "recusa não grava fato"
+
+
+def test_cli_percorrer_nao_exige_que_o_recurso_seja_de_uma_etapa_iniciada(tmp_path: Path) -> None:
+    """A conferência é só existir: percorrer material não é sobre uma etapa (ADR-0012)."""
+    destino, lock = _ambiente(tmp_path)
+    assert rodar(destino, lock, "percorrer", "rec:x/outra") == 0
+
+
+def test_cli_mostrar_agrupa_as_fatias_por_obra(tmp_path: Path, capsys) -> None:
+    """O que responde "li este livro" em vez de listar fatias soltas.
+
+    O agrupamento é resolvido na leitura, contra o catálogo de hoje — `obra` não está
+    gravada no fato (ADR-0012).
+    """
+    import json as _json
+
+    from trilhas.catalogo.compilar import compilar
+
+    cat = catalogo(
+        competencia("comp:x/base"),
+        etapa("etapa:x/um", teaches=[("comp:x/base", N.INICIANTE)], trilha="trilha:x/t"),
+        etapa("etapa:x/dois", trilha="trilha:x/t"),
+        recurso("rec:x/livro-um", "etapa:x/um", custo=30.0, obra="livro-x"),
+        recurso("rec:x/livro-dois", "etapa:x/dois", custo=30.0, obra="livro-x"),
+    )
+    lock = tmp_path / "catalogo.lock.json"
+    lock.write_text(_json.dumps(compilar(cat), ensure_ascii=False), encoding="utf-8")
+    destino = tmp_path / "percurso"
+    destino.mkdir()
+
+    rodar(destino, lock, "percorrer", "rec:x/livro-um")
+    capsys.readouterr()
+    assert rodar(destino, lock, "mostrar") == 0
+    parcial = capsys.readouterr().out
+    assert "livro-x" in parcial
+    assert "1/2 fatia(s)" in parcial and "em parte" in parcial
+
+    rodar(destino, lock, "percorrer", "rec:x/livro-dois")
+    capsys.readouterr()
+    assert rodar(destino, lock, "mostrar") == 0
+    completa = capsys.readouterr().out
+    assert "2/2 fatia(s)" in completa and "completa" in completa
+
+
+# --- CLI de `retratar` (ADR-0014) ----------------------------------------------
+
+
+def test_cli_retratar_desfaz_a_competencia_e_a_marca_em_mostrar(tmp_path: Path, capsys) -> None:
     destino, lock = _ambiente(tmp_path)
     assert rodar(destino, lock, "concluir", "etapa:x/base") == 0
     capsys.readouterr()

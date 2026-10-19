@@ -59,7 +59,7 @@ class EvidenciaRegistrada:
 
 @dataclass(frozen=True, slots=True)
 class EvidenciaRetratada:
-    """Diz que uma `EvidenciaRegistrada` foi emitida por engano (ADR-0012).
+    """Diz que uma `EvidenciaRegistrada` foi emitida por engano (ADR-0014).
 
     Aponta para o `seq` do evento que retrata, e **não repete** a competência nem o
     nível dele: seria redundância capaz de contradizer o alvo. Gravar o que a outra
@@ -121,6 +121,30 @@ class EtapaAbandonada:
 
 
 @dataclass(frozen=True, slots=True)
+class RecursoPercorrido:
+    """Material percorrido de ponta a ponta — e nada além disso (ADR-0012).
+
+    **Não emite evidência**: percorrer uma fatia que vale 13% do esforço de uma etapa
+    não prova competência alguma sobre ela. Foi concluir etapa como procuração de "li o
+    livro" que gerou o caso da ADR, e o log não retira evidência emitida.
+
+    `obra` de propósito não está aqui: o fato afirma "percorri este recurso", e o
+    agrupamento por obra é apresentação, resolvida na leitura contra o catálogo de hoje.
+    Gravá-lo partiria o histórico em dois ao renomear uma obra (ADR-0009).
+    """
+
+    recurso: str
+    recurso_rev: int
+
+    def como_dados(self) -> dict[str, Any]:
+        return {"recurso": self.recurso, "recurso_rev": self.recurso_rev}
+
+    @classmethod
+    def de_dados(cls, d: dict[str, Any]) -> Self:
+        return cls(str(d["recurso"]), int(d["recurso_rev"]))
+
+
+@dataclass(frozen=True, slots=True)
 class SugestaoEmitida:
     """Sugestão como fato: reproduzível porque guarda fatores e `catalogo_versao`."""
 
@@ -173,6 +197,7 @@ Evento = (
     | EtapaIniciada
     | EtapaConcluida
     | EtapaAbandonada
+    | RecursoPercorrido
     | SugestaoEmitida
     | FeedbackDado
 )
@@ -183,6 +208,7 @@ TIPOS: dict[str, type[Evento]] = {
     "etapa_iniciada": EtapaIniciada,
     "etapa_concluida": EtapaConcluida,
     "etapa_abandonada": EtapaAbandonada,
+    "recurso_percorrido": RecursoPercorrido,
     "sugestao_emitida": SugestaoEmitida,
     "feedback_dado": FeedbackDado,
 }
@@ -212,6 +238,8 @@ def evento_de_dados(tipo: str, dados: dict[str, Any]) -> Evento | None:
             return EtapaConcluida.de_dados(dados)
         case "etapa_abandonada":
             return EtapaAbandonada.de_dados(dados)
+        case "recurso_percorrido":
+            return RecursoPercorrido.de_dados(dados)
         case "sugestao_emitida":
             return SugestaoEmitida.de_dados(dados)
         case "feedback_dado":
