@@ -139,8 +139,10 @@ def feedback_de(registros: Iterable[Registro]) -> tuple[Feedback, ...]:
 def montar_percurso(base: Percurso, registros: Iterable[Registro]) -> Percurso:
     """Combina o estado declarado (YAML) com os fatos do log.
 
-    Do `base` vêm identidade, restrições, objetivo e matrículas — o que o estudante
-    declara. Do log vêm competências, progresso e feedback — o que aconteceu.
+    Do `base` vêm identidade, restrições, objetivo, matrículas e estante — o que o
+    estudante declara. Do log vêm competências, progresso e feedback — o que
+    aconteceu. A estante é estado, não fato datado, e por isso atravessa daqui
+    intacta (ADR-0013).
 
     `RecursoPercorrido` fica fora de propósito (ADR-0012): o motor não o consome, e
     projetá-lo aqui o faria entrar na entrada do motor sem consumidor. Quem o quer

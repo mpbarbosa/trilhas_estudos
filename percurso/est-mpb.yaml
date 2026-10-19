@@ -19,6 +19,10 @@ perfil:
   competencias_dominadas: []
   restricoes:
     idiomas: [pt-BR, en-US]
+  # Exemplares já adquiridos (ADR-0013). Uma fatia basta: a posse se propaga às
+  # irmãs pela `obra`. Apagar a linha desfaz a posse — é o ponto de ser YAML.
+  estante:
+    - rec:ia/biblia-claude-chat
 
 matriculas:
   - trilha: trilha:ia/llm-transformer-rag

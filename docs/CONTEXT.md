@@ -24,6 +24,7 @@ que provavelmente aparecerá no código, ele está entre parênteses.
 | **Objetivo** (`Goal`) | O que o estudante quer alcançar, expresso como competências-alvo com nível-alvo — opcionalmente derivado de uma trilha escolhida. |
 | **Perfil** (`Profile`) | Estado declarado + inferido do estudante: competências dominadas e níveis, preferências e restrições. |
 | **Restrição** (`Constraint`) | Limite duro do estudante: tempo disponível por semana, idioma, custo máximo, formato aceito. |
+| **Estante** (`Shelf`) | Recursos cujo exemplar o estudante já adquiriu. Atributo declarado do **Perfil**, não entidade: lista de ids de recurso, propagada às fatias irmãs pela `obra` do catálogo na leitura ([ADR-0013](adr/0013-posse-de-exemplar-como-estante-declarada.md)). Zera o custo que o motor atribui ao material, nunca o `custo` do catálogo. |
 | **Matrícula** (`Enrollment`) | Vínculo de um estudante com uma trilha, com data de início e status. |
 | **Progresso** (`Progress`) | Registro do avanço: estado por etapa (`nao_iniciada`, `em_andamento`, `concluida`, `abandonada`). |
 | **Evidência** (`Evidence`) | Justificativa de que uma competência foi atingida: autoavaliação, exercício correto, projeto entregue, etapa concluída. Carrega data e confiança. |
@@ -69,6 +70,8 @@ erDiagram
   `duracao_min`, `disponivel: bool`.
 - **CompetenciaDominada**: `nivel`, `confianca` (0–1), `ultima_evidencia_em`.
 - **Restrição**: `minutos_por_semana`, `idiomas[]`, `custo_maximo`, `formatos_aceitos[]`.
+- **Perfil**: `estante[]` — ids de recurso já adquiridos, que o motor lê como custo zero
+  no filtro de `custo_maximo` e no desempate entre recursos (ADR-0013).
 
 ---
 

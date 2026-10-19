@@ -51,6 +51,7 @@ def carregar_percurso(caminho: Path) -> Percurso | None:
         competencias=tuple(_dominadas(perfil.get("competencias_dominadas"))),
         restricoes=_restricoes(_mapa(perfil.get("restricoes"))),
         objetivo=_objetivo(_mapa(dados.get("objetivo"))),
+        estante=_estante(perfil.get("estante")),
         matriculas=tuple(_matriculas(dados.get("matriculas"))),
         progresso=tuple(_progresso(dados.get("progresso"))),
         feedback=tuple(_feedback(dados.get("feedback"))),
@@ -162,6 +163,18 @@ def _restricoes(bruto: Mapping[str, Any]) -> Restricoes:
         custo_maximo=float(custo) if custo is not None else None,
         formatos_aceitos=frozenset(formatos),
     )
+
+
+def _estante(bruto: Any) -> frozenset[str]:
+    """Ids de recurso já adquiridos (ADR-0013). Tolerante como o resto do módulo.
+
+    Id inexistente no catálogo não é erro aqui: quem resolve a posse é o motor, contra
+    o catálogo que recebeu, e uma linha velha apontando para recurso que saiu de cena
+    simplesmente não casa com nada.
+    """
+    if not isinstance(bruto, list):
+        return frozenset()
+    return frozenset(str(item) for item in bruto if isinstance(item, str) and item.strip())
 
 
 def _objetivo(bruto: Mapping[str, Any]) -> Objetivo | None:

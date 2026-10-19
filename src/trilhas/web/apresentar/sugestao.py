@@ -27,6 +27,7 @@ from ...motor.modelo import (
     Sugestao,
     Tipo,
 )
+from ...motor.sugerir import possuidos_em
 from . import comum
 
 ROTULO_TIPO = {
@@ -115,6 +116,9 @@ class RecursoSugerido:
     custo: str
     duracao: str
     url: str
+    na_estante: bool = False
+    """O exemplar já é do estudante (ADR-0013). O `custo` continua o de catálogo:
+    um livro de R$ 350 não vira "grátis" por estar pago — vira "R$ 350 · já seu"."""
 
 
 @dataclass(frozen=True, slots=True)
@@ -195,13 +199,15 @@ def painel(
 
     grupos = _agrupar(resultado.eliminadas, catalogo)
     por_restricao = [g for g in grupos if g.por_restricao]
+    # Mesma propagação que o motor usou para escolher o recurso: uma só regra.
+    possuidos = possuidos_em(catalogo, percurso.estante) if percurso else frozenset()
 
     return VisaoPainel(
         estudante_id=percurso.estudante_id if percurso else "",
         estudante_nome=estudante_nome,
         estudantes=estudantes,
         cartoes=tuple(
-            _cartao(posicao, sugestao, catalogo)
+            _cartao(posicao, sugestao, catalogo, possuidos)
             for posicao, sugestao in enumerate(resultado.sugestoes, start=1)
         ),
         motivo_vazio=resultado.motivo_vazio.value if resultado.motivo_vazio else "",
@@ -225,7 +231,9 @@ def painel(
     )
 
 
-def _cartao(posicao: int, sugestao: Sugestao, catalogo: Catalogo) -> Cartao:
+def _cartao(
+    posicao: int, sugestao: Sugestao, catalogo: Catalogo, possuidos: frozenset[str]
+) -> Cartao:
     etapa = catalogo.etapas.get(sugestao.etapa_id)
     trilha_id = etapa.trilha or "" if etapa else ""
     return Cartao(
@@ -240,7 +248,7 @@ def _cartao(posicao: int, sugestao: Sugestao, catalogo: Catalogo) -> Cartao:
         explicacao=sugestao.explicacao,
         trechos=_trechos(sugestao.explicacao),
         barras=tuple(_barra(f.nome, f.peso, f.valor, f.contribuicao) for f in sugestao.fatores),
-        recurso=_recurso(catalogo.recursos.get(sugestao.recurso_sugerido_id)),
+        recurso=_recurso(catalogo.recursos.get(sugestao.recurso_sugerido_id), possuidos),
         trilha_id=trilha_id,
         trilha_titulo=comum.titulo_de(catalogo, trilha_id) if trilha_id else "",
         esforco=comum.duracao(etapa.esforco_estimado_min) if etapa else "",
@@ -280,7 +288,7 @@ def _numero(valor: float) -> str:
     return f"{valor:.2f}".replace(".", ",")
 
 
-def _recurso(recurso: Recurso | None) -> RecursoSugerido | None:
+def _recurso(recurso: Recurso | None, possuidos: frozenset[str]) -> RecursoSugerido | None:
     if recurso is None:
         return None
     return RecursoSugerido(
@@ -291,6 +299,7 @@ def _recurso(recurso: Recurso | None) -> RecursoSugerido | None:
         custo=comum.dinheiro(recurso.custo),
         duracao=comum.duracao(recurso.duracao_min),
         url=recurso.url,
+        na_estante=recurso.id in possuidos,
     )
 
 

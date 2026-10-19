@@ -26,6 +26,7 @@
 | [0010](adr/0010-shell-como-pre-requisito-declarado.md) | Shell como pré-requisito declarado, em etapa avulsa compartilhada | aceito |
 | [0011](adr/0011-python-no-servidor-como-ramo-da-trilha-web.md) | Python no servidor como ramo opcional da trilha web | aceito |
 | [0012](adr/0012-fato-de-recurso-no-percurso.md) | Percurso registra fato de recurso; posse fica fora do log | aceito |
+| [0013](adr/0013-posse-de-exemplar-como-estante-declarada.md) | Posse de exemplar como estante declarada no perfil, aplicada ao custo efetivo | aceito |
 
 ## Pendente
 
@@ -37,9 +38,6 @@ roda em CI, em [.github/workflows/verificar.yml](../.github/workflows/verificar.
 ## Pendente de decisão
 
 - Calibração dos pesos dos fatores de score — ver [ADR-0003](adr/0003-motor-de-sugestao-por-regras-explicavel.md).
-- Posse de obra: como declarar que o exemplar já foi comprado, e em que chave — ver
-  [ADR-0012](adr/0012-fato-de-recurso-no-percurso.md), que a recusou como evento e
-  mediu as 14 etapas em que ela trocaria o recurso sugerido.
 
 ## Ordem de construção implicada
 

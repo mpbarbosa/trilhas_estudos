@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import date
+from datetime import date, datetime
 
 import pytest
 
@@ -10,8 +10,10 @@ from fabrica import N, catalogo, competencia, etapa, minimo_valido, recurso, tri
 from trilhas.catalogo.grafo import arestas_derivadas, fecho_progressivo
 from trilhas.catalogo.modelo import Catalogo, Formato, Nivel, Status
 from trilhas.catalogo.snapshot import Cabecalho
+from trilhas.motor import Matricula, Percurso, sugerir
 from trilhas.web.apresentar import acervo as apresentar_acervo
 from trilhas.web.apresentar import comum, detalhe
+from trilhas.web.apresentar import sugestao as apresentar_sugestao
 from trilhas.web.apresentar.disposicao import dispor
 from trilhas.web.dados import Acervo
 
@@ -289,3 +291,45 @@ def test_explicacao_sem_enfase_vira_um_trecho_so() -> None:
     from trilhas.web.apresentar.sugestao import _trechos
 
     assert [t.texto for t in _trechos("sem ênfase")] == ["sem ênfase"]
+
+
+# --- estante no cartão (ADR-0013) ----------------------------------------------
+
+
+def _cat_com_livro() -> Catalogo:
+    return catalogo(
+        competencia("comp:x/a"),
+        etapa("etapa:x/a", teaches=[("comp:x/a", N.INICIANTE)], trilha="trilha:x/t"),
+        recurso("rec:x/livro", "etapa:x/a", custo=350, duracao_min=30, obra="livro-x"),
+        recurso("rec:x/site", "etapa:x/a", custo=0, duracao_min=120),
+        trilha("trilha:x/t", etapas=["etapa:x/a"], objetivo=[("comp:x/a", N.INICIANTE)]),
+    )
+
+
+def _painel_do_livro(estante: frozenset[str]):  # type: ignore[no-untyped-def]
+    cat = _cat_com_livro()
+    percurso = Percurso(
+        "est:x",
+        matriculas=(Matricula("trilha:x/t", date(2026, 10, 1)),),
+        estante=estante,
+    )
+    momento = datetime(2026, 10, 12, 9, 0)
+    return apresentar_sugestao.painel(sugerir(cat, percurso, momento), cat, percurso)
+
+
+def test_recurso_da_estante_mostra_o_preco_de_catalogo_e_que_ja_e_seu() -> None:
+    """Zerar o custo na tela chamaria de "grátis" um livro de R$ 350 (ADR-0013)."""
+    visao = _painel_do_livro(frozenset({"rec:x/livro"}))
+    sugerido = visao.cartoes[0].recurso
+    assert sugerido is not None
+    assert sugerido.id == "rec:x/livro"
+    assert sugerido.custo == "R$ 350"
+    assert sugerido.na_estante
+
+
+def test_recurso_fora_da_estante_nao_e_marcado() -> None:
+    visao = _painel_do_livro(frozenset())
+    sugerido = visao.cartoes[0].recurso
+    assert sugerido is not None
+    assert sugerido.id == "rec:x/site"
+    assert not sugerido.na_estante
