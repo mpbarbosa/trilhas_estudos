@@ -14,18 +14,28 @@ from .eventos import (
     EvidenciaRegistrada,
     FeedbackDado,
     Origem,
+    RecursoPercorrido,
     Registro,
     SugestaoEmitida,
 )
 from .migrar import eventos_do_yaml
-from .projecao import competencias_de, feedback_de, montar_percurso, progresso_de
+from .projecao import (
+    Percorrido,
+    competencias_de,
+    feedback_de,
+    montar_percurso,
+    percorridos_de,
+    progresso_de,
+)
 from .registrar import (
     abandonar_etapa,
     concluir_etapa,
     conferir_recurso,
+    conferir_recurso_avulso,
     dar_feedback,
     emitir_sugestao,
     iniciar_etapa,
+    percorrer_recurso,
     registrar_autoavaliacao,
 )
 from .repositorio import Repositorio
@@ -38,6 +48,8 @@ __all__ = [
     "EvidenciaRegistrada",
     "FeedbackDado",
     "Origem",
+    "Percorrido",
+    "RecursoPercorrido",
     "Registro",
     "Repositorio",
     "SugestaoEmitida",
@@ -45,12 +57,15 @@ __all__ = [
     "competencias_de",
     "concluir_etapa",
     "conferir_recurso",
+    "conferir_recurso_avulso",
     "dar_feedback",
     "emitir_sugestao",
     "eventos_do_yaml",
     "feedback_de",
     "iniciar_etapa",
     "montar_percurso",
+    "percorrer_recurso",
+    "percorridos_de",
     "progresso_de",
     "registrar_autoavaliacao",
 ]
