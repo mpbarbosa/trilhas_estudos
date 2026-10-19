@@ -142,9 +142,10 @@ src/trilhas/
     estatico/      estilo.css, pan-zoom.js
 ```
 
-A regra 4 do [CLAUDE.md](../CLAUDE.md) — *"nenhum módulo abaixo de `cli.py` faz I/O"* —
-passa a se ler: **`cli.py` e `web/` são as duas bordas; nada abaixo delas faz I/O.**
-`apresentar/` é puro de propósito, para ser testável sem servidor.
+A regra 4 do [CLAUDE.md](../CLAUDE.md) não fala de duas bordas, e sim de borda
+nomeada: além de `cli.py` e de `web/`, `catalogo/carregar.py` lê os YAML de autoria e
+`percurso/repositorio.py` abre o SQLite. `apresentar/` é puro de propósito, para ser
+testável sem servidor.
 
 Dependências no grupo opcional `web` (`starlette`, `uvicorn`, `jinja2`; `httpx` em dev).
 O domínio continua com `pyyaml` e nada mais — instalar o pacote sem o extra `web`
