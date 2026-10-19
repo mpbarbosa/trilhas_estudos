@@ -67,7 +67,7 @@ def competencias_de(registros: Iterable[Registro]) -> tuple[CompetenciaDominada,
     qualquer nível — é o que faz `urgencia_de_revisao` (motor §3.6) medir o
     decaimento do que a pessoa sabe hoje, não de um nível que ela já superou.
 
-    O nível é monotônico por decisão (ADR-0012): evidência nova de nível menor nunca
+    O nível é monotônico por decisão (ADR-0014): evidência nova de nível menor nunca
     rebaixa, venha de `teaches` (CONTEXT §4) ou de autoavaliação. Só retratação baixa.
     Retratar a última evidência de uma competência a faz desaparecer — competência sem
     evidência não existe (CONTEXT §4) —, mas havendo evidência anterior legítima, o
