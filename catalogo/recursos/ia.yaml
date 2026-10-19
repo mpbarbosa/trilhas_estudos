@@ -152,6 +152,20 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-17
 
+  - id: rec:ia/hands-on-llms-transformer
+    etapa: etapa:ia/transformer-por-dentro
+    titulo: "Hands-On Large Language Models — caps. 2–3: tokens e embeddings, e o interior de um LLM transformer; exposição ilustrada, não deriva a matemática da atenção"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 320
+    obra: handson-llm
+    duracao_min: 420
+    url: https://www.oreilly.com/library/view/hands-on-large-language/9781098150952/
+    disponivel: true
+    verificado_em: 2026-10-19
+
   # --- etapa:ia/llm-do-zero -----------------------------------------------
   - id: rec:ia/build-llm-from-scratch
     etapa: etapa:ia/llm-do-zero
@@ -180,14 +194,22 @@ recursos:
     verificado_em: 2026-10-08
 
   # --- etapa:ia/embeddings-e-busca-semantica ------------------------------
+  # Hands-On Large Language Models (Alammar & Grootendorst), ISBN 9781098150952 —
+  # página oficial: https://www.llm-book.com/. O exemplar se compra uma vez e está
+  # fatiado em quatro etapas desta trilha; todas as fatias declaram
+  # `obra: handson-llm` com o mesmo `custo`, que é o do exemplar inteiro
+  # (validação 12 / ADR-0009). Os notebooks oficiais no GitHub são obra distinta e
+  # gratuita — ficam sem `obra`, e por isso o `custo: 0` deles não conflita com o
+  # preço do livro.
   - id: rec:ia/hands-on-llms-embeddings
     etapa: etapa:ia/embeddings-e-busca-semantica
     titulo: "Hands-On Large Language Models (Alammar & Grootendorst) — embeddings, busca e clusterização"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 320
+    obra: handson-llm
     duracao_min: 900
     url: https://www.oreilly.com/library/view/hands-on-large-language/9781098150952/
     disponivel: true
@@ -242,6 +264,20 @@ recursos:
     url: https://interney.net/livro-ia
     disponivel: true
     verificado_em: 2026-10-17
+
+  - id: rec:ia/hands-on-llms-prompt
+    etapa: etapa:ia/engenharia-de-prompt
+    titulo: "Hands-On Large Language Models — cap. 6: engenharia de prompt com parâmetros de decodificação, saída estruturada e encadeamento de instruções"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 320
+    obra: handson-llm
+    duracao_min: 300
+    url: https://www.oreilly.com/library/view/hands-on-large-language/9781098150952/
+    disponivel: true
+    verificado_em: 2026-10-19
 
   # --- etapa:ia/recuperacao-e-ranqueamento --------------------------------
   - id: rec:ia/ai-powered-search
@@ -326,6 +362,20 @@ recursos:
     url: https://github.com/rasbt/LLMs-from-scratch
     disponivel: true
     verificado_em: 2026-10-08
+
+  - id: rec:ia/hands-on-llms-fine-tuning
+    etapa: etapa:ia/fine-tuning-e-adaptacao
+    titulo: "Hands-On Large Language Models — caps. 10–12: treinar modelo de embedding, e fine-tuning de modelo de representação e de geração"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 320
+    obra: handson-llm
+    duracao_min: 600
+    url: https://www.oreilly.com/library/view/hands-on-large-language/9781098150952/
+    disponivel: true
+    verificado_em: 2026-10-19
 
   # --- etapa:ia/avaliacao-de-sistemas-llm ---------------------------------
   - id: rec:ia/ai-engineering-avaliacao
