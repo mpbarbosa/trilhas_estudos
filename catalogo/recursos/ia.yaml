@@ -511,16 +511,52 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-08
 
+  # --- etapa:ia/claude-em-plataforma-de-nuvem ------------------------------
+  # As três páginas são a documentação oficial com tradução em pt-BR, gratuitas. A de
+  # recursos por plataforma é a que sustenta a parte de paridade da `verificacao` da
+  # competência: é onde se lê, numa tabela só, o que cada hospedagem não oferece.
+  #
+  # rec:ia/claude-docs-bedrock nasceu pendurado em etapa:ia/claude-api-e-sdk, por
+  # falta de etapa para o assunto, e mudou de etapa aqui — `rev` subiu a 2 porque
+  # trocar a `etapa` de um recurso o re-encaixa (docs/catalogo.md §4) e pode tirar o
+  # último recurso de uma etapa (validação 5). A `rev` das duas etapas não muda:
+  # recurso nunca altera `rev` de etapa.
   - id: rec:ia/claude-docs-bedrock
-    etapa: etapa:ia/claude-api-e-sdk
+    etapa: etapa:ia/claude-em-plataforma-de-nuvem
     titulo: "Documentação oficial — Claude no Amazon Bedrock: autenticação da AWS, SDK com sufixo de Bedrock, ids de modelo, regiões, cotas e logs"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 0
     duracao_min: 90
     url: https://platform.claude.com/docs/pt-BR/build-with-claude/claude-in-amazon-bedrock
+    disponivel: true
+    verificado_em: 2026-10-18
+
+  - id: rec:ia/claude-docs-google-cloud
+    etapa: etapa:ia/claude-em-plataforma-de-nuvem
+    titulo: "Documentação oficial — Claude no Google Cloud: autenticação do Google Cloud, modelo na URL do endpoint, endpoint global, multirregional e regional"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 90
+    url: https://platform.claude.com/docs/pt-BR/build-with-claude/claude-on-vertex-ai
+    disponivel: true
+    verificado_em: 2026-10-18
+
+  - id: rec:ia/claude-docs-recursos-por-plataforma
+    etapa: etapa:ia/claude-em-plataforma-de-nuvem
+    titulo: "Documentação oficial — visão geral dos recursos: o que cada hospedagem oferece, com retenção zero de dados por recurso"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 60
+    url: https://platform.claude.com/docs/pt-BR/build-with-claude/overview
     disponivel: true
     verificado_em: 2026-10-18
 
