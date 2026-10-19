@@ -31,7 +31,7 @@ from ..motor.modelo import (
     Reacao,
     Restricoes,
 )
-from ..percurso.projecao import montar_percurso
+from ..percurso.projecao import Evidencia, evidencias_de, montar_percurso
 from ..percurso.repositorio import registros_em
 
 NOME_DO_DIRETORIO = "percurso"
@@ -75,6 +75,24 @@ def percurso_completo(caminho: Path) -> Percurso | None:
     if base is None:
         return None
     return montar_percurso(base, registros_em(caminho.parent, base.estudante_id))
+
+
+def evidencias_do_percurso(caminho: Path) -> tuple[Evidencia, ...]:
+    """As evidências do log, com o `seq` que as endereça (ADR-0016).
+
+    Segunda leitura do log ao lado de `percurso_completo`, e de propósito: `Percurso`
+    leva `CompetenciaDominada`, que é o nível vigente e nada mais — é o que o motor
+    consome. A tela de auditoria precisa do fato, não do nível, e o fato tem `seq`.
+    Pôr as evidências em `Percurso` para a tela as alcançar pelo caminho do motor
+    alargaria a entrada do motor por um consumidor que não é ele.
+
+    Só lê, como todo este módulo: banco ausente vira tupla vazia, porque `registros_em`
+    abre em `mode=ro` e desenhar uma página nunca faz nascer log (interface.md §9.1).
+    """
+    base = carregar_percurso(caminho)
+    if base is None:
+        return ()
+    return evidencias_de(registros_em(caminho.parent, base.estudante_id))
 
 
 def nome_do_estudante(caminho: Path) -> str:
