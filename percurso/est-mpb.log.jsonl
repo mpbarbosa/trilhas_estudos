@@ -45,3 +45,6 @@
 {"dados": {"etapa": "etapa:ia/agente-em-producao", "etapa_rev": 1}, "em": "2026-10-19T00:14:02.097121+00:00", "seq": 45, "tipo": "etapa_concluida"}
 {"dados": {"competencia": "comp:ia/agentes-llm", "confianca": 1.0, "etapa": "etapa:ia/agente-em-producao", "etapa_rev": 1, "nivel": "avancado", "origem": "conclusao_de_etapa"}, "em": "2026-10-19T00:14:02.097121+00:00", "seq": 46, "tipo": "evidencia_registrada"}
 {"dados": {"competencia": "comp:ia/operacao-de-aplicacoes-llm", "confianca": 1.0, "etapa": "etapa:ia/agente-em-producao", "etapa_rev": 1, "nivel": "iniciante", "origem": "conclusao_de_etapa"}, "em": "2026-10-19T00:14:02.097121+00:00", "seq": 47, "tipo": "evidencia_registrada"}
+{"dados": {"etapa": "etapa:ia/claude-modelos-e-chat", "etapa_rev": 1}, "em": "2026-10-19T00:14:28.425795+00:00", "seq": 48, "tipo": "etapa_concluida"}
+{"dados": {"competencia": "comp:ia/uso-de-llm-por-api", "confianca": 1.0, "etapa": "etapa:ia/claude-modelos-e-chat", "etapa_rev": 1, "nivel": "iniciante", "origem": "conclusao_de_etapa"}, "em": "2026-10-19T00:14:28.425795+00:00", "seq": 49, "tipo": "evidencia_registrada"}
+{"dados": {"etapa": "etapa:ia/claude-api-e-sdk", "etapa_rev": 1, "recurso": "rec:ia/claude-docs-bedrock"}, "em": "2026-10-19T00:21:44.264164+00:00", "seq": 50, "tipo": "etapa_iniciada"}

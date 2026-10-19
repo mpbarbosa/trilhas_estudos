@@ -511,6 +511,19 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-08
 
+  - id: rec:ia/claude-docs-bedrock
+    etapa: etapa:ia/claude-api-e-sdk
+    titulo: "Documentação oficial — Claude no Amazon Bedrock: autenticação da AWS, SDK com sufixo de Bedrock, ids de modelo, regiões, cotas e logs"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 90
+    url: https://platform.claude.com/docs/pt-BR/build-with-claude/claude-in-amazon-bedrock
+    disponivel: true
+    verificado_em: 2026-10-18
+
   # --- etapa:ia/tool-use-e-mcp --------------------------------------------
   - id: rec:ia/biblia-claude-mcp
     etapa: etapa:ia/tool-use-e-mcp
