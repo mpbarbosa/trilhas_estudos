@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 27,
-  "gerado_em": "2026-10-19T00:49:01+00:00",
-  "hash": "sha256:33e02b09d288909820f2fe731ee14fadb2e1a22f60105f445e8bbf218f130470",
+  "catalogo_versao": 28,
+  "gerado_em": "2026-10-19T17:51:28+00:00",
+  "hash": "sha256:da20ac8bf8d0876788d99506b6614a5a4f84c73bf8d6cb7675c3bd7a8caed6b8",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -4209,7 +4209,7 @@
     {
       "id": "rec:ia/hands-on-llms-embeddings",
       "titulo": "Hands-On Large Language Models (Alammar & Grootendorst) — embeddings, busca e clusterização",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/embeddings-e-busca-semantica",
       "formato": "texto",
@@ -4218,7 +4218,23 @@
       "duracao_min": 900,
       "url": "https://www.oreilly.com/library/view/hands-on-large-language/9781098150952/",
       "disponivel": true,
+      "obra": "handson-llm",
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/hands-on-llms-fine-tuning",
+      "titulo": "Hands-On Large Language Models — caps. 10–12: treinar modelo de embedding, e fine-tuning de modelo de representação e de geração",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/fine-tuning-e-adaptacao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 320.0,
+      "duracao_min": 600,
+      "url": "https://www.oreilly.com/library/view/hands-on-large-language/9781098150952/",
+      "disponivel": true,
+      "obra": "handson-llm",
+      "verificado_em": "2026-10-19"
     },
     {
       "id": "rec:ia/hands-on-llms-notebooks",
@@ -4235,6 +4251,21 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:ia/hands-on-llms-prompt",
+      "titulo": "Hands-On Large Language Models — cap. 6: engenharia de prompt com parâmetros de decodificação, saída estruturada e encadeamento de instruções",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/engenharia-de-prompt",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 320.0,
+      "duracao_min": 300,
+      "url": "https://www.oreilly.com/library/view/hands-on-large-language/9781098150952/",
+      "disponivel": true,
+      "obra": "handson-llm",
+      "verificado_em": "2026-10-19"
+    },
+    {
       "id": "rec:ia/hands-on-llms-rag",
       "titulo": "Hands-On Large Language Models — capítulo de RAG e geração com contexto",
       "rev": 1,
@@ -4247,6 +4278,21 @@
       "url": "https://github.com/HandsOnLLM/Hands-On-Large-Language-Models",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/hands-on-llms-transformer",
+      "titulo": "Hands-On Large Language Models — caps. 2–3: tokens e embeddings, e o interior de um LLM transformer; exposição ilustrada, não deriva a matemática da atenção",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/transformer-por-dentro",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 320.0,
+      "duracao_min": 420,
+      "url": "https://www.oreilly.com/library/view/hands-on-large-language/9781098150952/",
+      "disponivel": true,
+      "obra": "handson-llm",
+      "verificado_em": "2026-10-19"
     },
     {
       "id": "rec:ia/handson-ml-3ed",
