@@ -20,9 +20,9 @@ from trilhas.motor.modelo import Percurso, Reacao
 from trilhas.web.percurso import carregar_percurso
 
 from . import registrar
-from .eventos import Evento, EvidenciaRegistrada, Registro
+from .eventos import Evento, Registro
 from .migrar import eventos_do_yaml
-from .projecao import Percorrido, montar_percurso, percorridos_de, retratadas_em
+from .projecao import Percorrido, evidencias_de, montar_percurso, percorridos_de
 from .repositorio import Repositorio
 
 LOCK_PADRAO = Path("catalogo.lock.json")
@@ -308,17 +308,18 @@ def _mostrar_evidencias(registros: list[Registro]) -> None:
 
     É o que torna `retratar` usável: o alvo é um `seq`, e sem isto a única forma de
     achá-lo seria ler o JSONL à mão (ADR-0014).
+
+    A varredura é de `projecao.evidencias_de` — a **mesma** que a tela da competência
+    projeta (ADR-0015). Duas listas de evidência montadas em lugares diferentes dariam
+    dois `seq` para o mesmo fato na hora em que uma delas errasse a retratação.
     """
-    evidencias = [r for r in registros if isinstance(r.evento, EvidenciaRegistrada)]
+    evidencias = evidencias_de(registros)
     if not evidencias:
         return
-    retratadas = retratadas_em(registros)
     print("evidências:")
-    for r in evidencias:
-        ev = r.evento
-        assert isinstance(ev, EvidenciaRegistrada)  # para o verificador; filtrado acima
-        marca = " RETRATADA" if r.seq in retratadas else ""
-        print(f"  #{r.seq:<5} {ev.competencia:40} {ev.nivel!s:14} {r.dia} {ev.origem!s}{marca}")
+    for e in evidencias:
+        marca = " RETRATADA" if e.retratada else ""
+        print(f"  #{e.seq:<5} {e.competencia:40} {e.nivel!s:14} {e.em} {e.origem!s}{marca}")
 
 
 def _mostrar_obras(percorridos: tuple[Percorrido, ...], catalogo: Catalogo) -> None:

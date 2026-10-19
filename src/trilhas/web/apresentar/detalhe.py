@@ -10,11 +10,13 @@ from collections.abc import Mapping
 from dataclasses import dataclass
 from datetime import date
 
-from ...catalogo.modelo import Competencia, Etapa, Nivel, Recurso, Status, Trilha
+from ...catalogo.modelo import Catalogo, Competencia, Etapa, Nivel, Recurso, Status, Trilha
 from ...motor.modelo import EstadoEtapa, Percurso, ProgressoEtapa
+from ...percurso.projecao import Evidencia
 from ..dados import Acervo
 from ..escrever import Acao
 from . import comum
+from .comum import ROTULO_ORIGEM
 from .disposicao import Disposicao, dispor
 
 
@@ -159,6 +161,30 @@ class VisaoEtapa:
 
 
 @dataclass(frozen=True, slots=True)
+class LinhaEvidencia:
+    """Uma evidência na linha do tempo, com o `seq` à vista (docs/interface.md §5.11).
+
+    O `seq` é dado de tela, não detalhe de armazenamento: é o alvo de `retratar`, e sem
+    ele na página a retratação não tem como ser pedida de lugar nenhum
+    ([ADR-0014](../../../../docs/adr/0014-retratacao-de-evidencia-por-seq.md)).
+    """
+
+    seq: int
+    nivel: Nivel
+    nivel_rotulo: str
+    origem_rotulo: str
+    confianca: float
+    em: date
+    etapa: Referencia | None
+    """A etapa cuja conclusão a emitiu. `None` em autoavaliação — que é exatamente por
+    que a tela da etapa não serviria de casa para a retratação."""
+    etapa_rev: int | None
+    retratada: bool
+    retratada_em: date | None
+    motivo_da_retratacao: str
+
+
+@dataclass(frozen=True, slots=True)
 class VisaoCompetencia:
     competencia: Competencia
     area: str
@@ -168,6 +194,18 @@ class VisaoCompetencia:
     exigida_por: tuple[tuple[Referencia, str], ...]
     objetivo_de: tuple[Referencia, ...]
     alertas: tuple[str, ...]
+    tem_percurso: bool = False
+    """Houve percurso para consultar — distingue "nenhuma evidência" de "não se sabe"."""
+    nivel_no_percurso: Nivel | None = None
+    """O nível vigente, da projeção que o motor consome. `None` sem percurso ou sem
+    evidência que sustente a competência (CONTEXT §4)."""
+    nivel_no_percurso_rotulo: str = ""
+    ultima_evidencia_em: date | None = None
+    evidencias: tuple[LinhaEvidencia, ...] = ()
+    """Todas as evidências, retratadas incluídas: é o histórico, não o nível vigente."""
+    pode_retratar: bool = False
+    """Só com percurso carregado: retratar é escrita, e um fato precisa de estudante a
+    quem atribuí-lo (docs/interface.md §5.10.6)."""
 
 
 def trilha(
@@ -313,7 +351,20 @@ def etapa(
     )
 
 
-def competencia(acervo: Acervo, competencia_id: str) -> VisaoCompetencia | None:
+def competencia(
+    acervo: Acervo,
+    competencia_id: str,
+    *,
+    percurso: Percurso | None = None,
+    evidencias: tuple[Evidencia, ...] = (),
+) -> VisaoCompetencia | None:
+    """A competência, e — havendo percurso — o que no log sustenta o nível dela.
+
+    `percurso` dá o nível vigente, que é a projeção que o motor consome; `evidencias`
+    dá os fatos que o produziram, com o `seq` de cada um. São duas leituras do mesmo
+    log de propósito (ADR-0015): o nível é o que o motor filtra, o `seq` é o que a
+    retratação endereça, e nenhum dos dois serve para o papel do outro.
+    """
     cat = acervo.catalogo
     alvo = cat.competencias.get(competencia_id)
     if alvo is None:
@@ -341,6 +392,11 @@ def competencia(acervo: Acervo, competencia_id: str) -> VisaoCompetencia | None:
     if alvo.status is Status.DEPRECIADO and alvo.substituido_por:
         alertas.append(f"depreciada — substituída por {alvo.substituido_por}")
 
+    dominada = next(
+        (c for c in (percurso.competencias if percurso else ()) if c.competencia == alvo.id), None
+    )
+    minhas = tuple(_evidencia(e, cat) for e in evidencias if e.competencia == alvo.id)
+
     return VisaoCompetencia(
         competencia=alvo,
         area=comum.area_do_id(alvo.id),
@@ -355,6 +411,12 @@ def competencia(acervo: Acervo, competencia_id: str) -> VisaoCompetencia | None:
             if a.competencia == alvo.id
         ),
         alertas=tuple(alertas),
+        tem_percurso=percurso is not None,
+        nivel_no_percurso=dominada.nivel if dominada else None,
+        nivel_no_percurso_rotulo=comum.nivel(dominada.nivel) if dominada else "",
+        ultima_evidencia_em=dominada.ultima_evidencia_em if dominada else None,
+        evidencias=minhas,
+        pode_retratar=percurso is not None,
     )
 
 
@@ -375,6 +437,31 @@ def _exigencia(acervo: Acervo, competencia_id: str, nivel: Nivel) -> Exigencia:
                 t.competencia == competencia_id and t.nivel_resultante >= nivel for t in e.teaches
             )
         ),
+    )
+
+
+def _evidencia(evidencia: Evidencia, catalogo: Catalogo) -> LinhaEvidencia:
+    """Formata uma evidência do log. A ordem é a do log — é linha do tempo, não ranking."""
+    return LinhaEvidencia(
+        seq=evidencia.seq,
+        nivel=evidencia.nivel,
+        nivel_rotulo=comum.nivel(evidencia.nivel),
+        origem_rotulo=ROTULO_ORIGEM[evidencia.origem],
+        confianca=evidencia.confianca,
+        em=evidencia.em,
+        etapa=(
+            Referencia(
+                evidencia.etapa,
+                comum.titulo_de(catalogo, evidencia.etapa),
+                f"/etapa/{evidencia.etapa}",
+            )
+            if evidencia.etapa
+            else None
+        ),
+        etapa_rev=evidencia.etapa_rev,
+        retratada=evidencia.retratada,
+        retratada_em=evidencia.retratada_em,
+        motivo_da_retratacao=evidencia.motivo_da_retratacao or "",
     )
 
 
