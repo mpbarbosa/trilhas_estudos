@@ -342,6 +342,131 @@ def test_filtro_de_custo_e_por_recurso_nao_por_caminho() -> None:
     assert ids(_com_teto(179)) == ["etapa:x/a", "etapa:x/b"]
 
 
+# --- §5, cenário 8: estante (ADR-0015) ----------------------------------------
+
+
+def _livro_contra_gratuito() -> Catalogo:
+    """Uma etapa com duas opções: a fatia paga de 30 min e o site grátis de 120 min.
+
+    Sem `minutos_por_semana` nem `tempo_disponivel_min`, `_encaixe` devolve 0,5 para
+    os dois (§3.4): o empate é universal e o custo é o primeiro critério efetivo.
+    """
+    return catalogo(
+        competencia("comp:x/a"),
+        etapa("etapa:x/a", teaches=[("comp:x/a", N.INICIANTE)], trilha="trilha:x/t"),
+        recurso("rec:x/livro", "etapa:x/a", custo=30, duracao_min=30, obra="livro-x"),
+        recurso("rec:x/site", "etapa:x/a", custo=0, duracao_min=120),
+        trilha("trilha:x/t", etapas=["etapa:x/a"], objetivo=[("comp:x/a", N.INICIANTE)]),
+    )
+
+
+def _com_estante(
+    estante: frozenset[str], teto: float | None = None, cat: Catalogo | None = None
+) -> Resultado:
+    percurso = Percurso(
+        "est:x",
+        matriculas=(matricula("trilha:x/t"),),
+        restricoes=Restricoes(custo_maximo=teto),
+        estante=estante,
+    )
+    return sugerir(cat or _livro_contra_gratuito(), percurso, AGORA)
+
+
+def test_sem_estante_o_gratuito_mais_longo_vence_o_livro() -> None:
+    """A linha de base do cenário 8: é o custo que escolhe, não a duração."""
+    resultado = _com_estante(frozenset())
+    assert resultado.sugestoes[0].recurso_sugerido_id == "rec:x/site"
+
+
+def test_recurso_na_estante_vence_alternativa_gratuita_mais_longa() -> None:
+    resultado = _com_estante(frozenset({"rec:x/livro"}))
+    assert resultado.sugestoes[0].recurso_sugerido_id == "rec:x/livro"
+
+
+def test_recurso_na_estante_perde_para_gratuito_mais_curto() -> None:
+    """Posse empata o custo em zero; o desempate seguinte é `duracao_min`."""
+    cat = catalogo(
+        competencia("comp:x/a"),
+        etapa("etapa:x/a", teaches=[("comp:x/a", N.INICIANTE)], trilha="trilha:x/t"),
+        recurso("rec:x/livro", "etapa:x/a", custo=30, duracao_min=120, obra="livro-x"),
+        recurso("rec:x/site", "etapa:x/a", custo=0, duracao_min=30),
+        trilha("trilha:x/t", etapas=["etapa:x/a"], objetivo=[("comp:x/a", N.INICIANTE)]),
+    )
+    resultado = _com_estante(frozenset({"rec:x/livro"}), cat=cat)
+    assert resultado.sugestoes[0].recurso_sugerido_id == "rec:x/site"
+
+
+def test_recurso_na_estante_passa_teto_abaixo_do_custo_de_catalogo() -> None:
+    """Com teto 0 a fatia de 30 é eliminada; declarada na estante, ela passa.
+
+    É o caso que ADR-0009 recusou enquanto o zero era incondicional, e que a posse
+    torna verdadeiro: ler o exemplar não gasta orçamento nenhum.
+    """
+    so_o_livro = catalogo(
+        competencia("comp:x/a"),
+        etapa("etapa:x/a", teaches=[("comp:x/a", N.INICIANTE)], trilha="trilha:x/t"),
+        recurso("rec:x/livro", "etapa:x/a", custo=30, obra="livro-x"),
+        trilha("trilha:x/t", etapas=["etapa:x/a"], objetivo=[("comp:x/a", N.INICIANTE)]),
+    )
+    sem = _com_estante(frozenset(), teto=0, cat=so_o_livro)
+    assert ids(sem) == []
+    assert motivo_de(sem, "etapa:x/a") is Motivo.SEM_RECURSO_VIAVEL
+    assert sem.detalhe == "custo"
+
+    com = _com_estante(frozenset({"rec:x/livro"}), teto=0, cat=so_o_livro)
+    assert ids(com) == ["etapa:x/a"]
+    assert com.sugestoes[0].recurso_sugerido_id == "rec:x/livro"
+
+
+def test_posse_de_uma_fatia_se_propaga_as_irmas_pela_obra() -> None:
+    """Declarar `rec:x/a` basta: `rec:x/b` é do mesmo exemplar (ADR-0009)."""
+    cat = _duas_fatias_do_mesmo_livro()
+    percurso = Percurso(
+        "est:x",
+        matriculas=(matricula("trilha:x/t"),),
+        restricoes=Restricoes(custo_maximo=0),
+        estante=frozenset({"rec:x/a"}),
+    )
+    assert ids(sugerir(cat, percurso, AGORA)) == ["etapa:x/a", "etapa:x/b"]
+
+
+def test_sem_obra_a_posse_nao_se_propaga() -> None:
+    """Fatias sem `obra` são exemplares distintos: cada uma se declara sozinha."""
+    cat = _duas_fatias_do_mesmo_livro(obra=None)
+    percurso = Percurso(
+        "est:x",
+        matriculas=(matricula("trilha:x/t"),),
+        restricoes=Restricoes(custo_maximo=0),
+        estante=frozenset({"rec:x/a"}),
+    )
+    assert ids(sugerir(cat, percurso, AGORA)) == ["etapa:x/a"]
+
+
+def test_id_fora_do_catalogo_na_estante_nao_quebra_nem_propaga() -> None:
+    percurso = Percurso(
+        "est:x",
+        matriculas=(matricula("trilha:x/t"),),
+        estante=frozenset({"rec:x/nao-existe"}),
+    )
+    resultado = sugerir(_livro_contra_gratuito(), percurso, AGORA)
+    assert resultado.sugestoes[0].recurso_sugerido_id == "rec:x/site"
+
+
+def test_estante_nao_muda_a_explicacao_nem_os_fatores() -> None:
+    """A escolha do recurso não pontua etapa: §2.5 segue intacta (ADR-0015)."""
+    sem = _com_estante(frozenset()).sugestoes[0]
+    com = _com_estante(frozenset({"rec:x/livro"})).sugestoes[0]
+    assert com.recurso_sugerido_id != sem.recurso_sugerido_id
+    assert [f.nome for f in com.fatores] == [f.nome for f in sem.fatores]
+    assert "estante" not in com.explicacao and "já seu" not in com.explicacao
+
+
+def test_estante_nao_muda_o_custo_do_catalogo() -> None:
+    cat = _livro_contra_gratuito()
+    _com_estante(frozenset({"rec:x/livro"}), cat=cat)
+    assert cat.recursos["rec:x/livro"].custo == 30
+
+
 def test_etapa_em_andamento_entra_como_retomada(cat: Catalogo) -> None:
     percurso = Percurso(
         "est:x",

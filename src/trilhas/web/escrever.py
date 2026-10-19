@@ -70,7 +70,7 @@ def retratar_na_competencia(
     *,
     motivo: str | None = None,
 ) -> str | None:
-    """Retrata a evidência de `seq`. Devolve o erro, ou `None` (ADR-0015).
+    """Retrata a evidência de `seq`. Devolve o erro, ou `None` (ADR-0016).
 
     O alvo é o `seq`, não a competência da URL: a competência diz de qual tela o pedido
     saiu e para onde voltar, e repeti-la como alvo seria a redundância capaz de

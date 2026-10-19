@@ -362,7 +362,7 @@ def competencia(
 
     `percurso` dá o nível vigente, que é a projeção que o motor consome; `evidencias`
     dá os fatos que o produziram, com o `seq` de cada um. São duas leituras do mesmo
-    log de propósito (ADR-0015): o nível é o que o motor filtra, o `seq` é o que a
+    log de propósito (ADR-0016): o nível é o que o motor filtra, o `seq` é o que a
     retratação endereça, e nenhum dos dois serve para o papel do outro.
     """
     cat = acervo.catalogo
