@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 33,
-  "gerado_em": "2026-10-20T02:45:27+00:00",
-  "hash": "sha256:53cc8931b6a7a7b252ac89270bf3faaf871c0cc4803e06fd5e188676d0f9dd92",
+  "catalogo_versao": 34,
+  "gerado_em": "2026-10-20T14:41:48+00:00",
+  "hash": "sha256:42af3d458566f4c7d439a5e5c32f1ad66ad8efddf244b6a649d93a5c9c2657bc",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -6786,6 +6786,20 @@
       "url": "https://wgpu.rs/",
       "disponivel": true,
       "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/wikipedia-sequencias-ansi",
+      "titulo": "ANSI escape code (Wikipédia) — o mapa informal: as sequências mais usadas em tabela, com a ligação a cada norma que as define",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/especificacao-de-sequencias",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://en.wikipedia.org/wiki/ANSI_escape_code",
+      "disponivel": true,
+      "verificado_em": "2026-10-20"
     },
     {
       "id": "rec:terminal/williams-maquina-de-estados",

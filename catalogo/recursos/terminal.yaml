@@ -38,6 +38,18 @@
 # serve àquela etapa. O `titulo` diz qual parte; a URL é a mesma porque o material não
 # tem endereço por seção.
 #
+# **A seção "Further reading" de *Anatomy of a terminal emulator* está inteira aqui**,
+# espalhada pelas etapas a que cada item serve: *The TTY demystified* é
+# `rec:terminal/tty-desmistificado`, o capítulo 3 do manual do VT100 é
+# `rec:terminal/vt100-guia-do-usuario`, o post do Li Haoyi é
+# `rec:terminal/ansi-linha-de-comando-propria`, e a página da Wikipédia entrou em
+# 2026-10-20 como `rec:terminal/wikipedia-sequencias-ansi`. Os links do **corpo** do
+# artigo não entraram, e não é esquecimento: `nix` e `signal-hook` são dependência de
+# implementação (ver acima), `pty(7)` e `termios(3)` já estavam, `forkpty` e as chamadas
+# vizinhas se leem pelo manual da glibc e por `pty(7)`, e os verbetes de apoio (Sixel,
+# caracteres de moldura, caractere de escape ASCII) são consulta de um parágrafo durante
+# a leitura, não material de uma etapa.
+#
 # Endereços conferidos um a um em 2026-10-19 (HTTP 200 seguindo redirecionamento). A
 # wiki do fontconfig em freedesktop.org responde 418 a cliente automatizado; o recurso
 # aponta a página de documentação do usuário, que responde.
@@ -150,6 +162,19 @@ recursos:
     verificado_em: 2026-10-19
 
   # --- etapa:terminal/especificacao-de-sequencias -------------------------
+  - id: rec:terminal/wikipedia-sequencias-ansi
+    etapa: etapa:terminal/especificacao-de-sequencias
+    titulo: "ANSI escape code (Wikipédia) — o mapa informal: as sequências mais usadas em tabela, com a ligação a cada norma que as define"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://en.wikipedia.org/wiki/ANSI_escape_code
+    disponivel: true
+    verificado_em: 2026-10-20
+
   - id: rec:terminal/ecma-48
     etapa: etapa:terminal/especificacao-de-sequencias
     titulo: "ECMA-48, 5ª ed. (1991) — funções de controle para conjuntos de caracteres codificados: o padrão por baixo de tudo, em PDF livre"
