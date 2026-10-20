@@ -51,3 +51,4 @@
 {"dados": {"evidencia_seq": 29, "motivo": "conclusão prematura: só o capítulo 1 de rec:ia/prompt-engineering-for-llms foi lido"}, "em": "2026-10-19T01:22:32.724883+00:00", "seq": 51, "tipo": "evidencia_retratada"}
 {"dados": {"evidencia_seq": 30, "motivo": "conclusão prematura: só o capítulo 1 de rec:ia/prompt-engineering-for-llms foi lido"}, "em": "2026-10-19T01:22:32.839475+00:00", "seq": 52, "tipo": "evidencia_retratada"}
 {"dados": {"etapa": "etapa:terminal/o-que-e-um-terminal", "etapa_rev": 1, "recurso": "rec:terminal/anatomia-visao-geral"}, "em": "2026-10-20T09:46:09.247251+00:00", "seq": 53, "tipo": "etapa_iniciada"}
+{"dados": {"recurso": "rec:terminal/anatomia-visao-geral", "recurso_rev": 1}, "em": "2026-10-20T14:30:09.550951+00:00", "seq": 54, "tipo": "recurso_percorrido"}
