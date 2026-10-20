@@ -113,9 +113,18 @@ trilha:
           nivel_resultante: intermediario
 
     # --- Sistema ------------------------------------------------------------
+    # rev 2: passou a ensinar também `comp:programacao/programacao-de-sistemas`, a
+    # competência da etapa avulsa de ADR-0018. Não é cortesia: sem isso, quem cursa
+    # esta trilha inteira chegaria à trilha de emulador sem a competência e seria
+    # mandado a uma etapa avulsa de 25 h que ele já ultrapassou. O que esta etapa
+    # verifica — `fopen`/`getc` sobre `read`, um alocador com lista livre, num
+    # programa de vários arquivos — é estritamente mais do que a avulsa cobra, e por
+    # isso concede. Efeito no percurso: `teaches` que concede **mais** não retroage —
+    # quem já concluiu esta etapa não ganha a competência nova
+    # (docs/catalogo.md §4).
     - id: etapa:programacao/c-interface-com-o-unix
       titulo: A interface com o sistema UNIX — descritores, diretórios e um alocador
-      rev: 1
+      rev: 2
       status: ativo
       esforco_estimado_min: 720
       opcional: false
@@ -126,6 +135,8 @@ trilha:
           nivel_minimo: intermediario
       teaches:
         - competencia: comp:programacao/c-interface-unix
+          nivel_resultante: intermediario
+        - competencia: comp:programacao/programacao-de-sistemas
           nivel_resultante: intermediario
 
 
@@ -148,8 +159,12 @@ trilha:
         - competencia: comp:programacao/pratica-da-programacao
           nivel_resultante: intermediario
 
-  # Definida em catalogo/etapas/avulsas.yaml, junto com a de script shell, que esta
-  # trilha **não** referencia: escrever script não é pré-requisito de compilar C, e
-  # referenciá-la aqui a incluiria na trilha sem razão (docs/catalogo.md §1).
+  # Definida em catalogo/etapas/avulsas.yaml, junto com outras duas que esta trilha
+  # **não** referencia. A de script shell, porque escrever script não é pré-requisito
+  # de compilar C, e referenciá-la aqui a incluiria na trilha sem razão
+  # (docs/catalogo.md §1). A de programação de sistemas, porque esta trilha a
+  # **ensina** — `etapa:programacao/c-interface-com-o-unix` concede a competência
+  # (ADR-0018) —, e uma trilha não referencia a avulsa de uma competência que ela
+  # própria entrega.
   etapas_referenciadas:
     - etapa:so/linha-de-comando

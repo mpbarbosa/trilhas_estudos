@@ -26,10 +26,13 @@ persistência do percurso — nada do que o estudante faz é gravado.
   - *Tecnofeudalismo — economia política do capital de nuvem* ([trilha](catalogo/trilhas/tecnofeudalismo.yaml)) — lucro e renda, capital de nuvem, geopolítica e a crítica da tese
   - *Emulador de terminal, do protocolo à tela* ([trilha](catalogo/trilhas/emulador-de-terminal.yaml)) — ECMA-48 e a linhagem DEC, analisador de estados, grade de células, pseudoterminal, teclado, Unicode em grade, renderização e conformidade
 
-  Fora das trilhas, duas [etapas avulsas](catalogo/etapas/avulsas.yaml) de shell e
-  linha de comando: pré-requisito compartilhado das trilhas de SO, de C e de emulador
-  de terminal, declarado em
-  [ADR-0010](docs/adr/0010-shell-como-pre-requisito-declarado.md).
+  Fora das trilhas, três [etapas avulsas](catalogo/etapas/avulsas.yaml) de
+  pré-requisito compartilhado das trilhas de SO, de C e de emulador de terminal: duas
+  de shell e linha de comando, declaradas em
+  [ADR-0010](docs/adr/0010-shell-como-pre-requisito-declarado.md), e uma de
+  programação de sistemas — descritor, estrutura em memória e programa em módulos,
+  sem linguagem declarada —, em
+  [ADR-0018](docs/adr/0018-programacao-de-sistemas-como-pre-requisito-compartilhado.md).
 - [Decisões de arquitetura](docs/README.md)
 
 ## Uso

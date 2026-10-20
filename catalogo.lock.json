@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 32,
-  "gerado_em": "2026-10-20T02:30:57+00:00",
-  "hash": "sha256:e427659fc56a393c7ded6376d2c543234cced15aeeee19679e7d7a0c909dff1d",
+  "catalogo_versao": 33,
+  "gerado_em": "2026-10-20T02:45:27+00:00",
+  "hash": "sha256:53cc8931b6a7a7b252ac89270bf3faaf871c0cc4803e06fd5e188676d0f9dd92",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -451,6 +451,14 @@
       "status": "ativo",
       "verificacao": "Partindo de um programa que funciona mas está lento ou ilegível, entregar uma versão revista sustentada por medição: apresentar o perfil que identificou o gargalo, o teste que impediu a regressão, e justificar uma otimização que foi descartada por não valer a complexidade que introduzia.",
       "descricao": "O ofício em torno do código que compila: estilo e notação, escolha de algoritmo e estrutura de dados, depuração sistemática, teste, medição antes de otimizar, e portabilidade — independente de linguagem, exercido em C.\n"
+    },
+    {
+      "id": "comp:programacao/programacao-de-sistemas",
+      "titulo": "Programação de sistemas — descritor, estrutura em memória e programa em módulos",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Entregar, na linguagem de sua escolha, um programa de pelo menos dois módulos que lance um processo filho, leia a saída dele por um descritor (ou pelo fluxo equivalente da linguagem) em pedaços que não respeitam fronteira de registro, e acumule o que leu numa estrutura de dados que cresce. Demonstrar, com uma entrada cortada no meio de um delimitador, que nada se perde nem se duplica; dizer onde a estrutura escolhida guarda cópia e onde guarda referência ao mesmo dado; e mostrar o comando que constrói o programa a partir dos dois módulos, nomeando o que cada módulo exporta ao outro.",
+      "descricao": "Escrever programa que fala com o sistema operacional, em qualquer linguagem: o descritor de arquivo como fluxo de bytes sem fronteira de registro, a leitura parcial e o estado que sobrevive entre duas leituras, o processo filho e os canais que o ligam a quem o lançou, a estrutura de dados agregada e a diferença entre guardar uma cópia e guardar referência ao mesmo dado, e o programa repartido em mais de um módulo com uma construção que o liga. Não é uma linguagem, e por isso não substitui nenhuma: é o mínimo que Rust, C e JavaScript cobram igualmente de quem vai escrever código de sistema.\n"
     },
     {
       "id": "comp:programacao/python-dados",
@@ -2226,7 +2234,7 @@
     {
       "id": "etapa:programacao/c-interface-com-o-unix",
       "titulo": "A interface com o sistema UNIX — descritores, diretórios e um alocador",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "esforco_estimado_min": 720,
       "trilha": "trilha:programacao/linguagem-c-ansi",
@@ -2244,6 +2252,10 @@
       "teaches": [
         {
           "competencia": "comp:programacao/c-interface-unix",
+          "nivel_resultante": "intermediario"
+        },
+        {
+          "competencia": "comp:programacao/programacao-de-sistemas",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -2301,6 +2313,20 @@
       "teaches": [
         {
           "competencia": "comp:programacao/pratica-da-programacao",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:programacao/programacao-de-sistemas",
+      "titulo": "Programação de sistemas — um programa em módulos que lê um descritor e guarda estado entre leituras",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1500,
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:programacao/programacao-de-sistemas",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -2421,12 +2447,16 @@
     {
       "id": "etapa:so/projeto-modificar-o-minix",
       "titulo": "Projeto — compilar e modificar o MINIX",
-      "rev": 2,
+      "rev": 3,
       "status": "ativo",
       "esforco_estimado_min": 1500,
       "trilha": "trilha:so/projeto-e-implementacao",
       "opcional": false,
       "requires": [
+        {
+          "competencia": "comp:programacao/programacao-de-sistemas",
+          "nivel_minimo": "intermediario"
+        },
         {
           "competencia": "comp:so/linha-de-comando",
           "nivel_minimo": "intermediario"
@@ -2531,12 +2561,16 @@
     {
       "id": "etapa:terminal/analisador-de-estados",
       "titulo": "O analisador — a máquina de estados DEC/ANSI, implementada e hostilizada",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "esforco_estimado_min": 600,
       "trilha": "trilha:terminal/emulador",
       "opcional": false,
       "requires": [
+        {
+          "competencia": "comp:programacao/programacao-de-sistemas",
+          "nivel_minimo": "intermediario"
+        },
         {
           "competencia": "comp:terminal/protocolo-de-controle",
           "nivel_minimo": "intermediario"
@@ -2767,12 +2801,16 @@
     {
       "id": "etapa:terminal/pseudoterminal-e-sinais",
       "titulo": "O pseudoterminal — par mestre/escravo, disciplina de linha, sinais e SIGWINCH",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "esforco_estimado_min": 420,
       "trilha": "trilha:terminal/emulador",
       "opcional": false,
       "requires": [
+        {
+          "competencia": "comp:programacao/programacao-de-sistemas",
+          "nivel_minimo": "intermediario"
+        },
         {
           "competencia": "comp:so/linha-de-comando",
           "nivel_minimo": "intermediario"
@@ -3384,7 +3422,7 @@
     {
       "id": "trilha:so/projeto-e-implementacao",
       "titulo": "Sistemas operacionais, do conceito ao núcleo",
-      "rev": 2,
+      "rev": 3,
       "status": "ativo",
       "objetivo_declarado": [
         {
@@ -3415,13 +3453,14 @@
       ],
       "etapas_referenciadas": [
         "etapa:so/linha-de-comando",
-        "etapa:so/script-shell"
+        "etapa:so/script-shell",
+        "etapa:programacao/programacao-de-sistemas"
       ]
     },
     {
       "id": "trilha:terminal/emulador",
       "titulo": "Emulador de terminal, do protocolo à tela",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "objetivo_declarado": [
         {
@@ -3466,7 +3505,8 @@
         "etapa:terminal/leitura-de-emuladores-reais"
       ],
       "etapas_referenciadas": [
-        "etapa:so/linha-de-comando"
+        "etapa:so/linha-de-comando",
+        "etapa:programacao/programacao-de-sistemas"
       ]
     },
     {
@@ -5514,6 +5554,48 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:programacao/beej-c-sistemas",
+      "titulo": "Beej's Guide to C Programming — de `hello, world` a estruturas, apontadores, alocação manual, projetos de vários arquivos e o ambiente de fora (`argv`, variáveis, código de saída)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/programacao-de-sistemas",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 900,
+      "url": "https://beej.us/guide/bgc/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:programacao/beej-ipc-descritores",
+      "titulo": "Beej's Guide to Interprocess Communication — `fork`, canos, FIFOs e sinais: o processo filho, o descritor e a leitura que volta com menos bytes do que se pediu",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/programacao-de-sistemas",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://beej.us/guide/bgipc/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:programacao/comprehensive-rust-pt-br",
+      "titulo": "Comprehensive Rust (Google), tradução em português do Brasil — tipos definidos pelo usuário, posse e gerência de memória, módulos, teste e tratamento de erro, em curso de quatro dias",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/programacao-de-sistemas",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 720,
+      "url": "https://google.github.io/comprehensive-rust/pt-BR/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
       "id": "rec:programacao/kernighan-pike-tpop",
       "titulo": "The Practice of Programming (Kernighan & Pike) — caps. 1-2 e 4-8: estilo, algoritmos, interfaces, depuração, teste, desempenho, portabilidade",
       "rev": 1,
@@ -5674,6 +5756,20 @@
       "url": "https://pythonfluente.com/",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:programacao/rust-book-sistemas",
+      "titulo": "The Rust Programming Language (Klabnik & Nichols) — caps. 1 a 12: tipos, posse e empréstimo, structs, módulos, coleções, tratamento de erro, e o projeto de E/S que o cap. 12 reparte em biblioteca e binário",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/programacao-de-sistemas",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 900,
+      "url": "https://doc.rust-lang.org/book/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
     },
     {
       "id": "rec:so/blum-bible-linha-de-comando",

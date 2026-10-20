@@ -31,6 +31,7 @@
 | [0015](adr/0015-posse-de-exemplar-como-estante-declarada.md) | Posse de exemplar como estante declarada no perfil, aplicada ao custo efetivo | aceito |
 | [0016](adr/0016-retratacao-pela-tela-da-competencia.md) | Retratação pela tela da competência, com a evidência lida do log | aceito |
 | [0017](adr/0017-trilha-de-emulador-sem-linguagem-declarada.md) | Emulador de terminal em área própria, sem linguagem de implementação nos `requires` | aceito |
+| [0018](adr/0018-programacao-de-sistemas-como-pre-requisito-compartilhado.md) | Programação de sistemas como pré-requisito compartilhado, em terceira etapa avulsa | aceito |
 
 ## Pendente
 
