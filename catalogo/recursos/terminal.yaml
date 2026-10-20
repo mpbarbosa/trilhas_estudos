@@ -52,6 +52,38 @@
 # mesmo autor, que entrou em 2026-10-20 como `rec:terminal/zellij-cliente-web`: é um
 # emulador real descrito pelo autor, e o lugar disso é `leitura-de-emuladores-reais`.
 #
+# **As referências e os links externos de *ANSI escape code* (Wikipédia) foram
+# minerados em 2026-10-20**, agora que a própria página é recurso. Entraram seis em
+# `especificacao-de-sequencias`: a ECMA-35 (`rec:terminal/ecma-35`), que define as
+# categorias de sequência — C0, C1, Fe, Fs, Fp, nF — que a ECMA-48 pressupõe e pelas
+# quais o verbete se organiza; o manual do VT510
+# (`rec:terminal/vt510-manual-de-referencia`), a referência DEC mais completa, que o
+# verbete cita sequência por sequência onde o guia do VT100 não alcança;
+# `console_codes(4)` (`rec:terminal/man-console-codes-4`) e as sequências do console
+# do Windows (`rec:terminal/sequencias-do-console-do-windows`), terceira e quarta
+# implementação a comparar com a da DEC e com a do xterm; e as duas convenções de
+# fato que o verbete documenta sem norma por baixo — OSC 8
+# (`rec:terminal/osc-8-hiperlinks`) e a cor de 24 bits
+# (`rec:terminal/termstandard-cores`). *Digital's Video Terminals*, do mesmo Paul
+# Williams da máquina de estados, entrou em `o-que-e-um-terminal` como
+# `rec:terminal/williams-historia-dos-terminais-dec`.
+#
+# O resto dos cerca de oitenta endereços da página ficou fora, e nada por
+# esquecimento: relatório de bug (bugzilla do GNOME, issues do iTerm2 e do KDE) e
+# pergunta de fórum (Stack Exchange, Ask Ubuntu) são citação de evidência, não
+# material de estudo; `ansicon` e `colorama` são dependência de implementação (ver
+# acima); a FAQ e o changelog do xterm se consultam durante a leitura de
+# `rec:terminal/xterm-ctlseqs`, que já está; a documentação de CSI u do iTerm2 repete
+# o que `rec:terminal/fixterms-csi-u` e `rec:terminal/kitty-protocolo-de-teclado` já
+# cobrem; `no-color.org` tem um parágrafo; a ITU-T T.416, de onde vem o
+# `38:2:r:g:b`, exige login no site da ITU e o que ela decide chega por
+# `rec:terminal/termstandard-cores`; a 2ª edição da ECMA-48 (1979) é a mesma norma
+# antes da revisão, e a 5ª já está; e os endereços mortos (`ansi.html` da AACC,
+# `ascii-table.com`) só existem no Internet Archive. `all-escapes.txt`, de
+# bjh21.me.uk, seria o único levantamento de sequências terminal por terminal e
+# caberia em `conformidade-por-suite`, mas o host não respondeu em 2026-10-20: ficou
+# fora por `disponivel`, não por mérito — vale tentar de novo.
+#
 # Endereços conferidos um a um em 2026-10-19 (HTTP 200 seguindo redirecionamento). A
 # wiki do fontconfig em freedesktop.org responde 418 a cliente automatizado; o recurso
 # aponta a página de documentação do usuário, que responde.
@@ -96,6 +128,19 @@ recursos:
     url: https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
     disponivel: true
     verificado_em: 2026-10-19
+
+  - id: rec:terminal/williams-historia-dos-terminais-dec
+    etapa: etapa:terminal/o-que-e-um-terminal
+    titulo: "Digital's Video Terminals (Paul Williams, vt100.net) — de onde vem a linhagem: por que a sequência de escape tem a forma que tem, modelo por modelo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 45
+    url: https://vt100.net/dec/vt_history
+    disponivel: true
+    verificado_em: 2026-10-20
 
   # --- etapa:terminal/arquiteturas-e-motores ------------------------------
   - id: rec:terminal/alacritty-terminal-motor
@@ -241,6 +286,84 @@ recursos:
     url: https://vt100.net/docs/vt100-ug/chapter3.html
     disponivel: true
     verificado_em: 2026-10-19
+
+  - id: rec:terminal/ecma-35
+    etapa: etapa:terminal/especificacao-de-sequencias
+    titulo: "ECMA-35, 6ª ed. (1994) — estrutura do código de caracteres e técnicas de extensão: é ela que define o que são C0, C1, Fe, Fs, Fp e nF, categorias que a ECMA-48 pressupõe"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 240
+    url: https://ecma-international.org/wp-content/uploads/ECMA-35_6th_edition_december_1994.pdf
+    disponivel: true
+    verificado_em: 2026-10-20
+
+  - id: rec:terminal/vt510-manual-de-referencia
+    etapa: etapa:terminal/especificacao-de-sequencias
+    titulo: "VT510 Video Terminal Programmer Information — a referência DEC mais completa: margens, modos privados, salvar e restaurar cursor, uma página por sequência"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 240
+    url: https://vt100.net/docs/vt510-rm/contents.html
+    disponivel: true
+    verificado_em: 2026-10-20
+
+  - id: rec:terminal/man-console-codes-4
+    etapa: etapa:terminal/especificacao-de-sequencias
+    titulo: "console_codes(4) — o que o console do Linux de fato implementa: uma terceira implementação para comparar com a da DEC e com a do xterm"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://man7.org/linux/man-pages/man4/console_codes.4.html
+    disponivel: true
+    verificado_em: 2026-10-20
+
+  - id: rec:terminal/sequencias-do-console-do-windows
+    etapa: etapa:terminal/especificacao-de-sequencias
+    titulo: "Console Virtual Terminal Sequences (Microsoft) — o que o console do Windows entende e o que ele não entende, que é o que decide se o emulador roda lá"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences
+    disponivel: true
+    verificado_em: 2026-10-20
+
+  - id: rec:terminal/osc-8-hiperlinks
+    etapa: etapa:terminal/especificacao-de-sequencias
+    titulo: "Hyperlinks in terminal emulators (Egmont Koblinger) — a especificação de fato da OSC 8, com os casos de borda que ela teve de resolver"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://gist.github.com/egmontkob/eb114294efbcd5adb1944c9f3cb5feda
+    disponivel: true
+    verificado_em: 2026-10-20
+
+  - id: rec:terminal/termstandard-cores
+    etapa: etapa:terminal/especificacao-de-sequencias
+    titulo: "termstandard/colors — cor de 24 bits na prática: a ambiguidade entre ponto-e-vírgula e dois-pontos nos parâmetros de SGR, a variável COLORTERM, e quem suporta o quê"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://github.com/termstandard/colors
+    disponivel: true
+    verificado_em: 2026-10-20
 
   # --- etapa:terminal/analisador-de-estados -------------------------------
   - id: rec:terminal/williams-maquina-de-estados

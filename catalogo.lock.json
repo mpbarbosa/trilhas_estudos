@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 35,
-  "gerado_em": "2026-10-20T14:48:35+00:00",
-  "hash": "sha256:1dbda05f4c81eed3297b25542a453da48fd819c33415a84252948254a1b27567",
+  "catalogo_versao": 36,
+  "gerado_em": "2026-10-20T15:34:33+00:00",
+  "hash": "sha256:8f1a7122a6de2892c70cb7a86b8e0647606f9cd44c23f01d67aef3553729c540",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -6214,6 +6214,20 @@
       "verificado_em": "2026-10-19"
     },
     {
+      "id": "rec:terminal/ecma-35",
+      "titulo": "ECMA-35, 6ª ed. (1994) — estrutura do código de caracteres e técnicas de extensão: é ela que define o que são C0, C1, Fe, Fs, Fp e nF, categorias que a ECMA-48 pressupõe",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/especificacao-de-sequencias",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://ecma-international.org/wp-content/uploads/ECMA-35_6th_edition_december_1994.pdf",
+      "disponivel": true,
+      "verificado_em": "2026-10-20"
+    },
+    {
       "id": "rec:terminal/ecma-48",
       "titulo": "ECMA-48, 5ª ed. (1991) — funções de controle para conjuntos de caracteres codificados: o padrão por baixo de tudo, em PDF livre",
       "rev": 1,
@@ -6438,6 +6452,20 @@
       "verificado_em": "2026-10-19"
     },
     {
+      "id": "rec:terminal/man-console-codes-4",
+      "titulo": "console_codes(4) — o que o console do Linux de fato implementa: uma terceira implementação para comparar com a da DEC e com a do xterm",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/especificacao-de-sequencias",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://man7.org/linux/man-pages/man4/console_codes.4.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-20"
+    },
+    {
       "id": "rec:terminal/man-pty-7",
       "titulo": "`pty(7)` — a interface do par mestre/escravo no Linux, e as chamadas que o abrem",
       "rev": 1,
@@ -6508,6 +6536,20 @@
       "verificado_em": "2026-10-19"
     },
     {
+      "id": "rec:terminal/osc-8-hiperlinks",
+      "titulo": "Hyperlinks in terminal emulators (Egmont Koblinger) — a especificação de fato da OSC 8, com os casos de borda que ela teve de resolver",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/especificacao-de-sequencias",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://gist.github.com/egmontkob/eb114294efbcd5adb1944c9f3cb5feda",
+      "disponivel": true,
+      "verificado_em": "2026-10-20"
+    },
+    {
       "id": "rec:terminal/portable-pty",
       "titulo": "`portable-pty` (WezTerm) — abrir pseudoterminal em Rust nos três sistemas, incluindo o ConPTY do Windows",
       "rev": 1,
@@ -6550,6 +6592,20 @@
       "verificado_em": "2026-10-19"
     },
     {
+      "id": "rec:terminal/sequencias-do-console-do-windows",
+      "titulo": "Console Virtual Terminal Sequences (Microsoft) — o que o console do Windows entende e o que ele não entende, que é o que decide se o emulador roda lá",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/especificacao-de-sequencias",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences",
+      "disponivel": true,
+      "verificado_em": "2026-10-20"
+    },
+    {
       "id": "rec:terminal/swash",
       "titulo": "`swash` — rasterização de glifo com suavização e correção de gama, o passo entre a fonte e o atlas",
       "rev": 1,
@@ -6590,6 +6646,20 @@
       "url": "https://invisible-island.net/ncurses/man/terminfo.5.html",
       "disponivel": true,
       "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/termstandard-cores",
+      "titulo": "termstandard/colors — cor de 24 bits na prática: a ambiguidade entre ponto-e-vírgula e dois-pontos nos parâmetros de SGR, a variável COLORTERM, e quem suporta o quê",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/especificacao-de-sequencias",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://github.com/termstandard/colors",
+      "disponivel": true,
+      "verificado_em": "2026-10-20"
     },
     {
       "id": "rec:terminal/tty-desmistificado",
@@ -6674,6 +6744,20 @@
       "url": "https://vt100.net/docs/vt3xx-gp/chapter14.html",
       "disponivel": true,
       "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/vt510-manual-de-referencia",
+      "titulo": "VT510 Video Terminal Programmer Information — a referência DEC mais completa: margens, modos privados, salvar e restaurar cursor, uma página por sequência",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/especificacao-de-sequencias",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://vt100.net/docs/vt510-rm/contents.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-20"
     },
     {
       "id": "rec:terminal/vte-crate",
@@ -6798,6 +6882,20 @@
       "custo": 0.0,
       "duracao_min": 60,
       "url": "https://en.wikipedia.org/wiki/ANSI_escape_code",
+      "disponivel": true,
+      "verificado_em": "2026-10-20"
+    },
+    {
+      "id": "rec:terminal/williams-historia-dos-terminais-dec",
+      "titulo": "Digital's Video Terminals (Paul Williams, vt100.net) — de onde vem a linhagem: por que a sequência de escape tem a forma que tem, modelo por modelo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/o-que-e-um-terminal",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 45,
+      "url": "https://vt100.net/dec/vt_history",
       "disponivel": true,
       "verificado_em": "2026-10-20"
     },
