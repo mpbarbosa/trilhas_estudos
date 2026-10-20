@@ -105,3 +105,40 @@ competencias:
       versão revista sustentada por medição: apresentar o perfil que identificou o
       gargalo, o teste que impediu a regressão, e justificar uma otimização que foi
       descartada por não valer a complexidade que introduzia.
+
+  # --- Programação de sistemas (etapa avulsa) -------------------------------
+  # Terceira competência de pré-requisito compartilhado, na forma de ADR-0010 e pelo
+  # buraco que ADR-0017 declarou: trilha:terminal/emulador manda escrever um emulador
+  # e trilha:so/projeto-e-implementacao manda modificar o MINIX, e nenhuma das duas
+  # exigia saber programar. Decisão e recorte em
+  # docs/adr/0018-programacao-de-sistemas-como-pre-requisito-compartilhado.md.
+  #
+  # O recorte é o que as duas cobram **em comum**, e nada além: descritor, estrutura
+  # em memória e programa em módulos. Não é a trilha de C — fora ficam a biblioteca
+  # padrão, os argumentos variáveis, o alocador próprio e a sintaxe de C — e não é
+  # linguagem nenhuma: as três pilhas de um emulador (Rust, C, JavaScript) cobram as
+  # mesmas três coisas. `etapa:programacao/c-interface-com-o-unix` passou a ensinar
+  # esta competência também, para que quem cursa a trilha de C inteira não seja
+  # mandado de volta a uma etapa que já ultrapassou.
+  - id: comp:programacao/programacao-de-sistemas
+    titulo: Programação de sistemas — descritor, estrutura em memória e programa em módulos
+    rev: 1
+    status: ativo
+    descricao: >
+      Escrever programa que fala com o sistema operacional, em qualquer linguagem: o
+      descritor de arquivo como fluxo de bytes sem fronteira de registro, a leitura
+      parcial e o estado que sobrevive entre duas leituras, o processo filho e os
+      canais que o ligam a quem o lançou, a estrutura de dados agregada e a diferença
+      entre guardar uma cópia e guardar referência ao mesmo dado, e o programa
+      repartido em mais de um módulo com uma construção que o liga. Não é uma
+      linguagem, e por isso não substitui nenhuma: é o mínimo que Rust, C e
+      JavaScript cobram igualmente de quem vai escrever código de sistema.
+    verificacao: >
+      Entregar, na linguagem de sua escolha, um programa de pelo menos dois módulos
+      que lance um processo filho, leia a saída dele por um descritor (ou pelo fluxo
+      equivalente da linguagem) em pedaços que não respeitam fronteira de registro, e
+      acumule o que leu numa estrutura de dados que cresce. Demonstrar, com uma
+      entrada cortada no meio de um delimitador, que nada se perde nem se duplica;
+      dizer onde a estrutura escolhida guarda cópia e onde guarda referência ao mesmo
+      dado; e mostrar o comando que constrói o programa a partir dos dois módulos,
+      nomeando o que cada módulo exporta ao outro.

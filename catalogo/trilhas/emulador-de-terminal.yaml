@@ -2,7 +2,9 @@ versao_schema: 1
 trilha:
   id: trilha:terminal/emulador
   titulo: Emulador de terminal, do protocolo à tela
-  rev: 1
+  # rev 2: passou a referenciar `etapa:programacao/programacao-de-sistemas`,
+  # obrigatória — incluir etapa obrigatória é substantivo (docs/catalogo.md §4).
+  rev: 2
   status: ativo
   objetivo_declarado:
     - competencia: comp:terminal/analisador-de-sequencias
@@ -27,17 +29,24 @@ trilha:
   # renderização e a acessibilidade abrem em frentes que se cursam em paralelo e só
   # voltam a juntar no projeto.
   #
-  # **Linguagem de implementação: nenhuma, de propósito.** Os recursos são em Rust
-  # (`vte`, `alacritty_terminal`, `portable-pty`, `cosmic-text`, `wgpu`), em C
-  # (`libvterm`, páginas de manual) e em JavaScript (`xterm.js`, `node-pty`), porque é
-  # assim que a literatura do assunto existe. Declarar uma linguagem em `requires`
-  # arrastaria uma trilha inteira para dentro desta — a validação 6 só conta as etapas
-  # da própria trilha (src/trilhas/catalogo/validar.py, `_v6_objetivo_alcancavel`),
-  # então exigir `comp:programacao/c-interface-unix` obrigaria a referenciar as sete
-  # etapas da trilha de C para o objetivo continuar alcançável. Seria honesto e seria
-  # arbitrário: nenhuma das três pilhas acima é a certa. A decisão, as duas formas
-  # recusadas e o caminho de migração estão em
-  # docs/adr/0017-trilha-de-emulador-sem-linguagem-declarada.md.
+  # **Linguagem de implementação: nenhuma, de propósito — mas programar, sim.** Os
+  # recursos são em Rust (`vte`, `alacritty_terminal`, `portable-pty`, `cosmic-text`,
+  # `wgpu`), em C (`libvterm`, páginas de manual) e em JavaScript (`xterm.js`,
+  # `node-pty`), porque é assim que a literatura do assunto existe. Declarar uma
+  # linguagem em `requires` arrastaria uma trilha inteira para dentro desta — a
+  # validação 6 só conta as etapas da própria trilha
+  # (src/trilhas/catalogo/validar.py, `_v6_objetivo_alcancavel`), então exigir
+  # `comp:programacao/c-interface-unix` obrigaria a referenciar as sete etapas da
+  # trilha de C para o objetivo continuar alcançável. Seria honesto e seria
+  # arbitrário: nenhuma das três pilhas acima é a certa
+  # (docs/adr/0017-trilha-de-emulador-sem-linguagem-declarada.md).
+  #
+  # O que ADR-0017 deixou em aberto, e ADR-0018 fechou, é que *não declarar
+  # linguagem* havia virado *não declarar programação*: a trilha mandava escrever um
+  # emulador sem exigir saber escrever programa nenhum. `comp:programacao/programacao-de-sistemas`
+  # é o que as três pilhas cobram em comum — descritor, estrutura em memória e
+  # programa em módulos — numa etapa avulsa com `requires: []`, e por isso cabe aqui
+  # sem a cascata de sete.
   #
   # O que **é** pré-requisito declarado é a linha de comando, pelo mesmo motivo e na
   # mesma forma de ADR-0010: a etapa do pseudoterminal começa onde a competência de
@@ -82,13 +91,20 @@ trilha:
         - competencia: comp:terminal/protocolo-de-controle
           nivel_resultante: intermediario
 
+    # rev 2: `comp:programacao/programacao-de-sistemas` entrou nos `requires`. É aqui
+    # que a trilha deixa de ser leitura: a verificação da competência pede
+    # **implementar** a máquina de estados e hostilizá-la com três entradas, e uma
+    # delas é a sequência cortada no meio — que é o caso que a competência de
+    # programação de sistemas verifica em abstrato (ADR-0018).
     - id: etapa:terminal/analisador-de-estados
       titulo: O analisador — a máquina de estados DEC/ANSI, implementada e hostilizada
-      rev: 1
+      rev: 2
       status: ativo
       esforco_estimado_min: 600
       opcional: false
       requires:
+        - competencia: comp:programacao/programacao-de-sistemas
+          nivel_minimo: intermediario
         - competencia: comp:terminal/protocolo-de-controle
           nivel_minimo: intermediario
       teaches:
@@ -115,13 +131,21 @@ trilha:
     # dentro dela, e entra aqui porque é aqui que ele é cobrado: sinal, grupo de
     # processos e descritor do lado de dentro só se estudam depois de vistos do lado de
     # fora.
+    # rev 2: também aqui, e não só no analisador. As duas são as **duas** entradas de
+    # código da trilha e nenhuma depende da outra — abrir um pseudoterminal e rodar um
+    # shell nele não passa pelo analisador, então declarar o pré-requisito só lá
+    # deixaria este caminho aberto a quem não programa. As demais etapas de código
+    # (grade, Unicode, renderização, conformidade, acessibilidade e o projeto) herdam o
+    # pré-requisito por dependerem de uma destas duas, e por isso **não** o repetem.
     - id: etapa:terminal/pseudoterminal-e-sinais
       titulo: O pseudoterminal — par mestre/escravo, disciplina de linha, sinais e SIGWINCH
-      rev: 1
+      rev: 2
       status: ativo
       esforco_estimado_min: 420
       opcional: false
       requires:
+        - competencia: comp:programacao/programacao-de-sistemas
+          nivel_minimo: intermediario
         - competencia: comp:so/linha-de-comando
           nivel_minimo: intermediario
         - competencia: comp:terminal/protocolo-de-controle
@@ -263,9 +287,11 @@ trilha:
         - competencia: comp:terminal/arquitetura-de-emulador
           nivel_resultante: avancado
 
-  # Definida em catalogo/etapas/avulsas.yaml e já referenciada pelas trilhas de C e de
-  # SO (ADR-0010). A segunda etapa avulsa, de script shell, **não** entra: escrever
-  # script não é pré-requisito de escrever emulador, e referenciá-la aqui a incluiria
-  # na trilha sem razão.
+  # Definidas em catalogo/etapas/avulsas.yaml. A de linha de comando já era
+  # referenciada pelas trilhas de C e de SO (ADR-0010); a de programação de sistemas é
+  # compartilhada com a de SO (ADR-0018). A terceira avulsa, de script shell, **não**
+  # entra: escrever script não é pré-requisito de escrever emulador, e referenciá-la
+  # aqui a incluiria na trilha sem razão.
   etapas_referenciadas:
     - etapa:so/linha-de-comando
+    - etapa:programacao/programacao-de-sistemas

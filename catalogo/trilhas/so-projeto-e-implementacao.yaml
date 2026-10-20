@@ -6,7 +6,10 @@ trilha:
   # trilha pressupunha sem declarar — incluir etapa obrigatória é substantivo
   # (docs/catalogo.md §4). `etapa:so/script-shell` veio junto, opcional, e essa parte
   # seria cosmética.
-  rev: 2
+  # rev 3: a mesma coisa de novo, com o outro pré-requisito que a trilha pressupunha
+  # sem declarar — `etapa:programacao/programacao-de-sistemas`, obrigatória
+  # (ADR-0018).
+  rev: 3
   status: ativo
   objetivo_declarado:
     - competencia: comp:so/processos-e-concorrencia
@@ -108,13 +111,28 @@ trilha:
     # dominasse shell: a pessoa simplesmente travava aqui (ADR-0010). Efeito no
     # percurso: etapa `nao_iniciada` volta a travar, que é o comportamento correto
     # da tabela de docs/catalogo.md §4.
+    #
+    # rev 3: `comp:programacao/programacao-de-sistemas`, pelo mesmo raciocínio e com
+    # o mesmo efeito. Chegar ao `make` era metade do que faltava; a outra metade é
+    # que a verificação de `comp:so/nucleo-na-pratica` manda **introduzir** uma
+    # chamada de sistema nova ou mexer no escalonador e "demonstrar o efeito por um
+    # programa de usuário" — ler e modificar código em módulos, estrutura em memória,
+    # e um programa que exercita a chamada por um descritor. É o recorte da avulsa,
+    # inteiro (ADR-0018).
+    #
+    # O que **continua** por declarar: que esse código é em C, especificamente. A
+    # avulsa é independente de linguagem, e exigir C aqui traria a cascata de sete
+    # etapas que ADR-0017 recusou. O piso declarado é verdadeiro e é menor que o
+    # pré-requisito real; fica dito, não escondido.
     - id: etapa:so/projeto-modificar-o-minix
       titulo: Projeto — compilar e modificar o MINIX
-      rev: 2
+      rev: 3
       status: ativo
       esforco_estimado_min: 1500
       opcional: false
       requires:
+        - competencia: comp:programacao/programacao-de-sistemas
+          nivel_minimo: intermediario
         - competencia: comp:so/linha-de-comando
           nivel_minimo: intermediario
         - competencia: comp:so/escalonamento
@@ -127,11 +145,13 @@ trilha:
         - competencia: comp:so/nucleo-na-pratica
           nivel_resultante: intermediario
 
-  # Definidas em catalogo/etapas/avulsas.yaml, porque trilha:programacao/linguagem-c-ansi
-  # também as pressupõe e uma etapa é definida em um arquivo só (docs/catalogo.md §1).
-  # Referenciar é o que as torna alcançáveis: sem isso o motor não as geraria como
-  # `proxima_etapa` (só as etapas da trilha matriculada entram), e o estudante ficaria
-  # travado no projeto sem nada que o destravasse.
+  # Definidas em catalogo/etapas/avulsas.yaml, porque outras trilhas também as
+  # pressupõem e uma etapa é definida em um arquivo só (docs/catalogo.md §1): as duas
+  # de shell com trilha:programacao/linguagem-c-ansi, a de programação de sistemas com
+  # trilha:terminal/emulador. Referenciar é o que as torna alcançáveis: sem isso o
+  # motor não as geraria como `proxima_etapa` (só as etapas da trilha matriculada
+  # entram), e o estudante ficaria travado no projeto sem nada que o destravasse.
   etapas_referenciadas:
     - etapa:so/linha-de-comando
     - etapa:so/script-shell
+    - etapa:programacao/programacao-de-sistemas

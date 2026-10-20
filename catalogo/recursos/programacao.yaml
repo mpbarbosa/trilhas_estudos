@@ -153,3 +153,85 @@ recursos:
     url: https://www.lysator.liu.se/c/pikestyle.html
     disponivel: true
     verificado_em: 2026-10-17
+
+  # =========================================================================
+  # etapa:programacao/programacao-de-sistemas (avulsa, ADR-0018)
+  #
+  # Quatro recursos, todos de acesso aberto, em **dois caminhos de linguagem** — e
+  # isso não é fartura, é o que torna a etapa o que ela diz ser. Uma competência que
+  # se declara independente de linguagem e só oferece material de uma linguagem é uma
+  # competência de linguagem com outro nome. O caminho de C são os dois guias do Beej;
+  # o de Rust são os dois livros abaixo dele.
+  #
+  # O descritor e a leitura parcial não estão em livro de linguagem: nem o Beej's
+  # Guide to C (que para na `stdio.h`) nem o livro de Rust chegam a `fork` e a
+  # `pipe`. Quem carrega essa parte da verificação é o Guia de IPC, e é por isso que
+  # ele entra ao lado de um guia de linguagem em vez de no lugar dele.
+  #
+  # Em pt-BR, só o Comprehensive Rust. O que **não** entrou, para não ser pesquisado
+  # de novo: a tradução comunitária do livro oficial de Rust
+  # (rust-br.github.io/rust-book-pt-br) está parada na edição 2018 e com os capítulos
+  # 11, 13, 14, 16 e 18 a 20 sem traduzir — o Comprehensive Rust cobre o mesmo
+  # recorte, traduzido e mantido. E não há equivalente gratuito em pt-BR no caminho de
+  # C: o K&R em português é pago e é fatia da trilha de C
+  # (`obra: kernighan-ritchie-c`, acima), não desta etapa. Quem lê só português tem
+  # caminho, mas tem um só, e ele é em Rust.
+  #
+  # Nenhum declara `obra`: `obra` existe para uma agregação monetária contar o
+  # exemplar uma vez (ADR-0009), e obra gratuita soma zero de qualquer maneira.
+  # =========================================================================
+  - id: rec:programacao/beej-c-sistemas
+    etapa: etapa:programacao/programacao-de-sistemas
+    titulo: "Beej's Guide to C Programming — de `hello, world` a estruturas, apontadores, alocação manual, projetos de vários arquivos e o ambiente de fora (`argv`, variáveis, código de saída)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 900
+    url: https://beej.us/guide/bgc/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:programacao/beej-ipc-descritores
+    etapa: etapa:programacao/programacao-de-sistemas
+    titulo: "Beej's Guide to Interprocess Communication — `fork`, canos, FIFOs e sinais: o processo filho, o descritor e a leitura que volta com menos bytes do que se pediu"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 300
+    url: https://beej.us/guide/bgipc/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:programacao/rust-book-sistemas
+    etapa: etapa:programacao/programacao-de-sistemas
+    titulo: "The Rust Programming Language (Klabnik & Nichols) — caps. 1 a 12: tipos, posse e empréstimo, structs, módulos, coleções, tratamento de erro, e o projeto de E/S que o cap. 12 reparte em biblioteca e binário"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 900
+    url: https://doc.rust-lang.org/book/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  # O único em pt-BR desta etapa, e o único em pt-BR que a trilha de emulador alcança
+  # por qualquer caminho (ADR-0017: as etapas dela são todas en-US). Escrito para quem
+  # já programa em outra linguagem, o que o torna o caminho curto de quem não parte do
+  # zero — e, para quem parte, o livro oficial acima é o longo.
+  - id: rec:programacao/comprehensive-rust-pt-br
+    etapa: etapa:programacao/programacao-de-sistemas
+    titulo: "Comprehensive Rust (Google), tradução em português do Brasil — tipos definidos pelo usuário, posse e gerência de memória, módulos, teste e tratamento de erro, em curso de quatro dias"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 720
+    url: https://google.github.io/comprehensive-rust/pt-BR/
+    disponivel: true
+    verificado_em: 2026-10-19

@@ -2,7 +2,7 @@
 # (docs/catalogo.md §1). Uma etapa é definida em exatamente um arquivo; as trilhas
 # que precisam destas as citam em `etapas_referenciadas`, nunca as redefinem.
 #
-# As duas de agora fecham a lacuna de shell e linha de comando de
+# São três. As duas primeiras fecham a lacuna de shell e linha de comando de
 # docs/acervo-lido.md § 3.1, pela forma decidida em
 # docs/adr/0010-shell-como-pre-requisito-declarado.md: o pré-requisito que
 # trilha:so/projeto-e-implementacao (compilar e modificar o MINIX) e
@@ -14,6 +14,20 @@
 # que o projeto cobra — e o ganho de tornar o pré-requisito explícito é justamente a
 # precisão. A segunda entra como aprofundamento opcional, no mesmo papel que
 # etapa:programacao/pratica-da-programacao tem na trilha de C.
+#
+# A terceira, de programação de sistemas, fecha o buraco que
+# docs/adr/0017-trilha-de-emulador-sem-linguagem-declarada.md aceitou como custo e
+# docs/adr/0018-programacao-de-sistemas-como-pre-requisito-compartilhado.md paga:
+# trilha:terminal/emulador manda escrever um emulador e
+# trilha:so/projeto-e-implementacao manda modificar o MINIX, e nenhuma das duas
+# exigia saber programar.
+#
+# O que faz esta forma funcionar, nas três, é `requires: []`: referenciar a etapa de
+# outra trilha custa uma linha e não arrasta cascata nenhuma, porque a validação 6
+# monta o fecho sobre as etapas da própria trilha partindo de perfil vazio
+# (src/trilhas/catalogo/validar.py, `_v6_objetivo_alcancavel`). Uma avulsa que
+# exigisse competência de outra avulsa ainda compilaria, mas obrigaria cada trilha
+# futura a referenciar as duas — é a cascata que a forma existe para não ter.
 versao_schema: 1
 
 etapas:
@@ -39,4 +53,23 @@ etapas:
         nivel_minimo: intermediario
     teaches:
       - competencia: comp:so/script-shell
+        nivel_resultante: intermediario
+
+  # Lançar um processo filho e ler o descritor dele é o que a verificação cobra, e é
+  # também o menor programa que exercita as três coisas de uma vez — por isso a etapa
+  # não se divide em três. `requires: []` apesar de a construção acontecer na casca:
+  # exigir `comp:so/linha-de-comando` aqui não custaria nada às duas trilhas de hoje
+  # (as duas já referenciam aquela etapa), mas tornaria esta avulsa impossível de
+  # referenciar sozinha, que é justamente a propriedade pela qual a forma foi escolhida
+  # (ADR-0018). O esforço é de quem parte do zero; quem já programa passa direto pela
+  # verificação, que é o que a etapa cobra — a etapa é o caminho, não o pedágio.
+  - id: etapa:programacao/programacao-de-sistemas
+    titulo: Programação de sistemas — um programa em módulos que lê um descritor e guarda estado entre leituras
+    rev: 1
+    status: ativo
+    esforco_estimado_min: 1500
+    opcional: false
+    requires: []
+    teaches:
+      - competencia: comp:programacao/programacao-de-sistemas
         nivel_resultante: intermediario
