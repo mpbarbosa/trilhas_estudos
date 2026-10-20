@@ -74,12 +74,16 @@ competencias:
     descricao: >
       Como tecla e clique viram bytes: a codificação legada e suas ambiguidades, as
       extensões `modifyOtherKeys` e CSI-u, o protocolo de teclado do kitty, os modos de
-      relato de mouse, e colagem entre marcas.
+      relato de mouse, colagem entre marcas, e a composição por método de entrada —
+      tecla morta, sequência de composição e pré-edição —, que acontece antes de existir
+      byte para enviar.
     verificacao: >
       Para `Ctrl-Shift-Enter`, mostrar o que o terminal envia em três regimes — o
       legado, `modifyOtherKeys` e o protocolo de teclado do kitty — e dizer qual
       ambiguidade do regime legado cada um dos outros resolve; repetir o exercício para
-      um clique com `Shift` no modo de relato SGR.
+      um clique com `Shift` no modo de relato SGR. E, com um método de entrada ativo,
+      digitar um ideograma por composição, mostrando onde a pré-edição aparece e em que
+      momento o byte chega ao programa — que não é quando a tecla é pressionada.
 
   - id: comp:terminal/texto-em-celulas
     titulo: Texto Unicode numa grade de células
@@ -137,6 +141,22 @@ competencias:
       reduzir um caso que falha à sequência mínima que o reproduz, e decidir se a falha é
       do emulador ou expectativa do teste — justificando pela especificação, não pelo
       comportamento de outro emulador.
+
+  - id: comp:terminal/acessibilidade-de-terminal
+    titulo: Acessibilidade de um emulador de terminal
+    rev: 1
+    status: ativo
+    descricao: >
+      A grade de células exposta à tecnologia assistiva: a árvore de acessibilidade que
+      o sistema espera, o que nela representa texto que rola e cursor que se move, e por
+      que um emulador que desenha a própria janela é opaco ao leitor de tela até
+      construí-la.
+    verificacao: >
+      Com um leitor de tela em execução, demonstrar que a saída de um comando é lida,
+      que o movimento do cursor é anunciado, e que a troca para a tela alternativa não
+      deixa o leitor preso no conteúdo anterior; e explicar por que nada disso vem de
+      graça num emulador desenhado por GPU, ao contrário de um que rode dentro de uma
+      webview e receba a árvore pronta.
 
   - id: comp:terminal/arquitetura-de-emulador
     titulo: Arquitetura de um emulador de terminal

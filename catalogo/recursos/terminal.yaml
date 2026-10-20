@@ -18,7 +18,7 @@
 #    inglês. Registrado aqui para não ser pesquisado de novo. Consequência real: esta
 #    trilha é inacessível a quem não lê inglês técnico, e nenhuma etapa dela tem
 #    alternativa em português.
-# 3. **Nenhum recurso pago.** Todas as 40 entradas são de acesso aberto, o que torna a
+# 3. **Nenhum recurso pago.** Toda entrada deste arquivo é de acesso aberto, o que torna a
 #    trilha inteira imune ao filtro de `custo_maximo` do motor (motor §2.2) e dispensa
 #    `obra`: `obra` existe para que uma agregação monetária conte o exemplar uma vez
 #    (ADR-0009), e obra gratuita soma zero de qualquer maneira.
@@ -67,6 +67,19 @@ recursos:
     custo: 0
     duracao_min: 120
     url: https://poor.dev/blog/terminal-anatomy/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/ansi-linha-de-comando-propria
+    etapa: etapa:terminal/o-que-e-um-terminal
+    titulo: "Build your own Command Line with ANSI escape codes (Li Haoyi) — as sequências na mão, do `ESC [` ao cursor que se move"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
     disponivel: true
     verificado_em: 2026-10-19
 
@@ -186,6 +199,19 @@ recursos:
     custo: 0
     duracao_min: 90
     url: https://vt100.net/docs/vt3xx-gp/chapter14.html
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/vt100-guia-do-usuario
+    etapa: etapa:terminal/especificacao-de-sequencias
+    titulo: "VT100 User Guide, cap. 3 — as sequências como a DEC as publicou, que é a origem da linhagem inteira"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://vt100.net/docs/vt100-ug/chapter3.html
     disponivel: true
     verificado_em: 2026-10-19
 
@@ -375,6 +401,45 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-19
 
+  - id: rec:terminal/wayland-text-input
+    etapa: etapa:terminal/entrada-de-teclado-e-mouse
+    titulo: "Wayland — protocolo `text-input-unstable-v3`: como o método de entrada conversa com a janela, pré-edição incluída"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://wayland.app/protocols/text-input-unstable-v3
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/gtk-imcontext
+    etapa: etapa:terminal/entrada-de-teclado-e-mouse
+    titulo: "GTK 4 — `IMContext`: a interface de método de entrada do lado da aplicação, com pré-edição, confirmação e tecla morta"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://docs.gtk.org/gtk4/class.IMContext.html
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/ibus
+    etapa: etapa:terminal/entrada-de-teclado-e-mouse
+    titulo: "IBus — o barramento de método de entrada que o emulador encontra no Linux, e o que ele espera da aplicação"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://ibus.github.io/
+    disponivel: true
+    verificado_em: 2026-10-19
+
   # --- etapa:terminal/texto-unicode-em-grade ------------------------------
   - id: rec:terminal/uax-11-largura
     etapa: etapa:terminal/texto-unicode-em-grade
@@ -546,6 +611,19 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-19
 
+  - id: rec:terminal/glyphon
+    etapa: etapa:terminal/renderizacao-e-latencia
+    titulo: "`glyphon` — o atlas de glifos e o desenho de texto sobre wgpu já resolvidos, para comparar com o atlas feito à mão"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://docs.rs/glyphon/
+    disponivel: true
+    verificado_em: 2026-10-19
+
   # --- etapa:terminal/integracao-com-o-shell ------------------------------
   - id: rec:terminal/osc-133-prompt-semantico
     etapa: etapa:terminal/integracao-com-o-shell
@@ -637,6 +715,72 @@ recursos:
     custo: 0
     duracao_min: 1800
     url: https://poor.dev/blog/terminal-anatomy/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/anatomia-exemplos-de-codigo
+    etapa: etapa:terminal/projeto-emulador-minimo
+    titulo: "Anatomy of a terminal emulator — os exemplos de código do artigo: modo cru, criar o shell e ler dele, ANSI na mão e interface que responde ao redimensionamento"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 300
+    url: https://github.com/imsnif/terminal-anatomy-code-examples
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  # --- etapa:terminal/acessibilidade-e-arvore -----------------------------
+  - id: rec:terminal/accesskit
+    etapa: etapa:terminal/acessibilidade-e-arvore
+    titulo: "AccessKit — a árvore de acessibilidade multiplataforma: o modelo de nós, papéis e propriedades que o emulador precisa produzir"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://accesskit.dev/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/accesskit-winit
+    etapa: etapa:terminal/acessibilidade-e-arvore
+    titulo: "`accesskit_winit` — o adaptador entre a janela e a árvore, e por que ele precisa existir antes da janela aparecer"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://docs.rs/accesskit_winit/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/atspi2
+    etapa: etapa:terminal/acessibilidade-e-arvore
+    titulo: "AT-SPI 2 — a interface de acessibilidade do Linux, que é o que o adaptador fala do outro lado"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://docs.gtk.org/atspi2/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/orca
+    etapa: etapa:terminal/acessibilidade-e-arvore
+    titulo: "Orca — manual do leitor de tela do GNOME: o instrumento com que a verificação desta competência se faz"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://help.gnome.org/users/orca/stable/
     disponivel: true
     verificado_em: 2026-10-19
 

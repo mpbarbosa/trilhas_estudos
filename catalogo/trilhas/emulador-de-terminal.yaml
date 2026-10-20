@@ -18,13 +18,14 @@ trilha:
     - competencia: comp:terminal/arquitetura-de-emulador
       nivel: intermediario
 
-  # A espinha é a de um emulador real, nas quatro bordas que ele tem: o que vem do
-  # programa (sequências de controle), o que vai para o programa (teclado, mouse e o
-  # pseudoterminal), o que mora no meio (a grade de células) e o que sai na tela
-  # (glifos). Nenhuma delas é pré-requisito das outras três, e por isso a trilha é um
-  # grafo (ADR-0002): depois da especificação e do analisador, a tela, o
-  # pseudoterminal, o Unicode e a renderização abrem em frentes que se cursam em
-  # paralelo e só voltam a juntar no projeto.
+  # A espinha é a de um emulador real, nas bordas que ele tem: o que vem do programa
+  # (sequências de controle), o que vai para o programa (teclado, mouse, método de
+  # entrada e o pseudoterminal), o que mora no meio (a grade de células), o que sai na
+  # tela (glifos) e o que sai dela para quem não a vê (a árvore de acessibilidade).
+  # Nenhuma é pré-requisito das outras, e por isso a trilha é um grafo (ADR-0002):
+  # depois da especificação e do analisador, a tela, o pseudoterminal, o Unicode, a
+  # renderização e a acessibilidade abrem em frentes que se cursam em paralelo e só
+  # voltam a juntar no projeto.
   #
   # **Linguagem de implementação: nenhuma, de propósito.** Os recursos são em Rust
   # (`vte`, `alacritty_terminal`, `portable-pty`, `cosmic-text`, `wgpu`), em C
@@ -130,10 +131,10 @@ trilha:
           nivel_resultante: intermediario
 
     - id: etapa:terminal/entrada-de-teclado-e-mouse
-      titulo: Teclado e mouse — a codificação legada, `modifyOtherKeys`, CSI-u e o protocolo do kitty
+      titulo: Teclado, mouse e método de entrada — codificação legada, `modifyOtherKeys`, CSI-u, protocolo do kitty e composição
       rev: 1
       status: ativo
-      esforco_estimado_min: 360
+      esforco_estimado_min: 480
       opcional: false
       requires:
         - competencia: comp:terminal/modelo-de-tela
@@ -187,6 +188,24 @@ trilha:
         - competencia: comp:terminal/integracao-com-o-shell
           nivel_resultante: intermediario
 
+    # --- O terminal lido por quem não o vê -----------------------------------
+    # Obrigatória, e exigida pelo projeto final. Um emulador que desenha a própria
+    # janela não tem árvore de acessibilidade até construí-la — ao contrário de um
+    # embutido em webview, que a recebe pronta. É uma borda do mesmo nível das outras
+    # quatro, e deixá-la opcional diria o contrário.
+    - id: etapa:terminal/acessibilidade-e-arvore
+      titulo: Acessibilidade — a árvore que o leitor de tela lê, construída à mão
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 360
+      opcional: false
+      requires:
+        - competencia: comp:terminal/modelo-de-tela
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:terminal/acessibilidade-de-terminal
+          nivel_resultante: intermediario
+
     # --- Prova ---------------------------------------------------------------
     - id: etapa:terminal/conformidade-por-suite
       titulo: Conformidade — `vttest`, `esctest` e o que fazer quando o teste e a especificação discordam
@@ -206,12 +225,14 @@ trilha:
           nivel_resultante: intermediario
 
     - id: etapa:terminal/projeto-emulador-minimo
-      titulo: Projeto — um emulador mínimo que roda um shell, passa um subconjunto do `esctest` e mostra sua latência
+      titulo: Projeto — um emulador mínimo que roda um shell, passa um subconjunto do `esctest`, mostra sua latência e é lido por um leitor de tela
       rev: 1
       status: ativo
       esforco_estimado_min: 1800
       opcional: false
       requires:
+        - competencia: comp:terminal/acessibilidade-de-terminal
+          nivel_minimo: intermediario
         - competencia: comp:terminal/arquitetura-de-emulador
           nivel_minimo: iniciante
         - competencia: comp:terminal/renderizacao-de-terminal

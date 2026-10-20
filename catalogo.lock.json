@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 31,
-  "gerado_em": "2026-10-20T02:16:01+00:00",
-  "hash": "sha256:37e5b66c9f64b176bebbd0a4be59df562fb89b684f0beaf2754ccc301c2d6426",
+  "catalogo_versao": 32,
+  "gerado_em": "2026-10-20T02:30:57+00:00",
+  "hash": "sha256:e427659fc56a393c7ded6376d2c543234cced15aeeee19679e7d7a0c909dff1d",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -533,6 +533,14 @@
       "descricao": "Arquivos e diretórios como abstração, implementação por alocação contígua, encadeada e i-nodes, gerenciamento de espaço livre, cache de blocos, consistência e proteção.\n"
     },
     {
+      "id": "comp:terminal/acessibilidade-de-terminal",
+      "titulo": "Acessibilidade de um emulador de terminal",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Com um leitor de tela em execução, demonstrar que a saída de um comando é lida, que o movimento do cursor é anunciado, e que a troca para a tela alternativa não deixa o leitor preso no conteúdo anterior; e explicar por que nada disso vem de graça num emulador desenhado por GPU, ao contrário de um que rode dentro de uma webview e receba a árvore pronta.",
+      "descricao": "A grade de células exposta à tecnologia assistiva: a árvore de acessibilidade que o sistema espera, o que nela representa texto que rola e cursor que se move, e por que um emulador que desenha a própria janela é opaco ao leitor de tela até construí-la.\n"
+    },
+    {
       "id": "comp:terminal/analisador-de-sequencias",
       "titulo": "Analisador de sequências de controle",
       "rev": 1,
@@ -553,8 +561,8 @@
       "titulo": "Codificação de teclado e de mouse",
       "rev": 1,
       "status": "ativo",
-      "verificacao": "Para `Ctrl-Shift-Enter`, mostrar o que o terminal envia em três regimes — o legado, `modifyOtherKeys` e o protocolo de teclado do kitty — e dizer qual ambiguidade do regime legado cada um dos outros resolve; repetir o exercício para um clique com `Shift` no modo de relato SGR.",
-      "descricao": "Como tecla e clique viram bytes: a codificação legada e suas ambiguidades, as extensões `modifyOtherKeys` e CSI-u, o protocolo de teclado do kitty, os modos de relato de mouse, e colagem entre marcas.\n"
+      "verificacao": "Para `Ctrl-Shift-Enter`, mostrar o que o terminal envia em três regimes — o legado, `modifyOtherKeys` e o protocolo de teclado do kitty — e dizer qual ambiguidade do regime legado cada um dos outros resolve; repetir o exercício para um clique com `Shift` no modo de relato SGR. E, com um método de entrada ativo, digitar um ideograma por composição, mostrando onde a pré-edição aparece e em que momento o byte chega ao programa — que não é quando a tecla é pressionada.",
+      "descricao": "Como tecla e clique viram bytes: a codificação legada e suas ambiguidades, as extensões `modifyOtherKeys` e CSI-u, o protocolo de teclado do kitty, os modos de relato de mouse, colagem entre marcas, e a composição por método de entrada — tecla morta, sequência de composição e pré-edição —, que acontece antes de existir byte para enviar.\n"
     },
     {
       "id": "comp:terminal/conformidade-de-emulador",
@@ -2500,6 +2508,27 @@
       ]
     },
     {
+      "id": "etapa:terminal/acessibilidade-e-arvore",
+      "titulo": "Acessibilidade — a árvore que o leitor de tela lê, construída à mão",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 360,
+      "trilha": "trilha:terminal/emulador",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:terminal/modelo-de-tela",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:terminal/acessibilidade-de-terminal",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:terminal/analisador-de-estados",
       "titulo": "O analisador — a máquina de estados DEC/ANSI, implementada e hostilizada",
       "rev": 1,
@@ -2572,10 +2601,10 @@
     },
     {
       "id": "etapa:terminal/entrada-de-teclado-e-mouse",
-      "titulo": "Teclado e mouse — a codificação legada, `modifyOtherKeys`, CSI-u e o protocolo do kitty",
+      "titulo": "Teclado, mouse e método de entrada — codificação legada, `modifyOtherKeys`, CSI-u, protocolo do kitty e composição",
       "rev": 1,
       "status": "ativo",
-      "esforco_estimado_min": 360,
+      "esforco_estimado_min": 480,
       "trilha": "trilha:terminal/emulador",
       "opcional": false,
       "requires": [
@@ -2700,13 +2729,17 @@
     },
     {
       "id": "etapa:terminal/projeto-emulador-minimo",
-      "titulo": "Projeto — um emulador mínimo que roda um shell, passa um subconjunto do `esctest` e mostra sua latência",
+      "titulo": "Projeto — um emulador mínimo que roda um shell, passa um subconjunto do `esctest`, mostra sua latência e é lido por um leitor de tela",
       "rev": 1,
       "status": "ativo",
       "esforco_estimado_min": 1800,
       "trilha": "trilha:terminal/emulador",
       "opcional": false,
       "requires": [
+        {
+          "competencia": "comp:terminal/acessibilidade-de-terminal",
+          "nivel_minimo": "intermediario"
+        },
         {
           "competencia": "comp:terminal/arquitetura-de-emulador",
           "nivel_minimo": "iniciante"
@@ -3427,6 +3460,7 @@
         "etapa:terminal/texto-unicode-em-grade",
         "etapa:terminal/renderizacao-e-latencia",
         "etapa:terminal/integracao-com-o-shell",
+        "etapa:terminal/acessibilidade-e-arvore",
         "etapa:terminal/conformidade-por-suite",
         "etapa:terminal/projeto-emulador-minimo",
         "etapa:terminal/leitura-de-emuladores-reais"
@@ -5902,6 +5936,34 @@
       "verificado_em": "2026-10-12"
     },
     {
+      "id": "rec:terminal/accesskit",
+      "titulo": "AccessKit — a árvore de acessibilidade multiplataforma: o modelo de nós, papéis e propriedades que o emulador precisa produzir",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/acessibilidade-e-arvore",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://accesskit.dev/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/accesskit-winit",
+      "titulo": "`accesskit_winit` — o adaptador entre a janela e a árvore, e por que ele precisa existir antes da janela aparecer",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/acessibilidade-e-arvore",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://docs.rs/accesskit_winit/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
       "id": "rec:terminal/alacritty-codigo",
       "titulo": "Alacritty — código-fonte: emulador nativo em Rust com GPU, o que separa a biblioteca `alacritty_terminal` do programa",
       "rev": 1,
@@ -5944,6 +6006,20 @@
       "verificado_em": "2026-10-19"
     },
     {
+      "id": "rec:terminal/anatomia-exemplos-de-codigo",
+      "titulo": "Anatomy of a terminal emulator — os exemplos de código do artigo: modo cru, criar o shell e ler dele, ANSI na mão e interface que responde ao redimensionamento",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/projeto-emulador-minimo",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://github.com/imsnif/terminal-anatomy-code-examples",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
       "id": "rec:terminal/anatomia-visao-geral",
       "titulo": "Anatomy of a terminal emulator (Aram Drevekenin) — visão geral: as partes de um emulador e como se encaixam",
       "rev": 1,
@@ -5954,6 +6030,20 @@
       "custo": 0.0,
       "duracao_min": 120,
       "url": "https://poor.dev/blog/terminal-anatomy/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/ansi-linha-de-comando-propria",
+      "titulo": "Build your own Command Line with ANSI escape codes (Li Haoyi) — as sequências na mão, do `ESC [` ao cursor que se move",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/o-que-e-um-terminal",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html",
       "disponivel": true,
       "verificado_em": "2026-10-19"
     },
@@ -5982,6 +6072,20 @@
       "custo": 0.0,
       "duracao_min": 180,
       "url": "https://learnopengl.com/In-Practice/Text-Rendering",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/atspi2",
+      "titulo": "AT-SPI 2 — a interface de acessibilidade do Linux, que é o que o adaptador fala do outro lado",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/acessibilidade-e-arvore",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://docs.gtk.org/atspi2/",
       "disponivel": true,
       "verificado_em": "2026-10-19"
     },
@@ -6098,6 +6202,34 @@
       "verificado_em": "2026-10-19"
     },
     {
+      "id": "rec:terminal/glyphon",
+      "titulo": "`glyphon` — o atlas de glifos e o desenho de texto sobre wgpu já resolvidos, para comparar com o atlas feito à mão",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/renderizacao-e-latencia",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://docs.rs/glyphon/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/gtk-imcontext",
+      "titulo": "GTK 4 — `IMContext`: a interface de método de entrada do lado da aplicação, com pré-edição, confirmação e tecla morta",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/entrada-de-teclado-e-mouse",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://docs.gtk.org/gtk4/class.IMContext.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
       "id": "rec:terminal/harfbuzz",
       "titulo": "HarfBuzz — manual de conformação de texto: o que o conformador faz com a sequência de caracteres antes de haver glifo",
       "rev": 1,
@@ -6122,6 +6254,20 @@
       "custo": 0.0,
       "duracao_min": 60,
       "url": "https://github.com/vercel/hyper",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/ibus",
+      "titulo": "IBus — o barramento de método de entrada que o emulador encontra no Linux, e o que ele espera da aplicação",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/entrada-de-teclado-e-mouse",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://ibus.github.io/",
       "disponivel": true,
       "verificado_em": "2026-10-19"
     },
@@ -6234,6 +6380,20 @@
       "custo": 0.0,
       "duracao_min": 60,
       "url": "https://github.com/microsoft/node-pty",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/orca",
+      "titulo": "Orca — manual do leitor de tela do GNOME: o instrumento com que a verificação desta competência se faz",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/acessibilidade-e-arvore",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://help.gnome.org/users/orca/stable/",
       "disponivel": true,
       "verificado_em": "2026-10-19"
     },
@@ -6392,6 +6552,20 @@
       "verificado_em": "2026-10-19"
     },
     {
+      "id": "rec:terminal/vt100-guia-do-usuario",
+      "titulo": "VT100 User Guide, cap. 3 — as sequências como a DEC as publicou, que é a origem da linhagem inteira",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/especificacao-de-sequencias",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://vt100.net/docs/vt100-ug/chapter3.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
       "id": "rec:terminal/vt3xx-sixel",
       "titulo": "VT330/VT340 Programmer Reference, cap. 14 — gráficos Sixel: a resposta da DEC ao mesmo problema, 30 anos antes",
       "rev": 1,
@@ -6430,6 +6604,20 @@
       "custo": 0.0,
       "duracao_min": 180,
       "url": "https://invisible-island.net/vttest/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/wayland-text-input",
+      "titulo": "Wayland — protocolo `text-input-unstable-v3`: como o método de entrada conversa com a janela, pré-edição incluída",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/entrada-de-teclado-e-mouse",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://wayland.app/protocols/text-input-unstable-v3",
       "disponivel": true,
       "verificado_em": "2026-10-19"
     },

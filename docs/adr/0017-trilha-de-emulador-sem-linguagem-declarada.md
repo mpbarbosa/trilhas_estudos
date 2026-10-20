@@ -66,7 +66,7 @@ pré-requisito externo declarado é `comp:so/linha-de-comando`, por
 ele é cobrado, porque sinal, grupo de processos e descritor vistos de dentro supõem os
 mesmos vistos de fora.
 
-As dez competências da área descrevem o emulador, não a linguagem, e as verificações
+As competências da área descrevem o emulador, não a linguagem, e as verificações
 são de comportamento observável — a máquina de estados para num estado nomeável diante
 de entrada hostil, `Ctrl-C` chega ao grupo de processos em primeiro plano, o emoji com
 ZWJ ocupa o número de células que o anexo do Unicode manda. Qualquer das três pilhas as
@@ -91,7 +91,7 @@ satisfaz.
   tudo que a destrava, porque a validação 6 parte de perfil vazio sobre as etapas da
   própria trilha. Quem for declarar pré-requisito entre trilhas no futuro mede essa
   cascata antes de escolher a forma.
-- **A trilha é toda de acesso aberto e toda em inglês.** Nenhum dos 40 recursos custa
+- **A trilha é toda de acesso aberto e toda em inglês.** Nenhum recurso dela custa
   nada, o que a torna imune ao filtro de `custo_maximo` do motor
   ([motor §2.2](../motor-de-sugestao.md)) e dispensa `obra`
   ([ADR-0009](0009-obra-como-campo-de-agrupamento-no-recurso.md)); e nenhum está em
@@ -103,6 +103,7 @@ satisfaz.
   literatura é especificação, página de manual, documentação de biblioteca e
   código-fonte. A bibliografia é ficha de livro, e uma trilha inteira sem livro é fato
   novo no catálogo — até aqui, toda trilha tinha ao menos um.
-- **Custo**: uma área nova, dez competências, treze etapas e quarenta recursos a
-  manter, e um pré-requisito de linguagem que o catálogo afirma por omissão — o oposto
-  do que a ADR-0010 conquistou, em troca de não duplicar a trilha de C dentro desta.
+- **Custo**: uma área nova a manter — competências, etapas e recursos, cuja contagem
+  se lê do lock e não daqui —, e um pré-requisito de linguagem que o catálogo afirma
+  por omissão, o oposto do que a ADR-0010 conquistou, em troca de não duplicar a trilha
+  de C dentro desta.
