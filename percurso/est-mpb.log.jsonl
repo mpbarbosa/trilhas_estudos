@@ -56,3 +56,4 @@
 {"dados": {"etapa": "etapa:terminal/o-que-e-um-terminal", "etapa_rev": 1}, "em": "2026-10-20T15:21:34.348732+00:00", "seq": 56, "tipo": "etapa_concluida"}
 {"dados": {"competencia": "comp:terminal/protocolo-de-controle", "confianca": 1.0, "etapa": "etapa:terminal/o-que-e-um-terminal", "etapa_rev": 1, "nivel": "iniciante", "origem": "conclusao_de_etapa"}, "em": "2026-10-20T15:21:34.348732+00:00", "seq": 57, "tipo": "evidencia_registrada"}
 {"dados": {"etapa": "etapa:terminal/especificacao-de-sequencias", "etapa_rev": 1, "recurso": null}, "em": "2026-10-20T15:23:01.263042+00:00", "seq": 58, "tipo": "etapa_iniciada"}
+{"dados": {"recurso": "rec:terminal/wikipedia-sequencias-ansi", "recurso_rev": 1}, "em": "2026-10-20T15:23:45.404301+00:00", "seq": 59, "tipo": "recurso_percorrido"}
