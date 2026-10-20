@@ -324,7 +324,7 @@ recursos:
 
   - id: rec:ia/hands-on-llms-rag
     etapa: etapa:ia/rag-fim-a-fim
-    titulo: "Hands-On Large Language Models — capítulo de RAG e geração com contexto"
+    titulo: "Hands-On Large Language Models — notebook oficial do capítulo de RAG e geração com contexto; é o código, não o texto do livro"
     rev: 1
     status: ativo
     formato: exercicio

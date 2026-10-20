@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 28,
-  "gerado_em": "2026-10-19T17:51:28+00:00",
-  "hash": "sha256:da20ac8bf8d0876788d99506b6614a5a4f84c73bf8d6cb7675c3bd7a8caed6b8",
+  "catalogo_versao": 29,
+  "gerado_em": "2026-10-20T00:57:02+00:00",
+  "hash": "sha256:cf815ac951b7d9aff000465a040999fc3772c449714b6484ae80b32a41a68d55",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -4267,7 +4267,7 @@
     },
     {
       "id": "rec:ia/hands-on-llms-rag",
-      "titulo": "Hands-On Large Language Models — capítulo de RAG e geração com contexto",
+      "titulo": "Hands-On Large Language Models — notebook oficial do capítulo de RAG e geração com contexto; é o código, não o texto do livro",
       "rev": 1,
       "status": "ativo",
       "etapa": "etapa:ia/rag-fim-a-fim",
