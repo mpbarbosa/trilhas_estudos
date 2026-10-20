@@ -44,6 +44,19 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-08
 
+  - id: rec:ia/karpathy-intro-llm
+    etapa: etapa:ia/panorama-llm-transformer-rag
+    titulo: "[1hr Talk] Intro to Large Language Models (Andrej Karpathy) — panorama falado: pré-treino, fine-tuning e o que um LLM é por dentro"
+    rev: 1
+    status: ativo
+    formato: video
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://www.youtube.com/watch?v=zjkBMFhNj_g
+    disponivel: true
+    verificado_em: 2026-10-19
+
   # --- etapa:ia/fundamentos-aprendizado-profundo --------------------------
   - id: rec:ia/deep-learning-book-br
     etapa: etapa:ia/fundamentos-aprendizado-profundo
@@ -166,6 +179,19 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-19
 
+  - id: rec:ia/paper-bert
+    etapa: etapa:ia/transformer-por-dentro
+    titulo: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding (Devlin et al., 2018) — o encoder bidirecional, contraponto ao decoder autorregressivo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://arxiv.org/abs/1810.04805
+    disponivel: true
+    verificado_em: 2026-10-19
+
   # --- etapa:ia/llm-do-zero -----------------------------------------------
   - id: rec:ia/build-llm-from-scratch
     etapa: etapa:ia/llm-do-zero
@@ -192,6 +218,19 @@ recursos:
     url: https://github.com/rasbt/LLMs-from-scratch
     disponivel: true
     verificado_em: 2026-10-08
+
+  - id: rec:ia/cs229-building-llms
+    etapa: etapa:ia/llm-do-zero
+    titulo: "Stanford CS229 — Building Large Language Models (LLMs) — aula única sobre dados, arquitetura, escala e pós-treino"
+    rev: 1
+    status: ativo
+    formato: video
+    idioma: en-US
+    custo: 0
+    duracao_min: 105
+    url: https://www.youtube.com/watch?v=9vM4p9NN0Ts
+    disponivel: true
+    verificado_em: 2026-10-19
 
   # --- etapa:ia/embeddings-e-busca-semantica ------------------------------
   # Hands-On Large Language Models (Alammar & Grootendorst), ISBN 9781098150952 —
@@ -276,6 +315,34 @@ recursos:
     obra: handson-llm
     duracao_min: 300
     url: https://www.oreilly.com/library/view/hands-on-large-language/9781098150952/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:ia/paper-chain-of-thought
+    etapa: etapa:ia/engenharia-de-prompt
+    titulo: "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models (Wei et al., 2022) — a evidência original de que exemplo com raciocínio explícito muda o resultado"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://arxiv.org/abs/2201.11903
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  # A leitura oficial é promptingguide.ai; github.com/dair-ai/Prompt-Engineering-Guide
+  # é a mesma obra em código-fonte, não um segundo recurso.
+  - id: rec:ia/prompting-guide-dair
+    etapa: etapa:ia/engenharia-de-prompt
+    titulo: "Prompt Engineering Guide (DAIR.AI) — referência de técnicas com exemplos, de zero-shot a ReAct"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 480
+    url: https://www.promptingguide.ai/
     disponivel: true
     verificado_em: 2026-10-19
 
@@ -374,6 +441,22 @@ recursos:
     obra: handson-llm
     duracao_min: 600
     url: https://www.oreilly.com/library/view/hands-on-large-language/9781098150952/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  # O antigo "Hugging Face NLP Course" foi renomeado para LLM Course e tem doze
+  # capítulos; huggingface.co/course redireciona para cá. Esta é a fatia de
+  # adaptação de modelo, não o curso inteiro. Curso aberto: sem `obra`, custo 0.
+  - id: rec:ia/hugging-face-llm-course-finetuning
+    etapa: etapa:ia/fine-tuning-e-adaptacao
+    titulo: "Hugging Face LLM Course — caps. 3 e 11: fine-tuning de modelo pré-treinado com a biblioteca Transformers, e ajuste supervisionado de LLM"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 720
+    url: https://huggingface.co/learn/llm-course
     disponivel: true
     verificado_em: 2026-10-19
 
