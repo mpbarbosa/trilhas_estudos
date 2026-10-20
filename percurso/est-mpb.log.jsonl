@@ -50,3 +50,4 @@
 {"dados": {"etapa": "etapa:ia/claude-api-e-sdk", "etapa_rev": 1, "recurso": "rec:ia/claude-docs-bedrock"}, "em": "2026-10-19T00:21:44.264164+00:00", "seq": 50, "tipo": "etapa_iniciada"}
 {"dados": {"evidencia_seq": 29, "motivo": "conclusão prematura: só o capítulo 1 de rec:ia/prompt-engineering-for-llms foi lido"}, "em": "2026-10-19T01:22:32.724883+00:00", "seq": 51, "tipo": "evidencia_retratada"}
 {"dados": {"evidencia_seq": 30, "motivo": "conclusão prematura: só o capítulo 1 de rec:ia/prompt-engineering-for-llms foi lido"}, "em": "2026-10-19T01:22:32.839475+00:00", "seq": 52, "tipo": "evidencia_retratada"}
+{"dados": {"etapa": "etapa:terminal/o-que-e-um-terminal", "etapa_rev": 1, "recurso": "rec:terminal/anatomia-visao-geral"}, "em": "2026-10-20T09:46:09.247251+00:00", "seq": 53, "tipo": "etapa_iniciada"}
