@@ -30,6 +30,7 @@
 | [0014](adr/0014-retratacao-de-evidencia-por-seq.md) | Retratação de evidência como fato novo, endereçada pelo `seq` do log | aceito |
 | [0015](adr/0015-posse-de-exemplar-como-estante-declarada.md) | Posse de exemplar como estante declarada no perfil, aplicada ao custo efetivo | aceito |
 | [0016](adr/0016-retratacao-pela-tela-da-competencia.md) | Retratação pela tela da competência, com a evidência lida do log | aceito |
+| [0017](adr/0017-trilha-de-emulador-sem-linguagem-declarada.md) | Emulador de terminal em área própria, sem linguagem de implementação nos `requires` | aceito |
 
 ## Pendente
 

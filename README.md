@@ -24,10 +24,12 @@ persistência do percurso — nada do que o estudante faz é gravado.
   - *Linguagem C, do tutorial à interface com o UNIX* ([trilha](catalogo/trilhas/linguagem-c-ansi.yaml)) — tipos, funções, apontadores, estruturas, E/S e chamadas de sistema
   - *O modelo de Markov da linguagem natural* ([trilha](catalogo/trilhas/modelo-de-markov-da-linguagem.yaml)) — n-gramas, perplexidade, suavização, gerador de texto, HMM e etiquetagem
   - *Tecnofeudalismo — economia política do capital de nuvem* ([trilha](catalogo/trilhas/tecnofeudalismo.yaml)) — lucro e renda, capital de nuvem, geopolítica e a crítica da tese
+  - *Emulador de terminal, do protocolo à tela* ([trilha](catalogo/trilhas/emulador-de-terminal.yaml)) — ECMA-48 e a linhagem DEC, analisador de estados, grade de células, pseudoterminal, teclado, Unicode em grade, renderização e conformidade
 
   Fora das trilhas, duas [etapas avulsas](catalogo/etapas/avulsas.yaml) de shell e
-  linha de comando: pré-requisito compartilhado das trilhas de SO e de C, declarado
-  em [ADR-0010](docs/adr/0010-shell-como-pre-requisito-declarado.md).
+  linha de comando: pré-requisito compartilhado das trilhas de SO, de C e de emulador
+  de terminal, declarado em
+  [ADR-0010](docs/adr/0010-shell-como-pre-requisito-declarado.md).
 - [Decisões de arquitetura](docs/README.md)
 
 ## Uso

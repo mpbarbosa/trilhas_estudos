@@ -1,0 +1,864 @@
+# Convenções deste arquivo:
+#   custo  — em BRL, aproximado na data de `verificado_em`; 0 = gratuito.
+#   idioma — tag BCP 47.
+#
+# Três coisas que este arquivo não tem, e que não são esquecimento:
+#
+# 1. **Nenhum livro.** O assunto não tem livro-texto. A literatura do emulador de
+#    terminal é especificação (ECMA-48, `ctlseqs`, anexos do Unicode), página de
+#    manual, documentação de biblioteca e código-fonte de emulador — e é por isso que
+#    `docs/bibliografia.md`, que é ficha de **livro**, não ganhou entrada nenhuma com
+#    esta trilha. O mais perto de um guia "escreva o seu" é *Anatomy of a terminal
+#    emulator*, que aparece em duas fatias: a visão geral na primeira etapa e o
+#    esqueleto do projeto na última.
+# 2. **Nada em pt-BR.** Procurado em 2026-10-19 por tutorial, artigo e livro em
+#    português sobre pseudoterminal, sequências de escape e escrita de emulador: o que
+#    existe é ou genérico ("os melhores emuladores do Linux"), ou um executor de
+#    comandos em Java apresentado como emulador, ou tradução automática de texto em
+#    inglês. Registrado aqui para não ser pesquisado de novo. Consequência real: esta
+#    trilha é inacessível a quem não lê inglês técnico, e nenhuma etapa dela tem
+#    alternativa em português.
+# 3. **Nenhum recurso pago.** Toda entrada deste arquivo é de acesso aberto, o que torna a
+#    trilha inteira imune ao filtro de `custo_maximo` do motor (motor §2.2) e dispensa
+#    `obra`: `obra` existe para que uma agregação monetária conte o exemplar uma vez
+#    (ADR-0009), e obra gratuita soma zero de qualquer maneira.
+#
+# **O que não entrou, para não ser pesquisado de novo.** A bibliografia de origem
+# trazia um documento do acervo de leitura da CIA (CIA-RDP73T00325R000100110001-0), que
+# não tem relação com emulação de terminal e ficou fora. Ficaram fora também, por serem
+# dependência de implementação e não material de estudo, os pacotes que a trilha usa sem
+# estudar — o lugar deles é o `Cargo.toml` ou o `package.json` do projeto do estudante,
+# não uma etapa. O que entrou de biblioteca entrou pela documentação, que é o que se lê:
+# a de `vte` ensina a máquina de estados, a de `portable-pty` ensina o par
+# mestre/escravo nos três sistemas, e assim por diante.
+#
+# **Fatias da mesma URL em etapas diferentes** — `alacritty_terminal`, `xterm.js`,
+# `ctlseqs` e *Anatomy* aparecem em dois recursos cada, com ids distintos, porque um
+# recurso pertence a uma etapa só (docs/catalogo.md §2) e cada fatia aponta a parte que
+# serve àquela etapa. O `titulo` diz qual parte; a URL é a mesma porque o material não
+# tem endereço por seção.
+#
+# Endereços conferidos um a um em 2026-10-19 (HTTP 200 seguindo redirecionamento). A
+# wiki do fontconfig em freedesktop.org responde 418 a cliente automatizado; o recurso
+# aponta a página de documentação do usuário, que responde.
+versao_schema: 1
+recursos:
+  # --- etapa:terminal/o-que-e-um-terminal ---------------------------------
+  - id: rec:terminal/wezterm-o-que-e-um-terminal
+    etapa: etapa:terminal/o-que-e-um-terminal
+    titulo: "WezTerm — \"What is a terminal?\": terminal, emulador, shell e TTY, cada um no seu lugar"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://wezterm.org/what-is-a-terminal.html
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/anatomia-visao-geral
+    etapa: etapa:terminal/o-que-e-um-terminal
+    titulo: "Anatomy of a terminal emulator (Aram Drevekenin) — visão geral: as partes de um emulador e como se encaixam"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://poor.dev/blog/terminal-anatomy/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/ansi-linha-de-comando-propria
+    etapa: etapa:terminal/o-que-e-um-terminal
+    titulo: "Build your own Command Line with ANSI escape codes (Li Haoyi) — as sequências na mão, do `ESC [` ao cursor que se move"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  # --- etapa:terminal/arquiteturas-e-motores ------------------------------
+  - id: rec:terminal/alacritty-terminal-motor
+    etapa: etapa:terminal/arquiteturas-e-motores
+    titulo: "`alacritty_terminal` — o motor VT do Alacritty publicado como biblioteca: o que um motor expõe e o que deixa para o renderizador"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://docs.rs/alacritty_terminal/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/wezterm-term-codigo
+    etapa: etapa:terminal/arquiteturas-e-motores
+    titulo: "WezTerm — o pacote `term`: um segundo motor VT em Rust, para comparar decisões com o do Alacritty"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://github.com/wez/wezterm/tree/main/term
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/libvterm
+    etapa: etapa:terminal/arquiteturas-e-motores
+    titulo: "libvterm (Paul Evans) — motor VT embutível em C, a via de quem precisa de emulação dentro de outro programa"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://www.leonerd.org.uk/code/libvterm/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/xtermjs-documentacao
+    etapa: etapa:terminal/arquiteturas-e-motores
+    titulo: "xterm.js — documentação: o caminho web, com os complementos de WebGL, imagem, Unicode 11, busca e ajuste"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://xtermjs.org/docs/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/hyper-electron
+    etapa: etapa:terminal/arquiteturas-e-motores
+    titulo: "Hyper — emulador em Electron sobre xterm.js: a prova de que a pilha web fecha, e a conta que ela cobra"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://github.com/vercel/hyper
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  # --- etapa:terminal/especificacao-de-sequencias -------------------------
+  - id: rec:terminal/ecma-48
+    etapa: etapa:terminal/especificacao-de-sequencias
+    titulo: "ECMA-48, 5ª ed. (1991) — funções de controle para conjuntos de caracteres codificados: o padrão por baixo de tudo, em PDF livre"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 300
+    url: https://ecma-international.org/wp-content/uploads/ECMA-48_5th_edition_june_1991.pdf
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/xterm-ctlseqs
+    etapa: etapa:terminal/especificacao-de-sequencias
+    titulo: "XTerm Control Sequences (Thomas Dickey) — a especificação de fato: CSI, OSC, DCS, modos privados DEC e as extensões do xterm"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 300
+    url: https://invisible-island.net/xterm/ctlseqs/ctlseqs.html
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/kitty-protocolo-de-graficos
+    etapa: etapa:terminal/especificacao-de-sequencias
+    titulo: "Protocolo de gráficos do kitty — imagem no terminal por sequência APC, e o problema que ela resolve"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://sw.kovidgoyal.net/kitty/graphics-protocol/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/vt3xx-sixel
+    etapa: etapa:terminal/especificacao-de-sequencias
+    titulo: "VT330/VT340 Programmer Reference, cap. 14 — gráficos Sixel: a resposta da DEC ao mesmo problema, 30 anos antes"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://vt100.net/docs/vt3xx-gp/chapter14.html
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/vt100-guia-do-usuario
+    etapa: etapa:terminal/especificacao-de-sequencias
+    titulo: "VT100 User Guide, cap. 3 — as sequências como a DEC as publicou, que é a origem da linhagem inteira"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://vt100.net/docs/vt100-ug/chapter3.html
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  # --- etapa:terminal/analisador-de-estados -------------------------------
+  - id: rec:terminal/williams-maquina-de-estados
+    etapa: etapa:terminal/analisador-de-estados
+    titulo: "A parser for DEC's ANSI-compatible video terminals (Paul Williams, vt100.net) — a máquina de estados canônica, estado por estado"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://vt100.net/emu/dec_ansi_parser
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/vte-crate
+    etapa: etapa:terminal/analisador-de-estados
+    titulo: "`vte` — a máquina de Williams implementada em Rust, com limites de parâmetro e tratamento de entrada malformada à vista"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://docs.rs/vte/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  # --- etapa:terminal/modelo-de-tela-e-rolagem ----------------------------
+  - id: rec:terminal/alacritty-grade
+    etapa: etapa:terminal/modelo-de-tela-e-rolagem
+    titulo: "`alacritty_terminal` — os módulos de grade e de termo: célula, atributo, histórico e região de rolagem como estrutura de dados"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://docs.rs/alacritty_terminal/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/xtermjs-buffer-e-reflow
+    etapa: etapa:terminal/modelo-de-tela-e-rolagem
+    titulo: "xterm.js — a API de buffer: tela normal e alternativa, histórico, e o que o redimensionamento faz com a linha já escrita"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://xtermjs.org/docs/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  # --- etapa:terminal/pseudoterminal-e-sinais -----------------------------
+  - id: rec:terminal/tty-desmistificado
+    etapa: etapa:terminal/pseudoterminal-e-sinais
+    titulo: "The TTY demystified (Linus Åkesson) — a disciplina de linha, o grupo de processos em primeiro plano e de onde vem cada sinal"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://www.linusakesson.net/programming/tty/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/man-pty-7
+    etapa: etapa:terminal/pseudoterminal-e-sinais
+    titulo: "`pty(7)` — a interface do par mestre/escravo no Linux, e as chamadas que o abrem"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://man7.org/linux/man-pages/man7/pty.7.html
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/man-termios-3
+    etapa: etapa:terminal/pseudoterminal-e-sinais
+    titulo: "`termios(3)` — modo canônico e modo cru, eco, caracteres de controle e `TIOCSWINSZ`, bandeira por bandeira"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://man7.org/linux/man-pages/man3/termios.3.html
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/glibc-pseudoterminais
+    etapa: etapa:terminal/pseudoterminal-e-sinais
+    titulo: "Manual da glibc — Pseudo-Terminals: abrir o par de forma portável, com o que a biblioteca C garante e o que não garante"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://www.gnu.org/software/libc/manual/html_node/Pseudo_002dTerminals.html
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/portable-pty
+    etapa: etapa:terminal/pseudoterminal-e-sinais
+    titulo: "`portable-pty` (WezTerm) — abrir pseudoterminal em Rust nos três sistemas, incluindo o ConPTY do Windows"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://docs.rs/portable-pty/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/node-pty
+    etapa: etapa:terminal/pseudoterminal-e-sinais
+    titulo: "`node-pty` (Microsoft) — o mesmo trabalho em Node, a via usada por xterm.js e pelos emuladores em Electron"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://github.com/microsoft/node-pty
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  # --- etapa:terminal/entrada-de-teclado-e-mouse --------------------------
+  - id: rec:terminal/kitty-protocolo-de-teclado
+    etapa: etapa:terminal/entrada-de-teclado-e-mouse
+    titulo: "Protocolo de teclado do kitty — a especificação completa: por que o regime legado é ambíguo e o que este resolve"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://sw.kovidgoyal.net/kitty/keyboard-protocol/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/fixterms-csi-u
+    etapa: etapa:terminal/entrada-de-teclado-e-mouse
+    titulo: "Fixing keyboard input on terminals (Paul Evans) — a proposta CSI-u, origem do que hoje se chama fixterms"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://www.leonerd.org.uk/hacks/fixterms/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/xterm-modify-other-keys
+    etapa: etapa:terminal/entrada-de-teclado-e-mouse
+    titulo: "XTerm — teclas modificadas: `modifyOtherKeys` e os recursos de modificação, a via anterior ao CSI-u"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://invisible-island.net/xterm/modified-keys.html
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/xterm-ctlseqs-mouse
+    etapa: etapa:terminal/entrada-de-teclado-e-mouse
+    titulo: "XTerm Control Sequences — seções de rastreio de mouse e de colagem entre marcas: os modos de relato, do X10 ao SGR"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://invisible-island.net/xterm/ctlseqs/ctlseqs.html
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/wayland-text-input
+    etapa: etapa:terminal/entrada-de-teclado-e-mouse
+    titulo: "Wayland — protocolo `text-input-unstable-v3`: como o método de entrada conversa com a janela, pré-edição incluída"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://wayland.app/protocols/text-input-unstable-v3
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/gtk-imcontext
+    etapa: etapa:terminal/entrada-de-teclado-e-mouse
+    titulo: "GTK 4 — `IMContext`: a interface de método de entrada do lado da aplicação, com pré-edição, confirmação e tecla morta"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://docs.gtk.org/gtk4/class.IMContext.html
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/ibus
+    etapa: etapa:terminal/entrada-de-teclado-e-mouse
+    titulo: "IBus — o barramento de método de entrada que o emulador encontra no Linux, e o que ele espera da aplicação"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://ibus.github.io/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  # --- etapa:terminal/texto-unicode-em-grade ------------------------------
+  - id: rec:terminal/uax-11-largura
+    etapa: etapa:terminal/texto-unicode-em-grade
+    titulo: "Unicode UAX #11 — East Asian Width: a propriedade que decide se um caractere ocupa uma célula ou duas"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://www.unicode.org/reports/tr11/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/uax-29-grafemas
+    etapa: etapa:terminal/texto-unicode-em-grade
+    titulo: "Unicode UAX #29 — Text Segmentation: o agrupamento de grafemas, que é a unidade real de uma célula"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://www.unicode.org/reports/tr29/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/terminal-unicode-core
+    etapa: etapa:terminal/texto-unicode-em-grade
+    titulo: "Terminal Unicode Core — a especificação que os emuladores estão convergindo para largura e grafema, com o modo 2027"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://github.com/contour-terminal/terminal-unicode-core
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/harfbuzz
+    etapa: etapa:terminal/texto-unicode-em-grade
+    titulo: "HarfBuzz — manual de conformação de texto: o que o conformador faz com a sequência de caracteres antes de haver glifo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://harfbuzz.github.io/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/cosmic-text
+    etapa: etapa:terminal/texto-unicode-em-grade
+    titulo: "`cosmic-text` — conformação, disposição e substituição de fonte reunidas em uma biblioteca em Rust"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://docs.rs/cosmic-text/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/fontconfig
+    etapa: etapa:terminal/texto-unicode-em-grade
+    titulo: "fontconfig — documentação do usuário: como o sistema escolhe a fonte substituta quando o glifo não está na pedida"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://www.freedesktop.org/software/fontconfig/fontconfig-user.html
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  # --- etapa:terminal/renderizacao-e-latencia -----------------------------
+  - id: rec:terminal/atlas-de-glifos
+    etapa: etapa:terminal/renderizacao-e-latencia
+    titulo: "LearnOpenGL — Text Rendering: o atlas de glifos em textura do zero, que é a técnica dos emuladores por GPU"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://learnopengl.com/In-Practice/Text-Rendering
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/swash
+    etapa: etapa:terminal/renderizacao-e-latencia
+    titulo: "`swash` — rasterização de glifo com suavização e correção de gama, o passo entre a fonte e o atlas"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://docs.rs/swash/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/wgpu
+    etapa: etapa:terminal/renderizacao-e-latencia
+    titulo: "wgpu — a API de GPU portável: passada de desenho, fila e sincronismo de quadro, que é onde a latência se decide"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://wgpu.rs/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/winit
+    etapa: etapa:terminal/renderizacao-e-latencia
+    titulo: "`winit` — janela, laço de eventos e entrada bruta nos três sistemas, a borda entre o sistema de janelas e o emulador"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://docs.rs/winit/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/kitty-desempenho
+    etapa: etapa:terminal/renderizacao-e-latencia
+    titulo: "kitty — desempenho: como o autor mede vazão e latência do próprio emulador, e por que os dois números discordam"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://sw.kovidgoyal.net/kitty/performance/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/digitar-com-prazer
+    etapa: etapa:terminal/renderizacao-e-latencia
+    titulo: "Typing with pleasure (Pavel Fatin) — latência de tecla a pixel: de onde vem cada milissegundo, com a percepção medida"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://pavelfatin.com/typing-with-pleasure/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/typometer
+    etapa: etapa:terminal/renderizacao-e-latencia
+    titulo: "Typometer — instrumento para medir a latência de digitação do próprio emulador, e assim fechar a verificação da competência"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://github.com/pavelfatin/typometer
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/glyphon
+    etapa: etapa:terminal/renderizacao-e-latencia
+    titulo: "`glyphon` — o atlas de glifos e o desenho de texto sobre wgpu já resolvidos, para comparar com o atlas feito à mão"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://docs.rs/glyphon/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  # --- etapa:terminal/integracao-com-o-shell ------------------------------
+  - id: rec:terminal/osc-133-prompt-semantico
+    etapa: etapa:terminal/integracao-com-o-shell
+    titulo: "Semantic prompts (Per Bothner, freedesktop terminal-wg) — a proposta OSC 133: marcar prompt, comando e saída"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://gitlab.freedesktop.org/Per_Bothner/specifications/-/blob/master/proposals/prompts-data/prompts.md
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/wezterm-integracao-com-shell
+    etapa: etapa:terminal/integracao-com-o-shell
+    titulo: "WezTerm — integração com o shell: OSC 7 para diretório corrente, OSC 8 para hiperlink e OSC 133 na prática, com o script do shell"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://wezterm.org/shell-integration.html
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/terminfo-5
+    etapa: etapa:terminal/integracao-com-o-shell
+    titulo: "`terminfo(5)` — o banco de capacidades por trás de `TERM`: o que um emulador novo precisa declarar para os programas o usarem"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://invisible-island.net/ncurses/man/terminfo.5.html
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/xdg-terminal-exec
+    etapa: etapa:terminal/integracao-com-o-shell
+    titulo: "xdg-terminal-exec — a especificação em formação do terminal padrão no freedesktop, e a implementação de referência"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://github.com/Vladimir-csp/xdg-terminal-exec
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  # --- etapa:terminal/conformidade-por-suite ------------------------------
+  - id: rec:terminal/vttest
+    etapa: etapa:terminal/conformidade-por-suite
+    titulo: "vttest (Thomas Dickey) — a suíte clássica de conformidade VT: menu a menu, com o que cada tela deveria mostrar"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://invisible-island.net/vttest/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/esctest
+    etapa: etapa:terminal/conformidade-por-suite
+    titulo: "esctest2 — a suíte automatizada de sequências de escape, a que se roda em integração contínua contra o emulador em construção"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 240
+    url: https://github.com/ThomasDickey/esctest2
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  # --- etapa:terminal/projeto-emulador-minimo -----------------------------
+  - id: rec:terminal/projeto-emulador-minimo
+    etapa: etapa:terminal/projeto-emulador-minimo
+    titulo: "Projeto — emulador mínimo pelo esqueleto de Anatomy of a terminal emulator: pseudoterminal, analisador, grade e tela, até rodar um shell e passar um subconjunto do esctest"
+    rev: 1
+    status: ativo
+    formato: projeto
+    idioma: en-US
+    custo: 0
+    duracao_min: 1800
+    url: https://poor.dev/blog/terminal-anatomy/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/anatomia-exemplos-de-codigo
+    etapa: etapa:terminal/projeto-emulador-minimo
+    titulo: "Anatomy of a terminal emulator — os exemplos de código do artigo: modo cru, criar o shell e ler dele, ANSI na mão e interface que responde ao redimensionamento"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 300
+    url: https://github.com/imsnif/terminal-anatomy-code-examples
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  # --- etapa:terminal/acessibilidade-e-arvore -----------------------------
+  - id: rec:terminal/accesskit
+    etapa: etapa:terminal/acessibilidade-e-arvore
+    titulo: "AccessKit — a árvore de acessibilidade multiplataforma: o modelo de nós, papéis e propriedades que o emulador precisa produzir"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://accesskit.dev/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/accesskit-winit
+    etapa: etapa:terminal/acessibilidade-e-arvore
+    titulo: "`accesskit_winit` — o adaptador entre a janela e a árvore, e por que ele precisa existir antes da janela aparecer"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://docs.rs/accesskit_winit/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/atspi2
+    etapa: etapa:terminal/acessibilidade-e-arvore
+    titulo: "AT-SPI 2 — a interface de acessibilidade do Linux, que é o que o adaptador fala do outro lado"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://docs.gtk.org/atspi2/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/orca
+    etapa: etapa:terminal/acessibilidade-e-arvore
+    titulo: "Orca — manual do leitor de tela do GNOME: o instrumento com que a verificação desta competência se faz"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://help.gnome.org/users/orca/stable/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  # --- etapa:terminal/leitura-de-emuladores-reais -------------------------
+  - id: rec:terminal/alacritty-codigo
+    etapa: etapa:terminal/leitura-de-emuladores-reais
+    titulo: "Alacritty — código-fonte: emulador nativo em Rust com GPU, o que separa a biblioteca `alacritty_terminal` do programa"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 240
+    url: https://github.com/alacritty/alacritty
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/anuncio-do-alacritty
+    etapa: etapa:terminal/leitura-de-emuladores-reais
+    titulo: "Announcing Alacritty (Joe Wilm) — as decisões de arquitetura ditas pelo autor na origem do projeto"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://jwilm.io/blog/announcing-alacritty/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/kitty-documentacao
+    etapa: etapa:terminal/leitura-de-emuladores-reais
+    titulo: "kitty — documentação e código: o emulador que propõe protocolo em vez de só implementar o existente"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://sw.kovidgoyal.net/kitty/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/foot-codigo
+    etapa: etapa:terminal/leitura-de-emuladores-reais
+    titulo: "foot — código-fonte: emulador enxuto para Wayland em C, o contraponto de quem não usa GPU para tudo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://codeberg.org/dnkl/foot
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/wezterm-documentacao
+    etapa: etapa:terminal/leitura-de-emuladores-reais
+    titulo: "WezTerm — documentação: multiplexação, abas e painéis dentro do emulador, e o preço de arquitetura que isso tem"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://wezterm.org/
+    disponivel: true
+    verificado_em: 2026-10-19
+
+  - id: rec:terminal/rio
+    etapa: etapa:terminal/leitura-de-emuladores-reais
+    titulo: "Rio — emulador recente em Rust e WebGPU, útil para ver as mesmas decisões tomadas de novo com ferramenta de hoje"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://rioterm.com/
+    disponivel: true
+    verificado_em: 2026-10-19
