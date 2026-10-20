@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 34,
-  "gerado_em": "2026-10-20T14:41:48+00:00",
-  "hash": "sha256:42af3d458566f4c7d439a5e5c32f1ad66ad8efddf244b6a649d93a5c9c2657bc",
+  "catalogo_versao": 35,
+  "gerado_em": "2026-10-20T14:48:35+00:00",
+  "hash": "sha256:1dbda05f4c81eed3297b25542a453da48fd819c33415a84252948254a1b27567",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -6912,6 +6912,20 @@
       "url": "https://xtermjs.org/docs/",
       "disponivel": true,
       "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/zellij-cliente-web",
+      "titulo": "Terminal sessions you can bookmark — Building Zellij's web client (Aram Drevekenin) — o multiplexador servindo sessão ao navegador: xterm.js no cliente, websocket traduzido para o IPC do servidor, e o que a autenticação cobra",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/leitura-de-emuladores-reais",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://poor.dev/blog/building-zellij-web-terminal/",
+      "disponivel": true,
+      "verificado_em": "2026-10-20"
     },
     {
       "id": "rec:web/aria-authoring-practices",

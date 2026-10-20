@@ -48,7 +48,9 @@
 # implementação (ver acima), `pty(7)` e `termios(3)` já estavam, `forkpty` e as chamadas
 # vizinhas se leem pelo manual da glibc e por `pty(7)`, e os verbetes de apoio (Sixel,
 # caracteres de moldura, caractere de escape ASCII) são consulta de um parágrafo durante
-# a leitura, não material de uma etapa.
+# a leitura, não material de uma etapa. A exceção é *Building Zellij's web client*, do
+# mesmo autor, que entrou em 2026-10-20 como `rec:terminal/zellij-cliente-web`: é um
+# emulador real descrito pelo autor, e o lugar disso é `leitura-de-emuladores-reais`.
 #
 # Endereços conferidos um a um em 2026-10-19 (HTTP 200 seguindo redirecionamento). A
 # wiki do fontconfig em freedesktop.org responde 418 a cliente automatizado; o recurso
@@ -887,3 +889,16 @@ recursos:
     url: https://rioterm.com/
     disponivel: true
     verificado_em: 2026-10-19
+
+  - id: rec:terminal/zellij-cliente-web
+    etapa: etapa:terminal/leitura-de-emuladores-reais
+    titulo: "Terminal sessions you can bookmark — Building Zellij's web client (Aram Drevekenin) — o multiplexador servindo sessão ao navegador: xterm.js no cliente, websocket traduzido para o IPC do servidor, e o que a autenticação cobra"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://poor.dev/blog/building-zellij-web-terminal/
+    disponivel: true
+    verificado_em: 2026-10-20
