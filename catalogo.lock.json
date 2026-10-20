@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 29,
-  "gerado_em": "2026-10-20T00:57:02+00:00",
-  "hash": "sha256:cf815ac951b7d9aff000465a040999fc3772c449714b6484ae80b32a41a68d55",
+  "catalogo_versao": 30,
+  "gerado_em": "2026-10-20T01:19:54+00:00",
+  "hash": "sha256:6e0253d37d81bd946ee1de1a1f49a5336e08559153e8cf5fb40be0a81e6f8237",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -4165,6 +4165,20 @@
       "verificado_em": "2026-10-17"
     },
     {
+      "id": "rec:ia/cs229-building-llms",
+      "titulo": "Stanford CS229 — Building Large Language Models (LLMs) — aula única sobre dados, arquitetura, escala e pós-treino",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/llm-do-zero",
+      "formato": "video",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 105,
+      "url": "https://www.youtube.com/watch?v=9vM4p9NN0Ts",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
       "id": "rec:ia/deep-learning-book-br",
       "titulo": "Deep Learning Book (Data Science Academy) — 100 capítulos em português",
       "rev": 1,
@@ -4310,6 +4324,20 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:ia/hugging-face-llm-course-finetuning",
+      "titulo": "Hugging Face LLM Course — caps. 3 e 11: fine-tuning de modelo pré-treinado com a biblioteca Transformers, e ajuste supervisionado de LLM",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/fine-tuning-e-adaptacao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 720,
+      "url": "https://huggingface.co/learn/llm-course",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
       "id": "rec:ia/illustrated-transformer",
       "titulo": "The Illustrated Transformer (Jay Alammar)",
       "rev": 1,
@@ -4392,6 +4420,20 @@
       "url": "https://web.stanford.edu/~jurafsky/slp3/3.pdf",
       "disponivel": true,
       "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:ia/karpathy-intro-llm",
+      "titulo": "[1hr Talk] Intro to Large Language Models (Andrej Karpathy) — panorama falado: pré-treino, fine-tuning e o que um LLM é por dentro",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/panorama-llm-transformer-rag",
+      "formato": "video",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://www.youtube.com/watch?v=zjkBMFhNj_g",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
     },
     {
       "id": "rec:ia/kernighan-pike-cadeia-de-markov",
@@ -4670,6 +4712,34 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:ia/paper-bert",
+      "titulo": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding (Devlin et al., 2018) — o encoder bidirecional, contraponto ao decoder autorregressivo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/transformer-por-dentro",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://arxiv.org/abs/1810.04805",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:ia/paper-chain-of-thought",
+      "titulo": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models (Wei et al., 2022) — a evidência original de que exemplo com raciocínio explícito muda o resultado",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/engenharia-de-prompt",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://arxiv.org/abs/2201.11903",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
       "id": "rec:ia/projeto-agente-claude-sdk",
       "titulo": "Claude Agent SDK — construir e servir um agente próprio (documentação e exemplos)",
       "rev": 1,
@@ -4696,6 +4766,20 @@
       "url": "https://www.oreilly.com/library/view/-/9781098156145",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/prompting-guide-dair",
+      "titulo": "Prompt Engineering Guide (DAIR.AI) — referência de técnicas com exemplos, de zero-shot a ReAct",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/engenharia-de-prompt",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 480,
+      "url": "https://www.promptingguide.ai/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
     },
     {
       "id": "rec:ia/shannon-1948-teoria-da-comunicacao",
