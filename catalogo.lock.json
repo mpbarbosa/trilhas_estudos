@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 30,
-  "gerado_em": "2026-10-20T01:19:54+00:00",
-  "hash": "sha256:6e0253d37d81bd946ee1de1a1f49a5336e08559153e8cf5fb40be0a81e6f8237",
+  "catalogo_versao": 31,
+  "gerado_em": "2026-10-20T02:16:01+00:00",
+  "hash": "sha256:37e5b66c9f64b176bebbd0a4be59df562fb89b684f0beaf2754ccc301c2d6426",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -531,6 +531,86 @@
       "status": "ativo",
       "verificacao": "Calcular o maior arquivo representável num esquema de i-node com blocos indiretos dado, e explicar o que uma verificação de consistência faz ao encontrar um bloco marcado como livre e em uso ao mesmo tempo.",
       "descricao": "Arquivos e diretórios como abstração, implementação por alocação contígua, encadeada e i-nodes, gerenciamento de espaço livre, cache de blocos, consistência e proteção.\n"
+    },
+    {
+      "id": "comp:terminal/analisador-de-sequencias",
+      "titulo": "Analisador de sequências de controle",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Implementar a máquina de estados do analisador DEC/ANSI e demonstrá-la em três entradas hostis: sequência interrompida por CAN no meio, parâmetro com mais dígitos que o limite, e OSC que nunca recebe terminador. Para cada uma, dizer em que estado a máquina para e por que não há travamento nem leitura fora de faixa.",
+      "descricao": "A máquina de estados do analisador DEC/ANSI — estados, transições, acumulação de parâmetros e intermediários, e o tratamento de entrada malformada — como se implementa e por que ela é uma máquina de estados e não uma expressão regular.\n"
+    },
+    {
+      "id": "comp:terminal/arquitetura-de-emulador",
+      "titulo": "Arquitetura de um emulador de terminal",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Para um alvo dado — por exemplo um emulador nativo de baixa latência, ou um terminal embutido numa aplicação que já existe — escolher entre reaproveitar um motor VT pronto e escrever o próprio, nomeando o que cada caminho entrega de imediato e o que cobra em latência, portabilidade e trabalho de conformidade.",
+      "descricao": "As partes de um emulador e as formas de montá-las: motor VT pronto e embutível contra analisador próprio, pilha nativa com GPU e janela contra pilha web embutida, e onde cada decisão aparece depois em latência, portabilidade e custo de conformidade.\n"
+    },
+    {
+      "id": "comp:terminal/codificacao-de-entrada",
+      "titulo": "Codificação de teclado e de mouse",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Para `Ctrl-Shift-Enter`, mostrar o que o terminal envia em três regimes — o legado, `modifyOtherKeys` e o protocolo de teclado do kitty — e dizer qual ambiguidade do regime legado cada um dos outros resolve; repetir o exercício para um clique com `Shift` no modo de relato SGR.",
+      "descricao": "Como tecla e clique viram bytes: a codificação legada e suas ambiguidades, as extensões `modifyOtherKeys` e CSI-u, o protocolo de teclado do kitty, os modos de relato de mouse, e colagem entre marcas.\n"
+    },
+    {
+      "id": "comp:terminal/conformidade-de-emulador",
+      "titulo": "Conformidade de um emulador, demonstrada por teste",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Rodar `vttest` e um subconjunto do `esctest` contra um emulador em construção, reduzir um caso que falha à sequência mínima que o reproduz, e decidir se a falha é do emulador ou expectativa do teste — justificando pela especificação, não pelo comportamento de outro emulador.",
+      "descricao": "Provar comportamento em vez de afirmá-lo: as suítes `vttest` e `esctest`, o que cada uma cobre, como se lê um caso que falha até a sequência que o causa, e o que fazer quando o teste e a especificação discordam.\n"
+    },
+    {
+      "id": "comp:terminal/integracao-com-o-shell",
+      "titulo": "Integração entre terminal, shell e ambiente",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Fazer o shell marcar início de prompt, de comando e de saída com OSC 133 e usar as marcas para pular de um comando ao anterior; explicar o que OSC 7, OSC 8 e OSC 52 acrescentam, e por que aceitar OSC 52 sem restrição é decisão de segurança e não só de recurso.",
+      "descricao": "O que o terminal e o shell combinam por sequência OSC — diretório corrente, hiperlink, área de transferência, marcas semânticas de prompt e de saída de comando — mais o lado do ambiente: `TERM`, terminfo e como o sistema escolhe o terminal padrão.\n"
+    },
+    {
+      "id": "comp:terminal/modelo-de-tela",
+      "titulo": "Modelo de tela, rolagem e redimensionamento",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Para uma grade de 80 por 24 com histórico, dizer o que acontece ao escrever na última coluna com o envoltório automático ligado e desligado, o que a tela alternativa preserva, e o que o redimensionamento para 40 colunas faz com uma linha de 100 caracteres — distinguindo truncar de reconstituir a linha.",
+      "descricao": "A grade de células como estrutura de dados: atributos por célula, região de rolagem, buffer de histórico, tela alternativa, envoltório automático de linha, e o que o redimensionamento faz com o texto já escrito.\n"
+    },
+    {
+      "id": "comp:terminal/protocolo-de-controle",
+      "titulo": "O protocolo de controle do terminal",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Diante de um despejo de bytes com atributos SGR, movimento de cursor, troca para a tela alternativa e um OSC terminado por BEL, dizer o que cada sequência faz e em qual das três fontes ela está definida; e explicar por que `ESC [` e o byte C1 único são a mesma introdução de sequência de controle.",
+      "descricao": "As sequências que governam um terminal — controles C0 e C1, CSI, OSC, DCS e APC, atributos SGR, modos privados DEC — na linhagem que vai do VT100 ao xterm, e onde cada uma está definida: a ECMA-48, a documentação da DEC e as convenções do xterm.\n"
+    },
+    {
+      "id": "comp:terminal/pty-e-controle-de-trabalho",
+      "titulo": "Pseudoterminal, sinais e controle de trabalho",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Abrir um pseudoterminal, executar um shell nele e demonstrar três coisas: que `Ctrl-C` chega como SIGINT ao grupo de processos em primeiro plano e não ao emulador, qual lado do par faz eco em modo canônico e qual faz em modo cru, e que redimensionar a janela gera SIGWINCH com as dimensões novas.",
+      "descricao": "O par mestre/escravo do pseudoterminal, a disciplina de linha do núcleo, modo canônico e modo cru, eco, o grupo de processos em primeiro plano, os sinais que a disciplina gera, e a propagação de dimensões da janela.\n"
+    },
+    {
+      "id": "comp:terminal/renderizacao-de-terminal",
+      "titulo": "Renderização e latência de um terminal",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Descrever o caminho de um caractere até o pixel num renderizador por atlas de glifos — rasterizar, guardar, achar as coordenadas de textura, desenhar em lote — e medir com instrumento a latência entre tecla e pixel no próprio emulador, dizendo qual etapa domina o número medido.",
+      "descricao": "Desenhar a grade rápido: atlas de glifos em textura, rasterização e cache, desenho em lote, controle de dano, sincronismo de quadro, e a diferença entre vazão (rolar um arquivo grande) e latência (a tecla até o pixel).\n"
+    },
+    {
+      "id": "comp:terminal/texto-em-celulas",
+      "titulo": "Texto Unicode numa grade de células",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dizer quantas células ocupam, e por quê, um ideograma CJK, um emoji com seletor de variação, uma família de emoji formada por ZWJ e um `e` seguido de acento combinante; apontar qual anexo do Unicode decide cada caso e em que esses casos a `wcwidth` da biblioteca C discorda do que o terminal precisa.",
+      "descricao": "O conflito entre texto Unicode e grade de largura fixa: largura leste-asiática, agrupamento de grafemas, emoji com seletor e com ZWJ, conformação de texto, ligaduras e substituição de fonte quando o glifo não está na fonte pedida.\n"
     },
     {
       "id": "comp:web/acessibilidade",
@@ -2420,6 +2500,305 @@
       ]
     },
     {
+      "id": "etapa:terminal/analisador-de-estados",
+      "titulo": "O analisador — a máquina de estados DEC/ANSI, implementada e hostilizada",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "trilha": "trilha:terminal/emulador",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:terminal/protocolo-de-controle",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:terminal/analisador-de-sequencias",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:terminal/arquiteturas-e-motores",
+      "titulo": "Arquiteturas e motores VT — reaproveitar um motor pronto ou escrever o próprio",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "trilha": "trilha:terminal/emulador",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:terminal/protocolo-de-controle",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:terminal/arquitetura-de-emulador",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:terminal/conformidade-por-suite",
+      "titulo": "Conformidade — `vttest`, `esctest` e o que fazer quando o teste e a especificação discordam",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 360,
+      "trilha": "trilha:terminal/emulador",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:terminal/analisador-de-sequencias",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:terminal/modelo-de-tela",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:terminal/codificacao-de-entrada",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:terminal/conformidade-de-emulador",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:terminal/entrada-de-teclado-e-mouse",
+      "titulo": "Teclado e mouse — a codificação legada, `modifyOtherKeys`, CSI-u e o protocolo do kitty",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 360,
+      "trilha": "trilha:terminal/emulador",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:terminal/modelo-de-tela",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:terminal/pty-e-controle-de-trabalho",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:terminal/codificacao-de-entrada",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:terminal/especificacao-de-sequencias",
+      "titulo": "A especificação — ECMA-48, a linhagem DEC e as convenções do xterm",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 480,
+      "trilha": "trilha:terminal/emulador",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:terminal/protocolo-de-controle",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:terminal/protocolo-de-controle",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:terminal/integracao-com-o-shell",
+      "titulo": "Integração — OSC 7, 8, 52 e 133, `TERM`, terminfo e o terminal padrão do sistema",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "trilha": "trilha:terminal/emulador",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:terminal/modelo-de-tela",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:terminal/pty-e-controle-de-trabalho",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:terminal/integracao-com-o-shell",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:terminal/leitura-de-emuladores-reais",
+      "titulo": "Leitura de emuladores reais — Alacritty, kitty, foot, WezTerm e Rio, lado a lado",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "trilha": "trilha:terminal/emulador",
+      "opcional": true,
+      "requires": [
+        {
+          "competencia": "comp:terminal/arquitetura-de-emulador",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:terminal/arquitetura-de-emulador",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:terminal/modelo-de-tela-e-rolagem",
+      "titulo": "A grade — células, atributos, histórico, tela alternativa e redimensionamento",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 480,
+      "trilha": "trilha:terminal/emulador",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:terminal/analisador-de-sequencias",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:terminal/modelo-de-tela",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:terminal/o-que-e-um-terminal",
+      "titulo": "O que é um terminal — do teletipo ao emulador, e por que há um protocolo no meio",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 180,
+      "trilha": "trilha:terminal/emulador",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:terminal/protocolo-de-controle",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:terminal/projeto-emulador-minimo",
+      "titulo": "Projeto — um emulador mínimo que roda um shell, passa um subconjunto do `esctest` e mostra sua latência",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1800,
+      "trilha": "trilha:terminal/emulador",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:terminal/arquitetura-de-emulador",
+          "nivel_minimo": "iniciante"
+        },
+        {
+          "competencia": "comp:terminal/renderizacao-de-terminal",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:terminal/integracao-com-o-shell",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:terminal/conformidade-de-emulador",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:terminal/arquitetura-de-emulador",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:terminal/pseudoterminal-e-sinais",
+      "titulo": "O pseudoterminal — par mestre/escravo, disciplina de linha, sinais e SIGWINCH",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 420,
+      "trilha": "trilha:terminal/emulador",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:so/linha-de-comando",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:terminal/protocolo-de-controle",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:terminal/pty-e-controle-de-trabalho",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:terminal/renderizacao-e-latencia",
+      "titulo": "Renderização — atlas de glifos, desenho em lote, dano e a tecla até o pixel",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "trilha": "trilha:terminal/emulador",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:terminal/texto-em-celulas",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:terminal/renderizacao-de-terminal",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:terminal/texto-unicode-em-grade",
+      "titulo": "Unicode numa grade de largura fixa — largura, grafema, emoji e substituição de fonte",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 480,
+      "trilha": "trilha:terminal/emulador",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:terminal/modelo-de-tela",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:terminal/texto-em-celulas",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:web/acessibilidade-e-semantica",
       "titulo": "Semântica e acessibilidade — a interface para quem não usa o mouse",
       "rev": 1,
@@ -3004,6 +3383,56 @@
       "etapas_referenciadas": [
         "etapa:so/linha-de-comando",
         "etapa:so/script-shell"
+      ]
+    },
+    {
+      "id": "trilha:terminal/emulador",
+      "titulo": "Emulador de terminal, do protocolo à tela",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:terminal/analisador-de-sequencias",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:terminal/modelo-de-tela",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:terminal/pty-e-controle-de-trabalho",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:terminal/codificacao-de-entrada",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:terminal/conformidade-de-emulador",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:terminal/arquitetura-de-emulador",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:terminal/o-que-e-um-terminal",
+        "etapa:terminal/arquiteturas-e-motores",
+        "etapa:terminal/especificacao-de-sequencias",
+        "etapa:terminal/analisador-de-estados",
+        "etapa:terminal/modelo-de-tela-e-rolagem",
+        "etapa:terminal/pseudoterminal-e-sinais",
+        "etapa:terminal/entrada-de-teclado-e-mouse",
+        "etapa:terminal/texto-unicode-em-grade",
+        "etapa:terminal/renderizacao-e-latencia",
+        "etapa:terminal/integracao-com-o-shell",
+        "etapa:terminal/conformidade-por-suite",
+        "etapa:terminal/projeto-emulador-minimo",
+        "etapa:terminal/leitura-de-emuladores-reais"
+      ],
+      "etapas_referenciadas": [
+        "etapa:so/linha-de-comando"
       ]
     },
     {
@@ -5471,6 +5900,720 @@
       "disponivel": true,
       "obra": "tanenbaum-woodhull",
       "verificado_em": "2026-10-12"
+    },
+    {
+      "id": "rec:terminal/alacritty-codigo",
+      "titulo": "Alacritty — código-fonte: emulador nativo em Rust com GPU, o que separa a biblioteca `alacritty_terminal` do programa",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/leitura-de-emuladores-reais",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://github.com/alacritty/alacritty",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/alacritty-grade",
+      "titulo": "`alacritty_terminal` — os módulos de grade e de termo: célula, atributo, histórico e região de rolagem como estrutura de dados",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/modelo-de-tela-e-rolagem",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://docs.rs/alacritty_terminal/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/alacritty-terminal-motor",
+      "titulo": "`alacritty_terminal` — o motor VT do Alacritty publicado como biblioteca: o que um motor expõe e o que deixa para o renderizador",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/arquiteturas-e-motores",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://docs.rs/alacritty_terminal/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/anatomia-visao-geral",
+      "titulo": "Anatomy of a terminal emulator (Aram Drevekenin) — visão geral: as partes de um emulador e como se encaixam",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/o-que-e-um-terminal",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://poor.dev/blog/terminal-anatomy/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/anuncio-do-alacritty",
+      "titulo": "Announcing Alacritty (Joe Wilm) — as decisões de arquitetura ditas pelo autor na origem do projeto",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/leitura-de-emuladores-reais",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://jwilm.io/blog/announcing-alacritty/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/atlas-de-glifos",
+      "titulo": "LearnOpenGL — Text Rendering: o atlas de glifos em textura do zero, que é a técnica dos emuladores por GPU",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/renderizacao-e-latencia",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://learnopengl.com/In-Practice/Text-Rendering",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/cosmic-text",
+      "titulo": "`cosmic-text` — conformação, disposição e substituição de fonte reunidas em uma biblioteca em Rust",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/texto-unicode-em-grade",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://docs.rs/cosmic-text/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/digitar-com-prazer",
+      "titulo": "Typing with pleasure (Pavel Fatin) — latência de tecla a pixel: de onde vem cada milissegundo, com a percepção medida",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/renderizacao-e-latencia",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://pavelfatin.com/typing-with-pleasure/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/ecma-48",
+      "titulo": "ECMA-48, 5ª ed. (1991) — funções de controle para conjuntos de caracteres codificados: o padrão por baixo de tudo, em PDF livre",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/especificacao-de-sequencias",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://ecma-international.org/wp-content/uploads/ECMA-48_5th_edition_june_1991.pdf",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/esctest",
+      "titulo": "esctest2 — a suíte automatizada de sequências de escape, a que se roda em integração contínua contra o emulador em construção",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/conformidade-por-suite",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://github.com/ThomasDickey/esctest2",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/fixterms-csi-u",
+      "titulo": "Fixing keyboard input on terminals (Paul Evans) — a proposta CSI-u, origem do que hoje se chama fixterms",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/entrada-de-teclado-e-mouse",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://www.leonerd.org.uk/hacks/fixterms/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/fontconfig",
+      "titulo": "fontconfig — documentação do usuário: como o sistema escolhe a fonte substituta quando o glifo não está na pedida",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/texto-unicode-em-grade",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://www.freedesktop.org/software/fontconfig/fontconfig-user.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/foot-codigo",
+      "titulo": "foot — código-fonte: emulador enxuto para Wayland em C, o contraponto de quem não usa GPU para tudo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/leitura-de-emuladores-reais",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://codeberg.org/dnkl/foot",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/glibc-pseudoterminais",
+      "titulo": "Manual da glibc — Pseudo-Terminals: abrir o par de forma portável, com o que a biblioteca C garante e o que não garante",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/pseudoterminal-e-sinais",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://www.gnu.org/software/libc/manual/html_node/Pseudo_002dTerminals.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/harfbuzz",
+      "titulo": "HarfBuzz — manual de conformação de texto: o que o conformador faz com a sequência de caracteres antes de haver glifo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/texto-unicode-em-grade",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://harfbuzz.github.io/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/hyper-electron",
+      "titulo": "Hyper — emulador em Electron sobre xterm.js: a prova de que a pilha web fecha, e a conta que ela cobra",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/arquiteturas-e-motores",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://github.com/vercel/hyper",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/kitty-desempenho",
+      "titulo": "kitty — desempenho: como o autor mede vazão e latência do próprio emulador, e por que os dois números discordam",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/renderizacao-e-latencia",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://sw.kovidgoyal.net/kitty/performance/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/kitty-documentacao",
+      "titulo": "kitty — documentação e código: o emulador que propõe protocolo em vez de só implementar o existente",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/leitura-de-emuladores-reais",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://sw.kovidgoyal.net/kitty/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/kitty-protocolo-de-graficos",
+      "titulo": "Protocolo de gráficos do kitty — imagem no terminal por sequência APC, e o problema que ela resolve",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/especificacao-de-sequencias",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://sw.kovidgoyal.net/kitty/graphics-protocol/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/kitty-protocolo-de-teclado",
+      "titulo": "Protocolo de teclado do kitty — a especificação completa: por que o regime legado é ambíguo e o que este resolve",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/entrada-de-teclado-e-mouse",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://sw.kovidgoyal.net/kitty/keyboard-protocol/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/libvterm",
+      "titulo": "libvterm (Paul Evans) — motor VT embutível em C, a via de quem precisa de emulação dentro de outro programa",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/arquiteturas-e-motores",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://www.leonerd.org.uk/code/libvterm/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/man-pty-7",
+      "titulo": "`pty(7)` — a interface do par mestre/escravo no Linux, e as chamadas que o abrem",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/pseudoterminal-e-sinais",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://man7.org/linux/man-pages/man7/pty.7.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/man-termios-3",
+      "titulo": "`termios(3)` — modo canônico e modo cru, eco, caracteres de controle e `TIOCSWINSZ`, bandeira por bandeira",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/pseudoterminal-e-sinais",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://man7.org/linux/man-pages/man3/termios.3.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/node-pty",
+      "titulo": "`node-pty` (Microsoft) — o mesmo trabalho em Node, a via usada por xterm.js e pelos emuladores em Electron",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/pseudoterminal-e-sinais",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://github.com/microsoft/node-pty",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/osc-133-prompt-semantico",
+      "titulo": "Semantic prompts (Per Bothner, freedesktop terminal-wg) — a proposta OSC 133: marcar prompt, comando e saída",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/integracao-com-o-shell",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://gitlab.freedesktop.org/Per_Bothner/specifications/-/blob/master/proposals/prompts-data/prompts.md",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/portable-pty",
+      "titulo": "`portable-pty` (WezTerm) — abrir pseudoterminal em Rust nos três sistemas, incluindo o ConPTY do Windows",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/pseudoterminal-e-sinais",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://docs.rs/portable-pty/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/projeto-emulador-minimo",
+      "titulo": "Projeto — emulador mínimo pelo esqueleto de Anatomy of a terminal emulator: pseudoterminal, analisador, grade e tela, até rodar um shell e passar um subconjunto do esctest",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/projeto-emulador-minimo",
+      "formato": "projeto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 1800,
+      "url": "https://poor.dev/blog/terminal-anatomy/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/rio",
+      "titulo": "Rio — emulador recente em Rust e WebGPU, útil para ver as mesmas decisões tomadas de novo com ferramenta de hoje",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/leitura-de-emuladores-reais",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://rioterm.com/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/swash",
+      "titulo": "`swash` — rasterização de glifo com suavização e correção de gama, o passo entre a fonte e o atlas",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/renderizacao-e-latencia",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://docs.rs/swash/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/terminal-unicode-core",
+      "titulo": "Terminal Unicode Core — a especificação que os emuladores estão convergindo para largura e grafema, com o modo 2027",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/texto-unicode-em-grade",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://github.com/contour-terminal/terminal-unicode-core",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/terminfo-5",
+      "titulo": "`terminfo(5)` — o banco de capacidades por trás de `TERM`: o que um emulador novo precisa declarar para os programas o usarem",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/integracao-com-o-shell",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://invisible-island.net/ncurses/man/terminfo.5.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/tty-desmistificado",
+      "titulo": "The TTY demystified (Linus Åkesson) — a disciplina de linha, o grupo de processos em primeiro plano e de onde vem cada sinal",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/pseudoterminal-e-sinais",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://www.linusakesson.net/programming/tty/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/typometer",
+      "titulo": "Typometer — instrumento para medir a latência de digitação do próprio emulador, e assim fechar a verificação da competência",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/renderizacao-e-latencia",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://github.com/pavelfatin/typometer",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/uax-11-largura",
+      "titulo": "Unicode UAX #11 — East Asian Width: a propriedade que decide se um caractere ocupa uma célula ou duas",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/texto-unicode-em-grade",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://www.unicode.org/reports/tr11/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/uax-29-grafemas",
+      "titulo": "Unicode UAX #29 — Text Segmentation: o agrupamento de grafemas, que é a unidade real de uma célula",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/texto-unicode-em-grade",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://www.unicode.org/reports/tr29/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/vt3xx-sixel",
+      "titulo": "VT330/VT340 Programmer Reference, cap. 14 — gráficos Sixel: a resposta da DEC ao mesmo problema, 30 anos antes",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/especificacao-de-sequencias",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://vt100.net/docs/vt3xx-gp/chapter14.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/vte-crate",
+      "titulo": "`vte` — a máquina de Williams implementada em Rust, com limites de parâmetro e tratamento de entrada malformada à vista",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/analisador-de-estados",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://docs.rs/vte/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/vttest",
+      "titulo": "vttest (Thomas Dickey) — a suíte clássica de conformidade VT: menu a menu, com o que cada tela deveria mostrar",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/conformidade-por-suite",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://invisible-island.net/vttest/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/wezterm-documentacao",
+      "titulo": "WezTerm — documentação: multiplexação, abas e painéis dentro do emulador, e o preço de arquitetura que isso tem",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/leitura-de-emuladores-reais",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://wezterm.org/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/wezterm-integracao-com-shell",
+      "titulo": "WezTerm — integração com o shell: OSC 7 para diretório corrente, OSC 8 para hiperlink e OSC 133 na prática, com o script do shell",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/integracao-com-o-shell",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://wezterm.org/shell-integration.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/wezterm-o-que-e-um-terminal",
+      "titulo": "WezTerm — \"What is a terminal?\": terminal, emulador, shell e TTY, cada um no seu lugar",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/o-que-e-um-terminal",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://wezterm.org/what-is-a-terminal.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/wezterm-term-codigo",
+      "titulo": "WezTerm — o pacote `term`: um segundo motor VT em Rust, para comparar decisões com o do Alacritty",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/arquiteturas-e-motores",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://github.com/wez/wezterm/tree/main/term",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/wgpu",
+      "titulo": "wgpu — a API de GPU portável: passada de desenho, fila e sincronismo de quadro, que é onde a latência se decide",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/renderizacao-e-latencia",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://wgpu.rs/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/williams-maquina-de-estados",
+      "titulo": "A parser for DEC's ANSI-compatible video terminals (Paul Williams, vt100.net) — a máquina de estados canônica, estado por estado",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/analisador-de-estados",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://vt100.net/emu/dec_ansi_parser",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/winit",
+      "titulo": "`winit` — janela, laço de eventos e entrada bruta nos três sistemas, a borda entre o sistema de janelas e o emulador",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/renderizacao-e-latencia",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://docs.rs/winit/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/xdg-terminal-exec",
+      "titulo": "xdg-terminal-exec — a especificação em formação do terminal padrão no freedesktop, e a implementação de referência",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/integracao-com-o-shell",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://github.com/Vladimir-csp/xdg-terminal-exec",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/xterm-ctlseqs",
+      "titulo": "XTerm Control Sequences (Thomas Dickey) — a especificação de fato: CSI, OSC, DCS, modos privados DEC e as extensões do xterm",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/especificacao-de-sequencias",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://invisible-island.net/xterm/ctlseqs/ctlseqs.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/xterm-ctlseqs-mouse",
+      "titulo": "XTerm Control Sequences — seções de rastreio de mouse e de colagem entre marcas: os modos de relato, do X10 ao SGR",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/entrada-de-teclado-e-mouse",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://invisible-island.net/xterm/ctlseqs/ctlseqs.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/xterm-modify-other-keys",
+      "titulo": "XTerm — teclas modificadas: `modifyOtherKeys` e os recursos de modificação, a via anterior ao CSI-u",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/entrada-de-teclado-e-mouse",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://invisible-island.net/xterm/modified-keys.html",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/xtermjs-buffer-e-reflow",
+      "titulo": "xterm.js — a API de buffer: tela normal e alternativa, histórico, e o que o redimensionamento faz com a linha já escrita",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/modelo-de-tela-e-rolagem",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://xtermjs.org/docs/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:terminal/xtermjs-documentacao",
+      "titulo": "xterm.js — documentação: o caminho web, com os complementos de WebGL, imagem, Unicode 11, busca e ajuste",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:terminal/arquiteturas-e-motores",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://xtermjs.org/docs/",
+      "disponivel": true,
+      "verificado_em": "2026-10-19"
     },
     {
       "id": "rec:web/aria-authoring-practices",

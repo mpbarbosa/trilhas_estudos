@@ -1,0 +1,250 @@
+versao_schema: 1
+trilha:
+  id: trilha:terminal/emulador
+  titulo: Emulador de terminal, do protocolo à tela
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:terminal/analisador-de-sequencias
+      nivel: intermediario
+    - competencia: comp:terminal/modelo-de-tela
+      nivel: intermediario
+    - competencia: comp:terminal/pty-e-controle-de-trabalho
+      nivel: intermediario
+    - competencia: comp:terminal/codificacao-de-entrada
+      nivel: intermediario
+    - competencia: comp:terminal/conformidade-de-emulador
+      nivel: intermediario
+    - competencia: comp:terminal/arquitetura-de-emulador
+      nivel: intermediario
+
+  # A espinha é a de um emulador real, nas quatro bordas que ele tem: o que vem do
+  # programa (sequências de controle), o que vai para o programa (teclado, mouse e o
+  # pseudoterminal), o que mora no meio (a grade de células) e o que sai na tela
+  # (glifos). Nenhuma delas é pré-requisito das outras três, e por isso a trilha é um
+  # grafo (ADR-0002): depois da especificação e do analisador, a tela, o
+  # pseudoterminal, o Unicode e a renderização abrem em frentes que se cursam em
+  # paralelo e só voltam a juntar no projeto.
+  #
+  # **Linguagem de implementação: nenhuma, de propósito.** Os recursos são em Rust
+  # (`vte`, `alacritty_terminal`, `portable-pty`, `cosmic-text`, `wgpu`), em C
+  # (`libvterm`, páginas de manual) e em JavaScript (`xterm.js`, `node-pty`), porque é
+  # assim que a literatura do assunto existe. Declarar uma linguagem em `requires`
+  # arrastaria uma trilha inteira para dentro desta — a validação 6 só conta as etapas
+  # da própria trilha (src/trilhas/catalogo/validar.py, `_v6_objetivo_alcancavel`),
+  # então exigir `comp:programacao/c-interface-unix` obrigaria a referenciar as sete
+  # etapas da trilha de C para o objetivo continuar alcançável. Seria honesto e seria
+  # arbitrário: nenhuma das três pilhas acima é a certa. A decisão, as duas formas
+  # recusadas e o caminho de migração estão em
+  # docs/adr/0017-trilha-de-emulador-sem-linguagem-declarada.md.
+  #
+  # O que **é** pré-requisito declarado é a linha de comando, pelo mesmo motivo e na
+  # mesma forma de ADR-0010: a etapa do pseudoterminal começa onde a competência de
+  # casca termina — quem cria cada processo e para onde vai cada descritor.
+  etapas:
+    # --- O que é a coisa -----------------------------------------------------
+    - id: etapa:terminal/o-que-e-um-terminal
+      titulo: O que é um terminal — do teletipo ao emulador, e por que há um protocolo no meio
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 180
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:terminal/protocolo-de-controle
+          nivel_resultante: iniciante
+
+    - id: etapa:terminal/arquiteturas-e-motores
+      titulo: Arquiteturas e motores VT — reaproveitar um motor pronto ou escrever o próprio
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 300
+      opcional: false
+      requires:
+        - competencia: comp:terminal/protocolo-de-controle
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:terminal/arquitetura-de-emulador
+          nivel_resultante: iniciante
+
+    # --- O que vem do programa ----------------------------------------------
+    - id: etapa:terminal/especificacao-de-sequencias
+      titulo: A especificação — ECMA-48, a linhagem DEC e as convenções do xterm
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 480
+      opcional: false
+      requires:
+        - competencia: comp:terminal/protocolo-de-controle
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:terminal/protocolo-de-controle
+          nivel_resultante: intermediario
+
+    - id: etapa:terminal/analisador-de-estados
+      titulo: O analisador — a máquina de estados DEC/ANSI, implementada e hostilizada
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:terminal/protocolo-de-controle
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:terminal/analisador-de-sequencias
+          nivel_resultante: intermediario
+
+    # --- O que mora no meio --------------------------------------------------
+    - id: etapa:terminal/modelo-de-tela-e-rolagem
+      titulo: A grade — células, atributos, histórico, tela alternativa e redimensionamento
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 480
+      opcional: false
+      requires:
+        - competencia: comp:terminal/analisador-de-sequencias
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:terminal/modelo-de-tela
+          nivel_resultante: intermediario
+
+    # --- O que vai para o programa ------------------------------------------
+    # `comp:so/linha-de-comando` vem de etapa:so/linha-de-comando, referenciada no fim
+    # deste arquivo (ADR-0010). É o único pré-requisito desta trilha que não nasce
+    # dentro dela, e entra aqui porque é aqui que ele é cobrado: sinal, grupo de
+    # processos e descritor do lado de dentro só se estudam depois de vistos do lado de
+    # fora.
+    - id: etapa:terminal/pseudoterminal-e-sinais
+      titulo: O pseudoterminal — par mestre/escravo, disciplina de linha, sinais e SIGWINCH
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 420
+      opcional: false
+      requires:
+        - competencia: comp:so/linha-de-comando
+          nivel_minimo: intermediario
+        - competencia: comp:terminal/protocolo-de-controle
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:terminal/pty-e-controle-de-trabalho
+          nivel_resultante: intermediario
+
+    - id: etapa:terminal/entrada-de-teclado-e-mouse
+      titulo: Teclado e mouse — a codificação legada, `modifyOtherKeys`, CSI-u e o protocolo do kitty
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 360
+      opcional: false
+      requires:
+        - competencia: comp:terminal/modelo-de-tela
+          nivel_minimo: intermediario
+        - competencia: comp:terminal/pty-e-controle-de-trabalho
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:terminal/codificacao-de-entrada
+          nivel_resultante: intermediario
+
+    # --- O que sai na tela ---------------------------------------------------
+    - id: etapa:terminal/texto-unicode-em-grade
+      titulo: Unicode numa grade de largura fixa — largura, grafema, emoji e substituição de fonte
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 480
+      opcional: false
+      requires:
+        - competencia: comp:terminal/modelo-de-tela
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:terminal/texto-em-celulas
+          nivel_resultante: intermediario
+
+    - id: etapa:terminal/renderizacao-e-latencia
+      titulo: Renderização — atlas de glifos, desenho em lote, dano e a tecla até o pixel
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:terminal/texto-em-celulas
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:terminal/renderizacao-de-terminal
+          nivel_resultante: intermediario
+
+    # --- O terminal como parte do ambiente ----------------------------------
+    - id: etapa:terminal/integracao-com-o-shell
+      titulo: Integração — OSC 7, 8, 52 e 133, `TERM`, terminfo e o terminal padrão do sistema
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 300
+      opcional: false
+      requires:
+        - competencia: comp:terminal/modelo-de-tela
+          nivel_minimo: intermediario
+        - competencia: comp:terminal/pty-e-controle-de-trabalho
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:terminal/integracao-com-o-shell
+          nivel_resultante: intermediario
+
+    # --- Prova ---------------------------------------------------------------
+    - id: etapa:terminal/conformidade-por-suite
+      titulo: Conformidade — `vttest`, `esctest` e o que fazer quando o teste e a especificação discordam
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 360
+      opcional: false
+      requires:
+        - competencia: comp:terminal/analisador-de-sequencias
+          nivel_minimo: intermediario
+        - competencia: comp:terminal/modelo-de-tela
+          nivel_minimo: intermediario
+        - competencia: comp:terminal/codificacao-de-entrada
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:terminal/conformidade-de-emulador
+          nivel_resultante: intermediario
+
+    - id: etapa:terminal/projeto-emulador-minimo
+      titulo: Projeto — um emulador mínimo que roda um shell, passa um subconjunto do `esctest` e mostra sua latência
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1800
+      opcional: false
+      requires:
+        - competencia: comp:terminal/arquitetura-de-emulador
+          nivel_minimo: iniciante
+        - competencia: comp:terminal/renderizacao-de-terminal
+          nivel_minimo: intermediario
+        - competencia: comp:terminal/integracao-com-o-shell
+          nivel_minimo: intermediario
+        - competencia: comp:terminal/conformidade-de-emulador
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:terminal/arquitetura-de-emulador
+          nivel_resultante: intermediario
+
+    # --- Aprofundamento (fora do objetivo declarado) ------------------------
+    # "Prior art to read" é leitura de código de emulador pronto, e só rende depois de
+    # ter escrito um: antes disso, o código responde perguntas que o estudante ainda não
+    # fez. Opcional porque o objetivo da trilha é o emulador do estudante, não o dos
+    # outros — e etapa opcional não altera a `rev` da trilha (docs/catalogo.md §4).
+    - id: etapa:terminal/leitura-de-emuladores-reais
+      titulo: Leitura de emuladores reais — Alacritty, kitty, foot, WezTerm e Rio, lado a lado
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 900
+      opcional: true
+      requires:
+        - competencia: comp:terminal/arquitetura-de-emulador
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:terminal/arquitetura-de-emulador
+          nivel_resultante: avancado
+
+  # Definida em catalogo/etapas/avulsas.yaml e já referenciada pelas trilhas de C e de
+  # SO (ADR-0010). A segunda etapa avulsa, de script shell, **não** entra: escrever
+  # script não é pré-requisito de escrever emulador, e referenciá-la aqui a incluiria
+  # na trilha sem razão.
+  etapas_referenciadas:
+    - etapa:so/linha-de-comando
