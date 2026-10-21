@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 36,
-  "gerado_em": "2026-10-20T15:34:33+00:00",
-  "hash": "sha256:8f1a7122a6de2892c70cb7a86b8e0647606f9cd44c23f01d67aef3553729c540",
+  "catalogo_versao": 37,
+  "gerado_em": "2026-10-21T23:05:45+00:00",
+  "hash": "sha256:d048799ce0e1471e530bb72f221cb8a6cc9e1860c3a3583fefd27bd2ea3ed7f7",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -347,6 +347,30 @@
       "status": "ativo",
       "verificacao": "Implementar uma chamada que devolva JSON válido conforme um esquema dado, controlando temperatura e limite de tokens, e estimar o custo por mil chamadas.",
       "descricao": "Operar um modelo hospedado: parâmetros de decodificação, saída estruturada, janela de contexto, custo e latência por chamada.\n"
+    },
+    {
+      "id": "comp:linguas/oracao-simples-do-ingles",
+      "titulo": "A oração simples do inglês — constituintes e funções",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dadas dez orações simples de um texto em inglês, segmentar cada uma em constituintes, rotular a função de cada constituinte e o padrão oracional, e justificar pelo menos três rótulos com um teste de constituência (substituição, deslocamento, pergunta), não pelo significado.",
+      "descricao": "As categorias de palavra e o constituinte como unidade de análise; as funções da oração simples (sujeito, predicador, objetos direto e indireto, complemento do sujeito e do objeto, adverbial) e os padrões oracionais que elas formam; as variações estruturais — interrogativa, imperativa, passiva, inversão — e o que cada uma muda nas funções.\n"
+    },
+    {
+      "id": "comp:linguas/periodo-composto-do-ingles",
+      "titulo": "O período composto do inglês — coordenação, subordinação e orações não finitas",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Analisar três períodos longos de um texto em inglês: delimitar cada oração, classificá-la (finita ou não finita, e de que tipo), dizer que função ocupa na oração que a contém e reescrever uma das não finitas como finita sem mudar o sentido.",
+      "descricao": "A oração múltipla: coordenação e subordinação, orações finitas (nominais, relativas, adverbiais) e não finitas — infinitivo, gerúndio e particípios —, com a função que cada uma ocupa na oração matriz e o sujeito implícito que carrega; no nível avançado, construções selecionadas como clivadas, pseudoclivadas e existenciais com there.\n"
+    },
+    {
+      "id": "comp:linguas/sintagmas-do-ingles",
+      "titulo": "Estrutura dos sintagmas do inglês",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Desenhar a estrutura (colchetes rotulados ou árvore) de cinco sintagmas nominais longos tirados de um texto acadêmico em inglês, identificando núcleo, determinante e cada modificador, e dizer qual modificador é oração e de que tipo.",
+      "descricao": "O sintagma como núcleo mais dependentes: sintagma nominal (determinante, pré- e pós-modificação), verbal (auxiliares, tempo, aspecto, modo), adjetival, adverbial e preposicional — e, no nível avançado, o sintagma complexo, em que a pós-modificação é uma oração (relativa, apositiva, não finita).\n"
     },
     {
       "id": "comp:matematica/calculo-diferencial",
@@ -1999,6 +2023,96 @@
       ]
     },
     {
+      "id": "etapa:linguas/oracao-simples-e-suas-funcoes",
+      "titulo": "Elementos da estrutura gramatical e a oração simples",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 420,
+      "trilha": "trilha:linguas/sintaxe-do-ingles",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:linguas/oracao-simples-do-ingles",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:linguas/periodo-composto-e-oracoes-nao-finitas",
+      "titulo": "O período composto e as orações não finitas — infinitivo, gerúndio e particípios",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 540,
+      "trilha": "trilha:linguas/sintaxe-do-ingles",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:linguas/oracao-simples-do-ingles",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:linguas/sintagmas-do-ingles",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:linguas/periodo-composto-do-ingles",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:linguas/sintagma-complexo-e-construcoes",
+      "titulo": "O sintagma complexo e construções oracionais selecionadas",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 420,
+      "trilha": "trilha:linguas/sintaxe-do-ingles",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:linguas/sintagmas-do-ingles",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:linguas/periodo-composto-do-ingles",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:linguas/sintagmas-do-ingles",
+          "nivel_resultante": "avancado"
+        },
+        {
+          "competencia": "comp:linguas/periodo-composto-do-ingles",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:linguas/sintagmas-e-sua-estrutura",
+      "titulo": "Sintagmas e sua estrutura — nominal, verbal, adjetival, adverbial e preposicional",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 360,
+      "trilha": "trilha:linguas/sintaxe-do-ingles",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:linguas/oracao-simples-do-ingles",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:linguas/sintagmas-do-ingles",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:matematica/derivada-e-taxa-de-variacao",
       "titulo": "Derivada — taxa de variação e otimização",
       "rev": 1,
@@ -3351,6 +3465,32 @@
       ],
       "etapas_referenciadas": [
         "etapa:programacao/python-para-ia"
+      ]
+    },
+    {
+      "id": "trilha:linguas/sintaxe-do-ingles",
+      "titulo": "Sintaxe do inglês — da oração simples ao período composto",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:linguas/oracao-simples-do-ingles",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:linguas/sintagmas-do-ingles",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:linguas/periodo-composto-do-ingles",
+          "nivel": "avancado"
+        }
+      ],
+      "etapas": [
+        "etapa:linguas/oracao-simples-e-suas-funcoes",
+        "etapa:linguas/sintagmas-e-sua-estrutura",
+        "etapa:linguas/periodo-composto-e-oracoes-nao-finitas",
+        "etapa:linguas/sintagma-complexo-e-construcoes"
       ]
     },
     {
@@ -5325,6 +5465,66 @@
       "url": "https://interney.net/livro-ia",
       "disponivel": true,
       "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:linguas/fenn-schwab-english-syntax-caps-1-3",
+      "titulo": "Introducing English Syntax (Fenn & Schwab) — introdução e caps. 1 a 3: elementos da estrutura gramatical, a oração simples e suas funções, variações estruturais",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/oracao-simples-e-suas-funcoes",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 280.0,
+      "duracao_min": 360,
+      "url": "https://www.routledge.com/Introducing-English-Syntax-A-Basic-Guide-for-Students-of-English/Fenn-Schwab/p/book/9781138037496",
+      "disponivel": true,
+      "obra": "fenn-schwab-introducing-english-syntax",
+      "verificado_em": "2026-10-21"
+    },
+    {
+      "id": "rec:linguas/fenn-schwab-english-syntax-caps-10-12",
+      "titulo": "Introducing English Syntax (Fenn & Schwab) — caps. 10 a 12: o sintagma nominal complexo, sintagmas preposicionais e adjetivais complexos, construções oracionais selecionadas",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/sintagma-complexo-e-construcoes",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 280.0,
+      "duracao_min": 360,
+      "url": "https://www.routledge.com/Introducing-English-Syntax-A-Basic-Guide-for-Students-of-English/Fenn-Schwab/p/book/9781138037496",
+      "disponivel": true,
+      "obra": "fenn-schwab-introducing-english-syntax",
+      "verificado_em": "2026-10-21"
+    },
+    {
+      "id": "rec:linguas/fenn-schwab-english-syntax-caps-4-5",
+      "titulo": "Introducing English Syntax (Fenn & Schwab) — caps. 4 e 5: sintagmas e sua estrutura (I e II)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/sintagmas-e-sua-estrutura",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 280.0,
+      "duracao_min": 300,
+      "url": "https://www.routledge.com/Introducing-English-Syntax-A-Basic-Guide-for-Students-of-English/Fenn-Schwab/p/book/9781138037496",
+      "disponivel": true,
+      "obra": "fenn-schwab-introducing-english-syntax",
+      "verificado_em": "2026-10-21"
+    },
+    {
+      "id": "rec:linguas/fenn-schwab-english-syntax-caps-6-9",
+      "titulo": "Introducing English Syntax (Fenn & Schwab) — caps. 6 a 9: a oração múltipla e as não finitas — infinitivo, gerúndio e particípios",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/periodo-composto-e-oracoes-nao-finitas",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 280.0,
+      "duracao_min": 480,
+      "url": "https://www.routledge.com/Introducing-English-Syntax-A-Basic-Guide-for-Students-of-English/Fenn-Schwab/p/book/9781138037496",
+      "disponivel": true,
+      "obra": "fenn-schwab-introducing-english-syntax",
+      "verificado_em": "2026-10-21"
     },
     {
       "id": "rec:matematica/book-of-proof",

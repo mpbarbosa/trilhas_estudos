@@ -857,6 +857,25 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Nota** — o fatiamento por capítulo segue o original em inglês; os títulos da
   edição brasileira não foram conferidos.
 
+## Línguas
+
+### Introducing English Syntax: A Basic Guide for Students of English
+
+- **Autoria** — Peter Fenn e Götz Schwab
+- **Edição** — 1ª ed., Routledge, 2018 (lançada em 26/11/2017), 274 p., en-US.
+  Exercícios por capítulo, com gabarito comentado nos eResources da editora.
+- **Identificadores** — brochura: ISBN-13 978-1-138-03749-6 · ISBN-10 `1138037494`
+  — capa dura: ISBN-13 978-1-138-03748-9
+- **Amazon** — não conferida. O recurso aponta para a página da editora:
+  https://www.routledge.com/Introducing-English-Syntax-A-Basic-Guide-for-Students-of-English/Fenn-Schwab/p/book/9781138037496
+- **Citada por** — `rec:linguas/fenn-schwab-english-syntax-caps-1-3`,
+  `rec:linguas/fenn-schwab-english-syntax-caps-4-5`,
+  `rec:linguas/fenn-schwab-english-syntax-caps-6-9`,
+  `rec:linguas/fenn-schwab-english-syntax-caps-10-12`
+- **Nota** — lido no Google Play Livros. O `custo: 280` é conversão aproximada do
+  preço de lista da brochura em dólar, não o preço pago; a página da editora não
+  mostrou preço em 2026-10-21.
+
 ## O que não tem ficha
 
 Recursos que não são livros ficam de fora: documentação oficial (MDN, pandas,
