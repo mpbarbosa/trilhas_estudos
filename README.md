@@ -25,6 +25,7 @@ persistência do percurso — nada do que o estudante faz é gravado.
   - *O modelo de Markov da linguagem natural* ([trilha](catalogo/trilhas/modelo-de-markov-da-linguagem.yaml)) — n-gramas, perplexidade, suavização, gerador de texto, HMM e etiquetagem
   - *Tecnofeudalismo — economia política do capital de nuvem* ([trilha](catalogo/trilhas/tecnofeudalismo.yaml)) — lucro e renda, capital de nuvem, geopolítica e a crítica da tese
   - *Emulador de terminal, do protocolo à tela* ([trilha](catalogo/trilhas/emulador-de-terminal.yaml)) — ECMA-48 e a linhagem DEC, analisador de estados, grade de células, pseudoterminal, teclado, Unicode em grade, renderização e conformidade
+  - *Sintaxe do inglês — da oração simples ao período composto* ([trilha](catalogo/trilhas/sintaxe-do-ingles.yaml)) — constituintes e funções, sintagmas, orações não finitas, sintagma complexo e construções
 
   Fora das trilhas, três [etapas avulsas](catalogo/etapas/avulsas.yaml) de
   pré-requisito compartilhado das trilhas de SO, de C e de emulador de terminal: duas

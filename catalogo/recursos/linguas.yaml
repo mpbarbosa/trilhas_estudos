@@ -1,0 +1,77 @@
+# Convenções deste arquivo:
+#   custo  — em BRL, aproximado na data de `verificado_em`; 0 = gratuito.
+#   idioma — tag BCP 47.
+#
+# -------------------------------------------------------------------------
+# trilha:linguas/sintaxe-do-ingles
+#
+#   obra: fenn-schwab-introducing-english-syntax — Peter Fenn e Götz Schwab,
+#     *Introducing English Syntax: A Basic Guide for Students of English*
+#     (Routledge, 2018, 274 p.). Lido no Google Play Livros. O custo é conversão
+#     aproximada do preço de lista da brochura (~US$ 50); o preço da edição
+#     digital no Brasil não foi conferido — corrija aqui se o exemplar comprado
+#     custou outro valor, e lembre que o mesmo `custo` vale para as quatro fatias.
+#     Os exercícios de cada capítulo têm gabarito comentado gratuito nos
+#     eResources da Routledge; não é recurso à parte, é a mesma obra.
+# -------------------------------------------------------------------------
+versao_schema: 1
+recursos:
+  # --- etapa:linguas/oracao-simples-e-suas-funcoes -------------------------
+  - id: rec:linguas/fenn-schwab-english-syntax-caps-1-3
+    etapa: etapa:linguas/oracao-simples-e-suas-funcoes
+    titulo: "Introducing English Syntax (Fenn & Schwab) — introdução e caps. 1 a 3: elementos da estrutura gramatical, a oração simples e suas funções, variações estruturais"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 280
+    obra: fenn-schwab-introducing-english-syntax
+    duracao_min: 360
+    url: https://www.routledge.com/Introducing-English-Syntax-A-Basic-Guide-for-Students-of-English/Fenn-Schwab/p/book/9781138037496
+    disponivel: true
+    verificado_em: 2026-10-21
+
+  # --- etapa:linguas/sintagmas-e-sua-estrutura -----------------------------
+  - id: rec:linguas/fenn-schwab-english-syntax-caps-4-5
+    etapa: etapa:linguas/sintagmas-e-sua-estrutura
+    titulo: "Introducing English Syntax (Fenn & Schwab) — caps. 4 e 5: sintagmas e sua estrutura (I e II)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 280
+    obra: fenn-schwab-introducing-english-syntax
+    duracao_min: 300
+    url: https://www.routledge.com/Introducing-English-Syntax-A-Basic-Guide-for-Students-of-English/Fenn-Schwab/p/book/9781138037496
+    disponivel: true
+    verificado_em: 2026-10-21
+
+  # --- etapa:linguas/periodo-composto-e-oracoes-nao-finitas ----------------
+  - id: rec:linguas/fenn-schwab-english-syntax-caps-6-9
+    etapa: etapa:linguas/periodo-composto-e-oracoes-nao-finitas
+    titulo: "Introducing English Syntax (Fenn & Schwab) — caps. 6 a 9: a oração múltipla e as não finitas — infinitivo, gerúndio e particípios"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 280
+    obra: fenn-schwab-introducing-english-syntax
+    duracao_min: 480
+    url: https://www.routledge.com/Introducing-English-Syntax-A-Basic-Guide-for-Students-of-English/Fenn-Schwab/p/book/9781138037496
+    disponivel: true
+    verificado_em: 2026-10-21
+
+  # --- etapa:linguas/sintagma-complexo-e-construcoes -----------------------
+  - id: rec:linguas/fenn-schwab-english-syntax-caps-10-12
+    etapa: etapa:linguas/sintagma-complexo-e-construcoes
+    titulo: "Introducing English Syntax (Fenn & Schwab) — caps. 10 a 12: o sintagma nominal complexo, sintagmas preposicionais e adjetivais complexos, construções oracionais selecionadas"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 280
+    obra: fenn-schwab-introducing-english-syntax
+    duracao_min: 360
+    url: https://www.routledge.com/Introducing-English-Syntax-A-Basic-Guide-for-Students-of-English/Fenn-Schwab/p/book/9781138037496
+    disponivel: true
+    verificado_em: 2026-10-21

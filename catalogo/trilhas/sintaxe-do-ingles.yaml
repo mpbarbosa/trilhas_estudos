@@ -1,0 +1,88 @@
+versao_schema: 1
+trilha:
+  id: trilha:linguas/sintaxe-do-ingles
+  titulo: Sintaxe do inglês — da oração simples ao período composto
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:linguas/oracao-simples-do-ingles
+      nivel: intermediario
+    - competencia: comp:linguas/sintagmas-do-ingles
+      nivel: avancado
+    - competencia: comp:linguas/periodo-composto-do-ingles
+      nivel: avancado
+
+  # Primeira trilha de línguas. Nasce de uma leitura em curso — Fenn & Schwab,
+  # *Introducing English Syntax: A Basic Guide for Students of English* (Routledge,
+  # 2018) — e o livro é a espinha, fatiado em quatro (obra:
+  # fenn-schwab-introducing-english-syntax). A ordem segue a do livro porque a
+  # análise é cumulativa: sem as funções da oração simples, a oração não finita não
+  # tem lugar onde encaixar.
+  #
+  # O livro é gramática descritiva para quem estuda inglês como língua estrangeira,
+  # não teoria sintática: não pede linguística prévia, e cada capítulo traz
+  # exercícios com gabarito comentado on-line. A verificação das competências usa
+  # texto real em inglês de propósito — é onde a análise se paga para quem lê.
+  #
+  # Relação com trilha:ia/modelo-de-markov-da-linguagem: ambas tratam de estrutura
+  # da língua, mas lá a estrutura é estatística (n-gramas, etiquetagem) e aqui é
+  # gramatical. Nenhuma competência é compartilhada.
+  etapas:
+    # --- A oração simples ---------------------------------------------------
+    - id: etapa:linguas/oracao-simples-e-suas-funcoes
+      titulo: Elementos da estrutura gramatical e a oração simples
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 420
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:linguas/oracao-simples-do-ingles
+          nivel_resultante: intermediario
+
+    # --- Sintagmas ----------------------------------------------------------
+    - id: etapa:linguas/sintagmas-e-sua-estrutura
+      titulo: Sintagmas e sua estrutura — nominal, verbal, adjetival, adverbial e preposicional
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 360
+      opcional: false
+      requires:
+        - competencia: comp:linguas/oracao-simples-do-ingles
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:linguas/sintagmas-do-ingles
+          nivel_resultante: intermediario
+
+    # --- O período composto -------------------------------------------------
+    - id: etapa:linguas/periodo-composto-e-oracoes-nao-finitas
+      titulo: O período composto e as orações não finitas — infinitivo, gerúndio e particípios
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 540
+      opcional: false
+      requires:
+        - competencia: comp:linguas/oracao-simples-do-ingles
+          nivel_minimo: intermediario
+        - competencia: comp:linguas/sintagmas-do-ingles
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:linguas/periodo-composto-do-ingles
+          nivel_resultante: intermediario
+
+    - id: etapa:linguas/sintagma-complexo-e-construcoes
+      titulo: O sintagma complexo e construções oracionais selecionadas
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 420
+      opcional: false
+      requires:
+        - competencia: comp:linguas/sintagmas-do-ingles
+          nivel_minimo: intermediario
+        - competencia: comp:linguas/periodo-composto-do-ingles
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:linguas/sintagmas-do-ingles
+          nivel_resultante: avancado
+        - competencia: comp:linguas/periodo-composto-do-ingles
+          nivel_resultante: avancado

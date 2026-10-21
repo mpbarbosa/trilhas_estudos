@@ -1,0 +1,48 @@
+versao_schema: 1
+competencias:
+  - id: comp:linguas/oracao-simples-do-ingles
+    titulo: A oração simples do inglês — constituintes e funções
+    rev: 1
+    status: ativo
+    descricao: >
+      As categorias de palavra e o constituinte como unidade de análise; as funções
+      da oração simples (sujeito, predicador, objetos direto e indireto, complemento
+      do sujeito e do objeto, adverbial) e os padrões oracionais que elas formam;
+      as variações estruturais — interrogativa, imperativa, passiva, inversão — e o
+      que cada uma muda nas funções.
+    verificacao: >
+      Dadas dez orações simples de um texto em inglês, segmentar cada uma em
+      constituintes, rotular a função de cada constituinte e o padrão oracional, e
+      justificar pelo menos três rótulos com um teste de constituência (substituição,
+      deslocamento, pergunta), não pelo significado.
+
+  - id: comp:linguas/sintagmas-do-ingles
+    titulo: Estrutura dos sintagmas do inglês
+    rev: 1
+    status: ativo
+    descricao: >
+      O sintagma como núcleo mais dependentes: sintagma nominal (determinante,
+      pré- e pós-modificação), verbal (auxiliares, tempo, aspecto, modo), adjetival,
+      adverbial e preposicional — e, no nível avançado, o sintagma complexo, em que
+      a pós-modificação é uma oração (relativa, apositiva, não finita).
+    verificacao: >
+      Desenhar a estrutura (colchetes rotulados ou árvore) de cinco sintagmas
+      nominais longos tirados de um texto acadêmico em inglês, identificando núcleo,
+      determinante e cada modificador, e dizer qual modificador é oração e de que
+      tipo.
+
+  - id: comp:linguas/periodo-composto-do-ingles
+    titulo: O período composto do inglês — coordenação, subordinação e orações não finitas
+    rev: 1
+    status: ativo
+    descricao: >
+      A oração múltipla: coordenação e subordinação, orações finitas (nominais,
+      relativas, adverbiais) e não finitas — infinitivo, gerúndio e particípios —,
+      com a função que cada uma ocupa na oração matriz e o sujeito implícito que
+      carrega; no nível avançado, construções selecionadas como clivadas,
+      pseudoclivadas e existenciais com there.
+    verificacao: >
+      Analisar três períodos longos de um texto em inglês: delimitar cada oração,
+      classificá-la (finita ou não finita, e de que tipo), dizer que função ocupa
+      na oração que a contém e reescrever uma das não finitas como finita sem mudar
+      o sentido.
