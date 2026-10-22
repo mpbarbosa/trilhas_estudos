@@ -896,6 +896,26 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
   palavras: clivadas, existenciais, inversão) vai com o 9 nas construções. O cap. 13
   ficou sem etapa. A edição de 2002 é a que circula; não achei revisão posterior.
 
+### A University Grammar of English
+
+- **Autoria** — Randolph Quirk e Sidney Greenbaum
+- **Edição** — Longman, Londres, 1973, inglês. Versão condensada, para estudante,
+  de *A Grammar of Contemporary English* (Quirk, Greenbaum, Leech e Svartvik,
+  1972); 14 capítulos e três apêndices. Reeditada em 1990, com outro título, como
+  *A Student's Grammar of the English Language*.
+- **Identificadores** — brochura: ISBN-10 `0582552079`
+- **Amazon** — https://www.amazon.com.br/s?k=0582552079 — link de **busca**: fora
+  de catálogo, só circula usado, e o anúncio de origem não mostrava preço; o
+  recurso declara R$ 150 como estimativa
+- **Citada por** — `rec:linguas/quirk-greenbaum-university-grammar-caps-2-7-8`,
+  `rec:linguas/quirk-greenbaum-university-grammar-caps-3-6`,
+  `rec:linguas/quirk-greenbaum-university-grammar-caps-9-11-12`,
+  `rec:linguas/quirk-greenbaum-university-grammar-caps-10-13-14`
+- **Nota** — fatias pela trilha, não pela ordem do livro: caps. 2, 7 e 8 na oração
+  simples; 3 a 6 nos sintagmas; 9, 11 e 12 no período composto; 10, 13 e 14 nas
+  construções. Ficam sem etapa o cap. 1 (variedades do inglês) e os apêndices
+  (formação de palavras, prosódia, pontuação).
+
 ## O que não tem ficha
 
 Recursos que não são livros ficam de fora: documentação oficial (MDN, pandas,
