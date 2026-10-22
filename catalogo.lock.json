@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 37,
-  "gerado_em": "2026-10-21T23:05:45+00:00",
-  "hash": "sha256:d048799ce0e1471e530bb72f221cb8a6cc9e1860c3a3583fefd27bd2ea3ed7f7",
+  "catalogo_versao": 38,
+  "gerado_em": "2026-10-22T00:24:52+00:00",
+  "hash": "sha256:1a8003acab0bed8ab4f70532a64aa339f8d961393f918203a6ffd7309c7abcfe",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -5525,6 +5525,66 @@
       "disponivel": true,
       "obra": "fenn-schwab-introducing-english-syntax",
       "verificado_em": "2026-10-21"
+    },
+    {
+      "id": "rec:linguas/quirk-greenbaum-university-grammar-caps-10-13-14",
+      "titulo": "A University Grammar of English (Quirk & Greenbaum) — caps. 10, 13 e 14: conexão entre orações, o sintagma nominal complexo, foco, tema e ênfase",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/sintagma-complexo-e-construcoes",
+      "formato": "texto",
+      "idioma": "en-GB",
+      "custo": 150.0,
+      "duracao_min": 480,
+      "url": "https://www.amazon.com.br/s?k=0582552079",
+      "disponivel": true,
+      "obra": "quirk-greenbaum-university-grammar",
+      "verificado_em": "2026-10-22"
+    },
+    {
+      "id": "rec:linguas/quirk-greenbaum-university-grammar-caps-2-7-8",
+      "titulo": "A University Grammar of English (Quirk & Greenbaum) — caps. 2, 7 e 8: elementos da gramática, a oração simples, adjuntos, disjuntos e conjuntos",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/oracao-simples-e-suas-funcoes",
+      "formato": "texto",
+      "idioma": "en-GB",
+      "custo": 150.0,
+      "duracao_min": 420,
+      "url": "https://www.amazon.com.br/s?k=0582552079",
+      "disponivel": true,
+      "obra": "quirk-greenbaum-university-grammar",
+      "verificado_em": "2026-10-22"
+    },
+    {
+      "id": "rec:linguas/quirk-greenbaum-university-grammar-caps-3-6",
+      "titulo": "A University Grammar of English (Quirk & Greenbaum) — caps. 3 a 6: o sintagma verbal, o sintagma nominal básico, adjetivos e advérbios, preposições e sintagmas preposicionais",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/sintagmas-e-sua-estrutura",
+      "formato": "texto",
+      "idioma": "en-GB",
+      "custo": 150.0,
+      "duracao_min": 600,
+      "url": "https://www.amazon.com.br/s?k=0582552079",
+      "disponivel": true,
+      "obra": "quirk-greenbaum-university-grammar",
+      "verificado_em": "2026-10-22"
+    },
+    {
+      "id": "rec:linguas/quirk-greenbaum-university-grammar-caps-9-11-12",
+      "titulo": "A University Grammar of English (Quirk & Greenbaum) — caps. 9, 11 e 12: coordenação e aposição, o período composto, o verbo e sua complementação",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/periodo-composto-e-oracoes-nao-finitas",
+      "formato": "texto",
+      "idioma": "en-GB",
+      "custo": 150.0,
+      "duracao_min": 540,
+      "url": "https://www.amazon.com.br/s?k=0582552079",
+      "disponivel": true,
+      "obra": "quirk-greenbaum-university-grammar",
+      "verificado_em": "2026-10-22"
     },
     {
       "id": "rec:matematica/book-of-proof",
