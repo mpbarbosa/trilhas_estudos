@@ -25,14 +25,28 @@
 #     O cap. 13 (a gramática da conversa) não cabe em nenhuma etapa e fica de fora.
 #     O custo é o da capa comum na Amazon brasileira em 2026-10-22 (R$ 300,18).
 #
+#   obra: quirk-greenbaum-university-grammar — Randolph Quirk e Sidney
+#     Greenbaum, *A University Grammar of English* (Longman, 1973, ISBN
+#     0-582-55207-9). Versão condensada, para estudante, da gramática de
+#     referência de Quirk, Greenbaum, Leech e Svartvik; reeditada em 1990 como
+#     *A Student's Grammar of the English Language*. Entra como mais uma leitura
+#     das mesmas quatro etapas, não como trilha própria: cobre o mesmo terreno
+#     que Fenn & Schwab com mais densidade e sem exercícios, e por isso serve de
+#     aprofundamento e consulta. Fatiada pelos capítulos que caem em cada etapa;
+#     o cap. 1 (variedades do inglês) e os apêndices (formação de palavras,
+#     prosódia, pontuação) ficam fora por não ensinarem sintaxe. Fora de
+#     catálogo: só exemplar usado. O custo é estimativa de sebo/Amazon — o
+#     anúncio de origem não mostrava preço; corrija nas quatro fatias se o
+#     exemplar comprado custou outro valor.
+#
 #   obra: huddleston-pullum-student-introduction-english-grammar — Rodney
 #     Huddleston e Geoffrey K. Pullum, *A Student's Introduction to English
 #     Grammar* (Cambridge University Press, 2005, 312 p.). Versão para graduação
 #     da *Cambridge Grammar of the English Language* (2002): gramática descritiva
 #     que revê a tradicional — chama de "preposição" muito do que se chamava
-#     conjunção, separa categoria de função com rigor. É o terceiro olhar sobre a
-#     mesma análise: Fenn & Schwab ensinam a segmentar, a Longman mostra o uso, e
-#     aqui se vê por que os rótulos são esses. Fatias seguem a trilha, não o livro;
+#     conjunção, separa categoria de função com rigor. Mais um olhar sobre a mesma
+#     análise: Fenn & Schwab ensinam a segmentar, a Longman mostra o uso, e aqui
+#     se vê por que os rótulos são esses. Fatias seguem a trilha, não o livro;
 #     o cap. 16 (morfologia) não cabe em nenhuma etapa e fica de fora.
 #     O custo é estimativa (~US$ 50 de lista da brochura): a Amazon brasileira não
 #     foi conferida em 2026-10-22. Corrija aqui e nas quatro fatias se o exemplar
@@ -209,5 +223,62 @@ recursos:
     obra: huddleston-pullum-student-introduction-english-grammar
     duracao_min: 240
     url: https://www.amazon.com.br/dp/0521612888
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  # --- quirk-greenbaum-university-grammar (leitura de aprofundamento) -----
+  - id: rec:linguas/quirk-greenbaum-university-grammar-caps-2-7-8
+    etapa: etapa:linguas/oracao-simples-e-suas-funcoes
+    titulo: "A University Grammar of English (Quirk & Greenbaum) — caps. 2, 7 e 8: elementos da gramática, a oração simples, adjuntos, disjuntos e conjuntos"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-GB
+    custo: 150
+    obra: quirk-greenbaum-university-grammar
+    duracao_min: 420
+    url: https://www.amazon.com.br/s?k=0582552079
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  - id: rec:linguas/quirk-greenbaum-university-grammar-caps-3-6
+    etapa: etapa:linguas/sintagmas-e-sua-estrutura
+    titulo: "A University Grammar of English (Quirk & Greenbaum) — caps. 3 a 6: o sintagma verbal, o sintagma nominal básico, adjetivos e advérbios, preposições e sintagmas preposicionais"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-GB
+    custo: 150
+    obra: quirk-greenbaum-university-grammar
+    duracao_min: 600
+    url: https://www.amazon.com.br/s?k=0582552079
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  - id: rec:linguas/quirk-greenbaum-university-grammar-caps-9-11-12
+    etapa: etapa:linguas/periodo-composto-e-oracoes-nao-finitas
+    titulo: "A University Grammar of English (Quirk & Greenbaum) — caps. 9, 11 e 12: coordenação e aposição, o período composto, o verbo e sua complementação"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-GB
+    custo: 150
+    obra: quirk-greenbaum-university-grammar
+    duracao_min: 540
+    url: https://www.amazon.com.br/s?k=0582552079
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  - id: rec:linguas/quirk-greenbaum-university-grammar-caps-10-13-14
+    etapa: etapa:linguas/sintagma-complexo-e-construcoes
+    titulo: "A University Grammar of English (Quirk & Greenbaum) — caps. 10, 13 e 14: conexão entre orações, o sintagma nominal complexo, foco, tema e ênfase"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-GB
+    custo: 150
+    obra: quirk-greenbaum-university-grammar
+    duracao_min: 480
+    url: https://www.amazon.com.br/s?k=0582552079
     disponivel: true
     verificado_em: 2026-10-22
