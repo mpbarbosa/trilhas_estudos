@@ -876,6 +876,46 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
   preço de lista da brochura em dólar, não o preço pago; a página da editora não
   mostrou preço em 2026-10-21.
 
+### Longman Student Grammar of Spoken and Written English
+
+- **Autoria** — Douglas Biber, Susan Conrad e Geoffrey Leech
+- **Edição** — Longman (Pearson Education), Harlow, 2002, 487 p., inglês. Versão
+  para estudante da *Longman Grammar of Spoken and Written English* (1999), baseada
+  no mesmo corpus; 13 capítulos, do 1 (a perspectiva do discurso) ao 13 (a
+  gramática da conversa). Há caderno de exercícios vendido à parte, não catalogado.
+- **Identificadores** — brochura: ISBN-13 978-0-582-23726-1 · ISBN-10 `0582237262`
+- **Amazon** — https://www.amazon.com.br/dp/0582237262 — capa comum a R$ 300,18 em
+  2026-10-22 (capa dura só usada, R$ 539,74); o recurso declara o da capa comum
+- **Citada por** — `rec:linguas/longman-student-grammar-caps-1-3-e-8`,
+  `rec:linguas/longman-student-grammar-caps-4-7`,
+  `rec:linguas/longman-student-grammar-caps-10-11`,
+  `rec:linguas/longman-student-grammar-caps-9-e-12`
+- **Nota** — a ordem dos capítulos não é a de
+  `trilha:linguas/sintaxe-do-ingles`, e as fatias seguem a trilha: o cap. 8 (a
+  gramática da oração) vai com os caps. 1 a 3 na oração simples, e o 12 (ordem das
+  palavras: clivadas, existenciais, inversão) vai com o 9 nas construções. O cap. 13
+  ficou sem etapa. A edição de 2002 é a que circula; não achei revisão posterior.
+
+### A University Grammar of English
+
+- **Autoria** — Randolph Quirk e Sidney Greenbaum
+- **Edição** — Longman, Londres, 1973, inglês. Versão condensada, para estudante,
+  de *A Grammar of Contemporary English* (Quirk, Greenbaum, Leech e Svartvik,
+  1972); 14 capítulos e três apêndices. Reeditada em 1990, com outro título, como
+  *A Student's Grammar of the English Language*.
+- **Identificadores** — brochura: ISBN-10 `0582552079`
+- **Amazon** — https://www.amazon.com.br/s?k=0582552079 — link de **busca**: fora
+  de catálogo, só circula usado, e o anúncio de origem não mostrava preço; o
+  recurso declara R$ 150 como estimativa
+- **Citada por** — `rec:linguas/quirk-greenbaum-university-grammar-caps-2-7-8`,
+  `rec:linguas/quirk-greenbaum-university-grammar-caps-3-6`,
+  `rec:linguas/quirk-greenbaum-university-grammar-caps-9-11-12`,
+  `rec:linguas/quirk-greenbaum-university-grammar-caps-10-13-14`
+- **Nota** — fatias pela trilha, não pela ordem do livro: caps. 2, 7 e 8 na oração
+  simples; 3 a 6 nos sintagmas; 9, 11 e 12 no período composto; 10, 13 e 14 nas
+  construções. Ficam sem etapa o cap. 1 (variedades do inglês) e os apêndices
+  (formação de palavras, prosódia, pontuação).
+
 ## O que não tem ficha
 
 Recursos que não são livros ficam de fora: documentação oficial (MDN, pandas,
