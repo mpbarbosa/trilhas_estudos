@@ -13,6 +13,17 @@
 #     custou outro valor, e lembre que o mesmo `custo` vale para as quatro fatias.
 #     Os exercícios de cada capítulo têm gabarito comentado gratuito nos
 #     eResources da Routledge; não é recurso à parte, é a mesma obra.
+#
+#   obra: biber-conrad-leech-longman-student-grammar — Douglas Biber, Susan
+#     Conrad e Geoffrey Leech, *Longman Student Grammar of Spoken and Written
+#     English* (Longman, 2002, 487 p.). Gramática de referência baseada em corpus,
+#     versão para estudante da *Longman Grammar of Spoken and Written English*
+#     (1999): descreve cada estrutura e diz em que registro ela ocorre — conversa,
+#     ficção, jornal, texto acadêmico. É o par descritivo do Fenn & Schwab, não um
+#     substituto: lá se aprende a analisar, aqui se vê o que o uso real faz.
+#     A ordem dos capítulos não é a da trilha, então as fatias não são contíguas.
+#     O cap. 13 (a gramática da conversa) não cabe em nenhuma etapa e fica de fora.
+#     O custo é o da capa comum na Amazon brasileira em 2026-10-22 (R$ 300,18).
 # -------------------------------------------------------------------------
 versao_schema: 1
 recursos:
@@ -31,6 +42,20 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-21
 
+  - id: rec:linguas/longman-student-grammar-caps-1-3-e-8
+    etapa: etapa:linguas/oracao-simples-e-suas-funcoes
+    titulo: "Longman Student Grammar of Spoken and Written English (Biber, Conrad & Leech) — caps. 1 a 3 e 8: a perspectiva do discurso, palavras e classes de palavras, introdução a sintagmas e orações, a gramática da oração"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-GB
+    custo: 300
+    obra: biber-conrad-leech-longman-student-grammar
+    duracao_min: 660
+    url: https://www.amazon.com.br/dp/0582237262
+    disponivel: true
+    verificado_em: 2026-10-22
+
   # --- etapa:linguas/sintagmas-e-sua-estrutura -----------------------------
   - id: rec:linguas/fenn-schwab-english-syntax-caps-4-5
     etapa: etapa:linguas/sintagmas-e-sua-estrutura
@@ -45,6 +70,20 @@ recursos:
     url: https://www.routledge.com/Introducing-English-Syntax-A-Basic-Guide-for-Students-of-English/Fenn-Schwab/p/book/9781138037496
     disponivel: true
     verificado_em: 2026-10-21
+
+  - id: rec:linguas/longman-student-grammar-caps-4-7
+    etapa: etapa:linguas/sintagmas-e-sua-estrutura
+    titulo: "Longman Student Grammar of Spoken and Written English (Biber, Conrad & Leech) — caps. 4 a 7: substantivos, pronomes e o sintagma nominal simples, verbos, variação no sintagma verbal (tempo, aspecto, voz, modais), adjetivos e advérbios"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-GB
+    custo: 300
+    obra: biber-conrad-leech-longman-student-grammar
+    duracao_min: 720
+    url: https://www.amazon.com.br/dp/0582237262
+    disponivel: true
+    verificado_em: 2026-10-22
 
   # --- etapa:linguas/periodo-composto-e-oracoes-nao-finitas ----------------
   - id: rec:linguas/fenn-schwab-english-syntax-caps-6-9
@@ -61,6 +100,20 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-21
 
+  - id: rec:linguas/longman-student-grammar-caps-10-11
+    etapa: etapa:linguas/periodo-composto-e-oracoes-nao-finitas
+    titulo: "Longman Student Grammar of Spoken and Written English (Biber, Conrad & Leech) — caps. 10 e 11: orações complemento de verbo e de adjetivo, adverbiais"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-GB
+    custo: 300
+    obra: biber-conrad-leech-longman-student-grammar
+    duracao_min: 480
+    url: https://www.amazon.com.br/dp/0582237262
+    disponivel: true
+    verificado_em: 2026-10-22
+
   # --- etapa:linguas/sintagma-complexo-e-construcoes -----------------------
   - id: rec:linguas/fenn-schwab-english-syntax-caps-10-12
     etapa: etapa:linguas/sintagma-complexo-e-construcoes
@@ -75,3 +128,17 @@ recursos:
     url: https://www.routledge.com/Introducing-English-Syntax-A-Basic-Guide-for-Students-of-English/Fenn-Schwab/p/book/9781138037496
     disponivel: true
     verificado_em: 2026-10-21
+
+  - id: rec:linguas/longman-student-grammar-caps-9-e-12
+    etapa: etapa:linguas/sintagma-complexo-e-construcoes
+    titulo: "Longman Student Grammar of Spoken and Written English (Biber, Conrad & Leech) — caps. 9 e 12: sintagmas nominais complexos, escolhas de ordem das palavras"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-GB
+    custo: 300
+    obra: biber-conrad-leech-longman-student-grammar
+    duracao_min: 360
+    url: https://www.amazon.com.br/dp/0582237262
+    disponivel: true
+    verificado_em: 2026-10-22
