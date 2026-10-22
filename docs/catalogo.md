@@ -148,10 +148,12 @@ renomeá-la é um rename mecânico entre as fatias, sem a cerimônia de §6.
 `custo` continua por recurso e continua querendo dizer "o que custa ter acesso a este
 recurso" — `obra` não o move nem o reinterpreta. O que ela fixa é como somar:
 **qualquer agregação monetária conta cada obra uma vez**, pelo `custo` de uma de suas
-fatias; recurso sem `obra` é obra de si mesmo. Nenhuma agregação monetária existe
-hoje — o filtro de `custo_maximo` do motor é por recurso, nunca por caminho
-([motor §2.2](motor-de-sugestao.md)) —, então o campo é inerte até aparecer um
-consumidor. Declará-lo agora é barato porque só o autor da fatia sabe a resposta.
+fatias; recurso sem `obra` é obra de si mesmo. O campo deixou de ser inerte em
+2026-10-22, quando a tela da obra ([interface.md §5.13](interface.md)) se tornou o
+primeiro consumidor da regra: ela mostra o preço do exemplar uma vez e soma a duração
+das fatias. No **motor** continua não havendo agregação monetária alguma — o filtro de
+`custo_maximo` é por recurso, nunca por caminho
+([motor §2.2](motor-de-sugestao.md)).
 
 ---
 

@@ -1168,3 +1168,120 @@ def test_estante_atravessa_a_projecao_do_log(lock: Path) -> None:
     percurso = percurso_completo(arquivo)
     assert percurso is not None
     assert percurso.estante == frozenset({"rec:dados/sql-select-video"})
+
+
+# --- obra: o exemplar e sua exportação (docs/interface.md §5.13) -----------------
+
+OBRA = "livro-de-teste"
+
+
+@pytest.fixture
+def lock_com_obra(tmp_path: Path) -> Path:
+    """Catálogo com duas fatias do mesmo exemplar — o fixture canônico não declara `obra`."""
+    catalogo = fabrica.catalogo(
+        fabrica.competencia("comp:x/base"),
+        fabrica.etapa(
+            "etapa:x/um",
+            titulo="Primeira etapa",
+            teaches=[("comp:x/base", Nivel.INICIANTE)],
+            trilha="trilha:x/t",
+        ),
+        fabrica.etapa(
+            "etapa:x/dois",
+            titulo="Segunda etapa",
+            requires=[("comp:x/base", Nivel.INICIANTE)],
+            trilha="trilha:x/t",
+        ),
+        fabrica.recurso(
+            "rec:x/livro-parte-1",
+            "etapa:x/um",
+            titulo="Livro de Teste (Autor) — parte 1: o começo",
+            custo=90,
+            duracao_min=120,
+            obra=OBRA,
+        ),
+        fabrica.recurso(
+            "rec:x/livro-parte-2",
+            "etapa:x/dois",
+            titulo="Livro de Teste (Autor) — parte 2: o resto",
+            custo=90,
+            duracao_min=180,
+            obra=OBRA,
+        ),
+        fabrica.trilha(
+            "trilha:x/t",
+            etapas=["etapa:x/um", "etapa:x/dois"],
+            objetivo=[("comp:x/base", Nivel.INICIANTE)],
+        ),
+    )
+    destino = tmp_path / "catalogo.lock.json"
+    destino.write_text(json.dumps(compilar(catalogo), ensure_ascii=False), encoding="utf-8")
+    return destino
+
+
+@pytest.fixture
+def cliente_com_obra(lock_com_obra: Path) -> TestClient:
+    return TestClient(criar_app(lock=lock_com_obra, hoje=lambda: HOJE))
+
+
+def test_obra_mostra_o_nome_do_livro_e_as_fatias(cliente_com_obra: TestClient) -> None:
+    resposta = cliente_com_obra.get(f"/obra/{OBRA}")
+    assert resposta.status_code == 200
+    assert "Livro de Teste (Autor)" in resposta.text
+    assert "parte 1: o começo" in resposta.text
+    assert "parte 2: o resto" in resposta.text
+    assert "Primeira etapa" in resposta.text and "Segunda etapa" in resposta.text
+
+
+def test_obra_conta_o_custo_do_exemplar_uma_vez(cliente_com_obra: TestClient) -> None:
+    """ADR-0009. Somar as duas fatias mostraria R$ 180 por um livro que custa R$ 90."""
+    html = cliente_com_obra.get(f"/obra/{OBRA}").text
+    assert "R$ 90" in html
+    assert "R$ 180" not in html
+
+
+def test_obra_soma_a_duracao_das_fatias(cliente_com_obra: TestClient) -> None:
+    """Aqui soma-se, ao contrário do esforço da etapa: fatia é parte, recurso é rota."""
+    html = cliente_com_obra.get(f"/obra/{OBRA}").text
+    assert "5 h" in html
+
+
+def test_obra_desconhecida_responde_404(cliente_com_obra: TestClient) -> None:
+    assert cliente_com_obra.get("/obra/nao-existe").status_code == 404
+
+
+def test_exportar_obra_entrega_markdown_como_arquivo(cliente_com_obra: TestClient) -> None:
+    resposta = cliente_com_obra.get(f"/obra/{OBRA}/exportar")
+    assert resposta.status_code == 200
+    assert resposta.headers["content-type"].startswith("text/markdown")
+    assert (
+        resposta.headers["content-disposition"] == 'attachment; filename="obra-livro-de-teste.md"'
+    )
+    corpo = resposta.text
+    assert corpo.startswith("# Livro de Teste (Autor)")
+    assert "| parte 1: o começo | 2 h | Primeira etapa (`etapa:x/um`) |" in corpo
+    assert "contado uma vez" in corpo
+    assert "- **formatos** — texto" in corpo
+
+
+def test_exportar_obra_cita_a_versao_que_o_produziu(cliente_com_obra: TestClient) -> None:
+    """Export sem a versão do catálogo não se confere depois (docs/catalogo.md §5)."""
+    corpo = cliente_com_obra.get(f"/obra/{OBRA}/exportar").text
+    assert "catálogo v" in corpo
+    assert "snapshot " in corpo
+
+
+def test_exportar_obra_desconhecida_responde_404(cliente_com_obra: TestClient) -> None:
+    assert cliente_com_obra.get("/obra/nao-existe/exportar").status_code == 404
+
+
+def test_etapa_liga_para_a_obra_da_fatia(cliente_com_obra: TestClient) -> None:
+    """Sem esse link a tela da obra existiria sem porta de entrada."""
+    html = cliente_com_obra.get("/etapa/etapa:x/um").text
+    assert f'href="/obra/{OBRA}"' in html
+
+
+def test_etapa_sem_obra_nao_oferece_o_link(cliente: TestClient) -> None:
+    """O fixture canônico não tem exemplar fatiado: nada a linkar."""
+    html = cliente.get(f"/etapa/{_uma_etapa(cliente)}").text
+    assert 'href="/obra/' not in html

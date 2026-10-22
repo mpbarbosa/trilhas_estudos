@@ -303,10 +303,13 @@ flowchart TD
     A --> H["/catalogo — explorador"]
     H --> I["/catalogo/diagnostico — 11 validações"]
     H --> J["/catalogo/autoria — gera YAML"]
+    C --> K["/obra/{slug} — o exemplar, com export"]
     F --> B
 ```
 
-Sete rotas de leitura, duas de autoria. Nenhuma modal profunda: tudo tem URL.
+Sete rotas de leitura, duas de autoria. Nenhuma modal profunda: tudo tem URL. A tela da
+obra (§5.13) entra pela etapa, porque é lá que se descobre que um recurso é fatia de um
+livro, e é a única que entrega arquivo.
 
 ### 5.2 `/` — **Agora** (a tela que justifica o projeto)
 
@@ -633,6 +636,42 @@ de HTML, `?estudante=` preservado, e 409 sem percurso — sem banco nascendo.
 
 ---
 
+### 5.13 `/obra/{slug}` — o exemplar, e a exportação dele
+
+A pergunta que nenhuma outra tela responde: *"este livro que eu tenho na mão serve a quê
+no catálogo, e quanto dele falta?"*. A etapa compara recursos **dentro** de uma etapa;
+aqui o eixo é o exemplar, que atravessa etapas e trilhas.
+
+`obra` não é entidade de catálogo — não tem id, `rev`, `status` nem depreciação
+([catalogo.md §2](catalogo.md)) —, então a tela não oferece editar nem depreciar: só
+reúne o que as fatias dizem. O slug vem do campo `obra` das fatias. Recurso sem `obra` é
+obra de si mesmo para efeito de custo, e **não** tem página: não há slug para endereçá-lo,
+e inventar um criaria identificador que o catálogo não tem.
+
+Duas somas convivem, e a tela diz qual é qual:
+
+| derivada | regra | por quê |
+|---|---|---|
+| duração | **soma** as fatias | são partes complementares de um exemplar — ler as oito fatias do Date é ler o livro uma vez |
+| custo | conta **uma vez**, por fatia não depreciada | ADR-0009; somar mostraria R$ 180 por um livro de R$ 90 |
+
+É o **primeiro consumidor** do campo `obra`, que [catalogo.md §2](catalogo.md) descrevia
+como inerte por falta de um.
+
+`GET /obra/{slug}/exportar` entrega o mesmo conteúdo em Markdown, com
+`Content-Disposition: attachment`. GET, e não POST: exportar não grava nada, e a URL do
+export tem de ser recarregável e compartilhável como qualquer leitura. O arquivo leva no
+pé a `catalogo_versao` e o hash do snapshot pelo mesmo motivo que a sugestão os persiste
+([catalogo.md §5](catalogo.md)) — export sem a versão que o produziu não se confere
+depois.
+
+O nome do livro não é campo do modelo: é a **menor cabeça de título** entre as fatias, o
+pedaço antes do ` — ` que a convenção de título usa para separar livro de recorte. Quando
+uma fatia traz edição e autoria e outra só o título, vale a menor — título real escrito
+por quem autorou, não string montada pela interface.
+
+---
+
 ## 6. Regras duras da interface
 
 1. **Vocabulário único.** A UI usa `Competência`, `Etapa`, `Recurso`, `Trilha`,
@@ -696,6 +735,8 @@ Nível é **rampa sequencial**, nunca quatro cores distintas: a escala é ordina
 | GET | `/catalogo/diagnostico` | as 11 validações sobre o catálogo atual |
 | GET | `/catalogo/autoria` | formulários |
 | GET | `/sugestao/{id}` | auditoria |
+| GET | `/obra/{slug}` | ✅ o exemplar, suas fatias e as etapas que elas atendem (§5.13) |
+| GET | `/obra/{slug}/exportar` | ✅ o mesmo em Markdown, como anexo para baixar (§5.13) |
 | POST | `/progresso` | `{estudante, etapa, rev, estado, recurso?}` |
 | POST | `/evidencia` | `{estudante, competencia, nivel, tipo, confianca, data}` |
 | POST | `/matricula` | `{estudante, trilha, rev}` |

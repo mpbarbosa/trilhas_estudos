@@ -21,6 +21,7 @@ from ..motor import Opcoes, sugerir
 from ..motor.modelo import Percurso, Resultado
 from .apresentar import acervo as apresentar_acervo
 from .apresentar import detalhe, diagnostico
+from .apresentar import obra as apresentar_obra
 from .apresentar import sugestao as apresentar_sugestao
 from .escrever import (
     Acao,
@@ -387,6 +388,33 @@ async def desligar(request: Request) -> Response:
     return resposta
 
 
+async def obra(request: Request) -> Response:
+    """A tela do exemplar: as fatias, as etapas que elas atendem e o custo uma vez."""
+    ctx = _ctx(request)
+    visao = apresentar_obra.pagina(ctx.fonte.acervo(), request.path_params["slug"])
+    if visao is None:
+        return await nao_encontrado(request, None)
+    return _responder(request, "obra.html", {"v": visao, "titulo": visao.nome})
+
+
+async def obra_exportada(request: Request) -> Response:
+    """O Markdown da obra, como arquivo para baixar (docs/interface.md §5.13).
+
+    GET, e não POST: exportar não grava nada, e a URL do export tem de ser
+    compartilhável e recarregável como qualquer outra leitura. `attachment` com nome de
+    arquivo porque o destino é um arquivo em disco, não uma aba de texto.
+    """
+    ctx = _ctx(request)
+    visao = apresentar_obra.pagina(ctx.fonte.acervo(), request.path_params["slug"])
+    if visao is None:
+        return await nao_encontrado(request, None)
+    return Response(
+        apresentar_obra.markdown(visao),
+        media_type="text/markdown; charset=utf-8",
+        headers={"content-disposition": f'attachment; filename="{visao.nome_do_arquivo}"'},
+    )
+
+
 async def nao_encontrado(request: Request, exc: Exception | None = None) -> Response:
     return _responder(
         request,
@@ -421,5 +449,7 @@ ROTAS = [
     Route("/trilha/{ident:path}", trilha),
     Route("/etapa/{ident:path}", etapa, methods=["GET", "POST"]),
     Route("/competencia/{ident:path}", competencia, methods=["GET", "POST"]),
+    Route("/obra/{slug}/exportar", obra_exportada),
+    Route("/obra/{slug}", obra),
     Route("/desligar", desligar, methods=["POST"]),
 ]

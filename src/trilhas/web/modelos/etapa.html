@@ -129,6 +129,9 @@
           {% if not r.disponivel %}<span class="etiqueta ruim">indisponível</span>{% endif %}
           {% if r.status.value != 'ativo' %}<span class="etiqueta aviso">{{ r.status.value }}</span>{% endif %}
           <br><code class="fraco">{{ r.id }}</code>
+          {% if r.obra %}
+          <a class="fraco" href="/obra/{{ r.obra }}">· fatia de um livro</a>
+          {% endif %}
         </td>
         <td>{{ r.formato }}</td>
         <td>{{ r.idioma }}</td>

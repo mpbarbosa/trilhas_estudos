@@ -66,6 +66,8 @@ class LinhaRecurso:
     verificado_em: date | None
     dias_sem_verificar: int | None
     vencido: bool
+    obra: str = ""
+    """Slug do exemplar, quando o recurso é fatia de um (ADR-0009). Vazio quando não é."""
     em_uso: bool = False
     """Recurso declarado ao iniciar esta etapa — por onde o estudante de fato estudou."""
 
@@ -505,6 +507,7 @@ def _recurso(recurso: Recurso, *, hoje: date, em_uso: bool = False) -> LinhaRecu
         verificado_em=recurso.verificado_em,
         dias_sem_verificar=dias,
         vencido=comum.vencido(recurso.verificado_em, hoje),
+        obra=recurso.obra or "",
         em_uso=em_uso,
     )
 
