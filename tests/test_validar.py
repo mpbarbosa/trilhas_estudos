@@ -341,3 +341,56 @@ def test_fatia_depreciada_nao_prende_o_custo_da_obra() -> None:
     """Preço de recurso retirado não é fato do exemplar de hoje."""
     cat = _duas_fatias(90, 120, status=Status.DEPRECIADO, depreciado_em=HOJE)
     assert Codigo.OBRA_CUSTO_DIVERGENTE not in codigos(validar(cat, hoje=HOJE))
+
+
+# §5.13 -----------------------------------------------------------------------
+
+
+def _com_capitulo(**kw: object) -> Catalogo:
+    """O livro da etapa e um capítulo dele — o caso que §5.13 julga (ADR-0019)."""
+    cat = minimo_valido()
+    cat.recursos["rec:x/livro-cap-1"] = recurso(
+        "rec:x/livro-cap-1", "etapa:x/inicial", parte_de="rec:x/inicial", **kw
+    )
+    return cat
+
+
+def test_parte_do_recurso_da_mesma_etapa_nao_e_problema() -> None:
+    assert validar(_com_capitulo(), hoje=HOJE) == []
+
+
+def test_parte_de_recurso_inexistente_e_referencia_quebrada() -> None:
+    cat = _com_capitulo()
+    cat.recursos["rec:x/livro-cap-1"] = replace(
+        cat.recursos["rec:x/livro-cap-1"], parte_de="rec:x/nao-existe"
+    )
+    assert Codigo.REFERENCIA_QUEBRADA in codigos(validar(cat, hoje=HOJE))
+
+
+def test_parte_de_recurso_de_outra_etapa() -> None:
+    cat = _com_capitulo()
+    cat.etapas["etapa:x/outra"] = etapa(
+        "etapa:x/outra", teaches=[("comp:x/base", N.INICIANTE)], trilha="trilha:x/t"
+    )
+    cat.recursos["rec:x/outra"] = recurso("rec:x/outra", "etapa:x/outra")
+    cat.recursos["rec:x/livro-cap-1"] = replace(
+        cat.recursos["rec:x/livro-cap-1"], etapa="etapa:x/outra"
+    )
+    problemas = validar(cat, hoje=HOJE)
+    assert Codigo.PARTE_INCOERENTE in codigos(problemas)
+
+
+def test_parte_de_parte_nao_existe() -> None:
+    cat = _com_capitulo()
+    cat.recursos["rec:x/livro-cap-1-secao"] = recurso(
+        "rec:x/livro-cap-1-secao", "etapa:x/inicial", parte_de="rec:x/livro-cap-1"
+    )
+    problemas = [p for p in validar(cat, hoje=HOJE) if p.codigo is Codigo.PARTE_INCOERENTE]
+    assert [p.entidade for p in problemas] == ["rec:x/livro-cap-1-secao"]
+
+
+def test_parte_nao_conta_como_recurso_da_etapa() -> None:
+    """Capítulo não é via de estudo: sozinho, não salva a etapa de §5.5."""
+    cat = _com_capitulo()
+    cat.recursos["rec:x/inicial"] = replace(cat.recursos["rec:x/inicial"], disponivel=False)
+    assert Codigo.SEM_RECURSO in codigos(validar(cat, hoje=HOJE))

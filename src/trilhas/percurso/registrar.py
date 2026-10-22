@@ -54,6 +54,13 @@ def conferir_recurso(recurso_id: str, catalogo: Catalogo, etapa: Etapa) -> str |
         return f"recurso desconhecido no catálogo: {recurso_id}"
     if recurso.etapa != etapa.id:
         return f"recurso de outra etapa: {recurso_id} é de {recurso.etapa}, não de {etapa.id}"
+    if recurso.parte_de is not None:
+        # Capítulo não é via de estudo da etapa (ADR-0019): inicia-se pelo todo, e o
+        # capítulo lido se registra com `percorrer`.
+        return (
+            f"recurso é parte de outro: {recurso_id} é capítulo de {recurso.parte_de}; "
+            "inicie a etapa pelo todo e registre o capítulo com `percorrer`"
+        )
     return None
 
 

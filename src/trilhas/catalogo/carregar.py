@@ -273,6 +273,7 @@ def _recurso(item: Mapping[str, Any], col: _Coletor) -> Recurso | None:
         url=str(item.get("url", "")),
         disponivel=bool(item.get("disponivel", True)),
         obra=_obra(item, col, ident),
+        parte_de=_opcional_texto(item, "parte_de"),
         verificado_em=_data(item, "verificado_em", col, ident),
         substituido_por=_opcional_texto(item, "substituido_por"),
         depreciado_em=_data(item, "depreciado_em", col, ident),

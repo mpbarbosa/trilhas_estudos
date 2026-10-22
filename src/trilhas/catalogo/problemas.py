@@ -31,6 +31,7 @@ class Codigo(StrEnum):
     RECURSO_NAO_VERIFICADO = "CAT-100"  # §5.10 — aviso
     ETAPA_ORFA = "CAT-110"  # §5.11 — aviso
     OBRA_CUSTO_DIVERGENTE = "CAT-120"  # §5.12
+    PARTE_INCOERENTE = "CAT-130"  # §5.13
 
 
 @dataclass(frozen=True, slots=True)

@@ -23,6 +23,7 @@ from trilhas.percurso import (
     abandonar_etapa,
     competencias_de,
     concluir_etapa,
+    conferir_recurso,
     conferir_retratacao,
     dar_feedback,
     eventos_do_yaml,
@@ -868,3 +869,19 @@ def test_cli_retratar_recusa_alvo_que_nao_e_evidencia(tmp_path: Path, capsys) ->
     capsys.readouterr()
     assert rodar(destino, lock, "retratar", "1") == 1
     assert "não uma evidência" in capsys.readouterr().err
+
+
+# --- parte de recurso: percorre-se, não se inicia por ela (ADR-0019) -----------
+
+
+def test_iniciar_recusa_capitulo_e_aponta_o_todo() -> None:
+    base = etapa("etapa:x/inicial", teaches=[("comp:x/base", Nivel.INICIANTE)])
+    cat = catalogo(
+        competencia("comp:x/base"),
+        base,
+        recurso("rec:x/livro", "etapa:x/inicial"),
+        recurso("rec:x/livro-cap-2", "etapa:x/inicial", parte_de="rec:x/livro"),
+    )
+    assert conferir_recurso("rec:x/livro", cat, base) is None
+    erro = conferir_recurso("rec:x/livro-cap-2", cat, base)
+    assert erro is not None and "rec:x/livro" in erro and "percorrer" in erro

@@ -281,6 +281,177 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-08
 
+  # Capítulos de rec:ia/prompt-engineering-for-llms (ADR-0019). `parte_de` os tira das
+  # vias de estudo da etapa: o motor segue sugerindo o livro inteiro, e cada capítulo
+  # existe para `trilhas-percurso percorrer` registrar leitura parcial. Sumário da
+  # página da O'Reilly; a duração reparte as 720 min do todo, sem contagem de páginas
+  # por capítulo, com o 11 (perspectivas) mais curto.
+
+  - id: rec:ia/prompt-engineering-for-llms-cap-01
+    etapa: etapa:ia/engenharia-de-prompt
+    titulo: "Prompt Engineering for LLMs, cap. 1 — Introduction to Prompt Engineering"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 300
+    obra: prompt-engineering-for-llms
+    parte_de: rec:ia/prompt-engineering-for-llms
+    duracao_min: 70
+    url: https://www.oreilly.com/library/view/-/9781098156145
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  - id: rec:ia/prompt-engineering-for-llms-cap-02
+    etapa: etapa:ia/engenharia-de-prompt
+    titulo: "Prompt Engineering for LLMs, cap. 2 — Understanding LLMs"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 300
+    obra: prompt-engineering-for-llms
+    parte_de: rec:ia/prompt-engineering-for-llms
+    duracao_min: 70
+    url: https://www.oreilly.com/library/view/-/9781098156145
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  - id: rec:ia/prompt-engineering-for-llms-cap-03
+    etapa: etapa:ia/engenharia-de-prompt
+    titulo: "Prompt Engineering for LLMs, cap. 3 — Moving to Chat"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 300
+    obra: prompt-engineering-for-llms
+    parte_de: rec:ia/prompt-engineering-for-llms
+    duracao_min: 70
+    url: https://www.oreilly.com/library/view/-/9781098156145
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  - id: rec:ia/prompt-engineering-for-llms-cap-04
+    etapa: etapa:ia/engenharia-de-prompt
+    titulo: "Prompt Engineering for LLMs, cap. 4 — Designing LLM Applications"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 300
+    obra: prompt-engineering-for-llms
+    parte_de: rec:ia/prompt-engineering-for-llms
+    duracao_min: 70
+    url: https://www.oreilly.com/library/view/-/9781098156145
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  - id: rec:ia/prompt-engineering-for-llms-cap-05
+    etapa: etapa:ia/engenharia-de-prompt
+    titulo: "Prompt Engineering for LLMs, cap. 5 — Prompt Content"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 300
+    obra: prompt-engineering-for-llms
+    parte_de: rec:ia/prompt-engineering-for-llms
+    duracao_min: 70
+    url: https://www.oreilly.com/library/view/-/9781098156145
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  - id: rec:ia/prompt-engineering-for-llms-cap-06
+    etapa: etapa:ia/engenharia-de-prompt
+    titulo: "Prompt Engineering for LLMs, cap. 6 — Assembling the Prompt"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 300
+    obra: prompt-engineering-for-llms
+    parte_de: rec:ia/prompt-engineering-for-llms
+    duracao_min: 70
+    url: https://www.oreilly.com/library/view/-/9781098156145
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  - id: rec:ia/prompt-engineering-for-llms-cap-07
+    etapa: etapa:ia/engenharia-de-prompt
+    titulo: "Prompt Engineering for LLMs, cap. 7 — Taming the Model"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 300
+    obra: prompt-engineering-for-llms
+    parte_de: rec:ia/prompt-engineering-for-llms
+    duracao_min: 70
+    url: https://www.oreilly.com/library/view/-/9781098156145
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  - id: rec:ia/prompt-engineering-for-llms-cap-08
+    etapa: etapa:ia/engenharia-de-prompt
+    titulo: "Prompt Engineering for LLMs, cap. 8 — Conversational Agency"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 300
+    obra: prompt-engineering-for-llms
+    parte_de: rec:ia/prompt-engineering-for-llms
+    duracao_min: 70
+    url: https://www.oreilly.com/library/view/-/9781098156145
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  - id: rec:ia/prompt-engineering-for-llms-cap-09
+    etapa: etapa:ia/engenharia-de-prompt
+    titulo: "Prompt Engineering for LLMs, cap. 9 — LLM Workflows"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 300
+    obra: prompt-engineering-for-llms
+    parte_de: rec:ia/prompt-engineering-for-llms
+    duracao_min: 70
+    url: https://www.oreilly.com/library/view/-/9781098156145
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  - id: rec:ia/prompt-engineering-for-llms-cap-10
+    etapa: etapa:ia/engenharia-de-prompt
+    titulo: "Prompt Engineering for LLMs, cap. 10 — Evaluating LLM Applications"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 300
+    obra: prompt-engineering-for-llms
+    parte_de: rec:ia/prompt-engineering-for-llms
+    duracao_min: 70
+    url: https://www.oreilly.com/library/view/-/9781098156145
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  - id: rec:ia/prompt-engineering-for-llms-cap-11
+    etapa: etapa:ia/engenharia-de-prompt
+    titulo: "Prompt Engineering for LLMs, cap. 11 — Looking Ahead"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 300
+    obra: prompt-engineering-for-llms
+    parte_de: rec:ia/prompt-engineering-for-llms
+    duracao_min: 20
+    url: https://www.oreilly.com/library/view/-/9781098156145
+    disponivel: true
+    verificado_em: 2026-10-22
+
   # ATENÇÃO sobre cobertura parcial: esta etapa desenvolve DUAS competências —
   # `comp:ia/engenharia-de-prompt` e `comp:ia/uso-de-llm-por-api`. O livro do Edney
   # Souza cobre bem a primeira (15 capítulos, 30+ técnicas, encadeamento de

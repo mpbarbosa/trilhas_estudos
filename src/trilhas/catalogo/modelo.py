@@ -134,9 +134,15 @@ class Recurso:
     url: str
     disponivel: bool
     obra: str | None = None
+    parte_de: str | None = None
     verificado_em: date | None = None
     substituido_por: str | None = None
     depreciado_em: date | None = None
+
+    @property
+    def e_parte(self) -> bool:
+        """Capítulo de outro recurso da mesma etapa, não via de estudo dela (ADR-0019)."""
+        return self.parte_de is not None
 
 
 @dataclass(frozen=True, slots=True)
@@ -191,7 +197,13 @@ class Catalogo:
     trilhas: dict[str, Trilha] = field(default_factory=dict)
 
     def recursos_da_etapa(self, etapa_id: str) -> list[Recurso]:
-        return [r for r in self.recursos.values() if r.etapa == etapa_id]
+        """As vias de estudo da etapa: cada uma, sozinha, a atende.
+
+        Parte de recurso (`parte_de`) fica de fora — é capítulo de uma dessas vias, não
+        alternativa a ela, e escolhê-la faria o motor nomear um capítulo como o
+        material da etapa inteira (ADR-0019). Para alcançá-la, `recursos`.
+        """
+        return [r for r in self.recursos.values() if r.etapa == etapa_id and not r.e_parte]
 
     def etapas_ativas(self) -> list[Etapa]:
         return [e for e in self.etapas.values() if e.status.ativo]
