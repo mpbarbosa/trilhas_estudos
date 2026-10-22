@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 41,
-  "gerado_em": "2026-10-22T03:07:04+00:00",
-  "hash": "sha256:af6dbd65331090d6c7fc99f5e322e9ec2a109e792a253497ff211062a7376bbb",
+  "catalogo_versao": 42,
+  "gerado_em": "2026-10-22T04:02:27+00:00",
+  "hash": "sha256:5ca7eb65840fd489ba232c703e4810d09c981755cca152348b141998839f4c3c",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -1196,7 +1196,7 @@
       "titulo": "Git por dentro — grafo, histórico e o commit como unidade de revisão",
       "rev": 1,
       "status": "ativo",
-      "esforco_estimado_min": 600,
+      "esforco_estimado_min": 720,
       "trilha": "trilha:engenharia/arquitetura-e-entrega",
       "opcional": false,
       "teaches": [
@@ -2448,9 +2448,9 @@
     {
       "id": "etapa:programacao/python-para-ia",
       "titulo": "Python para trabalho com dados e IA",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
-      "esforco_estimado_min": 600,
+      "esforco_estimado_min": 1200,
       "trilha": "trilha:ia/llm-transformer-rag",
       "opcional": true,
       "teaches": [
@@ -2600,7 +2600,7 @@
       "titulo": "Automação por script shell — do comando repetido ao script que se mantém",
       "rev": 1,
       "status": "ativo",
-      "esforco_estimado_min": 540,
+      "esforco_estimado_min": 600,
       "opcional": true,
       "requires": [
         {
@@ -3166,9 +3166,9 @@
     {
       "id": "etapa:web/python-no-servidor",
       "titulo": "Python no servidor — HTTP, template e a borda que não calcula domínio",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
-      "esforco_estimado_min": 720,
+      "esforco_estimado_min": 900,
       "trilha": "trilha:web/do-protocolo-a-interface",
       "opcional": true,
       "requires": [

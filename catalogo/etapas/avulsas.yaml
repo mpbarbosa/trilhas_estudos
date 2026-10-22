@@ -46,7 +46,7 @@ etapas:
     titulo: Automação por script shell — do comando repetido ao script que se mantém
     rev: 1
     status: ativo
-    esforco_estimado_min: 540
+    esforco_estimado_min: 600
     opcional: true
     requires:
       - competencia: comp:so/linha-de-comando

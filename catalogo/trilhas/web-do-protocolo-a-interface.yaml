@@ -149,9 +149,9 @@ trilha:
     # mantém a `rev` da trilha onde está (catalogo.md §4).
     - id: etapa:web/python-no-servidor
       titulo: Python no servidor — HTTP, template e a borda que não calcula domínio
-      rev: 1
+      rev: 2
       status: ativo
-      esforco_estimado_min: 720
+      esforco_estimado_min: 900
       opcional: true          # ramo: não é exigido pelo objetivo da trilha
       requires:
         - competencia: comp:web/http-e-protocolo

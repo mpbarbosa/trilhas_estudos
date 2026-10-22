@@ -87,7 +87,7 @@ trilha:
       titulo: Git por dentro — grafo, histórico e o commit como unidade de revisão
       rev: 1
       status: ativo
-      esforco_estimado_min: 600
+      esforco_estimado_min: 720
       opcional: false
       requires: []
       teaches:
