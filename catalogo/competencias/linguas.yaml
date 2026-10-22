@@ -46,3 +46,57 @@ competencias:
       classificá-la (finita ou não finita, e de que tipo), dizer que função ocupa
       na oração que a contém e reescrever uma das não finitas como finita sem mudar
       o sentido.
+
+  # --- trilha:linguas/ingles-geral-b2 --------------------------------------
+  # Competências de uso, não de análise: as três acima pedem que se segmente e
+  # rotule a frase; estas pedem que se fale e escreva. A escala de nível é interna
+  # a cada competência e tem o B2 do QECR como teto — `avancado` aqui é cumprir a
+  # `verificacao`, não o C1.
+  - id: comp:linguas/gramatica-em-uso-do-ingles
+    titulo: Gramática do inglês em uso — nível B2
+    rev: 1
+    status: ativo
+    descricao: >
+      Escolher e produzir as estruturas que distinguem o B2: presente e passado
+      com seus aspectos (perfeito, contínuo, perfeito contínuo), futuro com will,
+      be going to e presentes, modais de probabilidade, condicionais e wish,
+      passiva, relativas definidoras e explicativas, discurso indireto, infinitivo
+      e -ing depois de adjetivo, substantivo e verbo, artigos e contáveis,
+      quantificadores e comparação.
+    verificacao: >
+      Reescrever vinte frases trocando a estrutura pedida (ativa → passiva,
+      direta → indireta, duas frases → uma com relativa, fato → condicional ou
+      wish) sem mudar o sentido, com no máximo três erros; e, num texto próprio de
+      250 palavras, usar corretamente pelo menos seis dessas estruturas.
+
+  - id: comp:linguas/conversacao-em-ingles
+    titulo: Conversação em inglês — estratégias de interação no nível B2
+    rev: 1
+    status: ativo
+    descricao: >
+      Sustentar uma conversa sobre tema abstrato ou da atualidade usando as
+      estratégias que tornam a fala natural: perguntar para conferir, comentar com
+      which, interromper e retomar um relato, suavizar opinião com would,
+      reformular o que o outro disse (you mean, so what you're saying is),
+      atenuar (kind of, not really) e marcar posição (as far as I'm concerned).
+    verificacao: >
+      Gravar uma conversa de dez minutos com outra pessoa sobre um tema das
+      unidades (redes sociais, mídia, trabalho, cultura) e, ouvindo a gravação,
+      apontar pelo menos oito estratégias de conversa diferentes efetivamente
+      usadas, sem pausa longa para procurar palavra que quebre a interação.
+
+  - id: comp:linguas/escrita-argumentativa-em-ingles
+    titulo: Escrita argumentativa e expositiva em inglês — nível B2
+    rev: 1
+    status: ativo
+    descricao: >
+      Os gêneros escritos do B2: parágrafo argumentativo com tópico e sustentação,
+      introdução e conclusão de ensaio, narrativa, declaração pessoal, e-mail
+      formal de consulta, relatório que descreve tendência em gráfico e artigo de
+      revista — com os conectivos e o registro que cada um pede.
+    verificacao: >
+      Escrever um ensaio de 300 palavras sobre tema controverso (ex.: o governo é
+      responsável pela felicidade dos cidadãos?), com introdução que apresenta a
+      posição, dois parágrafos de sustentação e conclusão; e um relatório de 150
+      palavras descrevendo um gráfico. Ambos sem erro que impeça a compreensão e
+      com registro formal do começo ao fim.

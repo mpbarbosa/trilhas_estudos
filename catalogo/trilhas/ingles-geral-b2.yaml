@@ -1,0 +1,116 @@
+versao_schema: 1
+trilha:
+  id: trilha:linguas/ingles-geral-b2
+  titulo: Inglês geral no nível B2 — gramática em uso, conversação e escrita
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:linguas/gramatica-em-uso-do-ingles
+      nivel: avancado
+    - competencia: comp:linguas/conversacao-em-ingles
+      nivel: avancado
+    - competencia: comp:linguas/escrita-argumentativa-em-ingles
+      nivel: avancado
+
+  # Nasce do livro do curso — McCarthy, McCarten e Sandiford, *Viewpoint 1
+  # Student's Book* (Cambridge, 2012), adotado no nível Master 1 e 2 da Alumni —
+  # e o livro é a espinha (obra: mccarthy-mccarten-sandiford-viewpoint-1). Doze
+  # unidades, com um Checkpoint de revisão a cada três; as quatro etapas são os
+  # quatro blocos entre Checkpoints, na ordem do livro, cada um fechado pelo
+  # Checkpoint correspondente.
+  #
+  # Cada unidade trabalha as três competências juntas — gramática, estratégia de
+  # conversa e uma tarefa de escrita —, então as etapas não se separam por
+  # competência, e sim por grau. O escalonamento é desigual de propósito: uma etapa
+  # que só repetisse o nível da anterior seria filtrada como `ja_dominada` pelo
+  # motor (motor-de-sugestao.md §7). A escrita sobe um bloco depois das outras duas
+  # porque os gêneros de ensaio (introdução, relatório com gráfico, conclusão)
+  # se concentram nas unidades 7 a 12.
+  #
+  # Relação com trilha:linguas/sintaxe-do-ingles: lá se analisa a frase, aqui se
+  # produz. Nenhuma competência é compartilhada e nenhuma é pré-requisito da outra;
+  # quem faz as duas vê no Viewpoint, em uso, as estruturas que a outra rotula.
+  #
+  # Esforço: 300 min por unidade (dez páginas da unidade, as duas de Vocabulary
+  # notebook / Grammar extra / leitura e escuta no fim do livro, e o Speaking
+  # naturally), mais 60 min do Checkpoint — 960 min por etapa. Não conta aula.
+  etapas:
+    # --- Unidades 1 a 3 + Checkpoint 1 --------------------------------------
+    - id: etapa:linguas/viewpoint-1-unidades-1-3
+      titulo: "Redes sociais, mídia e histórias — presente e hábitos, relativas, tempos do passado"
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 960
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:linguas/gramatica-em-uso-do-ingles
+          nivel_resultante: iniciante
+        - competencia: comp:linguas/conversacao-em-ingles
+          nivel_resultante: iniciante
+        - competencia: comp:linguas/escrita-argumentativa-em-ingles
+          nivel_resultante: iniciante
+
+    # --- Unidades 4 a 6 + Checkpoint 2 --------------------------------------
+    - id: etapa:linguas/viewpoint-1-unidades-4-6
+      titulo: "Trabalho, desafios e futuro — artigos, condicionais e wish, futuro e modais"
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 960
+      opcional: false
+      requires:
+        - competencia: comp:linguas/gramatica-em-uso-do-ingles
+          nivel_minimo: iniciante
+        - competencia: comp:linguas/conversacao-em-ingles
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:linguas/gramatica-em-uso-do-ingles
+          nivel_resultante: intermediario
+        - competencia: comp:linguas/conversacao-em-ingles
+          nivel_resultante: intermediario
+        - competencia: comp:linguas/escrita-argumentativa-em-ingles
+          nivel_resultante: iniciante
+
+    # --- Unidades 7 a 9 + Checkpoint 3 --------------------------------------
+    - id: etapa:linguas/viewpoint-1-unidades-7-9
+      titulo: "Convivência, ciência dos alimentos e felicidade — phrasal verbs, infinitivo e -ing, passiva, quantificadores"
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 960
+      opcional: false
+      requires:
+        - competencia: comp:linguas/gramatica-em-uso-do-ingles
+          nivel_minimo: intermediario
+        - competencia: comp:linguas/conversacao-em-ingles
+          nivel_minimo: intermediario
+        - competencia: comp:linguas/escrita-argumentativa-em-ingles
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:linguas/gramatica-em-uso-do-ingles
+          nivel_resultante: intermediario
+        - competencia: comp:linguas/conversacao-em-ingles
+          nivel_resultante: intermediario
+        - competencia: comp:linguas/escrita-argumentativa-em-ingles
+          nivel_resultante: intermediario
+
+    # --- Unidades 10 a 12 + Checkpoint 4 ------------------------------------
+    - id: etapa:linguas/viewpoint-1-unidades-10-12
+      titulo: "Viagens, cultura e habilidade — discurso indireto, relativas com when/where/whose, comparação"
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 960
+      opcional: false
+      requires:
+        - competencia: comp:linguas/gramatica-em-uso-do-ingles
+          nivel_minimo: intermediario
+        - competencia: comp:linguas/conversacao-em-ingles
+          nivel_minimo: intermediario
+        - competencia: comp:linguas/escrita-argumentativa-em-ingles
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:linguas/gramatica-em-uso-do-ingles
+          nivel_resultante: avancado
+        - competencia: comp:linguas/conversacao-em-ingles
+          nivel_resultante: avancado
+        - competencia: comp:linguas/escrita-argumentativa-em-ingles
+          nivel_resultante: avancado
