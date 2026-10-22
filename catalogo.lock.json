@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 38,
-  "gerado_em": "2026-10-22T00:22:54+00:00",
-  "hash": "sha256:5bad2cea909ace0cad2693ccd86e46a49acf05a05133a57bfdd991ebd8c055e2",
+  "catalogo_versao": 39,
+  "gerado_em": "2026-10-22T00:33:56+00:00",
+  "hash": "sha256:e2a7d1260ed9a4f50f06096e8f2fe03a132fcb14c3d01637b9a5f238ed471f33",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -5525,6 +5525,66 @@
       "disponivel": true,
       "obra": "fenn-schwab-introducing-english-syntax",
       "verificado_em": "2026-10-21"
+    },
+    {
+      "id": "rec:linguas/huddleston-pullum-student-grammar-caps-1-2-4-8-9",
+      "titulo": "A Student's Introduction to English Grammar (Huddleston & Pullum) — caps. 1, 2, 4, 8 e 9: introdução, visão geral rápida, estrutura da oração com complementos e adjuntos, negação, tipos de oração (interrogativa, exclamativa, imperativa)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/oracao-simples-e-suas-funcoes",
+      "formato": "texto",
+      "idioma": "en-GB",
+      "custo": 250.0,
+      "duracao_min": 480,
+      "url": "https://www.amazon.com.br/dp/0521612888",
+      "disponivel": true,
+      "obra": "huddleston-pullum-student-introduction-english-grammar",
+      "verificado_em": "2026-10-22"
+    },
+    {
+      "id": "rec:linguas/huddleston-pullum-student-grammar-caps-10-13-14",
+      "titulo": "A Student's Introduction to English Grammar (Huddleston & Pullum) — caps. 10, 13 e 14: subordinação e orações de conteúdo, orações não finitas e sem verbo, coordenação",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/periodo-composto-e-oracoes-nao-finitas",
+      "formato": "texto",
+      "idioma": "en-GB",
+      "custo": 250.0,
+      "duracao_min": 300,
+      "url": "https://www.amazon.com.br/dp/0521612888",
+      "disponivel": true,
+      "obra": "huddleston-pullum-student-introduction-english-grammar",
+      "verificado_em": "2026-10-22"
+    },
+    {
+      "id": "rec:linguas/huddleston-pullum-student-grammar-caps-11-e-15",
+      "titulo": "A Student's Introduction to English Grammar (Huddleston & Pullum) — caps. 11 e 15: orações relativas, empacotamento da informação na oração (passiva, extraposição, existenciais, clivadas)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/sintagma-complexo-e-construcoes",
+      "formato": "texto",
+      "idioma": "en-GB",
+      "custo": 250.0,
+      "duracao_min": 240,
+      "url": "https://www.amazon.com.br/dp/0521612888",
+      "disponivel": true,
+      "obra": "huddleston-pullum-student-introduction-english-grammar",
+      "verificado_em": "2026-10-22"
+    },
+    {
+      "id": "rec:linguas/huddleston-pullum-student-grammar-caps-3-5-7-e-12",
+      "titulo": "A Student's Introduction to English Grammar (Huddleston & Pullum) — caps. 3, 5 a 7 e 12: verbos com tempo, aspecto e modo; substantivos e sintagma nominal; adjetivos e advérbios; preposições e sintagma preposicional; grau e comparação",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/sintagmas-e-sua-estrutura",
+      "formato": "texto",
+      "idioma": "en-GB",
+      "custo": 250.0,
+      "duracao_min": 540,
+      "url": "https://www.amazon.com.br/dp/0521612888",
+      "disponivel": true,
+      "obra": "huddleston-pullum-student-introduction-english-grammar",
+      "verificado_em": "2026-10-22"
     },
     {
       "id": "rec:linguas/longman-student-grammar-caps-1-3-e-8",

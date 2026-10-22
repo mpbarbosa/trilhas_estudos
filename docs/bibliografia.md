@@ -896,6 +896,28 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
   palavras: clivadas, existenciais, inversão) vai com o 9 nas construções. O cap. 13
   ficou sem etapa. A edição de 2002 é a que circula; não achei revisão posterior.
 
+### A Student's Introduction to English Grammar
+
+- **Autoria** — Rodney Huddleston e Geoffrey K. Pullum
+- **Edição** — 1ª ed., Cambridge University Press, 2005, 312 p., inglês. Versão
+  para graduação da *Cambridge Grammar of the English Language* (2002); 16
+  capítulos, do 1 (introdução) ao 16 (morfologia), com exercícios por capítulo.
+  Há 2ª edição (2022, brochura ISBN-13 978-1-009-08801-5), não catalogada: o
+  exemplar indicado é o de 2005.
+- **Identificadores** — brochura: ISBN-13 978-0-521-61288-3 · ISBN-10 `0521612888`
+- **Amazon** — https://www.amazon.com.br/dp/0521612888 — preço não conferido em
+  2026-10-22 (a página não abriu daqui); o `custo: 250` é estimativa a partir do
+  preço de lista da brochura em dólar
+- **Citada por** — `rec:linguas/huddleston-pullum-student-grammar-caps-1-2-4-8-9`,
+  `rec:linguas/huddleston-pullum-student-grammar-caps-3-5-7-e-12`,
+  `rec:linguas/huddleston-pullum-student-grammar-caps-10-13-14`,
+  `rec:linguas/huddleston-pullum-student-grammar-caps-11-e-15`
+- **Nota** — as fatias seguem `trilha:linguas/sintaxe-do-ingles`, não o livro: o
+  cap. 3 (verbos, tempo, aspecto, modo) vai com os sintagmas, onde a trilha põe o
+  sintagma verbal; negação (8) e tipos de oração (9) vão com a oração simples; as
+  relativas (11) vão com o sintagma complexo, como a pós-modificação oracional da
+  competência. O cap. 16 (morfologia) ficou sem etapa.
+
 ## O que não tem ficha
 
 Recursos que não são livros ficam de fora: documentação oficial (MDN, pandas,
