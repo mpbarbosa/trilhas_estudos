@@ -876,6 +876,26 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
   preço de lista da brochura em dólar, não o preço pago; a página da editora não
   mostrou preço em 2026-10-21.
 
+### Longman Student Grammar of Spoken and Written English
+
+- **Autoria** — Douglas Biber, Susan Conrad e Geoffrey Leech
+- **Edição** — Longman (Pearson Education), Harlow, 2002, 487 p., inglês. Versão
+  para estudante da *Longman Grammar of Spoken and Written English* (1999), baseada
+  no mesmo corpus; 13 capítulos, do 1 (a perspectiva do discurso) ao 13 (a
+  gramática da conversa). Há caderno de exercícios vendido à parte, não catalogado.
+- **Identificadores** — brochura: ISBN-13 978-0-582-23726-1 · ISBN-10 `0582237262`
+- **Amazon** — https://www.amazon.com.br/dp/0582237262 — capa comum a R$ 300,18 em
+  2026-10-22 (capa dura só usada, R$ 539,74); o recurso declara o da capa comum
+- **Citada por** — `rec:linguas/longman-student-grammar-caps-1-3-e-8`,
+  `rec:linguas/longman-student-grammar-caps-4-7`,
+  `rec:linguas/longman-student-grammar-caps-10-11`,
+  `rec:linguas/longman-student-grammar-caps-9-e-12`
+- **Nota** — a ordem dos capítulos não é a de
+  `trilha:linguas/sintaxe-do-ingles`, e as fatias seguem a trilha: o cap. 8 (a
+  gramática da oração) vai com os caps. 1 a 3 na oração simples, e o 12 (ordem das
+  palavras: clivadas, existenciais, inversão) vai com o 9 nas construções. O cap. 13
+  ficou sem etapa. A edição de 2002 é a que circula; não achei revisão posterior.
+
 ## O que não tem ficha
 
 Recursos que não são livros ficam de fora: documentação oficial (MDN, pandas,

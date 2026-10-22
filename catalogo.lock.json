@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 37,
-  "gerado_em": "2026-10-21T23:05:45+00:00",
-  "hash": "sha256:d048799ce0e1471e530bb72f221cb8a6cc9e1860c3a3583fefd27bd2ea3ed7f7",
+  "catalogo_versao": 38,
+  "gerado_em": "2026-10-22T00:22:54+00:00",
+  "hash": "sha256:5bad2cea909ace0cad2693ccd86e46a49acf05a05133a57bfdd991ebd8c055e2",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -5525,6 +5525,66 @@
       "disponivel": true,
       "obra": "fenn-schwab-introducing-english-syntax",
       "verificado_em": "2026-10-21"
+    },
+    {
+      "id": "rec:linguas/longman-student-grammar-caps-1-3-e-8",
+      "titulo": "Longman Student Grammar of Spoken and Written English (Biber, Conrad & Leech) — caps. 1 a 3 e 8: a perspectiva do discurso, palavras e classes de palavras, introdução a sintagmas e orações, a gramática da oração",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/oracao-simples-e-suas-funcoes",
+      "formato": "texto",
+      "idioma": "en-GB",
+      "custo": 300.0,
+      "duracao_min": 660,
+      "url": "https://www.amazon.com.br/dp/0582237262",
+      "disponivel": true,
+      "obra": "biber-conrad-leech-longman-student-grammar",
+      "verificado_em": "2026-10-22"
+    },
+    {
+      "id": "rec:linguas/longman-student-grammar-caps-10-11",
+      "titulo": "Longman Student Grammar of Spoken and Written English (Biber, Conrad & Leech) — caps. 10 e 11: orações complemento de verbo e de adjetivo, adverbiais",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/periodo-composto-e-oracoes-nao-finitas",
+      "formato": "texto",
+      "idioma": "en-GB",
+      "custo": 300.0,
+      "duracao_min": 480,
+      "url": "https://www.amazon.com.br/dp/0582237262",
+      "disponivel": true,
+      "obra": "biber-conrad-leech-longman-student-grammar",
+      "verificado_em": "2026-10-22"
+    },
+    {
+      "id": "rec:linguas/longman-student-grammar-caps-4-7",
+      "titulo": "Longman Student Grammar of Spoken and Written English (Biber, Conrad & Leech) — caps. 4 a 7: substantivos, pronomes e o sintagma nominal simples, verbos, variação no sintagma verbal (tempo, aspecto, voz, modais), adjetivos e advérbios",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/sintagmas-e-sua-estrutura",
+      "formato": "texto",
+      "idioma": "en-GB",
+      "custo": 300.0,
+      "duracao_min": 720,
+      "url": "https://www.amazon.com.br/dp/0582237262",
+      "disponivel": true,
+      "obra": "biber-conrad-leech-longman-student-grammar",
+      "verificado_em": "2026-10-22"
+    },
+    {
+      "id": "rec:linguas/longman-student-grammar-caps-9-e-12",
+      "titulo": "Longman Student Grammar of Spoken and Written English (Biber, Conrad & Leech) — caps. 9 e 12: sintagmas nominais complexos, escolhas de ordem das palavras",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/sintagma-complexo-e-construcoes",
+      "formato": "texto",
+      "idioma": "en-GB",
+      "custo": 300.0,
+      "duracao_min": 360,
+      "url": "https://www.amazon.com.br/dp/0582237262",
+      "disponivel": true,
+      "obra": "biber-conrad-leech-longman-student-grammar",
+      "verificado_em": "2026-10-22"
     },
     {
       "id": "rec:matematica/book-of-proof",
