@@ -938,6 +938,26 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
   relativas (11) vão com o sintagma complexo, como a pós-modificação oracional da
   competência. O cap. 16 (morfologia) ficou sem etapa.
 
+### Viewpoint 1 Student's Book
+
+- **Autoria** — Michael McCarthy, Jeanne McCarten e Helen Sandiford
+- **Edição** — 1ª ed., Cambridge University Press, 2012, inglês norte-americano.
+  Livro-texto de inglês geral, nível B2 do QECR segundo a editora; continuação da
+  série *Touchstone*. Doze unidades (pp. 10–135) com um Checkpoint a cada três, e
+  as seções de cada unidade no fim do livro (Speaking naturally, pp. 138–143;
+  Vocabulary notebook, Grammar extra, leitura e escuta, pp. 144–167). Sumário
+  conferido no *frontmatter* da editora. Há edição atualizada (2015, ISBN-13
+  978-1-107-60151-2), não catalogada: a capa do exemplar é a de 2012.
+- **Identificadores** — ISBN-13 978-0-521-13186-5 · ISBN-10 `0521131863`
+- **Amazon** — https://www.amazon.com.br/dp/0521131863 — página e preço não
+  conferidos em 2026-10-22; o `custo: 250` é estimativa. O exemplar é o do curso
+  Alumni (Master 1 e 2).
+- **Citada por** — `rec:linguas/viewpoint-1-unidades-1-3`,
+  `rec:linguas/viewpoint-1-unidades-4-6`, `rec:linguas/viewpoint-1-unidades-7-9`,
+  `rec:linguas/viewpoint-1-unidades-10-12`
+- **Nota** — as fatias são os quatro blocos entre Checkpoints, cada um com o
+  próprio Checkpoint, e espinha de `trilha:linguas/ingles-geral-b2`.
+
 ## O que não tem ficha
 
 Recursos que não são livros ficam de fora: documentação oficial (MDN, pandas,

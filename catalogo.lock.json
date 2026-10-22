@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 42,
-  "gerado_em": "2026-10-22T04:02:27+00:00",
-  "hash": "sha256:5ca7eb65840fd489ba232c703e4810d09c981755cca152348b141998839f4c3c",
+  "catalogo_versao": 43,
+  "gerado_em": "2026-10-22T14:35:22+00:00",
+  "hash": "sha256:e739f6b7f33ff804c4dbe0d9a5cf460c37d0920f8de5a4f215cf0101f4aa9fa0",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -347,6 +347,30 @@
       "status": "ativo",
       "verificacao": "Implementar uma chamada que devolva JSON válido conforme um esquema dado, controlando temperatura e limite de tokens, e estimar o custo por mil chamadas.",
       "descricao": "Operar um modelo hospedado: parâmetros de decodificação, saída estruturada, janela de contexto, custo e latência por chamada.\n"
+    },
+    {
+      "id": "comp:linguas/conversacao-em-ingles",
+      "titulo": "Conversação em inglês — estratégias de interação no nível B2",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Gravar uma conversa de dez minutos com outra pessoa sobre um tema das unidades (redes sociais, mídia, trabalho, cultura) e, ouvindo a gravação, apontar pelo menos oito estratégias de conversa diferentes efetivamente usadas, sem pausa longa para procurar palavra que quebre a interação.",
+      "descricao": "Sustentar uma conversa sobre tema abstrato ou da atualidade usando as estratégias que tornam a fala natural: perguntar para conferir, comentar com which, interromper e retomar um relato, suavizar opinião com would, reformular o que o outro disse (you mean, so what you're saying is), atenuar (kind of, not really) e marcar posição (as far as I'm concerned).\n"
+    },
+    {
+      "id": "comp:linguas/escrita-argumentativa-em-ingles",
+      "titulo": "Escrita argumentativa e expositiva em inglês — nível B2",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Escrever um ensaio de 300 palavras sobre tema controverso (ex.: o governo é responsável pela felicidade dos cidadãos?), com introdução que apresenta a posição, dois parágrafos de sustentação e conclusão; e um relatório de 150 palavras descrevendo um gráfico. Ambos sem erro que impeça a compreensão e com registro formal do começo ao fim.",
+      "descricao": "Os gêneros escritos do B2: parágrafo argumentativo com tópico e sustentação, introdução e conclusão de ensaio, narrativa, declaração pessoal, e-mail formal de consulta, relatório que descreve tendência em gráfico e artigo de revista — com os conectivos e o registro que cada um pede.\n"
+    },
+    {
+      "id": "comp:linguas/gramatica-em-uso-do-ingles",
+      "titulo": "Gramática do inglês em uso — nível B2",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Reescrever vinte frases trocando a estrutura pedida (ativa → passiva, direta → indireta, duas frases → uma com relativa, fato → condicional ou wish) sem mudar o sentido, com no máximo três erros; e, num texto próprio de 250 palavras, usar corretamente pelo menos seis dessas estruturas.",
+      "descricao": "Escolher e produzir as estruturas que distinguem o B2: presente e passado com seus aspectos (perfeito, contínuo, perfeito contínuo), futuro com will, be going to e presentes, modais de probabilidade, condicionais e wish, passiva, relativas definidoras e explicativas, discurso indireto, infinitivo e -ing depois de adjetivo, substantivo e verbo, artigos e contáveis, quantificadores e comparação.\n"
     },
     {
       "id": "comp:linguas/oracao-simples-do-ingles",
@@ -2113,6 +2137,136 @@
       ]
     },
     {
+      "id": "etapa:linguas/viewpoint-1-unidades-1-3",
+      "titulo": "Redes sociais, mídia e histórias — presente e hábitos, relativas, tempos do passado",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 960,
+      "trilha": "trilha:linguas/ingles-geral-b2",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:linguas/gramatica-em-uso-do-ingles",
+          "nivel_resultante": "iniciante"
+        },
+        {
+          "competencia": "comp:linguas/conversacao-em-ingles",
+          "nivel_resultante": "iniciante"
+        },
+        {
+          "competencia": "comp:linguas/escrita-argumentativa-em-ingles",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:linguas/viewpoint-1-unidades-10-12",
+      "titulo": "Viagens, cultura e habilidade — discurso indireto, relativas com when/where/whose, comparação",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 960,
+      "trilha": "trilha:linguas/ingles-geral-b2",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:linguas/gramatica-em-uso-do-ingles",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:linguas/conversacao-em-ingles",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:linguas/escrita-argumentativa-em-ingles",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:linguas/gramatica-em-uso-do-ingles",
+          "nivel_resultante": "avancado"
+        },
+        {
+          "competencia": "comp:linguas/conversacao-em-ingles",
+          "nivel_resultante": "avancado"
+        },
+        {
+          "competencia": "comp:linguas/escrita-argumentativa-em-ingles",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:linguas/viewpoint-1-unidades-4-6",
+      "titulo": "Trabalho, desafios e futuro — artigos, condicionais e wish, futuro e modais",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 960,
+      "trilha": "trilha:linguas/ingles-geral-b2",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:linguas/gramatica-em-uso-do-ingles",
+          "nivel_minimo": "iniciante"
+        },
+        {
+          "competencia": "comp:linguas/conversacao-em-ingles",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:linguas/gramatica-em-uso-do-ingles",
+          "nivel_resultante": "intermediario"
+        },
+        {
+          "competencia": "comp:linguas/conversacao-em-ingles",
+          "nivel_resultante": "intermediario"
+        },
+        {
+          "competencia": "comp:linguas/escrita-argumentativa-em-ingles",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:linguas/viewpoint-1-unidades-7-9",
+      "titulo": "Convivência, ciência dos alimentos e felicidade — phrasal verbs, infinitivo e -ing, passiva, quantificadores",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 960,
+      "trilha": "trilha:linguas/ingles-geral-b2",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:linguas/gramatica-em-uso-do-ingles",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:linguas/conversacao-em-ingles",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:linguas/escrita-argumentativa-em-ingles",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:linguas/gramatica-em-uso-do-ingles",
+          "nivel_resultante": "intermediario"
+        },
+        {
+          "competencia": "comp:linguas/conversacao-em-ingles",
+          "nivel_resultante": "intermediario"
+        },
+        {
+          "competencia": "comp:linguas/escrita-argumentativa-em-ingles",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:matematica/derivada-e-taxa-de-variacao",
       "titulo": "Derivada — taxa de variação e otimização",
       "rev": 1,
@@ -3465,6 +3619,32 @@
       ],
       "etapas_referenciadas": [
         "etapa:programacao/python-para-ia"
+      ]
+    },
+    {
+      "id": "trilha:linguas/ingles-geral-b2",
+      "titulo": "Inglês geral no nível B2 — gramática em uso, conversação e escrita",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:linguas/gramatica-em-uso-do-ingles",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:linguas/conversacao-em-ingles",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:linguas/escrita-argumentativa-em-ingles",
+          "nivel": "avancado"
+        }
+      ],
+      "etapas": [
+        "etapa:linguas/viewpoint-1-unidades-1-3",
+        "etapa:linguas/viewpoint-1-unidades-4-6",
+        "etapa:linguas/viewpoint-1-unidades-7-9",
+        "etapa:linguas/viewpoint-1-unidades-10-12"
       ]
     },
     {
@@ -5704,6 +5884,66 @@
       "url": "https://www.amazon.com.br/s?k=0582552079",
       "disponivel": true,
       "obra": "quirk-greenbaum-university-grammar",
+      "verificado_em": "2026-10-22"
+    },
+    {
+      "id": "rec:linguas/viewpoint-1-unidades-1-3",
+      "titulo": "Viewpoint 1 Student's Book (McCarthy, McCarten & Sandiford) — unidades 1 a 3 (Social networks, The media, Stories) e Checkpoint, pp. 10-41 e 138-139, 144-149",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/viewpoint-1-unidades-1-3",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 250.0,
+      "duracao_min": 960,
+      "url": "https://www.amazon.com.br/dp/0521131863",
+      "disponivel": true,
+      "obra": "mccarthy-mccarten-sandiford-viewpoint-1",
+      "verificado_em": "2026-10-22"
+    },
+    {
+      "id": "rec:linguas/viewpoint-1-unidades-10-12",
+      "titulo": "Viewpoint 1 Student's Book (McCarthy, McCarten & Sandiford) — unidades 10 a 12 (Going places, Culture, Ability) e Checkpoint, pp. 106-137 e 142-143, 162-167",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/viewpoint-1-unidades-10-12",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 250.0,
+      "duracao_min": 960,
+      "url": "https://www.amazon.com.br/dp/0521131863",
+      "disponivel": true,
+      "obra": "mccarthy-mccarten-sandiford-viewpoint-1",
+      "verificado_em": "2026-10-22"
+    },
+    {
+      "id": "rec:linguas/viewpoint-1-unidades-4-6",
+      "titulo": "Viewpoint 1 Student's Book (McCarthy, McCarten & Sandiford) — unidades 4 a 6 (Working lives, Challenges, Into the future) e Checkpoint, pp. 42-73 e 139-140, 150-155",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/viewpoint-1-unidades-4-6",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 250.0,
+      "duracao_min": 960,
+      "url": "https://www.amazon.com.br/dp/0521131863",
+      "disponivel": true,
+      "obra": "mccarthy-mccarten-sandiford-viewpoint-1",
+      "verificado_em": "2026-10-22"
+    },
+    {
+      "id": "rec:linguas/viewpoint-1-unidades-7-9",
+      "titulo": "Viewpoint 1 Student's Book (McCarthy, McCarten & Sandiford) — unidades 7 a 9 (Getting along, Food science, Success and happiness) e Checkpoint, pp. 74-105 e 141-142, 156-161",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:linguas/viewpoint-1-unidades-7-9",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 250.0,
+      "duracao_min": 960,
+      "url": "https://www.amazon.com.br/dp/0521131863",
+      "disponivel": true,
+      "obra": "mccarthy-mccarten-sandiford-viewpoint-1",
       "verificado_em": "2026-10-22"
     },
     {

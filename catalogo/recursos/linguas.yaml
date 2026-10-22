@@ -51,6 +51,18 @@
 #     O custo é estimativa (~US$ 50 de lista da brochura): a Amazon brasileira não
 #     foi conferida em 2026-10-22. Corrija aqui e nas quatro fatias se o exemplar
 #     custou outro valor.
+#
+#   obra: mccarthy-mccarten-sandiford-viewpoint-1 — Michael McCarthy, Jeanne
+#     McCarten e Helen Sandiford, *Viewpoint 1 Student's Book* (Cambridge
+#     University Press, 2012, ISBN 978-0-521-13186-5). Livro-texto de inglês geral
+#     da série que continua o *Touchstone*, em inglês norte-americano; a editora o
+#     situa no B2 do QECR. Espinha de trilha:linguas/ingles-geral-b2: doze
+#     unidades fatiadas nos quatro blocos entre Checkpoints, e cada fatia inclui as
+#     páginas daquelas unidades no fim do livro (Speaking naturally, Vocabulary
+#     notebook, Grammar extra, leitura e escuta). Exemplar do curso Alumni
+#     (Master 1 e 2). O custo é estimativa: o preço pago e o da Amazon brasileira
+#     não foram conferidos em 2026-10-22 — corrija nas quatro fatias se o
+#     exemplar custou outro valor.
 # -------------------------------------------------------------------------
 versao_schema: 1
 recursos:
@@ -280,5 +292,62 @@ recursos:
     obra: quirk-greenbaum-university-grammar
     duracao_min: 480
     url: https://www.amazon.com.br/s?k=0582552079
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  # --- mccarthy-mccarten-sandiford-viewpoint-1 (trilha:linguas/ingles-geral-b2)
+  - id: rec:linguas/viewpoint-1-unidades-1-3
+    etapa: etapa:linguas/viewpoint-1-unidades-1-3
+    titulo: "Viewpoint 1 Student's Book (McCarthy, McCarten & Sandiford) — unidades 1 a 3 (Social networks, The media, Stories) e Checkpoint, pp. 10-41 e 138-139, 144-149"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 250
+    obra: mccarthy-mccarten-sandiford-viewpoint-1
+    duracao_min: 960
+    url: https://www.amazon.com.br/dp/0521131863
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  - id: rec:linguas/viewpoint-1-unidades-4-6
+    etapa: etapa:linguas/viewpoint-1-unidades-4-6
+    titulo: "Viewpoint 1 Student's Book (McCarthy, McCarten & Sandiford) — unidades 4 a 6 (Working lives, Challenges, Into the future) e Checkpoint, pp. 42-73 e 139-140, 150-155"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 250
+    obra: mccarthy-mccarten-sandiford-viewpoint-1
+    duracao_min: 960
+    url: https://www.amazon.com.br/dp/0521131863
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  - id: rec:linguas/viewpoint-1-unidades-7-9
+    etapa: etapa:linguas/viewpoint-1-unidades-7-9
+    titulo: "Viewpoint 1 Student's Book (McCarthy, McCarten & Sandiford) — unidades 7 a 9 (Getting along, Food science, Success and happiness) e Checkpoint, pp. 74-105 e 141-142, 156-161"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 250
+    obra: mccarthy-mccarten-sandiford-viewpoint-1
+    duracao_min: 960
+    url: https://www.amazon.com.br/dp/0521131863
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  - id: rec:linguas/viewpoint-1-unidades-10-12
+    etapa: etapa:linguas/viewpoint-1-unidades-10-12
+    titulo: "Viewpoint 1 Student's Book (McCarthy, McCarten & Sandiford) — unidades 10 a 12 (Going places, Culture, Ability) e Checkpoint, pp. 106-137 e 142-143, 162-167"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 250
+    obra: mccarthy-mccarten-sandiford-viewpoint-1
+    duracao_min: 960
+    url: https://www.amazon.com.br/dp/0521131863
     disponivel: true
     verificado_em: 2026-10-22
