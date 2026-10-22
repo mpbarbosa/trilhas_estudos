@@ -119,7 +119,7 @@ class Fonte:
         return Acervo.de_dados(dados)
 
     def diagnosticar(self) -> Diagnostico:
-        """Roda as 12 validações sobre a autoria, e confere se o lock está em dia.
+        """Roda as 13 validações sobre a autoria, e confere se o lock está em dia.
 
         Sem diretório de autoria (pacote instalado sem as fontes), cai para validar o
         próprio snapshot — menos útil, mas honesto sobre o que conferiu.

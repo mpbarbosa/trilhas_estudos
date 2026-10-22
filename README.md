@@ -51,7 +51,7 @@ uv run --extra dev pytest           # suíte completa
 
 Em `localhost`: o painel *Agora* com as sugestões do motor e os fatores que as
 produziram, o grafo da trilha por onda de pré-requisito, a etapa com os recursos
-comparados, a competência com o critério de verificação, e as 12 validações numa
+comparados, a competência com o critério de verificação, e as 13 validações numa
 tela ([docs/interface.md](docs/interface.md)).
 
 ```bash

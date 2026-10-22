@@ -1,4 +1,4 @@
-"""As 12 validações de docs/catalogo.md §5.
+"""As 13 validações de docs/catalogo.md §5.
 
 Função pura: recebe catálogo em memória e o estado do snapshot anterior, devolve
 problemas. Sem I/O.
@@ -47,6 +47,7 @@ def validar(
     problemas += _v10_recursos_verificados(catalogo, hoje)
     problemas += _v11_etapas_orfas(catalogo)
     problemas += _v12_obra_com_custo_unico(catalogo)
+    problemas += _v13_parte_de_recurso(catalogo)
     return problemas
 
 
@@ -110,6 +111,8 @@ def _v2_referencias(catalogo: Catalogo) -> list[Problema]:
 
     for recurso in catalogo.recursos.values():
         conferir(recurso.id, recurso.etapa, "etapa", catalogo.etapas)
+        if recurso.parte_de is not None:
+            conferir(recurso.id, recurso.parte_de, "parte_de", catalogo.recursos)
 
     for trilha in catalogo.trilhas.values():
         for etapa_id in trilha.etapas_referenciadas:
@@ -440,3 +443,42 @@ def _v12_obra_com_custo_unico(catalogo: Catalogo) -> list[Problema]:
 def _e_outras(ids: list[str]) -> str:
     """`rec:x/a` ou `rec:x/a e outras 6` — mantém a mensagem legível em obra longa."""
     return ids[0] if len(ids) == 1 else f"{ids[0]} e outras {len(ids) - 1}"
+
+
+# --- §5.13 ---------------------------------------------------------------------
+
+
+def _v13_parte_de_recurso(catalogo: Catalogo) -> list[Problema]:
+    """Parte aponta para recurso da mesma etapa que não é, ele próprio, parte (ADR-0019).
+
+    A parte é capítulo do material que atende a etapa, então mora na mesma etapa que
+    ele: uma parte de outra etapa seria fatia de ADR-0009 com o campo errado. E um
+    nível só — capítulo de capítulo não tem leitor, e a cadeia esconderia qual é o
+    todo. Referência que não resolve é trabalho de §5.2.
+    """
+    problemas: list[Problema] = []
+    for parte in sorted(catalogo.recursos.values(), key=lambda r: r.id):
+        if parte.parte_de is None:
+            continue
+        todo = catalogo.recursos.get(parte.parte_de)
+        if todo is None:
+            continue
+        if todo.etapa != parte.etapa:
+            problemas.append(
+                erro(
+                    Codigo.PARTE_INCOERENTE,
+                    f"`parte_de` aponta para {todo.id}, de {todo.etapa}; a parte é de "
+                    f"{parte.etapa} — parte mora na etapa do todo",
+                    entidade=parte.id,
+                )
+            )
+        if todo.e_parte:
+            problemas.append(
+                erro(
+                    Codigo.PARTE_INCOERENTE,
+                    f"`parte_de` aponta para {todo.id}, que já é parte de "
+                    f"{todo.parte_de}; parte de parte não existe",
+                    entidade=parte.id,
+                )
+            )
+    return problemas

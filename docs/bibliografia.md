@@ -481,7 +481,7 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Edição** — O'Reilly Media, 31/12/2024, 280 p., en-US
 - **Identificadores** — ISBN-13 978-1-09-815615-2 · ISBN-10 `1098156153`
 - **Amazon** — https://www.amazon.com.br/dp/1098156153
-- **Citada por** — `rec:ia/prompt-engineering-for-llms`
+- **Citada por** — `rec:ia/prompt-engineering-for-llms`, e os capítulos `rec:ia/prompt-engineering-for-llms-cap-01` a `-cap-11` como partes dele (`obra: prompt-engineering-for-llms`, ADR-0019)
 
 ### Python Fluente
 

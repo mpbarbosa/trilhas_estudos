@@ -529,3 +529,26 @@ def test_catalogo_real_produz_sugestoes(catalogo_real: Path) -> None:
     resultado = sugerir(cat, percurso, AGORA)
     assert len(resultado.sugestoes) == 3
     assert all(s.explicacao for s in resultado.sugestoes)
+
+
+# --- parte de recurso não é via de estudo (ADR-0019) ---------------------------
+
+
+def test_capitulo_mais_curto_nao_e_sugerido_no_lugar_do_livro() -> None:
+    """Mesmo custo, duração menor: sem `parte_de`, o capítulo venceria o desempate."""
+    cat = catalogo(
+        competencia("comp:x/a"),
+        etapa("etapa:x/a", teaches=[("comp:x/a", N.INICIANTE)], trilha="trilha:x/t"),
+        recurso("rec:x/livro", "etapa:x/a", custo=30, duracao_min=600),
+        recurso(
+            "rec:x/livro-cap-1",
+            "etapa:x/a",
+            custo=30,
+            duracao_min=60,
+            obra="livro-x",
+            parte_de="rec:x/livro",
+        ),
+        trilha("trilha:x/t", etapas=["etapa:x/a"], objetivo=[("comp:x/a", N.INICIANTE)]),
+    )
+    resultado = _com_estante(frozenset(), cat=cat)
+    assert resultado.sugestoes[0].recurso_sugerido_id == "rec:x/livro"
