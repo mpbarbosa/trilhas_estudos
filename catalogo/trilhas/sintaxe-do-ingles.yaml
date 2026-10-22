@@ -27,13 +27,24 @@ trilha:
   # Relação com trilha:ia/modelo-de-markov-da-linguagem: ambas tratam de estrutura
   # da língua, mas lá a estrutura é estatística (n-gramas, etiquetagem) e aqui é
   # gramatical. Nenhuma competência é compartilhada.
+  #
+  # Quatro obras cobrem as mesmas quatro etapas — Fenn & Schwab, o Longman Student
+  # Grammar, o Quirk & Greenbaum e o Huddleston & Pullum — e são leituras
+  # alternativas da mesma análise, não partes complementares de um todo. Por isso
+  # `esforco_estimado_min` da etapa é a duração da leitura mais longa que a cobre, e
+  # não a soma: somar contaria quatro vezes o mesmo conteúdo. Recalculado em
+  # 2026-10-22, quando as três obras novas deixaram três das quatro etapas com
+  # esforço abaixo da própria leitura mais longa — anomalia que, feita a correção,
+  # sobra em 4 das 113 etapas do catálogo. As ondas não se recalculam daqui: a onda
+  # é profundidade de pré-requisito (`catalogo/grafo.py`, fecho progressivo) e só
+  # muda por `requires`/`teaches`, que nenhum recurso toca.
   etapas:
     # --- A oração simples ---------------------------------------------------
     - id: etapa:linguas/oracao-simples-e-suas-funcoes
       titulo: Elementos da estrutura gramatical e a oração simples
-      rev: 1
+      rev: 2
       status: ativo
-      esforco_estimado_min: 420
+      esforco_estimado_min: 660
       opcional: false
       requires: []
       teaches:
@@ -43,9 +54,9 @@ trilha:
     # --- Sintagmas ----------------------------------------------------------
     - id: etapa:linguas/sintagmas-e-sua-estrutura
       titulo: Sintagmas e sua estrutura — nominal, verbal, adjetival, adverbial e preposicional
-      rev: 1
+      rev: 2
       status: ativo
-      esforco_estimado_min: 360
+      esforco_estimado_min: 720
       opcional: false
       requires:
         - competencia: comp:linguas/oracao-simples-do-ingles
@@ -74,7 +85,7 @@ trilha:
       titulo: O sintagma complexo e construções oracionais selecionadas
       rev: 1
       status: ativo
-      esforco_estimado_min: 420
+      esforco_estimado_min: 480
       opcional: false
       requires:
         - competencia: comp:linguas/sintagmas-do-ingles

@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 40,
-  "gerado_em": "2026-10-22T00:42:35+00:00",
-  "hash": "sha256:e19f9e813c2269e14b22ef5d2fff3ff31b3a7c989bd8e5fa3471cb420de7dcf3",
+  "catalogo_versao": 41,
+  "gerado_em": "2026-10-22T03:07:04+00:00",
+  "hash": "sha256:af6dbd65331090d6c7fc99f5e322e9ec2a109e792a253497ff211062a7376bbb",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -2025,9 +2025,9 @@
     {
       "id": "etapa:linguas/oracao-simples-e-suas-funcoes",
       "titulo": "Elementos da estrutura gramatical e a oração simples",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
-      "esforco_estimado_min": 420,
+      "esforco_estimado_min": 660,
       "trilha": "trilha:linguas/sintaxe-do-ingles",
       "opcional": false,
       "teaches": [
@@ -2067,7 +2067,7 @@
       "titulo": "O sintagma complexo e construções oracionais selecionadas",
       "rev": 1,
       "status": "ativo",
-      "esforco_estimado_min": 420,
+      "esforco_estimado_min": 480,
       "trilha": "trilha:linguas/sintaxe-do-ingles",
       "opcional": false,
       "requires": [
@@ -2094,9 +2094,9 @@
     {
       "id": "etapa:linguas/sintagmas-e-sua-estrutura",
       "titulo": "Sintagmas e sua estrutura — nominal, verbal, adjetival, adverbial e preposicional",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
-      "esforco_estimado_min": 360,
+      "esforco_estimado_min": 720,
       "trilha": "trilha:linguas/sintaxe-do-ingles",
       "opcional": false,
       "requires": [
