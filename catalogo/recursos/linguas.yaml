@@ -38,6 +38,19 @@
 #     catálogo: só exemplar usado. O custo é estimativa de sebo/Amazon — o
 #     anúncio de origem não mostrava preço; corrija nas quatro fatias se o
 #     exemplar comprado custou outro valor.
+#
+#   obra: huddleston-pullum-student-introduction-english-grammar — Rodney
+#     Huddleston e Geoffrey K. Pullum, *A Student's Introduction to English
+#     Grammar* (Cambridge University Press, 2005, 312 p.). Versão para graduação
+#     da *Cambridge Grammar of the English Language* (2002): gramática descritiva
+#     que revê a tradicional — chama de "preposição" muito do que se chamava
+#     conjunção, separa categoria de função com rigor. Mais um olhar sobre a mesma
+#     análise: Fenn & Schwab ensinam a segmentar, a Longman mostra o uso, e aqui
+#     se vê por que os rótulos são esses. Fatias seguem a trilha, não o livro;
+#     o cap. 16 (morfologia) não cabe em nenhuma etapa e fica de fora.
+#     O custo é estimativa (~US$ 50 de lista da brochura): a Amazon brasileira não
+#     foi conferida em 2026-10-22. Corrija aqui e nas quatro fatias se o exemplar
+#     custou outro valor.
 # -------------------------------------------------------------------------
 versao_schema: 1
 recursos:
@@ -70,6 +83,20 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-22
 
+  - id: rec:linguas/huddleston-pullum-student-grammar-caps-1-2-4-8-9
+    etapa: etapa:linguas/oracao-simples-e-suas-funcoes
+    titulo: "A Student's Introduction to English Grammar (Huddleston & Pullum) — caps. 1, 2, 4, 8 e 9: introdução, visão geral rápida, estrutura da oração com complementos e adjuntos, negação, tipos de oração (interrogativa, exclamativa, imperativa)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-GB
+    custo: 250
+    obra: huddleston-pullum-student-introduction-english-grammar
+    duracao_min: 480
+    url: https://www.amazon.com.br/dp/0521612888
+    disponivel: true
+    verificado_em: 2026-10-22
+
   # --- etapa:linguas/sintagmas-e-sua-estrutura -----------------------------
   - id: rec:linguas/fenn-schwab-english-syntax-caps-4-5
     etapa: etapa:linguas/sintagmas-e-sua-estrutura
@@ -96,6 +123,20 @@ recursos:
     obra: biber-conrad-leech-longman-student-grammar
     duracao_min: 720
     url: https://www.amazon.com.br/dp/0582237262
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  - id: rec:linguas/huddleston-pullum-student-grammar-caps-3-5-7-e-12
+    etapa: etapa:linguas/sintagmas-e-sua-estrutura
+    titulo: "A Student's Introduction to English Grammar (Huddleston & Pullum) — caps. 3, 5 a 7 e 12: verbos com tempo, aspecto e modo; substantivos e sintagma nominal; adjetivos e advérbios; preposições e sintagma preposicional; grau e comparação"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-GB
+    custo: 250
+    obra: huddleston-pullum-student-introduction-english-grammar
+    duracao_min: 540
+    url: https://www.amazon.com.br/dp/0521612888
     disponivel: true
     verificado_em: 2026-10-22
 
@@ -128,6 +169,20 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-22
 
+  - id: rec:linguas/huddleston-pullum-student-grammar-caps-10-13-14
+    etapa: etapa:linguas/periodo-composto-e-oracoes-nao-finitas
+    titulo: "A Student's Introduction to English Grammar (Huddleston & Pullum) — caps. 10, 13 e 14: subordinação e orações de conteúdo, orações não finitas e sem verbo, coordenação"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-GB
+    custo: 250
+    obra: huddleston-pullum-student-introduction-english-grammar
+    duracao_min: 300
+    url: https://www.amazon.com.br/dp/0521612888
+    disponivel: true
+    verificado_em: 2026-10-22
+
   # --- etapa:linguas/sintagma-complexo-e-construcoes -----------------------
   - id: rec:linguas/fenn-schwab-english-syntax-caps-10-12
     etapa: etapa:linguas/sintagma-complexo-e-construcoes
@@ -154,6 +209,20 @@ recursos:
     obra: biber-conrad-leech-longman-student-grammar
     duracao_min: 360
     url: https://www.amazon.com.br/dp/0582237262
+    disponivel: true
+    verificado_em: 2026-10-22
+
+  - id: rec:linguas/huddleston-pullum-student-grammar-caps-11-e-15
+    etapa: etapa:linguas/sintagma-complexo-e-construcoes
+    titulo: "A Student's Introduction to English Grammar (Huddleston & Pullum) — caps. 11 e 15: orações relativas, empacotamento da informação na oração (passiva, extraposição, existenciais, clivadas)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-GB
+    custo: 250
+    obra: huddleston-pullum-student-introduction-english-grammar
+    duracao_min: 240
+    url: https://www.amazon.com.br/dp/0521612888
     disponivel: true
     verificado_em: 2026-10-22
 
