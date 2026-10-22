@@ -4,11 +4,18 @@
 versao_schema: 1
 recursos:
   # --- etapa:programacao/python-para-ia -----------------------------------
+  # Depreciado em 2026-10-22: era a rota mais longa (20h) para a competência de nível
+  # mais baixo do catálogo. `comp:programacao/python-dados` em `iniciante` se verifica
+  # com um script que limpa um CSV, e Py4E e Automate the Boring Stuff fazem isso em
+  # 12h e 15h. Este livro pressupõe Python sabido — o desencaixe é de nível, não de
+  # grão, então fatiá-lo não resolveria. Sem `substituido_por`: não há etapa de Python
+  # idiomático para herdá-lo. Se ela existir um dia, o livro volta por ela.
   - id: rec:programacao/python-fluente-2ed
     etapa: etapa:programacao/python-para-ia
     titulo: "Python Fluente, 2ª edição (Luciano Ramalho) — edição aberta em português"
-    rev: 1
-    status: ativo
+    rev: 2
+    status: depreciado
+    depreciado_em: 2026-10-22
     formato: texto
     idioma: pt-BR
     custo: 0

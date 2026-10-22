@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 43,
-  "gerado_em": "2026-10-22T14:35:22+00:00",
-  "hash": "sha256:e739f6b7f33ff804c4dbe0d9a5cf460c37d0920f8de5a4f215cf0101f4aa9fa0",
+  "catalogo_versao": 44,
+  "gerado_em": "2026-10-22T15:24:41+00:00",
+  "hash": "sha256:837e4c3a7add959ba0ca131ff61f9203f3c6a106b5f1bd8ecd5c2c4c1b59a72b",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -2602,9 +2602,9 @@
     {
       "id": "etapa:programacao/python-para-ia",
       "titulo": "Python para trabalho com dados e IA",
-      "rev": 2,
+      "rev": 3,
       "status": "ativo",
-      "esforco_estimado_min": 1200,
+      "esforco_estimado_min": 900,
       "trilha": "trilha:ia/llm-transformer-rag",
       "opcional": true,
       "teaches": [
@@ -6366,8 +6366,8 @@
     {
       "id": "rec:programacao/python-fluente-2ed",
       "titulo": "Python Fluente, 2ª edição (Luciano Ramalho) — edição aberta em português",
-      "rev": 1,
-      "status": "ativo",
+      "rev": 2,
+      "status": "depreciado",
       "etapa": "etapa:programacao/python-para-ia",
       "formato": "texto",
       "idioma": "pt-BR",
@@ -6375,7 +6375,8 @@
       "duracao_min": 1200,
       "url": "https://pythonfluente.com/",
       "disponivel": true,
-      "verificado_em": "2026-10-08"
+      "verificado_em": "2026-10-08",
+      "depreciado_em": "2026-10-22"
     },
     {
       "id": "rec:programacao/rust-book-sistemas",

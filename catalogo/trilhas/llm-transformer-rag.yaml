@@ -16,9 +16,9 @@ trilha:
     # --- Entrada ------------------------------------------------------------
     - id: etapa:programacao/python-para-ia
       titulo: Python para trabalho com dados e IA
-      rev: 2
+      rev: 3
       status: ativo
-      esforco_estimado_min: 1200
+      esforco_estimado_min: 900
       opcional: true          # pule declarando a competência no perfil
       requires: []
       teaches:
