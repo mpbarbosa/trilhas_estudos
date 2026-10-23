@@ -1285,3 +1285,31 @@ def test_etapa_sem_obra_nao_oferece_o_link(cliente: TestClient) -> None:
     """O fixture canônico não tem exemplar fatiado: nada a linkar."""
     html = cliente.get(f"/etapa/{_uma_etapa(cliente)}").text
     assert 'href="/obra/' not in html
+
+
+def test_indice_lista_os_exemplares_e_liga_para_cada_um(cliente_com_obra: TestClient) -> None:
+    resposta = cliente_com_obra.get("/obras")
+    assert resposta.status_code == 200
+    assert "Livro de Teste (Autor)" in resposta.text
+    assert f'href="/obra/{OBRA}"' in resposta.text
+
+
+def test_indice_soma_o_custo_contando_cada_exemplar_uma_vez(
+    cliente_com_obra: TestClient,
+) -> None:
+    """Duas fatias de R$ 90 são um livro de R$ 90, não R$ 180 (ADR-0009)."""
+    html = cliente_com_obra.get("/obras").text
+    assert "R$ 90" in html
+    assert "R$ 180" not in html
+
+
+def test_indice_sem_obra_alguma_e_tela_desenhada(cliente: TestClient) -> None:
+    """Estado vazio é tela, não 500 — o fixture canônico não declara `obra`."""
+    resposta = cliente.get("/obras")
+    assert resposta.status_code == 200
+    assert "Nenhum exemplar declara" in resposta.text
+
+
+def test_navegacao_leva_as_obras(cliente: TestClient) -> None:
+    """Sem link no topo, o índice existiria sem porta de entrada — como a obra estava."""
+    assert 'href="/obras"' in cliente.get("/acervo").text

@@ -388,6 +388,19 @@ async def desligar(request: Request) -> Response:
     return resposta
 
 
+async def obras(request: Request) -> Response:
+    """Índice dos exemplares fatiados (docs/interface.md §5.13).
+
+    Fica fora de `/catalogo` de propósito: lá se listam **entidades**, e obra não é uma
+    — não tem id, `rev` nem `status` (catalogo.md §2). Misturá-la ao explorador faria
+    o filtro por tipo prometer o que o modelo não tem.
+    """
+    ctx = _ctx(request)
+    return _responder(
+        request, "obras.html", {"v": apresentar_obra.indice(ctx.fonte.acervo()), "titulo": "Obras"}
+    )
+
+
 async def obra(request: Request) -> Response:
     """A tela do exemplar: as fatias, as etapas que elas atendem e o custo uma vez."""
     ctx = _ctx(request)
@@ -449,6 +462,7 @@ ROTAS = [
     Route("/trilha/{ident:path}", trilha),
     Route("/etapa/{ident:path}", etapa, methods=["GET", "POST"]),
     Route("/competencia/{ident:path}", competencia, methods=["GET", "POST"]),
+    Route("/obras", obras),
     Route("/obra/{slug}/exportar", obra_exportada),
     Route("/obra/{slug}", obra),
     Route("/desligar", desligar, methods=["POST"]),

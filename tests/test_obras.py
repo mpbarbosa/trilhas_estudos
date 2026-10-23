@@ -8,7 +8,13 @@ from __future__ import annotations
 
 import fabrica
 from trilhas.catalogo.modelo import Status
-from trilhas.catalogo.obras import nome_da_obra, obra, obras, recorte_da_fatia
+from trilhas.catalogo.obras import (
+    custo_das_obras,
+    nome_da_obra,
+    obra,
+    obras,
+    recorte_da_fatia,
+)
 
 LIVRO = "livro-de-teste"
 
@@ -151,3 +157,32 @@ def test_obra_do_catalogo_real(catalogo_real: object) -> None:
         assert uma.nome in cabecas
         assert uma.duracao_total_min >= max(f.duracao_min for f in uma.fatias)
         assert uma.custo == next(f.custo for f in uma.fatias if f.status is not Status.DEPRECIADO)
+
+
+def test_custo_das_obras_conta_cada_exemplar_uma_vez() -> None:
+    """A agregação que o ADR-0009 sempre previu: dois livros, não quatro fatias."""
+    catalogo = fabrica.catalogo(
+        fabrica.etapa("etapa:x/um"),
+        fabrica.recurso("rec:x/a1", "etapa:x/um", custo=90, obra="livro-a", titulo="A — 1"),
+        fabrica.recurso("rec:x/a2", "etapa:x/um", custo=90, obra="livro-a", titulo="A — 2"),
+        fabrica.recurso("rec:x/b1", "etapa:x/um", custo=120, obra="livro-b", titulo="B — 1"),
+        fabrica.recurso("rec:x/b2", "etapa:x/um", custo=120, obra="livro-b", titulo="B — 2"),
+    )
+    assert custo_das_obras(obras(catalogo)) == 210
+
+
+def test_custo_das_obras_ignora_recurso_sem_obra() -> None:
+    """A soma responde quanto custam os exemplares fatiados, não o catálogo inteiro."""
+    catalogo = fabrica.catalogo(
+        fabrica.etapa("etapa:x/um"),
+        fabrica.recurso("rec:x/a1", "etapa:x/um", custo=90, obra="livro-a", titulo="A — 1"),
+        fabrica.recurso("rec:x/avulso", "etapa:x/um", custo=500),
+    )
+    assert custo_das_obras(obras(catalogo)) == 90
+
+
+def test_custo_das_obras_sem_obra_alguma_e_zero() -> None:
+    catalogo = fabrica.catalogo(
+        fabrica.etapa("etapa:x/um"), fabrica.recurso("rec:x/avulso", "etapa:x/um", custo=500)
+    )
+    assert custo_das_obras(obras(catalogo)) == 0

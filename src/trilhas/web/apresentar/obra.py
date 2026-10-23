@@ -62,6 +62,71 @@ class VisaoObra:
     gerado_em: str
 
 
+@dataclass(frozen=True, slots=True)
+class LinhaObra:
+    """Um exemplar na lista: o bastante para escolher qual abrir."""
+
+    slug: str
+    nome: str
+    href: str
+    qtd_fatias: int
+    duracao: str
+    duracao_min: int
+    custo: str
+    custo_valor: float
+    qtd_etapas: int
+    idiomas: str
+    toda_depreciada: bool
+
+
+@dataclass(frozen=True, slots=True)
+class VisaoIndice:
+    obras: tuple[LinhaObra, ...]
+    qtd: int
+    custo_total: str
+    custo_total_valor: float
+    duracao_total: str
+    gratuitas: int
+
+
+def indice(acervo: Acervo) -> VisaoIndice:
+    """Todos os exemplares fatiados, em ordem de nome.
+
+    O total de custo conta cada exemplar uma vez — é a regra do ADR-0009 aplicada à
+    coleção, e a soma vem do domínio (`catalogo.obras.custo_das_obras`), não daqui.
+    """
+    reunidas = dominio.obras(acervo.catalogo)
+    linhas = tuple(
+        sorted(
+            (
+                LinhaObra(
+                    slug=uma.slug,
+                    nome=uma.nome,
+                    href=f"/obra/{uma.slug}",
+                    qtd_fatias=len(uma.fatias),
+                    duracao=comum.duracao(uma.duracao_total_min),
+                    duracao_min=uma.duracao_total_min,
+                    custo=comum.dinheiro(uma.custo),
+                    custo_valor=uma.custo,
+                    qtd_etapas=len(uma.etapas),
+                    idiomas=", ".join(uma.idiomas),
+                    toda_depreciada=uma.toda_depreciada,
+                )
+                for uma in reunidas
+            ),
+            key=lambda linha: linha.nome.casefold(),
+        )
+    )
+    return VisaoIndice(
+        obras=linhas,
+        qtd=len(linhas),
+        custo_total=comum.dinheiro(dominio.custo_das_obras(reunidas)),
+        custo_total_valor=dominio.custo_das_obras(reunidas),
+        duracao_total=comum.duracao(sum(uma.duracao_total_min for uma in reunidas)),
+        gratuitas=sum(1 for linha in linhas if linha.custo_valor <= 0),
+    )
+
+
 def pagina(acervo: Acervo, slug: str) -> VisaoObra | None:
     """Monta a visão da obra, ou `None` quando o slug não existe no catálogo."""
     encontrada = dominio.obra(acervo.catalogo, slug)

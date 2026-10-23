@@ -23,6 +23,7 @@ tem.
 
 from __future__ import annotations
 
+from collections.abc import Iterable
 from dataclasses import dataclass
 
 from .modelo import Catalogo, Recurso, Status
@@ -114,6 +115,20 @@ def obras(catalogo: Catalogo) -> tuple[Obra, ...]:
         if recurso.obra:
             por_slug.setdefault(recurso.obra, []).append(recurso)
     return tuple(_montar(slug, por_slug[slug]) for slug in sorted(por_slug))
+
+
+def custo_das_obras(reunidas: Iterable[Obra]) -> float:
+    """Soma o preço de cada exemplar **uma vez** (ADR-0009).
+
+    É a agregação monetária que o catálogo sempre previu e nunca tinha: somar `custo`
+    recurso a recurso cobraria o Date oito vezes, uma por fatia. Fica aqui, e não na
+    tela, porque somar dinheiro é regra de domínio (docs/interface.md §3.3).
+
+    Recurso sem `obra` não entra: ele é obra de si mesmo (docs/catalogo.md §2), mas
+    não é fatia de exemplar algum, e esta soma responde "quanto custam os exemplares
+    fatiados", não "quanto custa o catálogo".
+    """
+    return sum(uma.custo for uma in reunidas)
 
 
 def obra(catalogo: Catalogo, slug: str) -> Obra | None:

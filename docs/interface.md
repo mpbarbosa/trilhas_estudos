@@ -304,6 +304,8 @@ flowchart TD
     H --> I["/catalogo/diagnostico — 11 validações"]
     H --> J["/catalogo/autoria — gera YAML"]
     C --> K["/obra/{slug} — o exemplar, com export"]
+    A --> L["/obras — índice dos exemplares"]
+    L --> K
     F --> B
 ```
 
@@ -636,7 +638,7 @@ de HTML, `?estudante=` preservado, e 409 sem percurso — sem banco nascendo.
 
 ---
 
-### 5.13 `/obra/{slug}` — o exemplar, e a exportação dele
+### 5.13 `/obras` e `/obra/{slug}` — o exemplar, e a exportação dele
 
 A pergunta que nenhuma outra tela responde: *"este livro que eu tenho na mão serve a quê
 no catálogo, e quanto dele falta?"*. A etapa compara recursos **dentro** de uma etapa;
@@ -664,6 +666,14 @@ export tem de ser recarregável e compartilhável como qualquer leitura. O arqui
 pé a `catalogo_versao` e o hash do snapshot pelo mesmo motivo que a sugestão os persiste
 ([catalogo.md §5](catalogo.md)) — export sem a versão que o produziu não se confere
 depois.
+
+`/obras` é o índice: todos os exemplares fatiados, com fatias, duração somada, custo,
+etapas atendidas e idiomas. Fica **fora** de `/catalogo` de propósito — lá se listam
+entidades, e obra não é uma, então misturá-la faria o filtro por tipo prometer o que o
+modelo não tem. O total do índice conta cada exemplar **uma vez**, e é a primeira
+agregação monetária do projeto; recurso sem `obra` não entra nela, porque a soma
+responde "quanto custam os exemplares fatiados", não "quanto custa o catálogo". Catálogo
+sem obra alguma é tela desenhada, não erro — o campo é opcional.
 
 O nome do livro não é campo do modelo: é a **menor cabeça de título** entre as fatias, o
 pedaço antes do ` — ` que a convenção de título usa para separar livro de recorte. Quando
@@ -735,6 +745,7 @@ Nível é **rampa sequencial**, nunca quatro cores distintas: a escala é ordina
 | GET | `/catalogo/diagnostico` | as 11 validações sobre o catálogo atual |
 | GET | `/catalogo/autoria` | formulários |
 | GET | `/sugestao/{id}` | auditoria |
+| GET | `/obras` | ✅ índice dos exemplares fatiados, com o custo contado uma vez (§5.13) |
 | GET | `/obra/{slug}` | ✅ o exemplar, suas fatias e as etapas que elas atendem (§5.13) |
 | GET | `/obra/{slug}/exportar` | ✅ o mesmo em Markdown, como anexo para baixar (§5.13) |
 | POST | `/progresso` | `{estudante, etapa, rev, estado, recurso?}` |

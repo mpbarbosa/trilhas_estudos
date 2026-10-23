@@ -107,6 +107,7 @@ d = json.load(open(sys.argv[1]))
 print("/")
 print("/catalogo")
 print("/catalogo/diagnostico")
+print("/obras")
 for chave, prefixo in (("trilhas", "trilha"), ("etapas", "etapa"), ("competencias", "competencia")):
     for item in d.get(chave, [])[:3]:
         print(f"/{prefixo}/{item['id']}")
