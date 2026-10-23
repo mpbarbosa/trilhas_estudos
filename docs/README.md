@@ -49,7 +49,18 @@ roda em CI, em [.github/workflows/verificar.yml](../.github/workflows/verificar.
 1. ~~Compilador/validador de catálogo~~ — feito, em `src/trilhas/catalogo/` ([catalogo.md §7](catalogo.md)).
 2. ~~Catálogo-fixture~~ — feito, em `tests/fixtures/catalogo_exemplo/`.
 3. ~~Motor de sugestão como lógica pura~~ — feito, em `src/trilhas/motor/`, com os 7 cenários de [motor §5](motor-de-sugestao.md).
-4. **Persistência de percurso.** ← próximo
-5. Camada de entrega — em `src/trilhas/web/`: explorador de catálogo e painel *Agora*
-   com os fatores à vista, ambos somente leitura. Registrar progresso, evidência e
-   feedback depende de 4 ([interface.md §10](interface.md)).
+4. ~~Persistência de percurso~~ — feita, em `src/trilhas/percurso/`: log append-only em
+   SQLite, com `UPDATE` e `DELETE` proibidos por trigger, projeção pura e CLI
+   `trilhas-percurso` ([ADR-0008](adr/0008-percurso-como-log-de-fatos-datados.md)). O
+   banco é local e fica fora do git; o histórico durável é a exportação em JSONL.
+5. **Camada de entrega** — em `src/trilhas/web/`
+   ([ADR-0007](adr/0007-entrega-web-em-python-html-no-servidor.md)). ← em construção
+
+   De pé: painel *Agora* com os fatores à vista, grafo da trilha, etapa, competência,
+   explorador e diagnóstico do catálogo, índice e página da obra com exportação em
+   Markdown ([interface.md §5.13](interface.md)) — e a escrita de percurso pela própria
+   tela, que dependia de 4: iniciar, concluir e abandonar etapa, autoavaliar competência
+   e retratar evidência ([interface.md §5.10 a §5.12](interface.md)).
+6. O que falta da interface, na ordem em que [interface.md §5](interface.md) as descreve:
+   `/perfil` (§5.5), `/catalogo/autoria` como gerador de diff de YAML (§5.7) e
+   `/sugestao/{id}` com os candidatos eliminados e o motivo de cada eliminação (§5.8).
