@@ -615,6 +615,27 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
   (David E. Joyce, em inglês — é o recurso `rec:matematica/euclides-interativo`)
 - **Citada por** — `rec:matematica/euclides-elementos`
 
+### Fundamentos de Matemática Elementar 1: Conjuntos, Funções
+
+- **Autoria** — Gelson Iezzi e Carlos Murakami
+- **Edição** — 9ª ed., Atual Editora, 2013, 410 p., pt-BR; a capa traz o selo
+  "Novas questões de vestibulares" desta edição. Volume 1 da coleção de onze. Dez
+  capítulos — noções de lógica, conjuntos, conjuntos numéricos, relações,
+  introdução às funções, função constante e afim, função quadrática, função
+  modular, outras funções elementares, função composta e inversa — e dois
+  apêndices, equações e inequações irracionais. Exercícios com gabarito no fim.
+  Lido no Kindle.
+- **Identificadores** — ISBN-13 978-85-357-1680-1 · ISBN-10 `8535716807`; ASIN do
+  Kindle não conferido
+- **Amazon** — https://www.amazon.com.br/dp/8535716807 — página e preço não
+  conferidos em 2026-10-24; o `custo: 100` é estimativa
+- **Citada por** — `rec:matematica/iezzi-fme-1-caps-1-2`,
+  `rec:matematica/iezzi-fme-1-caps-3-10`
+- **Nota** — os caps. 1 e 2 vão para a raiz de
+  `trilha:matematica/prova-e-calculo`, como entrada em pt-BR antes do Book of
+  Proof; o resto do livro sustenta `etapa:matematica/funcoes-elementares`, base
+  opcional criada para ele, porque nenhuma etapa da trilha ensinava funções.
+
 ### Os mistérios matemáticos do Professor Stewart: resolvidos por Hemlock Soames e o dr. Watsup
 
 - **Autoria** — Ian Stewart

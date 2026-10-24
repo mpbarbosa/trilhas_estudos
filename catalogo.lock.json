@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 44,
-  "gerado_em": "2026-10-22T15:24:41+00:00",
-  "hash": "sha256:837e4c3a7add959ba0ca131ff61f9203f3c6a106b5f1bd8ecd5c2c4c1b59a72b",
+  "catalogo_versao": 45,
+  "gerado_em": "2026-10-24T17:29:12+00:00",
+  "hash": "sha256:a3a6d05a28db638d87d1646d1ed178dd5d460109adcddf8ad996d97386540988",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -419,6 +419,14 @@
       "status": "ativo",
       "verificacao": "Descrever o grupo de simetrias de uma figura dada listando seus elementos e a tabela da operação, e identificar um subgrupo justificando por que é fechado.",
       "descricao": "Grupo como a formalização de simetria: operação, elemento neutro, inverso, subgrupo, e a ideia de classificar objetos pelas transformações que os preservam.\n"
+    },
+    {
+      "id": "comp:matematica/funcoes-elementares",
+      "titulo": "Conjuntos, relações e funções elementares",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dada uma função definida por partes, determinar domínio e imagem, esboçar o gráfico sem tabela de valores, decidir se é injetora ou sobrejetora e, quando couber, obter a inversa e restringir o domínio para que ela exista.",
+      "descricao": "A linguagem de conjuntos e dos conjuntos numéricos, relação, e função como relação com domínio, contradomínio e imagem: afim, quadrática, modular, composta e inversa — o vocabulário que o cálculo dá por sabido.\n"
     },
     {
       "id": "comp:matematica/geometria-euclidiana",
@@ -2288,6 +2296,21 @@
       ]
     },
     {
+      "id": "etapa:matematica/funcoes-elementares",
+      "titulo": "Conjuntos e funções elementares — o vocabulário que o cálculo pressupõe",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1500,
+      "trilha": "trilha:matematica/prova-e-calculo",
+      "opcional": true,
+      "teaches": [
+        {
+          "competencia": "comp:matematica/funcoes-elementares",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:matematica/geometria-de-euclides",
       "titulo": "Os Elementos — geometria como sistema axiomático",
       "rev": 1,
@@ -3695,6 +3718,7 @@
       "etapas": [
         "etapa:matematica/o-que-e-uma-prova",
         "etapa:matematica/geometria-de-euclides",
+        "etapa:matematica/funcoes-elementares",
         "etapa:matematica/limite-e-continuidade",
         "etapa:matematica/derivada-e-taxa-de-variacao",
         "etapa:matematica/integral-e-acumulacao",
@@ -6001,6 +6025,36 @@
       "url": "https://mathcs.clarku.edu/~djoyce/elements/elements.html",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:matematica/iezzi-fme-1-caps-1-2",
+      "titulo": "Fundamentos de Matemática Elementar 1 (Iezzi & Murakami) — caps. 1 e 2: noções de lógica e conjuntos",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:matematica/o-que-e-uma-prova",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 100.0,
+      "duracao_min": 480,
+      "url": "https://www.amazon.com.br/dp/8535716807",
+      "disponivel": true,
+      "obra": "iezzi-murakami-fme-1",
+      "verificado_em": "2026-10-24"
+    },
+    {
+      "id": "rec:matematica/iezzi-fme-1-caps-3-10",
+      "titulo": "Fundamentos de Matemática Elementar 1 (Iezzi & Murakami) — caps. 3 a 10 e apêndices: conjuntos numéricos, relações, funções afim, quadrática e modular, composta e inversa, equações e inequações irracionais",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:matematica/funcoes-elementares",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 100.0,
+      "duracao_min": 1500,
+      "url": "https://www.amazon.com.br/dp/8535716807",
+      "disponivel": true,
+      "obra": "iezzi-murakami-fme-1",
+      "verificado_em": "2026-10-24"
     },
     {
       "id": "rec:matematica/judson-abstract-algebra",

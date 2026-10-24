@@ -14,7 +14,8 @@ trilha:
 
   # A raiz é demonstração, não cálculo: sem saber o que é uma prova, Euclides vira
   # desenho e o cálculo vira receita. Dessa raiz saem três ramos — geometria,
-  # cálculo e estrutura — que o projeto final volta a juntar.
+  # cálculo e estrutura — que o projeto final volta a juntar. Ao lado da raiz há
+  # uma base opcional de funções elementares, para quem precisa dela antes do limite.
   #
   # Relação com trilha:dados/analise-de-dados-com-python: lá, comp:dados/
   # matematica-para-dados trata de álgebra linear e cálculo *como operação sobre
@@ -46,6 +47,22 @@ trilha:
           nivel_minimo: intermediario
       teaches:
         - competencia: comp:matematica/geometria-euclidiana
+          nivel_resultante: intermediario
+
+    # --- Base de funções -----------------------------------------------------
+    # Opcional e sem pré-requisito: revisão de pré-cálculo para quem chega ao
+    # limite sem as funções elementares firmes. Não entra em `requires` de
+    # limite-e-continuidade de propósito — tornar obrigatória exigiria subir a rev
+    # da etapa e re-travaria limite para quem já a tem destravada (catalogo.md §4).
+    - id: etapa:matematica/funcoes-elementares
+      titulo: Conjuntos e funções elementares — o vocabulário que o cálculo pressupõe
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 1500
+      opcional: true          # base: não é exigida pelo objetivo declarado
+      requires: []
+      teaches:
+        - competencia: comp:matematica/funcoes-elementares
           nivel_resultante: intermediario
 
     # --- Ramo do cálculo -----------------------------------------------------
