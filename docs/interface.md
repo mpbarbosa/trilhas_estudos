@@ -163,7 +163,7 @@ continua dando a CLI de CI.
 | Entidade | Campos que a UI mostra | Campos que a UI usa sem mostrar |
 |---|---|---|
 | `Trilha` | `titulo`, `objetivo_declarado`, nº de etapas, esforço somado | `id`, `rev`, `status`, `etapas_referenciadas` |
-| `Etapa` | `titulo`, `esforco_estimado_min`, `opcional`, `requires`, `teaches` | `id`, `rev`, `status`, `trilha` |
+| `Etapa` | `titulo`, `descricao`, `esforco_estimado_min`, `opcional`, `requires`, `teaches` | `id`, `rev`, `status`, `trilha` |
 | `Competência` | `titulo`, `descricao`, **`verificacao`** | `id`, `rev`, `status` |
 | `Recurso` | `titulo`, `formato`, `idioma`, `custo`, `duracao_min`, `url`, `verificado_em` | `id`, `rev`, `status`, `disponivel`, `etapa` |
 
@@ -267,6 +267,13 @@ etapas. Onda = faixa vertical; dentro da faixa, ordem estável por `(trilha, id)
 layout é calculado no servidor por uma função pura `dispor(catalogo) -> posicoes`,
 determinística, com teste de ouro — e serve igualmente ao SVG de hoje e a um Cytoscape
 `preset` amanhã.
+
+Cada faixa carrega também uma **frase derivada do seu conteúdo** — o que a onda exige,
+o que desenvolve e quantas etapas libera, com o nível de cada competência —, no rótulo
+do SVG e numa linha da tabela equivalente. Ela é derivada e **não autorada**: onda não é
+entidade de catálogo, e a profundidade de uma etapa se desloca quando outra entra à sua
+frente, de modo que um texto escrito por número de onda passaria a descrever outra onda
+em silêncio. Quem descreve o conteúdo em prosa de autoria é a `descricao` da etapa.
 
 **Codificação visual** (uma variável por canal, nunca duas no mesmo):
 

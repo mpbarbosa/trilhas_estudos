@@ -18,6 +18,10 @@ trilha:
       titulo: Python para trabalho com dados e IA
       rev: 3
       status: ativo
+      descricao: >
+        O Python que as trilhas de dados e de IA pressupõem: tipos e estruturas,
+        arquivo, biblioteca e ambiente, por leituras abertas. Opcional para quem já
+        programa em outra linguagem.
       esforco_estimado_min: 900
       opcional: true          # pule declarando a competência no perfil
       requires: []
@@ -29,6 +33,9 @@ trilha:
       titulo: Panorama — LLM, transformer e RAG
       rev: 1
       status: ativo
+      descricao: >
+        Abre a trilha com o mapa: o que um LLM é, de onde vem o transformer e que
+        problema o RAG resolve — vocabulário comum antes do detalhe.
       esforco_estimado_min: 540
       opcional: false
       requires: []
@@ -45,6 +52,9 @@ trilha:
       titulo: Fundamentos de aprendizado profundo
       rev: 1
       status: ativo
+      descricao: >
+        A base que o transformer pressupõe: rede neural, retropropagação, função de
+        perda, regularização e o laço de treino, exercitados antes de qualquer LLM.
       esforco_estimado_min: 1800
       opcional: false
       requires:
@@ -58,6 +68,10 @@ trilha:
       titulo: O transformer por dentro
       rev: 1
       status: ativo
+      descricao: >
+        A arquitetura peça por peça: token e embedding, atenção, cabeça múltipla e bloco
+        — nos artigos originais e na exposição ilustrada, com o encoder bidirecional ao
+        lado do decoder autorregressivo.
       esforco_estimado_min: 1200
       opcional: false
       requires:
@@ -73,6 +87,10 @@ trilha:
       titulo: Construir um LLM do zero
       rev: 1
       status: ativo
+      descricao: >
+        Escrever o modelo inteiro, do tokenizador ao pós-treino, para ver por dentro o
+        que a API esconde. É o ramo opcional mais caro da trilha, e o único que fecha a
+        conta da arquitetura.
       esforco_estimado_min: 2400
       opcional: true          # aprofundamento: não é exigido pelo objetivo da trilha
       requires:
@@ -89,6 +107,10 @@ trilha:
       titulo: Embeddings e busca semântica
       rev: 1
       status: ativo
+      descricao: >
+        Representar texto como vetor e buscar por significado: espaço de embedding,
+        similaridade, clusterização — e o que a busca vetorial erra quando trabalha
+        sozinha.
       esforco_estimado_min: 900
       opcional: false
       requires:
@@ -102,6 +124,10 @@ trilha:
       titulo: Engenharia de prompt como disciplina
       rev: 1
       status: ativo
+      descricao: >
+        Prompt tratado como disciplina: parâmetro de decodificação, saída estruturada,
+        encadeamento de instruções e raciocínio explícito, com a evidência que sustenta
+        cada técnica.
       esforco_estimado_min: 720
       opcional: false
       requires:
@@ -117,6 +143,9 @@ trilha:
       titulo: Recuperação, busca híbrida e reranqueamento
       rev: 1
       status: ativo
+      descricao: >
+        Recuperação de informação como engenharia: índice invertido e BM25, busca
+        híbrida com o vetorial, e reranqueamento do que voltou.
       esforco_estimado_min: 1500
       opcional: false
       requires:
@@ -131,6 +160,9 @@ trilha:
       titulo: RAG fim a fim
       rev: 1
       status: ativo
+      descricao: >
+        Montar o pipeline inteiro: fatiar e indexar o corpus, recuperar, compor o
+        contexto e gerar — com o notebook do capítulo ao lado do texto.
       esforco_estimado_min: 1200
       opcional: false
       requires:
@@ -148,6 +180,10 @@ trilha:
       titulo: Fine-tuning e adaptação de modelo aberto
       rev: 1
       status: ativo
+      descricao: >
+        Adaptar modelo aberto quando o prompt não basta: ajuste supervisionado,
+        preferências, quantização — e o custo de passar a manter um modelo próprio. Ramo
+        opcional da trilha.
       esforco_estimado_min: 1200
       opcional: true          # só compensa depois de esgotar prompting e recuperação
       requires:
@@ -163,6 +199,10 @@ trilha:
       titulo: Avaliar antes de ajustar
       rev: 1
       status: ativo
+      descricao: >
+        Avaliar antes de ajustar: conjunto de avaliação, critério declarado caso a caso,
+        juiz automático e suas armadilhas — para que a próxima mudança seja medida, não
+        sentida.
       esforco_estimado_min: 900
       opcional: false
       requires:
@@ -176,6 +216,9 @@ trilha:
       titulo: RAG em produção — custo, latência e qualidade
       rev: 1
       status: ativo
+      descricao: >
+        O RAG sob restrição real: custo por consulta, latência, cache e otimização de
+        inferência, com a qualidade da recuperação medida em vez de presumida.
       esforco_estimado_min: 1200
       opcional: false
       requires:
@@ -193,6 +236,9 @@ trilha:
       titulo: Projeto — assistente RAG sobre corpus próprio
       rev: 1
       status: ativo
+      descricao: >
+        Um assistente RAG sobre corpus próprio, da coleta ao serviço: ingestão,
+        indexação, recuperação, geração e a operação do que ficou de pé.
       esforco_estimado_min: 2400
       opcional: false
       requires:

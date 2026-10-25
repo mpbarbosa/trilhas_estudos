@@ -40,6 +40,10 @@ trilha:
       titulo: "Redes sociais, mídia e histórias — presente e hábitos, relativas, tempos do passado"
       rev: 1
       status: ativo
+      descricao: >
+        Primeiras três unidades do Viewpoint 1 — redes sociais, mídia e narrativa:
+        presente e hábito, orações relativas e os tempos do passado, com a conversação e
+        a escrita que cada unidade cobra.
       esforco_estimado_min: 960
       opcional: false
       requires: []
@@ -56,6 +60,9 @@ trilha:
       titulo: "Trabalho, desafios e futuro — artigos, condicionais e wish, futuro e modais"
       rev: 1
       status: ativo
+      descricao: >
+        Trabalho, desafios e futuro: artigos, condicionais e wish, formas de futuro e
+        modais — e o primeiro texto expositivo escrito por conta própria.
       esforco_estimado_min: 960
       opcional: false
       requires:
@@ -76,6 +83,10 @@ trilha:
       titulo: "Convivência, ciência dos alimentos e felicidade — phrasal verbs, infinitivo e -ing, passiva, quantificadores"
       rev: 1
       status: ativo
+      descricao: >
+        Convivência, ciência dos alimentos e felicidade: phrasal verbs, infinitivo
+        contra -ing, voz passiva e quantificadores, com argumentação escrita e
+        estratégias de interação.
       esforco_estimado_min: 960
       opcional: false
       requires:
@@ -98,6 +109,10 @@ trilha:
       titulo: "Viagens, cultura e habilidade — discurso indireto, relativas com when/where/whose, comparação"
       rev: 1
       status: ativo
+      descricao: >
+        Últimas três unidades — viagem, cultura e habilidade: discurso indireto,
+        relativas com when, where e whose, e comparação. Fecha o B2 nas três frentes da
+        trilha.
       esforco_estimado_min: 960
       opcional: false
       requires:

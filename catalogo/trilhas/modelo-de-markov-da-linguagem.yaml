@@ -33,6 +33,9 @@ trilha:
       titulo: Shannon, cadeias de Markov e a entropia da língua
       rev: 1
       status: ativo
+      descricao: >
+        De onde vem a ideia: as aproximações de ordem n de Shannon, entropia e
+        informação mútua, e a virada estatística que trocou a regra pela contagem.
       esforco_estimado_min: 300
       opcional: false
       requires: []
@@ -45,6 +48,10 @@ trilha:
       titulo: N-gramas, máxima verossimilhança e perplexidade
       rev: 1
       status: ativo
+      descricao: >
+        O modelo de linguagem mais simples que funciona: contagem de n-gramas,
+        estimativa por máxima verossimilhança e perplexidade como medida de quanto o
+        modelo se surpreende.
       esforco_estimado_min: 600
       opcional: false
       requires:
@@ -60,6 +67,9 @@ trilha:
       titulo: Suavização, desconto e retrocesso — o que fazer com o que não se viu
       rev: 1
       status: ativo
+      descricao: >
+        O que fazer com o que não apareceu no treino: Laplace, Good-Turing, desconto,
+        interpolação e o retrocesso de Katz, até Kneser-Ney.
       esforco_estimado_min: 540
       opcional: false
       requires:
@@ -74,6 +84,10 @@ trilha:
       titulo: Implementar o gerador de texto por cadeia de Markov
       rev: 1
       status: ativo
+      descricao: >
+        Implementar o gerador clássico de Kernighan e Pike: tabela de prefixos, sorteio
+        do sufixo e as escolhas de estrutura de dados — com as implementações dos
+        autores em cinco linguagens para comparar com a sua.
       esforco_estimado_min: 480
       opcional: false
       requires:
@@ -88,6 +102,10 @@ trilha:
       titulo: O modelo oculto de Markov — forward, Viterbi e Baum-Welch
       rev: 1
       status: ativo
+      descricao: >
+        O modelo cujo estado não se vê: forward para a probabilidade da observação,
+        Viterbi para a sequência mais provável e Baum-Welch para estimar sem corpus
+        anotado.
       esforco_estimado_min: 720
       opcional: false
       requires:
@@ -101,6 +119,9 @@ trilha:
       titulo: Etiquetagem morfossintática com HMM
       rev: 1
       status: ativo
+      descricao: >
+        O HMM na primeira aplicação real: etiquetar classe de palavra em sequência, com
+        o Viterbi decidindo pela sequência inteira e não por palavra isolada.
       esforco_estimado_min: 600
       opcional: false
       requires:
@@ -115,6 +136,10 @@ trilha:
       titulo: Projeto — modelo de linguagem de n-gramas avaliado por perplexidade
       rev: 1
       status: ativo
+      descricao: >
+        Um modelo de n-gramas treinado sobre corpus em domínio público e avaliado como
+        se deve: separação de treino, validação e teste, e perplexidade comparável entre
+        variantes.
       esforco_estimado_min: 900
       opcional: false
       requires:

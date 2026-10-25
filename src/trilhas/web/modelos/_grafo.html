@@ -28,7 +28,10 @@
 
       <g class="faixas">
         {% for f in d.faixas %}
-        <text class="faixa-rotulo" x="{{ f.x }}" y="18">{{ f.rotulo }} · {{ f.quantidade }}</text>
+        <g class="faixa">
+          <title>{{ f.rotulo }} · {{ f.quantidade }} — {{ f.descricao }}</title>
+          <text class="faixa-rotulo" x="{{ f.x }}" y="18">{{ f.rotulo }} · {{ f.quantidade }}</text>
+        </g>
         {% endfor %}
       </g>
 
@@ -71,7 +74,23 @@
 </figure>
 
 <details class="equivalente">
-  <summary>Tabela equivalente ao grafo ({{ d.arestas | length }} arestas)</summary>
+  <summary>Tabela equivalente ao grafo ({{ d.faixas | length }} ondas, {{ d.arestas | length }} arestas)</summary>
+  <table class="tabela">
+    <caption class="oculto">O que cada onda exige, desenvolve e libera</caption>
+    <thead>
+      <tr><th scope="col">Onda</th><th scope="col">Etapas</th><th scope="col">O que a onda faz</th></tr>
+    </thead>
+    <tbody>
+      {% for f in d.faixas %}
+      <tr>
+        <td class="num">{{ f.onda }}</td>
+        <td class="num">{{ f.quantidade }}</td>
+        <td>{{ f.descricao }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
   <table class="tabela">
     <caption class="oculto">Arestas do grafo, com a competência que as justifica</caption>
     <thead>

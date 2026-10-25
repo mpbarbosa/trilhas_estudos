@@ -89,6 +89,22 @@ def test_trilha_desenha_grafo_e_tabela_equivalente(cliente: TestClient) -> None:
     assert "onda" in resposta.text
 
 
+def test_trilha_lista_as_ondas_com_o_que_cada_uma_faz(cliente: TestClient) -> None:
+    """A frase da onda é derivada (apresentar/disposicao.py) e chega pela tabela equivalente."""
+    resposta = cliente.get(f"/trilha/{_uma_trilha(cliente)}")
+    assert "O que a onda faz" in resposta.text
+    assert "Abre o grafo com" in resposta.text
+    assert "Nenhuma etapa adiante depende dela." in resposta.text
+
+
+def test_etapa_mostra_a_descricao_autorada_quando_existe(cliente: TestClient) -> None:
+    com = cliente.get("/etapa/etapa:dados/sql-join")
+    assert "Junção interna e externa sobre o esquema já modelado" in com.text
+    sem = cliente.get("/etapa/etapa:dados/sql-select")
+    assert sem.status_code == 200
+    assert 'class="prosa"' not in sem.text
+
+
 def test_trilha_inexistente_responde_404_com_tela(cliente: TestClient) -> None:
     resposta = cliente.get("/trilha/trilha:x/fantasma")
     assert resposta.status_code == 404
