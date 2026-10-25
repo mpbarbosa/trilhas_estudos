@@ -13,6 +13,17 @@
 # dados, onde o recorte é aplicado; e os Elementos sustentam uma etapa só. O corpo
 # da trilha é portanto material aberto, escolhido por ter exercício com resposta —
 # que é o que falta aos livros de divulgação.
+#
+# -------------------------------------------------------------------------
+#   obra: iezzi-murakami-fme-1 — Gelson Iezzi e Carlos Murakami, *Fundamentos de
+#     Matemática Elementar 1: Conjuntos, Funções* (Atual, 9ª ed., 2013, 410 p.,
+#     ISBN 978-85-357-1680-1). Lido no Kindle. Texto clássico de ensino médio e
+#     pré-vestibular, com muitos exercícios resolvidos e propostos, gabarito no
+#     fim e as "novas questões de vestibulares" desta edição. Duas fatias: os
+#     caps. 1 e 2 (lógica e conjuntos) entram na raiz como porta em pt-BR para o
+#     Book of Proof, que é mais exigente; os caps. 3 a 10 e os dois apêndices
+#     sustentam a etapa opcional de funções elementares. O custo é estimativa:
+#     o preço do Kindle na Amazon brasileira não foi conferido.
 versao_schema: 1
 recursos:
   # --- etapa:matematica/o-que-e-uma-prova ---------------------------------
@@ -54,6 +65,35 @@ recursos:
     url: https://www.amazon.com.br/dp/8537814547
     disponivel: true
     verificado_em: 2026-10-08
+
+  - id: rec:matematica/iezzi-fme-1-caps-1-2
+    etapa: etapa:matematica/o-que-e-uma-prova
+    titulo: "Fundamentos de Matemática Elementar 1 (Iezzi & Murakami) — caps. 1 e 2: noções de lógica e conjuntos"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 100
+    obra: iezzi-murakami-fme-1
+    duracao_min: 480
+    url: https://www.amazon.com.br/dp/8535716807
+    disponivel: true
+    verificado_em: 2026-10-24
+
+  # --- etapa:matematica/funcoes-elementares --------------------------------
+  - id: rec:matematica/iezzi-fme-1-caps-3-10
+    etapa: etapa:matematica/funcoes-elementares
+    titulo: "Fundamentos de Matemática Elementar 1 (Iezzi & Murakami) — caps. 3 a 10 e apêndices: conjuntos numéricos, relações, funções afim, quadrática e modular, composta e inversa, equações e inequações irracionais"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 100
+    obra: iezzi-murakami-fme-1
+    duracao_min: 1500
+    url: https://www.amazon.com.br/dp/8535716807
+    disponivel: true
+    verificado_em: 2026-10-24
 
   # --- etapa:matematica/geometria-de-euclides ------------------------------
   - id: rec:matematica/euclides-elementos

@@ -71,3 +71,16 @@ competencias:
     verificacao: >
       Descrever o grupo de simetrias de uma figura dada listando seus elementos e a
       tabela da operação, e identificar um subgrupo justificando por que é fechado.
+
+  - id: comp:matematica/funcoes-elementares
+    titulo: Conjuntos, relações e funções elementares
+    rev: 1
+    status: ativo
+    descricao: >
+      A linguagem de conjuntos e dos conjuntos numéricos, relação, e função como
+      relação com domínio, contradomínio e imagem: afim, quadrática, modular,
+      composta e inversa — o vocabulário que o cálculo dá por sabido.
+    verificacao: >
+      Dada uma função definida por partes, determinar domínio e imagem, esboçar o
+      gráfico sem tabela de valores, decidir se é injetora ou sobrejetora e, quando
+      couber, obter a inversa e restringir o domínio para que ela exista.
