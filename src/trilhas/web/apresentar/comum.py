@@ -7,6 +7,7 @@ não espalhada em template.
 
 from __future__ import annotations
 
+from collections.abc import Sequence
 from datetime import date
 
 from ...catalogo.modelo import Catalogo, Formato, Nivel, Status
@@ -94,6 +95,31 @@ def dinheiro(custo: float) -> str:
     if custo == int(custo):
         return f"R$ {int(custo)}"
     return f"R$ {custo:.2f}".replace(".", ",")
+
+
+def etapas(quantidade: int) -> str:
+    """`1` → `1 etapa`; `4` → `4 etapas`.
+
+    A frase da onda é prosa corrida, e o `etapa(s)` que serve a rótulo de tabela
+    soaria truncado dentro dela.
+    """
+    return f"{quantidade} etapa" + ("" if quantidade == 1 else "s")
+
+
+def enumerar(itens: Sequence[str], limite: int = 3) -> str:
+    """`[a, b]` → `a e b`; acima de `limite`, nomeia os primeiros e conta o resto.
+
+    Uma onda pode mexer em dez competências, e listar todas faria a frase deixar de
+    ser legível justamente onde ela precisa ser.
+    """
+    if not itens:
+        return ""
+    if len(itens) > limite:
+        nomeados = ", ".join(itens[:limite])
+        return f"{nomeados} e mais {len(itens) - limite}"
+    if len(itens) == 1:
+        return itens[0]
+    return f"{', '.join(itens[:-1])} e {itens[-1]}"
 
 
 def tipo_do_id(ident: str) -> str:

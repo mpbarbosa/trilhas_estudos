@@ -92,6 +92,9 @@ trilha:
       titulo: JOINs e relacionamentos
       rev: 3
       status: ativo
+      descricao: >
+        Junção interna e externa sobre o esquema já modelado, com a condição escrita
+        pelo que o relacionamento é.
       esforco_estimado_min: 90
       opcional: false
       requires:
@@ -106,6 +109,11 @@ trilha:
   etapas_referenciadas:
     - etapa:programacao/logica-booleana
 ```
+
+`descricao` é opcional e é prosa de autoria, como na competência: diz o que se estuda
+na etapa e qual é o corte, para quem lê a tela da etapa antes de abrir um recurso. Não
+substitui `teaches` — o que a etapa desenvolve é o que está declarado em competência, e
+nenhuma validação lê a descrição.
 
 ### Recurso
 
@@ -182,7 +190,7 @@ Cada entidade tem `rev`, inteiro monotônico. **`rev` sobe só em mudança subst
 | Entidade | Substantivo (sobe `rev`) | Cosmético (não sobe) |
 |---|---|---|
 | Competência | `verificacao`, `status` | `titulo`, `descricao` |
-| Etapa | `requires`, `teaches`, `opcional`, `status`, `esforco_estimado_min` com variação > 20% | `titulo`, ordem no arquivo, ajuste fino de esforço |
+| Etapa | `requires`, `teaches`, `opcional`, `status`, `esforco_estimado_min` com variação > 20% | `titulo`, `descricao`, ordem no arquivo, ajuste fino de esforço |
 | Trilha | incluir/remover etapa **obrigatória**, `objetivo_declarado`, `status` | `titulo`, ordem de apresentação, etapa opcional |
 | Recurso | `etapa`, `status`, `disponivel`, `custo`, `obra`, `idioma`, `formato` | `titulo`, `verificado_em`, `url` que aponta ao mesmo material |
 

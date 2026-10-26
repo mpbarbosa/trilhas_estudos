@@ -44,6 +44,10 @@ trilha:
       titulo: Elementos da estrutura gramatical e a oração simples
       rev: 2
       status: ativo
+      descricao: >
+        Os elementos da estrutura gramatical e a oração simples: sujeito, verbo,
+        complemento e adjunto, as funções que cada constituinte exerce e as variações de
+        ordem — com quatro gramáticas lidas em paralelo sobre o mesmo recorte.
       esforco_estimado_min: 660
       opcional: false
       requires: []
@@ -56,6 +60,10 @@ trilha:
       titulo: Sintagmas e sua estrutura — nominal, verbal, adjetival, adverbial e preposicional
       rev: 2
       status: ativo
+      descricao: >
+        A estrutura interna de cada sintagma — nominal, verbal, adjetival, adverbial e
+        preposicional — com tempo, aspecto, modo, voz e grau no lugar onde cada um é
+        decidido.
       esforco_estimado_min: 720
       opcional: false
       requires:
@@ -70,6 +78,10 @@ trilha:
       titulo: O período composto e as orações não finitas — infinitivo, gerúndio e particípios
       rev: 1
       status: ativo
+      descricao: >
+        Como as orações se combinam: coordenação, subordinação e oração de conteúdo; e
+        as não finitas de infinitivo, gerúndio e particípio, com a complementação que
+        cada verbo cobra.
       esforco_estimado_min: 540
       opcional: false
       requires:
@@ -85,6 +97,10 @@ trilha:
       titulo: O sintagma complexo e construções oracionais selecionadas
       rev: 1
       status: ativo
+      descricao: >
+        O sintagma nominal, preposicional e adjetival levados ao grau complexo, e as
+        construções que reorganizam a informação: relativa, passiva, extraposição,
+        existencial e clivada.
       esforco_estimado_min: 480
       opcional: false
       requires:

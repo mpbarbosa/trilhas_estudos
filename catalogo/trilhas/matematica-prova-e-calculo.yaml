@@ -28,6 +28,10 @@ trilha:
       titulo: O que é uma prova — lógica, quantificador e estratégia de demonstração
       rev: 1
       status: ativo
+      descricao: >
+        Lógica proposicional, quantificador e as estratégias de demonstração — direta,
+        por contraposição, por absurdo e por indução — escritas até ficarem legíveis por
+        outra pessoa.
       esforco_estimado_min: 1200
       opcional: false
       requires: []
@@ -40,6 +44,10 @@ trilha:
       titulo: Os Elementos — geometria como sistema axiomático
       rev: 1
       status: ativo
+      descricao: >
+        Os Elementos lidos como sistema axiomático: definição, postulado e a cadeia de
+        proposições — na edição interativa que mostra de que proposições cada uma
+        depende.
       esforco_estimado_min: 1200
       opcional: false
       requires:
@@ -58,6 +66,10 @@ trilha:
       titulo: Conjuntos e funções elementares — o vocabulário que o cálculo pressupõe
       rev: 1
       status: ativo
+      descricao: >
+        O vocabulário que o cálculo pressupõe: conjuntos numéricos, relação e função,
+        afim, quadrática e modular, composta e inversa, equação e inequação. Opcional
+        para quem já o tem.
       esforco_estimado_min: 1500
       opcional: true          # base: não é exigida pelo objetivo declarado
       requires: []
@@ -70,6 +82,9 @@ trilha:
       titulo: Limite e continuidade — domar o infinitesimal
       rev: 1
       status: ativo
+      descricao: >
+        Domar o infinitesimal: limite, continuidade e as definições que tornam o cálculo
+        demonstrável em vez de apenas plausível.
       esforco_estimado_min: 900
       opcional: false
       requires:
@@ -83,6 +98,9 @@ trilha:
       titulo: Derivada — taxa de variação e otimização
       rev: 1
       status: ativo
+      descricao: >
+        Derivada como taxa de variação, antes de regra de derivação: a ideia geométrica,
+        a leitura física e a otimização, com listas resolvidas para fixar a técnica.
       esforco_estimado_min: 1200
       opcional: false
       requires:
@@ -96,6 +114,9 @@ trilha:
       titulo: Integral — acumulação e o teorema fundamental
       rev: 1
       status: ativo
+      descricao: >
+        Integral como acumulação, o teorema fundamental ligando-a à derivada, e as
+        técnicas de integração aplicadas a grandezas que se somam.
       esforco_estimado_min: 1200
       opcional: false
       requires:
@@ -110,6 +131,9 @@ trilha:
       titulo: Simetria e grupos — classificar pelo que se preserva
       rev: 1
       status: ativo
+      descricao: >
+        Classificar pelo que se preserva: grupo, subgrupo e grupo de simetria, com o
+        porquê histórico ao lado do formalismo. Ramo opcional da trilha.
       esforco_estimado_min: 900
       opcional: true          # ramo: não é exigido pelo objetivo declarado
       requires:
@@ -124,6 +148,9 @@ trilha:
       titulo: Projeto — um resultado demonstrado do enunciado à escrita final
       rev: 1
       status: ativo
+      descricao: >
+        Um resultado não trivial escolhido, demonstrado e escrito em LaTeX para leitura
+        externa — a prova de que a demonstração sai do rascunho.
       esforco_estimado_min: 1200
       opcional: false
       requires:

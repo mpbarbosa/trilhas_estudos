@@ -49,7 +49,8 @@ Ordem que reduz retrabalho:
 
 1. Competências (com `verificacao`) na área certa.
 2. Etapas no arquivo da trilha, cada uma com `requires` e `teaches` em competências
-   — nunca etapa→etapa. Confira que nenhum `nivel_resultante` é inferior a um
+   — nunca etapa→etapa. Escreva também a `descricao` da etapa: duas ou três linhas de
+   prosa sobre o que se estuda e qual é o corte, no lugar de repetir o `titulo`. Confira que nenhum `nivel_resultante` é inferior a um
    `nivel_minimo` que a própria etapa exige da mesma competência (validação 7).
 3. A primeira etapa de qualquer caminho precisa de `requires: []`, senão a trilha
    não parte de perfil vazio (validações 3 e 6).

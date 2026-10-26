@@ -35,6 +35,10 @@ etapas:
     titulo: A linha de comando do UNIX — arquivos, permissões, canos e processos
     rev: 1
     status: ativo
+    descricao: >
+      O UNIX pela linha de comando: arquivo e diretório, permissão, redirecionamento e
+      cano, ambiente e processo. É o pré-requisito que as trilhas de C e de sistemas
+      operacionais pressupunham (ADR-0010).
     esforco_estimado_min: 600
     opcional: false
     requires: []
@@ -46,6 +50,10 @@ etapas:
     titulo: Automação por script shell — do comando repetido ao script que se mantém
     rev: 1
     status: ativo
+    descricao: >
+      Do comando repetido ao script que se mantém: parâmetro, função, expressão regular,
+      sed e gawk, portabilidade POSIX e depuração. Aprofundamento opcional, fora do
+      caminho das outras trilhas.
     esforco_estimado_min: 600
     opcional: true
     requires:
@@ -67,6 +75,11 @@ etapas:
     titulo: Programação de sistemas — um programa em módulos que lê um descritor e guarda estado entre leituras
     rev: 1
     status: ativo
+    descricao: >
+      Escrever um programa em módulos que lê de um descritor e guarda estado entre
+      leituras — a lacuna que o emulador de terminal e o projeto do MINIX pressupunham
+      sem declarar (ADR-0018). O material cobre C e Rust; a etapa não exige uma das
+      duas.
     esforco_estimado_min: 1500
     opcional: false
     requires: []

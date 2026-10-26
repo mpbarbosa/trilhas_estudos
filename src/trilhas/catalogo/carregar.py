@@ -230,6 +230,7 @@ def _etapa(item: Mapping[str, Any], col: _Coletor, *, trilha: str | None) -> Eta
         rev=_inteiro(item, "rev", col, ident),
         status=_status(item, col, ident),
         esforco_estimado_min=_inteiro(item, "esforco_estimado_min", col, ident),
+        descricao=str(item.get("descricao", "")),
         trilha=trilha,
         opcional=bool(item.get("opcional", False)),
         requires=tuple(

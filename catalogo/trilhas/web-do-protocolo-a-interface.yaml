@@ -21,6 +21,9 @@ trilha:
       titulo: HTTP por dentro — o contrato antes do código
       rev: 1
       status: ativo
+      descricao: >
+        O contrato que todo o resto pressupõe: método, status, cabeçalho, cache, cookie
+        e CORS — lidos antes de existir código de servidor.
       esforco_estimado_min: 480
       opcional: false
       requires: []
@@ -32,6 +35,9 @@ trilha:
       titulo: Documento e estilo — estrutura, cascata e layout
       rev: 1
       status: ativo
+      descricao: >
+        O documento e a folha de estilo: estrutura semântica, modelo de caixa, cascata e
+        especificidade, e layout com grid e flexbox exercitado.
       esforco_estimado_min: 900
       opcional: false
       requires: []
@@ -43,6 +49,10 @@ trilha:
       titulo: Semântica e acessibilidade — a interface para quem não usa o mouse
       rev: 1
       status: ativo
+      descricao: >
+        A interface vista por quem não usa o mouse: elemento semântico, ordem de foco,
+        nome acessível, contraste — e os padrões ARIA de componente, com teclado e
+        estado.
       esforco_estimado_min: 600
       opcional: false
       requires:
@@ -57,6 +67,9 @@ trilha:
       titulo: JavaScript de aplicação — escopo, objetos, módulos e DOM
       rev: 1
       status: ativo
+      descricao: >
+        A linguagem além do trecho solto: escopo e fechamento, objeto e classe, módulo e
+        metaprogramação — e o DOM como interface com o documento.
       esforco_estimado_min: 1200
       opcional: false
       requires:
@@ -70,6 +83,9 @@ trilha:
       titulo: Assincronia — laço de eventos, promessas e requisições concorrentes
       rev: 1
       status: ativo
+      descricao: >
+        Por que o navegador não congela: laço de eventos e as filas que ele atende,
+        promessa e async/await, requisições concorrentes e cancelamento.
       esforco_estimado_min: 720
       opcional: false
       requires:
@@ -85,6 +101,9 @@ trilha:
       titulo: TypeScript — tipos como decisão de projeto
       rev: 1
       status: ativo
+      descricao: >
+        Tipo como decisão de projeto, não anotação: estreitamento, genérico e união
+        discriminada, com o que o compilador passa a garantir em troca.
       esforco_estimado_min: 720
       opcional: false
       requires:
@@ -99,6 +118,9 @@ trilha:
       titulo: Interface por componentes — estado, renderização e dado remoto
       rev: 1
       status: ativo
+      descricao: >
+        A interface como composição: componente, estado, renderização e efeito, com dado
+        remoto e as armadilhas de manter servidor e tela em acordo.
       esforco_estimado_min: 1200
       opcional: false
       requires:
@@ -116,6 +138,9 @@ trilha:
       titulo: Visualização no navegador com D3
       rev: 1
       status: ativo
+      descricao: >
+        Visualização no navegador ligando dado ao DOM: escala, eixo, transição e a
+        galeria oficial como referência de forma. Ramo opcional da trilha.
       esforco_estimado_min: 900
       opcional: true          # ramo: não é exigido pelo objetivo da trilha
       requires:
@@ -131,6 +156,9 @@ trilha:
       titulo: JavaScript no servidor — Node, módulos, I/O não bloqueante e HTTP
       rev: 1
       status: ativo
+      descricao: >
+        O mesmo JavaScript do outro lado: módulos, entrada e saída não bloqueante,
+        servidor HTTP e diagnóstico em Node. Ramo opcional da trilha.
       esforco_estimado_min: 600
       opcional: true          # ramo: não é exigido pelo objetivo da trilha
       requires:
@@ -151,6 +179,9 @@ trilha:
       titulo: Python no servidor — HTTP, template e a borda que não calcula domínio
       rev: 2
       status: ativo
+      descricao: >
+        A borda web em Python: rota, requisição e resposta, template montado antes de
+        sair, e a regra de não calcular domínio na borda. Ramo opcional (ADR-0011).
       esforco_estimado_min: 900
       opcional: true          # ramo: não é exigido pelo objetivo da trilha
       requires:
@@ -168,6 +199,9 @@ trilha:
       titulo: Projeto — aplicação web acessível sobre API real
       rev: 1
       status: ativo
+      descricao: >
+        Uma aplicação acessível sobre API pública, auditada por teclado e por leitor de
+        tela — não só por inspeção visual.
       esforco_estimado_min: 1800
       opcional: false
       requires:

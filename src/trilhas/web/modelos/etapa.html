@@ -18,6 +18,10 @@
   · {{ v.esforco }} · onda {{ v.onda }}
 </p>
 
+{% if v.etapa.descricao %}
+<p class="prosa">{{ v.etapa.descricao }}</p>
+{% endif %}
+
 {% for alerta in v.alertas %}
 <p class="alerta" role="alert">{{ alerta }}</p>
 {% endfor %}

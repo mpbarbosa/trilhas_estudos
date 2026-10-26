@@ -30,6 +30,10 @@ trilha:
       titulo: Lucro, renda e as metamorfoses do capitalismo
       rev: 1
       status: ativo
+      descricao: >
+        O vocabulário que a tese pressupõe: renda feudal, lucro capitalista e capital, e
+        as metamorfoses do capitalismo até o capital financeiro. É a base para julgar o
+        que vem depois.
       esforco_estimado_min: 300
       opcional: false
       requires: []
@@ -42,6 +46,10 @@ trilha:
       titulo: Capital de nuvem, nuvemalistas e o fim do lucro
       rev: 1
       status: ativo
+      descricao: >
+        O conceito central da tese: capital de nuvem como meio de produção de
+        comportamento, a classe que o detém e o deslocamento do lucro para a renda de
+        nuvem.
       esforco_estimado_min: 360
       opcional: false
       requires:
@@ -55,6 +63,10 @@ trilha:
       titulo: O impacto global do tecnofeudalismo, a nova Guerra Fria e a fuga
       rev: 1
       status: ativo
+      descricao: >
+        O argumento levado ao plano global: dólar, déficit americano, a nova Guerra Fria
+        com a China e as saídas que o livro propõe — com os apêndices que sustentam a
+        parte econômica.
       esforco_estimado_min: 420
       opcional: false
       requires:
@@ -69,6 +81,10 @@ trilha:
       titulo: Tecnofeudalismo em debate — ainda é capitalismo?
       rev: 1
       status: ativo
+      descricao: >
+        A tese posta à prova pela crítica de Morozov: se a renda de plataforma é
+        novidade de época ou forma conhecida de lucro, e o que o nome tecnofeudalismo
+        esclarece ou atrapalha.
       esforco_estimado_min: 240
       opcional: false
       requires:

@@ -14,7 +14,7 @@ from trilhas.motor import Matricula, Percurso, sugerir
 from trilhas.web.apresentar import acervo as apresentar_acervo
 from trilhas.web.apresentar import comum, detalhe
 from trilhas.web.apresentar import sugestao as apresentar_sugestao
-from trilhas.web.apresentar.disposicao import dispor
+from trilhas.web.apresentar.disposicao import Faixa, dispor
 from trilhas.web.dados import Acervo
 
 HOJE = date(2026, 10, 12)
@@ -256,6 +256,71 @@ def test_disposicao_de_catalogo_vazio_nao_quebra() -> None:
     disposicao = dispor([], acervo.fecho, (), catalogo=acervo.catalogo)
     assert disposicao.vazia
     assert disposicao.largura > 0 and disposicao.altura > 0
+
+
+def test_descricao_da_onda_diz_o_que_ela_exige_desenvolve_e_libera() -> None:
+    cat = catalogo(
+        competencia("comp:x/base", titulo="Base"),
+        competencia("comp:x/fim", titulo="Fim"),
+        etapa("etapa:x/a", teaches=[("comp:x/base", N.INICIANTE)]),
+        etapa(
+            "etapa:x/b",
+            requires=[("comp:x/base", N.INICIANTE)],
+            teaches=[("comp:x/fim", N.INTERMEDIARIO)],
+        ),
+    )
+    acervo = _acervo(cat)
+    faixas = dispor(list(cat.etapas.values()), acervo.fecho, acervo.arestas, catalogo=cat).faixas
+    assert faixas[0].descricao == (
+        "Abre o grafo com 1 etapa sem pré-requisito. Desenvolve Base (iniciante). "
+        "Libera 1 etapa a partir da onda 2."
+    )
+    assert faixas[1].descricao == (
+        "Exige Base (iniciante). Desenvolve Fim (intermediário). "
+        "Nenhuma etapa adiante depende dela."
+    )
+
+
+def test_descricao_da_onda_acompanha_a_etapa_que_entra() -> None:
+    """A frase é derivada: etapa nova à frente desloca a onda e reescreve a frase.
+
+    É o que torna autorá-la por número de onda insustentável — o texto antigo passaria
+    a descrever outra onda.
+    """
+    comps = (competencia("comp:x/base", titulo="Base"), competencia("comp:x/novo", titulo="Novo"))
+    folha = etapa("etapa:x/b", requires=[("comp:x/base", N.INICIANTE)])
+    raiz = etapa("etapa:x/a", teaches=[("comp:x/base", N.INICIANTE)])
+    antes = catalogo(*comps, raiz, folha)
+    depois = catalogo(
+        *comps,
+        etapa("etapa:x/zero", teaches=[("comp:x/novo", N.INICIANTE)]),
+        etapa(
+            "etapa:x/a",
+            requires=[("comp:x/novo", N.INICIANTE)],
+            teaches=[("comp:x/base", N.INICIANTE)],
+        ),
+        folha,
+    )
+
+    def faixa_da_etapa(cat: Catalogo, etapa_id: str) -> Faixa:
+        acervo = _acervo(cat)
+        disposicao = dispor(list(cat.etapas.values()), acervo.fecho, acervo.arestas, catalogo=cat)
+        no = disposicao.no(etapa_id)
+        assert no is not None
+        return next(f for f in disposicao.faixas if f.onda == no.onda)
+
+    assert faixa_da_etapa(antes, "etapa:x/a").onda == 1
+    assert faixa_da_etapa(depois, "etapa:x/a").onda == 2
+    assert faixa_da_etapa(antes, "etapa:x/a").descricao.startswith("Abre o grafo")
+    assert faixa_da_etapa(depois, "etapa:x/a").descricao.startswith("Exige Novo (iniciante).")
+
+
+def test_enumerar_nomeia_os_primeiros_e_conta_o_resto() -> None:
+    assert comum.enumerar(["a"]) == "a"
+    assert comum.enumerar(["a", "b"]) == "a e b"
+    assert comum.enumerar(["a", "b", "c"]) == "a, b e c"
+    assert comum.enumerar(["a", "b", "c", "d"]) == "a, b, c e mais 1"
+    assert comum.enumerar([]) == ""
 
 
 def test_titulo_do_no_vem_quebrado_para_o_svg() -> None:

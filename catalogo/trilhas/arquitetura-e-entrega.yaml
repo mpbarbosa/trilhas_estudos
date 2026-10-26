@@ -23,6 +23,9 @@ trilha:
       titulo: Requisitos e atributos de qualidade mensuráveis
       rev: 1
       status: ativo
+      descricao: >
+        Separar o que o sistema faz do quanto ele precisa ser bom nisso, e escrever
+        atributo de qualidade como cenário mensurável em vez de adjetivo.
       esforco_estimado_min: 900
       opcional: false
       requires: []
@@ -34,6 +37,10 @@ trilha:
       titulo: Trade-off como método — não existe arquitetura sem perda
       rev: 1
       status: ativo
+      descricao: >
+        Toda decisão arquitetural troca um atributo por outro: nomear a perda, comparar
+        alternativas pelo cenário e verificar o atributo continuamente por função de
+        aptidão.
       esforco_estimado_min: 600
       opcional: false
       requires:
@@ -47,6 +54,9 @@ trilha:
       titulo: Onde cortar — granularidade, acoplamento e coesão
       rev: 1
       status: ativo
+      descricao: >
+        Onde cortar um sistema: granularidade, acoplamento e coesão, com os sinais que
+        pedem a separação e os que a desaconselham. Inclui o caso de não decompor.
       esforco_estimado_min: 1200
       opcional: false
       requires:
@@ -60,6 +70,10 @@ trilha:
       titulo: Dados atravessando fronteiras — propriedade, transação e contrato
       rev: 1
       status: ativo
+      descricao: >
+        O que acontece com transação e consulta quando o dado fica dividido entre
+        serviços: propriedade de dado, saga, CQRS, outbox e contrato — e o custo de cada
+        arranjo.
       esforco_estimado_min: 1200
       opcional: false
       requires:
@@ -73,6 +87,10 @@ trilha:
       titulo: Registrar a decisão — ADR como artefato de engenharia
       rev: 1
       status: ativo
+      descricao: >
+        A ADR como artefato de engenharia: contexto, decisão e consequências, com as
+        alternativas descartadas registradas — exercitada nas ADRs deste próprio
+        repositório.
       esforco_estimado_min: 480
       opcional: false
       requires:
@@ -87,6 +105,10 @@ trilha:
       titulo: Git por dentro — grafo, histórico e o commit como unidade de revisão
       rev: 1
       status: ativo
+      descricao: >
+        Git pelo grafo que ele mantém: objeto, referência, mesclagem e rebase — e o
+        commit como unidade de revisão, com mensagem que registra a decisão e não a
+        diferença.
       esforco_estimado_min: 720
       opcional: false
       requires: []
@@ -98,6 +120,10 @@ trilha:
       titulo: Pipeline — da mudança à produção sem heroísmo
       rev: 1
       status: ativo
+      descricao: >
+        Da mudança à produção sem heroísmo: teste por camada, artefato versionado,
+        retrocesso e as quatro métricas do DORA — montando um pipeline próprio, não
+        lendo sobre um.
       esforco_estimado_min: 1200
       opcional: false
       requires:
@@ -111,6 +137,10 @@ trilha:
       titulo: Depois do deploy — observabilidade, incidente e análise sem culpado
       rev: 1
       status: ativo
+      descricao: >
+        O que vem depois do deploy: instrumentação, SLO, resposta a incidente e análise
+        sem culpado — e a cultura que decide se o aprendizado do incidente chega ao
+        código.
       esforco_estimado_min: 900
       opcional: false
       requires:
@@ -125,6 +155,10 @@ trilha:
       titulo: Projeto — uma decisão arquitetural levada até a operação
       rev: 1
       status: ativo
+      descricao: >
+        Uma decisão arquitetural de um sistema próprio levada da ADR até a operação:
+        alternativas descartadas, fronteira de dado, pipeline e instrumentação que
+        mostra se a decisão se sustenta.
       esforco_estimado_min: 1800
       opcional: false
       requires:

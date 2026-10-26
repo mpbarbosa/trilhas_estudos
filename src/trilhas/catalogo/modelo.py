@@ -112,6 +112,7 @@ class Etapa:
     rev: int
     status: Status
     esforco_estimado_min: int
+    descricao: str = ""
     trilha: str | None = None
     opcional: bool = False
     requires: tuple[Requisito, ...] = ()

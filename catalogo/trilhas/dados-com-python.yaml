@@ -21,6 +21,10 @@ trilha:
       titulo: NumPy e pandas — a tabela como estrutura de trabalho
       rev: 1
       status: ativo
+      descricao: >
+        A tabela como estrutura de trabalho: array e dataframe, tipos, índice, valores
+        ausentes, junção, agrupamento e reformatação entre formato largo e longo — com
+        exercícios resolvidos ao lado da referência oficial.
       esforco_estimado_min: 1200
       opcional: false
       requires:
@@ -37,6 +41,10 @@ trilha:
       titulo: Análise exploratória — interrogar um conjunto desconhecido
       rev: 1
       status: ativo
+      descricao: >
+        Interrogar um conjunto que você não escolheu até saber o que ele mede:
+        distribuição, dispersão, correlação, valor atípico e dado faltante, com o
+        gráfico ainda a serviço da própria exploração.
       esforco_estimado_min: 900
       opcional: false
       requires:
@@ -52,6 +60,10 @@ trilha:
       titulo: Visualização a serviço da pergunta
       rev: 1
       status: ativo
+      descricao: >
+        Escolher forma, escala e agregação a partir da pergunta, e ler criticamente o
+        gráfico alheio: data-ink, chartjunk e fator de mentira. A prática de forma vem
+        dos tutoriais de matplotlib e seaborn.
       esforco_estimado_min: 600
       opcional: false
       requires:
@@ -66,6 +78,10 @@ trilha:
       titulo: Álgebra linear e cálculo na medida do método
       rev: 1
       status: ativo
+      descricao: >
+        A álgebra linear e o cálculo que os métodos de dados realmente usam: vetor,
+        matriz, projeção e decomposição; derivada, gradiente e otimização. Medida pelo
+        método, não pelo currículo de matemática.
       esforco_estimado_min: 1800
       opcional: false
       requires:
@@ -79,6 +95,10 @@ trilha:
       titulo: Da amostra à afirmação — inferência aplicada
       rev: 1
       status: ativo
+      descricao: >
+        Da amostra à afirmação: estimativa, intervalo, teste e tamanho de efeito, feitos
+        por simulação em Python antes da fórmula fechada — e o que uma afirmação
+        estatística não autoriza dizer.
       esforco_estimado_min: 1200
       opcional: false
       requires:
@@ -95,6 +115,10 @@ trilha:
       titulo: Enquadrar o problema antes de analisar
       rev: 1
       status: ativo
+      descricao: >
+        Traduzir a pergunta de negócio em pergunta analítica: qual decisão depende dela,
+        o que serviria de evidência, qual dado existe e quanto custa o erro. Antes do
+        método, o enquadramento.
       esforco_estimado_min: 900
       opcional: false
       requires:
@@ -108,6 +132,10 @@ trilha:
       titulo: Primeiro modelo preditivo — linha de base, vazamento e métrica
       rev: 1
       status: ativo
+      descricao: >
+        O primeiro modelo preditivo feito com honestidade: linha de base trivial,
+        separação de treino e teste, vazamento de dado e métrica coerente com a decisão
+        que o modelo apoia. Ramo opcional da trilha.
       esforco_estimado_min: 1200
       opcional: true          # aprofundamento: o objetivo da trilha é análise, não predição
       requires:
@@ -123,6 +151,10 @@ trilha:
       titulo: Projeto — análise ponta a ponta sobre dado real e sujo
       rev: 1
       status: ativo
+      descricao: >
+        Uma análise inteira sobre microdado público brasileiro, do dado sujo à afirmação
+        defensável: limpeza documentada, exploração, inferência e um gráfico que
+        sustenta a conclusão.
       esforco_estimado_min: 1800
       opcional: false
       requires:
