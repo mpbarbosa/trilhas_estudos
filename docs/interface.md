@@ -273,7 +273,9 @@ o que desenvolve e quantas etapas libera, com o nível de cada competência —,
 do SVG e numa linha da tabela equivalente. Ela é derivada e **não autorada**: onda não é
 entidade de catálogo, e a profundidade de uma etapa se desloca quando outra entra à sua
 frente, de modo que um texto escrito por número de onda passaria a descrever outra onda
-em silêncio. Quem descreve o conteúdo em prosa de autoria é a `descricao` da etapa.
+em silêncio — medido em [ADR-0019](adr/0019-descricao-de-onda-derivada-da-estrutura.md),
+que registra a decisão. Quem descreve o conteúdo em prosa de autoria é a `descricao` da
+etapa.
 
 **Codificação visual** (uma variável por canal, nunca duas no mesmo):
 
