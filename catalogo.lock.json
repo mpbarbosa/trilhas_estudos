@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 47,
-  "gerado_em": "2026-10-25T20:05:25+00:00",
-  "hash": "sha256:b1b7511b62c5fc104f718680ab90592ccd3c383d7405ae5d4fb9f005cc31b8d5",
+  "catalogo_versao": 48,
+  "gerado_em": "2026-10-26T19:11:02+00:00",
+  "hash": "sha256:6d1d5cb309186da389e9e9de048a3db23472176316de5cadce56092c3fbd610f",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -195,6 +195,30 @@
       "status": "ativo",
       "verificacao": "A partir de um pedido em prosa de uma área não técnica, entregar requisitos funcionais decompostos e ao menos três atributos de qualidade com medida e limiar — cada um verificável por um teste ou uma métrica, não por adjetivo.",
       "descricao": "Elicitar e decompor o que o sistema deve fazer e sob quais condições: regra de negócio, atributo de qualidade mensurável, restrição, e o que fica fora.\n"
+    },
+    {
+      "id": "comp:filosofia/argumento-da-gita",
+      "titulo": "O argumento da Gita, capítulo a capítulo",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Reconstruir, em até uma página, as objeções de Arjuna no cap. 1 e a resposta de Krishna em premissas e conclusão, indicando em que capítulos cada um dos três caminhos é desenvolvido.",
+      "descricao": "A leitura do texto inteiro, não do resumo: as razões de Arjuna para não lutar, a resposta de Krishna e como ela passa da ação desinteressada ao conhecimento e à devoção ao longo dos dezoito capítulos.\n"
+    },
+    {
+      "id": "comp:filosofia/critica-da-gita",
+      "titulo": "Avaliação crítica das leituras da Gita",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Separar, numa lista das teses de um livro devocional sobre a Gita, quais são afirmações empíricas, quais são metafísicas e quais dependem de fé, e dizer que tipo de evidência decidiria cada uma — ou por que nenhuma decidiria.",
+      "descricao": "A Gita como objeto de filosofia, e não só de fé: as leituras metaéticas (deontologia, consequencialismo ou nenhuma das duas), o problema da guerra justa e o que uma afirmação como \"a ideologia mais científica\" pode e não pode querer dizer.\n"
+    },
+    {
+      "id": "comp:filosofia/gita-contexto-e-conceitos",
+      "titulo": "Contexto e conceitos centrais da Bhagavad Gita",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Contar a cena de abertura a quem nunca ouviu falar da Gita, em até meia página, e definir dharma, karma, atman e ação sem apego ao fruto com um exemplo de decisão cotidiana para cada um, sem recorrer a outro termo sânscrito na definição.",
+      "descricao": "Onde a Gita se situa — o diálogo entre Krishna e Arjuna no campo de Kurukshetra, dentro do Mahabharata — e o vocabulário que ela pressupõe: dharma, karma, atman, os três caminhos (karma, jnana e bhakti ioga) e a ação sem apego ao fruto.\n"
     },
     {
       "id": "comp:ia/adaptacao-de-modelo",
@@ -1435,6 +1459,66 @@
         {
           "competencia": "comp:engenharia/decisao-arquitetural",
           "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:filosofia/gita-em-debate",
+      "titulo": "A Gita em debate — metaética, guerra justa e o que \"científica\" quer dizer",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 180,
+      "descricao": "A Gita lida pela filosofia acadêmica: os argumentos de Arjuna e a resposta de Krishna como teoria moral, a controvérsia metaética e a recepção histórica — com que se confronta a tese do livro de abertura.\n",
+      "trilha": "trilha:filosofia/bhagavad-gita",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:filosofia/argumento-da-gita",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:filosofia/critica-da-gita",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:filosofia/leitura-integral-da-gita",
+      "titulo": "A Gita inteira — os dezoito capítulos do diálogo",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "descricao": "O texto em si, numa tradução integral: das objeções de Arjuna à resposta de Krishna, e como a ação desinteressada leva ao conhecimento e à devoção. O corte é a leitura do diálogo, não de comentário sobre ele.\n",
+      "trilha": "trilha:filosofia/bhagavad-gita",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:filosofia/gita-contexto-e-conceitos",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:filosofia/argumento-da-gita",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:filosofia/por-que-ler-a-gita",
+      "titulo": "Por que ler a Bhagavad Gita — contexto e conceitos centrais",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 180,
+      "descricao": "A porta de entrada: quem fala com quem na Gita, em que ponto do Mahabharata, e o vocabulário mínimo — dharma, karma, atman, os três caminhos —, lido pelas quinze razões que o autor dá para levar o texto a sério.\n",
+      "trilha": "trilha:filosofia/bhagavad-gita",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:filosofia/gita-contexto-e-conceitos",
+          "nivel_resultante": "intermediario"
         }
       ]
     },
@@ -3661,6 +3745,31 @@
       ]
     },
     {
+      "id": "trilha:filosofia/bhagavad-gita",
+      "titulo": "Bhagavad Gita — do porquê ler ao texto e à crítica",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:filosofia/gita-contexto-e-conceitos",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:filosofia/argumento-da-gita",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:filosofia/critica-da-gita",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:filosofia/por-que-ler-a-gita",
+        "etapa:filosofia/leitura-integral-da-gita",
+        "etapa:filosofia/gita-em-debate"
+      ]
+    },
+    {
       "id": "trilha:ia/claude-do-chat-ao-agente",
       "titulo": "Do chat ao agente em produção com Claude",
       "rev": 1,
@@ -4794,6 +4903,48 @@
       "url": "https://www.amazon.com.br/dp/B01M3S7HT7",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:filosofia/arnold-song-celestial",
+      "titulo": "The Song Celestial, or Bhagavad-Gîtâ (trad. Edwin Arnold, 1885) — Project Gutenberg",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/leitura-integral-da-gita",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://www.gutenberg.org/ebooks/2388",
+      "disponivel": true,
+      "verificado_em": "2026-10-26"
+    },
+    {
+      "id": "rec:filosofia/chetan-gita-perfect-philosophy",
+      "titulo": "Bhagavad Gita - The Perfect Philosophy: 15 Reasons That Make the Song of God the Most Scientific Ideology (Hari Chetan)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/por-que-ler-a-gita",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://harichetan.com/books/bhagavad-gita-perfect-philosophy/",
+      "disponivel": true,
+      "verificado_em": "2026-10-26"
+    },
+    {
+      "id": "rec:filosofia/iep-bhagavad-gita",
+      "titulo": "The Bhagavad Gītā (Shyam Ranganathan, Internet Encyclopedia of Philosophy)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/gita-em-debate",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://iep.utm.edu/bhagavad/",
+      "disponivel": true,
+      "verificado_em": "2026-10-26"
     },
     {
       "id": "rec:ia/ai-engineering-agentes-producao",

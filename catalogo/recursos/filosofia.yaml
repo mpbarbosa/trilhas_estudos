@@ -1,0 +1,59 @@
+# Convenções deste arquivo:
+#   custo  — em BRL, aproximado na data de `verificado_em`; 0 = gratuito.
+#   idioma — tag BCP 47.
+#
+# -------------------------------------------------------------------------
+# trilha:filosofia/bhagavad-gita
+#
+#   O e-book de Hari Chetan é gratuito por decisão do autor em todas as lojas
+#   (Kindle, Google Play, Apple Books, Nook), conferido na página do livro no site
+#   dele e no Google Play — por isso custo 0, ao contrário de leitura por
+#   assinatura. Tem 97 p. no Google Play e 95 no Goodreads; sem sumário público, as
+#   quinze razões não foram fatiadas, e o livro entra inteiro numa etapa só.
+# -------------------------------------------------------------------------
+versao_schema: 1
+recursos:
+  # --- etapa:filosofia/por-que-ler-a-gita ---------------------------------
+  - id: rec:filosofia/chetan-gita-perfect-philosophy
+    etapa: etapa:filosofia/por-que-ler-a-gita
+    titulo: "Bhagavad Gita - The Perfect Philosophy: 15 Reasons That Make the Song of God the Most Scientific Ideology (Hari Chetan)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://harichetan.com/books/bhagavad-gita-perfect-philosophy/
+    disponivel: true
+    verificado_em: 2026-10-26
+
+  # --- etapa:filosofia/leitura-integral-da-gita ---------------------------
+  # Tradução em verso de 1885, em domínio público. Próxima do tom, não da letra:
+  # para a reconstrução do argumento, uma tradução em prosa é alternativa melhor
+  # quando entrar no catálogo.
+  - id: rec:filosofia/arnold-song-celestial
+    etapa: etapa:filosofia/leitura-integral-da-gita
+    titulo: "The Song Celestial, or Bhagavad-Gîtâ (trad. Edwin Arnold, 1885) — Project Gutenberg"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 300
+    url: https://www.gutenberg.org/ebooks/2388
+    disponivel: true
+    verificado_em: 2026-10-26
+
+  # --- etapa:filosofia/gita-em-debate -------------------------------------
+  - id: rec:filosofia/iep-bhagavad-gita
+    etapa: etapa:filosofia/gita-em-debate
+    titulo: "The Bhagavad Gītā (Shyam Ranganathan, Internet Encyclopedia of Philosophy)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://iep.utm.edu/bhagavad/
+    disponivel: true
+    verificado_em: 2026-10-26

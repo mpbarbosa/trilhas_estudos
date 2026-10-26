@@ -1,0 +1,42 @@
+versao_schema: 1
+competencias:
+  - id: comp:filosofia/gita-contexto-e-conceitos
+    titulo: Contexto e conceitos centrais da Bhagavad Gita
+    rev: 1
+    status: ativo
+    descricao: >
+      Onde a Gita se situa — o diálogo entre Krishna e Arjuna no campo de Kurukshetra,
+      dentro do Mahabharata — e o vocabulário que ela pressupõe: dharma, karma, atman,
+      os três caminhos (karma, jnana e bhakti ioga) e a ação sem apego ao fruto.
+    verificacao: >
+      Contar a cena de abertura a quem nunca ouviu falar da Gita, em até meia página,
+      e definir dharma, karma, atman e ação sem apego ao fruto com um exemplo de
+      decisão cotidiana para cada um, sem recorrer a outro termo sânscrito na
+      definição.
+
+  - id: comp:filosofia/argumento-da-gita
+    titulo: O argumento da Gita, capítulo a capítulo
+    rev: 1
+    status: ativo
+    descricao: >
+      A leitura do texto inteiro, não do resumo: as razões de Arjuna para não lutar,
+      a resposta de Krishna e como ela passa da ação desinteressada ao conhecimento e
+      à devoção ao longo dos dezoito capítulos.
+    verificacao: >
+      Reconstruir, em até uma página, as objeções de Arjuna no cap. 1 e a resposta de
+      Krishna em premissas e conclusão, indicando em que capítulos cada um dos três
+      caminhos é desenvolvido.
+
+  - id: comp:filosofia/critica-da-gita
+    titulo: Avaliação crítica das leituras da Gita
+    rev: 1
+    status: ativo
+    descricao: >
+      A Gita como objeto de filosofia, e não só de fé: as leituras metaéticas
+      (deontologia, consequencialismo ou nenhuma das duas), o problema da guerra
+      justa e o que uma afirmação como "a ideologia mais científica" pode e não pode
+      querer dizer.
+    verificacao: >
+      Separar, numa lista das teses de um livro devocional sobre a Gita, quais são
+      afirmações empíricas, quais são metafísicas e quais dependem de fé, e dizer
+      que tipo de evidência decidiria cada uma — ou por que nenhuma decidiria.

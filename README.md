@@ -27,6 +27,7 @@ persistência do percurso — nada do que o estudante faz é gravado.
   - *Emulador de terminal, do protocolo à tela* ([trilha](catalogo/trilhas/emulador-de-terminal.yaml)) — ECMA-48 e a linhagem DEC, analisador de estados, grade de células, pseudoterminal, teclado, Unicode em grade, renderização e conformidade
   - *Sintaxe do inglês — da oração simples ao período composto* ([trilha](catalogo/trilhas/sintaxe-do-ingles.yaml)) — constituintes e funções, sintagmas, orações não finitas, sintagma complexo e construções
   - *Inglês geral no nível B2 — gramática em uso, conversação e escrita* ([trilha](catalogo/trilhas/ingles-geral-b2.yaml)) — o *Viewpoint 1* em quatro blocos de três unidades: tempos e relativas, condicionais e futuro, passiva e quantificadores, discurso indireto e comparação
+  - *Bhagavad Gita — do porquê ler ao texto e à crítica* ([trilha](catalogo/trilhas/bhagavad-gita.yaml)) — contexto e conceitos centrais, os dezoito capítulos do diálogo e a Gita lida pela filosofia acadêmica
 
   Fora das trilhas, três [etapas avulsas](catalogo/etapas/avulsas.yaml) de
   pré-requisito compartilhado das trilhas de SO, de C e de emulador de terminal: duas
