@@ -878,6 +878,33 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Nota** — o fatiamento por capítulo segue o original em inglês; os títulos da
   edição brasileira não foram conferidos.
 
+## Filosofia
+
+### Bhagavad Gita - The Perfect Philosophy: 15 Reasons That Make the Song of God the Most Scientific Ideology
+
+- **Autoria** — Hari Chetan (assinado "Chetan Hari" em algumas lojas)
+- **Edição** — edição do autor (independente), 26/06/2021, en-US. Livro 1 da série
+  *The Bhagavad Gita Series*. E-book de 97 p. no Google Play (95 no Goodreads); o
+  impresso tem cerca de 100 p.
+- **Identificadores** — ASIN `B09827WZX5` (Kindle); ISBN-13 `9798528163611`
+  (brochura), `9798480260151` (capa dura); EAN `9791220819497` no Nook
+- **Amazon** — https://www.amazon.com.br/dp/B09827WZX5 (ASIN confirmado no
+  StoryGraph e no link do autor; página da loja brasileira não conferida)
+- **Acesso aberto** — e-book gratuito por decisão do autor em todas as lojas,
+  conferido em 2026-10-26 na [página do livro](https://harichetan.com/books/bhagavad-gita-perfect-philosophy/)
+  e no Google Play
+- **Citada por** — `rec:filosofia/chetan-gita-perfect-philosophy`
+- **Nota** — não há sumário público, então as quinze razões não estão nomeadas aqui
+  e o livro entra inteiro numa etapa. É livro de convencimento, e a trilha o
+  confronta com a entrada da *Internet Encyclopedia of Philosophy*.
+
+### The Song Celestial, or Bhagavad-Gîtâ
+
+- **Autoria** — tradução de Sir Edwin Arnold
+- **Edição** — Trübner, 1885, em verso, en-US. Domínio público.
+- **Acesso aberto** — https://www.gutenberg.org/ebooks/2388
+- **Citada por** — `rec:filosofia/arnold-song-celestial`
+
 ## Línguas
 
 ### Introducing English Syntax: A Basic Guide for Students of English

@@ -1,0 +1,75 @@
+versao_schema: 1
+trilha:
+  id: trilha:filosofia/bhagavad-gita
+  titulo: Bhagavad Gita — do porquê ler ao texto e à crítica
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:filosofia/gita-contexto-e-conceitos
+      nivel: intermediario
+    - competencia: comp:filosofia/argumento-da-gita
+      nivel: intermediario
+    - competencia: comp:filosofia/critica-da-gita
+      nivel: intermediario
+
+  # Primeira trilha de filosofia. Nasce de uma leitura em curso — Hari Chetan,
+  # *Bhagavad Gita - The Perfect Philosophy* (2021), livro 1 da série *The Bhagavad
+  # Gita Series* do autor —, que é um livro de convencimento: as quinze razões para
+  # ler a Gita, não a Gita. Por isso ele abre a trilha em vez de ser a espinha.
+  #
+  # O desenho segue o de trilha:economia/tecnofeudalismo: a leitura em curso, o
+  # texto de que ela trata e uma etapa fora do livro, porque uma tese que se lê só
+  # pela voz de quem a defende não se avalia — e "a ideologia mais científica" é
+  # tese que pede avaliação.
+  etapas:
+    # --- Por que ler --------------------------------------------------------
+    - id: etapa:filosofia/por-que-ler-a-gita
+      titulo: Por que ler a Bhagavad Gita — contexto e conceitos centrais
+      rev: 1
+      status: ativo
+      descricao: >
+        A porta de entrada: quem fala com quem na Gita, em que ponto do Mahabharata, e
+        o vocabulário mínimo — dharma, karma, atman, os três caminhos —, lido pelas
+        quinze razões que o autor dá para levar o texto a sério.
+      esforco_estimado_min: 180
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:filosofia/gita-contexto-e-conceitos
+          nivel_resultante: intermediario
+
+    # --- O texto ------------------------------------------------------------
+    - id: etapa:filosofia/leitura-integral-da-gita
+      titulo: A Gita inteira — os dezoito capítulos do diálogo
+      rev: 1
+      status: ativo
+      descricao: >
+        O texto em si, numa tradução integral: das objeções de Arjuna à resposta de
+        Krishna, e como a ação desinteressada leva ao conhecimento e à devoção. O corte
+        é a leitura do diálogo, não de comentário sobre ele.
+      esforco_estimado_min: 300
+      opcional: false
+      requires:
+        - competencia: comp:filosofia/gita-contexto-e-conceitos
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:filosofia/argumento-da-gita
+          nivel_resultante: intermediario
+
+    # --- Fora do livro ------------------------------------------------------
+    - id: etapa:filosofia/gita-em-debate
+      titulo: A Gita em debate — metaética, guerra justa e o que "científica" quer dizer
+      rev: 1
+      status: ativo
+      descricao: >
+        A Gita lida pela filosofia acadêmica: os argumentos de Arjuna e a resposta de
+        Krishna como teoria moral, a controvérsia metaética e a recepção histórica —
+        com que se confronta a tese do livro de abertura.
+      esforco_estimado_min: 180
+      opcional: false
+      requires:
+        - competencia: comp:filosofia/argumento-da-gita
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:filosofia/critica-da-gita
+          nivel_resultante: intermediario
