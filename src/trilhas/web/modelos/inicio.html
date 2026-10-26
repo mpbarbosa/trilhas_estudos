@@ -19,26 +19,44 @@
 </ul>
 
 <h2>Trilhas</h2>
-<div class="cartoes">
-  {% for t in v.trilhas %}
-  <article class="cartao">
-    <h3><a href="/trilha/{{ t.id }}">{{ t.titulo }}</a></h3>
-    <p class="meta">
-      <span class="etiqueta">{{ t.area }}</span>
-      {% if t.status.value != 'ativo' %}<span class="etiqueta aviso">{{ t.status.value }}</span>{% endif %}
-      {{ t.qtd_obrigatorias }} obrigatórias{% if t.qtd_opcionais %} · {{ t.qtd_opcionais }} opcionais{% endif %}
-      {% if t.qtd_emprestadas %} · {{ t.qtd_emprestadas }} emprestada(s){% endif %}
-      · {{ t.esforco }}
-      · ondas {{ t.ondas[0] }}–{{ t.ondas[1] }}
-    </p>
-    <p class="rotulo-campo">Objetivo declarado</p>
-    <ul class="alvos">
-      {% for a in t.objetivo %}
-      <li><a href="/competencia/{{ a.competencia_id }}">{{ a.titulo }}</a>
-        <span class="nivel nivel-{{ a.nivel }}">{{ a.nivel }}</span></li>
+<p class="fraco">
+  Uma prateleira por área, em ordem alfabética; cada livro é uma trilha. A lombada
+  marca o status, que também vem escrito, e o corpo do livro traz o objetivo declarado.
+</p>
+
+<div class="estante">
+  {% for p in v.prateleiras %}
+  <section class="prateleira">
+    <h3 class="plaqueta">
+      <span class="area">{{ p.rotulo or 'sem área' }}</span>
+      <span class="fraco">
+        {{ p.trilhas | length }} trilha{{ '' if p.trilhas | length == 1 else 's' }}
+        · {{ p.esforco }}
+      </span>
+    </h3>
+    <ul class="livros">
+      {% for t in p.trilhas %}
+      <li class="livro livro-{{ t.status.value }}">
+        <h4><a href="/trilha/{{ t.id }}">{{ t.titulo }}</a></h4>
+        <p class="meta">
+          {% if t.status.value != 'ativo' %}
+          <span class="etiqueta aviso">{{ t.status.value }}</span><br>
+          {% endif %}
+          {{ t.qtd_obrigatorias }} obrigatórias{% if t.qtd_opcionais %} · {{ t.qtd_opcionais }} opcionais{% endif %}
+          {% if t.qtd_emprestadas %} · {{ t.qtd_emprestadas }} emprestada(s){% endif %}
+          <br>{{ t.esforco }} · ondas {{ t.ondas[0] }}–{{ t.ondas[1] }}
+        </p>
+        <p class="rotulo-campo">Objetivo declarado</p>
+        <ul class="alvos">
+          {% for a in t.objetivo %}
+          <li><a href="/competencia/{{ a.competencia_id }}">{{ a.titulo }}</a>
+            <span class="nivel nivel-{{ a.nivel }}">{{ a.nivel }}</span></li>
+          {% endfor %}
+        </ul>
+      </li>
       {% endfor %}
     </ul>
-  </article>
+  </section>
   {% endfor %}
 </div>
 

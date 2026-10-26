@@ -67,6 +67,14 @@ def test_acervo_sem_snapshot_pede_para_compilar(tmp_path: Path) -> None:
     assert "trilhas compilar" in resposta.text
 
 
+def test_estatico_manda_o_navegador_revalidar() -> None:
+    """CSS mudado tem de aparecer no F5 — cache heurístico mostraria a tela antiga."""
+    cliente = TestClient(criar_app(lock=Path("nao-existe.json"), hoje=lambda: HOJE))
+    resposta = cliente.get("/estatico/estilo.css")
+    assert resposta.status_code == 200
+    assert resposta.headers["cache-control"] == "no-cache"
+
+
 def test_explorador_filtra_por_tipo(cliente: TestClient) -> None:
     resposta = cliente.get("/catalogo", params={"tipo": "comp"})
     assert resposta.status_code == 200

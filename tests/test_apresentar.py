@@ -54,6 +54,13 @@ def test_nivel_e_mostrado_acentuado_mas_o_token_do_dominio_nao_muda() -> None:
     assert str(Nivel.INTERMEDIARIO) == "intermediario"
 
 
+def test_area_e_escrita_em_pt_br_e_a_desconhecida_passa_inteira() -> None:
+    """Mesma regra do nível: o id continua ASCII, a tela escreve com acento."""
+    assert comum.area("programacao") == "programação"
+    assert comum.area("dados") == "dados"
+    assert comum.area("robotica") == "robotica"
+
+
 def test_vencido_usa_o_mesmo_limite_da_validacao() -> None:
     assert comum.vencido(date(2026, 1, 1), HOJE) is True
     assert comum.vencido(date(2026, 10, 1), HOJE) is False
@@ -79,6 +86,25 @@ def test_inicio_conta_o_acervo() -> None:
     assert visao.hash_curto == "abc123def456"
     assert visao.ondas == 1
     assert visao.sem_snapshot is False
+
+
+def test_inicio_poe_uma_prateleira_por_area_em_ordem_alfabetica() -> None:
+    """A estante agrupa pela área do id; o esforço da prateleira soma o das trilhas."""
+    cat = catalogo(
+        competencia("comp:x/base"),
+        etapa("etapa:web/uma", teaches=[("comp:x/base", N.INICIANTE)], esforco=60),
+        etapa("etapa:dados/outra", teaches=[("comp:x/base", N.INICIANTE)], esforco=120),
+        etapa("etapa:dados/mais", teaches=[("comp:x/base", N.INICIANTE)], esforco=60),
+        trilha("trilha:web/w", etapas=["etapa:web/uma"]),
+        trilha("trilha:dados/a", etapas=["etapa:dados/outra"]),
+        trilha("trilha:dados/b", etapas=["etapa:dados/mais"]),
+    )
+    prateleiras = apresentar_acervo.inicio(_acervo(cat), hoje=HOJE).prateleiras
+
+    assert [p.area for p in prateleiras] == ["dados", "web"]
+    assert [t.id for t in prateleiras[0].trilhas] == ["trilha:dados/a", "trilha:dados/b"]
+    assert prateleiras[0].esforco == "3 h"
+    assert prateleiras[1].esforco == "1 h"
 
 
 def test_inicio_sem_catalogo_avisa_em_vez_de_mostrar_zeros() -> None:

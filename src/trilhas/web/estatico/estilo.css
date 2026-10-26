@@ -21,6 +21,8 @@
   --n1: #c3d8cf;
   --n2: #7eb0a0;
   --n3: #2f7a63;
+  --estante: #efece2;
+  --tabua: #c9c3b1;
   --raio: 8px;
   --sombra: 0 1px 2px rgb(28 27 23 / 7%), 0 4px 12px rgb(28 27 23 / 4%);
   --fonte: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
@@ -45,6 +47,8 @@
     --n1: #35514a;
     --n2: #4f8674;
     --n3: #8ed3bb;
+    --estante: #202329;
+    --tabua: #3c4047;
     --sombra: none;
   }
 }
@@ -176,13 +180,71 @@ select:focus-visible, .no:focus-visible rect {
 .numeros strong { font-size: 1.5rem; line-height: 1.1; }
 .numeros span { font-size: .8rem; color: var(--texto-fraco); }
 
-.cartoes { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); }
-.cartao {
-  background: var(--superficie); border: 1px solid var(--borda);
-  border-radius: var(--raio); padding: 1rem; box-shadow: var(--sombra);
+/* --- estante das trilhas (abertura) ---
+   Uma prateleira por área; as prateleiras se acomodam lado a lado enquanto couber,
+   como as divisões de uma estante — agrupar por área não pode custar três telas de
+   rolagem num catálogo em que quase toda área tem uma trilha só.
+
+   Dentro da prateleira os livros ficam encostados (`column-gap: 0`): a tábua é a
+   borda de baixo de cada livro, e borda com borda ela atravessa a fileira inteira,
+   inclusive quando a fileira quebra. Lombada colorida por status — e o status
+   também vem escrito na etiqueta, porque cor não é o único portador (§6.7). */
+
+.estante {
+  display: grid; gap: 1.5rem 1.25rem; margin: 1rem 0 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  /* cada prateleira com a altura dos seus livros: esticar a baixa até a altura da
+     vizinha desenharia divisão de estante vazia embaixo do livro. */
+  align-items: start;
 }
-.cartao h3 { font-size: 1.05rem; }
-.alvos { list-style: none; padding: 0; margin: 0; display: grid; gap: .3rem; font-size: .9rem; }
+.prateleira { margin: 0; }
+.plaqueta {
+  display: flex; align-items: baseline; gap: .5rem; flex-wrap: wrap;
+  margin: 0 0 .35rem; font-size: .8rem; font-weight: 400;
+}
+.plaqueta .area {
+  font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--texto);
+}
+.livros {
+  list-style: none; margin: 0; padding: .9rem .9rem 0;
+  display: flex; flex-wrap: wrap; align-items: stretch;
+  column-gap: 0; row-gap: .9rem;
+  background: var(--estante);
+  border: 1px solid var(--borda); border-bottom: none;
+  border-radius: var(--raio) var(--raio) 4px 4px;
+}
+.livro {
+  position: relative; overflow: hidden;
+  flex: 1 1 11rem; max-width: 100%;
+  padding: .75rem .9rem .8rem;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-left: 7px solid var(--borda-forte);
+  border-bottom: 7px solid var(--tabua);
+  border-radius: 3px var(--raio) 0 0;
+  box-shadow: var(--sombra);
+  transition: transform .12s ease-out;
+}
+.livro::after {
+  /* o corte das páginas, na borda oposta à lombada */
+  content: ""; position: absolute; inset: 0 0 0 auto; width: 4px;
+  background: repeating-linear-gradient(180deg, var(--borda) 0 2px, transparent 2px 5px);
+}
+.livro:hover, .livro:focus-within { transform: translateY(-3px); }
+.livro h4 { font-size: .98rem; line-height: 1.25; margin: 0 0 .3rem; }
+.livro .meta { margin: 0; font-size: .82rem; }
+.livro .rotulo-campo { margin: .45rem 0 .15rem; }
+.livro .alvos { font-size: .82rem; }
+.livro-ativo { border-left-color: var(--acento); }
+.livro-rascunho { border-left-color: var(--aviso); }
+.livro-depreciado { border-left-color: var(--borda-forte); opacity: .6; }
+
+.alvos { list-style: none; padding: 0; margin: 0; display: grid; gap: .25rem; font-size: .9rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .livro { transition: none; }
+  .livro:hover, .livro:focus-within { transform: none; }
+}
 
 .colunas { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); }
 .barras { list-style: none; padding: 0; margin: 0; font-size: .9rem; }
@@ -279,6 +341,9 @@ select:focus-visible, .no:focus-visible rect {
 @media (max-width: 40rem) {
   .topo { flex-direction: column; align-items: start; }
   .tabela { font-size: .82rem; }
+  /* Numa coluna o livro ocupa a prateleira inteira: dois livros de 11rem lado a
+     lado espremeriam o título em telas de 360px. */
+  .livro { flex-basis: 100%; }
 }
 
 /* --- painel Agora --- */

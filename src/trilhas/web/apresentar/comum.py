@@ -48,6 +48,16 @@ ROTULO_ORIGEM = {
 """De onde veio a evidência. Pesa na confiança (CONTEXT §1), e por isso a tela a diz
 por extenso em vez de mostrar o token."""
 
+ROTULO_AREA = {
+    "ia": "IA",
+    "linguas": "línguas",
+    "matematica": "matemática",
+    "programacao": "programação",
+}
+"""Área é segmento de id, e id é ASCII (docs/catalogo.md §3). A plaqueta da estante
+escreve o acento que falta; área sem entrada aqui aparece como está — mapa que
+envelhece não pode esconder uma área nova da tela."""
+
 ROTULO_TIPO = {
     "trilha": "trilha",
     "etapa": "etapa",
@@ -120,6 +130,10 @@ def enumerar(itens: Sequence[str], limite: int = 3) -> str:
     if len(itens) == 1:
         return itens[0]
     return f"{', '.join(itens[:-1])} e {itens[-1]}"
+
+
+def area(valor: str) -> str:
+    return ROTULO_AREA.get(valor, valor)
 
 
 def tipo_do_id(ident: str) -> str:

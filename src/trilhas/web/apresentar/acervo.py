@@ -42,6 +42,21 @@ class ResumoTrilha:
 
 
 @dataclass(frozen=True, slots=True)
+class Prateleira:
+    """Uma área e as trilhas que moram nela — a prateleira da estante da abertura.
+
+    Agrupar por área é escolha de tela, não de domínio: a área já está no id
+    (`<tipo>:<area>/<slug>`, docs/catalogo.md §3) e nenhuma regra depende dela.
+    """
+
+    area: str
+    rotulo: str
+    """A área escrita em pt-BR — `programacao` é id, `programação` é o que se lê."""
+    trilhas: tuple[ResumoTrilha, ...]
+    esforco: str
+
+
+@dataclass(frozen=True, slots=True)
 class Contagem:
     rotulo: str
     quantidade: int
@@ -52,7 +67,7 @@ class VisaoInicio:
     catalogo_versao: int
     gerado_em: str
     hash_curto: str
-    trilhas: tuple[ResumoTrilha, ...]
+    prateleiras: tuple[Prateleira, ...]
     totais: tuple[Contagem, ...]
     esforco_total: str
     ondas: int
@@ -79,7 +94,7 @@ def inicio(acervo: Acervo, *, hoje: date) -> VisaoInicio:
         catalogo_versao=acervo.cabecalho.catalogo_versao,
         gerado_em=acervo.cabecalho.gerado_em,
         hash_curto=acervo.cabecalho.hash[7:19] if acervo.cabecalho.hash else "",
-        trilhas=tuple(
+        prateleiras=_prateleiras(
             _resumo(t, acervo) for t in sorted(cat.trilhas.values(), key=lambda t: t.titulo)
         ),
         totais=(
@@ -124,6 +139,26 @@ def _resumo(trilha: Trilha, acervo: Acervo) -> ResumoTrilha:
         esforco_min=sum(e.esforco_estimado_min for e in etapas),
         esforco=comum.duracao(sum(e.esforco_estimado_min for e in etapas)),
         ondas=(ondas[0], ondas[-1]) if ondas else (0, 0),
+    )
+
+
+def _prateleiras(resumos: Iterable[ResumoTrilha]) -> tuple[Prateleira, ...]:
+    """Uma prateleira por área, em ordem alfabética; dentro, a ordem recebida.
+
+    Área vazia — id sem `<area>/` — vira prateleira própria em vez de sumir: o que
+    está no catálogo tem de aparecer na tela, mesmo malformado.
+    """
+    por_area: dict[str, list[ResumoTrilha]] = {}
+    for resumo in resumos:
+        por_area.setdefault(resumo.area, []).append(resumo)
+    return tuple(
+        Prateleira(
+            area=area,
+            rotulo=comum.area(area),
+            trilhas=tuple(trilhas),
+            esforco=comum.duracao(sum(t.esforco_min for t in trilhas)),
+        )
+        for area, trilhas in sorted(por_area.items())
     )
 
 
