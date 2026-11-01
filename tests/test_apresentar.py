@@ -133,7 +133,7 @@ def test_filtro_por_tipo_e_area() -> None:
 
 
 def test_trilha_desconhecida_devolve_none() -> None:
-    assert detalhe.trilha(_acervo(minimo_valido()), "trilha:x/nao-existe") is None
+    assert detalhe.trilha(_acervo(minimo_valido()), "trilha:x/nao-existe", hoje=HOJE) is None
 
 
 def test_etapas_da_trilha_saem_ordenadas_por_onda() -> None:
@@ -145,7 +145,7 @@ def test_etapas_da_trilha_saem_ordenadas_por_onda() -> None:
         recurso("rec:x/b", "etapa:x/b"),
         trilha("trilha:x/t", etapas=["etapa:x/b", "etapa:x/a"]),
     )
-    visao = detalhe.trilha(_acervo(cat), "trilha:x/t")
+    visao = detalhe.trilha(_acervo(cat), "trilha:x/t", hoje=HOJE)
     assert visao is not None
     assert [e.id for e in visao.etapas] == ["etapa:x/a", "etapa:x/b"]
     assert [e.onda for e in visao.etapas] == [1, 2]
@@ -160,11 +160,181 @@ def test_etapa_referenciada_aparece_como_emprestada() -> None:
         trilha("trilha:x/dona", etapas=["etapa:x/dona"]),
         trilha("trilha:x/t", etapas=["etapa:x/propria"], referenciadas=["etapa:x/dona"]),
     )
-    visao = detalhe.trilha(_acervo(cat), "trilha:x/t")
+    visao = detalhe.trilha(_acervo(cat), "trilha:x/t", hoje=HOJE)
     assert visao is not None
     emprestadas = {e.id: e.emprestada for e in visao.etapas}
     assert emprestadas == {"etapa:x/dona": True, "etapa:x/propria": False}
     assert [r.id for r in visao.emprestadas] == ["etapa:x/dona"]
+
+
+def test_recursos_da_trilha_vem_agrupados_por_etapa_na_ordem_das_ondas() -> None:
+    """A trilha mostra o material de todas as suas etapas, próprias e emprestadas."""
+    cat = catalogo(
+        competencia("comp:x/um"),
+        etapa("etapa:x/a", teaches=[("comp:x/um", N.INICIANTE)], trilha="trilha:x/t"),
+        etapa("etapa:x/b", requires=[("comp:x/um", N.INICIANTE)], trilha="trilha:x/t"),
+        etapa("etapa:x/dona", teaches=[("comp:x/outra", N.INICIANTE)], trilha="trilha:x/dona"),
+        recurso("rec:x/a1", "etapa:x/a"),
+        recurso("rec:x/a2", "etapa:x/a"),
+        recurso("rec:x/b1", "etapa:x/b"),
+        recurso("rec:x/dona", "etapa:x/dona"),
+        recurso("rec:x/fora", "etapa:x/fora-da-trilha"),
+        trilha("trilha:x/dona", etapas=["etapa:x/dona"]),
+        trilha("trilha:x/t", etapas=["etapa:x/a", "etapa:x/b"], referenciadas=["etapa:x/dona"]),
+    )
+    visao = detalhe.trilha(_acervo(cat), "trilha:x/t", hoje=HOJE)
+    assert visao is not None
+    assert [(g.etapa.id, [r.id for r in g.recursos]) for g in visao.recursos_por_etapa] == [
+        ("etapa:x/a", ["rec:x/a1", "rec:x/a2"]),
+        ("etapa:x/dona", ["rec:x/dona"]),
+        ("etapa:x/b", ["rec:x/b1"]),
+    ]
+    assert visao.qtd_recursos == 4  # o de etapa fora da trilha não entra
+    assert [g.emprestada for g in visao.recursos_por_etapa] == [False, True, False]
+    assert [g.onda for g in visao.recursos_por_etapa] == [1, 1, 2]
+
+
+def test_etapa_sem_recurso_aparece_como_grupo_vazio_na_trilha() -> None:
+    """Omitir a etapa sem recurso esconderia justamente a que não é estudável (CAT-050)."""
+    cat = catalogo(
+        competencia("comp:x/um"),
+        etapa("etapa:x/com", teaches=[("comp:x/um", N.INICIANTE)], trilha="trilha:x/t"),
+        etapa("etapa:x/sem", requires=[("comp:x/um", N.INICIANTE)], trilha="trilha:x/t"),
+        recurso("rec:x/com", "etapa:x/com"),
+        trilha("trilha:x/t", etapas=["etapa:x/com", "etapa:x/sem"]),
+    )
+    visao = detalhe.trilha(_acervo(cat), "trilha:x/t", hoje=HOJE)
+    assert visao is not None
+    vazios = [g.etapa.id for g in visao.recursos_por_etapa if not g.recursos]
+    assert vazios == ["etapa:x/sem"]
+    assert visao.qtd_recursos == 1
+
+
+def test_recurso_da_trilha_e_ordenado_como_na_etapa_e_leva_o_aviso_de_vencido() -> None:
+    """Mesma ordem e mesmos rótulos das duas telas — ordenar duas vezes daria duas ordens."""
+    cat = catalogo(
+        competencia("comp:x/um"),
+        etapa("etapa:x/so", teaches=[("comp:x/um", N.INICIANTE)], trilha="trilha:x/t"),
+        recurso("rec:x/caro", "etapa:x/so", custo=90.0),
+        recurso("rec:x/indisponivel", "etapa:x/so", disponivel=False),
+        recurso("rec:x/velho", "etapa:x/so", verificado_em=date(2025, 1, 1)),
+        trilha("trilha:x/t", etapas=["etapa:x/so"]),
+    )
+    visao = detalhe.trilha(_acervo(cat), "trilha:x/t", hoje=HOJE)
+    da_etapa = detalhe.etapa(_acervo(cat), "etapa:x/so", hoje=HOJE)
+    assert visao is not None and da_etapa is not None
+    (grupo,) = visao.recursos_por_etapa
+    assert [r.id for r in grupo.recursos] == [r.id for r in da_etapa.recursos]
+    assert [r.id for r in grupo.recursos] == ["rec:x/velho", "rec:x/caro", "rec:x/indisponivel"]
+    vencidos = {r.id for r in grupo.recursos if r.vencido}
+    assert vencidos == {"rec:x/velho"}
+    assert grupo.recursos[1].custo == "R$ 90"
+
+
+def _catalogo_com_livros() -> Catalogo:
+    """Um livro atravessa duas etapas da trilha, outro fica fora dela, e há recurso solto."""
+    return catalogo(
+        competencia("comp:x/um"),
+        etapa("etapa:x/a", teaches=[("comp:x/um", N.INICIANTE)], trilha="trilha:x/t"),
+        etapa("etapa:x/b", requires=[("comp:x/um", N.INICIANTE)], trilha="trilha:x/t"),
+        etapa("etapa:x/fora", trilha="trilha:x/outra"),
+        recurso(
+            "rec:x/livro-1",
+            "etapa:x/a",
+            titulo="Livro (Autor) — parte 1",
+            custo=90,
+            duracao_min=120,
+            obra="livro",
+        ),
+        recurso(
+            "rec:x/livro-2",
+            "etapa:x/b",
+            titulo="Livro (Autor) — parte 2",
+            custo=90,
+            duracao_min=60,
+            obra="livro",
+        ),
+        recurso(
+            "rec:x/livro-3",
+            "etapa:x/fora",
+            titulo="Livro (Autor) — parte 3",
+            custo=90,
+            duracao_min=200,
+            obra="livro",
+        ),
+        recurso("rec:x/avulso", "etapa:x/a", titulo="Artigo solto", custo=0),
+        trilha("trilha:x/t", etapas=["etapa:x/a", "etapa:x/b"]),
+        trilha("trilha:x/outra", etapas=["etapa:x/fora"]),
+    )
+
+
+def test_livro_que_atende_duas_etapas_da_trilha_aparece_uma_vez() -> None:
+    """A lista de recursos o mostra duas vezes; a de livros, uma — é a unidade de compra."""
+    visao = detalhe.trilha(_acervo(_catalogo_com_livros()), "trilha:x/t", hoje=HOJE)
+    assert visao is not None
+    (livro,) = visao.livros
+    assert livro.slug == "livro"
+    assert livro.nome == "Livro (Autor)"
+    assert livro.href == "/obra/livro"
+    assert [e.id for e in livro.etapas] == ["etapa:x/a", "etapa:x/b"]
+    assert visao.qtd_recursos == 3  # as duas fatias e o artigo solto
+
+
+def test_preco_e_do_exemplar_inteiro_e_duracao_e_so_a_pedida() -> None:
+    """Compra-se o livro, não o capítulo; mas o tempo é o das fatias que a trilha pede."""
+    visao = detalhe.trilha(_acervo(_catalogo_com_livros()), "trilha:x/t", hoje=HOJE)
+    assert visao is not None
+    (livro,) = visao.livros
+    assert livro.custo == "R$ 90"
+    assert livro.duracao == "3 h"  # 120 + 60; a parte 3 serve a outra trilha
+    assert livro.parcial
+    assert (livro.qtd_fatias, livro.qtd_fatias_do_exemplar) == (2, 3)
+    assert visao.custo_dos_livros == "R$ 90"
+
+
+def test_recurso_sem_obra_nao_vira_livro_mas_a_tela_o_conta() -> None:
+    """Calar o número faria a estante parecer completa (docs/catalogo.md §2)."""
+    visao = detalhe.trilha(_acervo(_catalogo_com_livros()), "trilha:x/t", hoje=HOJE)
+    assert visao is not None
+    assert [livro.slug for livro in visao.livros] == ["livro"]
+    assert visao.recursos_sem_exemplar == 1
+
+
+def test_trilha_sem_obra_alguma_nao_tem_livro_e_nao_mente_sobre_isso() -> None:
+    cat = catalogo(
+        competencia("comp:x/um"),
+        etapa("etapa:x/so", teaches=[("comp:x/um", N.INICIANTE)], trilha="trilha:x/t"),
+        recurso("rec:x/avulso", "etapa:x/so"),
+        trilha("trilha:x/t", etapas=["etapa:x/so"]),
+    )
+    visao = detalhe.trilha(_acervo(cat), "trilha:x/t", hoje=HOJE)
+    assert visao is not None
+    assert visao.livros == ()
+    assert visao.custo_dos_livros_valor == 0
+    assert visao.recursos_sem_exemplar == 1
+
+
+def test_livro_na_estante_vem_marcado_e_sai_do_que_falta_pagar() -> None:
+    """Uma fatia declarada basta: a posse se propaga pela obra (ADR-0015)."""
+    percurso = Percurso(estudante_id="est:x", estante=frozenset({"rec:x/livro-3"}))
+    visao = detalhe.trilha(
+        _acervo(_catalogo_com_livros()), "trilha:x/t", hoje=HOJE, percurso=percurso
+    )
+    assert visao is not None
+    (livro,) = visao.livros
+    assert livro.ja_tenho  # a fatia declarada é de outra trilha, e o exemplar é o mesmo
+    assert visao.qtd_livros_que_tenho == 1
+    assert visao.custo_dos_livros == "R$ 90"  # o preço do exemplar não muda
+    assert visao.custo_que_falta == "grátis"  # o que ainda há a comprar
+
+
+def test_sem_percurso_nenhum_livro_consta_como_possuido() -> None:
+    """Sem estudante não há estante; afirmar posse seria afirmar sobre quem não existe."""
+    visao = detalhe.trilha(_acervo(_catalogo_com_livros()), "trilha:x/t", hoje=HOJE)
+    assert visao is not None
+    assert not any(livro.ja_tenho for livro in visao.livros)
+    assert visao.qtd_livros_que_tenho == 0
+    assert visao.custo_que_falta == visao.custo_dos_livros
 
 
 # --- etapa ---------------------------------------------------------------------

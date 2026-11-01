@@ -30,13 +30,14 @@ recursos:
   - id: rec:matematica/book-of-proof
     etapa: etapa:matematica/o-que-e-uma-prova
     titulo: "Book of Proof, 3ª ed. (Richard Hammack) — edição aberta, com exercícios resolvidos"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 1200
     url: https://www.people.vcu.edu/~rhammack/BookOfProof/
+    obra: hammack-book-of-proof
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -56,13 +57,14 @@ recursos:
   - id: rec:matematica/stewart-misterios
     etapa: etapa:matematica/o-que-e-uma-prova
     titulo: "Os mistérios matemáticos do professor Stewart (Ian Stewart) — divulgação: motiva e dá contexto, não treina demonstração"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 40
     duracao_min: 480
     url: https://www.amazon.com.br/dp/8537814547
+    obra: stewart-misterios-matematicos
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -99,13 +101,14 @@ recursos:
   - id: rec:matematica/euclides-elementos
     etapa: etapa:matematica/geometria-de-euclides
     titulo: "Elementos de Geometria (Euclides)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 20
     duracao_min: 1200
     url: https://www.amazon.com.br/dp/B00AGZCDLS
+    obra: euclides-elementos
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -140,13 +143,14 @@ recursos:
   - id: rec:matematica/openstax-calculus-v1
     etapa: etapa:matematica/limite-e-continuidade
     titulo: "OpenStax Calculus Volume 1 — limites e continuidade, com exercícios e respostas"
-    rev: 1
+    rev: 2
     status: ativo
     formato: exercicio
     idioma: en-US
     custo: 0
     duracao_min: 720
     url: https://openstax.org/details/books/calculus-volume-1
+    obra: openstax-calculus-v1
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -209,13 +213,14 @@ recursos:
   - id: rec:matematica/openstax-calculus-v2
     etapa: etapa:matematica/integral-e-acumulacao
     titulo: "OpenStax Calculus Volume 2 — integração e técnicas, com exercícios e respostas"
-    rev: 1
+    rev: 2
     status: ativo
     formato: exercicio
     idioma: en-US
     custo: 0
     duracao_min: 900
     url: https://openstax.org/details/books/calculus-volume-2
+    obra: openstax-calculus-v2
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -223,26 +228,28 @@ recursos:
   - id: rec:matematica/stewart-simetria
     etapa: etapa:matematica/simetria-e-grupos
     titulo: "Uma história da simetria na matemática (Ian Stewart) — divulgação: dá o porquê histórico, não o formalismo"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 40
     duracao_min: 600
     url: https://www.amazon.com.br/dp/8537808210
+    obra: stewart-historia-da-simetria
     disponivel: true
     verificado_em: 2026-10-08
 
   - id: rec:matematica/judson-abstract-algebra
     etapa: etapa:matematica/simetria-e-grupos
     titulo: "Abstract Algebra: Theory and Applications (Tom Judson) — edição aberta, grupos e grupos de simetria"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 900
     url: https://abstract.ups.edu/
+    obra: judson-abstract-algebra
     disponivel: true
     verificado_em: 2026-10-08
 

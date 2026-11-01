@@ -27,13 +27,14 @@ recursos:
   - id: rec:programacao/automate-boring-stuff
     etapa: etapa:programacao/python-para-ia
     titulo: "Automate the Boring Stuff with Python (Al Sweigart) — leitura aberta"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 900
     url: https://automatetheboringstuff.com/
+    obra: sweigart-automate-boring-stuff
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -41,13 +42,14 @@ recursos:
   - id: rec:ia/ettucode-llm-transformer-rag
     etapa: etapa:ia/panorama-llm-transformer-rag
     titulo: "LLM, Transformer, RAG AI (Et Tu Code) — ISBN 9798882446481"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 25
     duracao_min: 540
     url: https://www.amazon.com.br/s?k=LLM+Transformer+RAG+AI+Et+Tu+Code
+    obra: ettucode-llm-transformer-rag
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -68,13 +70,14 @@ recursos:
   - id: rec:ia/deep-learning-book-br
     etapa: etapa:ia/fundamentos-aprendizado-profundo
     titulo: "Deep Learning Book (Data Science Academy) — 100 capítulos em português"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 0
     duracao_min: 1800
     url: https://www.deeplearningbook.com.br/
+    obra: dsa-deep-learning-book
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -95,13 +98,14 @@ recursos:
   - id: rec:ia/deep-learning-with-python-3ed
     etapa: etapa:ia/fundamentos-aprendizado-profundo
     titulo: "Deep Learning with Python, 3ª ed. (Chollet & Watson)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 320
     duracao_min: 1500
     url: https://github.com/fchollet/deep-learning-with-python-notebooks
+    obra: chollet-deep-learning-with-python
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -109,13 +113,14 @@ recursos:
   - id: rec:ia/nlp-with-transformers
     etapa: etapa:ia/transformer-por-dentro
     titulo: "Natural Language Processing with Transformers (Tunstall, von Werra & Wolf) — caps. 1–4"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 280
     duracao_min: 900
     url: https://github.com/nlp-with-transformers/notebooks
+    obra: tunstall-nlp-with-transformers
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -148,13 +153,14 @@ recursos:
   - id: rec:ia/slp3-transformers
     etapa: etapa:ia/transformer-por-dentro
     titulo: "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — capítulos de transformers e LLM"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 600
     url: https://web.stanford.edu/~jurafsky/slp3/
+    obra: jurafsky-martin-slp3
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -203,13 +209,14 @@ recursos:
   - id: rec:ia/build-llm-from-scratch
     etapa: etapa:ia/llm-do-zero
     titulo: "Build a Large Language Model (From Scratch) (Sebastian Raschka, Manning)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 350
     duracao_min: 1800
     url: https://www.manning.com/books/build-a-large-language-model-from-scratch
+    obra: raschka-build-llm-from-scratch
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -278,13 +285,14 @@ recursos:
   - id: rec:ia/prompt-engineering-for-llms
     etapa: etapa:ia/engenharia-de-prompt
     titulo: "Prompt Engineering for LLMs (Berryman & Ziegler, O'Reilly)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 300
     duracao_min: 720
     url: https://www.oreilly.com/library/view/-/9781098156145
+    obra: berryman-ziegler-prompt-engineering
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -301,13 +309,14 @@ recursos:
   - id: rec:ia/souza-engenharia-de-prompts
     etapa: etapa:ia/engenharia-de-prompt
     titulo: "Engenharia de Prompts na Prática (Edney Souza) — a metade de técnica de prompt da etapa, não a de API; PDF gratuito do autor"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 0
     duracao_min: 420
     url: https://interney.net/livro-ia
+    obra: souza-engenharia-de-prompts
     disponivel: true
     verificado_em: 2026-10-17
 
@@ -371,13 +380,14 @@ recursos:
   - id: rec:ia/intro-information-retrieval
     etapa: etapa:ia/recuperacao-e-ranqueamento
     titulo: "Introduction to Information Retrieval (Manning, Raghavan & Schütze) — edição aberta"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 1200
     url: https://nlp.stanford.edu/IR-book/
+    obra: manning-introduction-information-retrieval
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -557,13 +567,14 @@ recursos:
   - id: rec:programacao/py4e-severance
     etapa: etapa:programacao/python-para-ia
     titulo: "Python for Everybody / Python Para Todos: Explorando Dados com Python 3 (Charles Severance) — edição aberta CC BY, com tradução em português"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 0
     duracao_min: 720
     url: https://www.py4e.com/book
+    obra: severance-python-for-everybody
     disponivel: true
     verificado_em: 2026-10-17
 
@@ -782,13 +793,14 @@ recursos:
   - id: rec:ia/kodel-spec-driven-development
     etapa: etapa:ia/claude-code-e-skills
     titulo: "Spec Driven Development — PT: Da vibe-coding à engenharia de software (J.C. Ködel) — especificação antes de gerar, pelo GitHub Spec Kit; esgotado na loja desde 2026-10-17"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 90
     duracao_min: 480
     url: https://www.amazon.com.br/dp/B0H8Y7QD9N
+    obra: kodel-spec-driven-development
     disponivel: false
     verificado_em: 2026-10-17
 
@@ -828,13 +840,14 @@ recursos:
   - id: rec:ia/loops-de-harness-langgraph
     etapa: etapa:ia/agentes-com-claude
     titulo: "Loops de Harness com LangGraph: construindo agentes que iteram até acertar (Eduardo Vieira)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 15
     duracao_min: 410
     url: https://www.amazon.com.br/s?k=Loops+de+Harness+com+LangGraph
+    obra: loops-de-harness-langgraph
     disponivel: true
     verificado_em: 2026-10-17
 
@@ -937,13 +950,14 @@ recursos:
   - id: rec:ia/jurafsky-martin-ngramas
     etapa: etapa:ia/ngramas-e-perplexidade
     titulo: "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — cap. 3, N-gram Language Models"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 360
     url: https://web.stanford.edu/~jurafsky/slp3/3.pdf
+    obra: jurafsky-martin-slp3
     disponivel: true
     verificado_em: 2026-10-17
 
@@ -979,13 +993,14 @@ recursos:
   - id: rec:ia/jurafsky-martin-suavizacao
     etapa: etapa:ia/suavizacao-e-retrocesso
     titulo: "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — cap. 3, seções de smoothing, interpolação e Kneser-Ney"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 180
     url: https://web.stanford.edu/~jurafsky/slp3/3.pdf
+    obra: jurafsky-martin-slp3
     disponivel: true
     verificado_em: 2026-10-17
 
@@ -1035,13 +1050,14 @@ recursos:
   - id: rec:ia/jurafsky-martin-apendice-hmm
     etapa: etapa:ia/modelo-oculto-de-markov
     titulo: "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — apêndice A, Hidden Markov Models"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 240
     url: https://web.stanford.edu/~jurafsky/slp3/A.pdf
+    obra: jurafsky-martin-slp3
     disponivel: true
     verificado_em: 2026-10-17
 
@@ -1063,13 +1079,14 @@ recursos:
   - id: rec:ia/jurafsky-martin-etiquetagem-sequencial
     etapa: etapa:ia/etiquetagem-morfossintatica-com-hmm
     titulo: "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — cap. 18, Sequence Labeling for Parts of Speech and Named Entities"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 300
     url: https://web.stanford.edu/~jurafsky/slp3/18.pdf
+    obra: jurafsky-martin-slp3
     disponivel: true
     verificado_em: 2026-10-17
 

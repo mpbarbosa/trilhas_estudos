@@ -113,6 +113,52 @@ def test_etapa_mostra_a_descricao_autorada_quando_existe(cliente: TestClient) ->
     assert 'class="prosa"' not in sem.text
 
 
+def test_trilha_reune_os_recursos_de_todas_as_suas_etapas(cliente: TestClient) -> None:
+    """Quem abre a trilha vê o material inteiro, sem abrir etapa por etapa.
+
+    Inclui as emprestadas: `logica-booleana` é definida fora de `fundamentos` e o
+    recurso dela faz parte do que estudar a trilha exige.
+    """
+    html = cliente.get("/trilha/trilha:dados/fundamentos").text
+    assert "Recursos da trilha" in html
+    assert "6 recurso(s) em 5 etapa(s)" in html
+    for recurso in (
+        "rec:dados/modelagem-basica-texto",
+        "rec:dados/sql-select-video",
+        "rec:dados/sql-select-exercicios",
+        "rec:dados/sql-join-exercicios",
+        "rec:dados/sql-group-by-texto",
+        "rec:programacao/logica-booleana-exercicios",
+    ):
+        assert recurso in html
+
+
+def test_recurso_de_etapa_fora_da_trilha_nao_entra(cliente: TestClient) -> None:
+    """A seção é o material das etapas da trilha, não o do catálogo inteiro."""
+    html = cliente.get("/trilha/trilha:dados/fundamentos").text
+    assert "rec:analise/etl-basico-projeto" not in html
+
+
+def test_recurso_da_trilha_vem_sob_a_etapa_que_ele_realiza(cliente: TestClient) -> None:
+    """Agrupado por etapa: recurso de etapas diferentes não é alternativa entre si."""
+    html = cliente.get("/trilha/trilha:dados/fundamentos").text
+    grupos = re.findall(r'<th scope="rowgroup".*?/etapa/([\w:/\-]+)"', html, re.DOTALL)
+    assert grupos == [
+        "etapa:programacao/logica-booleana",
+        "etapa:dados/modelagem-basica",
+        "etapa:dados/sql-select",
+        "etapa:dados/sql-group-by",
+        "etapa:dados/sql-join",
+    ]  # onda, e título dentro da onda — a mesma ordem da tabela de etapas
+
+
+def test_recurso_em_uso_tambem_se_marca_na_tela_da_trilha(com_log: TestClient) -> None:
+    """Mesma marca da tela da etapa — duas telas que discordassem sobre o que se
+    estuda por onde mandariam a pessoa conferir qual delas está certa."""
+    html = com_log.get("/trilha/trilha:dados/fundamentos").text
+    assert "recurso-em-uso" in html
+
+
 def test_trilha_inexistente_responde_404_com_tela(cliente: TestClient) -> None:
     resposta = cliente.get("/trilha/trilha:x/fantasma")
     assert resposta.status_code == 404
@@ -1337,3 +1383,34 @@ def test_indice_sem_obra_alguma_e_tela_desenhada(cliente: TestClient) -> None:
 def test_navegacao_leva_as_obras(cliente: TestClient) -> None:
     """Sem link no topo, o índice existiria sem porta de entrada — como a obra estava."""
     assert 'href="/obras"' in cliente.get("/acervo").text
+
+
+# --- livros da trilha (ADR-0020) -------------------------------------------------
+
+
+def test_trilha_lista_o_livro_uma_vez_com_o_preco_do_exemplar(
+    cliente_com_obra: TestClient,
+) -> None:
+    """Duas fatias, dois recursos, **um** livro e um preço (ADR-0009)."""
+    html = cliente_com_obra.get("/trilha/trilha:x/t").text
+    assert "Livros da trilha" in html
+    assert html.count("Livro de Teste (Autor)</a>") == 1
+    assert "1 livro(s), R$ 90 no total" in html
+    assert "o exemplar inteiro" in html  # a trilha usa as duas fatias
+    assert "/obra/livro-de-teste" in html
+
+
+def test_livro_leva_as_etapas_que_atende_na_trilha(cliente_com_obra: TestClient) -> None:
+    """A lista de livros responde "para quê", senão é uma lista de compras sem motivo."""
+    html = cliente_com_obra.get("/trilha/trilha:x/t").text
+    secao = html[html.index("Livros da trilha") : html.index("Recursos da trilha")]
+    assert "/etapa/etapa:x/um" in secao
+    assert "/etapa/etapa:x/dois" in secao
+
+
+def test_trilha_sem_exemplar_declarado_nao_diz_que_nao_ha_livro(cliente: TestClient) -> None:
+    """O fixture canônico não declara `obra`: a tela separa "não marcado" de "não há"."""
+    html = cliente.get("/trilha/trilha:dados/fundamentos").text
+    assert "Livros da trilha" in html
+    assert "o catálogo ainda não o marcou" in html
+    assert "6 recurso(s) desta trilha não declaram exemplar" in html

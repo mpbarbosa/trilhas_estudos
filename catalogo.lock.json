@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 50,
-  "gerado_em": "2026-11-01T19:41:01+00:00",
-  "hash": "sha256:7a02200cc9b4f78d94aa398717f9925021be945f6ad2553bbd905fe8f50e1939",
+  "catalogo_versao": 51,
+  "gerado_em": "2026-11-01T20:40:49+00:00",
+  "hash": "sha256:75a22bf70c6af2f5ce991e6c6821790e9f328c95ee93f9a845e7f66fa3cf29e5",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -4180,7 +4180,7 @@
     {
       "id": "rec:dados/data-science-para-negocios",
       "titulo": "Data Science para Negócios (Provost & Fawcett)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/enquadramento-de-problema",
       "formato": "texto",
@@ -4189,6 +4189,7 @@
       "duracao_min": 900,
       "url": "https://www.amazon.com.br/dp/8576089726",
       "disponivel": true,
+      "obra": "provost-fawcett-data-science-negocios",
       "verificado_em": "2026-10-08"
     },
     {
@@ -4314,7 +4315,7 @@
     {
       "id": "rec:dados/dianguila-matematica-ciencia-de-dados",
       "titulo": "Matemática para Ciência de Dados: fundamentos teóricos e aplicações em Python (Eugenio Nelson Dianguila)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/matematica-para-dados",
       "formato": "texto",
@@ -4323,12 +4324,13 @@
       "duracao_min": 900,
       "url": "https://www.amazon.com.br/dp/B0DQVMKS9N",
       "disponivel": true,
+      "obra": "dianguila-matematica-ciencia-de-dados",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:dados/dominando-python-exercicios",
       "titulo": "Dominando Python: 100+ exercícios resolvidos e comentados (Ruhan Conceição)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/numpy-e-pandas",
       "formato": "exercicio",
@@ -4337,6 +4339,7 @@
       "duracao_min": 600,
       "url": "https://www.amazon.com.br/dp/B0C7NDPKFR",
       "disponivel": true,
+      "obra": "dominando-python",
       "verificado_em": "2026-10-08"
     },
     {
@@ -4356,7 +4359,7 @@
     {
       "id": "rec:dados/feltrin-analise-exploratoria",
       "titulo": "Análise Exploratória de Dados com Python, Pandas e NumPy (Fernando Feltrin)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/analise-exploratoria",
       "formato": "texto",
@@ -4365,12 +4368,13 @@
       "duracao_min": 600,
       "url": "https://www.amazon.com.br/dp/B098DF8BZ5",
       "disponivel": true,
+      "obra": "feltrin-analise-exploratoria",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:dados/fundamentals-data-visualization",
       "titulo": "Fundamentals of Data Visualization (Claus O. Wilke) — edição aberta",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/visualizacao-para-analise",
       "formato": "texto",
@@ -4379,6 +4383,7 @@
       "duracao_min": 600,
       "url": "https://clauswilke.com/dataviz/",
       "disponivel": true,
+      "obra": "wilke-fundamentals-data-visualization",
       "verificado_em": "2026-10-08"
     },
     {
@@ -4428,7 +4433,7 @@
     {
       "id": "rec:dados/mckinney-python-analise-3ed",
       "titulo": "Python para Análise de Dados, 3ª edição (Wes McKinney)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/numpy-e-pandas",
       "formato": "texto",
@@ -4437,6 +4442,7 @@
       "duracao_min": 1200,
       "url": "https://wesmckinney.com/book/",
       "disponivel": true,
+      "obra": "mckinney-python-analise-de-dados",
       "verificado_em": "2026-10-08"
     },
     {
@@ -4512,7 +4518,7 @@
     {
       "id": "rec:dados/python-data-science-handbook",
       "titulo": "Python Data Science Handbook (Jake VanderPlas) — edição aberta, caps. 2–4",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/analise-exploratoria",
       "formato": "texto",
@@ -4521,12 +4527,13 @@
       "duracao_min": 900,
       "url": "https://jakevdp.github.io/PythonDataScienceHandbook/",
       "disponivel": true,
+      "obra": "vanderplas-python-data-science-handbook",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:dados/santos-algebra-linear-python",
       "titulo": "Álgebra Linear com Python (Rafael F.V.C. Santos) — só a álgebra linear da etapa, não o cálculo",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/matematica-para-dados",
       "formato": "texto",
@@ -4535,6 +4542,7 @@
       "duracao_min": 240,
       "url": "https://www.amazon.com.br/dp/B07FNWM2P8",
       "disponivel": true,
+      "obra": "santos-algebra-linear-python",
       "verificado_em": "2026-10-17"
     },
     {
@@ -4568,7 +4576,7 @@
     {
       "id": "rec:dados/think-stats",
       "titulo": "Think Stats, 3ª ed. (Allen B. Downey) — estatística por simulação em Python, edição aberta",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/estatistica-aplicada",
       "formato": "texto",
@@ -4577,12 +4585,13 @@
       "duracao_min": 900,
       "url": "https://allendowney.github.io/ThinkStats/",
       "disponivel": true,
+      "obra": "downey-think-stats",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:dados/tufte-visual-display",
       "titulo": "The Visual Display of Quantitative Information, 2ª ed. (Edward R. Tufte) — leitura crítica do gráfico: data-ink, chartjunk e fator de mentira",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/visualizacao-para-analise",
       "formato": "texto",
@@ -4591,12 +4600,13 @@
       "duracao_min": 480,
       "url": "https://www.amazon.com.br/dp/0961392142",
       "disponivel": true,
+      "obra": "tufte-visual-display",
       "verificado_em": "2026-10-17"
     },
     {
       "id": "rec:dados/use-the-index-luke",
       "titulo": "Use The Index, Luke! (Markus Winand) — o índice visto pelo plano de execução, em SGBDs atuais",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:dados/armazenamento-e-indices",
       "formato": "texto",
@@ -4605,6 +4615,7 @@
       "duracao_min": 360,
       "url": "https://use-the-index-luke.com/",
       "disponivel": true,
+      "obra": "winand-use-the-index-luke",
       "verificado_em": "2026-10-15"
     },
     {
@@ -4739,7 +4750,7 @@
     {
       "id": "rec:engenharia/effective-devops",
       "titulo": "Effective DevOps: Building a Culture of Collaboration, Affinity, and Tooling at Scale (Davis & Daniels)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:engenharia/operacao-e-incidente",
       "formato": "texto",
@@ -4748,6 +4759,7 @@
       "duracao_min": 900,
       "url": "https://www.amazon.com.br/dp/1491926309",
       "disponivel": true,
+      "obra": "davis-daniels-effective-devops",
       "verificado_em": "2026-10-08"
     },
     {
@@ -4781,7 +4793,7 @@
     {
       "id": "rec:engenharia/google-sre-books",
       "titulo": "Google SRE Books — edição aberta: SLO, resposta a incidente e postmortem sem culpado",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:engenharia/operacao-e-incidente",
       "formato": "texto",
@@ -4790,12 +4802,13 @@
       "duracao_min": 900,
       "url": "https://sre.google/books/",
       "disponivel": true,
+      "obra": "google-sre-books",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:engenharia/hathaway-requisitos-nao-funcionais",
       "titulo": "Functional and Non-Functional Requirements — Simply Put! (Hathaway & Hathaway)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:engenharia/requisitos-e-atributos",
       "formato": "texto",
@@ -4804,6 +4817,7 @@
       "duracao_min": 300,
       "url": "https://www.amazon.com.br/dp/1534983481",
       "disponivel": true,
+      "obra": "hathaway-requisitos-nao-funcionais",
       "verificado_em": "2026-10-08"
     },
     {
@@ -4882,7 +4896,7 @@
     {
       "id": "rec:engenharia/pro-git",
       "titulo": "Pro Git, 2ª ed. (Chacon & Straub) — edição aberta, inclusive em português",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:engenharia/controle-de-versao",
       "formato": "texto",
@@ -4891,6 +4905,7 @@
       "duracao_min": 720,
       "url": "https://git-scm.com/book/pt-br/v2",
       "disponivel": true,
+      "obra": "chacon-straub-pro-git",
       "verificado_em": "2026-10-08"
     },
     {
@@ -4910,7 +4925,7 @@
     {
       "id": "rec:engenharia/rys-git-tutorial",
       "titulo": "Ry's Git Tutorial (Ryan Hodson)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:engenharia/controle-de-versao",
       "formato": "texto",
@@ -4919,12 +4934,13 @@
       "duracao_min": 300,
       "url": "https://www.amazon.com.br/dp/B00QFIA5OC",
       "disponivel": true,
+      "obra": "hodson-rys-git-tutorial",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:engenharia/vazquez-engenharia-de-requisitos",
       "titulo": "Engenharia de Requisitos: software orientado ao negócio (Vazquez & Simões)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:engenharia/requisitos-e-atributos",
       "formato": "texto",
@@ -4933,12 +4949,13 @@
       "duracao_min": 900,
       "url": "https://www.amazon.com.br/dp/B01M3S7HT7",
       "disponivel": true,
+      "obra": "vazquez-engenharia-de-requisitos",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:filosofia/arnold-song-celestial",
       "titulo": "The Song Celestial, or Bhagavad-Gîtâ (trad. Edwin Arnold, 1885) — Project Gutenberg",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:filosofia/leitura-integral-da-gita",
       "formato": "texto",
@@ -4947,12 +4964,13 @@
       "duracao_min": 300,
       "url": "https://www.gutenberg.org/ebooks/2388",
       "disponivel": true,
+      "obra": "arnold-song-celestial",
       "verificado_em": "2026-10-26"
     },
     {
       "id": "rec:filosofia/chetan-30-dias-gita",
       "titulo": "30 Days to Understanding the Bhagavad Gita: A Complete, Simple, and Step-by-Step Guide to the Million-Year-Old Confidential Knowledge (Hari Chetan)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:filosofia/por-que-ler-a-gita",
       "formato": "texto",
@@ -4961,12 +4979,13 @@
       "duracao_min": 450,
       "url": "https://harichetan.com/books/30-days-understanding-bhagavad-gita",
       "disponivel": true,
+      "obra": "chetan-30-dias-gita",
       "verificado_em": "2026-11-01"
     },
     {
       "id": "rec:filosofia/chetan-daily-bhakti",
       "titulo": "Daily Bhakti Practices: A Practical Guide to Living with Devotion and Purpose (Hari Chetan)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:filosofia/bhakti-na-pratica",
       "formato": "texto",
@@ -4975,12 +4994,13 @@
       "duracao_min": 165,
       "url": "https://harichetan.com/books/daily-bhakti-practices/",
       "disponivel": true,
+      "obra": "chetan-daily-bhakti",
       "verificado_em": "2026-11-01"
     },
     {
       "id": "rec:filosofia/chetan-gita-perfect-philosophy",
       "titulo": "Bhagavad Gita - The Perfect Philosophy: 15 Reasons That Make the Song of God the Most Scientific Ideology (Hari Chetan)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:filosofia/por-que-ler-a-gita",
       "formato": "texto",
@@ -4989,12 +5009,13 @@
       "duracao_min": 180,
       "url": "https://harichetan.com/books/bhagavad-gita-perfect-philosophy/",
       "disponivel": true,
+      "obra": "chetan-gita-perfect-philosophy",
       "verificado_em": "2026-10-26"
     },
     {
       "id": "rec:filosofia/chetan-gita-resumida",
       "titulo": "The Bhagavad Gita Summarized and Simplified: A Comprehensive and Easy-to-Read Summary of the Divine Song of God (Hari Chetan)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:filosofia/por-que-ler-a-gita",
       "formato": "texto",
@@ -5003,12 +5024,13 @@
       "duracao_min": 280,
       "url": "https://harichetan.com/books/bhagavad-gita-summarized-simplified/",
       "disponivel": true,
+      "obra": "chetan-gita-resumida",
       "verificado_em": "2026-11-01"
     },
     {
       "id": "rec:filosofia/chetan-gita-traducao-autentica",
       "titulo": "Bhagavad Gita (in English): The Authentic English Translation for Accurate and Unbiased Understanding (Hari Chetan)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:filosofia/leitura-integral-da-gita",
       "formato": "texto",
@@ -5017,6 +5039,7 @@
       "duracao_min": 440,
       "url": "https://harichetan.com/books/bhagavad-gita-english/",
       "disponivel": true,
+      "obra": "chetan-gita-traducao-autentica",
       "verificado_em": "2026-11-01"
     },
     {
@@ -5258,7 +5281,7 @@
     {
       "id": "rec:ia/build-llm-from-scratch",
       "titulo": "Build a Large Language Model (From Scratch) (Sebastian Raschka, Manning)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/llm-do-zero",
       "formato": "texto",
@@ -5267,6 +5290,7 @@
       "duracao_min": 1800,
       "url": "https://www.manning.com/books/build-a-large-language-model-from-scratch",
       "disponivel": true,
+      "obra": "raschka-build-llm-from-scratch",
       "verificado_em": "2026-10-08"
     },
     {
@@ -5384,7 +5408,7 @@
     {
       "id": "rec:ia/deep-learning-book-br",
       "titulo": "Deep Learning Book (Data Science Academy) — 100 capítulos em português",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/fundamentos-aprendizado-profundo",
       "formato": "texto",
@@ -5393,12 +5417,13 @@
       "duracao_min": 1800,
       "url": "https://www.deeplearningbook.com.br/",
       "disponivel": true,
+      "obra": "dsa-deep-learning-book",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:ia/deep-learning-with-python-3ed",
       "titulo": "Deep Learning with Python, 3ª ed. (Chollet & Watson)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/fundamentos-aprendizado-profundo",
       "formato": "texto",
@@ -5407,12 +5432,13 @@
       "duracao_min": 1500,
       "url": "https://github.com/fchollet/deep-learning-with-python-notebooks",
       "disponivel": true,
+      "obra": "chollet-deep-learning-with-python",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:ia/ettucode-llm-transformer-rag",
       "titulo": "LLM, Transformer, RAG AI (Et Tu Code) — ISBN 9798882446481",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/panorama-llm-transformer-rag",
       "formato": "texto",
@@ -5421,6 +5447,7 @@
       "duracao_min": 540,
       "url": "https://www.amazon.com.br/s?k=LLM+Transformer+RAG+AI+Et+Tu+Code",
       "disponivel": true,
+      "obra": "ettucode-llm-transformer-rag",
       "verificado_em": "2026-10-08"
     },
     {
@@ -5557,7 +5584,7 @@
     {
       "id": "rec:ia/intro-information-retrieval",
       "titulo": "Introduction to Information Retrieval (Manning, Raghavan & Schütze) — edição aberta",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/recuperacao-e-ranqueamento",
       "formato": "texto",
@@ -5566,12 +5593,13 @@
       "duracao_min": 1200,
       "url": "https://nlp.stanford.edu/IR-book/",
       "disponivel": true,
+      "obra": "manning-introduction-information-retrieval",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:ia/jurafsky-martin-apendice-hmm",
       "titulo": "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — apêndice A, Hidden Markov Models",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/modelo-oculto-de-markov",
       "formato": "texto",
@@ -5580,12 +5608,13 @@
       "duracao_min": 240,
       "url": "https://web.stanford.edu/~jurafsky/slp3/A.pdf",
       "disponivel": true,
+      "obra": "jurafsky-martin-slp3",
       "verificado_em": "2026-10-17"
     },
     {
       "id": "rec:ia/jurafsky-martin-etiquetagem-sequencial",
       "titulo": "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — cap. 18, Sequence Labeling for Parts of Speech and Named Entities",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/etiquetagem-morfossintatica-com-hmm",
       "formato": "texto",
@@ -5594,12 +5623,13 @@
       "duracao_min": 300,
       "url": "https://web.stanford.edu/~jurafsky/slp3/18.pdf",
       "disponivel": true,
+      "obra": "jurafsky-martin-slp3",
       "verificado_em": "2026-10-17"
     },
     {
       "id": "rec:ia/jurafsky-martin-ngramas",
       "titulo": "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — cap. 3, N-gram Language Models",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/ngramas-e-perplexidade",
       "formato": "texto",
@@ -5608,12 +5638,13 @@
       "duracao_min": 360,
       "url": "https://web.stanford.edu/~jurafsky/slp3/3.pdf",
       "disponivel": true,
+      "obra": "jurafsky-martin-slp3",
       "verificado_em": "2026-10-17"
     },
     {
       "id": "rec:ia/jurafsky-martin-suavizacao",
       "titulo": "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — cap. 3, seções de smoothing, interpolação e Kneser-Ney",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/suavizacao-e-retrocesso",
       "formato": "texto",
@@ -5622,6 +5653,7 @@
       "duracao_min": 180,
       "url": "https://web.stanford.edu/~jurafsky/slp3/3.pdf",
       "disponivel": true,
+      "obra": "jurafsky-martin-slp3",
       "verificado_em": "2026-10-17"
     },
     {
@@ -5670,7 +5702,7 @@
     {
       "id": "rec:ia/kodel-spec-driven-development",
       "titulo": "Spec Driven Development — PT: Da vibe-coding à engenharia de software (J.C. Ködel) — especificação antes de gerar, pelo GitHub Spec Kit; esgotado na loja desde 2026-10-17",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/claude-code-e-skills",
       "formato": "texto",
@@ -5679,6 +5711,7 @@
       "duracao_min": 480,
       "url": "https://www.amazon.com.br/dp/B0H8Y7QD9N",
       "disponivel": false,
+      "obra": "kodel-spec-driven-development",
       "verificado_em": "2026-10-17"
     },
     {
@@ -5771,7 +5804,7 @@
     {
       "id": "rec:ia/loops-de-harness-langgraph",
       "titulo": "Loops de Harness com LangGraph: construindo agentes que iteram até acertar (Eduardo Vieira)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/agentes-com-claude",
       "formato": "texto",
@@ -5780,6 +5813,7 @@
       "duracao_min": 410,
       "url": "https://www.amazon.com.br/s?k=Loops+de+Harness+com+LangGraph",
       "disponivel": true,
+      "obra": "loops-de-harness-langgraph",
       "verificado_em": "2026-10-17"
     },
     {
@@ -5889,7 +5923,7 @@
     {
       "id": "rec:ia/nlp-with-transformers",
       "titulo": "Natural Language Processing with Transformers (Tunstall, von Werra & Wolf) — caps. 1–4",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/transformer-por-dentro",
       "formato": "texto",
@@ -5898,6 +5932,7 @@
       "duracao_min": 900,
       "url": "https://github.com/nlp-with-transformers/notebooks",
       "disponivel": true,
+      "obra": "tunstall-nlp-with-transformers",
       "verificado_em": "2026-10-08"
     },
     {
@@ -5959,7 +5994,7 @@
     {
       "id": "rec:ia/prompt-engineering-for-llms",
       "titulo": "Prompt Engineering for LLMs (Berryman & Ziegler, O'Reilly)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/engenharia-de-prompt",
       "formato": "texto",
@@ -5968,6 +6003,7 @@
       "duracao_min": 720,
       "url": "https://www.oreilly.com/library/view/-/9781098156145",
       "disponivel": true,
+      "obra": "berryman-ziegler-prompt-engineering",
       "verificado_em": "2026-10-08"
     },
     {
@@ -6001,7 +6037,7 @@
     {
       "id": "rec:ia/slp3-transformers",
       "titulo": "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — capítulos de transformers e LLM",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/transformer-por-dentro",
       "formato": "texto",
@@ -6010,12 +6046,13 @@
       "duracao_min": 600,
       "url": "https://web.stanford.edu/~jurafsky/slp3/",
       "disponivel": true,
+      "obra": "jurafsky-martin-slp3",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:ia/souza-engenharia-de-prompts",
       "titulo": "Engenharia de Prompts na Prática (Edney Souza) — a metade de técnica de prompt da etapa, não a de API; PDF gratuito do autor",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:ia/engenharia-de-prompt",
       "formato": "texto",
@@ -6024,6 +6061,7 @@
       "duracao_min": 420,
       "url": "https://interney.net/livro-ia",
       "disponivel": true,
+      "obra": "souza-engenharia-de-prompts",
       "verificado_em": "2026-10-17"
     },
     {
@@ -6329,7 +6367,7 @@
     {
       "id": "rec:matematica/book-of-proof",
       "titulo": "Book of Proof, 3ª ed. (Richard Hammack) — edição aberta, com exercícios resolvidos",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:matematica/o-que-e-uma-prova",
       "formato": "texto",
@@ -6338,6 +6376,7 @@
       "duracao_min": 1200,
       "url": "https://www.people.vcu.edu/~rhammack/BookOfProof/",
       "disponivel": true,
+      "obra": "hammack-book-of-proof",
       "verificado_em": "2026-10-08"
     },
     {
@@ -6357,7 +6396,7 @@
     {
       "id": "rec:matematica/euclides-elementos",
       "titulo": "Elementos de Geometria (Euclides)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:matematica/geometria-de-euclides",
       "formato": "texto",
@@ -6366,6 +6405,7 @@
       "duracao_min": 1200,
       "url": "https://www.amazon.com.br/dp/B00AGZCDLS",
       "disponivel": true,
+      "obra": "euclides-elementos",
       "verificado_em": "2026-10-08"
     },
     {
@@ -6415,7 +6455,7 @@
     {
       "id": "rec:matematica/judson-abstract-algebra",
       "titulo": "Abstract Algebra: Theory and Applications (Tom Judson) — edição aberta, grupos e grupos de simetria",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:matematica/simetria-e-grupos",
       "formato": "texto",
@@ -6424,6 +6464,7 @@
       "duracao_min": 900,
       "url": "https://abstract.ups.edu/",
       "disponivel": true,
+      "obra": "judson-abstract-algebra",
       "verificado_em": "2026-10-08"
     },
     {
@@ -6488,7 +6529,7 @@
     {
       "id": "rec:matematica/openstax-calculus-v1",
       "titulo": "OpenStax Calculus Volume 1 — limites e continuidade, com exercícios e respostas",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:matematica/limite-e-continuidade",
       "formato": "exercicio",
@@ -6497,12 +6538,13 @@
       "duracao_min": 720,
       "url": "https://openstax.org/details/books/calculus-volume-1",
       "disponivel": true,
+      "obra": "openstax-calculus-v1",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:matematica/openstax-calculus-v2",
       "titulo": "OpenStax Calculus Volume 2 — integração e técnicas, com exercícios e respostas",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:matematica/integral-e-acumulacao",
       "formato": "exercicio",
@@ -6511,6 +6553,7 @@
       "duracao_min": 900,
       "url": "https://openstax.org/details/books/calculus-volume-2",
       "disponivel": true,
+      "obra": "openstax-calculus-v2",
       "verificado_em": "2026-10-08"
     },
     {
@@ -6544,7 +6587,7 @@
     {
       "id": "rec:matematica/stewart-misterios",
       "titulo": "Os mistérios matemáticos do professor Stewart (Ian Stewart) — divulgação: motiva e dá contexto, não treina demonstração",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:matematica/o-que-e-uma-prova",
       "formato": "texto",
@@ -6553,12 +6596,13 @@
       "duracao_min": 480,
       "url": "https://www.amazon.com.br/dp/8537814547",
       "disponivel": true,
+      "obra": "stewart-misterios-matematicos",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:matematica/stewart-simetria",
       "titulo": "Uma história da simetria na matemática (Ian Stewart) — divulgação: dá o porquê histórico, não o formalismo",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:matematica/simetria-e-grupos",
       "formato": "texto",
@@ -6567,12 +6611,13 @@
       "duracao_min": 600,
       "url": "https://www.amazon.com.br/dp/8537808210",
       "disponivel": true,
+      "obra": "stewart-historia-da-simetria",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:programacao/automate-boring-stuff",
       "titulo": "Automate the Boring Stuff with Python (Al Sweigart) — leitura aberta",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:programacao/python-para-ia",
       "formato": "texto",
@@ -6581,12 +6626,13 @@
       "duracao_min": 900,
       "url": "https://automatetheboringstuff.com/",
       "disponivel": true,
+      "obra": "sweigart-automate-boring-stuff",
       "verificado_em": "2026-10-08"
     },
     {
       "id": "rec:programacao/beej-c-sistemas",
       "titulo": "Beej's Guide to C Programming — de `hello, world` a estruturas, apontadores, alocação manual, projetos de vários arquivos e o ambiente de fora (`argv`, variáveis, código de saída)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:programacao/programacao-de-sistemas",
       "formato": "texto",
@@ -6595,12 +6641,13 @@
       "duracao_min": 900,
       "url": "https://beej.us/guide/bgc/",
       "disponivel": true,
+      "obra": "beej-guide-c",
       "verificado_em": "2026-10-19"
     },
     {
       "id": "rec:programacao/beej-ipc-descritores",
       "titulo": "Beej's Guide to Interprocess Communication — `fork`, canos, FIFOs e sinais: o processo filho, o descritor e a leitura que volta com menos bytes do que se pediu",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:programacao/programacao-de-sistemas",
       "formato": "texto",
@@ -6609,6 +6656,7 @@
       "duracao_min": 300,
       "url": "https://beej.us/guide/bgipc/",
       "disponivel": true,
+      "obra": "beej-guide-ipc",
       "verificado_em": "2026-10-19"
     },
     {
@@ -6762,7 +6810,7 @@
     {
       "id": "rec:programacao/py4e-severance",
       "titulo": "Python for Everybody / Python Para Todos: Explorando Dados com Python 3 (Charles Severance) — edição aberta CC BY, com tradução em português",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:programacao/python-para-ia",
       "formato": "texto",
@@ -6771,6 +6819,7 @@
       "duracao_min": 720,
       "url": "https://www.py4e.com/book",
       "disponivel": true,
+      "obra": "severance-python-for-everybody",
       "verificado_em": "2026-10-17"
     },
     {
@@ -6791,7 +6840,7 @@
     {
       "id": "rec:programacao/rust-book-sistemas",
       "titulo": "The Rust Programming Language (Klabnik & Nichols) — caps. 1 a 12: tipos, posse e empréstimo, structs, módulos, coleções, tratamento de erro, e o projeto de E/S que o cap. 12 reparte em biblioteca e binário",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:programacao/programacao-de-sistemas",
       "formato": "texto",
@@ -6800,6 +6849,7 @@
       "duracao_min": 900,
       "url": "https://doc.rust-lang.org/book/",
       "disponivel": true,
+      "obra": "klabnik-nichols-rust-book",
       "verificado_em": "2026-10-19"
     },
     {
@@ -6835,7 +6885,7 @@
     {
       "id": "rec:so/guiafoca-linha-de-comando",
       "titulo": "Guia Foca Linux — Iniciante e Intermediário (Gleydson Mazioli da Silva): comandos, estrutura de diretórios, permissões e redirecionamento, em português",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:so/linha-de-comando",
       "formato": "texto",
@@ -6844,12 +6894,13 @@
       "duracao_min": 420,
       "url": "https://guiafoca.org/",
       "disponivel": true,
+      "obra": "guiafoca-linux",
       "verificado_em": "2026-10-17"
     },
     {
       "id": "rec:so/jargas-shell-script-profissional",
       "titulo": "Shell Script Profissional (Aurélio Marinho Jargas, Novatec) — script que se mantém: portabilidade, POSIX contra bash, estilo e depuração",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:so/script-shell",
       "formato": "texto",
@@ -6858,6 +6909,7 @@
       "duracao_min": 600,
       "url": "https://novatec.com.br/livros/shellscript/",
       "disponivel": true,
+      "obra": "jargas-shell-script-profissional",
       "verificado_em": "2026-10-17"
     },
     {
@@ -6877,7 +6929,7 @@
     {
       "id": "rec:so/ostep-concorrencia",
       "titulo": "Operating Systems: Three Easy Pieces — parte Concurrency: threads, travas, variáveis de condição e semáforos",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:so/processos-e-concorrencia",
       "formato": "texto",
@@ -6886,12 +6938,13 @@
       "duracao_min": 600,
       "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
       "disponivel": true,
+      "obra": "arpaci-dusseau-ostep",
       "verificado_em": "2026-10-12"
     },
     {
       "id": "rec:so/ostep-escalonamento",
       "titulo": "Operating Systems: Three Easy Pieces — escalonamento, filas multinível e lottery scheduling, com simuladores",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:so/escalonamento-de-processos",
       "formato": "exercicio",
@@ -6900,12 +6953,13 @@
       "duracao_min": 240,
       "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
       "disponivel": true,
+      "obra": "arpaci-dusseau-ostep",
       "verificado_em": "2026-10-12"
     },
     {
       "id": "rec:so/ostep-introducao",
       "titulo": "Operating Systems: Three Easy Pieces (Arpaci-Dusseau) — introdução e API de processos; edição aberta",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:so/visao-geral-e-chamadas-de-sistema",
       "formato": "texto",
@@ -6914,12 +6968,13 @@
       "duracao_min": 180,
       "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
       "disponivel": true,
+      "obra": "arpaci-dusseau-ostep",
       "verificado_em": "2026-10-12"
     },
     {
       "id": "rec:so/ostep-memoria",
       "titulo": "Operating Systems: Three Easy Pieces — parte Virtualization: espaço de endereçamento, paginação, TLB e substituição",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:so/gerenciamento-de-memoria",
       "formato": "texto",
@@ -6928,12 +6983,13 @@
       "duracao_min": 600,
       "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
       "disponivel": true,
+      "obra": "arpaci-dusseau-ostep",
       "verificado_em": "2026-10-12"
     },
     {
       "id": "rec:so/ostep-persistencia",
       "titulo": "Operating Systems: Three Easy Pieces — parte Persistence: implementação de sistema de arquivos, FFS e journaling",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:so/sistemas-de-arquivos",
       "formato": "texto",
@@ -6942,12 +6998,13 @@
       "duracao_min": 480,
       "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
       "disponivel": true,
+      "obra": "arpaci-dusseau-ostep",
       "verificado_em": "2026-10-12"
     },
     {
       "id": "rec:so/shotts-linha-de-comando",
       "titulo": "The Linux Command Line, 7ª ed. de internet (William Shotts) — partes 1 a 3: o shell, configuração e as tarefas comuns; PDF livre em Creative Commons",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:so/linha-de-comando",
       "formato": "texto",
@@ -6956,12 +7013,13 @@
       "duracao_min": 600,
       "url": "https://linuxcommand.org/tlcl.php",
       "disponivel": true,
+      "obra": "shotts-tlcl",
       "verificado_em": "2026-10-17"
     },
     {
       "id": "rec:so/shotts-script-shell",
       "titulo": "The Linux Command Line, 7ª ed. de internet — parte 4: escrevendo scripts shell, do primeiro script às funções e à depuração",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:so/script-shell",
       "formato": "texto",
@@ -6970,6 +7028,7 @@
       "duracao_min": 300,
       "url": "https://linuxcommand.org/tlcl.php",
       "disponivel": true,
+      "obra": "shotts-tlcl",
       "verificado_em": "2026-10-17"
     },
     {
@@ -8073,7 +8132,7 @@
     {
       "id": "rec:web/burnham-async-javascript",
       "titulo": "Async JavaScript: Build More Responsive Apps with Less Code (Trevor Burnham)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:web/assincronia-no-navegador",
       "formato": "texto",
@@ -8082,6 +8141,7 @@
       "duracao_min": 300,
       "url": "https://www.amazon.com.br/dp/1937785270",
       "disponivel": true,
+      "obra": "burnham-async-javascript",
       "verificado_em": "2026-10-08"
     },
     {
@@ -8101,7 +8161,7 @@
     {
       "id": "rec:web/d3-cookbook-zhu",
       "titulo": "Data Visualization with D3.js Cookbook (Nick Qi Zhu) — apoio conceitual; código de versão antiga da API",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:web/visualizacao-com-d3",
       "formato": "texto",
@@ -8110,6 +8170,7 @@
       "duracao_min": 480,
       "url": "https://www.amazon.com.br/dp/178216216X",
       "disponivel": true,
+      "obra": "zhu-d3-cookbook",
       "verificado_em": "2026-10-08"
     },
     {
@@ -8129,7 +8190,7 @@
     {
       "id": "rec:web/eloquent-javascript",
       "titulo": "Eloquent JavaScript, 4ª ed. (Marijn Haverbeke) — edição aberta, com exercícios",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:web/javascript-de-aplicacao",
       "formato": "texto",
@@ -8138,6 +8199,7 @@
       "duracao_min": 1200,
       "url": "https://eloquentjavascript.net/",
       "disponivel": true,
+      "obra": "haverbeke-eloquent-javascript",
       "verificado_em": "2026-10-08"
     },
     {
@@ -8172,7 +8234,7 @@
     {
       "id": "rec:web/grinberg-flask-pt",
       "titulo": "Desenvolvimento Web com Flask (Miguel Grinberg, Novatec 2018) — apoio conceitual; tradução da 2ª ed. em inglês, anterior ao Flask 2, e o capítulo de banco usa Flask-SQLAlchemy 2",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:web/python-no-servidor",
       "formato": "texto",
@@ -8181,12 +8243,13 @@
       "duracao_min": 900,
       "url": "https://www.amazon.com.br/dp/8575226819",
       "disponivel": true,
+      "obra": "grinberg-flask",
       "verificado_em": "2026-10-17"
     },
     {
       "id": "rec:web/mastering-d3-castillo",
       "titulo": "Mastering D3.js (Pablo Navarro Castillo) — apoio conceitual; código de versão antiga da API",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:web/visualizacao-com-d3",
       "formato": "texto",
@@ -8195,6 +8258,7 @@
       "duracao_min": 480,
       "url": "https://www.amazon.com.br/dp/B00N1X6926",
       "disponivel": true,
+      "obra": "castillo-mastering-d3",
       "verificado_em": "2026-10-08"
     },
     {
@@ -8242,7 +8306,7 @@
     {
       "id": "rec:web/meyer-css-and-documents",
       "titulo": "CSS and Documents (Eric A. Meyer) — extrato de CSS: The Definitive Guide sobre cascata e aplicação de estilo",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:web/documento-e-estilo",
       "formato": "texto",
@@ -8251,6 +8315,7 @@
       "duracao_min": 180,
       "url": "https://www.amazon.com.br/s?k=CSS+and+Documents+Eric+Meyer",
       "disponivel": true,
+      "obra": "meyer-css-and-documents",
       "verificado_em": "2026-10-08"
     },
     {
@@ -8270,7 +8335,7 @@
     {
       "id": "rec:web/node-succinctly-kurniawan",
       "titulo": "Node.js Succinctly (Agus Kurniawan, 2014) — apoio conceitual; código da era Node 0.10, anterior a promessas, async/await e ESM",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:web/javascript-no-servidor",
       "formato": "texto",
@@ -8279,6 +8344,7 @@
       "duracao_min": 180,
       "url": "https://www.goodreads.com/en/book/show/22586795-node-js-succinctly",
       "disponivel": true,
+      "obra": "kurniawan-node-succinctly",
       "verificado_em": "2026-10-17"
     },
     {
@@ -8298,7 +8364,7 @@
     {
       "id": "rec:web/pure-react-ceddia",
       "titulo": "Pure React (Dave Ceddia) — componentes, JSX, props e estado, sem Redux nem roteador",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:web/interface-por-componentes",
       "formato": "texto",
@@ -8307,6 +8373,7 @@
       "duracao_min": 600,
       "url": "https://www.purereact.com/",
       "disponivel": true,
+      "obra": "ceddia-pure-react",
       "verificado_em": "2026-10-17"
     },
     {
@@ -8326,7 +8393,7 @@
     {
       "id": "rec:web/react-fluente",
       "titulo": "React Fluente: crie aplicações web rápidas, eficazes e intuitivas (Tejas Kumar)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:web/interface-por-componentes",
       "formato": "texto",
@@ -8335,6 +8402,7 @@
       "duracao_min": 900,
       "url": "https://www.amazon.com.br/dp/B0D4FD47PW",
       "disponivel": true,
+      "obra": "react-fluente",
       "verificado_em": "2026-10-08"
     },
     {
@@ -8354,7 +8422,7 @@
     {
       "id": "rec:web/typescript-basico-pt",
       "titulo": "TypeScript Básico: fundamentos e práticas essenciais (Jardel Vieira Alves)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:web/typescript-como-projeto",
       "formato": "texto",
@@ -8363,6 +8431,7 @@
       "duracao_min": 300,
       "url": "https://www.amazon.com.br/dp/B0GGKMPH2X",
       "disponivel": true,
+      "obra": "typescript-basico",
       "verificado_em": "2026-10-08"
     },
     {
@@ -8410,7 +8479,7 @@
     {
       "id": "rec:web/what-every-web-developer-http",
       "titulo": "What Every Web Developer Should Know About HTTP (K. Scott Allen)",
-      "rev": 1,
+      "rev": 2,
       "status": "ativo",
       "etapa": "etapa:web/http-por-dentro",
       "formato": "texto",
@@ -8419,6 +8488,7 @@
       "duracao_min": 240,
       "url": "https://www.amazon.com.br/dp/B0076Z6VMI",
       "disponivel": true,
+      "obra": "allen-what-every-web-developer-http",
       "verificado_em": "2026-10-08"
     }
   ]

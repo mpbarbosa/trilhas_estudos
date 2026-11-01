@@ -12,13 +12,14 @@ recursos:
   - id: rec:dados/mckinney-python-analise-3ed
     etapa: etapa:dados/numpy-e-pandas
     titulo: "Python para Análise de Dados, 3ª edição (Wes McKinney)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 130
     duracao_min: 1200
     url: https://wesmckinney.com/book/
+    obra: mckinney-python-analise-de-dados
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -38,13 +39,14 @@ recursos:
   - id: rec:dados/dominando-python-exercicios
     etapa: etapa:dados/numpy-e-pandas
     titulo: "Dominando Python: 100+ exercícios resolvidos e comentados (Ruhan Conceição)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: exercicio
     idioma: pt-BR
     custo: 30
     duracao_min: 600
     url: https://www.amazon.com.br/dp/B0C7NDPKFR
+    obra: dominando-python
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -52,26 +54,28 @@ recursos:
   - id: rec:dados/feltrin-analise-exploratoria
     etapa: etapa:dados/analise-exploratoria
     titulo: "Análise Exploratória de Dados com Python, Pandas e NumPy (Fernando Feltrin)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 30
     duracao_min: 600
     url: https://www.amazon.com.br/dp/B098DF8BZ5
+    obra: feltrin-analise-exploratoria
     disponivel: true
     verificado_em: 2026-10-08
 
   - id: rec:dados/python-data-science-handbook
     etapa: etapa:dados/analise-exploratoria
     titulo: "Python Data Science Handbook (Jake VanderPlas) — edição aberta, caps. 2–4"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 900
     url: https://jakevdp.github.io/PythonDataScienceHandbook/
+    obra: vanderplas-python-data-science-handbook
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -79,13 +83,14 @@ recursos:
   - id: rec:dados/fundamentals-data-visualization
     etapa: etapa:dados/visualizacao-para-analise
     titulo: "Fundamentals of Data Visualization (Claus O. Wilke) — edição aberta"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 600
     url: https://clauswilke.com/dataviz/
+    obra: wilke-fundamentals-data-visualization
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -97,13 +102,14 @@ recursos:
   - id: rec:dados/tufte-visual-display
     etapa: etapa:dados/visualizacao-para-analise
     titulo: "The Visual Display of Quantitative Information, 2ª ed. (Edward R. Tufte) — leitura crítica do gráfico: data-ink, chartjunk e fator de mentira"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 220
     duracao_min: 480
     url: https://www.amazon.com.br/dp/0961392142
+    obra: tufte-visual-display
     disponivel: true
     verificado_em: 2026-10-17
 
@@ -124,13 +130,14 @@ recursos:
   - id: rec:dados/dianguila-matematica-ciencia-de-dados
     etapa: etapa:dados/matematica-para-dados
     titulo: "Matemática para Ciência de Dados: fundamentos teóricos e aplicações em Python (Eugenio Nelson Dianguila)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 40
     duracao_min: 900
     url: https://www.amazon.com.br/dp/B0DQVMKS9N
+    obra: dianguila-matematica-ciencia-de-dados
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -171,13 +178,14 @@ recursos:
   - id: rec:dados/santos-algebra-linear-python
     etapa: etapa:dados/matematica-para-dados
     titulo: "Álgebra Linear com Python (Rafael F.V.C. Santos) — só a álgebra linear da etapa, não o cálculo"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 10
     duracao_min: 240
     url: https://www.amazon.com.br/dp/B07FNWM2P8
+    obra: santos-algebra-linear-python
     disponivel: true
     verificado_em: 2026-10-17
 
@@ -185,13 +193,14 @@ recursos:
   - id: rec:dados/think-stats
     etapa: etapa:dados/estatistica-aplicada
     titulo: "Think Stats, 3ª ed. (Allen B. Downey) — estatística por simulação em Python, edição aberta"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 900
     url: https://allendowney.github.io/ThinkStats/
+    obra: downey-think-stats
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -212,13 +221,14 @@ recursos:
   - id: rec:dados/data-science-para-negocios
     etapa: etapa:dados/enquadramento-de-problema
     titulo: "Data Science para Negócios (Provost & Fawcett)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 90
     duracao_min: 900
     url: https://www.amazon.com.br/dp/8576089726
+    obra: provost-fawcett-data-science-negocios
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -428,13 +438,14 @@ recursos:
   - id: rec:dados/use-the-index-luke
     etapa: etapa:dados/armazenamento-e-indices
     titulo: "Use The Index, Luke! (Markus Winand) — o índice visto pelo plano de execução, em SGBDs atuais"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 360
     url: https://use-the-index-luke.com/
+    obra: winand-use-the-index-luke
     disponivel: true
     verificado_em: 2026-10-15
 

@@ -31,13 +31,14 @@ recursos:
   - id: rec:so/ostep-introducao
     etapa: etapa:so/visao-geral-e-chamadas-de-sistema
     titulo: "Operating Systems: Three Easy Pieces (Arpaci-Dusseau) — introdução e API de processos; edição aberta"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 180
     url: https://pages.cs.wisc.edu/~remzi/OSTEP/
+    obra: arpaci-dusseau-ostep
     disponivel: true
     verificado_em: 2026-10-12
 
@@ -59,13 +60,14 @@ recursos:
   - id: rec:so/ostep-concorrencia
     etapa: etapa:so/processos-e-concorrencia
     titulo: "Operating Systems: Three Easy Pieces — parte Concurrency: threads, travas, variáveis de condição e semáforos"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 600
     url: https://pages.cs.wisc.edu/~remzi/OSTEP/
+    obra: arpaci-dusseau-ostep
     disponivel: true
     verificado_em: 2026-10-12
 
@@ -87,13 +89,14 @@ recursos:
   - id: rec:so/ostep-escalonamento
     etapa: etapa:so/escalonamento-de-processos
     titulo: "Operating Systems: Three Easy Pieces — escalonamento, filas multinível e lottery scheduling, com simuladores"
-    rev: 1
+    rev: 2
     status: ativo
     formato: exercicio
     idioma: en-US
     custo: 0
     duracao_min: 240
     url: https://pages.cs.wisc.edu/~remzi/OSTEP/
+    obra: arpaci-dusseau-ostep
     disponivel: true
     verificado_em: 2026-10-12
 
@@ -130,13 +133,14 @@ recursos:
   - id: rec:so/ostep-memoria
     etapa: etapa:so/gerenciamento-de-memoria
     titulo: "Operating Systems: Three Easy Pieces — parte Virtualization: espaço de endereçamento, paginação, TLB e substituição"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 600
     url: https://pages.cs.wisc.edu/~remzi/OSTEP/
+    obra: arpaci-dusseau-ostep
     disponivel: true
     verificado_em: 2026-10-12
 
@@ -158,13 +162,14 @@ recursos:
   - id: rec:so/ostep-persistencia
     etapa: etapa:so/sistemas-de-arquivos
     titulo: "Operating Systems: Three Easy Pieces — parte Persistence: implementação de sistema de arquivos, FFS e journaling"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 480
     url: https://pages.cs.wisc.edu/~remzi/OSTEP/
+    obra: arpaci-dusseau-ostep
     disponivel: true
     verificado_em: 2026-10-12
 
@@ -219,13 +224,14 @@ recursos:
   - id: rec:so/shotts-linha-de-comando
     etapa: etapa:so/linha-de-comando
     titulo: "The Linux Command Line, 7ª ed. de internet (William Shotts) — partes 1 a 3: o shell, configuração e as tarefas comuns; PDF livre em Creative Commons"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 600
     url: https://linuxcommand.org/tlcl.php
+    obra: shotts-tlcl
     disponivel: true
     verificado_em: 2026-10-17
 
@@ -252,13 +258,14 @@ recursos:
   - id: rec:so/guiafoca-linha-de-comando
     etapa: etapa:so/linha-de-comando
     titulo: "Guia Foca Linux — Iniciante e Intermediário (Gleydson Mazioli da Silva): comandos, estrutura de diretórios, permissões e redirecionamento, em português"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 0
     duracao_min: 420
     url: https://guiafoca.org/
+    obra: guiafoca-linux
     disponivel: true
     verificado_em: 2026-10-17
 
@@ -266,26 +273,28 @@ recursos:
   - id: rec:so/jargas-shell-script-profissional
     etapa: etapa:so/script-shell
     titulo: "Shell Script Profissional (Aurélio Marinho Jargas, Novatec) — script que se mantém: portabilidade, POSIX contra bash, estilo e depuração"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 109
     duracao_min: 600
     url: https://novatec.com.br/livros/shellscript/
+    obra: jargas-shell-script-profissional
     disponivel: true
     verificado_em: 2026-10-17
 
   - id: rec:so/shotts-script-shell
     etapa: etapa:so/script-shell
     titulo: "The Linux Command Line, 7ª ed. de internet — parte 4: escrevendo scripts shell, do primeiro script às funções e à depuração"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 300
     url: https://linuxcommand.org/tlcl.php
+    obra: shotts-tlcl
     disponivel: true
     verificado_em: 2026-10-17
 

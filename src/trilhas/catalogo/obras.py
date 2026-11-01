@@ -117,6 +117,66 @@ def obras(catalogo: Catalogo) -> tuple[Obra, ...]:
     return tuple(_montar(slug, por_slug[slug]) for slug in sorted(por_slug))
 
 
+@dataclass(frozen=True, slots=True)
+class ObraPedida:
+    """Um exemplar e o quanto dele um conjunto de etapas pede.
+
+    As duas metades respondem perguntas diferentes e por isso convivem. `obra` é o
+    exemplar inteiro — é dela que sai o **custo**, porque se compra o livro e não o
+    capítulo, e uma trilha que use duas de oito fatias paga o mesmo preço. `fatias`
+    são as que aquelas etapas usam — é delas que sai a **duração**, porque a pergunta
+    da trilha é "quanto deste livro ela me pede", não "quanto o livro tem".
+    """
+
+    obra: Obra
+    fatias: tuple[Recurso, ...]
+    """As fatias do exemplar que o recorte pediu. Nunca vazia: sem fatia não há pedido."""
+
+    @property
+    def duracao_min(self) -> int:
+        """Soma só o que foi pedido — fatias são partes, como em `Obra.duracao_total_min`."""
+        return sum(f.duracao_min for f in self.fatias)
+
+    @property
+    def etapas(self) -> tuple[str, ...]:
+        """Etapas do recorte que este exemplar atende, sem repetir."""
+        vistas: dict[str, None] = {}
+        for fatia in self.fatias:
+            vistas.setdefault(fatia.etapa, None)
+        return tuple(vistas)
+
+    @property
+    def parcial(self) -> bool:
+        """O recorte usa parte do exemplar — o resto dele serve a outras etapas."""
+        return len(self.fatias) < len(self.obra.fatias)
+
+
+def obras_pedidas(catalogo: Catalogo, etapas: Iterable[str]) -> tuple[ObraPedida, ...]:
+    """Os exemplares que estas etapas pedem, em ordem de slug.
+
+    É o que transforma "os recursos de uma trilha" em "os livros de uma trilha": a
+    mesma obra atende várias etapas da trilha e aparece **uma vez**, que é a regra de
+    agregação do ADR-0009 aplicada a um recorte do catálogo em vez de ao catálogo todo.
+
+    O exemplar vem inteiro, com todas as fatias: o preço é do livro, e `parcial` diz
+    quando a trilha usa só parte dele. Recurso sem `obra` não entra — ele é obra de si
+    mesmo para efeito de custo (docs/catalogo.md §2), mas não tem slug para endereçar,
+    e inventar um criaria identificador que o catálogo não tem.
+    """
+    alvo = set(etapas)
+    pedidas: dict[str, list[Recurso]] = {}
+    for recurso in catalogo.recursos.values():
+        if recurso.obra and recurso.etapa in alvo:
+            pedidas.setdefault(recurso.obra, []).append(recurso)
+    return tuple(
+        ObraPedida(
+            obra=_montar(slug, [r for r in catalogo.recursos.values() if r.obra == slug]),
+            fatias=tuple(sorted(pedidas[slug], key=lambda r: r.id)),
+        )
+        for slug in sorted(pedidas)
+    )
+
+
 def custo_das_obras(reunidas: Iterable[Obra]) -> float:
     """Soma o preço de cada exemplar **uma vez** (ADR-0009).
 

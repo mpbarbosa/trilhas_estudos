@@ -50,13 +50,12 @@ de teste envelhecem em minutos, e um resumo desatualizado aqui contradiz a fonte
 
 | Área (prefixo) | Branch ou worktree | Intenção / terminado quando | Dono | Desde |
 |---|---|---|---|---|
-| `src/trilhas/web/apresentar/`, `src/trilhas/web/modelos/trilha.html`, `src/trilhas/web/estatico/estilo.css`, `src/trilhas/web/rotas.py`, `tests/test_apresentar.py`, `tests/test_web.py`, `docs/interface.md` | nenhum — modificado e **não commitado** no checkout compartilhado | passa `hoje` ao detalhe da trilha e rende algo datado na página; terminado quando commitado com o gate de CLAUDE.md §Comandos verde | **não declarado** | em árvore em 2026-11-01 |
-| `src/trilhas/catalogo/obras.py`, `catalogo/recursos/filosofia.yaml`, `catalogo.lock.json`, `tests/test_obras.py`, `docs/adr/0020-obra-declarada-tambem-em-exemplar-nao-fatiado.md` | nenhum — modificado e **não commitado** no checkout compartilhado | obra declarada também em exemplar não fatiado, com ADR-0020; terminado quando commitado com o gate verde e a ADR na tabela de `docs/README.md` | **não declarado** | em árvore em 2026-11-01 |
 
 Linha sem dono é área **ocupada**, não área livre: é trabalho de outra sessão,
-em curso e fora do git. As duas acima apareceram na árvore em minutos, uma
-depois da outra — por isso a tabela vale no momento em que você a lê e não
-substitui um `git status -uall` antes de escrever.
+em curso e fora do git. As duas primeiras linhas desta tabela eram as duas áreas
+desta entrega — apareceram na árvore em minutos, uma depois da outra, e saíram
+daqui no commit que as levou (regra 4). A tabela vale no momento em que você a
+lê e não substitui um `git status -uall` antes de escrever.
 
 ## Observação datada — 2026-11-01
 

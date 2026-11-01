@@ -13,6 +13,7 @@ from trilhas.catalogo.obras import (
     nome_da_obra,
     obra,
     obras,
+    obras_pedidas,
     recorte_da_fatia,
 )
 
@@ -156,6 +157,9 @@ def test_obra_do_catalogo_real(catalogo_real: object) -> None:
         cabecas = {f.titulo.split(" — ")[0].strip() for f in uma.fatias}
         assert uma.nome in cabecas
         assert uma.duracao_total_min >= max(f.duracao_min for f in uma.fatias)
+        # Obra sem fatia viva nasceria retirada — ADR-0020 proíbe marcar recurso
+        # depreciado, e sem esta linha a falha vem como StopIteration abaixo.
+        assert uma.fatias_vivas, f"obra sem fatia viva: {uma.slug}"
         assert uma.custo == next(f.custo for f in uma.fatias if f.status is not Status.DEPRECIADO)
 
 
@@ -186,3 +190,99 @@ def test_custo_das_obras_sem_obra_alguma_e_zero() -> None:
         fabrica.etapa("etapa:x/um"), fabrica.recurso("rec:x/avulso", "etapa:x/um", custo=500)
     )
     assert custo_das_obras(obras(catalogo)) == 0
+
+
+# --- obras pedidas por um recorte de etapas (a trilha) --------------------------
+
+
+def _catalogo_de_duas_trilhas() -> object:
+    """Um livro atravessa as duas trilhas; outro só serve à segunda."""
+    return fabrica.catalogo(
+        fabrica.etapa("etapa:x/um", trilha="trilha:x/a"),
+        fabrica.etapa("etapa:x/dois", trilha="trilha:x/a"),
+        fabrica.etapa("etapa:x/tres", trilha="trilha:x/b"),
+        fabrica.recurso(
+            "rec:x/atravessa-1",
+            "etapa:x/um",
+            custo=90,
+            duracao_min=120,
+            obra="atravessa",
+            titulo="Atravessa (Autor) — parte 1",
+        ),
+        fabrica.recurso(
+            "rec:x/atravessa-2",
+            "etapa:x/dois",
+            custo=90,
+            duracao_min=60,
+            obra="atravessa",
+            titulo="Atravessa (Autor) — parte 2",
+        ),
+        fabrica.recurso(
+            "rec:x/atravessa-3",
+            "etapa:x/tres",
+            custo=90,
+            duracao_min=200,
+            obra="atravessa",
+            titulo="Atravessa (Autor) — parte 3",
+        ),
+        fabrica.recurso(
+            "rec:x/so-la",
+            "etapa:x/tres",
+            custo=40,
+            obra="so-la",
+            titulo="Só lá (Autor)",
+        ),
+        fabrica.recurso("rec:x/avulso", "etapa:x/um", custo=500),
+    )
+
+
+def test_obra_que_atende_varias_etapas_do_recorte_aparece_uma_vez() -> None:
+    """É o que transforma "os recursos da trilha" em "os livros da trilha"."""
+    pedidas = obras_pedidas(_catalogo_de_duas_trilhas(), ["etapa:x/um", "etapa:x/dois"])
+    assert [p.obra.slug for p in pedidas] == ["atravessa"]
+    (uma,) = pedidas
+    assert [f.id for f in uma.fatias] == ["rec:x/atravessa-1", "rec:x/atravessa-2"]
+    assert uma.etapas == ("etapa:x/um", "etapa:x/dois")
+
+
+def test_duracao_pedida_soma_so_as_fatias_do_recorte() -> None:
+    """ "Quanto deste livro esta trilha me pede" — 120 + 60, não as três partes."""
+    (uma,) = obras_pedidas(_catalogo_de_duas_trilhas(), ["etapa:x/um", "etapa:x/dois"])
+    assert uma.duracao_min == 180
+    assert uma.obra.duracao_total_min == 380  # o exemplar inteiro segue inteiro
+    assert uma.parcial
+
+
+def test_custo_pedido_e_o_do_exemplar_inteiro() -> None:
+    """Compra-se o livro, não o capítulo: usar uma fatia de três custa o mesmo."""
+    (uma,) = obras_pedidas(_catalogo_de_duas_trilhas(), ["etapa:x/um"])
+    assert uma.fatias == tuple(f for f in uma.fatias if f.id == "rec:x/atravessa-1")
+    assert uma.obra.custo == 90
+    assert (
+        custo_das_obras(
+            [
+                p.obra
+                for p in obras_pedidas(_catalogo_de_duas_trilhas(), ["etapa:x/um", "etapa:x/tres"])
+            ]
+        )
+        == 130
+    )
+
+
+def test_recorte_que_usa_o_exemplar_todo_nao_e_parcial() -> None:
+    pedidas = obras_pedidas(
+        _catalogo_de_duas_trilhas(), ["etapa:x/um", "etapa:x/dois", "etapa:x/tres"]
+    )
+    atravessa = next(p for p in pedidas if p.obra.slug == "atravessa")
+    assert not atravessa.parcial
+    assert atravessa.duracao_min == atravessa.obra.duracao_total_min
+
+
+def test_recurso_sem_obra_nao_entra_no_pedido() -> None:
+    """Sem slug não há como endereçá-lo, e inventar um criaria id que o catálogo não tem."""
+    pedidas = obras_pedidas(_catalogo_de_duas_trilhas(), ["etapa:x/um"])
+    assert [f.id for p in pedidas for f in p.fatias] == ["rec:x/atravessa-1"]
+
+
+def test_recorte_sem_obra_alguma_vem_vazio() -> None:
+    assert obras_pedidas(_catalogo_de_duas_trilhas(), ["etapa:x/nao-existe"]) == ()
