@@ -14,6 +14,22 @@ as fatias pagas de um mesmo exemplar declaram `obra` no recurso
 ([catalogo.md §2](catalogo.md)), e é esse campo, não esta lista, que a compilação
 valida.
 
+Desde [ADR-0020](adr/0020-obra-declarada-tambem-em-exemplar-nao-fatiado.md) a
+confrontação vale nos dois sentidos, e em 2026-11-01 ela foi feita: **as 74 fichas
+deste documento têm hoje `obra` declarada no catálogo** — antes eram 24 —, e **11
+obras não têm ficha aqui**. Estas, que são a lista de trabalho pendente deste
+documento e não do catálogo:
+
+`beej-guide-c`, `beej-guide-ipc`, `chetan-30-dias-gita`, `chetan-daily-bhakti`,
+`chetan-gita-resumida`, `chetan-gita-traducao-autentica`,
+`flanagan-javascript-definitive-guide`, `guiafoca-linux`,
+`klabnik-nichols-rust-book`, `kurniawan-node-succinctly` e
+`winand-use-the-index-luke`.
+
+A conferência se refaz com
+`uv run python -c` sobre o lock e este arquivo; ela não entra na validação, pela
+mesma razão de sempre — este documento é descritivo.
+
 ## Como ler uma ficha
 
 | Campo | O que traz |

@@ -56,10 +56,14 @@ Ordem que reduz retrabalho:
    não parte de perfil vazio (validações 3 e 6).
 4. **≥ 1 recurso ativo e disponível por etapa ativa** (validação 5) — etapa sem
    recurso bloqueia o snapshot. Preencha `verificado_em` com a data de hoje.
-   Se o recurso é um capítulo de livro que outras etapas também usam, declare `obra`
-   com o mesmo slug em todas as fatias e o mesmo `custo` — o do exemplar inteiro, que
-   se compra uma vez (validação 12). Só você sabe o agrupamento no momento de
-   escrever; depois ele não se recupera senão por adivinhação (ADR-0009).
+   **Se o recurso é um exemplar — livro, apostila, curso que se compra —, declare
+   `obra`**, mesmo que ele entre inteiro numa etapa só: uma fatia é um número legítimo
+   de fatias, e é a `obra` que dá ao exemplar o endereço `/obra/<slug>` e o faz
+   aparecer nos livros da trilha (ADR-0020). Sendo capítulo de um livro que outras
+   etapas também usam, o slug é o mesmo em todas as fatias, e o `custo` também — o do
+   exemplar inteiro, que se compra uma vez (validação 12). Só você sabe o agrupamento
+   no momento de escrever; depois ele não se recupera senão por adivinhação (ADR-0009).
+   Artigo, vídeo e exercício avulso **não** são exemplares e não declaram `obra`.
 5. Toda competência exigida por alguma etapa ativa tem de ser ensinada por alguma
    etapa ativa (validação 4) — inclusive as que você assumiu como "pré-requisito
    externo". Se vem de outra trilha, use `etapas_referenciadas`.

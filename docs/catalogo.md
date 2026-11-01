@@ -141,7 +141,11 @@ há mais de 180 dias é reportado pela validação como aviso, não erro.
 `obra` é campo **opcional** do recurso e agrupa as fatias de um mesmo exemplar
 ([ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md)): um livro que
 atende sete etapas é sete recursos, porque um recurso pertence a uma etapa só, e as
-sete fatias declaram a mesma `obra`.
+sete fatias declaram a mesma `obra`. **Uma fatia só é um número legítimo de fatias**
+([ADR-0020](adr/0020-obra-declarada-tambem-em-exemplar-nao-fatiado.md)): o livro que
+entra inteiro numa etapa também declara `obra`, porque é ela que torna o exemplar
+endereçável — sem slug não há `/obra/<slug>` nem como uma trilha listar os próprios
+livros.
 
 ```yaml
   - id: rec:dados/date-vol1-sql

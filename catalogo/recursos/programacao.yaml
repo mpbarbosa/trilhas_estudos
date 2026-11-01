@@ -183,39 +183,42 @@ recursos:
   - id: rec:programacao/beej-c-sistemas
     etapa: etapa:programacao/programacao-de-sistemas
     titulo: "Beej's Guide to C Programming — de `hello, world` a estruturas, apontadores, alocação manual, projetos de vários arquivos e o ambiente de fora (`argv`, variáveis, código de saída)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 900
     url: https://beej.us/guide/bgc/
+    obra: beej-guide-c
     disponivel: true
     verificado_em: 2026-10-19
 
   - id: rec:programacao/beej-ipc-descritores
     etapa: etapa:programacao/programacao-de-sistemas
     titulo: "Beej's Guide to Interprocess Communication — `fork`, canos, FIFOs e sinais: o processo filho, o descritor e a leitura que volta com menos bytes do que se pediu"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 300
     url: https://beej.us/guide/bgipc/
+    obra: beej-guide-ipc
     disponivel: true
     verificado_em: 2026-10-19
 
   - id: rec:programacao/rust-book-sistemas
     etapa: etapa:programacao/programacao-de-sistemas
     titulo: "The Rust Programming Language (Klabnik & Nichols) — caps. 1 a 12: tipos, posse e empréstimo, structs, módulos, coleções, tratamento de erro, e o projeto de E/S que o cap. 12 reparte em biblioteca e binário"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 900
     url: https://doc.rust-lang.org/book/
+    obra: klabnik-nichols-rust-book
     disponivel: true
     verificado_em: 2026-10-19
 

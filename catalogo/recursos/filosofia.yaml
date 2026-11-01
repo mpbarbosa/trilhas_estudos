@@ -13,8 +13,12 @@
 #   isso custo 0, ao contrário de leitura por assinatura. Os outros três são pagos,
 #   com preço e paginação lidos no Google Play BR em 2026-11-01.
 #
-#   Nenhum declara `obra`: são cinco exemplares distintos, comprados um a um, e
-#   cada um atende uma etapa só — recurso sem `obra` é obra de si mesmo (ADR-0009).
+#   Cada um declara a própria `obra`, de uma fatia só: são cinco exemplares
+#   distintos, comprados um a um, e cada um atende uma etapa só. Até 2026-11-01 não
+#   declaravam nenhuma, pela leitura de que sem fatiamento não há o que agrupar;
+#   ADR-0020 inverteu isso — `obra` é o que diz "isto é um exemplar", e sem ela a
+#   trilha não tem como listar os próprios livros. O slug repete o do recurso: é o
+#   mesmo exemplar, e nome diferente só criaria duas maneiras de chamá-lo.
 #   A duração de cada um é estimada pelo ritmo medido no livro 1 (180 min / 95 p.
 #   ≈ 1,9 min/p.), não pelo que o título promete: os "30 dias" do livro 3 são
 #   calendário, não esforço.
@@ -27,13 +31,14 @@ recursos:
   - id: rec:filosofia/chetan-gita-perfect-philosophy
     etapa: etapa:filosofia/por-que-ler-a-gita
     titulo: "Bhagavad Gita - The Perfect Philosophy: 15 Reasons That Make the Song of God the Most Scientific Ideology (Hari Chetan)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 180
     url: https://harichetan.com/books/bhagavad-gita-perfect-philosophy/
+    obra: chetan-gita-perfect-philosophy
     disponivel: true
     verificado_em: 2026-10-26
 
@@ -48,13 +53,14 @@ recursos:
   - id: rec:filosofia/chetan-30-dias-gita
     etapa: etapa:filosofia/por-que-ler-a-gita
     titulo: "30 Days to Understanding the Bhagavad Gita: A Complete, Simple, and Step-by-Step Guide to the Million-Year-Old Confidential Knowledge (Hari Chetan)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 24.99
     duracao_min: 450
     url: https://harichetan.com/books/30-days-understanding-bhagavad-gita
+    obra: chetan-30-dias-gita
     disponivel: true
     verificado_em: 2026-11-01
 
@@ -66,13 +72,14 @@ recursos:
   - id: rec:filosofia/chetan-gita-resumida
     etapa: etapa:filosofia/por-que-ler-a-gita
     titulo: "The Bhagavad Gita Summarized and Simplified: A Comprehensive and Easy-to-Read Summary of the Divine Song of God (Hari Chetan)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 19.99
     duracao_min: 280
     url: https://harichetan.com/books/bhagavad-gita-summarized-simplified/
+    obra: chetan-gita-resumida
     disponivel: true
     verificado_em: 2026-11-01
 
@@ -83,13 +90,14 @@ recursos:
   - id: rec:filosofia/arnold-song-celestial
     etapa: etapa:filosofia/leitura-integral-da-gita
     titulo: "The Song Celestial, or Bhagavad-Gîtâ (trad. Edwin Arnold, 1885) — Project Gutenberg"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 300
     url: https://www.gutenberg.org/ebooks/2388
+    obra: arnold-song-celestial
     disponivel: true
     verificado_em: 2026-10-26
 
@@ -100,13 +108,14 @@ recursos:
   - id: rec:filosofia/chetan-gita-traducao-autentica
     etapa: etapa:filosofia/leitura-integral-da-gita
     titulo: "Bhagavad Gita (in English): The Authentic English Translation for Accurate and Unbiased Understanding (Hari Chetan)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 24.99
     duracao_min: 440
     url: https://harichetan.com/books/bhagavad-gita-english/
+    obra: chetan-gita-traducao-autentica
     disponivel: true
     verificado_em: 2026-11-01
 
@@ -132,12 +141,13 @@ recursos:
   - id: rec:filosofia/chetan-daily-bhakti
     etapa: etapa:filosofia/bhakti-na-pratica
     titulo: "Daily Bhakti Practices: A Practical Guide to Living with Devotion and Purpose (Hari Chetan)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 25.99
     duracao_min: 165
     url: https://harichetan.com/books/daily-bhakti-practices/
+    obra: chetan-daily-bhakti
     disponivel: true
     verificado_em: 2026-11-01
