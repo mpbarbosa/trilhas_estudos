@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 48,
-  "gerado_em": "2026-10-26T19:11:02+00:00",
-  "hash": "sha256:6d1d5cb309186da389e9e9de048a3db23472176316de5cadce56092c3fbd610f",
+  "catalogo_versao": 49,
+  "gerado_em": "2026-11-01T19:28:26+00:00",
+  "hash": "sha256:78880ae5cc1d0ac4738937ba29ecc4d71308efb1ff67b26a31acfa25c81089e1",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -4917,6 +4917,20 @@
       "url": "https://www.gutenberg.org/ebooks/2388",
       "disponivel": true,
       "verificado_em": "2026-10-26"
+    },
+    {
+      "id": "rec:filosofia/chetan-30-dias-gita",
+      "titulo": "30 Days to Understanding the Bhagavad Gita: A Complete, Simple, and Step-by-Step Guide to the Million-Year-Old Confidential Knowledge (Hari Chetan)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/por-que-ler-a-gita",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 24.99,
+      "duracao_min": 450,
+      "url": "https://harichetan.com/books/30-days-understanding-bhagavad-gita",
+      "disponivel": true,
+      "verificado_em": "2026-11-01"
     },
     {
       "id": "rec:filosofia/chetan-gita-perfect-philosophy",

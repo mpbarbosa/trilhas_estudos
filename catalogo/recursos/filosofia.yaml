@@ -5,7 +5,7 @@
 # -------------------------------------------------------------------------
 # trilha:filosofia/bhagavad-gita
 #
-#   O e-book de Hari Chetan é gratuito por decisão do autor em todas as lojas
+#   O e-book do livro 1 de Hari Chetan é gratuito por decisão do autor em todas as lojas
 #   (Kindle, Google Play, Apple Books, Nook), conferido na página do livro no site
 #   dele e no Google Play — por isso custo 0, ao contrário de leitura por
 #   assinatura. Tem 97 p. no Google Play e 95 no Goodreads; sem sumário público, as
@@ -26,6 +26,27 @@ recursos:
     url: https://harichetan.com/books/bhagavad-gita-perfect-philosophy/
     disponivel: true
     verificado_em: 2026-10-26
+
+  # Livro 3 da mesma série, e o inverso do livro 1 em função: não argumenta que se
+  # deve ler a Gita, expõe a doutrina em trinta passos — atman, karma, reencarnação,
+  # os seis princípios da autorrealização, os caminhos e o que a Gita chama de ioga.
+  # Entra nesta etapa, e não na do texto, porque é exposição do autor e não o
+  # diálogo. Alternativa paga ao livro de abertura: 245 p. e R$ 24,99 no Google Play
+  # (Amazon, Apple Books e Nook também), ao contrário do livro 1, que é gratuito.
+  # Duração estimada pelo ritmo do livro 1 (~1,9 min/p.), não pelos trinta dias do
+  # título, que são sugestão de calendário e não de esforço.
+  - id: rec:filosofia/chetan-30-dias-gita
+    etapa: etapa:filosofia/por-que-ler-a-gita
+    titulo: "30 Days to Understanding the Bhagavad Gita: A Complete, Simple, and Step-by-Step Guide to the Million-Year-Old Confidential Knowledge (Hari Chetan)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 24.99
+    duracao_min: 450
+    url: https://harichetan.com/books/30-days-understanding-bhagavad-gita
+    disponivel: true
+    verificado_em: 2026-11-01
 
   # --- etapa:filosofia/leitura-integral-da-gita ---------------------------
   # Tradução em verso de 1885, em domínio público. Próxima do tom, não da letra:
