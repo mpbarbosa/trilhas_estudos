@@ -40,3 +40,21 @@ competencias:
       Separar, numa lista das teses de um livro devocional sobre a Gita, quais são
       afirmações empíricas, quais são metafísicas e quais dependem de fé, e dizer
       que tipo de evidência decidiria cada uma — ou por que nenhuma decidiria.
+
+  # Competência fora do objetivo da trilha: existe para a etapa opcional de prática,
+  # e nenhuma etapa a exige. A verificação é o que a torna competência e não assunto
+  # — ela cobra a separação entre o que está no texto e o que a tradição acrescentou,
+  # que é a mesma exigência crítica do resto da trilha.
+  - id: comp:filosofia/bhakti-como-pratica
+    titulo: Bhakti como prática — a devoção do lado de quem a pratica
+    rev: 1
+    status: ativo
+    descricao: >
+      O terceiro dos três caminhos da Gita visto de dentro, e não como tese: o que a
+      devoção pede ao dia — a oferta do trabalho, o espaço da casa, o jejum, a festa,
+      a peregrinação — e de onde cada prática vem.
+    verificacao: >
+      Descrever uma rotina devocional diária em suas partes — o que se faz, quando e
+      com que finalidade declarada — e, para cada parte, dizer se a Gita a sustenta no
+      texto, se vem da tradição posterior ou se é hábito de quem a prescreve, sem usar
+      "bhakti" como explicação de si mesma.

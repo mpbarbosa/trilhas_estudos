@@ -73,3 +73,32 @@ trilha:
       teaches:
         - competencia: comp:filosofia/critica-da-gita
           nivel_resultante: intermediario
+
+    # --- Fora do caminho ----------------------------------------------------
+    # Nasce de um livro, não de uma lacuna: *Daily Bhakti Practices* é o livro 5 da
+    # série de Hari Chetan e o único que não trata da Gita — manual de prática, não de
+    # leitura. Não havia etapa a que ele pertencesse, e pendurá-lo numa etapa de
+    # contexto seria dizer que ele ensina o que não ensina.
+    #
+    # Entra como opcional, e isso não é detalhe: etapa opcional é mudança cosmética na
+    # trilha (docs/catalogo.md §4), então a `rev` da trilha fica em 1, o
+    # `objetivo_declarado` não muda e matrícula já aberta não reabre. Uma etapa
+    # obrigatória a mais faria a trilha concluída voltar a `em_andamento` — preço que
+    # um livro de prática não justifica numa trilha cujo objetivo é ler e avaliar.
+    - id: etapa:filosofia/bhakti-na-pratica
+      titulo: Bhakti na prática — a devoção como rotina diária
+      rev: 1
+      status: ativo
+      descricao: >
+        O caminho da devoção visto de dentro: que práticas uma vida centrada em Krishna
+        prescreve ao dia, da rotina da manhã à reflexão da noite, e o que nelas vem do
+        texto da Gita e o que vem da tradição posterior. Fora do objetivo declarado,
+        que é ler e avaliar a Gita — não praticá-la.
+      esforco_estimado_min: 165
+      opcional: true
+      requires:
+        - competencia: comp:filosofia/gita-contexto-e-conceitos
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:filosofia/bhakti-como-pratica
+          nivel_resultante: iniciante

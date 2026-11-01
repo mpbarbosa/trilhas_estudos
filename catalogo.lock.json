@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 49,
-  "gerado_em": "2026-11-01T19:28:26+00:00",
-  "hash": "sha256:78880ae5cc1d0ac4738937ba29ecc4d71308efb1ff67b26a31acfa25c81089e1",
+  "catalogo_versao": 50,
+  "gerado_em": "2026-11-01T19:41:01+00:00",
+  "hash": "sha256:7a02200cc9b4f78d94aa398717f9925021be945f6ad2553bbd905fe8f50e1939",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -203,6 +203,14 @@
       "status": "ativo",
       "verificacao": "Reconstruir, em até uma página, as objeções de Arjuna no cap. 1 e a resposta de Krishna em premissas e conclusão, indicando em que capítulos cada um dos três caminhos é desenvolvido.",
       "descricao": "A leitura do texto inteiro, não do resumo: as razões de Arjuna para não lutar, a resposta de Krishna e como ela passa da ação desinteressada ao conhecimento e à devoção ao longo dos dezoito capítulos.\n"
+    },
+    {
+      "id": "comp:filosofia/bhakti-como-pratica",
+      "titulo": "Bhakti como prática — a devoção do lado de quem a pratica",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Descrever uma rotina devocional diária em suas partes — o que se faz, quando e com que finalidade declarada — e, para cada parte, dizer se a Gita a sustenta no texto, se vem da tradição posterior ou se é hábito de quem a prescreve, sem usar \"bhakti\" como explicação de si mesma.",
+      "descricao": "O terceiro dos três caminhos da Gita visto de dentro, e não como tese: o que a devoção pede ao dia — a oferta do trabalho, o espaço da casa, o jejum, a festa, a peregrinação — e de onde cada prática vem.\n"
     },
     {
       "id": "comp:filosofia/critica-da-gita",
@@ -1458,6 +1466,28 @@
       "teaches": [
         {
           "competencia": "comp:engenharia/decisao-arquitetural",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:filosofia/bhakti-na-pratica",
+      "titulo": "Bhakti na prática — a devoção como rotina diária",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 165,
+      "descricao": "O caminho da devoção visto de dentro: que práticas uma vida centrada em Krishna prescreve ao dia, da rotina da manhã à reflexão da noite, e o que nelas vem do texto da Gita e o que vem da tradição posterior. Fora do objetivo declarado, que é ler e avaliar a Gita — não praticá-la.\n",
+      "trilha": "trilha:filosofia/bhagavad-gita",
+      "opcional": true,
+      "requires": [
+        {
+          "competencia": "comp:filosofia/gita-contexto-e-conceitos",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:filosofia/bhakti-como-pratica",
           "nivel_resultante": "iniciante"
         }
       ]
@@ -3766,7 +3796,8 @@
       "etapas": [
         "etapa:filosofia/por-que-ler-a-gita",
         "etapa:filosofia/leitura-integral-da-gita",
-        "etapa:filosofia/gita-em-debate"
+        "etapa:filosofia/gita-em-debate",
+        "etapa:filosofia/bhakti-na-pratica"
       ]
     },
     {
@@ -4933,6 +4964,20 @@
       "verificado_em": "2026-11-01"
     },
     {
+      "id": "rec:filosofia/chetan-daily-bhakti",
+      "titulo": "Daily Bhakti Practices: A Practical Guide to Living with Devotion and Purpose (Hari Chetan)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/bhakti-na-pratica",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 25.99,
+      "duracao_min": 165,
+      "url": "https://harichetan.com/books/daily-bhakti-practices/",
+      "disponivel": true,
+      "verificado_em": "2026-11-01"
+    },
+    {
       "id": "rec:filosofia/chetan-gita-perfect-philosophy",
       "titulo": "Bhagavad Gita - The Perfect Philosophy: 15 Reasons That Make the Song of God the Most Scientific Ideology (Hari Chetan)",
       "rev": 1,
@@ -4945,6 +4990,34 @@
       "url": "https://harichetan.com/books/bhagavad-gita-perfect-philosophy/",
       "disponivel": true,
       "verificado_em": "2026-10-26"
+    },
+    {
+      "id": "rec:filosofia/chetan-gita-resumida",
+      "titulo": "The Bhagavad Gita Summarized and Simplified: A Comprehensive and Easy-to-Read Summary of the Divine Song of God (Hari Chetan)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/por-que-ler-a-gita",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 19.99,
+      "duracao_min": 280,
+      "url": "https://harichetan.com/books/bhagavad-gita-summarized-simplified/",
+      "disponivel": true,
+      "verificado_em": "2026-11-01"
+    },
+    {
+      "id": "rec:filosofia/chetan-gita-traducao-autentica",
+      "titulo": "Bhagavad Gita (in English): The Authentic English Translation for Accurate and Unbiased Understanding (Hari Chetan)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/leitura-integral-da-gita",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 24.99,
+      "duracao_min": 440,
+      "url": "https://harichetan.com/books/bhagavad-gita-english/",
+      "disponivel": true,
+      "verificado_em": "2026-11-01"
     },
     {
       "id": "rec:filosofia/iep-bhagavad-gita",

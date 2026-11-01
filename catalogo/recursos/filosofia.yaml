@@ -5,15 +5,25 @@
 # -------------------------------------------------------------------------
 # trilha:filosofia/bhagavad-gita
 #
-#   O e-book do livro 1 de Hari Chetan é gratuito por decisão do autor em todas as lojas
-#   (Kindle, Google Play, Apple Books, Nook), conferido na página do livro no site
-#   dele e no Google Play — por isso custo 0, ao contrário de leitura por
-#   assinatura. Tem 97 p. no Google Play e 95 no Goodreads; sem sumário público, as
-#   quinze razões não foram fatiadas, e o livro entra inteiro numa etapa só.
+#   Cinco recursos são a série que Hari Chetan numera no próprio site: livro 1 (as
+#   quinze razões), 2 (a tradução), 3 (os trinta dias), 4 (o resumo) e 5 (a prática
+#   devocional, o único que não trata da Gita). Só o 1
+#   é gratuito, por decisão do autor em todas as lojas (Kindle, Google Play, Apple
+#   Books, Nook), conferido na página do livro no site dele e no Google Play — por
+#   isso custo 0, ao contrário de leitura por assinatura. Os outros três são pagos,
+#   com preço e paginação lidos no Google Play BR em 2026-11-01.
+#
+#   Nenhum declara `obra`: são cinco exemplares distintos, comprados um a um, e
+#   cada um atende uma etapa só — recurso sem `obra` é obra de si mesmo (ADR-0009).
+#   A duração de cada um é estimada pelo ritmo medido no livro 1 (180 min / 95 p.
+#   ≈ 1,9 min/p.), não pelo que o título promete: os "30 dias" do livro 3 são
+#   calendário, não esforço.
 # -------------------------------------------------------------------------
 versao_schema: 1
 recursos:
   # --- etapa:filosofia/por-que-ler-a-gita ---------------------------------
+  # Livro 1: 97 p. no Google Play e 95 no Goodreads. Sem sumário público, as quinze
+  # razões não foram fatiadas, e o livro entra inteiro numa etapa só.
   - id: rec:filosofia/chetan-gita-perfect-philosophy
     etapa: etapa:filosofia/por-que-ler-a-gita
     titulo: "Bhagavad Gita - The Perfect Philosophy: 15 Reasons That Make the Song of God the Most Scientific Ideology (Hari Chetan)"
@@ -48,10 +58,28 @@ recursos:
     disponivel: true
     verificado_em: 2026-11-01
 
+  # Livro 4 da série: o resumo. Segue os dezoito capítulos, cada um com "Key
+  # Takeaways", e fecha com os ensinamentos agrupados por tema. Fica nesta etapa, e
+  # não na do texto integral, porque resumo é exatamente o que a
+  # comp:filosofia/argumento-da-gita exclui ("a leitura do texto inteiro, não do
+  # resumo"). Aqui ele serve: é a visão de conjunto antes do diálogo.
+  - id: rec:filosofia/chetan-gita-resumida
+    etapa: etapa:filosofia/por-que-ler-a-gita
+    titulo: "The Bhagavad Gita Summarized and Simplified: A Comprehensive and Easy-to-Read Summary of the Divine Song of God (Hari Chetan)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 19.99
+    duracao_min: 280
+    url: https://harichetan.com/books/bhagavad-gita-summarized-simplified/
+    disponivel: true
+    verificado_em: 2026-11-01
+
   # --- etapa:filosofia/leitura-integral-da-gita ---------------------------
   # Tradução em verso de 1885, em domínio público. Próxima do tom, não da letra:
-  # para a reconstrução do argumento, uma tradução em prosa é alternativa melhor
-  # quando entrar no catálogo.
+  # para a reconstrução do argumento, a tradução em prosa logo abaixo é alternativa
+  # melhor — custa R$ 24,99, e é o preço de ler a letra em vez do tom.
   - id: rec:filosofia/arnold-song-celestial
     etapa: etapa:filosofia/leitura-integral-da-gita
     titulo: "The Song Celestial, or Bhagavad-Gîtâ (trad. Edwin Arnold, 1885) — Project Gutenberg"
@@ -64,6 +92,23 @@ recursos:
     url: https://www.gutenberg.org/ebooks/2388
     disponivel: true
     verificado_em: 2026-10-26
+
+  # Livro 2 da série, e a única tradução do catálogo feita do sânscrito com aparato:
+  # os 701 versos com esclarecimentos entre parênteses, notas e o contexto do
+  # Mahabharata. É a Gita, não comentário sobre ela, e por isso é o único livro de
+  # Hari Chetan que cabe nesta etapa.
+  - id: rec:filosofia/chetan-gita-traducao-autentica
+    etapa: etapa:filosofia/leitura-integral-da-gita
+    titulo: "Bhagavad Gita (in English): The Authentic English Translation for Accurate and Unbiased Understanding (Hari Chetan)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 24.99
+    duracao_min: 440
+    url: https://harichetan.com/books/bhagavad-gita-english/
+    disponivel: true
+    verificado_em: 2026-11-01
 
   # --- etapa:filosofia/gita-em-debate -------------------------------------
   - id: rec:filosofia/iep-bhagavad-gita
@@ -78,3 +123,21 @@ recursos:
     url: https://iep.utm.edu/bhagavad/
     disponivel: true
     verificado_em: 2026-10-26
+
+  # --- etapa:filosofia/bhakti-na-pratica ----------------------------------
+  # Livro 5 da série e o único que não é sobre a Gita. A etapa que o recebe nasceu
+  # com ele, opcional, pela razão registrada no arquivo da trilha. 87 p. e R$ 25,99
+  # no Google Play, dez. 2024. Há também audiolivro de 2h12 em voz digital — não é
+  # `formato` do esquema, e o livro entra como texto.
+  - id: rec:filosofia/chetan-daily-bhakti
+    etapa: etapa:filosofia/bhakti-na-pratica
+    titulo: "Daily Bhakti Practices: A Practical Guide to Living with Devotion and Purpose (Hari Chetan)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 25.99
+    duracao_min: 165
+    url: https://harichetan.com/books/daily-bhakti-practices/
+    disponivel: true
+    verificado_em: 2026-11-01
