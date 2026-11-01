@@ -10,8 +10,10 @@ from collections.abc import Mapping
 from dataclasses import dataclass
 from datetime import date
 
+from ...catalogo import obras as dominio_obras
 from ...catalogo.modelo import Catalogo, Competencia, Etapa, Nivel, Recurso, Status, Trilha
 from ...motor.modelo import EstadoEtapa, Percurso, ProgressoEtapa
+from ...motor.sugerir import possuidos_em
 from ...percurso.projecao import Evidencia
 from ...percurso.registrar import CONFIANCA_AUTOAVALIACAO, NIVEIS_DECLARAVEIS
 from ..dados import Acervo
@@ -73,6 +75,60 @@ class LinhaRecurso:
 
 
 @dataclass(frozen=True, slots=True)
+class GrupoDeRecursos:
+    """Os recursos de uma etapa, no bloco que reúne os da trilha inteira.
+
+    A seção da trilha vem agrupada **por etapa**, e não como lista plana, porque os
+    recursos de uma etapa são rotas alternativas entre si enquanto os de etapas
+    diferentes são complementares (`catalogo/obras.py`). Uma lista plana de 78 linhas
+    — o que a trilha do emulador tem hoje — se leria como bibliografia a percorrer
+    inteira, que é o oposto do que o modelo diz.
+
+    Agrupar é trabalho de tela, mas é aqui e não no template: Jinja agrupando viraria
+    a segunda implementação que a §3.3 proíbe, e a etapa sem recurso desapareceria do
+    laço — justamente a que a página precisa denunciar (CAT-050).
+    """
+
+    etapa: Referencia
+    onda: int
+    opcional: bool
+    emprestada: bool
+    recursos: tuple[LinhaRecurso, ...]
+    """Vazio quando a etapa não tem recurso algum — grupo que a tela mostra como falta."""
+
+
+@dataclass(frozen=True, slots=True)
+class LinhaLivro:
+    """Um exemplar que a trilha pede — o que se tem em mãos, não o que se abre no link.
+
+    Existe porque o livro é a unidade de **aquisição** e o recurso é a de estudo: um
+    livro que atende cinco etapas aparece cinco vezes na lista de recursos e uma vez
+    aqui, com o preço cobrado uma vez (ADR-0009). Quem monta a estante pergunta pelo
+    exemplar; quem senta para estudar pergunta pelo recurso.
+    """
+
+    slug: str
+    nome: str
+    href: str
+    custo: str
+    custo_valor: float
+    duracao: str
+    """Soma das fatias **que esta trilha pede** — não do exemplar inteiro."""
+    duracao_min: int
+    qtd_fatias: int
+    qtd_fatias_do_exemplar: int
+    parcial: bool
+    """A trilha usa parte do livro; o resto dele serve a outras etapas."""
+    etapas: tuple[Referencia, ...]
+    idiomas: str
+    toda_depreciada: bool
+    ja_tenho: bool = False
+    """O exemplar está na estante do percurso (ADR-0015). Basta uma fatia declarada: a
+    posse se propaga às irmãs pela mesma `possuidos_em` que o motor usa, porque duas
+    implementações da propagação discordariam em silêncio."""
+
+
+@dataclass(frozen=True, slots=True)
 class LinhaEtapaDaTrilha:
     id: str
     titulo: str
@@ -98,6 +154,22 @@ class VisaoTrilha:
     objetivo: tuple[Exigencia, ...]
     etapas: tuple[LinhaEtapaDaTrilha, ...]
     disposicao: Disposicao
+    recursos_por_etapa: tuple[GrupoDeRecursos, ...]
+    """Todo material que realiza alguma etapa da trilha, na ordem das ondas."""
+    qtd_recursos: int
+    livros: tuple[LinhaLivro, ...]
+    """Os exemplares que a trilha pede, cada um uma vez. Vazio quando nenhum recurso
+    dela declara `obra` — e aí a tela diz isso, em vez de afirmar que não há livro."""
+    custo_dos_livros: str
+    custo_dos_livros_valor: float
+    custo_que_falta: str
+    """O que falta comprar, descontada a estante. Só se mostra havendo percurso: sem
+    estudante, "falta tudo" seria afirmação sobre quem não existe."""
+    custo_que_falta_valor: float
+    qtd_livros_que_tenho: int
+    recursos_sem_exemplar: int
+    """Recursos da trilha que não declaram `obra`. A seção de livros não os conhece, e
+    calar esse número faria a estante parecer completa (docs/catalogo.md §2)."""
     esforco: str
     qtd_obrigatorias: int
     qtd_opcionais: int
@@ -233,8 +305,13 @@ class VisaoCompetencia:
 
 
 def trilha(
-    acervo: Acervo, trilha_id: str, *, percurso: Percurso | None = None
+    acervo: Acervo, trilha_id: str, *, hoje: date, percurso: Percurso | None = None
 ) -> VisaoTrilha | None:
+    """A trilha: objetivo, grafo, etapas por onda e os recursos de todas elas.
+
+    `hoje` entra porque a lista de recursos carrega `verificado_em` e o aviso CAT-100,
+    que são relativos a uma data — a mesma razão pela qual `etapa()` já o pedia.
+    """
     cat = acervo.catalogo
     alvo = cat.trilhas.get(trilha_id)
     if alvo is None:
@@ -253,6 +330,29 @@ def trilha(
     )
     destrava = {n.etapa_id: n.destrava for n in disposicao.nos}
 
+    ordenadas = sorted(etapas, key=lambda e: (acervo.fecho.onda.get(e.id, 0), e.titulo))
+    por_etapa = {
+        e.id: _recursos_da_etapa(cat, e.id, hoje=hoje, progresso=progresso) for e in ordenadas
+    }
+
+    pedidas = dominio_obras.obras_pedidas(cat, (e.id for e in ordenadas))
+    possuidos = possuidos_em(cat, percurso.estante if percurso else frozenset())
+    tenho = {
+        pedida.obra.slug
+        for pedida in pedidas
+        if any(fatia.id in possuidos for fatia in pedida.obra.fatias)
+    }
+    livros = tuple(
+        sorted(
+            (_livro(pedida, cat, ja_tenho=pedida.obra.slug in tenho) for pedida in pedidas),
+            key=lambda linha: linha.nome.casefold(),
+        )
+    )
+    custo = dominio_obras.custo_das_obras(pedida.obra for pedida in pedidas)
+    falta = dominio_obras.custo_das_obras(
+        pedida.obra for pedida in pedidas if pedida.obra.slug not in tenho
+    )
+
     linhas = tuple(
         LinhaEtapaDaTrilha(
             id=e.id,
@@ -265,13 +365,13 @@ def trilha(
             esforco=comum.duracao(e.esforco_estimado_min),
             esforco_min=e.esforco_estimado_min,
             destrava=destrava.get(e.id, 0),
-            qtd_recursos=len(cat.recursos_da_etapa(e.id)),
+            qtd_recursos=len(por_etapa[e.id]),
             requisitos=len(e.requires),
             estado=_estado(progresso, e.id),
             estado_rotulo=comum.estado_de_etapa(_estado(progresso, e.id)),
             atualizado_em=progresso[e.id].atualizado_em if e.id in progresso else None,
         )
-        for e in sorted(etapas, key=lambda e: (acervo.fecho.onda.get(e.id, 0), e.titulo))
+        for e in ordenadas
     )
 
     return VisaoTrilha(
@@ -280,6 +380,26 @@ def trilha(
         objetivo=tuple(_exigencia(acervo, a.competencia, a.nivel) for a in alvo.objetivo_declarado),
         etapas=linhas,
         disposicao=disposicao,
+        livros=livros,
+        custo_dos_livros=comum.dinheiro(custo),
+        custo_dos_livros_valor=custo,
+        custo_que_falta=comum.dinheiro(falta),
+        custo_que_falta_valor=falta,
+        qtd_livros_que_tenho=len(tenho),
+        recursos_sem_exemplar=sum(
+            1 for linhas_ in por_etapa.values() for r in linhas_ if not r.obra
+        ),
+        recursos_por_etapa=tuple(
+            GrupoDeRecursos(
+                etapa=Referencia(e.id, e.titulo, f"/etapa/{e.id}"),
+                onda=acervo.fecho.onda.get(e.id, 0),
+                opcional=e.opcional,
+                emprestada=e.id not in proprias,
+                recursos=por_etapa[e.id],
+            )
+            for e in ordenadas
+        ),
+        qtd_recursos=sum(len(r) for r in por_etapa.values()),
         esforco=comum.duracao(sum(e.esforco_estimado_min for e in etapas)),
         qtd_obrigatorias=sum(1 for e in etapas if not e.opcional),
         qtd_opcionais=sum(1 for e in etapas if e.opcional),
@@ -310,13 +430,7 @@ def etapa(
 
     progresso = _progresso_por_etapa(percurso)
     aqui = progresso.get(etapa_id)
-    recursos = tuple(
-        _recurso(r, hoje=hoje, em_uso=aqui is not None and aqui.recurso_em_uso == r.id)
-        for r in sorted(
-            cat.recursos_da_etapa(etapa_id),
-            key=lambda r: (not r.disponivel, r.custo, r.duracao_min, r.titulo),
-        )
-    )
+    recursos = _recursos_da_etapa(cat, etapa_id, hoje=hoje, progresso=progresso)
     exigida = _quantas_exigem(acervo)
 
     return VisaoEtapa(
@@ -487,6 +601,59 @@ def _evidencia(evidencia: Evidencia, catalogo: Catalogo) -> LinhaEvidencia:
         retratada=evidencia.retratada,
         retratada_em=evidencia.retratada_em,
         motivo_da_retratacao=evidencia.motivo_da_retratacao or "",
+    )
+
+
+def _livro(
+    pedida: dominio_obras.ObraPedida, catalogo: Catalogo, *, ja_tenho: bool = False
+) -> LinhaLivro:
+    """Formata um exemplar pedido. As duas somas vêm do domínio, nenhuma é feita aqui.
+
+    O custo é o do exemplar inteiro mesmo quando a trilha usa parte dele — compra-se o
+    livro, não o capítulo —, e a duração é só a das fatias pedidas. Inverter qualquer
+    uma das duas daria um número que soa razoável e está errado (§3.3).
+    """
+    return LinhaLivro(
+        slug=pedida.obra.slug,
+        nome=pedida.obra.nome,
+        href=f"/obra/{pedida.obra.slug}",
+        custo=comum.dinheiro(pedida.obra.custo),
+        custo_valor=pedida.obra.custo,
+        duracao=comum.duracao(pedida.duracao_min),
+        duracao_min=pedida.duracao_min,
+        qtd_fatias=len(pedida.fatias),
+        qtd_fatias_do_exemplar=len(pedida.obra.fatias),
+        parcial=pedida.parcial,
+        etapas=tuple(
+            Referencia(e, comum.titulo_de(catalogo, e), f"/etapa/{e}") for e in pedida.etapas
+        ),
+        idiomas=", ".join(pedida.obra.idiomas),
+        toda_depreciada=pedida.obra.toda_depreciada,
+        ja_tenho=ja_tenho,
+    )
+
+
+def _recursos_da_etapa(
+    catalogo: Catalogo,
+    etapa_id: str,
+    *,
+    hoje: date,
+    progresso: Mapping[str, ProgressoEtapa],
+) -> tuple[LinhaRecurso, ...]:
+    """Os recursos de uma etapa, na ordem em que se escolhe entre eles.
+
+    Disponível primeiro, depois o mais barato e o mais curto: são alternativas, e a
+    ordem é a da decisão do estudante (docs/interface.md §5.4). Serve às duas telas que
+    listam recurso — a da etapa e a da trilha —, porque ordenar nos dois lugares daria
+    duas ordens para a mesma lista.
+    """
+    aqui = progresso.get(etapa_id)
+    return tuple(
+        _recurso(r, hoje=hoje, em_uso=aqui is not None and aqui.recurso_em_uso == r.id)
+        for r in sorted(
+            catalogo.recursos_da_etapa(etapa_id),
+            key=lambda r: (not r.disponivel, r.custo, r.duracao_min, r.titulo),
+        )
     )
 
 

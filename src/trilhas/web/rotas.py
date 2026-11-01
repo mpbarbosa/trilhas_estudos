@@ -148,7 +148,10 @@ async def lista(request: Request) -> Response:
 async def trilha(request: Request) -> Response:
     ctx = _ctx(request)
     visao = detalhe.trilha(
-        ctx.fonte.acervo(), request.path_params["ident"], percurso=_percurso(request)
+        ctx.fonte.acervo(),
+        request.path_params["ident"],
+        hoje=ctx.hoje(),
+        percurso=_percurso(request),
     )
     if visao is None:
         return await nao_encontrado(request, None)

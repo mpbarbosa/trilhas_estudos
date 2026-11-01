@@ -403,6 +403,15 @@ select:focus-visible, .no:focus-visible rect {
 .etiqueta.estado-em_andamento { border-color: var(--aviso); color: var(--aviso); }
 .etiqueta.estado-abandonada { border-color: var(--borda-forte); color: var(--texto-fraco); }
 
+/* Cabeçalho de grupo numa tabela que reúne etapas (recursos da trilha): o grupo tem
+   de se ler como título de bloco, e não como mais uma linha de dados. */
+.tabela tr.grupo th {
+  background: var(--n0); font-weight: 600;
+  border-top: 1px solid var(--borda-forte); border-bottom: 1px solid var(--borda-forte);
+}
+.tabela tr.grupo:hover { background: none; }
+.tabela tr.grupo .fraco, .tabela tr.grupo .etiqueta { font-weight: 400; }
+
 .recurso-em-uso > td { background: var(--acento-fraco); }
 .recurso-em-uso > td:first-child { box-shadow: inset 3px 0 0 var(--acento); }
 

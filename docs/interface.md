@@ -363,6 +363,30 @@ abre "falta *Manipulação tabular* em `intermediario`; você está em `iniciant
 *NumPy e pandas* leva você lá" — com o caminho realçado no grafo. Travado sem explicação
 é o pior defeito possível numa interface de trilha.
 
+**Livros da trilha**: os exemplares que a trilha pede, cada um **uma vez** — a
+unidade de aquisição, enquanto o recurso é a de estudo. Um livro que atende cinco
+etapas aparece cinco vezes na seção de recursos e uma vez aqui, com o preço do
+exemplar inteiro ainda que a trilha use só parte dele, e com a duração **das fatias
+pedidas**, não a do livro todo. Havendo percurso, a estante marca o que já é seu e a
+soma diz quanto falta comprar, pela mesma `possuidos_em` do motor
+([ADR-0015](adr/0015-posse-de-exemplar-como-estante-declarada.md)) — duas propagações
+da posse discordariam em silêncio. Trilha sem `obra` declarada mostra texto de estado
+vazio que distingue "o catálogo ainda não marcou" de "não há livro", e toda trilha
+imprime quantos dos seus recursos não declaram exemplar — 144 dos 299 hoje, quase
+todos material que exemplar não tem: especificação, página de manual, código-fonte,
+artigo e projeto ([ADR-0020](adr/0020-obra-declarada-tambem-em-exemplar-nao-fatiado.md)).
+
+**Recursos da trilha**: o material de *todas* as etapas — próprias e emprestadas — numa
+seção só, com as mesmas colunas da §5.4 (formato, idioma, custo, duração,
+`verificado_em`) e na mesma ordem de escolha. Vem **agrupado por etapa**, nunca como
+lista plana: dentro de uma etapa os recursos são alternativas e um basta, entre etapas
+eles se somam. Lista plana — 78 linhas na trilha do emulador — se leria como
+bibliografia a percorrer inteira, que é o oposto do que o modelo diz. Etapa sem recurso
+aparece como grupo vazio com o aviso `CAT-050`: omiti-la esconderia justamente a que não
+é estudável, pela mesma razão que a §5.4 esmaece o recurso restrito em vez de ocultá-lo.
+A seção responde "o que preciso ter em mãos para fazer esta trilha", que nenhuma outra
+tela responde — a da etapa só mostra uma etapa, e a da obra tem o exemplar por eixo.
+
 ### 5.4 `/etapa/{id}` — etapa e escolha de recurso
 
 - `requires` e `teaches` como listas de competência com nível, cada uma linkada e com o

@@ -82,6 +82,139 @@
   </table>
 </section>
 
+<section>
+  <h2>Livros da trilha</h2>
+  {% if v.livros %}
+  <p class="fraco">
+    Os exemplares que esta trilha pede, cada um contado <strong>uma vez</strong>:
+    {{ v.livros | length }} livro(s), {{ v.custo_dos_livros }} no total. Um livro que
+    atende cinco etapas aparece cinco vezes entre os recursos e uma vez aqui — é a
+    unidade de aquisição, não a de estudo (ADR-0009). O preço é o do exemplar inteiro
+    mesmo quando a trilha usa só parte dele: compra-se o livro, não o capítulo.
+    {% if v.tem_percurso %}
+    {% if v.qtd_livros_que_tenho %}
+    <strong>{{ v.qtd_livros_que_tenho }}</strong> já na sua estante; falta
+    {{ v.custo_que_falta }}.
+    {% else %}
+    Nenhum deles está na sua estante ainda.
+    {% endif %}
+    {% endif %}
+  </p>
+  <table class="tabela">
+    <caption class="oculto">Exemplares pedidos pela trilha, com o que ela usa de cada um</caption>
+    <thead>
+      <tr>
+        <th scope="col">Livro</th><th scope="col">Idioma</th>
+        <th scope="col">Atende</th><th scope="col">A trilha pede</th>
+        <th scope="col">Custo</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in v.livros %}
+      <tr class="{% if l.ja_tenho %}recurso-em-uso{% endif %} {% if l.toda_depreciada %}esmaecido{% endif %}">
+        <td>
+          <a href="{{ l.href }}">{{ l.nome }}</a>
+          {% if l.ja_tenho %}<span class="etiqueta estado">na sua estante</span>{% endif %}
+          {% if l.toda_depreciada %}<span class="etiqueta aviso">depreciado</span>{% endif %}
+          <br><code class="fraco">{{ l.slug }}</code>
+        </td>
+        <td>{{ l.idiomas }}</td>
+        <td>
+          {% for e in l.etapas %}<a href="{{ e.href }}">{{ e.titulo }}</a>{% if not loop.last %}<br>{% endif %}{% endfor %}
+        </td>
+        <td class="num">
+          {{ l.duracao }}
+          <br><span class="fraco">
+            {% if l.parcial %}{{ l.qtd_fatias }} de {{ l.qtd_fatias_do_exemplar }} fatia(s){% else %}o exemplar inteiro{% endif %}
+          </span>
+        </td>
+        <td class="num">
+          {% if l.ja_tenho %}<span class="fraco">{{ l.custo }}</span><br>comprado{% else %}{{ l.custo }}{% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="vazio">
+    Nenhum recurso desta trilha declara <code>obra</code> — o campo que diz de qual
+    exemplar o material é fatia (<code>docs/catalogo.md</code> §2). Não quer dizer que
+    não haja livro entre os recursos: quer dizer que o catálogo ainda não o marcou.
+  </p>
+  {% endif %}
+  {% if v.recursos_sem_exemplar %}
+  <p class="fraco">
+    {{ v.recursos_sem_exemplar }} recurso(s) desta trilha não declaram exemplar e não
+    entram nesta conta — cada um é obra de si mesmo para efeito de custo, mas não tem
+    slug para endereçar.
+  </p>
+  {% endif %}
+</section>
+
+<section>
+  <h2>Recursos da trilha</h2>
+  <p class="fraco">
+    {{ v.qtd_recursos }} recurso(s) em {{ v.recursos_por_etapa | length }} etapa(s) — todo
+    material que realiza alguma etapa desta trilha, as emprestadas incluídas.
+    Dentro de uma etapa os recursos são <strong>alternativas</strong>: um basta, e a
+    lista não é bibliografia a percorrer inteira. Entre etapas eles se somam, na ordem
+    das ondas.
+  </p>
+  {% if v.qtd_recursos %}
+  <table class="tabela">
+    <caption class="oculto">Recursos de cada etapa da trilha, em ordem de onda</caption>
+    <thead>
+      <tr>
+        <th scope="col">Recurso</th><th scope="col">Formato</th><th scope="col">Idioma</th>
+        <th scope="col">Custo</th><th scope="col">Duração</th><th scope="col">Verificado</th>
+      </tr>
+    </thead>
+    {% for g in v.recursos_por_etapa %}
+    <tbody>
+      <tr class="grupo">
+        <th scope="rowgroup" colspan="6">
+          <span class="fraco">onda {{ g.onda }}</span>
+          <a href="{{ g.etapa.href }}">{{ g.etapa.titulo }}</a>
+          {% if g.opcional %}<span class="etiqueta">opcional</span>{% endif %}
+          {% if g.emprestada %}<span class="etiqueta">emprestada</span>{% endif %}
+          <span class="fraco">{{ g.recursos | length }} recurso(s)</span>
+        </th>
+      </tr>
+      {% for r in g.recursos %}
+      <tr class="{% if r.em_uso %}recurso-em-uso{% endif %} {% if not r.disponivel or r.status.value != 'ativo' %}esmaecido{% endif %}">
+        <td>
+          {% if r.url %}<a href="{{ r.url }}" rel="noreferrer nofollow">{{ r.titulo }}</a>
+          {% else %}{{ r.titulo }}{% endif %}
+          {% if r.em_uso %}<span class="etiqueta estado">estudando por aqui</span>{% endif %}
+          {% if not r.disponivel %}<span class="etiqueta ruim">indisponível</span>{% endif %}
+          {% if r.status.value != 'ativo' %}<span class="etiqueta aviso">{{ r.status.value }}</span>{% endif %}
+          <br><code class="fraco">{{ r.id }}</code>
+          {% if r.obra %}
+          <a class="fraco" href="/obra/{{ r.obra }}">· fatia de um livro</a>
+          {% endif %}
+        </td>
+        <td>{{ r.formato }}</td>
+        <td>{{ r.idioma }}</td>
+        <td class="num">{{ r.custo }}</td>
+        <td class="num">{{ r.duracao }}</td>
+        <td class="num {% if r.vencido %}ruim{% endif %}">
+          {% if r.verificado_em %}{{ r.verificado_em }}<br><span class="fraco">{{ r.dias_sem_verificar }} dias</span>
+          {% else %}nunca{% endif %}
+        </td>
+      </tr>
+      {% else %}
+      <tr>
+        <td colspan="6" class="alerta">Nenhum recurso — etapa não estudável (CAT-050).</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p class="alerta">Nenhuma etapa desta trilha tem recurso — nada aqui é estudável (CAT-050).</p>
+  {% endif %}
+</section>
+
 {% if v.emprestadas %}
 <section>
   <h2>Etapas emprestadas</h2>
