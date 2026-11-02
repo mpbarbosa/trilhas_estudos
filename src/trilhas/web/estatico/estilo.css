@@ -158,6 +158,9 @@ select:focus-visible, .no:focus-visible rect {
   border-radius: 999px; font-size: .7rem; color: var(--texto-fraco); white-space: nowrap;
 }
 .etiqueta.aviso { border-color: var(--aviso); color: var(--aviso); }
+/* Etiquetas vizinhas: `lstrip_blocks` do Jinja come a quebra de linha entre dois
+   `{% if %}`, e sem isto as duas marcas de um mesmo recurso se encostam. */
+.etiqueta + .etiqueta { margin-left: .3rem; }
 .etiqueta.ruim { border-color: var(--erro); color: var(--erro); }
 .tipo-trilha { border-color: var(--acento); color: var(--acento); }
 

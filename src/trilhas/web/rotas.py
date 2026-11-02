@@ -33,6 +33,7 @@ from .escrever import (
 from .percurso import (
     evidencias_do_percurso,
     nome_do_estudante,
+    percorridos_do_percurso,
     percurso_completo,
     percursos_em,
 )
@@ -56,11 +57,6 @@ def _arquivo_de_percurso(request: Request) -> Path | None:
     arquivos = percursos_em(_ctx(request).fonte.percursos)
     escolhido = request.query_params.get("estudante", "").strip()
     return arquivos.get(escolhido) or (next(iter(arquivos.values()), None))
-
-
-def _percurso(request: Request) -> Percurso | None:
-    caminho = _arquivo_de_percurso(request)
-    return percurso_completo(caminho) if caminho else None
 
 
 def _responder(
@@ -147,11 +143,13 @@ async def lista(request: Request) -> Response:
 
 async def trilha(request: Request) -> Response:
     ctx = _ctx(request)
+    arquivo = _arquivo_de_percurso(request)
     visao = detalhe.trilha(
         ctx.fonte.acervo(),
         request.path_params["ident"],
         hoje=ctx.hoje(),
-        percurso=_percurso(request),
+        percurso=percurso_completo(arquivo) if arquivo else None,
+        percorridos=percorridos_do_percurso(arquivo) if arquivo else (),
     )
     if visao is None:
         return await nao_encontrado(request, None)
@@ -162,11 +160,13 @@ async def etapa(request: Request) -> Response:
     if request.method == "POST":
         return await _registrar_na_etapa(request)
     ctx = _ctx(request)
+    arquivo = _arquivo_de_percurso(request)
     visao = detalhe.etapa(
         ctx.fonte.acervo(),
         request.path_params["ident"],
         hoje=ctx.hoje(),
-        percurso=_percurso(request),
+        percurso=percurso_completo(arquivo) if arquivo else None,
+        percorridos=percorridos_do_percurso(arquivo) if arquivo else (),
     )
     if visao is None:
         return await nao_encontrado(request, None)

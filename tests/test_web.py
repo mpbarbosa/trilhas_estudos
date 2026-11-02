@@ -22,6 +22,7 @@ from trilhas.percurso import (
     concluir_etapa,
     evidencias_de,
     iniciar_etapa,
+    percorrer_recurso,
     registrar_autoavaliacao,
 )
 from trilhas.percurso.eventos import Origem
@@ -157,6 +158,46 @@ def test_recurso_em_uso_tambem_se_marca_na_tela_da_trilha(com_log: TestClient) -
     estuda por onde mandariam a pessoa conferir qual delas está certa."""
     html = com_log.get("/trilha/trilha:dados/fundamentos").text
     assert "recurso-em-uso" in html
+
+
+def test_recurso_percorrido_se_marca_na_tela_da_trilha(com_log: TestClient) -> None:
+    """O fato de recurso tem de aparecer na tela, ou ele só existe no log.
+
+    `rec:dados/sql-select-exercicios` não é o recurso em uso da etapa — é material
+    percorrido por fora dela —, e sem esta marca a tela o mostraria como quem nunca o
+    abriu, que foi o que levou a perguntar por que um livro lido não aparecia.
+    """
+    html = com_log.get("/trilha/trilha:dados/fundamentos").text
+    linha = _linha_do_recurso(html, "rec:dados/sql-select-exercicios")
+    assert "percorrido em" in linha
+
+
+def test_recurso_percorrido_nao_vira_estudando_por_aqui(com_log: TestClient) -> None:
+    """Percorrer não é estudar a etapa por aquele material (ADR-0012): as duas marcas
+    respondem a fatos diferentes e não podem cair na mesma linha por engano."""
+    html = com_log.get("/trilha/trilha:dados/fundamentos").text
+    percorrido = _linha_do_recurso(html, "rec:dados/sql-select-exercicios")
+    em_uso = _linha_do_recurso(html, "rec:dados/sql-select-video")
+    assert "estudando por aqui" not in percorrido
+    assert "percorrido em" not in em_uso
+    assert "estudando por aqui" in em_uso
+
+
+def test_recurso_percorrido_se_marca_na_tela_da_etapa(com_log: TestClient) -> None:
+    """Mesma marca das duas telas, pelo mesmo apresentador."""
+    html = com_log.get("/etapa/etapa:dados/sql-select").text
+    assert "percorrido em" in _linha_do_recurso(html, "rec:dados/sql-select-exercicios")
+
+
+def _linha_do_recurso(html: str, recurso_id: str) -> str:
+    """O `<tr>` que fala daquele recurso — asserção de tela que não vale a tabela toda.
+
+    O `<td` no filtro exclui o trecho anterior à tabela: na tela da etapa o id também
+    aparece no `<select>` do formulário, e sem ele a primeira "linha" seria o cabeçalho.
+    """
+    linhas = [bloco for bloco in html.split("<tr") if recurso_id in bloco and "<td" in bloco]
+    assert linhas, f"recurso ausente da tela: {recurso_id}"
+    return linhas[0]
 
 
 def test_trilha_inexistente_responde_404_com_tela(cliente: TestClient) -> None:
@@ -443,6 +484,7 @@ def com_log(lock: Path) -> TestClient:
     (pasta / "est-teste.yaml").write_text(PERCURSO_MATRICULADO, encoding="utf-8")
     entrada = fabrica.etapa("etapa:dados/modelagem-basica")
     seguinte = fabrica.etapa("etapa:dados/sql-select")
+    outro_material = fabrica.recurso("rec:dados/sql-select-exercicios", seguinte.id)
     with Repositorio.em_diretorio(pasta) as repo:
         repo.anexar(
             "est:teste",
@@ -451,6 +493,7 @@ def com_log(lock: Path) -> TestClient:
                 *concluir_etapa(entrada),
                 *iniciar_etapa(seguinte, recurso="rec:dados/sql-select-video"),
                 *concluir_etapa(seguinte),
+                *percorrer_recurso(outro_material),
             ],
         )
     return TestClient(criar_app(lock=lock, hoje=lambda: HOJE))
