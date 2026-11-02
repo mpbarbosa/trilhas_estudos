@@ -255,17 +255,26 @@ recursos:
   # não, e o catálogo só aponta. Entrou porque a linha de comando é conservadora
   # (docs/acervo-lido.md § 4) e porque sem ele o estudante de orçamento zero que lê
   # só pt-BR não tem caminho nesta etapa.
+  #
+  # Não declara `obra`. É documentação de projeto, não exemplar: cinco volumes
+  # versionados cada um por conta (Iniciante v5.02, Intermediário v6.02, Avançado
+  # v7.02, Segurança v1.00), sem editora, sem ISBN e sem edição à venda. Quem
+  # pesquisou a bibliografia já o havia classificado assim — ele está nominalmente em
+  # docs/bibliografia.md § O que não tem ficha, entre o material aberto de
+  # referência —, e a `obra` que ele ganhou em 2026-11-01 saiu de julgamento sobre
+  # título e URL, contra essa classificação. Saiu na escrita das fichas; a `rev` sobe
+  # outra vez porque remover `obra` é substantivo igual a acrescentá-la
+  # (docs/catalogo.md § 4), e `rev` nunca decresce (CAT-090).
   - id: rec:so/guiafoca-linha-de-comando
     etapa: etapa:so/linha-de-comando
     titulo: "Guia Foca Linux — Iniciante e Intermediário (Gleydson Mazioli da Silva): comandos, estrutura de diretórios, permissões e redirecionamento, em português"
-    rev: 2
+    rev: 3
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 0
     duracao_min: 420
     url: https://guiafoca.org/
-    obra: guiafoca-linux
     disponivel: true
     verificado_em: 2026-10-17
 

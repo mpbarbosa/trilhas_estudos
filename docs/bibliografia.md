@@ -15,16 +15,25 @@ as fatias pagas de um mesmo exemplar declaram `obra` no recurso
 valida.
 
 Desde [ADR-0020](adr/0020-obra-declarada-tambem-em-exemplar-nao-fatiado.md) a
-confrontação vale nos dois sentidos, e em 2026-11-01 ela foi feita: **as 74 fichas
-deste documento têm hoje `obra` declarada no catálogo** — antes eram 24 —, e **11
-obras não têm ficha aqui**. Estas, que são a lista de trabalho pendente deste
-documento e não do catálogo:
+confrontação vale nos dois sentidos. **Refeita em 2026-11-01, depois de escritas as
+fichas que faltavam, ela fecha**: das 82 fichas deste documento, 81 têm `obra`
+declarada no catálogo — antes da ADR eram 24 —, e **nenhuma das 81 obras do catálogo
+está sem ficha**. A única ficha sem `obra` é a de *Python Fluente*, e é de propósito:
+o recurso está depreciado desde 2026-10-22, e recurso depreciado não recebe `obra`
+nova (ADR-0020).
 
-`beej-guide-c`, `beej-guide-ipc`, `chetan-30-dias-gita`, `chetan-daily-bhakti`,
-`chetan-gita-resumida`, `chetan-gita-traducao-autentica`,
-`flanagan-javascript-definitive-guide`, `guiafoca-linux`,
+As onze obras que a confrontação listava como pendentes saíram da lista por dois
+caminhos. **Oito ganharam ficha**: as quatro de Hari Chetan
+(`chetan-30-dias-gita`, `chetan-daily-bhakti`, `chetan-gita-resumida`,
+`chetan-gita-traducao-autentica`), `flanagan-javascript-definitive-guide`,
 `klabnik-nichols-rust-book`, `kurniawan-node-succinctly` e
-`winand-use-the-index-luke`.
+`winand-use-the-index-luke`. **Três deixaram de declarar `obra`**, porque a ficha foi
+o primeiro momento em que alguém olhou o material de perto e ele não era livro:
+`beej-guide-c`, `beej-guide-ipc` e `guiafoca-linux` são referência aberta, sem editora,
+sem ISBN e sem edição à venda, e estão no
+[§ O que não tem ficha](#o-que-não-tem-ficha). Nos três, remover `obra` subiu a `rev`
+de 2 para 3, pela mesma regra que a havia subido ao acrescentá-la: `rev` nunca
+decresce (CAT-090, [catalogo.md §4](catalogo.md)).
 
 A conferência se refaz com
 `uv run python -c` sobre o lock e este arquivo; ela não entra na validação, pela
@@ -52,14 +61,20 @@ e *Pure React*, conferidas em 2026-10-17, e as de *The Visual Display of
 Quantitative Information*, *Engenharia de Prompts na Prática*, *Álgebra Linear com
 Python*, *Python for Everybody*, *Spec Driven Development — PT*, *Linux Command Line
 and Shell Scripting Bible*, *Shell Script Profissional*, *The Linux Command Line* e
-*Desenvolvimento Web com Flask*, acrescentadas em 2026-10-17.
+*Desenvolvimento Web com Flask*, acrescentadas em 2026-10-17, e as oito acrescentadas
+em 2026-11-01 — as quatro de Hari Chetan, *JavaScript: The Definitive Guide*,
+*Node.js Succinctly*, *SQL Performance Explained* e *The Rust Programming Language*
+—, conferidas nessa data.
 
 Preço, como regra, não entra aqui — vive em `custo` no recurso, com seu próprio
 `verificado_em`, e a pesquisa de 2026-10-12 não o alterou: conferiu link e edição,
 não preço. As nove fichas acrescentadas em 2026-10-17 são a exceção e **citam**
 preço, porque nelas o `custo` do recurso foi fixado na mesma passada — no caso do
 Tufte o preço é o próprio motivo de a ficha dizer qual tiragem o recurso aponta, e no
-do *Shell Scripting Bible* ele registra que o Kindle sai mais caro que o impresso.
+do *Shell Scripting Bible* ele registra que o Kindle sai mais caro que o impresso. As
+quatro fichas de Hari Chetan de 2026-11-01 são a outra exceção, pela mesma razão: o
+preço no Google Play BR é o que fixou o `custo` daqueles recursos, e a paginação delas
+vem da mesma página de loja.
 
 As divergências encontradas entre o catálogo e a obra real estão reunidas no
 [§ Divergências](#divergências) no fim.
@@ -182,6 +197,25 @@ As divergências encontradas entre o catálogo e a obra real estão reunidas no
 - **Acesso aberto** — https://wesmckinney.com/book/ (3ª ed. em inglês, liberada pelo autor)
 - **Original** — *Python for Data Analysis*, 3rd ed., O'Reilly, 2022
 - **Citada por** — `rec:dados/mckinney-python-analise-3ed`
+
+### SQL Performance Explained: Everything Developers Need to Know about SQL Performance
+
+- **Autoria** — Markus Winand
+- **Edição** — edição do autor, 30/07/2012, 204 p., en-US. Cobre Oracle, MySQL,
+  PostgreSQL, SQL Server e Db2 lado a lado. A edição alemã, de maio de 2012 e mesma
+  paginação, tem ISBN-13 978-3-9503078-1-8.
+- **Identificadores** — ISBN-13 978-3-9503078-2-5 · ISBN-10 `3950307826`
+- **Amazon** — https://www.amazon.com.br/dp/3950307826 (página da loja brasileira não
+  conferida; o autor vende brochura e PDF na própria loja, a partir de € 9,95)
+- **Acesso aberto** — https://use-the-index-luke.com/ — *Use The Index, Luke!* é a
+  edição web gratuita deste livro, nas palavras do próprio site ("free web-edition of
+  my book"). É esta edição que o catálogo cita, e é dela que vem o `custo: 0` do
+  recurso: o preço do impresso é outro.
+- **Citada por** — `rec:dados/use-the-index-luke` — declara
+  `obra: winand-use-the-index-luke`
+- **Nota** — a `obra` leva o nome do site, não do livro, porque é o site que o recurso
+  aponta. É o mesmo arranjo de *The Linux Command Line*: edição aberta citada pelo
+  catálogo, impresso existindo ao lado.
 
 ### The Visual Display of Quantitative Information
 
@@ -579,6 +613,26 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
   `programacao/`, que são organizacionais e não semânticas
   ([catalogo.md §3](catalogo.md))
 
+### The Rust Programming Language
+
+- **Autoria** — Steve Klabnik, Carol Nichols e, desde a 3ª edição, Chris Krycho, com
+  contribuições da comunidade Rust
+- **Edição** — 3ª ed., No Starch Press, 31/03/2026, 624 p., en-US. A 2ª edição é de
+  2023. A edição web, que é a que o catálogo cita, acompanha o compilador: em
+  2026-11-01 ela pressupõe Rust 1.97.0 e `edition = "2024"` no `Cargo.toml`.
+- **Identificadores** — 3ª ed.: ISBN-13 978-1-7185-0444-8 · ISBN-10 `1718504446`;
+  e-book 978-1-7185-0445-5
+- **Amazon** — https://www.amazon.com.br/dp/1718504446 (página da loja brasileira não
+  conferida)
+- **Editora** — https://nostarch.com/rust-programming-language-3e
+- **Acesso aberto** — https://doc.rust-lang.org/book/ (texto integral, mantido pelo
+  projeto Rust, que é quem detém o direito autoral da 3ª edição)
+- **Citada por** — `rec:programacao/rust-book-sistemas` (caps. 1 a 12) — declara
+  `obra: klabnik-nichols-rust-book`
+- **Nota** — ver [§ Divergências](#divergências): o recurso cita dois autores e um
+  recorte por número de capítulo, e a edição web que ele aponta passou a ter três
+  autores e a numeração da 3ª edição.
+
 ---
 
 ## Matemática
@@ -738,9 +792,13 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
   978-1-7185-0452-3 · ISBN-10 `1718504527`. Baseada na mesma 7ª edição de internet
 - **Acesso aberto** — https://linuxcommand.org/tlcl.php
 - **Citada por** — `rec:so/shotts-linha-de-comando`, `rec:so/shotts-script-shell` —
-  as duas fatias **não** declaram `obra`, pela mesma razão das cinco do OSTEP: obra
-  gratuita soma zero em qualquer agregação monetária
-  ([ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md))
+  as duas fatias declaram `obra: shotts-tlcl`. Até 2026-11-01 não declaravam, pela
+  razão que valia também para as cinco do OSTEP — obra gratuita soma zero em qualquer
+  agregação monetária
+  ([ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md)) —, e a
+  [ADR-0020](adr/0020-obra-declarada-tambem-em-exemplar-nao-fatiado.md) inverteu isso:
+  `obra` é o que torna o exemplar endereçável, e sem ela a trilha não tem como listar
+  o livro
 - **Nota** — a tradução para português está listada como em andamento no site do
   autor, ainda sem versão publicada. É por isso que
   `etapa:so/linha-de-comando` depende do Guia Foca para o par "gratuito e em pt-BR".
@@ -812,6 +870,24 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Acesso aberto** — https://eloquentjavascript.net/ (CC BY-NC)
 - **Citada por** — `rec:web/eloquent-javascript`
 
+### JavaScript: The Definitive Guide
+
+- **Autoria** — David Flanagan
+- **Edição** — 7ª ed., O'Reilly Media, 23/06/2020, 704 p., en-US. Reescrita para
+  JavaScript moderno, até ES2020.
+- **Identificadores** — ISBN-13 978-1-491-95202-3 · ISBN-10 `1491952024`
+- **Amazon** — https://www.amazon.com.br/dp/1491952024 (página da loja brasileira não
+  conferida)
+- **Editora** — https://www.oreilly.com/library/view/javascript-the-definitive/9781491952016/
+  — é o endereço que o recurso aponta, que é a leitura pela assinatura O'Reilly e não
+  a compra; o `custo: 300` é o do impresso
+- **Citada por** — `rec:web/flanagan-javascript-linguagem-e-dom` (caps. 1 a 12, 14 e
+  15) — declara `obra: flanagan-javascript-definitive-guide`
+- **Nota** — dos 17 capítulos ficam de fora o 13 (assíncrono), o 16 (Node) e o 17
+  (ferramental). Os dois primeiros não são lacuna da trilha: o assíncrono tem recurso
+  próprio na mesma etapa (*Async JavaScript*, acima) e o Node tem
+  `etapa:web/javascript-no-servidor`.
+
 ### Mastering D3.js
 
 - **Autoria** — Pablo Navarro Castillo — série *Community Experience Distilled*
@@ -820,6 +896,23 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Amazon** — https://www.amazon.com.br/dp/B00N1X6926
 - **Citada por** — `rec:web/mastering-d3-castillo`
 - **Nota** — o código é de uma versão antiga da API do D3; o recurso já marca isso.
+
+### Node.js Succinctly
+
+- **Autoria** — Agus Kurniawan
+- **Edição** — Syncfusion, abr./2014, 109 p., e-book, en-US. Série *Succinctly*, de
+  e-books curtos que a Syncfusion publica de graça. Sem edição impressa e sem ISBN.
+- **Amazon** — não se aplica
+- **Acesso aberto** — era o PDF que a Syncfusion distribuía após cadastro, com
+  licença de leitura condicionada a obtê-lo em syncfusion.com. Em 2026-11-01,
+  https://www.syncfusion.com/succinctly-free-ebooks/nodejs serve um *Node.js
+  Succinctly* **de outro autor** (Emanuele DelBono, out./2016, 76 p.), e a edição de
+  Kurniawan não foi localizada em distribuição autorizada.
+- **Citada por** — `rec:web/node-succinctly-kurniawan` — declara
+  `obra: kurniawan-node-succinctly`
+- **Nota** — ver [§ Divergências](#divergências): o recurso aponta para a ficha do
+  Goodreads, que é catálogo e não o material. O próprio título do recurso já avisa que
+  o código é da era Node 0.10, anterior a promessas, `async`/`await` e ESM.
 
 ### Pure React
 
@@ -896,6 +989,45 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 
 ## Filosofia
 
+As quatro fichas de Hari Chetan abaixo, com a do livro 1, são a série de cinco que o
+autor numera no próprio site. Preço e paginação de todas vêm da página do Google Play
+BR em 2026-11-01, que é também de onde saiu o `custo` dos recursos.
+
+### 30 Days to Understanding the Bhagavad Gita: A Complete, Simple, and Step-by-Step Guide to the Million-Year-Old Confidential Knowledge
+
+- **Autoria** — Hari Chetan
+- **Edição** — edição do autor (independente), jun./2021, en-US. Livro 3 da série
+  *The Bhagavad Gita Series*. E-book de 245 p., R$ 24,99 no Google Play; há também
+  brochura e capa dura.
+- **Identificadores** — ASIN `B09827G9M6` (Kindle), `B0986FRJ5R` (brochura),
+  `B09GJML48Z` (capa dura); EAN `9791220819619` no Nook
+- **Amazon** — https://www.amazon.com.br/dp/B09827G9M6 (ASIN obtido resolvendo o link
+  do autor, que termina na loja brasileira; a página em si não foi conferida)
+- **Citada por** — `rec:filosofia/chetan-30-dias-gita` — declara
+  `obra: chetan-30-dias-gita`
+- **Nota** — expõe a doutrina em trinta passos; é exposição do autor, não o diálogo, e
+  por isso cita `etapa:filosofia/por-que-ler-a-gita`. Os "30 dias" são calendário e
+  não esforço: a `duracao_min` do recurso vem do ritmo medido no livro 1 (~1,9
+  min/p.), não do título.
+
+### Bhagavad Gita (in English): The Authentic English Translation for Accurate and Unbiased Understanding
+
+- **Autoria** — Hari Chetan
+- **Edição** — edição do autor (independente), ago./2021, en-US. Livro 2 da série
+  *The Bhagavad Gita Series*. E-book de 234 p., R$ 24,99 no Google Play; há também
+  brochura e capa dura. Os 701 versos com esclarecimentos entre parênteses, notas e o
+  contexto do Mahabharata.
+- **Identificadores** — ASIN `B09D3YWKG7` (Kindle), `B09CRT941H` (brochura),
+  `B09GJP4X6R` (capa dura); EAN `9791221311549` no Nook
+- **Amazon** — https://www.amazon.com.br/dp/B09D3YWKG7 (ASIN obtido resolvendo o link
+  do autor, que termina na loja brasileira; a página em si não foi conferida)
+- **Citada por** — `rec:filosofia/chetan-gita-traducao-autentica` — declara
+  `obra: chetan-gita-traducao-autentica`
+- **Nota** — é a Gita, não comentário sobre ela, e por isso é o único livro de Hari
+  Chetan que cita `etapa:filosofia/leitura-integral-da-gita`. Alternativa em prosa à
+  tradução em verso de Arnold, que é gratuita: os R$ 24,99 são o preço de ler a letra
+  em vez do tom.
+
 ### Bhagavad Gita - The Perfect Philosophy: 15 Reasons That Make the Song of God the Most Scientific Ideology
 
 - **Autoria** — Hari Chetan (assinado "Chetan Hari" em algumas lojas)
@@ -913,6 +1045,42 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Nota** — não há sumário público, então as quinze razões não estão nomeadas aqui
   e o livro entra inteiro numa etapa. É livro de convencimento, e a trilha o
   confronta com a entrada da *Internet Encyclopedia of Philosophy*.
+
+### Daily Bhakti Practices: A Practical Guide to Living with Devotion and Purpose
+
+- **Autoria** — Hari Chetan
+- **Edição** — edição do autor (independente), dez./2024, en-US. Livro 5 da série, e
+  o único que não trata da Gita. E-book de 87 p., R$ 25,99 no Google Play; a brochura
+  da Lulu tem 100 p., de 19/12/2024. Há audiolivro de 2h12 em voz digital, que não é
+  `formato` do esquema — o recurso entra como texto.
+- **Identificadores** — ISBN-13 do e-book 979-12-23904-02-2. Sem ASIN: não há edição
+  na Amazon.
+- **Amazon** — não se aplica. O autor lista Google Play, Streetlib, Nook e Kobo para
+  o digital e a Lulu para o impresso:
+  https://harichetan.com/books/daily-bhakti-practices/
+- **Citada por** — `rec:filosofia/chetan-daily-bhakti` — declara
+  `obra: chetan-daily-bhakti`
+- **Nota** — é o único dos cinco que não está na Amazon, e por isso o único cujo
+  `custo` não tem preço de Kindle com que ser conferido. A etapa que o recebe,
+  `etapa:filosofia/bhakti-na-pratica`, nasceu com ele e é opcional.
+
+### The Bhagavad Gita Summarized and Simplified: A Comprehensive and Easy-to-Read Summary of the Divine Song of God
+
+- **Autoria** — Hari Chetan
+- **Edição** — edição do autor (independente), set./2021, en-US. Livro 4 da série
+  *The Bhagavad Gita Series*. E-book de 149 p., R$ 19,99 no Google Play; há também
+  brochura e capa dura. Segue os dezoito capítulos, cada um com "Key Takeaways", e
+  fecha com os ensinamentos agrupados por tema.
+- **Identificadores** — ASIN `B09G168NZ9` (Kindle), `B09FS31N65` (brochura),
+  `B09GJJCVY1` (capa dura); ISBN-13 979-8480077049 na capa dura
+- **Amazon** — https://www.amazon.com.br/dp/B09G168NZ9 (ASIN obtido resolvendo o link
+  do autor, que termina na loja brasileira; a página em si não foi conferida)
+- **Citada por** — `rec:filosofia/chetan-gita-resumida` — declara
+  `obra: chetan-gita-resumida`
+- **Nota** — cita `etapa:filosofia/por-que-ler-a-gita` e não a da leitura integral,
+  porque resumo é exatamente o que a `comp:filosofia/argumento-da-gita` exclui ("a
+  leitura do texto inteiro, não do resumo"). Antes do diálogo ele serve como visão de
+  conjunto.
 
 ### The Song Celestial, or Bhagavad-Gîtâ
 
@@ -1027,7 +1195,7 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 Recursos que não são livros ficam de fora: documentação oficial (MDN, pandas,
 scikit-learn, TypeScript Handbook, react.dev, docs.claude.com, MCP), material aberto
 de referência (arc42, microservices.io, adr.github.io, DORA, web.dev, ARIA APG,
-Paul's Online Math Notes, LibreTexts, Guia Foca Linux), artigos (*Attention Is All You Need*, *The
+Paul's Online Math Notes, LibreTexts, Guia Foca Linux, os dois guias do Beej), artigos (*Attention Is All You Need*, *The
 Illustrated Transformer*, Fowler, fitness functions, *A Mathematical Theory of
 Communication* de Shannon, *Notes on Programming in C* de Pike), vídeo (3Blue1Brown, aulas de
 *Statistical Rethinking*), repositórios de exercício (anthropic-cookbook) e os
@@ -1036,6 +1204,18 @@ recursos de projeto.
 *Statistical Rethinking* (`rec:dados/statistical-rethinking-aulas`) tem livro
 homônimo, mas o recurso aponta para as aulas gravadas e o material aberto, não para
 o livro — por isso não ganhou ficha.
+
+Três chegaram aqui pelo caminho mais caro. Os dois guias do Beej
+(`rec:programacao/beej-c-sistemas`, `rec:programacao/beej-ipc-descritores`) e o Guia
+Foca Linux (`rec:so/guiafoca-linha-de-comando`) foram marcados como exemplar em
+2026-11-01, por julgamento feito a partir de título e URL, e a `obra` saiu quando a
+ficha foi escrita e olhou o material. Nenhum dos três tem editora, ISBN ou edição à
+venda. O Beej revisa continuamente, chama o próprio texto de guia e de "beta-quality
+document", e vende em brochura justamente os outros dois guias dele — *Network
+Programming* e *Git* —, não estes. O Guia Foca são cinco volumes versionados cada um
+por conta, parados em 27/07/2020, e já constava da lista acima desde a pesquisa de
+outubro: a marcação o contradisse. Remover `obra` subiu a `rev` dos três de 2 para 3
+([catalogo.md §4](catalogo.md)).
 
 ## Divergências
 
@@ -1079,3 +1259,16 @@ depois.
    `custo` ora parece ser o que foi pago, ora o preço de reposição, e os dois não são a
    mesma coisa para o filtro de `custo_maximo`. Vale fixar qual dos dois `custo`
    significa antes de corrigir o número.
+8. **`rec:programacao/rust-book-sistemas`** cita dois autores, Klabnik & Nichols, e o
+   recorte "caps. 1 a 12", e aponta para https://doc.rust-lang.org/book/, que é a
+   edição web **viva**: ela acompanha o compilador e hoje corresponde à 3ª edição,
+   assinada também por Chris Krycho e pressupondo Rust 1.97.0. A numeração de
+   capítulos muda entre edições, como no item 2, e o slug da obra
+   (`klabnik-nichols-rust-book`) guarda a autoria de duas pessoas. Vale fixar qual
+   edição o catálogo assume; nada foi alterado.
+9. **`rec:web/node-succinctly-kurniawan`** aponta para a ficha do Goodreads, que é
+   catálogo e não o material. A Syncfusion, que publicou o livro, hoje serve em
+   https://www.syncfusion.com/succinctly-free-ebooks/nodejs um *Node.js Succinctly*
+   **de outro autor** (Emanuele DelBono, 2016), e a edição de Kurniawan de 2014 não
+   foi localizada em distribuição autorizada. Ou o recurso precisa de uma URL de onde
+   se obtenha o material, ou precisa ser depreciado.

@@ -177,34 +177,43 @@ recursos:
   # (`obra: kernighan-ritchie-c`, acima), não desta etapa. Quem lê só português tem
   # caminho, mas tem um só, e ele é em Rust.
   #
-  # Nenhum declara `obra`: `obra` existe para uma agregação monetária contar o
-  # exemplar uma vez (ADR-0009), e obra gratuita soma zero de qualquer maneira.
+  # Só o livro de Rust declara `obra`. Desde a ADR-0020 `obra` quer dizer "este
+  # recurso é fatia de um exemplar endereçável", não "há o que agrupar", e gratuito
+  # não desqualifica: o livro de Rust tem edição impressa na No Starch e o site é a
+  # edição aberta dela, como em Pro Git e no OSTEP. Os dois guias do Beej não têm
+  # exemplar algum — nenhuma edição à venda, nenhum ISBN, documento revisado
+  # continuamente que o próprio autor chama de guia e de "beta-quality document",
+  # enquanto ele vende em brochura justamente os outros dois guias dele (Network
+  # Programming e Git). São referência aberta, e é assim que
+  # docs/bibliografia.md § O que não tem ficha os classifica. Declaravam `obra` entre
+  # 2026-11-01 e a escrita das fichas, por julgamento feito a partir de título e URL;
+  # a `obra` saiu quando a ficha foi escrita e olhou o material de perto, e a `rev`
+  # subiu outra vez porque remover `obra` é substantivo igual a acrescentá-la
+  # (docs/catalogo.md § 4) — `rev` nunca decresce (CAT-090).
   # =========================================================================
   - id: rec:programacao/beej-c-sistemas
     etapa: etapa:programacao/programacao-de-sistemas
     titulo: "Beej's Guide to C Programming — de `hello, world` a estruturas, apontadores, alocação manual, projetos de vários arquivos e o ambiente de fora (`argv`, variáveis, código de saída)"
-    rev: 2
+    rev: 3
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 900
     url: https://beej.us/guide/bgc/
-    obra: beej-guide-c
     disponivel: true
     verificado_em: 2026-10-19
 
   - id: rec:programacao/beej-ipc-descritores
     etapa: etapa:programacao/programacao-de-sistemas
     titulo: "Beej's Guide to Interprocess Communication — `fork`, canos, FIFOs e sinais: o processo filho, o descritor e a leitura que volta com menos bytes do que se pediu"
-    rev: 2
+    rev: 3
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 300
     url: https://beej.us/guide/bgipc/
-    obra: beej-guide-ipc
     disponivel: true
     verificado_em: 2026-10-19
 

@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 51,
-  "gerado_em": "2026-11-01T20:40:49+00:00",
-  "hash": "sha256:75a22bf70c6af2f5ce991e6c6821790e9f328c95ee93f9a845e7f66fa3cf29e5",
+  "catalogo_versao": 52,
+  "gerado_em": "2026-11-02T00:01:19+00:00",
+  "hash": "sha256:56304f8b541881d79a729b25f2f9abdd2ca439600d45ce37f3ee22bfe85cd1fe",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -6632,7 +6632,7 @@
     {
       "id": "rec:programacao/beej-c-sistemas",
       "titulo": "Beej's Guide to C Programming — de `hello, world` a estruturas, apontadores, alocação manual, projetos de vários arquivos e o ambiente de fora (`argv`, variáveis, código de saída)",
-      "rev": 2,
+      "rev": 3,
       "status": "ativo",
       "etapa": "etapa:programacao/programacao-de-sistemas",
       "formato": "texto",
@@ -6641,13 +6641,12 @@
       "duracao_min": 900,
       "url": "https://beej.us/guide/bgc/",
       "disponivel": true,
-      "obra": "beej-guide-c",
       "verificado_em": "2026-10-19"
     },
     {
       "id": "rec:programacao/beej-ipc-descritores",
       "titulo": "Beej's Guide to Interprocess Communication — `fork`, canos, FIFOs e sinais: o processo filho, o descritor e a leitura que volta com menos bytes do que se pediu",
-      "rev": 2,
+      "rev": 3,
       "status": "ativo",
       "etapa": "etapa:programacao/programacao-de-sistemas",
       "formato": "texto",
@@ -6656,7 +6655,6 @@
       "duracao_min": 300,
       "url": "https://beej.us/guide/bgipc/",
       "disponivel": true,
-      "obra": "beej-guide-ipc",
       "verificado_em": "2026-10-19"
     },
     {
@@ -6885,7 +6883,7 @@
     {
       "id": "rec:so/guiafoca-linha-de-comando",
       "titulo": "Guia Foca Linux — Iniciante e Intermediário (Gleydson Mazioli da Silva): comandos, estrutura de diretórios, permissões e redirecionamento, em português",
-      "rev": 2,
+      "rev": 3,
       "status": "ativo",
       "etapa": "etapa:so/linha-de-comando",
       "formato": "texto",
@@ -6894,7 +6892,6 @@
       "duracao_min": 420,
       "url": "https://guiafoca.org/",
       "disponivel": true,
-      "obra": "guiafoca-linux",
       "verificado_em": "2026-10-17"
     },
     {
