@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 52,
-  "gerado_em": "2026-11-02T00:01:19+00:00",
-  "hash": "sha256:56304f8b541881d79a729b25f2f9abdd2ca439600d45ce37f3ee22bfe85cd1fe",
+  "catalogo_versao": 53,
+  "gerado_em": "2026-11-02T20:18:05+00:00",
+  "hash": "sha256:292ea8e7be3881c45e73305d7e3c1ae3571e2bc37112b020cb9925cec7ea3f08",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -427,6 +427,30 @@
       "status": "ativo",
       "verificacao": "Desenhar a estrutura (colchetes rotulados ou árvore) de cinco sintagmas nominais longos tirados de um texto acadêmico em inglês, identificando núcleo, determinante e cada modificador, e dizer qual modificador é oração e de que tipo.",
       "descricao": "O sintagma como núcleo mais dependentes: sintagma nominal (determinante, pré- e pós-modificação), verbal (auxiliares, tempo, aspecto, modo), adjetival, adverbial e preposicional — e, no nível avançado, o sintagma complexo, em que a pós-modificação é uma oração (relativa, apositiva, não finita).\n"
+    },
+    {
+      "id": "comp:literatura/critica-do-poema",
+      "titulo": "Avaliação de leituras críticas concorrentes de um mesmo poema",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Diante de duas leituras críticas incompatíveis do mesmo poema: dizer, para cada uma, que passagem do poema ela precisa que exista e como a lê; dizer qual das duas o texto sustenta melhor e por quê; e nomear uma evidência externa — resenha de época, carta, outro texto do autor — que mudaria o veredito, ou explicar por que nenhuma mudaria.",
+      "descricao": "O mesmo poema lido por crítica de época e por crítica acadêmica posterior, e em leituras que se excluem — a sincera e a paródica, por exemplo. O que a competência cobra não é escolher a leitura simpática, é dizer de que o texto cada leitura precisa para ficar de pé.\n"
+    },
+    {
+      "id": "comp:literatura/leitura-de-poema-em-ingles",
+      "titulo": "Leitura de poema em inglês no original — metro, rima e dicção",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Diante de duas estrofes de um poema em inglês que não se leu antes: marcar as sílabas tônicas e nomear o metro que elas compõem, descrever o esquema de rima externa e apontar as rimas internas, listar as palavras de dicção arcaica ou rara com o sentido que têm ali, e parafrasear as duas estrofes em prosa pt-BR sem acrescentar imagem que o texto não traga.",
+      "descricao": "Ler um poema em inglês na língua em que foi escrito, e não em paráfrase: onde cai a tônica e que metro isso compõe, como rima externa e interna se organizam em estrofe, e o que fazer com a dicção que o inglês de hoje não usa mais — arcaísmo, inversão e a palavra rara que carrega o verso.\n"
+    },
+    {
+      "id": "comp:literatura/poetica-declarada-do-autor",
+      "titulo": "Confronto entre o poema e a poética que o autor declara",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um poema e um texto em que o próprio autor explica como o compôs: listar as decisões que o texto reivindica, apontar no poema o verso ou a estrofe em que cada uma se verifica, e nomear ao menos duas que o poema não sustenta ou que só se sustentam se a explicação for lida como racionalização posterior, dizendo em cada caso o que no texto decide.",
+      "descricao": "Um autor que explica como compôs o próprio poema é fonte interessada, não laudo. A competência é ler os dois lado a lado: que decisões o texto de poética reivindica — extensão, efeito pretendido, escolha do refrão, do metro, do cenário —, onde cada uma se verifica no poema, e onde a explicação é reconstrução depois do fato.\n"
     },
     {
       "id": "comp:matematica/calculo-diferencial",
@@ -2455,6 +2479,66 @@
       ]
     },
     {
+      "id": "etapa:literatura/a-filosofia-da-composicao",
+      "titulo": "A poética declarada — \"The Philosophy of Composition\" sobre \"The Raven\"",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 150,
+      "descricao": "O ensaio de 1846 em que Poe diz ter composto \"The Raven\" de trás para frente, por cálculo: a extensão de uma sentada, a unidade de efeito, a escolha de \"Nevermore\" pelo som antes do sentido, o animal que fala sem razão. Estuda-se o ensaio contra o poema — o que nele se verifica no texto e o que é reconstrução depois do fato.\n",
+      "trilha": "trilha:literatura/poe-o-corvo",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:literatura/leitura-de-poema-em-ingles",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:literatura/poetica-declarada-do-autor",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:literatura/o-corvo-em-debate",
+      "titulo": "\"The Raven\" em debate — da resenha de 1845 à leitura como paródia",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 180,
+      "descricao": "O poema lido por quem não é Poe: a recepção imediata, que o celebrou como peça acabada e achou o resto do volume fragmentário, e a leitura acadêmica posterior que inverte o ensaio — os defeitos do poema como paródia deliberada da imaginação romântica do próprio narrador. Duas leituras que não cabem juntas, e é isso que a etapa cobra decidir.\n",
+      "trilha": "trilha:literatura/poe-o-corvo",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:literatura/poetica-declarada-do-autor",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:literatura/critica-do-poema",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:literatura/o-corvo-no-original",
+      "titulo": "\"The Raven\" no original — a estrofe de Poe, verso a verso",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 120,
+      "descricao": "As dezoito estrofes no inglês de 1845: o octâmetro trocaico e o verso curto que fecha cada estrofe, a rima interna que corre dentro do verso longo, o refrão que muda de boca e de sentido, e a dicção — \"quaint\", \"surcease\", \"Pallas\", \"Night's Plutonian shore\". O corte é a leitura do poema, não a biografia do autor nem a lenda em volta dele.\n",
+      "trilha": "trilha:literatura/poe-o-corvo",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:literatura/leitura-de-poema-em-ingles",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:matematica/derivada-e-taxa-de-variacao",
       "titulo": "Derivada — taxa de variação e otimização",
       "rev": 1,
@@ -3952,6 +4036,31 @@
         "etapa:linguas/sintagmas-e-sua-estrutura",
         "etapa:linguas/periodo-composto-e-oracoes-nao-finitas",
         "etapa:linguas/sintagma-complexo-e-construcoes"
+      ]
+    },
+    {
+      "id": "trilha:literatura/poe-o-corvo",
+      "titulo": "Literatura em inglês — \"The Raven\" de Poe, do poema à poética e à crítica",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:literatura/leitura-de-poema-em-ingles",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:literatura/poetica-declarada-do-autor",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:literatura/critica-do-poema",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:literatura/o-corvo-no-original",
+        "etapa:literatura/a-filosofia-da-composicao",
+        "etapa:literatura/o-corvo-em-debate"
       ]
     },
     {
@@ -6363,6 +6472,63 @@
       "disponivel": true,
       "obra": "mccarthy-mccarten-sandiford-viewpoint-1",
       "verificado_em": "2026-10-22"
+    },
+    {
+      "id": "rec:literatura/eddings-tema-e-parodia",
+      "titulo": "Dennis W. Eddings, \"Theme and Parody in 'The Raven'\" (Poe and His Times, 1990, pp. 209-217)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:literatura/o-corvo-em-debate",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://www.eapoe.org/papers/psbbooks/pb19901t.htm",
+      "disponivel": true,
+      "verificado_em": "2026-11-02"
+    },
+    {
+      "id": "rec:literatura/fuller-resenha-1845",
+      "titulo": "Margaret Fuller, resenha de \"The Raven and Other Poems\" (New-York Daily Tribune, 26 nov. 1845)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:literatura/o-corvo-em-debate",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 20,
+      "url": "https://www.eapoe.org/papers/misc1827/18451126.htm",
+      "disponivel": true,
+      "verificado_em": "2026-11-02"
+    },
+    {
+      "id": "rec:literatura/poe-filosofia-da-composicao",
+      "titulo": "\"The Philosophy of Composition\" (Edgar Allan Poe, Graham's Magazine, abr. 1846)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:literatura/a-filosofia-da-composicao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://www.eapoe.org/works/essays/philcomp.htm",
+      "disponivel": true,
+      "verificado_em": "2026-11-02"
+    },
+    {
+      "id": "rec:literatura/poe-o-corvo",
+      "titulo": "\"The Raven\" (Edgar Allan Poe, The American Review, fev. 1845) — texto da Edgar Allan Poe Society",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:literatura/o-corvo-no-original",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 45,
+      "url": "https://www.eapoe.org/works/poems/ravena.htm",
+      "disponivel": true,
+      "obra": "poe-o-corvo",
+      "verificado_em": "2026-11-02"
     },
     {
       "id": "rec:matematica/book-of-proof",

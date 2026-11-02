@@ -1,0 +1,88 @@
+versao_schema: 1
+trilha:
+  id: trilha:literatura/poe-o-corvo
+  titulo: Literatura em inglês — "The Raven" de Poe, do poema à poética e à crítica
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:literatura/leitura-de-poema-em-ingles
+      nivel: intermediario
+    - competencia: comp:literatura/poetica-declarada-do-autor
+      nivel: intermediario
+    - competencia: comp:literatura/critica-do-poema
+      nivel: intermediario
+
+  # Primeira trilha de literatura. Nasce de uma leitura já feita — "The Raven", na
+  # edição Kindle de 50 p. que o estudante registrou na estante
+  # (docs/estante-goodreads.md #6, abr/2026) —, e por isso o poema abre a trilha em
+  # vez de ser o ponto de chegada.
+  #
+  # O desenho segue o de trilha:filosofia/bhagavad-gita: o texto que se leu, o texto
+  # em que o próprio autor explica o que fez, e uma etapa fora do autor, porque uma
+  # obra lida só pela voz de quem a compôs não se avalia — e "The Philosophy of
+  # Composition" é a mais insistente dessas vozes.
+  #
+  # Por que uma trilha de literatura em inglês cortada num poema só: as competências
+  # são de leitura literária e se verificam em qualquer poema
+  # (catalogo/competencias/literatura.yaml), mas recurso se declara para a etapa que
+  # existe, e as etapas de hoje são as que a leitura do estudante produziu. Outro
+  # poema ou outro autor entra como etapa nova nesta trilha ou em trilha própria que
+  # referencie estas etapas — não exige reescrever nenhuma competência.
+  etapas:
+    # --- O poema -------------------------------------------------------------
+    - id: etapa:literatura/o-corvo-no-original
+      titulo: '"The Raven" no original — a estrofe de Poe, verso a verso'
+      rev: 1
+      status: ativo
+      descricao: >
+        As dezoito estrofes no inglês de 1845: o octâmetro trocaico e o verso curto
+        que fecha cada estrofe, a rima interna que corre dentro do verso longo, o
+        refrão que muda de boca e de sentido, e a dicção — "quaint", "surcease",
+        "Pallas", "Night's Plutonian shore". O corte é a leitura do poema, não a
+        biografia do autor nem a lenda em volta dele.
+      esforco_estimado_min: 120
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:literatura/leitura-de-poema-em-ingles
+          nivel_resultante: intermediario
+
+    # --- O autor sobre o próprio poema ---------------------------------------
+    - id: etapa:literatura/a-filosofia-da-composicao
+      titulo: A poética declarada — "The Philosophy of Composition" sobre "The Raven"
+      rev: 1
+      status: ativo
+      descricao: >
+        O ensaio de 1846 em que Poe diz ter composto "The Raven" de trás para
+        frente, por cálculo: a extensão de uma sentada, a unidade de efeito, a
+        escolha de "Nevermore" pelo som antes do sentido, o animal que fala sem
+        razão. Estuda-se o ensaio contra o poema — o que nele se verifica no texto e
+        o que é reconstrução depois do fato.
+      esforco_estimado_min: 150
+      opcional: false
+      requires:
+        - competencia: comp:literatura/leitura-de-poema-em-ingles
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:literatura/poetica-declarada-do-autor
+          nivel_resultante: intermediario
+
+    # --- Fora do autor -------------------------------------------------------
+    - id: etapa:literatura/o-corvo-em-debate
+      titulo: '"The Raven" em debate — da resenha de 1845 à leitura como paródia'
+      rev: 1
+      status: ativo
+      descricao: >
+        O poema lido por quem não é Poe: a recepção imediata, que o celebrou como
+        peça acabada e achou o resto do volume fragmentário, e a leitura acadêmica
+        posterior que inverte o ensaio — os defeitos do poema como paródia
+        deliberada da imaginação romântica do próprio narrador. Duas leituras que
+        não cabem juntas, e é isso que a etapa cobra decidir.
+      esforco_estimado_min: 180
+      opcional: false
+      requires:
+        - competencia: comp:literatura/poetica-declarada-do-autor
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:literatura/critica-do-poema
+          nivel_resultante: intermediario

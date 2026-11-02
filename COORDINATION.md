@@ -50,7 +50,6 @@ de teste envelhecem em minutos, e um resumo desatualizado aqui contradiz a fonte
 
 | Área (prefixo) | Branch ou worktree | Intenção / terminado quando | Dono | Desde |
 |---|---|---|---|---|
-| `catalogo/competencias/literatura.yaml`, `catalogo/trilhas/poe-o-corvo.yaml`, `catalogo/recursos/literatura.yaml`, `catalogo.lock.json`, `README.md` | `worktree-trilha-literatura-poe` | primeira trilha de literatura, nascida da leitura de "The Raven"; terminado quando o PR mesclar | sessão Claude (Opus 5) | 2026-11-02 |
 
 Linha sem dono é área **ocupada**, não área livre: é trabalho de outra sessão,
 em curso e fora do git. As duas primeiras linhas desta tabela eram as duas áreas
