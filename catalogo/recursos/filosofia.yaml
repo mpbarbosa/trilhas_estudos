@@ -134,8 +134,9 @@ recursos:
     verificado_em: 2026-10-26
 
   # --- etapa:filosofia/bhakti-na-pratica ----------------------------------
-  # Livro 5 da série e o único que não é sobre a Gita. A etapa que o recebe nasceu
-  # com ele, opcional, pela razão registrada no arquivo da trilha. 87 p. e R$ 25,99
+  # Fora da série numerada de quatro, e o único livro do autor que não é sobre a
+  # Gita. A etapa que o recebe nasceu com ele, opcional, pela razão registrada no
+  # arquivo da trilha. 87 p. e R$ 25,99
   # no Google Play, dez. 2024. Há também audiolivro de 2h12 em voz digital — não é
   # `formato` do esquema, e o livro entra como texto.
   - id: rec:filosofia/chetan-daily-bhakti

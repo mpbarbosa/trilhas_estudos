@@ -75,10 +75,10 @@ trilha:
           nivel_resultante: intermediario
 
     # --- Fora do caminho ----------------------------------------------------
-    # Nasce de um livro, não de uma lacuna: *Daily Bhakti Practices* é o livro 5 da
-    # série de Hari Chetan e o único que não trata da Gita — manual de prática, não de
-    # leitura. Não havia etapa a que ele pertencesse, e pendurá-lo numa etapa de
-    # contexto seria dizer que ele ensina o que não ensina.
+    # Nasce de um livro, não de uma lacuna: *Daily Bhakti Practices* está fora da
+    # série numerada de Hari Chetan e é o único livro dele que não trata da Gita —
+    # manual de prática, não de leitura. Não havia etapa a que ele pertencesse, e
+    # pendurá-lo numa etapa de contexto seria dizer que ele ensina o que não ensina.
     #
     # Entra como opcional, e isso não é detalhe: etapa opcional é mudança cosmética na
     # trilha (docs/catalogo.md §4), então a `rev` da trilha fica em 1, o

@@ -989,9 +989,20 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 
 ## Filosofia
 
-As quatro fichas de Hari Chetan abaixo, com a do livro 1, são a série de cinco que o
-autor numera no próprio site. Preço e paginação de todas vêm da página do Google Play
-BR em 2026-11-01, que é também de onde saiu o `custo` dos recursos.
+As cinco fichas de Hari Chetan abaixo são o que o catálogo cita do autor, e **não são
+uma série de cinco**: o [site dele](https://harichetan.com/books/) numera quatro livros
+como *The Bhagavad Gita Series* e lista *Daily Bhakti Practices* sem número, nem na
+página de livros nem na do próprio título — a numeração "livro 5" que estava aqui e nos
+comentários do YAML não vem do autor, e foi corrigida em 2026-11-02. A
+[página de autor no Goodreads](https://www.goodreads.com/author/show/21384705.Hari_Chetan),
+conferida nessa data, lista **seis** obras distintas: os quatro da série, uma entrada
+duplicada do livro 3 e *God's Guide to Enlightenment: Unlock Your Consciousness, Meet
+Your Real Self, and Discover Your True Purpose in Life* (Kindle, 05/04/2021), que não é
+da série, não aparece no site do autor e não é citada por recurso nenhum — por isso não
+tem ficha aqui. *Daily Bhakti Practices*, por sua vez, não está no Goodreads.
+
+Preço e paginação das cinco vêm da página do Google Play BR em 2026-11-01, que é também
+de onde saiu o `custo` dos recursos.
 
 ### 30 Days to Understanding the Bhagavad Gita: A Complete, Simple, and Step-by-Step Guide to the Million-Year-Old Confidential Knowledge
 
@@ -1041,7 +1052,8 @@ BR em 2026-11-01, que é também de onde saiu o `custo` dos recursos.
 - **Acesso aberto** — e-book gratuito por decisão do autor em todas as lojas,
   conferido em 2026-10-26 na [página do livro](https://harichetan.com/books/bhagavad-gita-perfect-philosophy/)
   e no Google Play
-- **Citada por** — `rec:filosofia/chetan-gita-perfect-philosophy`
+- **Citada por** — `rec:filosofia/chetan-gita-perfect-philosophy` — declara
+  `obra: chetan-gita-perfect-philosophy`
 - **Nota** — não há sumário público, então as quinze razões não estão nomeadas aqui
   e o livro entra inteiro numa etapa. É livro de convencimento, e a trilha o
   confronta com a entrada da *Internet Encyclopedia of Philosophy*.
@@ -1049,9 +1061,10 @@ BR em 2026-11-01, que é também de onde saiu o `custo` dos recursos.
 ### Daily Bhakti Practices: A Practical Guide to Living with Devotion and Purpose
 
 - **Autoria** — Hari Chetan
-- **Edição** — edição do autor (independente), dez./2024, en-US. Livro 5 da série, e
-  o único que não trata da Gita. E-book de 87 p., R$ 25,99 no Google Play; a brochura
-  da Lulu tem 100 p., de 19/12/2024. Há audiolivro de 2h12 em voz digital, que não é
+- **Edição** — edição do autor (independente), dez./2024, en-US. Fora da série
+  numerada — o site do autor o lista sem número — e o único livro dele que não trata
+  da Gita. E-book de 87 p., R$ 25,99 no Google Play; a brochura da Lulu tem 100 p.,
+  de 19/12/2024. Há audiolivro de 2h12 em voz digital, que não é
   `formato` do esquema — o recurso entra como texto.
 - **Identificadores** — ISBN-13 do e-book 979-12-23904-02-2. Sem ASIN: não há edição
   na Amazon.
@@ -1060,8 +1073,8 @@ BR em 2026-11-01, que é também de onde saiu o `custo` dos recursos.
   https://harichetan.com/books/daily-bhakti-practices/
 - **Citada por** — `rec:filosofia/chetan-daily-bhakti` — declara
   `obra: chetan-daily-bhakti`
-- **Nota** — é o único dos cinco que não está na Amazon, e por isso o único cujo
-  `custo` não tem preço de Kindle com que ser conferido. A etapa que o recebe,
+- **Nota** — é o único dos cinco que não está na Amazon (nem no Goodreads), e por
+  isso o único cujo `custo` não tem preço de Kindle com que ser conferido. A etapa que o recebe,
   `etapa:filosofia/bhakti-na-pratica`, nasceu com ele e é opcional.
 
 ### The Bhagavad Gita Summarized and Simplified: A Comprehensive and Easy-to-Read Summary of the Divine Song of God
