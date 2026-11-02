@@ -1,0 +1,97 @@
+# Convenções deste arquivo:
+#   custo  — em BRL, aproximado na data de `verificado_em`; 0 = gratuito.
+#   idioma — tag BCP 47.
+#
+# -------------------------------------------------------------------------
+# trilha:literatura/poe-o-corvo
+#
+#   Os quatro recursos são de domínio público e estão transcritos pela Edgar Allan
+#   Poe Society of Baltimore (eapoe.org), que para cada um declara a publicação de
+#   origem, o volume e a página — por isso ela, e não uma antologia moderna: aqui a
+#   edição importa, "The Raven" teve variantes em vida do autor.
+#
+#   O estudante leu o poema numa edição Kindle de 50 p. sem editora identificável
+#   (https://www.goodreads.com/book/show/72402900-the-raven-by-edgar-allan-poe,
+#   estante de abr/2026). O catálogo carrega o texto da primeira impressão aceita em
+#   vez daquela edição, no mesmo movimento de rec:filosofia/arnold-song-celestial: é
+#   o mesmo poema de 1845, e a página do Goodreads não dá editora nem preço — declarar
+#   `custo` por ela seria inventar número. O exemplar lido fica registrado em
+#   docs/estante-goodreads.md, que é onde a estante mora.
+#
+#   Só o poema declara `obra`: é o exemplar que a trilha tem para listar (ADR-0020).
+#   O ensaio de Poe, a resenha de Fuller e o capítulo de Eddings são artigo e
+#   capítulo avulso — não são exemplares e não declaram `obra`.
+# -------------------------------------------------------------------------
+versao_schema: 1
+recursos:
+  # --- etapa:literatura/o-corvo-no-original -------------------------------
+  # Text-02b da Poe Society: a impressão do American Review de fev. 1845, assinada
+  # "Quarles", composta a partir do manuscrito e por isso tida ali como o primeiro
+  # texto aceito. 108 versos; a duração é a de ler e reler em voz alta, que é o que a
+  # etapa cobra — não a de uma passagem de olhos.
+  - id: rec:literatura/poe-o-corvo
+    etapa: etapa:literatura/o-corvo-no-original
+    titulo: '"The Raven" (Edgar Allan Poe, The American Review, fev. 1845) — texto da Edgar Allan Poe Society'
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 45
+    url: https://www.eapoe.org/works/poems/ravena.htm
+    obra: poe-o-corvo
+    disponivel: true
+    verificado_em: 2026-11-02
+
+  # --- etapa:literatura/a-filosofia-da-composicao -------------------------
+  # Graham's Magazine, vol. XXVIII, nº 4, abr. 1846, pp. 163-167. Transcrição
+  # integral (Text-02), com as citações do poema centralizadas. A duração é de
+  # leitura com o poema ao lado, que é o que a etapa cobra.
+  - id: rec:literatura/poe-filosofia-da-composicao
+    etapa: etapa:literatura/a-filosofia-da-composicao
+    titulo: '"The Philosophy of Composition" (Edgar Allan Poe, Graham''s Magazine, abr. 1846)'
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://www.eapoe.org/works/essays/philcomp.htm
+    disponivel: true
+    verificado_em: 2026-11-02
+
+  # --- etapa:literatura/o-corvo-em-debate ---------------------------------
+  # A recepção imediata: resenha de The Raven and Other Poems (Wiley & Putnam, 1845)
+  # no Daily Tribune de 26 nov. 1845. Fuller chama o poema de "a rare and finished
+  # specimen" e acha fragmentário o resto do volume — é o polo oposto da leitura de
+  # Eddings, e as duas juntas são o que a etapa manda decidir.
+  - id: rec:literatura/fuller-resenha-1845
+    etapa: etapa:literatura/o-corvo-em-debate
+    titulo: 'Margaret Fuller, resenha de "The Raven and Other Poems" (New-York Daily Tribune, 26 nov. 1845)'
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 20
+    url: https://www.eapoe.org/papers/misc1827/18451126.htm
+    disponivel: true
+    verificado_em: 2026-11-02
+
+  # Capítulo de *Poe and His Times: The Artist and His Milieu* (Poe Society, 1990),
+  # pp. 209-217. Lê os defeitos do poema como intencionais: paródia do verso ruim que
+  # a imaginação romântica do narrador produz, com apoio na resenha que Poe escreveu
+  # sobre Elizabeth Barrett em 1845. É a leitura que contradiz o ensaio de Poe sem
+  # negar que ele calculou.
+  - id: rec:literatura/eddings-tema-e-parodia
+    etapa: etapa:literatura/o-corvo-em-debate
+    titulo: 'Dennis W. Eddings, "Theme and Parody in ''The Raven''" (Poe and His Times, 1990, pp. 209-217)'
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://www.eapoe.org/papers/psbbooks/pb19901t.htm
+    disponivel: true
+    verificado_em: 2026-11-02
