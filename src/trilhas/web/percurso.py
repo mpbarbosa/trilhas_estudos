@@ -31,7 +31,13 @@ from ..motor.modelo import (
     Reacao,
     Restricoes,
 )
-from ..percurso.projecao import Evidencia, evidencias_de, montar_percurso
+from ..percurso.projecao import (
+    Evidencia,
+    Percorrido,
+    evidencias_de,
+    montar_percurso,
+    percorridos_de,
+)
 from ..percurso.repositorio import registros_em
 
 NOME_DO_DIRETORIO = "percurso"
@@ -93,6 +99,22 @@ def evidencias_do_percurso(caminho: Path) -> tuple[Evidencia, ...]:
     if base is None:
         return ()
     return evidencias_de(registros_em(caminho.parent, base.estudante_id))
+
+
+def percorridos_do_percurso(caminho: Path) -> tuple[Percorrido, ...]:
+    """Os recursos percorridos do log (ADR-0012).
+
+    Terceira leitura do log, pela mesma razão que `evidencias_do_percurso` é a segunda:
+    `montar_percurso` deixa `RecursoPercorrido` de fora de propósito — o motor não o
+    consome, e pô-lo em `Percurso` alargaria a entrada do motor por um consumidor que
+    não é ele. A tela é esse consumidor, e chama `percorridos_de` direto.
+
+    Só lê, como todo este módulo: banco ausente vira tupla vazia.
+    """
+    base = carregar_percurso(caminho)
+    if base is None:
+        return ()
+    return percorridos_de(registros_em(caminho.parent, base.estudante_id))
 
 
 def nome_do_estudante(caminho: Path) -> str:

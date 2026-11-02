@@ -9,12 +9,13 @@ from __future__ import annotations
 from collections.abc import Mapping
 from dataclasses import dataclass
 from datetime import date
+from types import MappingProxyType
 
 from ...catalogo import obras as dominio_obras
 from ...catalogo.modelo import Catalogo, Competencia, Etapa, Nivel, Recurso, Status, Trilha
 from ...motor.modelo import EstadoEtapa, Percurso, ProgressoEtapa
 from ...motor.sugerir import possuidos_em
-from ...percurso.projecao import Evidencia
+from ...percurso.projecao import Evidencia, Percorrido
 from ...percurso.registrar import CONFIANCA_AUTOAVALIACAO, NIVEIS_DECLARAVEIS
 from ..dados import Acervo
 from ..escrever import Acao
@@ -72,6 +73,12 @@ class LinhaRecurso:
     """Slug do exemplar, quando o recurso é fatia de um (ADR-0009). Vazio quando não é."""
     em_uso: bool = False
     """Recurso declarado ao iniciar esta etapa — por onde o estudante de fato estudou."""
+    percorrido_em: date | None = None
+    """Data da última passagem pelo material, quando houve uma (ADR-0012).
+
+    É fato **do recurso**, não da etapa: percorrer não conclui etapa nem emite
+    evidência, e por isso não se confunde com `em_uso` nem com o estado da etapa. Sem
+    passagem registrada, `None` — ausência de fato, não fato negativo."""
 
 
 @dataclass(frozen=True, slots=True)
@@ -305,7 +312,12 @@ class VisaoCompetencia:
 
 
 def trilha(
-    acervo: Acervo, trilha_id: str, *, hoje: date, percurso: Percurso | None = None
+    acervo: Acervo,
+    trilha_id: str,
+    *,
+    hoje: date,
+    percurso: Percurso | None = None,
+    percorridos: tuple[Percorrido, ...] = (),
 ) -> VisaoTrilha | None:
     """A trilha: objetivo, grafo, etapas por onda e os recursos de todas elas.
 
@@ -331,8 +343,10 @@ def trilha(
     destrava = {n.etapa_id: n.destrava for n in disposicao.nos}
 
     ordenadas = sorted(etapas, key=lambda e: (acervo.fecho.onda.get(e.id, 0), e.titulo))
+    passagens = _percorridos_por_recurso(percorridos)
     por_etapa = {
-        e.id: _recursos_da_etapa(cat, e.id, hoje=hoje, progresso=progresso) for e in ordenadas
+        e.id: _recursos_da_etapa(cat, e.id, hoje=hoje, progresso=progresso, percorridos=passagens)
+        for e in ordenadas
     }
 
     pedidas = dominio_obras.obras_pedidas(cat, (e.id for e in ordenadas))
@@ -421,7 +435,12 @@ def trilha(
 
 
 def etapa(
-    acervo: Acervo, etapa_id: str, *, hoje: date, percurso: Percurso | None = None
+    acervo: Acervo,
+    etapa_id: str,
+    *,
+    hoje: date,
+    percurso: Percurso | None = None,
+    percorridos: tuple[Percorrido, ...] = (),
 ) -> VisaoEtapa | None:
     cat = acervo.catalogo
     alvo = cat.etapas.get(etapa_id)
@@ -430,7 +449,13 @@ def etapa(
 
     progresso = _progresso_por_etapa(percurso)
     aqui = progresso.get(etapa_id)
-    recursos = _recursos_da_etapa(cat, etapa_id, hoje=hoje, progresso=progresso)
+    recursos = _recursos_da_etapa(
+        cat,
+        etapa_id,
+        hoje=hoje,
+        progresso=progresso,
+        percorridos=_percorridos_por_recurso(percorridos),
+    )
     exigida = _quantas_exigem(acervo)
 
     return VisaoEtapa(
@@ -639,6 +664,7 @@ def _recursos_da_etapa(
     *,
     hoje: date,
     progresso: Mapping[str, ProgressoEtapa],
+    percorridos: Mapping[str, date] = MappingProxyType({}),
 ) -> tuple[LinhaRecurso, ...]:
     """Os recursos de uma etapa, na ordem em que se escolhe entre eles.
 
@@ -649,7 +675,12 @@ def _recursos_da_etapa(
     """
     aqui = progresso.get(etapa_id)
     return tuple(
-        _recurso(r, hoje=hoje, em_uso=aqui is not None and aqui.recurso_em_uso == r.id)
+        _recurso(
+            r,
+            hoje=hoje,
+            em_uso=aqui is not None and aqui.recurso_em_uso == r.id,
+            percorrido_em=percorridos.get(r.id),
+        )
         for r in sorted(
             catalogo.recursos_da_etapa(etapa_id),
             key=lambda r: (not r.disponivel, r.custo, r.duracao_min, r.titulo),
@@ -657,7 +688,9 @@ def _recursos_da_etapa(
     )
 
 
-def _recurso(recurso: Recurso, *, hoje: date, em_uso: bool = False) -> LinhaRecurso:
+def _recurso(
+    recurso: Recurso, *, hoje: date, em_uso: bool = False, percorrido_em: date | None = None
+) -> LinhaRecurso:
     dias = comum.dias_desde(recurso.verificado_em, hoje)
     return LinhaRecurso(
         id=recurso.id,
@@ -676,7 +709,18 @@ def _recurso(recurso: Recurso, *, hoje: date, em_uso: bool = False) -> LinhaRecu
         vencido=comum.vencido(recurso.verificado_em, hoje),
         obra=recurso.obra or "",
         em_uso=em_uso,
+        percorrido_em=percorrido_em,
     )
+
+
+def _percorridos_por_recurso(percorridos: tuple[Percorrido, ...]) -> dict[str, date]:
+    """Data da passagem por recurso. Sem log, dicionário vazio — como `_progresso_por_etapa`.
+
+    `percorridos_de` já devolve um fato por recurso, o último; aqui só se guarda a data,
+    que é tudo que a linha de recurso mostra. A `rev` de então fica no log, onde ela
+    responde à pergunta de auditoria que a tabela de recursos não faz.
+    """
+    return {p.recurso: p.percorrido_em for p in percorridos}
 
 
 def _progresso_por_etapa(percurso: Percurso | None) -> dict[str, ProgressoEtapa]:
