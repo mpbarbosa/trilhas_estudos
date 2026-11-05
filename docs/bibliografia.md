@@ -79,6 +79,23 @@ vem da mesma página de loja.
 As divergências encontradas entre o catálogo e a obra real estão reunidas no
 [§ Divergências](#divergências) no fim.
 
+### Observação datada — 2026-11-05
+
+A confrontação de 2026-11-01 (acima) **não fecha mais**, e não por causa dela: o
+catálogo cresceu. Hoje são **85 obras com fatia ativa** e **83 fichas**, e quatro
+obras não são citadas por ficha nenhuma. Uma é a deste dia,
+`price-toscani-compiladores`, que ganhou ficha agora. As outras três entraram com as
+trilhas de literatura e de estatística e seguem **sem ficha**:
+`poe-o-corvo`, `lakens-statistical-inferences` e `reinhart-statistics-done-wrong`.
+
+Regenere a lista em vez de confiar nesta:
+
+```bash
+python3 -c 'import json,pathlib;d=json.load(open("catalogo.lock.json"));b=pathlib.Path("docs/bibliografia.md").read_text();o={};[o.setdefault(r["obra"],[]).append(r["id"]) for r in d["recursos"] if r.get("obra")];print([k for k,v in o.items() if not any(i in b for i in v)])'
+```
+
+---
+
 ---
 
 ## Dados
@@ -451,6 +468,33 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Código** — https://github.com/HandsOnLLM/Hands-On-Large-Language-Models
 - **Citada por** — `rec:ia/hands-on-llms-embeddings`, `rec:ia/hands-on-llms-notebooks`,
   `rec:ia/hands-on-llms-rag`
+
+### Implementação de Linguagens de Programação: Compiladores
+
+- **Autoria** — Ana Maria de Alencar Price, Simão Sirineo Toscani
+- **Edição citada pelo catálogo** — Instituto de Informática da UFRGS / Sagra Luzzatto,
+  Porto Alegre, 2000, pt-BR; Série Livros Didáticos nº 9. É o exemplar que o estudante
+  tem: ISBN-10 `8524106395`. ISBN-13 e paginação **não confirmados** — a listagem da
+  Amazon dá 200 p., e não foi possível ler a página para conferir
+- **Reimpressão posterior** — Bookman / Instituto de Informática da UFRGS, 2008, citada
+  por ementa de disciplina; sem ISBN nem paginação confirmados
+- **Amazon** — https://www.amazon.com.br/dp/8524106395 (o ISBN-10 como ASIN, pela
+  convenção acima). A página devolveu HTTP 503 à leitura automatizada em 2026-11-05;
+  abre no navegador
+- **Citada por** — `rec:programacao/price-toscani-estrutura`,
+  `rec:programacao/price-toscani-analise-lexica`,
+  `rec:programacao/price-toscani-analise-sintatica`,
+  `rec:programacao/price-toscani-analise-semantica`,
+  `rec:programacao/price-toscani-geracao-de-codigo` — as cinco declaram
+  `obra: price-toscani-compiladores`
+- **Nota** — **o sumário não foi confirmado em fonte nenhuma**: Amazon 503, Estante
+  Virtual 403, e nem a editora nem a UFRGS publicam a lista de capítulos. As cinco
+  fatias são por **assunto** — estrutura, léxica, sintática, semântica, geração —,
+  não por número de capítulo, e nisso divergem da convenção de Tanenbaum & Woodhull
+  (ver [§ Divergências](#divergências)). A ordem dos assuntos vem de duas ementas que
+  adotam o livro, não do livro: ela é plausível e não é verificada. Quem tiver o
+  exemplar em mão: trocar os títulos por "cap. N, ..." é cosmético
+  ([catalogo.md §4](catalogo.md)) e não sobe `rev`
 
 ### Introduction to Information Retrieval
 

@@ -142,3 +142,90 @@ competencias:
       dizer onde a estrutura escolhida guarda cópia e onde guarda referência ao mesmo
       dado; e mostrar o comando que constrói o programa a partir dos dois módulos,
       nomeando o que cada módulo exporta ao outro.
+
+  # --- Compiladores (trilha:programacao/compiladores) -----------------------
+  # As cinco fases do livro de Price & Toscani, uma competência por fase. O corte
+  # entre elas é o que cada uma **recebe e entrega**: cadeia de caracteres → átomos →
+  # árvore → árvore anotada com tipos → código. Por isso nenhuma verificação pede
+  # "entender" a fase: pede o artefato que ela produz a partir do da anterior.
+  - id: comp:programacao/compilador-estrutura
+    titulo: Estrutura de um compilador — fases, o que cada uma entrega e onde o interpretador se separa
+    rev: 1
+    status: ativo
+    descricao: >
+      O compilador visto como sequência de fases: que representação cada uma recebe e
+      qual entrega à seguinte, a tabela de símbolos como estrutura que as atravessa
+      todas, a distinção entre erro léxico, sintático e semântico, e o ponto em que um
+      interpretador deixa de seguir o mesmo caminho.
+    verificacao: >
+      Dado um programa-fonte de poucas linhas numa linguagem imperativa, dizer o que
+      cada fase recebe e devolve nele — a cadeia de caracteres, a sequência de átomos,
+      a árvore sintática, a árvore anotada, o código gerado —, classificar três erros
+      dados pela fase que os detecta, e explicar o que um interpretador do mesmo
+      programa não chega a produzir.
+
+  - id: comp:programacao/analise-lexica
+    titulo: Análise léxica — expressão regular, autômato finito e o analisador que os realiza
+    rev: 1
+    status: ativo
+    descricao: >
+      Da especificação léxica ao reconhecedor: a expressão regular que descreve cada
+      classe de átomo, o autômato finito determinístico como implementação, o
+      tratamento de palavra reservada, comentário e espaço em branco, e a entrada do
+      identificador na tabela de símbolos.
+    verificacao: >
+      Escrever, na linguagem de sua escolha, um analisador léxico que leia um
+      programa-fonte e emita a sequência de átomos com lexema, classe e posição,
+      reconhecendo identificador, número, palavra reservada e operador de dois
+      caracteres. Demonstrar, com uma entrada em que a decisão gulosa e a preguiçosa
+      divergem, que ele devolve o átomo mais longo possível, e apresentar o autômato
+      que o código implementa.
+
+  - id: comp:programacao/analise-sintatica
+    titulo: Análise sintática — gramática livre de contexto e os métodos descendente e ascendente
+    rev: 1
+    status: ativo
+    descricao: >
+      A gramática livre de contexto como especificação da linguagem, derivação e árvore
+      sintática, ambiguidade e recursão à esquerda, os conjuntos First e Follow, a
+      análise descendente (preditiva, recursiva ou por tabela) e a ascendente (empilha
+      e reduz, tabela LR), e a detecção do erro sintático com a posição.
+    verificacao: >
+      Dada uma gramática livre de contexto para expressões aritméticas, calcular First
+      e Follow, construir a tabela preditiva e dizer se a gramática é LL(1). Escrever um
+      analisador descendente recursivo que aceite a linguagem e rejeite uma cadeia
+      inválida apontando a posição, e explicar, para uma gramática ambígua dada, que
+      conflito ela produz na tabela e que reescrita o remove.
+
+  - id: comp:programacao/analise-semantica
+    titulo: Análise semântica — tabela de símbolos, escopo, tipos e tradução dirigida por sintaxe
+    rev: 1
+    status: ativo
+    descricao: >
+      O que a sintaxe não pega: a tabela de símbolos com escopo aninhado, a declaração
+      e o uso de identificador, a checagem e a conversão de tipos, e a tradução dirigida
+      por sintaxe — atributo herdado e sintetizado, ação semântica associada à regra da
+      gramática.
+    verificacao: >
+      Estender um analisador sintático de declarações e expressões com tabela de
+      símbolos de escopo aninhado e checagem de tipos: o programa deve recusar uso de
+      identificador não declarado, redeclaração no mesmo escopo e atribuição entre
+      tipos incompatíveis, cada recusa com a linha. Para três atributos dados, dizer
+      qual é herdado e qual é sintetizado, e por quê.
+
+  - id: comp:programacao/geracao-de-codigo
+    titulo: Geração de código — código intermediário, ambiente de execução e código final
+    rev: 1
+    status: ativo
+    descricao: >
+      Da árvore anotada ao código que roda: o código intermediário de três endereços,
+      a tradução de atribuição, expressão, teste e laço, o ambiente de execução — o
+      registro de ativação, a passagem de parâmetro, a variável local e o endereçamento
+      dela — e a emissão do código final para uma arquitetura concreta.
+    verificacao: >
+      Gerar código intermediário de três endereços para um trecho com atribuição,
+      expressão aritmética, teste e laço, e traduzi-lo para o assembly de uma
+      arquitetura ou para o código de uma máquina virtual de sua escolha. Desenhar o
+      registro de ativação de uma chamada com dois parâmetros e uma variável local,
+      dizendo quem empilha o quê e em que momento, e mostrar como o código gerado
+      alcança cada um dos três.
