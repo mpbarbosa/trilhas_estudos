@@ -58,6 +58,35 @@ ROTULO_AREA = {
 escreve o acento que falta; área sem entrada aqui aparece como está — mapa que
 envelhece não pode esconder uma área nova da tela."""
 
+SETOR_DA_AREA = {
+    "dados": "exatas",
+    "engenharia": "exatas",
+    "ia": "exatas",
+    "matematica": "exatas",
+    "programacao": "exatas",
+    "so": "exatas",
+    "terminal": "exatas",
+    "web": "exatas",
+    "economia": "humanas",
+    "filosofia": "humanas",
+    "linguas": "humanas",
+    "literatura": "humanas",
+}
+"""Em que setor da estante cada área fica — juízo editorial de tela, não regra de domínio.
+
+Doze áreas em ordem alfabética obrigam quem procura conteúdo a varrer a estante inteira;
+dois setores cortam a varredura em dois. O corte é o usual em pt-BR: o que se demonstra e
+se mede de um lado, o que se lê e se interpreta do outro. `economia` fica em humanas por
+ser economia política (`trilha:economia/tecnofeudalismo`), não econometria.
+
+Área sem entrada aqui não desaparece: cai no setor residual, pela mesma razão de
+`ROTULO_AREA` — mapa que envelhece não pode esconder uma área nova da tela."""
+
+ROTULO_SETOR = {"exatas": "Exatas", "humanas": "Humanas", "": "Outras áreas"}
+
+ORDEM_SETOR = ("exatas", "humanas", "")
+"""Exatas antes de humanas por ser o lado maior do acervo; o residual sempre por último."""
+
 ROTULO_TIPO = {
     "trilha": "trilha",
     "etapa": "etapa",
@@ -134,6 +163,15 @@ def enumerar(itens: Sequence[str], limite: int = 3) -> str:
 
 def area(valor: str) -> str:
     return ROTULO_AREA.get(valor, valor)
+
+
+def setor_da_area(valor: str) -> str:
+    """O setor de uma área; string vazia quando `SETOR_DA_AREA` não a conhece."""
+    return SETOR_DA_AREA.get(valor, "")
+
+
+def setor(valor: str) -> str:
+    return ROTULO_SETOR.get(valor, valor)
 
 
 def tipo_do_id(ident: str) -> str:
