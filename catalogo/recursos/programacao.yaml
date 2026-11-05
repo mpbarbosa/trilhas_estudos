@@ -247,3 +247,91 @@ recursos:
     url: https://google.github.io/comprehensive-rust/pt-BR/
     disponivel: true
     verificado_em: 2026-10-19
+
+  # =========================================================================
+  # Price & Toscani, *Implementação de Linguagens de Programação: Compiladores*
+  # (Instituto de Informática da UFRGS / Sagra Luzzatto, 2000; Série Livros Didáticos
+  # nº 9). Uma fatia por etapa de trilha:programacao/compiladores, todas com
+  # `obra: price-toscani-compiladores` e o custo do exemplar inteiro (ADR-0009,
+  # ADR-0020). O estudante já tem o exemplar; o valor é o de um usado, porque a edição
+  # está fora de catálogo e circula em sebo.
+  #
+  # As fatias são por **assunto**, não por número de capítulo: o sumário não foi
+  # confirmado em fonte pública nenhuma (Amazon 503, Estante Virtual 403, editora e
+  # UFRGS sem lista de capítulos). Trocar os títulos por "cap. N, ..." quando o
+  # exemplar estiver em mão é cosmético (docs/catalogo.md §4).
+  # =========================================================================
+  # --- etapa:programacao/compilador-estrutura-e-fases ---------------------------
+  - id: rec:programacao/price-toscani-estrutura
+    etapa: etapa:programacao/compilador-estrutura-e-fases
+    titulo: "Implementação de Linguagens de Programação: Compiladores (Price & Toscani) — introdução: fases do compilador, compilador e interpretador"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 50
+    obra: price-toscani-compiladores
+    duracao_min: 120
+    url: https://www.amazon.com.br/dp/8524106395
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:programacao/analise-lexica -----------------------------------------
+  - id: rec:programacao/price-toscani-analise-lexica
+    etapa: etapa:programacao/analise-lexica
+    titulo: "Implementação de Linguagens de Programação: Compiladores — análise léxica: expressão regular, autômato finito e o analisador"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 50
+    obra: price-toscani-compiladores
+    duracao_min: 180
+    url: https://www.amazon.com.br/dp/8524106395
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:programacao/analise-sintatica --------------------------------------
+  - id: rec:programacao/price-toscani-analise-sintatica
+    etapa: etapa:programacao/analise-sintatica
+    titulo: "Implementação de Linguagens de Programação: Compiladores — análise sintática: gramáticas livres de contexto, métodos descendente e ascendente"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 50
+    obra: price-toscani-compiladores
+    duracao_min: 300
+    url: https://www.amazon.com.br/dp/8524106395
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:programacao/analise-semantica --------------------------------------
+  - id: rec:programacao/price-toscani-analise-semantica
+    etapa: etapa:programacao/analise-semantica
+    titulo: "Implementação de Linguagens de Programação: Compiladores — análise semântica: tabela de símbolos, tipos e tradução dirigida por sintaxe"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 50
+    obra: price-toscani-compiladores
+    duracao_min: 240
+    url: https://www.amazon.com.br/dp/8524106395
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:programacao/geracao-de-codigo --------------------------------------
+  - id: rec:programacao/price-toscani-geracao-de-codigo
+    etapa: etapa:programacao/geracao-de-codigo
+    titulo: "Implementação de Linguagens de Programação: Compiladores — geração de código: código intermediário, ambiente de execução e código final"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 50
+    obra: price-toscani-compiladores
+    duracao_min: 300
+    url: https://www.amazon.com.br/dp/8524106395
+    disponivel: true
+    verificado_em: 2026-11-05

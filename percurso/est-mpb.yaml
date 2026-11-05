@@ -23,6 +23,7 @@ perfil:
   # irmãs pela `obra`. Apagar a linha desfaz a posse — é o ponto de ser YAML.
   estante:
     - rec:ia/biblia-claude-chat
+    - rec:programacao/price-toscani-estrutura
 
 matriculas:
   - trilha: trilha:ia/llm-transformer-rag
@@ -83,6 +84,11 @@ matriculas:
   - trilha: trilha:filosofia/bhagavad-gita
     rev: 1
     iniciada_em: 2026-10-26
+    estado: em_andamento
+
+  - trilha: trilha:programacao/compiladores
+    rev: 1
+    iniciada_em: 2026-11-05
     estado: em_andamento
 
 progresso:

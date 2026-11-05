@@ -1,0 +1,136 @@
+versao_schema: 1
+trilha:
+  id: trilha:programacao/compiladores
+  titulo: Compiladores — da análise do fonte ao código gerado
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:programacao/analise-lexica
+      nivel: intermediario
+    - competencia: comp:programacao/analise-sintatica
+      nivel: intermediario
+    - competencia: comp:programacao/analise-semantica
+      nivel: intermediario
+    - competencia: comp:programacao/geracao-de-codigo
+      nivel: intermediario
+
+  # Segue a espinha de Price & Toscani, *Implementação de Linguagens de Programação:
+  # Compiladores* (Instituto de Informática da UFRGS / Sagra Luzzatto, 2000), na ordem
+  # das fases. Diferente de trilha:so/projeto-e-implementacao, aqui o grafo é quase
+  # uma linha, e não por decisão de autoria: cada fase consome exatamente o que a
+  # anterior entrega (átomos → árvore → árvore anotada → código). É essa dependência
+  # que `requires` declara, não a ordem de leitura do livro.
+  #
+  # LIMITE DE VERIFICAÇÃO, não de autoria: o sumário do livro não foi confirmado em
+  # nenhuma fonte pública — a página da Amazon devolveu 503, a da Estante Virtual 403,
+  # e nem a editora nem a UFRGS publicam a lista de capítulos. As fatias em
+  # catalogo/recursos/programacao.yaml são por **assunto**, não por número de capítulo,
+  # ao contrário das de Tanenbaum em catalogo/recursos/so.yaml. Quem tiver o exemplar
+  # em mão pode trocar os títulos por "cap. N, ..."; isso é cosmético (docs/catalogo.md
+  # §4) e não sobe `rev` de ninguém.
+  etapas:
+    # --- Fundamento ---------------------------------------------------------
+    - id: etapa:programacao/compilador-estrutura-e-fases
+      titulo: A estrutura de um compilador — as fases e o que cada uma entrega
+      rev: 1
+      status: ativo
+      descricao: >
+        Abre a trilha sem escrever código: o compilador como sequência de fases, a
+        representação que passa de uma para a outra, a tabela de símbolos que
+        atravessa todas, e onde um interpretador se separa do mesmo caminho.
+      esforco_estimado_min: 240
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:programacao/compilador-estrutura
+          nivel_resultante: intermediario
+
+    # --- Análise ------------------------------------------------------------
+    # `comp:programacao/programacao-de-sistemas` entra aqui, e só aqui, porque é esta
+    # a primeira etapa cuja verificação manda **escrever** um programa: ler o fonte de
+    # um descritor, guardar os átomos numa estrutura que cresce, repartir o analisador
+    # em módulos. É o recorte da avulsa, inteiro, e pelo motivo que ADR-0018 nomeou —
+    # trilha que manda programar sem exigir programação trava o estudante sem dizer
+    # por quê. As três etapas seguintes herdam a exigência pela cadeia de `requires`,
+    # e por isso não a repetem.
+    - id: etapa:programacao/analise-lexica
+      titulo: Análise léxica — da expressão regular ao analisador que emite átomos
+      rev: 1
+      status: ativo
+      descricao: >
+        A primeira fase, do lado da especificação e do lado do código: expressão
+        regular por classe de átomo, autômato finito como implementação, e o que fazer
+        com palavra reservada, comentário e espaço. Termina com um analisador léxico
+        escrito e rodando sobre um fonte de verdade.
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:programacao/compilador-estrutura
+          nivel_minimo: intermediario
+        - competencia: comp:programacao/programacao-de-sistemas
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:programacao/analise-lexica
+          nivel_resultante: intermediario
+
+    - id: etapa:programacao/analise-sintatica
+      titulo: Análise sintática — gramática livre de contexto, descendente e ascendente
+      rev: 1
+      status: ativo
+      descricao: >
+        A etapa mais longa da trilha: gramática livre de contexto, derivação,
+        ambiguidade e recursão à esquerda, First e Follow, a tabela preditiva do método
+        descendente e o empilha-e-reduz do ascendente. Entrega um analisador que aceita
+        a linguagem e localiza o erro de quem a viola.
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:programacao/analise-lexica
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:programacao/analise-sintatica
+          nivel_resultante: intermediario
+
+    - id: etapa:programacao/analise-semantica
+      titulo: Análise semântica — tabela de símbolos, escopo, tipos e tradução dirigida por sintaxe
+      rev: 1
+      status: ativo
+      descricao: >
+        O que a gramática aceita mas a linguagem não: identificador não declarado,
+        redeclaração, tipo incompatível. A tabela de símbolos com escopo aninhado, a
+        checagem de tipos, e a ação semântica pendurada na regra da gramática —
+        atributo herdado e sintetizado.
+      esforco_estimado_min: 720
+      opcional: false
+      requires:
+        - competencia: comp:programacao/analise-sintatica
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:programacao/analise-semantica
+          nivel_resultante: intermediario
+
+    # --- Síntese ------------------------------------------------------------
+    - id: etapa:programacao/geracao-de-codigo
+      titulo: Geração de código — três endereços, registro de ativação e código final
+      rev: 1
+      status: ativo
+      descricao: >
+        Fecha a trilha do lado da síntese: código intermediário de três endereços para
+        atribuição, expressão, teste e laço; o ambiente de execução, com o registro de
+        ativação, os parâmetros e a variável local; e a emissão do código final para
+        uma arquitetura concreta ou uma máquina virtual.
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:programacao/analise-semantica
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:programacao/geracao-de-codigo
+          nivel_resultante: intermediario
+
+  # Definida em catalogo/etapas/avulsas.yaml e compartilhada com as trilhas de SO e de
+  # emulador de terminal (ADR-0018). Referenciar é o que a torna alcançável: sem isso o
+  # motor não a geraria como próxima etapa, e quem chegasse à análise léxica sem ela
+  # ficaria travado sem nada que o destravasse.
+  etapas_referenciadas:
+    - etapa:programacao/programacao-de-sistemas

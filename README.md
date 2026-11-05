@@ -30,6 +30,7 @@ persistência do percurso — nada do que o estudante faz é gravado.
   - *Bhagavad Gita — do porquê ler ao texto e à crítica* ([trilha](catalogo/trilhas/bhagavad-gita.yaml)) — contexto e conceitos centrais, os dezoito capítulos do diálogo e a Gita lida pela filosofia acadêmica
   - *Literatura em inglês — "The Raven" de Poe, do poema à poética e à crítica* ([trilha](catalogo/trilhas/poe-o-corvo.yaml)) — o poema no inglês de 1845, o ensaio em que Poe diz como o compôs e a crítica que o contradiz
   - *Estatística na avaliação de modelos* ([trilha](catalogo/trilhas/estatistica-na-avaliacao-de-modelos.yaml)) — dispersão do desempenho, viés e variância, viés de amostragem, intervalo de confiança, escolha do teste, tamanho de efeito e o t pareado corrigido de Nadeau e Bengio
+  - *Compiladores — da análise do fonte ao código gerado* ([trilha](catalogo/trilhas/compiladores.yaml)) — estrutura e fases, análise léxica, análise sintática, análise semântica e geração de código, pela espinha de Price & Toscani
 
   Fora das trilhas, três [etapas avulsas](catalogo/etapas/avulsas.yaml) de
   pré-requisito compartilhado das trilhas de SO, de C e de emulador de terminal: duas

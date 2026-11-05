@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 54,
-  "gerado_em": "2026-11-05T12:39:01+00:00",
-  "hash": "sha256:75c40ff2207a4ec4c075c17d021ee9921855334fce5c7238ad45a780a967af02",
+  "catalogo_versao": 55,
+  "gerado_em": "2026-11-05T14:22:23+00:00",
+  "hash": "sha256:89a1f22d2d9d35c2b700f3cd2072efda47d04f42eb20655ecf11b0b2732b91b9",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -549,6 +549,30 @@
       "descricao": "Ler e escrever demonstração: quantificadores, implicação e sua recíproca, prova direta, contrapositiva, contradição, indução, contraexemplo — e distinguir argumento válido de argumento convincente.\n"
     },
     {
+      "id": "comp:programacao/analise-lexica",
+      "titulo": "Análise léxica — expressão regular, autômato finito e o analisador que os realiza",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Escrever, na linguagem de sua escolha, um analisador léxico que leia um programa-fonte e emita a sequência de átomos com lexema, classe e posição, reconhecendo identificador, número, palavra reservada e operador de dois caracteres. Demonstrar, com uma entrada em que a decisão gulosa e a preguiçosa divergem, que ele devolve o átomo mais longo possível, e apresentar o autômato que o código implementa.",
+      "descricao": "Da especificação léxica ao reconhecedor: a expressão regular que descreve cada classe de átomo, o autômato finito determinístico como implementação, o tratamento de palavra reservada, comentário e espaço em branco, e a entrada do identificador na tabela de símbolos.\n"
+    },
+    {
+      "id": "comp:programacao/analise-semantica",
+      "titulo": "Análise semântica — tabela de símbolos, escopo, tipos e tradução dirigida por sintaxe",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Estender um analisador sintático de declarações e expressões com tabela de símbolos de escopo aninhado e checagem de tipos: o programa deve recusar uso de identificador não declarado, redeclaração no mesmo escopo e atribuição entre tipos incompatíveis, cada recusa com a linha. Para três atributos dados, dizer qual é herdado e qual é sintetizado, e por quê.",
+      "descricao": "O que a sintaxe não pega: a tabela de símbolos com escopo aninhado, a declaração e o uso de identificador, a checagem e a conversão de tipos, e a tradução dirigida por sintaxe — atributo herdado e sintetizado, ação semântica associada à regra da gramática.\n"
+    },
+    {
+      "id": "comp:programacao/analise-sintatica",
+      "titulo": "Análise sintática — gramática livre de contexto e os métodos descendente e ascendente",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dada uma gramática livre de contexto para expressões aritméticas, calcular First e Follow, construir a tabela preditiva e dizer se a gramática é LL(1). Escrever um analisador descendente recursivo que aceite a linguagem e rejeite uma cadeia inválida apontando a posição, e explicar, para uma gramática ambígua dada, que conflito ela produz na tabela e que reescrita o remove.",
+      "descricao": "A gramática livre de contexto como especificação da linguagem, derivação e árvore sintática, ambiguidade e recursão à esquerda, os conjuntos First e Follow, a análise descendente (preditiva, recursiva ou por tabela) e a ascendente (empilha e reduz, tabela LR), e a detecção do erro sintático com a posição.\n"
+    },
+    {
       "id": "comp:programacao/c-apontadores",
       "titulo": "C — apontadores, vetores e memória",
       "rev": 1,
@@ -595,6 +619,22 @@
       "status": "ativo",
       "verificacao": "Implementar `fopen`/`getc` mínimos sobre `read` e um alocador `malloc`/`free` com lista livre, demonstrando-os num programa de teste, e explicar por que a E/S com buffer é mais rápida que um `read` por caractere.",
       "descricao": "O que a biblioteca padrão esconde: descritores de arquivo, E/S de baixo nível (`read`, `write`, `open`, `lseek`), listagem de diretórios, e um alocador de memória escrito sobre o sistema.\n"
+    },
+    {
+      "id": "comp:programacao/compilador-estrutura",
+      "titulo": "Estrutura de um compilador — fases, o que cada uma entrega e onde o interpretador se separa",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um programa-fonte de poucas linhas numa linguagem imperativa, dizer o que cada fase recebe e devolve nele — a cadeia de caracteres, a sequência de átomos, a árvore sintática, a árvore anotada, o código gerado —, classificar três erros dados pela fase que os detecta, e explicar o que um interpretador do mesmo programa não chega a produzir.",
+      "descricao": "O compilador visto como sequência de fases: que representação cada uma recebe e qual entrega à seguinte, a tabela de símbolos como estrutura que as atravessa todas, a distinção entre erro léxico, sintático e semântico, e o ponto em que um interpretador deixa de seguir o mesmo caminho.\n"
+    },
+    {
+      "id": "comp:programacao/geracao-de-codigo",
+      "titulo": "Geração de código — código intermediário, ambiente de execução e código final",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Gerar código intermediário de três endereços para um trecho com atribuição, expressão aritmética, teste e laço, e traduzi-lo para o assembly de uma arquitetura ou para o código de uma máquina virtual de sua escolha. Desenhar o registro de ativação de uma chamada com dois parâmetros e uma variável local, dizendo quem empilha o quê e em que momento, e mostrar como o código gerado alcança cada um dos três.",
+      "descricao": "Da árvore anotada ao código que roda: o código intermediário de três endereços, a tradução de atribuição, expressão, teste e laço, o ambiente de execução — o registro de ativação, a passagem de parâmetro, a variável local e o endereçamento dela — e a emissão do código final para uma arquitetura concreta.\n"
     },
     {
       "id": "comp:programacao/pratica-da-programacao",
@@ -2937,6 +2977,76 @@
       ]
     },
     {
+      "id": "etapa:programacao/analise-lexica",
+      "titulo": "Análise léxica — da expressão regular ao analisador que emite átomos",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "descricao": "A primeira fase, do lado da especificação e do lado do código: expressão regular por classe de átomo, autômato finito como implementação, e o que fazer com palavra reservada, comentário e espaço. Termina com um analisador léxico escrito e rodando sobre um fonte de verdade.\n",
+      "trilha": "trilha:programacao/compiladores",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:programacao/compilador-estrutura",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:programacao/programacao-de-sistemas",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:programacao/analise-lexica",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:programacao/analise-semantica",
+      "titulo": "Análise semântica — tabela de símbolos, escopo, tipos e tradução dirigida por sintaxe",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 720,
+      "descricao": "O que a gramática aceita mas a linguagem não: identificador não declarado, redeclaração, tipo incompatível. A tabela de símbolos com escopo aninhado, a checagem de tipos, e a ação semântica pendurada na regra da gramática — atributo herdado e sintetizado.\n",
+      "trilha": "trilha:programacao/compiladores",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:programacao/analise-sintatica",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:programacao/analise-semantica",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:programacao/analise-sintatica",
+      "titulo": "Análise sintática — gramática livre de contexto, descendente e ascendente",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "descricao": "A etapa mais longa da trilha: gramática livre de contexto, derivação, ambiguidade e recursão à esquerda, First e Follow, a tabela preditiva do método descendente e o empilha-e-reduz do ascendente. Entrega um analisador que aceita a linguagem e localiza o erro de quem a viola.\n",
+      "trilha": "trilha:programacao/compiladores",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:programacao/analise-lexica",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:programacao/analise-sintatica",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:programacao/c-apontadores-e-vetores",
       "titulo": "Apontadores e vetores",
       "rev": 1,
@@ -3092,6 +3202,44 @@
       "teaches": [
         {
           "competencia": "comp:programacao/c-fundamentos",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:programacao/compilador-estrutura-e-fases",
+      "titulo": "A estrutura de um compilador — as fases e o que cada uma entrega",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 240,
+      "descricao": "Abre a trilha sem escrever código: o compilador como sequência de fases, a representação que passa de uma para a outra, a tabela de símbolos que atravessa todas, e onde um interpretador se separa do mesmo caminho.\n",
+      "trilha": "trilha:programacao/compiladores",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:programacao/compilador-estrutura",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:programacao/geracao-de-codigo",
+      "titulo": "Geração de código — três endereços, registro de ativação e código final",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "descricao": "Fecha a trilha do lado da síntese: código intermediário de três endereços para atribuição, expressão, teste e laço; o ambiente de execução, com o registro de ativação, os parâmetros e a variável local; e a emissão do código final para uma arquitetura concreta ou uma máquina virtual.\n",
+      "trilha": "trilha:programacao/compiladores",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:programacao/analise-semantica",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:programacao/geracao-de-codigo",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -4355,6 +4503,40 @@
         "etapa:matematica/integral-e-acumulacao",
         "etapa:matematica/simetria-e-grupos",
         "etapa:matematica/projeto-demonstracao-propria"
+      ]
+    },
+    {
+      "id": "trilha:programacao/compiladores",
+      "titulo": "Compiladores — da análise do fonte ao código gerado",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:programacao/analise-lexica",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:programacao/analise-sintatica",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:programacao/analise-semantica",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:programacao/geracao-de-codigo",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:programacao/compilador-estrutura-e-fases",
+        "etapa:programacao/analise-lexica",
+        "etapa:programacao/analise-sintatica",
+        "etapa:programacao/analise-semantica",
+        "etapa:programacao/geracao-de-codigo"
+      ],
+      "etapas_referenciadas": [
+        "etapa:programacao/programacao-de-sistemas"
       ]
     },
     {
@@ -7492,6 +7674,81 @@
       "url": "https://www.lysator.liu.se/c/pikestyle.html",
       "disponivel": true,
       "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:programacao/price-toscani-analise-lexica",
+      "titulo": "Implementação de Linguagens de Programação: Compiladores — análise léxica: expressão regular, autômato finito e o analisador",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/analise-lexica",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 50.0,
+      "duracao_min": 180,
+      "url": "https://www.amazon.com.br/dp/8524106395",
+      "disponivel": true,
+      "obra": "price-toscani-compiladores",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:programacao/price-toscani-analise-semantica",
+      "titulo": "Implementação de Linguagens de Programação: Compiladores — análise semântica: tabela de símbolos, tipos e tradução dirigida por sintaxe",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/analise-semantica",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 50.0,
+      "duracao_min": 240,
+      "url": "https://www.amazon.com.br/dp/8524106395",
+      "disponivel": true,
+      "obra": "price-toscani-compiladores",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:programacao/price-toscani-analise-sintatica",
+      "titulo": "Implementação de Linguagens de Programação: Compiladores — análise sintática: gramáticas livres de contexto, métodos descendente e ascendente",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/analise-sintatica",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 50.0,
+      "duracao_min": 300,
+      "url": "https://www.amazon.com.br/dp/8524106395",
+      "disponivel": true,
+      "obra": "price-toscani-compiladores",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:programacao/price-toscani-estrutura",
+      "titulo": "Implementação de Linguagens de Programação: Compiladores (Price & Toscani) — introdução: fases do compilador, compilador e interpretador",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/compilador-estrutura-e-fases",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 50.0,
+      "duracao_min": 120,
+      "url": "https://www.amazon.com.br/dp/8524106395",
+      "disponivel": true,
+      "obra": "price-toscani-compiladores",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:programacao/price-toscani-geracao-de-codigo",
+      "titulo": "Implementação de Linguagens de Programação: Compiladores — geração de código: código intermediário, ambiente de execução e código final",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:programacao/geracao-de-codigo",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 50.0,
+      "duracao_min": 300,
+      "url": "https://www.amazon.com.br/dp/8524106395",
+      "disponivel": true,
+      "obra": "price-toscani-compiladores",
+      "verificado_em": "2026-11-05"
     },
     {
       "id": "rec:programacao/py4e-severance",
