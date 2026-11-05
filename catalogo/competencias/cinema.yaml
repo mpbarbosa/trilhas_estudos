@@ -1,0 +1,95 @@
+# Primeira área de cinema do catálogo. As cinco competências são de leitura de filme
+# e de história de uma forma cultural, não do primeiro cinema: a verificação de cada
+# uma se cobra sobre um filme ou um período que não é o da trilha de hoje, e o cinema
+# de 1895 a 1915 é só onde esta trilha as exercita. Foi critério de desenho — uma
+# competência que só se verifica num corpus é assunto daquele corpus, não competência
+# (docs/catalogo.md §2) —, e é o que permite que o próximo livro da área entre como
+# etapa sem reescrever competência nenhuma.
+versao_schema: 1
+competencias:
+  - id: comp:cinema/leitura-do-filme
+    titulo: Leitura de uma sequência de filme — plano, movimento e montagem
+    rev: 1
+    status: ativo
+    descricao: >
+      Ler o que está na tela antes de contar a história que ela narra: onde começa e
+      acaba cada plano, que escala e que movimento de câmera o compõem, que relação o
+      corte estabelece entre dois planos vizinhos, e de que lugar o filme pede que se
+      olhe. O resumo do argumento é justamente o que esta competência não aceita como
+      resposta.
+    verificacao: >
+      Diante de uma sequência de três a cinco minutos de um filme que não se viu
+      antes: decupar os planos, nomear a escala e o movimento de câmera de cada um,
+      dizer em cada corte que relação a montagem estabelece entre os dois planos, e
+      explicar o que o ponto de vista escolhido mostra e o que ele deixa fora do
+      quadro — sem recorrer ao resumo do argumento.
+
+  - id: comp:cinema/cinema-como-industria-e-ideologia
+    titulo: Crítica da aparência de neutralidade do filme
+    rev: 1
+    status: ativo
+    descricao: >
+      Um filme não é janela: alguém escolheu de onde a câmera olha, quem fala, o que
+      fica fora do quadro, quanto se gastou e para que público. A competência é
+      desfazer a transparência — ligar o efeito de registro fiel às escolhas de
+      linguagem e às condições de produção que o fabricam, sem transformar isso em
+      suspeita genérica de que todo filme mente.
+    verificacao: >
+      Diante de um filme de ficção: listar três escolhas que o fazem parecer registro
+      transparente do mundo — enquadramento, ponto de vista, decupagem, elenco,
+      trilha — e dizer, em cada caso, o que fica fora do quadro por causa dela;
+      relacionar ao menos duas dessas escolhas a condições de produção (quem
+      financiou, para que público, em que regime de exibição); e apontar uma
+      afirmação sobre o mundo que o filme sustenta de fato, dizendo o que nele a
+      sustenta.
+
+  - id: comp:cinema/historiografia-do-primeiro-cinema
+    titulo: Periodização do primeiro cinema — espetáculo, narração e domesticação
+    rev: 1
+    status: ativo
+    descricao: >
+      O cinema das duas primeiras décadas não é cinema clássico mal feito. Tem regime
+      próprio — exibição de atração, olhar para a lente, autonomia do quadro — e a
+      competência é situar um filme nesse regime pelos traços que ele mostra, em vez
+      de medi-lo pela narrativa que vem depois.
+    verificacao: >
+      Diante de um filme anterior a 1915 e de sua data: situá-lo na periodização do
+      primeiro cinema e nomear os traços que sustentam a posição — atração exibida
+      frente à câmera, olhar dirigido à lente, continuidade construída por corte,
+      condução do olhar do espectador, lugar e público da exibição —; e apontar ao
+      menos um traço do filme que contraria a leitura do período como evolução linear
+      rumo à narrativa clássica.
+
+  - id: comp:cinema/cinema-e-modernidade
+    titulo: Relação entre uma forma cultural e a experiência moderna
+    rev: 1
+    status: ativo
+    descricao: >
+      A tese de que o cinema deu forma à percepção moderna — choque, multidão,
+      vitrine, velocidade — é fértil e fácil de usar mal: duas formas que se parecem
+      não provam que uma produziu a outra. A competência inclui classificar o próprio
+      argumento, dizendo onde ele se apoia em documento e onde é analogia.
+    verificacao: >
+      Dado um fenômeno da vida urbana do fim do século XIX — panorama, vitrine de loja
+      de departamentos, bulevar, viagem de trem, museu de cera, jornal ilustrado — e um
+      filme do mesmo período: dizer que regime de percepção os dois compartilham e em
+      que diferem; e separar, no próprio argumento, o que se apoia em evidência
+      documentada (público, local de exibição, imprensa da época) do que é analogia
+      entre formas, dizendo que documento faltaria para converter a analogia em tese.
+
+  - id: comp:cinema/contexto-historico-de-uma-forma-cultural
+    titulo: Situar uma forma cultural na história econômica e política de seu período
+    rev: 1
+    status: ativo
+    descricao: >
+      Uma técnica nova não explica a forma cultural que nasce com ela: faltam o
+      mercado que a financia, a cidade que lhe dá público, o império que a distribui e
+      a política que a tolera. A competência é nomear essas condições para um período
+      datado, com o alcance de cada uma, e resistir à história contada de trás para
+      frente.
+    verificacao: >
+      Dada uma novidade cultural e as três décadas em que ela aparece: nomear as
+      condições econômicas, políticas e sociais do período que a tornaram possível —
+      mercado, técnica, público urbano, cidade, império — dizendo em cada caso o que
+      ela explica e o que não explica; e refutar, com um fato datado do próprio
+      período, a afirmação de que a novidade era inevitável.

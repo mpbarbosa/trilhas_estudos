@@ -67,6 +67,7 @@ SETOR_DA_AREA = {
     "so": "exatas",
     "terminal": "exatas",
     "web": "exatas",
+    "cinema": "humanas",
     "economia": "humanas",
     "filosofia": "humanas",
     "linguas": "humanas",
@@ -74,7 +75,7 @@ SETOR_DA_AREA = {
 }
 """Em que setor da estante cada área fica — juízo editorial de tela, não regra de domínio.
 
-Doze áreas em ordem alfabética obrigam quem procura conteúdo a varrer a estante inteira;
+Mais de dez áreas em ordem alfabética obrigam quem procura conteúdo a varrer a estante inteira;
 dois setores cortam a varredura em dois. O corte é o usual em pt-BR: o que se demonstra e
 se mede de um lado, o que se lê e se interpreta do outro. `economia` fica em humanas por
 ser economia política (`trilha:economia/tecnofeudalismo`), não econometria.

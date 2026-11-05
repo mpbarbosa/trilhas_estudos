@@ -31,6 +31,7 @@ persistência do percurso — nada do que o estudante faz é gravado.
   - *Literatura em inglês — "The Raven" de Poe, do poema à poética e à crítica* ([trilha](catalogo/trilhas/poe-o-corvo.yaml)) — o poema no inglês de 1845, o ensaio em que Poe diz como o compôs e a crítica que o contradiz
   - *Estatística na avaliação de modelos* ([trilha](catalogo/trilhas/estatistica-na-avaliacao-de-modelos.yaml)) — dispersão do desempenho, viés e variância, viés de amostragem, intervalo de confiança, escolha do teste, tamanho de efeito e o t pareado corrigido de Nadeau e Bengio
   - *Compiladores — da análise do fonte ao código gerado* ([trilha](catalogo/trilhas/compiladores.yaml)) — estrutura e fases, análise léxica, análise sintática, análise semântica e geração de código, pela espinha de Price & Toscani
+  - *Cinema — do primeiro cinema à invenção da vida moderna* ([trilha](catalogo/trilhas/primeiro-cinema-e-vida-moderna.yaml)) — vocabulário de leitura de filme em Bernardet, a era dos impérios em Hobsbawm, o primeiro cinema em Flávia Cesarino Costa e a modernidade urbana na coletânea de Charney & Schwartz
 
   Fora das trilhas, três [etapas avulsas](catalogo/etapas/avulsas.yaml) de
   pré-requisito compartilhado das trilhas de SO, de C e de emulador de terminal: duas
