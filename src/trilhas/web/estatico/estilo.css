@@ -184,18 +184,36 @@ select:focus-visible, .no:focus-visible rect {
 .numeros span { font-size: .8rem; color: var(--texto-fraco); }
 
 /* --- estante das trilhas (abertura) ---
-   Uma prateleira por área; as prateleiras se acomodam lado a lado enquanto couber,
-   como as divisões de uma estante — agrupar por área não pode custar três telas de
-   rolagem num catálogo em que quase toda área tem uma trilha só.
+   Dois setores — Exatas e Humanas — e, dentro de cada um, uma prateleira por área; as
+   prateleiras se acomodam lado a lado enquanto couber, como as divisões de uma estante —
+   agrupar por área não pode custar três telas de rolagem num catálogo em que quase toda
+   área tem uma trilha só.
+
+   O setor é o cabeçalho que separa os dois blocos, sublinhado e com a contagem ao lado:
+   doze prateleiras alfabéticas não dizem por onde começar a procurar, duas âncoras
+   dizem. É um corte de navegação — nenhum id carrega setor (acervo.Setor).
 
    Dentro da prateleira os livros ficam encostados (`column-gap: 0`): a tábua é a
    borda de baixo de cada livro, e borda com borda ela atravessa a fileira inteira,
    inclusive quando a fileira quebra. Lombada colorida por status — e o status
    também vem escrito na etiqueta, porque cor não é o único portador (§6.7). */
 
-.estante {
-  display: grid; gap: 1.5rem 1.25rem; margin: 1rem 0 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+.estante { display: grid; gap: 2rem; margin: 1rem 0 2rem; }
+.setor { margin: 0; }
+.setor-nome {
+  display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap;
+  margin: 0 0 .75rem; padding-bottom: .3rem;
+  font-size: .9rem; border-bottom: 2px solid var(--borda-forte);
+}
+.setor-nome > span:first-child {
+  font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+}
+.setor-nome .fraco { font-weight: 400; text-transform: none; letter-spacing: normal; }
+.prateleiras {
+  display: grid; gap: 1.5rem 1.25rem;
+  /* `min(24rem, 100%)`: abaixo de 24rem a coluna encolhe em vez de estourar a
+     largura da página — num telefone de 360px a estante rolava de lado. */
+  grid-template-columns: repeat(auto-fit, minmax(min(24rem, 100%), 1fr));
   /* cada prateleira com a altura dos seus livros: esticar a baixa até a altura da
      vizinha desenharia divisão de estante vazia embaixo do livro. */
   align-items: start;
@@ -234,7 +252,7 @@ select:focus-visible, .no:focus-visible rect {
   background: repeating-linear-gradient(180deg, var(--borda) 0 2px, transparent 2px 5px);
 }
 .livro:hover, .livro:focus-within { transform: translateY(-3px); }
-.livro h4 { font-size: .98rem; line-height: 1.25; margin: 0 0 .3rem; }
+.livro h5 { font-size: .98rem; line-height: 1.25; margin: 0 0 .3rem; }
 .livro .meta { margin: 0; font-size: .82rem; }
 .livro .rotulo-campo { margin: .45rem 0 .15rem; }
 .livro .alvos { font-size: .82rem; }

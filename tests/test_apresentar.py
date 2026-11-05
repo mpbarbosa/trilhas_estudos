@@ -99,12 +99,65 @@ def test_inicio_poe_uma_prateleira_por_area_em_ordem_alfabetica() -> None:
         trilha("trilha:dados/a", etapas=["etapa:dados/outra"]),
         trilha("trilha:dados/b", etapas=["etapa:dados/mais"]),
     )
-    prateleiras = apresentar_acervo.inicio(_acervo(cat), hoje=HOJE).prateleiras
+    setores = apresentar_acervo.inicio(_acervo(cat), hoje=HOJE).setores
 
+    assert [s.id for s in setores] == ["exatas"]
+    prateleiras = setores[0].prateleiras
     assert [p.area for p in prateleiras] == ["dados", "web"]
     assert [t.id for t in prateleiras[0].trilhas] == ["trilha:dados/a", "trilha:dados/b"]
     assert prateleiras[0].esforco == "3 h"
     assert prateleiras[1].esforco == "1 h"
+
+
+def _catalogo_de_tres_areas() -> Catalogo:
+    return catalogo(
+        competencia("comp:x/base"),
+        etapa("etapa:matematica/uma", teaches=[("comp:x/base", N.INICIANTE)], esforco=60),
+        etapa("etapa:filosofia/outra", teaches=[("comp:x/base", N.INICIANTE)], esforco=120),
+        etapa("etapa:robotica/nova", teaches=[("comp:x/base", N.INICIANTE)], esforco=30),
+        trilha("trilha:matematica/m", etapas=["etapa:matematica/uma"]),
+        trilha("trilha:filosofia/f", etapas=["etapa:filosofia/outra"]),
+        trilha("trilha:robotica/r", etapas=["etapa:robotica/nova"]),
+    )
+
+
+def test_inicio_agrupa_as_prateleiras_em_exatas_e_humanas() -> None:
+    """Dois setores antes das áreas: a estante se varre em dois, não em doze.
+
+    O esforço do setor soma as trilhas de todas as suas prateleiras, e a contagem de
+    trilhas é a do setor inteiro — é o que a plaqueta promete.
+    """
+    setores = apresentar_acervo.inicio(_acervo(_catalogo_de_tres_areas()), hoje=HOJE).setores
+
+    assert [(s.id, s.rotulo) for s in setores[:2]] == [
+        ("exatas", "Exatas"),
+        ("humanas", "Humanas"),
+    ]
+    assert [p.area for p in setores[0].prateleiras] == ["matematica"]
+    assert [p.area for p in setores[1].prateleiras] == ["filosofia"]
+    assert (setores[1].qtd_trilhas, setores[1].esforco) == (1, "2 h")
+
+
+def test_inicio_poe_area_de_setor_desconhecido_no_residual_em_vez_de_perde_la() -> None:
+    """Mesma regra de `ROTULO_AREA`: mapa que envelhece não esconde área nova da tela."""
+    setores = apresentar_acervo.inicio(_acervo(_catalogo_de_tres_areas()), hoje=HOJE).setores
+
+    assert comum.setor_da_area("robotica") == ""
+    residual = setores[-1]
+    assert (residual.id, residual.rotulo) == ("", "Outras áreas")
+    assert [t.id for p in residual.prateleiras for t in p.trilhas] == ["trilha:robotica/r"]
+
+
+def test_inicio_nao_desenha_setor_sem_prateleira() -> None:
+    """Humanas sem trilha nenhuma não vira cabeçalho em branco."""
+    cat = catalogo(
+        competencia("comp:x/base"),
+        etapa("etapa:ia/uma", teaches=[("comp:x/base", N.INICIANTE)], esforco=60),
+        trilha("trilha:ia/i", etapas=["etapa:ia/uma"]),
+    )
+    setores = apresentar_acervo.inicio(_acervo(cat), hoje=HOJE).setores
+
+    assert [s.id for s in setores] == ["exatas"]
 
 
 def test_inicio_sem_catalogo_avisa_em_vez_de_mostrar_zeros() -> None:

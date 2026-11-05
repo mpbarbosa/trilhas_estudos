@@ -57,6 +57,23 @@ class Prateleira:
 
 
 @dataclass(frozen=True, slots=True)
+class Setor:
+    """Prateleiras de áreas afins — o setor em que a estante é dividida.
+
+    Segundo agrupamento de tela em cima do primeiro, pelo mesmo motivo e com o mesmo
+    limite: `comum.SETOR_DA_AREA` é juízo editorial, nenhuma regra depende de setor e o
+    id não o carrega. Existe porque doze prateleiras em ordem alfabética fazem quem
+    procura conteúdo varrer a estante inteira.
+    """
+
+    id: str
+    rotulo: str
+    prateleiras: tuple[Prateleira, ...]
+    qtd_trilhas: int
+    esforco: str
+
+
+@dataclass(frozen=True, slots=True)
 class Contagem:
     rotulo: str
     quantidade: int
@@ -67,7 +84,7 @@ class VisaoInicio:
     catalogo_versao: int
     gerado_em: str
     hash_curto: str
-    prateleiras: tuple[Prateleira, ...]
+    setores: tuple[Setor, ...]
     totais: tuple[Contagem, ...]
     esforco_total: str
     ondas: int
@@ -94,8 +111,10 @@ def inicio(acervo: Acervo, *, hoje: date) -> VisaoInicio:
         catalogo_versao=acervo.cabecalho.catalogo_versao,
         gerado_em=acervo.cabecalho.gerado_em,
         hash_curto=acervo.cabecalho.hash[7:19] if acervo.cabecalho.hash else "",
-        prateleiras=_prateleiras(
-            _resumo(t, acervo) for t in sorted(cat.trilhas.values(), key=lambda t: t.titulo)
+        setores=_setores(
+            _prateleiras(
+                _resumo(t, acervo) for t in sorted(cat.trilhas.values(), key=lambda t: t.titulo)
+            )
         ),
         totais=(
             Contagem("trilhas", len(cat.trilhas)),
@@ -159,6 +178,30 @@ def _prateleiras(resumos: Iterable[ResumoTrilha]) -> tuple[Prateleira, ...]:
             esforco=comum.duracao(sum(t.esforco_min for t in trilhas)),
         )
         for area, trilhas in sorted(por_area.items())
+    )
+
+
+def _setores(prateleiras: Iterable[Prateleira]) -> tuple[Setor, ...]:
+    """Agrupa as prateleiras em Exatas e Humanas, na ordem de `comum.ORDEM_SETOR`.
+
+    Setor fora dessa ordem — alguém acrescentou um a `SETOR_DA_AREA` e esqueceu a outra
+    tupla — entra no fim em ordem alfabética, em vez de levar as prateleiras consigo para
+    fora da tela. Setor sem prateleira nenhuma não vira seção vazia.
+    """
+    por_setor: dict[str, list[Prateleira]] = {}
+    for prateleira in prateleiras:
+        por_setor.setdefault(comum.setor_da_area(prateleira.area), []).append(prateleira)
+    ordem = [s for s in comum.ORDEM_SETOR if s in por_setor]
+    ordem += sorted(s for s in por_setor if s not in comum.ORDEM_SETOR)
+    return tuple(
+        Setor(
+            id=s,
+            rotulo=comum.setor(s),
+            prateleiras=tuple(por_setor[s]),
+            qtd_trilhas=sum(len(p.trilhas) for p in por_setor[s]),
+            esforco=comum.duracao(sum(t.esforco_min for p in por_setor[s] for t in p.trilhas)),
+        )
+        for s in ordem
     )
 
 
