@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 56,
-  "gerado_em": "2026-11-05T18:55:20+00:00",
-  "hash": "sha256:a3d910a7104e8f345ef2e118c2cea23c19cb45efad38d2789c0f2ad5f0d0b948",
+  "catalogo_versao": 57,
+  "gerado_em": "2026-11-05T22:56:30+00:00",
+  "hash": "sha256:ebb522e465a7fbc6d505e72f9c2acf99a673affefcb3323278efbdacf63b7740",
   "competencias": [
     {
       "id": "comp:cinema/cinema-como-industria-e-ideologia",
@@ -869,6 +869,14 @@
       "descricao": "Construir para quem não usa mouse nem enxerga a tela: semântica nativa antes de ARIA, foco visível e ordem de foco, contraste, nome acessível, estados anunciados.\n"
     },
     {
+      "id": "comp:web/compilador-e-arquitetura-de-tipos",
+      "titulo": "Configuração do compilador e arquitetura de tipos",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Configurar um projeto do zero para o próprio alvo, justificando cada opção pelo erro que ela passa a pegar ou pelo que ela muda na saída emitida; e, num código cujos tipos ficaram ilegíveis ou lentos de conferir, localizar a construção responsável e substituí-la por uma mais simples sem perder a garantia que ela dava.",
+      "descricao": "O compilador como parte do projeto: `tsconfig.json` por alvo (aplicação no navegador, Node, biblioteca publicada), resolução de módulo, rigor adotado em etapas, arquivo de declaração e o que é emitido — e a arquitetura que mantém os tipos legíveis e conferíveis quando o projeto cresce.\n"
+    },
+    {
       "id": "comp:web/documento-e-estilo",
       "titulo": "Documento e estilo",
       "rev": 1,
@@ -923,6 +931,14 @@
       "status": "ativo",
       "verificacao": "Reescrever um tipo que admite estados impossíveis de modo que o compilador recuse o estado inválido, e demonstrar o erro que ele passa a pegar.",
       "descricao": "Usar TypeScript como ferramenta de projeto, não de anotação: modelar estados possíveis, estreitar tipos, tipos genéricos, e reconhecer quando `any` ou uma asserção está escondendo um erro de modelagem.\n"
+    },
+    {
+      "id": "comp:web/tipos-derivados",
+      "titulo": "Tipos derivados de tipos",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Diante de um tipo mantido em duplicata — escrito à mão ao lado do valor, do esquema ou da função que ele deveria acompanhar —, derivá-lo da fonte única e mostrar que uma mudança na fonte passa a quebrar a compilação no ponto exato em que a duplicata mentiria calada.",
+      "descricao": "Derivar um tipo do que já existe em vez de redigitá-lo: `keyof`, `typeof`, acesso indexado, tipo mapeado e tipo condicional, genérico como transformação, e `satisfies` no lugar da anotação que apaga a informação que se queria manter.\n"
     },
     {
       "id": "comp:web/visualizacao-no-navegador",
@@ -4190,6 +4206,22 @@
       ]
     },
     {
+      "id": "etapa:web/typescript-ambiente-e-anotacao",
+      "titulo": "O ambiente, o editor como professor e a primeira anotação",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 480,
+      "descricao": "Um projeto TypeScript que compila antes de haver o que compilar: `tsc`, o mínimo de `tsconfig.json`, e o editor configurado para responder. A partir daí, tipo primitivo, anotação de variável, parâmetro e retorno, e a prática que o livro põe em primeiro lugar — ler a mensagem de erro até o fim e tratá-la como aula, em vez de silenciá-la com `any`.\n",
+      "trilha": "trilha:web/typescript-sistema-de-tipos",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:web/tipagem-estatica",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
       "id": "etapa:web/typescript-como-projeto",
       "titulo": "TypeScript — tipos como decisão de projeto",
       "rev": 1,
@@ -4202,6 +4234,184 @@
         {
           "competencia": "comp:web/javascript-de-aplicacao",
           "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/tipagem-estatica",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/typescript-compilador-e-arquitetura",
+      "titulo": "Configurar o compilador e sustentar a arquitetura de tipos",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "descricao": "O `tsconfig.json` como decisão, não como receita copiada: alvo e biblioteca, resolução de módulo, rigor adotado em etapas, o que é emitido e o que só é conferido, arquivo de declaração e projeto com referência. E a outra metade: reconhecer a construção de tipo que ficou ilegível ou lenta de conferir e trocá-la por uma mais simples sem perder a garantia.\n",
+      "trilha": "trilha:web/typescript-sistema-de-tipos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/tipagem-estatica",
+          "nivel_minimo": "avancado"
+        },
+        {
+          "competencia": "comp:web/tipos-derivados",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/compilador-e-arquitetura-de-tipos",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/typescript-genericos",
+      "titulo": "Genéricos — flexibilidade que não abre mão da garantia",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 660,
+      "descricao": "Parâmetro de tipo como forma de não escolher cedo demais: argumento genérico em função e em tipo, restrição por `extends`, inferência e o momento em que ela precisa de ajuda, valor padrão. O exercício é o inverso do comum — transformar uma função que devolve `any` numa que devolve o tipo que entrou.\n",
+      "trilha": "trilha:web/typescript-sistema-de-tipos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/tipagem-estatica",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/tipos-derivados",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/typescript-objeto-funcao-e-classe",
+      "titulo": "Objeto, função e classe com tipo preciso",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "descricao": "O tipo das três formas em que o código já está escrito: objeto (`interface` e apelido de tipo, campo opcional, `readonly`, assinatura de índice), função (parâmetro rest, sobrecarga, `this`) e classe (modificador de acesso, campo declarado no construtor, implementação de interface). O corte é precisão: quando um campo opcional está escondendo dois tipos diferentes.\n",
+      "trilha": "trilha:web/typescript-sistema-de-tipos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/tipagem-estatica",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/tipagem-estatica",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/typescript-predicado-e-assercao",
+      "titulo": "Predicado de tipo e função de asserção — onde o compilador cede, e o preço",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 420,
+      "descricao": "As construções em que o programador afirma e o compilador acredita: predicado de tipo (`x is T`), função de asserção (`asserts x is T`), `as` e `as unknown as`. Cada uma transfere a prova do compilador para quem escreveu, e a etapa cobra saber de quem é a dívida — e validar o dado na borda, em vez de afirmar o que não se conferiu.\n",
+      "trilha": "trilha:web/typescript-sistema-de-tipos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/tipagem-estatica",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:web/tipos-derivados",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/tipagem-estatica",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/typescript-projeto-aplicacao",
+      "titulo": "Projeto — uma aplicação TypeScript do zero, com os tipos defendendo o domínio",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1080,
+      "descricao": "O que o livro promete na capa: uma aplicação construída do zero, com `tsconfig.json` escolhido para o alvo, o dado externo validado na borda e o domínio tipado a partir de uma fonte única. Fecha-se quando um estado inválido deixa de compilar e o próprio autor consegue mostrar, no editor, qual erro o tipo passou a pegar.\n",
+      "trilha": "trilha:web/typescript-sistema-de-tipos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/compilador-e-arquitetura-de-tipos",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:web/tipos-derivados",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:web/tipagem-estatica",
+          "nivel_minimo": "avancado"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/compilador-e-arquitetura-de-tipos",
+          "nivel_resultante": "avancado"
+        },
+        {
+          "competencia": "comp:web/tipos-derivados",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/typescript-tipos-derivados",
+      "titulo": "Derivar e transformar tipos — não se repetir no nível do tipo",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 720,
+      "descricao": "Tirar o tipo do que já existe em vez de redigitá-lo: `keyof`, `typeof`, acesso indexado, tipo mapeado, tipo condicional com `infer`, tipo de literal de template, e `satisfies` onde a anotação apagaria a informação. O que se ganha é uma fonte única: mudar o valor passa a quebrar a compilação onde a cópia mentiria calada.\n",
+      "trilha": "trilha:web/typescript-sistema-de-tipos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/tipos-derivados",
+          "nivel_minimo": "iniciante"
+        },
+        {
+          "competencia": "comp:web/tipagem-estatica",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/tipos-derivados",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/typescript-uniao-e-estreitamento",
+      "titulo": "União, estreitamento e o estado impossível",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 540,
+      "descricao": "Modelar o que pode acontecer e deixar o compilador recusar o resto: tipo literal, união, união discriminada, e o estreitamento por `typeof`, `in`, igualdade e verificação de campo. `unknown` como porta de entrada honesta, contra o `any` que desliga a conferência sem avisar.\n",
+      "trilha": "trilha:web/typescript-sistema-de-tipos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/tipagem-estatica",
+          "nivel_minimo": "iniciante"
         }
       ],
       "teaches": [
@@ -4862,6 +5072,36 @@
       ],
       "etapas_referenciadas": [
         "etapa:programacao/python-para-ia"
+      ]
+    },
+    {
+      "id": "trilha:web/typescript-sistema-de-tipos",
+      "titulo": "TypeScript — do tipo primitivo à arquitetura de tipos",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:web/tipagem-estatica",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:web/tipos-derivados",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:web/compilador-e-arquitetura-de-tipos",
+          "nivel": "avancado"
+        }
+      ],
+      "etapas": [
+        "etapa:web/typescript-ambiente-e-anotacao",
+        "etapa:web/typescript-objeto-funcao-e-classe",
+        "etapa:web/typescript-uniao-e-estreitamento",
+        "etapa:web/typescript-genericos",
+        "etapa:web/typescript-tipos-derivados",
+        "etapa:web/typescript-predicado-e-assercao",
+        "etapa:web/typescript-compilador-e-arquitetura",
+        "etapa:web/typescript-projeto-aplicacao"
       ]
     }
   ],
@@ -9542,6 +9782,141 @@
       "verificado_em": "2026-10-17"
     },
     {
+      "id": "rec:web/pocock-essentials-livro-gratuito",
+      "titulo": "Total TypeScript Essentials (Matt Pocock) — livro on-line gratuito sobre manipulação avançada de tipos",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-tipos-derivados",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://www.totaltypescript.com/books/total-typescript-essentials",
+      "disponivel": true,
+      "obra": "pocock-total-typescript-essentials",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:web/pocock-total-typescript-ambiente",
+      "titulo": "Total TypeScript (Matt Pocock com Taylor Bell) — ambiente, `tsc` e `tsconfig.json` mínimo, leitura da mensagem de erro e anotação de tipos primitivos",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-ambiente-e-anotacao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 330.0,
+      "duracao_min": 240,
+      "url": "https://www.penguinrandomhouse.com/books/781323/total-typescript-by-matt-pocock/",
+      "disponivel": true,
+      "obra": "pocock-total-typescript",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:web/pocock-total-typescript-aplicacao-do-zero",
+      "titulo": "Total TypeScript (Pocock e Bell) — construir uma aplicação TypeScript do zero, o percurso que fecha o livro",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-projeto-aplicacao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 330.0,
+      "duracao_min": 300,
+      "url": "https://www.penguinrandomhouse.com/books/781323/total-typescript-by-matt-pocock/",
+      "disponivel": true,
+      "obra": "pocock-total-typescript",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:web/pocock-total-typescript-compilador",
+      "titulo": "Total TypeScript (Pocock e Bell) — configurar o compilador para React, Node ou biblioteca, e arquitetura de tipos que não desaba",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-compilador-e-arquitetura",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 330.0,
+      "duracao_min": 300,
+      "url": "https://www.penguinrandomhouse.com/books/781323/total-typescript-by-matt-pocock/",
+      "disponivel": true,
+      "obra": "pocock-total-typescript",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:web/pocock-total-typescript-derivacao",
+      "titulo": "Total TypeScript (Pocock e Bell) — derivar tipo de tipo: `keyof`, `typeof`, tipo mapeado, tipo condicional e `satisfies`",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-tipos-derivados",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 330.0,
+      "duracao_min": 420,
+      "url": "https://www.penguinrandomhouse.com/books/781323/total-typescript-by-matt-pocock/",
+      "disponivel": true,
+      "obra": "pocock-total-typescript",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:web/pocock-total-typescript-genericos",
+      "titulo": "Total TypeScript (Pocock e Bell) — genéricos: parâmetro de tipo, restrição, inferência e valor padrão",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-genericos",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 330.0,
+      "duracao_min": 360,
+      "url": "https://www.penguinrandomhouse.com/books/781323/total-typescript-by-matt-pocock/",
+      "disponivel": true,
+      "obra": "pocock-total-typescript",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:web/pocock-total-typescript-objeto-e-classe",
+      "titulo": "Total TypeScript (Pocock e Bell) — tipos de objeto, assinaturas de função e classes",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-objeto-funcao-e-classe",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 330.0,
+      "duracao_min": 300,
+      "url": "https://www.penguinrandomhouse.com/books/781323/total-typescript-by-matt-pocock/",
+      "disponivel": true,
+      "obra": "pocock-total-typescript",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:web/pocock-total-typescript-predicado",
+      "titulo": "Total TypeScript (Pocock e Bell) — predicado de tipo, função de asserção e o custo de `as`",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-predicado-e-assercao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 330.0,
+      "duracao_min": 240,
+      "url": "https://www.penguinrandomhouse.com/books/781323/total-typescript-by-matt-pocock/",
+      "disponivel": true,
+      "obra": "pocock-total-typescript",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:web/pocock-total-typescript-uniao",
+      "titulo": "Total TypeScript (Pocock e Bell) — tipo literal, união, união discriminada e estreitamento",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-uniao-e-estreitamento",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 330.0,
+      "duracao_min": 300,
+      "url": "https://www.penguinrandomhouse.com/books/781323/total-typescript-by-matt-pocock/",
+      "disponivel": true,
+      "obra": "pocock-total-typescript",
+      "verificado_em": "2026-11-05"
+    },
+    {
       "id": "rec:web/projeto-aplicacao-api-publica",
       "titulo": "Projeto — aplicação acessível sobre uma API pública, auditada por teclado e leitor de tela",
       "rev": 1,
@@ -9554,6 +9929,20 @@
       "url": "https://dados.gov.br/",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/projeto-aplicacao-tipada",
+      "titulo": "Projeto — aplicação TypeScript do zero: `tsconfig.json` justificado opção por opção, dado externo validado na borda, domínio derivado de fonte única e um estado inválido que deixa de compilar",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-projeto-aplicacao",
+      "formato": "projeto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 1080,
+      "url": "https://www.typescriptlang.org/play/",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
     },
     {
       "id": "rec:web/pure-react-ceddia",
@@ -9612,6 +10001,118 @@
       "url": "https://starlette.dev/",
       "disponivel": true,
       "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:web/totaltypescript-tutoriais-gratuitos",
+      "titulo": "Free TypeScript Tutorials (totaltypescript.com) — exercícios no editor, do mesmo autor e pelo mesmo método do livro",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-ambiente-e-anotacao",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://www.totaltypescript.com/tutorials",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:web/ts-handbook-classes",
+      "titulo": "TypeScript Handbook — Classes: membro, modificador de acesso, `implements`, campo declarado no construtor",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-objeto-funcao-e-classe",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://www.typescriptlang.org/docs/handbook/2/classes.html",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:web/ts-handbook-estreitamento",
+      "titulo": "TypeScript Handbook — Narrowing: `typeof`, `in`, igualdade, verificação de exaustividade com `never`",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-uniao-e-estreitamento",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://www.typescriptlang.org/docs/handbook/2/narrowing.html",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:web/ts-handbook-genericos",
+      "titulo": "TypeScript Handbook — Generics: função genérica, restrição por `extends` e inferência de argumento de tipo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-genericos",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://www.typescriptlang.org/docs/handbook/2/generics.html",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:web/ts-handbook-tipos-a-partir-de-tipos",
+      "titulo": "TypeScript Handbook — Type Manipulation: `keyof`, `typeof`, acesso indexado, tipo condicional com `infer`, tipo mapeado e literal de template",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-tipos-derivados",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 360,
+      "url": "https://www.typescriptlang.org/docs/handbook/2/types-from-types.html",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:web/ts-handbook-tipos-do-dia-a-dia",
+      "titulo": "TypeScript Handbook — Everyday Types: primitivos, arranjos, `any`, anotação de variável e de função",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-ambiente-e-anotacao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:web/tsconfig-referencia",
+      "titulo": "Referência do `tsconfig.json` (typescriptlang.org) — cada opção com o que ela muda na conferência e na saída emitida",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-compilador-e-arquitetura",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://www.typescriptlang.org/tsconfig/",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:web/type-challenges",
+      "titulo": "type-challenges — exercícios de tipo com resposta conferida pelo compilador, do mais fácil ao extremo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-genericos",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 480,
+      "url": "https://github.com/type-challenges/type-challenges",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
     },
     {
       "id": "rec:web/typescript-basico-pt",
@@ -9684,6 +10185,20 @@
       "disponivel": true,
       "obra": "allen-what-every-web-developer-http",
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/zod-validacao-na-borda",
+      "titulo": "Zod — documentação oficial: validar o dado externo na borda e inferir o tipo do esquema, em vez de afirmá-lo com `as`",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/typescript-predicado-e-assercao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://zod.dev/",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
     }
   ]
 }

@@ -118,3 +118,44 @@ competencias:
       abra sempre o mesmo conteúdo sem depender de estado de sessão, com um template
       base herdado pelos demais; depois mostrar que o cálculo exibido mora fora do
       template, exercitando-o por teste que não sobe servidor.
+
+  # As duas abaixo nascem com trilha:web/typescript-sistema-de-tipos, da leitura de
+  # *Total TypeScript* (Matt Pocock com Taylor Bell, No Starch Press, 2026). São
+  # escritas **gerais** de propósito: a `verificacao` se cobra em qualquer base
+  # TypeScript, não no livro — assim o próximo material da área entra como etapa, sem
+  # reescrever competência. O que o livro é, a trilha diz; o que se passa a saber,
+  # estas dizem.
+  #
+  # Nenhuma substitui comp:web/tipagem-estatica, que continua sendo "usar TypeScript
+  # como ferramenta de projeto" e já tem etapa e evidência possíveis. A fronteira:
+  # lá se modela o estado possível; aqui se deriva um tipo de outro (primeira) e se
+  # configura e sustenta o compilador e a arquitetura (segunda).
+  - id: comp:web/tipos-derivados
+    titulo: Tipos derivados de tipos
+    rev: 1
+    status: ativo
+    descricao: >
+      Derivar um tipo do que já existe em vez de redigitá-lo: `keyof`, `typeof`, acesso
+      indexado, tipo mapeado e tipo condicional, genérico como transformação, e
+      `satisfies` no lugar da anotação que apaga a informação que se queria manter.
+    verificacao: >
+      Diante de um tipo mantido em duplicata — escrito à mão ao lado do valor, do
+      esquema ou da função que ele deveria acompanhar —, derivá-lo da fonte única e
+      mostrar que uma mudança na fonte passa a quebrar a compilação no ponto exato em
+      que a duplicata mentiria calada.
+
+  - id: comp:web/compilador-e-arquitetura-de-tipos
+    titulo: Configuração do compilador e arquitetura de tipos
+    rev: 1
+    status: ativo
+    descricao: >
+      O compilador como parte do projeto: `tsconfig.json` por alvo (aplicação no
+      navegador, Node, biblioteca publicada), resolução de módulo, rigor adotado em
+      etapas, arquivo de declaração e o que é emitido — e a arquitetura que mantém os
+      tipos legíveis e conferíveis quando o projeto cresce.
+    verificacao: >
+      Configurar um projeto do zero para o próprio alvo, justificando cada opção pelo
+      erro que ela passa a pegar ou pelo que ela muda na saída emitida; e, num código
+      cujos tipos ficaram ilegíveis ou lentos de conferir, localizar a construção
+      responsável e substituí-la por uma mais simples sem perder a garantia que ela
+      dava.
