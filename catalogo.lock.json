@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 53,
-  "gerado_em": "2026-11-02T20:18:05+00:00",
-  "hash": "sha256:292ea8e7be3881c45e73305d7e3c1ae3571e2bc37112b020cb9925cec7ea3f08",
+  "catalogo_versao": 54,
+  "gerado_em": "2026-11-05T12:39:01+00:00",
+  "hash": "sha256:75c40ff2207a4ec4c075c17d021ee9921855334fce5c7238ad45a780a967af02",
   "competencias": [
     {
       "id": "comp:dados/algebra-relacional",
@@ -37,12 +37,28 @@
       "descricao": "Os três níveis — externo, conceitual e interno —, a independência de dados que a separação compra, o catálogo do próprio sistema e o que cabe ao SGBD em vez de caber à aplicação.\n"
     },
     {
+      "id": "comp:dados/comparacao-estatistica-de-modelos",
+      "titulo": "Comparação estatística de modelos",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dadas as pontuações de dois modelos sobre as mesmas dobras, decidir se a diferença se sustenta, relatando intervalo da diferença e tamanho de efeito, e demonstrar numericamente por que o teste t ingênuo sobre as dobras subestima a variância — nomeando a dependência que a correção trata.",
+      "descricao": "Decidir se a diferença de desempenho entre dois modelos se sustenta: a dependência entre dobras de validação cruzada, o teste t pareado corrigido de Nadeau e Bengio, o intervalo da diferença e o tamanho de efeito — em lugar de comparar duas médias de métrica e declarar a maior vencedora.\n"
+    },
+    {
       "id": "comp:dados/enquadramento-analitico",
       "titulo": "Enquadramento analítico de um problema",
       "rev": 1,
       "status": "ativo",
       "verificacao": "A partir de um pedido vago de uma área não técnica, entregar o enquadramento: pergunta reformulada, dado necessário, critério de sucesso e o que faria você recomendar **não** seguir com a análise.",
       "descricao": "Traduzir uma pergunta de negócio em pergunta respondível por dados: o que seria evidência, qual a unidade de análise, qual o custo de errar para cada lado, e quando os dados disponíveis não respondem à pergunta feita.\n"
+    },
+    {
+      "id": "comp:dados/escolha-de-teste-estatistico",
+      "titulo": "Escolha do teste de hipótese",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Para três perguntas com delineamentos diferentes, escolher o teste, nomear os pressupostos que ele assume e como se confere cada um, e indicar a alternativa quando um deles falha; e explicar por que um resultado significativo de ANOVA não diz qual média difere.",
+      "descricao": "Escolher o teste pela pergunta, pelo delineamento e pelos pressupostos, não pelo hábito: t para médias de dois grupos, ANOVA para três ou mais com as comparações post-hoc que a seguem, qui-quadrado para associação entre categóricas — e o que fazer quando um pressuposto não se sustenta.\n"
     },
     {
       "id": "comp:dados/inferencia-estatistica",
@@ -101,12 +117,36 @@
       "descricao": "Escrever e ler SQL sabendo a que operação do modelo cada construção corresponde: junção, agrupamento, subconsulta correlacionada, e os pontos em que a linguagem diverge do modelo — duplicatas, ordem e nulos.\n"
     },
     {
+      "id": "comp:dados/tamanho-de-efeito",
+      "titulo": "Tamanho de efeito e relevância prática",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "A partir de um resultado significativo, calcular o tamanho de efeito adequado ao delineamento, apresentá-lo com intervalo de confiança e sustentar uma decisão sobre relevância prática; e explicar por que um p-valor pequeno é compatível com um efeito desprezível, e um p-valor grande com um efeito relevante.",
+      "descricao": "A magnitude como pergunta separada da significância: d de Cohen entre duas médias, η² e ω² em ANOVA, V de Cramér em associação categórica, r de Pearson e ρ de Spearman em associação — cada um com o intervalo que o acompanha.\n"
+    },
+    {
       "id": "comp:dados/transacoes-e-concorrencia",
       "titulo": "Transação, recuperação e concorrência",
       "rev": 1,
       "status": "ativo",
       "verificacao": "Dado um entrelaçamento de duas transações, nomear a anomalia que ele produz e o nível de isolamento que a impede, e descrever o que o log permite refazer e desfazer numa falha ocorrida no meio do entrelaçamento.",
       "descricao": "A transação como unidade atômica de trabalho: log e pontos de verificação na recuperação, bloqueio e serialização no acesso concorrente, as anomalias que cada nível de isolamento admite e o impasse que o bloqueio cria.\n"
+    },
+    {
+      "id": "comp:dados/vies-de-amostragem",
+      "titulo": "Viés de amostragem e representatividade",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um conjunto e a população que ele deveria representar, apontar em que o processo de coleta os separa, medir o desempenho por subgrupo exibindo onde ele cai, e dizer o que na coleta precisaria mudar — distinguindo o que a reponderação resolve do que só a coleta nova resolve.",
+      "descricao": "O processo de seleção como fonte de erro que nenhum volume de dado corrige: quando a amostra favorece alguns casos, ela deixa de representar a população de interesse, e o desempenho agregado esconde o desempenho por subgrupo.\n"
+    },
+    {
+      "id": "comp:dados/vies-e-variancia",
+      "titulo": "Diagnóstico de viés e variância de um modelo",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Diante das curvas de treino e validação de um modelo que você não ajustou, dizer se ele subajusta ou sobreajusta, qual das duas parcelas do erro domina, e qual mudança — mais complexidade, mais regularização, mais dado — atacaria essa parcela; e dizer o que aconteceria com a outra.",
+      "descricao": "Ler o erro de um modelo pela decomposição que o produz: viés alto como relação relevante que o modelo não captura, variância alta como sensibilidade ao conjunto de treino, e o que a curva de validação mostra de um e de outro — com complexidade e regularização como os dois controles disponíveis.\n"
     },
     {
       "id": "comp:dados/visualizacao-de-dados",
@@ -901,6 +941,36 @@
       ]
     },
     {
+      "id": "etapa:dados/comparacao-estatistica-de-modelos",
+      "titulo": "Este modelo é melhor? O teste t corrigido de Nadeau e Bengio",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 720,
+      "descricao": "Comparar dois modelos é um problema de inferência com uma dificuldade própria: as dobras de validação cruzada compartilham dados de treino, logo as pontuações não são independentes, e o teste t ingênuo sobre elas subestima a variância e encontra diferença onde não há. A etapa fecha a correção de Nadeau e Bengio, o teste pareado 5x2cv e o que relatar junto com o resultado.\n",
+      "trilha": "trilha:dados/estatistica-na-avaliacao-de-modelos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:dados/tamanho-de-efeito",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:dados/vies-e-variancia",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:programacao/python-dados",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:dados/comparacao-estatistica-de-modelos",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:dados/dependencia-e-normalizacao",
       "titulo": "Dependência funcional e normalização até a FNBC",
       "rev": 1,
@@ -919,6 +989,22 @@
         {
           "competencia": "comp:dados/projeto-de-esquema",
           "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:dados/dispersao-do-desempenho",
+      "titulo": "A média não é o desempenho — variância e desvio-padrão do erro",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 360,
+      "descricao": "Dois modelos com o mesmo MAE médio podem variar de forma muito diferente entre partições dos dados, e a média sozinha não distingue um do outro. A etapa fecha variância e desvio-padrão como medidas de dispersão do próprio desempenho, e a distribuição amostral de uma métrica como objeto que se obtém reamostrando, antes de qualquer fórmula fechada.\n",
+      "trilha": "trilha:dados/estatistica-na-avaliacao-de-modelos",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:dados/inferencia-estatistica",
+          "nivel_resultante": "iniciante"
         }
       ]
     },
@@ -945,6 +1031,28 @@
       ]
     },
     {
+      "id": "etapa:dados/escolha-do-teste-de-hipotese",
+      "titulo": "t, ANOVA e qui-quadrado — escolher o teste pela pergunta",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 720,
+      "descricao": "O teste como medida de compatibilidade entre dado e hipótese nula, e a escolha feita pela pergunta, pelo delineamento e pelos pressupostos: t para duas médias, ANOVA para três ou mais com as comparações post-hoc que a seguem, qui-quadrado para associação entre categóricas — e a alternativa de cada um quando um pressuposto não se sustenta.\n",
+      "trilha": "trilha:dados/estatistica-na-avaliacao-de-modelos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:dados/inferencia-estatistica",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:dados/escolha-de-teste-estatistico",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:dados/estatistica-aplicada",
       "titulo": "Da amostra à afirmação — inferência aplicada",
       "rev": 1,
@@ -961,6 +1069,28 @@
         {
           "competencia": "comp:dados/matematica-para-dados",
           "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:dados/inferencia-estatistica",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:dados/intervalo-de-confianca-do-desempenho",
+      "titulo": "Intervalo de confiança — a precisão da estimativa, inclusive da diferença",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "descricao": "Do ponto ao intervalo: a estimativa de uma métrica e a estimativa da *diferença* entre duas, com a largura do intervalo lida como precisão. Inclui a leitura frequentista correta — o procedimento de 95% cobre o parâmetro em cerca de 95% das amostras repetidas, se os pressupostos valem — e o que ela não autoriza dizer de um intervalo já calculado.\n",
+      "trilha": "trilha:dados/estatistica-na-avaliacao-de-modelos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:dados/inferencia-estatistica",
+          "nivel_minimo": "iniciante"
         }
       ],
       "teaches": [
@@ -1089,6 +1219,36 @@
       ]
     },
     {
+      "id": "etapa:dados/p-valor-e-tamanho-de-efeito",
+      "titulo": "O p-valor não diz magnitude — d de Cohen, η², V de Cramér, r e ρ",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "descricao": "O que o p-valor é — probabilidade de uma estatística ao menos tão extrema, sob a nula e sob os pressupostos do teste — e o que ele não é: magnitude nem relevância prática. A etapa fecha o tamanho de efeito adequado a cada delineamento, apresentado com intervalo, e os erros de leitura que a literatura catalogou.\n",
+      "trilha": "trilha:dados/estatistica-na-avaliacao-de-modelos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:dados/escolha-de-teste-estatistico",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:dados/inferencia-estatistica",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:dados/tamanho-de-efeito",
+          "nivel_resultante": "intermediario"
+        },
+        {
+          "competencia": "comp:dados/inferencia-estatistica",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
       "id": "etapa:dados/projeto-analise-ponta-a-ponta",
       "titulo": "Projeto — análise ponta a ponta sobre dado real e sujo",
       "rev": 1,
@@ -1114,6 +1274,32 @@
       "teaches": [
         {
           "competencia": "comp:dados/analise-exploratoria",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:dados/projeto-dois-modelos-comparados",
+      "titulo": "Projeto — decidir entre dois modelos e sustentar a decisão",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "descricao": "Uma comparação inteira sobre um conjunto público: dois modelos sobre as mesmas dobras, a diferença relatada com intervalo e tamanho de efeito, o teste corrigido aplicado e justificado, e uma seção sobre o que a procedência do conjunto impede de concluir. A entrega é a decisão e o que a sustentaria se contestada.\n",
+      "trilha": "trilha:dados/estatistica-na-avaliacao-de-modelos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:dados/comparacao-estatistica-de-modelos",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:dados/vies-de-amostragem",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:dados/comparacao-estatistica-de-modelos",
           "nivel_resultante": "avancado"
         }
       ]
@@ -1192,6 +1378,50 @@
       "teaches": [
         {
           "competencia": "comp:dados/transacoes-e-concorrencia",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:dados/vies-de-amostragem",
+      "titulo": "Viés de amostragem — quando a amostra não é a população de interesse",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 480,
+      "descricao": "O erro que vem do processo de seleção, e que mais dado não corrige: a amostra favorece alguns casos e deixa de representar a população sobre a qual o modelo vai decidir. A prática é comparar amostra e população-alvo, medir desempenho por subgrupo e documentar a procedência do conjunto.\n",
+      "trilha": "trilha:dados/estatistica-na-avaliacao-de-modelos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:dados/inferencia-estatistica",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:dados/vies-de-amostragem",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:dados/vies-e-variancia-do-modelo",
+      "titulo": "Viés e variância — subajuste, sobreajuste e o que a validação mostra",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "descricao": "A dispersão do erro lida como propriedade do modelo: viés alto é relação relevante não capturada, variância alta é sensibilidade ao conjunto de treino, e a curva de validação separa um caso do outro. Complexidade e regularização entram como os dois controles, com o custo de mexer em cada um.\n",
+      "trilha": "trilha:dados/estatistica-na-avaliacao-de-modelos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:dados/inferencia-estatistica",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:dados/vies-e-variancia",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -3802,6 +4032,40 @@
       ]
     },
     {
+      "id": "trilha:dados/estatistica-na-avaliacao-de-modelos",
+      "titulo": "Estatística na avaliação de modelos",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:dados/comparacao-estatistica-de-modelos",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:dados/inferencia-estatistica",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:dados/tamanho-de-efeito",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:dados/dispersao-do-desempenho",
+        "etapa:dados/vies-e-variancia-do-modelo",
+        "etapa:dados/vies-de-amostragem",
+        "etapa:dados/intervalo-de-confianca-do-desempenho",
+        "etapa:dados/escolha-do-teste-de-hipotese",
+        "etapa:dados/p-valor-e-tamanho-de-efeito",
+        "etapa:dados/comparacao-estatistica-de-modelos",
+        "etapa:dados/projeto-dois-modelos-comparados"
+      ],
+      "etapas_referenciadas": [
+        "etapa:programacao/python-para-ia",
+        "etapa:dados/numpy-e-pandas"
+      ]
+    },
+    {
       "id": "trilha:economia/tecnofeudalismo",
       "titulo": "Tecnofeudalismo — economia política do capital de nuvem",
       "rev": 1,
@@ -4302,6 +4566,20 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:dados/datasheets-for-datasets",
+      "titulo": "Datasheets for Datasets (Gebru et al., arXiv 1803.09010) — o questionário de procedência que torna o viés de coleta declarável",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/vies-de-amostragem",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://arxiv.org/abs/1803.09010",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
+    },
+    {
       "id": "rec:dados/date-vol1-algebra-e-calculo",
       "titulo": "An Introduction to Database Systems, vol. I — álgebra relacional, cálculo relacional e completude",
       "rev": 2,
@@ -4466,6 +4744,20 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:dados/fairlearn-avaliacao-por-subgrupo",
+      "titulo": "Fairlearn — guia do usuário: avaliação de desempenho por subgrupo e métricas desagregadas",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/vies-de-amostragem",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://fairlearn.org/main/user_guide/index.html",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
+    },
+    {
       "id": "rec:dados/feltrin-analise-exploratoria",
       "titulo": "Análise Exploratória de Dados com Python, Pandas e NumPy (Fernando Feltrin)",
       "rev": 2,
@@ -4494,6 +4786,21 @@
       "disponivel": true,
       "obra": "wilke-fundamentals-data-visualization",
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:dados/geron-intervalo-do-rmse",
+      "titulo": "Hands-On Machine Learning, 3ª ed. (Géron) — cap. 2: intervalo de confiança para o RMSE no conjunto de teste",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/intervalo-de-confianca-do-desempenho",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 350.0,
+      "duracao_min": 120,
+      "url": "https://github.com/ageron/handson-ml3",
+      "disponivel": true,
+      "obra": "handson-ml",
+      "verificado_em": "2026-11-05"
     },
     {
       "id": "rec:dados/handson-ml-parte1",
@@ -4526,6 +4833,21 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:dados/lakens-inferencias-estatisticas",
+      "titulo": "Improving Your Statistical Inferences (Daniël Lakens) — livro aberto: p-valor, tamanho de efeito, intervalo e o que cada um responde",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/p-valor-e-tamanho-de-efeito",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://lakens.github.io/statistical_inferences/",
+      "disponivel": true,
+      "obra": "lakens-statistical-inferences",
+      "verificado_em": "2026-11-05"
+    },
+    {
       "id": "rec:dados/matplotlib-e-seaborn-guias",
       "titulo": "Matplotlib e seaborn — tutoriais oficiais de escolha de forma e escala",
       "rev": 1,
@@ -4553,6 +4875,34 @@
       "disponivel": true,
       "obra": "mckinney-python-analise-de-dados",
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:dados/mlxtend-teste-t-pareado-5x2cv",
+      "titulo": "mlxtend — paired_ttest_5x2cv e paired_ttest_kfold_cv: os testes pareados de comparação de classificadores, documentados com exemplo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/comparacao-estatistica-de-modelos",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://rasbt.github.io/mlxtend/user_guide/evaluate/paired_ttest_5x2cv/",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:dados/nadeau-bengio-erro-de-generalizacao",
+      "titulo": "Inference for the Generalization Error (Nadeau & Bengio, NeurIPS 1999) — a correção de variância que o nome da etapa cita",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/comparacao-estatistica-de-modelos",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://papers.nips.cc/paper_files/paper/1999/hash/7d12b66d3df6af8d429c1a357d8b9e1a-Abstract.html",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
     },
     {
       "id": "rec:dados/pandas-guia-oficial",
@@ -4583,6 +4933,20 @@
       "verificado_em": "2026-10-15"
     },
     {
+      "id": "rec:dados/post-estatistica-em-ml",
+      "titulo": "Estatística em Machine Learning: o que média, variabilidade e testes realmente mostram (Mara Dantas Pereira) — publicação de uma página, o mapa que originou esta trilha",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/dispersao-do-desempenho",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 15,
+      "url": "https://www.linkedin.com/posts/mara-dantas-pereira-407555121_machinelearning-datascience-inteligenciaartificial-activity-7523824064273149952-7d4N",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
+    },
+    {
       "id": "rec:dados/postgres-isolamento-e-mvcc",
       "titulo": "PostgreSQL — controle de concorrência: níveis de isolamento, anomalias e MVCC (o que o livro de 1990 não alcança)",
       "rev": 1,
@@ -4595,6 +4959,20 @@
       "url": "https://www.postgresql.org/docs/current/transaction-iso.html",
       "disponivel": true,
       "verificado_em": "2026-10-15"
+    },
+    {
+      "id": "rec:dados/projeto-comparacao-uci",
+      "titulo": "Projeto — dois modelos sobre um conjunto do UCI Machine Learning Repository, comparados pelo protocolo de Raschka e com a procedência do conjunto discutida",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/projeto-dois-modelos-comparados",
+      "formato": "projeto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://archive.ics.uci.edu/",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
     },
     {
       "id": "rec:dados/projeto-corpus-publico",
@@ -4640,6 +5018,34 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:dados/raschka-avaliacao-parte1",
+      "titulo": "Model Evaluation, Model Selection, and Algorithm Selection in ML (Raschka, arXiv 1811.12808) — parte I: viés, variância e a honestidade do conjunto de teste",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/vies-e-variancia-do-modelo",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://arxiv.org/abs/1811.12808",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:dados/raschka-avaliacao-parte3",
+      "titulo": "Model Evaluation, Model Selection, and Algorithm Selection in ML (Raschka, arXiv 1811.12808) — parte III: o protocolo de comparação de algoritmos, usado como roteiro do projeto",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/projeto-dois-modelos-comparados",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://arxiv.org/abs/1811.12808",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
+    },
+    {
       "id": "rec:dados/santos-algebra-linear-python",
       "titulo": "Álgebra Linear com Python (Rafael F.V.C. Santos) — só a álgebra linear da etapa, não o cálculo",
       "rev": 2,
@@ -4669,6 +5075,48 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:dados/seeing-theory-inferencia",
+      "titulo": "Seeing Theory (Brown University) — capítulos interativos de inferência frequentista: distribuição amostral e cobertura do intervalo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/intervalo-de-confianca-do-desempenho",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://seeing-theory.brown.edu/",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:dados/sklearn-comparacao-estatistica",
+      "titulo": "scikit-learn — comparação estatística de modelos por busca em grade: o t pareado corrigido para a dependência entre dobras, com código",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/comparacao-estatistica-de-modelos",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://scikit-learn.org/stable/auto_examples/model_selection/plot_grid_search_stats.html",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:dados/sklearn-curva-de-validacao",
+      "titulo": "scikit-learn — curvas de validação e de aprendizado: subajuste, sobreajuste e o diagnóstico pelo gráfico",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/vies-e-variancia-do-modelo",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://scikit-learn.org/stable/modules/learning_curve.html",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
+    },
+    {
       "id": "rec:dados/statistical-rethinking-aulas",
       "titulo": "Statistical Rethinking (Richard McElreath) — aulas gravadas e material aberto",
       "rev": 1,
@@ -4681,6 +5129,21 @@
       "url": "https://github.com/rmcelreath/stat_rethinking_2024",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:dados/statistics-done-wrong",
+      "titulo": "Statistics Done Wrong (Alex Reinhart) — edição aberta: o catálogo dos erros de leitura de significância",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/p-valor-e-tamanho-de-efeito",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://www.statisticsdonewrong.com/",
+      "disponivel": true,
+      "obra": "reinhart-statistics-done-wrong",
+      "verificado_em": "2026-11-05"
     },
     {
       "id": "rec:dados/think-stats",
@@ -4698,6 +5161,51 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:dados/think-stats-dispersao",
+      "titulo": "Think Stats, 3ª ed. (Downey) — distribuições, variância e desvio-padrão, e a distribuição amostral obtida por reamostragem",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/dispersao-do-desempenho",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://allendowney.github.io/ThinkStats/",
+      "disponivel": true,
+      "obra": "downey-think-stats",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:dados/think-stats-estimativa-e-intervalo",
+      "titulo": "Think Stats, 3ª ed. (Downey) — estimativa, erro padrão e intervalo de confiança por simulação",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/intervalo-de-confianca-do-desempenho",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://allendowney.github.io/ThinkStats/",
+      "disponivel": true,
+      "obra": "downey-think-stats",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:dados/think-stats-testes-de-hipotese",
+      "titulo": "Think Stats, 3ª ed. (Downey) — teste de hipótese por simulação: a estatística de teste, a nula e os exercícios do capítulo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/escolha-do-teste-de-hipotese",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 360,
+      "url": "https://allendowney.github.io/ThinkStats/",
+      "disponivel": true,
+      "obra": "downey-think-stats",
+      "verificado_em": "2026-11-05"
+    },
+    {
       "id": "rec:dados/tufte-visual-display",
       "titulo": "The Visual Display of Quantitative Information, 2ª ed. (Edward R. Tufte) — leitura crítica do gráfico: data-ink, chartjunk e fator de mentira",
       "rev": 2,
@@ -4711,6 +5219,20 @@
       "disponivel": true,
       "obra": "tufte-visual-display",
       "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:dados/ucla-escolha-do-teste",
+      "titulo": "Choosing the Correct Statistical Test (UCLA OARC) — tabela de delineamento por teste, com o exemplo rodado em R",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/escolha-do-teste-de-hipotese",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://stats.oarc.ucla.edu/other/mult-pkg/whatstat/",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
     },
     {
       "id": "rec:dados/use-the-index-luke",
