@@ -1,0 +1,137 @@
+# Convenções deste arquivo:
+#   custo  — em BRL, aproximado na data de `verificado_em`; 0 = gratuito.
+#   idioma — tag BCP 47.
+#
+# -------------------------------------------------------------------------
+# trilha:cinema/primeiro-cinema-e-vida-moderna
+#
+#   Os cinco exemplares vêm da bibliografia que o estudante trouxe em 2026-11-05, e
+#   quatro deles estão fora de catálogo editorial: Primeiros Passos nº 9 só sai em
+#   reimpressão antiga, a Companhia Editora Nacional não reedita a Coleção Portas
+#   Abertas, a Cosac & Naify fechou em 2015 e a Azougue não tem o título em loja. Por
+#   isso a `url` é a busca do Estante Virtual, e não a página de uma editora: é onde
+#   o exemplar existe para comprar hoje. O `custo` é a **oferta mais baixa observada
+#   na busca em 2026-11-05**, livro usado incluído — preço de sebo oscila por
+#   exemplar, e o número aqui envelhece mais rápido que o link.
+#
+#   obra: hobsbawm-era-dos-imperios — as duas fatias são do mesmo exemplar e por isso
+#     declaram o mesmo custo (docs/catalogo.md §5.12). A edição citada pelo estudante é
+#     a Paz e Terra de 2015, tradução de Sieni Maria Campos e Yolanda Steidel de
+#     Toledo; as ofertas de R$ 10 cobrem várias reimpressões do mesmo texto. **Dos
+#     treze capítulos, só se confirmaram aqui os títulos do cap. 1 ("A revolução
+#     centenária") e do cap. 9 ("As artes transformadas")** — o sumário varia entre a
+#     edição brasileira e a inglesa, então confira o título do capítulo no exemplar,
+#     não só o número.
+#
+#   rec:cinema/capuzzo-aventura-do-sonho — Companhia Editora Nacional, 1986, Coleção
+#     Portas Abertas vol. 12, ~118 p., sem ISBN. **Não se achou resenha nem sumário**:
+#     a ficha bibliográfica se confirmou, o conteúdo não. Por isso ele entra como
+#     segundo recurso da etapa de abertura, ao lado de Bernardet, e nenhuma descrição
+#     de etapa se apoia nele. Quem o ler primeiro corrige esta nota.
+#
+#   rec:cinema/costa-o-primeiro-cinema — o estudante citou a 2. ed. (Azougue, 2005), e
+#     é ela que está declarada. Havia uma única oferta dela na data, a R$ 240; a 1ª ed.
+#     (1995) saía a partir de R$ 98,90. Se a 2ª ed. sumir das buscas, a 1ª ed. é a
+#     substituta natural — como exemplar próprio, com `obra` e `custo` seus.
+# -------------------------------------------------------------------------
+versao_schema: 1
+recursos:
+  # --- etapa:cinema/o-que-e-cinema ----------------------------------------
+  # Primeiros Passos nº 9, 1980. ~100 p. de formato pequeno; a duração é de leitura
+  # com anotação, que é o que a etapa cobra do vocabulário.
+  - id: rec:cinema/bernardet-o-que-e-cinema
+    etapa: etapa:cinema/o-que-e-cinema
+    titulo: "O que é cinema (Jean-Claude Bernardet, Brasiliense, 1980 — Coleção Primeiros Passos 9)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 10
+    obra: bernardet-o-que-e-cinema
+    duracao_min: 180
+    url: https://www.estantevirtual.com.br/busca?q=o+que+e+cinema+bernardet
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  - id: rec:cinema/capuzzo-aventura-do-sonho
+    etapa: etapa:cinema/o-que-e-cinema
+    titulo: "Cinema: a aventura do sonho (Heitor Capuzzo, Companhia Editora Nacional, 1986 — Coleção Portas Abertas 12)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 12
+    obra: capuzzo-aventura-do-sonho
+    duracao_min: 120
+    url: https://www.estantevirtual.com.br/busca?q=cinema+a+aventura+do+sonho+capuzzo
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:cinema/a-era-dos-imperios ------------------------------------
+  # A abertura do livro: prefácio, introdução e os capítulos que montam o período —
+  # a revolução centenária, a economia que muda de ritmo e a era do império. É a
+  # fatia longa do exemplar, e a etapa não pede o livro inteiro.
+  - id: rec:cinema/hobsbawm-era-dos-imperios-abertura
+    etapa: etapa:cinema/a-era-dos-imperios
+    titulo: "A era dos impérios, 1875-1914 (Eric J. Hobsbawm, Paz e Terra) — abertura: a revolução centenária, a economia e o império"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 10
+    obra: hobsbawm-era-dos-imperios
+    duracao_min: 420
+    url: https://www.estantevirtual.com.br/busca?q=a+era+dos+imperios+hobsbawm
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:cinema/o-primeiro-cinema -------------------------------------
+  - id: rec:cinema/costa-o-primeiro-cinema
+    etapa: etapa:cinema/o-primeiro-cinema
+    titulo: "O primeiro cinema: espetáculo, narração, domesticação (Flávia Cesarino Costa, Azougue, 2. ed. 2005)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 240
+    obra: costa-o-primeiro-cinema
+    duracao_min: 540
+    url: https://www.estantevirtual.com.br/busca?q=o+primeiro+cinema+flavia+cesarino+costa
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:cinema/invencao-da-vida-moderna ------------------------------
+  # 458 p. de coletânea, com apresentação de Ismail Xavier para a edição brasileira,
+  # introdução dos organizadores e os ensaios que a etapa discute. A duração é a de
+  # ler a coletânea escolhendo os ensaios, não a de varrê-la inteira.
+  - id: rec:cinema/charney-schwartz-vida-moderna
+    etapa: etapa:cinema/invencao-da-vida-moderna
+    titulo: "O cinema e a invenção da vida moderna (Leo Charney e Vanessa R. Schwartz, orgs.; trad. Regina Thompson; Cosac & Naify, 2. ed. 2004)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 99
+    obra: charney-schwartz-vida-moderna
+    duracao_min: 780
+    url: https://www.estantevirtual.com.br/busca?q=o+cinema+e+a+invencao+da+vida+moderna
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # Cap. 9, "As artes transformadas": o mesmo período visto pelas artes, com o público
+  # novo e a cultura de massa que o cinema encontra ao chegar. É a contraprova
+  # histórica da tese de modernidade — por isso fatia própria, nesta etapa, e não na
+  # etapa do período.
+  - id: rec:cinema/hobsbawm-as-artes-transformadas
+    etapa: etapa:cinema/invencao-da-vida-moderna
+    titulo: "A era dos impérios, 1875-1914 (Eric J. Hobsbawm, Paz e Terra) — cap. 9: as artes transformadas"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 10
+    obra: hobsbawm-era-dos-imperios
+    duracao_min: 90
+    url: https://www.estantevirtual.com.br/busca?q=a+era+dos+imperios+hobsbawm
+    disponivel: true
+    verificado_em: 2026-11-05

@@ -1,9 +1,49 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 55,
-  "gerado_em": "2026-11-05T14:22:23+00:00",
-  "hash": "sha256:89a1f22d2d9d35c2b700f3cd2072efda47d04f42eb20655ecf11b0b2732b91b9",
+  "catalogo_versao": 56,
+  "gerado_em": "2026-11-05T18:55:20+00:00",
+  "hash": "sha256:a3d910a7104e8f345ef2e118c2cea23c19cb45efad38d2789c0f2ad5f0d0b948",
   "competencias": [
+    {
+      "id": "comp:cinema/cinema-como-industria-e-ideologia",
+      "titulo": "Crítica da aparência de neutralidade do filme",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Diante de um filme de ficção: listar três escolhas que o fazem parecer registro transparente do mundo — enquadramento, ponto de vista, decupagem, elenco, trilha — e dizer, em cada caso, o que fica fora do quadro por causa dela; relacionar ao menos duas dessas escolhas a condições de produção (quem financiou, para que público, em que regime de exibição); e apontar uma afirmação sobre o mundo que o filme sustenta de fato, dizendo o que nele a sustenta.",
+      "descricao": "Um filme não é janela: alguém escolheu de onde a câmera olha, quem fala, o que fica fora do quadro, quanto se gastou e para que público. A competência é desfazer a transparência — ligar o efeito de registro fiel às escolhas de linguagem e às condições de produção que o fabricam, sem transformar isso em suspeita genérica de que todo filme mente.\n"
+    },
+    {
+      "id": "comp:cinema/cinema-e-modernidade",
+      "titulo": "Relação entre uma forma cultural e a experiência moderna",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um fenômeno da vida urbana do fim do século XIX — panorama, vitrine de loja de departamentos, bulevar, viagem de trem, museu de cera, jornal ilustrado — e um filme do mesmo período: dizer que regime de percepção os dois compartilham e em que diferem; e separar, no próprio argumento, o que se apoia em evidência documentada (público, local de exibição, imprensa da época) do que é analogia entre formas, dizendo que documento faltaria para converter a analogia em tese.",
+      "descricao": "A tese de que o cinema deu forma à percepção moderna — choque, multidão, vitrine, velocidade — é fértil e fácil de usar mal: duas formas que se parecem não provam que uma produziu a outra. A competência inclui classificar o próprio argumento, dizendo onde ele se apoia em documento e onde é analogia.\n"
+    },
+    {
+      "id": "comp:cinema/contexto-historico-de-uma-forma-cultural",
+      "titulo": "Situar uma forma cultural na história econômica e política de seu período",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dada uma novidade cultural e as três décadas em que ela aparece: nomear as condições econômicas, políticas e sociais do período que a tornaram possível — mercado, técnica, público urbano, cidade, império — dizendo em cada caso o que ela explica e o que não explica; e refutar, com um fato datado do próprio período, a afirmação de que a novidade era inevitável.",
+      "descricao": "Uma técnica nova não explica a forma cultural que nasce com ela: faltam o mercado que a financia, a cidade que lhe dá público, o império que a distribui e a política que a tolera. A competência é nomear essas condições para um período datado, com o alcance de cada uma, e resistir à história contada de trás para frente.\n"
+    },
+    {
+      "id": "comp:cinema/historiografia-do-primeiro-cinema",
+      "titulo": "Periodização do primeiro cinema — espetáculo, narração e domesticação",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Diante de um filme anterior a 1915 e de sua data: situá-lo na periodização do primeiro cinema e nomear os traços que sustentam a posição — atração exibida frente à câmera, olhar dirigido à lente, continuidade construída por corte, condução do olhar do espectador, lugar e público da exibição —; e apontar ao menos um traço do filme que contraria a leitura do período como evolução linear rumo à narrativa clássica.",
+      "descricao": "O cinema das duas primeiras décadas não é cinema clássico mal feito. Tem regime próprio — exibição de atração, olhar para a lente, autonomia do quadro — e a competência é situar um filme nesse regime pelos traços que ele mostra, em vez de medi-lo pela narrativa que vem depois.\n"
+    },
+    {
+      "id": "comp:cinema/leitura-do-filme",
+      "titulo": "Leitura de uma sequência de filme — plano, movimento e montagem",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Diante de uma sequência de três a cinco minutos de um filme que não se viu antes: decupar os planos, nomear a escala e o movimento de câmera de cada um, dizer em cada corte que relação a montagem estabelece entre os dois planos, e explicar o que o ponto de vista escolhido mostra e o que ele deixa fora do quadro — sem recorrer ao resumo do argumento.",
+      "descricao": "Ler o que está na tela antes de contar a história que ela narra: onde começa e acaba cada plano, que escala e que movimento de câmera o compõem, que relação o corte estabelece entre dois planos vizinhos, e de que lugar o filme pede que se olhe. O resumo do argumento é justamente o que esta competência não aceita como resposta.\n"
+    },
     {
       "id": "comp:dados/algebra-relacional",
       "titulo": "Álgebra e cálculo relacional",
@@ -894,6 +934,94 @@
     }
   ],
   "etapas": [
+    {
+      "id": "etapa:cinema/a-era-dos-imperios",
+      "titulo": "A era dos impérios (1875-1914) — o mundo em que o cinema aparece",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 420,
+      "descricao": "As quatro décadas em que o cinematógrafo é inventado, lidas por Hobsbawm como história econômica e política: a revolução centenária e a economia que muda de ritmo, o capital que procura mercado fora da Europa, a cidade que concentra público assalariado com tempo livre, e o império que distribui mercadoria e imagem. Estuda-se o período, não o cinema — é o que torna possível dizer depois o que a técnica nova não explica por si.\n",
+      "trilha": "trilha:cinema/primeiro-cinema-e-vida-moderna",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:cinema/contexto-historico-de-uma-forma-cultural",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:cinema/invencao-da-vida-moderna",
+      "titulo": "O cinema e a invenção da vida moderna",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 870,
+      "descricao": "A coletânea de Charney & Schwartz lê o cinema de fora da sua própria história técnica: panorama e diorama, vitrine de loja de departamentos, bulevar, museu de cera, trem, imprensa ilustrada — formas de olhar que já existiam quando o cinematógrafo chegou e com as quais ele disputou o público. A etapa cobra decidir, caso a caso, quando a semelhança entre duas formas é tese documentada e quando é analogia; o capítulo de Hobsbawm sobre as artes do período entra aqui como contraprova histórica, não como ilustração.\n",
+      "trilha": "trilha:cinema/primeiro-cinema-e-vida-moderna",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:cinema/historiografia-do-primeiro-cinema",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/contexto-historico-de-uma-forma-cultural",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:cinema/cinema-e-modernidade",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:cinema/o-primeiro-cinema",
+      "titulo": "O primeiro cinema — espetáculo, narração, domesticação",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 540,
+      "descricao": "O cinema de 1895 a 1915 no seu próprio regime, pelos três movimentos do subtítulo de Flávia Cesarino Costa: a atração exibida frente à câmera, com o ator que olha para a lente e o filme que se vende como número de variedades; a passagem à narração, com continuidade construída no corte; e a domesticação do espetáculo em sala, programa e público respeitável. O corte é ler esses filmes pelo que fazem, não como ensaio imperfeito da narrativa clássica.\n",
+      "trilha": "trilha:cinema/primeiro-cinema-e-vida-moderna",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:cinema/leitura-do-filme",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:cinema/historiografia-do-primeiro-cinema",
+          "nivel_resultante": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/leitura-do-filme",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:cinema/o-que-e-cinema",
+      "titulo": "O que é cinema — linguagem, indústria e ideologia",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "descricao": "A introdução de Bernardet, onde se aprende a desconfiar da tela: a câmera que parece janela e é escolha de quem a põe, o enquadramento que inclui decidindo o que fica fora, a montagem que produz sentido entre dois planos, e o filme como produto de uma indústria com público, custo e censura. O corte é o vocabulário — plano, decupagem, montagem, ponto de vista —, que as etapas seguintes usam sem reapresentar.\n",
+      "trilha": "trilha:cinema/primeiro-cinema-e-vida-moderna",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:cinema/leitura-do-filme",
+          "nivel_resultante": "iniciante"
+        },
+        {
+          "competencia": "comp:cinema/cinema-como-industria-e-ideologia",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
     {
       "id": "etapa:dados/algebra-e-calculo-relacional",
       "titulo": "Álgebra e cálculo relacional — duas formas de dizer a mesma consulta",
@@ -4112,6 +4240,40 @@
   ],
   "trilhas": [
     {
+      "id": "trilha:cinema/primeiro-cinema-e-vida-moderna",
+      "titulo": "Cinema — do primeiro cinema à invenção da vida moderna",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:cinema/leitura-do-filme",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/cinema-como-industria-e-ideologia",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/historiografia-do-primeiro-cinema",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/contexto-historico-de-uma-forma-cultural",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/cinema-e-modernidade",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:cinema/o-que-e-cinema",
+        "etapa:cinema/a-era-dos-imperios",
+        "etapa:cinema/o-primeiro-cinema",
+        "etapa:cinema/invencao-da-vida-moderna"
+      ]
+    },
+    {
       "id": "trilha:dados/analise-de-dados-com-python",
       "titulo": "Análise de dados com Python",
       "rev": 1,
@@ -4704,6 +4866,96 @@
     }
   ],
   "recursos": [
+    {
+      "id": "rec:cinema/bernardet-o-que-e-cinema",
+      "titulo": "O que é cinema (Jean-Claude Bernardet, Brasiliense, 1980 — Coleção Primeiros Passos 9)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/o-que-e-cinema",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 10.0,
+      "duracao_min": 180,
+      "url": "https://www.estantevirtual.com.br/busca?q=o+que+e+cinema+bernardet",
+      "disponivel": true,
+      "obra": "bernardet-o-que-e-cinema",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:cinema/capuzzo-aventura-do-sonho",
+      "titulo": "Cinema: a aventura do sonho (Heitor Capuzzo, Companhia Editora Nacional, 1986 — Coleção Portas Abertas 12)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/o-que-e-cinema",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 12.0,
+      "duracao_min": 120,
+      "url": "https://www.estantevirtual.com.br/busca?q=cinema+a+aventura+do+sonho+capuzzo",
+      "disponivel": true,
+      "obra": "capuzzo-aventura-do-sonho",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:cinema/charney-schwartz-vida-moderna",
+      "titulo": "O cinema e a invenção da vida moderna (Leo Charney e Vanessa R. Schwartz, orgs.; trad. Regina Thompson; Cosac & Naify, 2. ed. 2004)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/invencao-da-vida-moderna",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 99.0,
+      "duracao_min": 780,
+      "url": "https://www.estantevirtual.com.br/busca?q=o+cinema+e+a+invencao+da+vida+moderna",
+      "disponivel": true,
+      "obra": "charney-schwartz-vida-moderna",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:cinema/costa-o-primeiro-cinema",
+      "titulo": "O primeiro cinema: espetáculo, narração, domesticação (Flávia Cesarino Costa, Azougue, 2. ed. 2005)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/o-primeiro-cinema",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 240.0,
+      "duracao_min": 540,
+      "url": "https://www.estantevirtual.com.br/busca?q=o+primeiro+cinema+flavia+cesarino+costa",
+      "disponivel": true,
+      "obra": "costa-o-primeiro-cinema",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:cinema/hobsbawm-as-artes-transformadas",
+      "titulo": "A era dos impérios, 1875-1914 (Eric J. Hobsbawm, Paz e Terra) — cap. 9: as artes transformadas",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/invencao-da-vida-moderna",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 10.0,
+      "duracao_min": 90,
+      "url": "https://www.estantevirtual.com.br/busca?q=a+era+dos+imperios+hobsbawm",
+      "disponivel": true,
+      "obra": "hobsbawm-era-dos-imperios",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:cinema/hobsbawm-era-dos-imperios-abertura",
+      "titulo": "A era dos impérios, 1875-1914 (Eric J. Hobsbawm, Paz e Terra) — abertura: a revolução centenária, a economia e o império",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/a-era-dos-imperios",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 10.0,
+      "duracao_min": 420,
+      "url": "https://www.estantevirtual.com.br/busca?q=a+era+dos+imperios+hobsbawm",
+      "disponivel": true,
+      "obra": "hobsbawm-era-dos-imperios",
+      "verificado_em": "2026-11-05"
+    },
     {
       "id": "rec:dados/arquitetura-de-sgbd-hellerstein",
       "titulo": "Architecture of a Database System (Hellerstein, Stonebraker & Hamilton) — como um SGBD moderno é organizado por dentro",
