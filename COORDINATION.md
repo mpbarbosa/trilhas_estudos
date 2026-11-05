@@ -57,22 +57,30 @@ desta entrega — apareceram na árvore em minutos, uma depois da outra, e saír
 daqui no commit que as levou (regra 4). A tabela vale no momento em que você a
 lê e não substitui um `git status -uall` antes de escrever.
 
-## Observação datada — 2026-11-01
+## Observação datada — 2026-11-05
 
-Fatos que o git mostra mas que ninguém reivindicou. Não são lista de verdade:
-regenere com os comandos antes de agir sobre qualquer um deles.
+A observação de 2026-11-01 listava seis branches remotos `claude/project-thread-*`
+e três worktrees em HEAD destacado, e **errava num ponto que importava**: dizia que
+cinco daqueles branches não tinham PR. Tinham — os PRs #31, #33, #34, #35 e #36,
+todos mesclados. O que os manteve de pé foi `deleteBranchOnMerge` desligado
+(`gh repo view --json deleteBranchOnMerge`), não ausência de revisão.
 
-- **Seis branches remotos `claude/project-thread-*`, um só com PR aberto**
-  ([#32](https://github.com/mpbarbosa/trilhas_estudos/pull/32), parado desde
-  2026-10-22). Os outros cinco não têm PR e não têm dono aqui.
-  `gh pr list --state open` e `git ls-remote --heads origin`.
-- **Três worktrees em `.claude/worktrees/` em HEAD destacado**, nos commits
-  `4ae7d54`, `fb3410d` e `0aa384a` — os dois últimos são merges de PR já
-  fechados (#23, #22). O diretório está em `.git/info/exclude`, então nada disso
-  aparece em `git status`. `git worktree list`.
+Encerrados em 2026-11-05, depois de reconferir cada um imediatamente antes de
+apagar (árvore limpa, HEAD ancestral de `origin/main`, zero commits exclusivos):
+os três worktrees e os cinco branches com PR mesclado, nas três camadas.
 
-Cada um desses é candidato a encerramento, não lixo comprovado: um worktree em
-HEAD destacado pode guardar trabalho não commitado, e um branch remoto sem PR
-pode ser a única cópia de um commit. Rode `scripts/conferir-branch.sh` e siga a
-skill `encerrar-branch` antes de apagar qualquer coisa — e pergunte ao usuário,
-porque nenhum desses é seu.
+**Deixado de propósito, não é lixo:** o branch remoto
+`claude/project-thread-ipajii`, do [PR #32](https://github.com/mpbarbosa/trilhas_estudos/pull/32),
+aberto desde 2026-10-22 e o único com commit fora da `main`. Propõe um campo
+`parte_de` (capítulo como parte de um recurso) que a `main` **não** adotou: o
+problema foi resolvido por `obra`
+([ADR-0009](docs/adr/0009-obra-como-campo-de-agrupamento-no-recurso.md)) e fechado
+por [ADR-0020](docs/adr/0020-obra-declarada-tambem-em-exemplar-nao-fatiado.md),
+aceita depois do PR. Reviver exige renumerar a ADR (o número 0019 já é de outra,
+aceita) e resolver três conflitos — `git merge-tree --write-tree origin/main
+origin/claude/project-thread-ipajii` os nomeia. **Não apague sem decidir isso com
+o usuário:** fechar o PR é decisão de rumo, não limpeza.
+
+Nada aqui é lista de verdade: regenere com `git worktree list`,
+`git ls-remote --heads origin`, `git branch -r` e `gh pr list --state all` antes de
+agir, e siga a skill `encerrar-branch`.
