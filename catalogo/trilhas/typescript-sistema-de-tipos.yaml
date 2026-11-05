@@ -1,0 +1,215 @@
+# Trilha nascida de um exemplar: *Total TypeScript* (Matt Pocock com Taylor Bell,
+# No Starch Press, 14/04/2026, 432 p., ISBN 9781718504165). O livro se declara "a
+# workshop in print" e põe o editor primeiro — aprende-se tipo lendo o que o
+# compilador responde, não decorando regra —, e a progressão que a editora declara é
+# a do grafo abaixo: ambiente e anotação, união e estreitamento, objeto e classe,
+# genérico, derivação e transformação de tipos, predicado e função de asserção,
+# configuração do compilador, arquitetura de tipos, aplicação do zero.
+#
+# Por que trilha e não recurso em etapa:web/typescript-como-projeto: aquela etapa
+# tem 720 min e ensina comp:web/tipagem-estatica no nível intermediário — é a camada
+# de tipos *dentro* de trilha:web/do-protocolo-a-interface, cujo objetivo é interface
+# por componentes. Um exemplar de 432 páginas com exercício em cada capítulo, que
+# termina em arquitetura de tipos e configuração de compilador por alvo, não é fatia
+# daquela etapa: é objetivo próprio, com matrícula própria. A etapa de lá continua
+# onde está, com os recursos de lá, e nada aqui a deprecia — quem quer a camada de
+# tipos a caminho da interface continua tendo o caminho curto.
+#
+# Por que `etapas_referenciadas: []` e `requires: []` na primeira etapa. TypeScript
+# pressupõe ler JavaScript, e o catálogo tem a competência: comp:web/javascript-de-
+# aplicacao. Exigi-la aqui, porém, arrasta cascata — a validação 6 monta o fecho
+# sobre as etapas da própria trilha partindo de perfil vazio
+# (src/trilhas/catalogo/validar.py, `_v6_objetivo_alcancavel`), e
+# etapa:web/javascript-de-aplicacao exige comp:web/documento-e-estilo: para destravar,
+# esta trilha teria de emprestar também a etapa de HTML e CSS. Seriam 2100 min de
+# documento e DOM antes da primeira anotação, numa trilha sobre sistema de tipos, e a
+# matrícula viraria segunda porta da trilha de web. A forma escolhida é a de
+# catalogo/etapas/avulsas.yaml e de ADR-0018: entrada com `requires: []`, pelo mesmo
+# argumento que etapa:programacao/programacao-de-sistemas usou ao não exigir
+# comp:so/linha-de-comando — o esforço declarado é de quem parte do zero, quem já
+# escreve JavaScript passa direto pela verificação, e a etapa é o caminho, não o
+# pedágio.
+versao_schema: 1
+trilha:
+  id: trilha:web/typescript-sistema-de-tipos
+  titulo: TypeScript — do tipo primitivo à arquitetura de tipos
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:web/tipagem-estatica
+      nivel: avancado
+    - competencia: comp:web/tipos-derivados
+      nivel: avancado
+    - competencia: comp:web/compilador-e-arquitetura-de-tipos
+      nivel: avancado
+
+  # O grafo abre em leque depois da entrada: objeto/classe e união/estreitamento não
+  # dependem uma da outra e se cursam em qualquer ordem (ADR-0002), e os dois ramos
+  # de nível avançado — predicado e asserção, de um lado; derivação, do outro —
+  # voltam a se encontrar na etapa do compilador.
+  etapas:
+    # --- Entrada -------------------------------------------------------------
+    - id: etapa:web/typescript-ambiente-e-anotacao
+      titulo: O ambiente, o editor como professor e a primeira anotação
+      rev: 1
+      status: ativo
+      descricao: >
+        Um projeto TypeScript que compila antes de haver o que compilar: `tsc`, o
+        mínimo de `tsconfig.json`, e o editor configurado para responder. A partir daí,
+        tipo primitivo, anotação de variável, parâmetro e retorno, e a prática que o
+        livro põe em primeiro lugar — ler a mensagem de erro até o fim e tratá-la como
+        aula, em vez de silenciá-la com `any`.
+      esforco_estimado_min: 480
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:web/tipagem-estatica
+          nivel_resultante: iniciante
+
+    # --- Leque: a linguagem com tipo ----------------------------------------
+    - id: etapa:web/typescript-objeto-funcao-e-classe
+      titulo: Objeto, função e classe com tipo preciso
+      rev: 1
+      status: ativo
+      descricao: >
+        O tipo das três formas em que o código já está escrito: objeto (`interface` e
+        apelido de tipo, campo opcional, `readonly`, assinatura de índice), função
+        (parâmetro rest, sobrecarga, `this`) e classe (modificador de acesso, campo
+        declarado no construtor, implementação de interface). O corte é precisão:
+        quando um campo opcional está escondendo dois tipos diferentes.
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:web/tipagem-estatica
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:web/tipagem-estatica
+          nivel_resultante: intermediario
+
+    - id: etapa:web/typescript-uniao-e-estreitamento
+      titulo: União, estreitamento e o estado impossível
+      rev: 1
+      status: ativo
+      descricao: >
+        Modelar o que pode acontecer e deixar o compilador recusar o resto: tipo
+        literal, união, união discriminada, e o estreitamento por `typeof`, `in`,
+        igualdade e verificação de campo. `unknown` como porta de entrada honesta,
+        contra o `any` que desliga a conferência sem avisar.
+      esforco_estimado_min: 540
+      opcional: false
+      requires:
+        - competencia: comp:web/tipagem-estatica
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:web/tipagem-estatica
+          nivel_resultante: intermediario
+
+    # --- Genérico e derivação -----------------------------------------------
+    - id: etapa:web/typescript-genericos
+      titulo: Genéricos — flexibilidade que não abre mão da garantia
+      rev: 1
+      status: ativo
+      descricao: >
+        Parâmetro de tipo como forma de não escolher cedo demais: argumento genérico
+        em função e em tipo, restrição por `extends`, inferência e o momento em que
+        ela precisa de ajuda, valor padrão. O exercício é o inverso do comum —
+        transformar uma função que devolve `any` numa que devolve o tipo que entrou.
+      esforco_estimado_min: 660
+      opcional: false
+      requires:
+        - competencia: comp:web/tipagem-estatica
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:web/tipos-derivados
+          nivel_resultante: iniciante
+
+    - id: etapa:web/typescript-tipos-derivados
+      titulo: Derivar e transformar tipos — não se repetir no nível do tipo
+      rev: 1
+      status: ativo
+      descricao: >
+        Tirar o tipo do que já existe em vez de redigitá-lo: `keyof`, `typeof`, acesso
+        indexado, tipo mapeado, tipo condicional com `infer`, tipo de literal de
+        template, e `satisfies` onde a anotação apagaria a informação. O que se ganha
+        é uma fonte única: mudar o valor passa a quebrar a compilação onde a cópia
+        mentiria calada.
+      esforco_estimado_min: 720
+      opcional: false
+      requires:
+        - competencia: comp:web/tipos-derivados
+          nivel_minimo: iniciante
+        - competencia: comp:web/tipagem-estatica
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:web/tipos-derivados
+          nivel_resultante: intermediario
+
+    - id: etapa:web/typescript-predicado-e-assercao
+      titulo: Predicado de tipo e função de asserção — onde o compilador cede, e o preço
+      rev: 1
+      status: ativo
+      descricao: >
+        As construções em que o programador afirma e o compilador acredita: predicado
+        de tipo (`x is T`), função de asserção (`asserts x is T`), `as` e
+        `as unknown as`. Cada uma transfere a prova do compilador para quem escreveu,
+        e a etapa cobra saber de quem é a dívida — e validar o dado na borda, em vez
+        de afirmar o que não se conferiu.
+      esforco_estimado_min: 420
+      opcional: false
+      requires:
+        - competencia: comp:web/tipagem-estatica
+          nivel_minimo: intermediario
+        - competencia: comp:web/tipos-derivados
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:web/tipagem-estatica
+          nivel_resultante: avancado
+
+    # --- O projeto por inteiro ----------------------------------------------
+    - id: etapa:web/typescript-compilador-e-arquitetura
+      titulo: Configurar o compilador e sustentar a arquitetura de tipos
+      rev: 1
+      status: ativo
+      descricao: >
+        O `tsconfig.json` como decisão, não como receita copiada: alvo e biblioteca,
+        resolução de módulo, rigor adotado em etapas, o que é emitido e o que só é
+        conferido, arquivo de declaração e projeto com referência. E a outra metade:
+        reconhecer a construção de tipo que ficou ilegível ou lenta de conferir e
+        trocá-la por uma mais simples sem perder a garantia.
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:web/tipagem-estatica
+          nivel_minimo: avancado
+        - competencia: comp:web/tipos-derivados
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:web/compilador-e-arquitetura-de-tipos
+          nivel_resultante: intermediario
+
+    - id: etapa:web/typescript-projeto-aplicacao
+      titulo: Projeto — uma aplicação TypeScript do zero, com os tipos defendendo o domínio
+      rev: 1
+      status: ativo
+      descricao: >
+        O que o livro promete na capa: uma aplicação construída do zero, com
+        `tsconfig.json` escolhido para o alvo, o dado externo validado na borda e o
+        domínio tipado a partir de uma fonte única. Fecha-se quando um estado
+        inválido deixa de compilar e o próprio autor consegue mostrar, no editor,
+        qual erro o tipo passou a pegar.
+      esforco_estimado_min: 1080
+      opcional: false
+      requires:
+        - competencia: comp:web/compilador-e-arquitetura-de-tipos
+          nivel_minimo: intermediario
+        - competencia: comp:web/tipos-derivados
+          nivel_minimo: intermediario
+        - competencia: comp:web/tipagem-estatica
+          nivel_minimo: avancado
+      teaches:
+        - competencia: comp:web/compilador-e-arquitetura-de-tipos
+          nivel_resultante: avancado
+        - competencia: comp:web/tipos-derivados
+          nivel_resultante: avancado
+
+  etapas_referenciadas: []

@@ -399,3 +399,288 @@ recursos:
     url: https://dados.gov.br/
     disponivel: true
     verificado_em: 2026-10-08
+
+  # =====================================================================
+  # trilha:web/typescript-sistema-de-tipos
+  #
+  # As oito fatias de `obra: pocock-total-typescript` são o mesmo exemplar — *Total
+  # TypeScript*, Matt Pocock com Taylor Bell, No Starch Press, 14/04/2026, 432 p.,
+  # ISBN 9781718504165, US$ 59.99 em papel —, comprado uma vez: o `custo: 330` (BRL)
+  # repetido em cada uma é o do livro inteiro, como manda a validação 12 e ADR-0009.
+  #
+  # As fatias são nomeadas **por assunto, não por capítulo**: a página da editora não
+  # publica sumário nem numeração de capítulos, e o recorte abaixo segue a progressão
+  # que a própria descrição declara. Quem tiver o exemplar em mão e a numeração real
+  # pode acrescentá-la aos títulos — é mudança cosmética, não sobe `rev` (catalogo.md
+  # §4). O que **não** se deve fazer é inventar número de capítulo para parecer
+  # preciso.
+  #
+  # Cada etapa tem ao menos um recurso gratuito ao lado da fatia paga, para que a
+  # trilha seja percorrível por quem não comprar o livro: o TypeScript Handbook em
+  # trechos, os tutoriais gratuitos do mesmo autor, `type-challenges` e o livro
+  # on-line *Total TypeScript Essentials*, que é exemplar próprio e por isso tem
+  # `obra` própria (ADR-0020) com `custo: 0`.
+
+  # --- etapa:web/typescript-ambiente-e-anotacao ---------------------------
+  - id: rec:web/pocock-total-typescript-ambiente
+    etapa: etapa:web/typescript-ambiente-e-anotacao
+    titulo: "Total TypeScript (Matt Pocock com Taylor Bell) — ambiente, `tsc` e `tsconfig.json` mínimo, leitura da mensagem de erro e anotação de tipos primitivos"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 330
+    duracao_min: 240
+    url: https://www.penguinrandomhouse.com/books/781323/total-typescript-by-matt-pocock/
+    obra: pocock-total-typescript
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  - id: rec:web/ts-handbook-tipos-do-dia-a-dia
+    etapa: etapa:web/typescript-ambiente-e-anotacao
+    titulo: "TypeScript Handbook — Everyday Types: primitivos, arranjos, `any`, anotação de variável e de função"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://www.typescriptlang.org/docs/handbook/2/everyday-types.html
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  - id: rec:web/totaltypescript-tutoriais-gratuitos
+    etapa: etapa:web/typescript-ambiente-e-anotacao
+    titulo: "Free TypeScript Tutorials (totaltypescript.com) — exercícios no editor, do mesmo autor e pelo mesmo método do livro"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 300
+    url: https://www.totaltypescript.com/tutorials
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:web/typescript-objeto-funcao-e-classe ------------------------
+  - id: rec:web/pocock-total-typescript-objeto-e-classe
+    etapa: etapa:web/typescript-objeto-funcao-e-classe
+    titulo: "Total TypeScript (Pocock e Bell) — tipos de objeto, assinaturas de função e classes"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 330
+    duracao_min: 300
+    url: https://www.penguinrandomhouse.com/books/781323/total-typescript-by-matt-pocock/
+    obra: pocock-total-typescript
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  - id: rec:web/ts-handbook-classes
+    etapa: etapa:web/typescript-objeto-funcao-e-classe
+    titulo: "TypeScript Handbook — Classes: membro, modificador de acesso, `implements`, campo declarado no construtor"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://www.typescriptlang.org/docs/handbook/2/classes.html
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:web/typescript-uniao-e-estreitamento -------------------------
+  - id: rec:web/pocock-total-typescript-uniao
+    etapa: etapa:web/typescript-uniao-e-estreitamento
+    titulo: "Total TypeScript (Pocock e Bell) — tipo literal, união, união discriminada e estreitamento"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 330
+    duracao_min: 300
+    url: https://www.penguinrandomhouse.com/books/781323/total-typescript-by-matt-pocock/
+    obra: pocock-total-typescript
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  - id: rec:web/ts-handbook-estreitamento
+    etapa: etapa:web/typescript-uniao-e-estreitamento
+    titulo: "TypeScript Handbook — Narrowing: `typeof`, `in`, igualdade, verificação de exaustividade com `never`"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 240
+    url: https://www.typescriptlang.org/docs/handbook/2/narrowing.html
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:web/typescript-genericos -------------------------------------
+  - id: rec:web/pocock-total-typescript-genericos
+    etapa: etapa:web/typescript-genericos
+    titulo: "Total TypeScript (Pocock e Bell) — genéricos: parâmetro de tipo, restrição, inferência e valor padrão"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 330
+    duracao_min: 360
+    url: https://www.penguinrandomhouse.com/books/781323/total-typescript-by-matt-pocock/
+    obra: pocock-total-typescript
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  - id: rec:web/ts-handbook-genericos
+    etapa: etapa:web/typescript-genericos
+    titulo: "TypeScript Handbook — Generics: função genérica, restrição por `extends` e inferência de argumento de tipo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 240
+    url: https://www.typescriptlang.org/docs/handbook/2/generics.html
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  - id: rec:web/type-challenges
+    etapa: etapa:web/typescript-genericos
+    titulo: "type-challenges — exercícios de tipo com resposta conferida pelo compilador, do mais fácil ao extremo"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 480
+    url: https://github.com/type-challenges/type-challenges
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:web/typescript-tipos-derivados -------------------------------
+  - id: rec:web/pocock-total-typescript-derivacao
+    etapa: etapa:web/typescript-tipos-derivados
+    titulo: "Total TypeScript (Pocock e Bell) — derivar tipo de tipo: `keyof`, `typeof`, tipo mapeado, tipo condicional e `satisfies`"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 330
+    duracao_min: 420
+    url: https://www.penguinrandomhouse.com/books/781323/total-typescript-by-matt-pocock/
+    obra: pocock-total-typescript
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  - id: rec:web/ts-handbook-tipos-a-partir-de-tipos
+    etapa: etapa:web/typescript-tipos-derivados
+    titulo: "TypeScript Handbook — Type Manipulation: `keyof`, `typeof`, acesso indexado, tipo condicional com `infer`, tipo mapeado e literal de template"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 360
+    url: https://www.typescriptlang.org/docs/handbook/2/types-from-types.html
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  - id: rec:web/pocock-essentials-livro-gratuito
+    etapa: etapa:web/typescript-tipos-derivados
+    titulo: "Total TypeScript Essentials (Matt Pocock) — livro on-line gratuito sobre manipulação avançada de tipos"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 600
+    url: https://www.totaltypescript.com/books/total-typescript-essentials
+    obra: pocock-total-typescript-essentials
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:web/typescript-predicado-e-assercao --------------------------
+  - id: rec:web/pocock-total-typescript-predicado
+    etapa: etapa:web/typescript-predicado-e-assercao
+    titulo: "Total TypeScript (Pocock e Bell) — predicado de tipo, função de asserção e o custo de `as`"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 330
+    duracao_min: 240
+    url: https://www.penguinrandomhouse.com/books/781323/total-typescript-by-matt-pocock/
+    obra: pocock-total-typescript
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  - id: rec:web/zod-validacao-na-borda
+    etapa: etapa:web/typescript-predicado-e-assercao
+    titulo: "Zod — documentação oficial: validar o dado externo na borda e inferir o tipo do esquema, em vez de afirmá-lo com `as`"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 240
+    url: https://zod.dev/
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:web/typescript-compilador-e-arquitetura ----------------------
+  - id: rec:web/pocock-total-typescript-compilador
+    etapa: etapa:web/typescript-compilador-e-arquitetura
+    titulo: "Total TypeScript (Pocock e Bell) — configurar o compilador para React, Node ou biblioteca, e arquitetura de tipos que não desaba"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 330
+    duracao_min: 300
+    url: https://www.penguinrandomhouse.com/books/781323/total-typescript-by-matt-pocock/
+    obra: pocock-total-typescript
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  - id: rec:web/tsconfig-referencia
+    etapa: etapa:web/typescript-compilador-e-arquitetura
+    titulo: "Referência do `tsconfig.json` (typescriptlang.org) — cada opção com o que ela muda na conferência e na saída emitida"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 300
+    url: https://www.typescriptlang.org/tsconfig/
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:web/typescript-projeto-aplicacao -----------------------------
+  - id: rec:web/pocock-total-typescript-aplicacao-do-zero
+    etapa: etapa:web/typescript-projeto-aplicacao
+    titulo: "Total TypeScript (Pocock e Bell) — construir uma aplicação TypeScript do zero, o percurso que fecha o livro"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 330
+    duracao_min: 300
+    url: https://www.penguinrandomhouse.com/books/781323/total-typescript-by-matt-pocock/
+    obra: pocock-total-typescript
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  - id: rec:web/projeto-aplicacao-tipada
+    etapa: etapa:web/typescript-projeto-aplicacao
+    titulo: "Projeto — aplicação TypeScript do zero: `tsconfig.json` justificado opção por opção, dado externo validado na borda, domínio derivado de fonte única e um estado inválido que deixa de compilar"
+    rev: 1
+    status: ativo
+    formato: projeto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 1080
+    url: https://www.typescriptlang.org/play/
+    disponivel: true
+    verificado_em: 2026-11-05
