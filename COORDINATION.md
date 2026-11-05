@@ -50,6 +50,7 @@ de teste envelhecem em minutos, e um resumo desatualizado aqui contradiz a fonte
 
 | Área (prefixo) | Branch ou worktree | Intenção / terminado quando | Dono | Desde |
 |---|---|---|---|---|
+| `catalogo/trilhas/estatistica-na-avaliacao-de-modelos.yaml`, `catalogo/competencias/dados.yaml`, `catalogo/recursos/dados.yaml` | `worktree-trilha-estatistica-modelos` | trilha nova de estatística para avaliação de modelos; terminado quando `validar`, `pytest`, `ruff` e `mypy` passam e o PR está aberto | sessão Claude (estatística em ML) | 2026-11-05 |
 
 Linha sem dono é área **ocupada**, não área livre: é trabalho de outra sessão,
 em curso e fora do git. As duas primeiras linhas desta tabela eram as duas áreas
