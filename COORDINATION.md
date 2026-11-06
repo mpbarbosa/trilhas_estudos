@@ -57,6 +57,28 @@ desta entrega — apareceram na árvore em minutos, uma depois da outra, e saír
 daqui no commit que as levou (regra 4). A tabela vale no momento em que você a
 lê e não substitui um `git status -uall` antes de escrever.
 
+## Observação datada — 2026-11-06
+
+O [PR #32](https://github.com/mpbarbosa/trilhas_estudos/pull/32), que a observação
+abaixo deixou de propósito, foi **mesclado hoje a pedido do usuário**. A observação de
+05/11 dizia que o problema dele "foi resolvido por `obra` e fechado por ADR-0020":
+isso **exagerava**. A ADR-0020 redefiniu `obra` para tornar o exemplar endereçável;
+ela não dá como registrar capítulo lido sem concluir a etapa, que é o que o `parte_de`
+resolve. O PR não estava redundante.
+
+O que a mescla exigiu, além dos três conflitos previstos: a ADR virou **0021** (0019 e
+0020 já existiam) e o `obra` do livro teve de ser reconciliado. O merge automático
+passou no gate inteiro **contando um livro de 300 como duas obras de 300** — a main
+dera `obra: berryman-ziegler-prompt-engineering` ao todo, o PR dera
+`obra: prompt-engineering-for-llms` às partes, e a validação 12 só compara custo
+*dentro* de uma obra. Decidido pelo usuário: slug único nas doze fatias. O registro
+está na própria
+[ADR-0021](docs/adr/0021-capitulo-como-parte-de-recurso.md), §Nota de reconciliação.
+
+**Fica sem guarda automática**: nada no catálogo detecta dois slugs de `obra` para o
+mesmo exemplar físico — em princípio não dá, porque só a autoria sabe que dois slugs
+nomeiam um livro só.
+
 ## Observação datada — 2026-11-05
 
 A observação de 2026-11-01 listava seis branches remotos `claude/project-thread-*`

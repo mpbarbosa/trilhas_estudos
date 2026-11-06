@@ -167,6 +167,26 @@ das fatias. No **motor** continua não havendo agregação monetária alguma —
 `custo_maximo` é por recurso, nunca por caminho
 ([motor §2.2](motor-de-sugestao.md)).
 
+`parte_de` é campo **opcional** do recurso e marca um capítulo de outro recurso da
+mesma etapa ([ADR-0021](adr/0021-capitulo-como-parte-de-recurso.md)). Os recursos de
+uma etapa são alternativas — cada um a atende sozinho —, e um capítulo não é. A parte
+fica fora de `recursos_da_etapa`: o motor não a sugere, a validação 5 não a conta e
+`iniciar --recurso` a recusa. Ela existe para `trilhas-percurso percorrer` registrar a
+leitura parcial de um livro que é, inteiro, o material de uma etapa só.
+
+```yaml
+  - id: rec:ia/prompt-engineering-for-llms-cap-02
+    obra: berryman-ziegler-prompt-engineering   # o mesmo slug do todo
+    parte_de: rec:ia/prompt-engineering-for-llms
+```
+
+**A parte declara a `obra` do todo, com o mesmo slug.** É um exemplar só: dois slugs
+dariam dois endereços `/obra/` e, pela regra de soma do
+[ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md), dois preços para o
+livro que se compra uma vez. Em troca, o rollup de `mostrar` conta o todo entre as
+fatias: onze capítulos de um livro dão **12 fatias**, e "2/12" quer dizer dois
+capítulos percorridos — não 2 de 12 capítulos.
+
 ---
 
 ## 3. Identidade
@@ -196,7 +216,7 @@ Cada entidade tem `rev`, inteiro monotônico. **`rev` sobe só em mudança subst
 | Competência | `verificacao`, `status` | `titulo`, `descricao` |
 | Etapa | `requires`, `teaches`, `opcional`, `status`, `esforco_estimado_min` com variação > 20% | `titulo`, `descricao`, ordem no arquivo, ajuste fino de esforço |
 | Trilha | incluir/remover etapa **obrigatória**, `objetivo_declarado`, `status` | `titulo`, ordem de apresentação, etapa opcional |
-| Recurso | `etapa`, `status`, `disponivel`, `custo`, `obra`, `idioma`, `formato` | `titulo`, `verificado_em`, `url` que aponta ao mesmo material |
+| Recurso | `etapa`, `status`, `disponivel`, `custo`, `obra`, `parte_de`, `idioma`, `formato` | `titulo`, `verificado_em`, `url` que aponta ao mesmo material |
 
 Mudança em recurso **nunca** altera a `rev` da etapa: trocar o vídeo não muda o que
 a etapa ensina.
@@ -237,10 +257,10 @@ Esta é a tabela que fecha o assunto. O princípio: **fato datado não retroage.
 Erro bloqueia o snapshot. Aviso é reportado e permite compilar.
 
 1. **Ids** únicos, no formato de §3, e nenhum reaproveitado em relação ao snapshot anterior — *erro*.
-2. **Toda referência resolve** (`requires`, `teaches`, `etapa` de recurso, `etapas_referenciadas`) — *erro*.
+2. **Toda referência resolve** (`requires`, `teaches`, `etapa` e `parte_de` de recurso, `etapas_referenciadas`) — *erro*.
 3. **Toda etapa ativa é alcançável** a partir de perfil vazio — *erro*. Verificado por fecho progressivo, **não** por ordenação topológica: uma competência ensinada em mais de um nível gera arestas nos dois sentidos entre etapas corretamente ordenadas, e um ciclo nesse grafo não significa catálogo inordenável. Dependência circular real aparece como etapa que nunca destrava. Exigido por [ADR-0002](adr/0002-trilha-como-grafo-de-etapas.md).
 4. **Sem beco sem saída**: toda competência exigida por alguma etapa ativa é desenvolvida por ao menos uma etapa ativa — *erro*.
-5. **Toda etapa ativa tem ≥ 1 recurso** ativo e disponível — *erro*.
+5. **Toda etapa ativa tem ≥ 1 recurso** ativo e disponível — *erro*. Parte de recurso (`parte_de`) não conta: capítulo não é via de estudo.
 6. **Objetivo alcançável**: para cada trilha ativa, existe ordem de estudo partindo de perfil vazio que satisfaz `objetivo_declarado` — *erro*. É esta validação que torna `sem_caminho_no_catalogo` ([motor §4](motor-de-sugestao.md)) um defeito de catálogo detectável em CI, e não uma surpresa para o estudante.
 7. **Nível nunca rebaixa**: nenhum `nivel_resultante` é inferior a um `nivel_minimo` que a própria etapa exige da mesma competência — *erro*. Invariante de [CONTEXT.md §4](CONTEXT.md).
 8. **Depreciação coerente**: nenhuma etapa ativa depende de competência desenvolvida apenas por etapa depreciada; nenhum `objetivo_declarado` ativo cita competência depreciada — *erro*.
@@ -248,6 +268,7 @@ Erro bloqueia o snapshot. Aviso é reportado e permite compilar.
 10. **Recurso verificado** há mais de 180 dias — *aviso*.
 11. **Etapa órfã**: ativa, fora de qualquer trilha ativa e não referenciada — *aviso* (alcançável só por `exploracao`).
 12. **Obra com custo único**: fatias ativas (ou em rascunho) que declaram a mesma `obra` declaram o mesmo `custo` — *erro*. Fatias de uma obra são um exemplar por definição; dois preços significam ou erro de digitação ou duas obras, e os dois casos se corrigem ([ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md)). Fatia depreciada fica de fora: preço de recurso retirado não é fato do exemplar de hoje.
+13. **Parte coerente**: recurso com `parte_de` aponta para recurso da mesma etapa que não é, ele próprio, parte — *erro* ([ADR-0021](adr/0021-capitulo-como-parte-de-recurso.md)).
 
 ### Snapshot
 
@@ -290,7 +311,7 @@ exigido pela validação §5.8 quando outra entidade ativa ainda aponta para a d
 ## 7. Implementação
 
 O validador e o compilador estão em `src/trilhas/catalogo/`:
-`carregar` (YAML → modelo, só erros de forma) → `validar` (as 12 validações, função
+`carregar` (YAML → modelo, só erros de forma) → `validar` (as 13 validações, função
 pura) → `compilar` (snapshot com hash e versão). A CLI `trilhas` é a interface de CI,
 e o código de saída é o contrato: `0` válido, `1` com erro.
 

@@ -34,6 +34,7 @@
 | [0018](adr/0018-programacao-de-sistemas-como-pre-requisito-compartilhado.md) | Programação de sistemas como pré-requisito compartilhado, em terceira etapa avulsa | aceito |
 | [0019](adr/0019-descricao-de-onda-derivada-da-estrutura.md) | Descrição de onda derivada da estrutura, nunca autorada | aceito |
 | [0020](adr/0020-obra-declarada-tambem-em-exemplar-nao-fatiado.md) | `obra` declarada também em exemplar não fatiado | aceito |
+| [0021](adr/0021-capitulo-como-parte-de-recurso.md) | Capítulo como parte de recurso, fora das vias de estudo da etapa | aceito |
 
 ## Pendente
 
