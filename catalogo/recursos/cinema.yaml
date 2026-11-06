@@ -135,3 +135,158 @@ recursos:
     url: https://www.estantevirtual.com.br/busca?q=a+era+dos+imperios+hobsbawm
     disponivel: true
     verificado_em: 2026-11-05
+
+# -------------------------------------------------------------------------
+# trilha:cinema/estetizacao-da-politica
+#
+#   Os cinco itens vêm da bibliografia que o estudante trouxe em 2026-11-05. Como na
+#   trilha anterior, a `url` de livro é a busca do Estante Virtual e não a página de
+#   uma editora: três dos quatro estão fora de catálogo (a Cosac & Naify fechou em
+#   2015, e o Speer e a Sontag em pt-BR só saem em sebo). O `custo` é a **oferta mais
+#   baixa observada na busca em 2026-11-05**, usado incluído, e envelhece mais rápido
+#   que o link. Só o Benjamin segue em catálogo editorial.
+#
+#   obra: speer-anos-de-gloria — **a edição brasileira do Speer é partida em dois
+#     volumes**, "Os anos de glória" e "A derrocada", vendidos separadamente (30
+#     ofertas na busca, de 1970, 1971 e 1975; há também edições num volume só, a partir
+#     de R$ 100). A etapa precisa do primeiro, que é onde está o Speer arquiteto. Por
+#     serem exemplares distintos com preço próprio, cada volume é **obra própria** — a
+#     validação 12 (fatias da mesma obra declaram o mesmo custo) é justamente o que
+#     proíbe tratá-los como duas fatias de uma obra só. Se "A derrocada" entrar algum
+#     dia, entra com `obra` e `custo` seus. **Não se confirmou a editora brasileira
+#     nem em que volume cai cada capítulo**: a partição em dois volumes se observou nas
+#     ofertas, o sumário não. Quem o ler primeiro corrige esta nota.
+#
+#   rec:cinema/sontag-fascinante-fascismo — o ensaio saiu em "Sob o signo de Saturno".
+#     O que se confirmou foi um registro de catálogo de biblioteca dando "Fascinante
+#     fascismo" na 2. ed. da L&PM (Porto Alegre, 1986), p. 59-83 — que é a edição das
+#     ofertas de R$ 20 a R$ 70. A tradução de Rubens Figueiredo pela Companhia das
+#     Letras (as 14 ofertas novas, a partir de R$ 49) aparece em citação acadêmica, mas
+#     **o sumário dessa edição não se viu**: confira o ensaio no exemplar. O original
+#     em inglês está aberto no site da New York Review of Books e entra como segundo
+#     recurso da etapa, a custo zero — é o que torna a etapa alcançável sem comprar
+#     nada.
+#
+#   rec:cinema/triunfo-da-vontade — **o filme não está em domínio público.** Os
+#     direitos são administrados pela Transit-Film na Alemanha (sucessora do Estado
+#     alemão por decisão de 1966) e nos EUA foram restaurados a Riefenstahl pela URAA
+#     em 1996. Não se achou cópia gratuita legítima, e a busca do JustWatch Brasil não
+#     devolveu nenhum serviço: no Brasil não há streaming nem aluguel. **Atenção à
+#     armadilha:** a busca por "Triumph des Willens" no Internet Archive devolve um
+#     item homônimo (`archive.org/details/TriumphDesWillens`) que **não é o filme** —
+#     é upload de 2014 sem arquivo algum, com acesso restrito e links de propaganda
+#     política. Não o cite. O que se verificou é a edição licenciada da Synapse Films,
+#     US$ 34,95 na página do distribuidor em 2026-11-05: DVD de todas as regiões,
+#     alemão original com legenda em inglês removível, mais o curta "Dia da liberdade"
+#     (17 min) e comentário do historiador Anthony Santoro. O `custo` de R$ 182 é essa
+#     cifra ao câmbio de ~R$ 5,20/US$ — a cotação datada mais recente que se achou, de
+#     2026-08-20 —, e **não inclui frete internacional nem imposto de importação**,
+#     que podem dobrar o valor. A duração de 114 min vem da Wikipédia em inglês e não
+#     se confirmou em segunda fonte; a edição da Synapse é descrita como ~4 min mais
+#     curta que a íntegra, e há uma edição Kino Lorber do restauro 4K da versão
+#     integral que não se conseguiu abrir para conferir.
+#     Não declara `obra`: `formato: video` está na lista que a regra do exemplar exclui
+#     (docs/catalogo.md §2 e ADR-0020), e a seção de obras da trilha se apresenta como
+#     os livros dela.
+# -------------------------------------------------------------------------
+
+  # --- etapa:cinema/reprodutibilidade-tecnica -----------------------------
+  # O ensaio tem ~40 páginas no volume; a duração é de leitura com anotação, ida e
+  # volta ao epílogo, que é o que a etapa cobra. ~253 p. no total, 7. ed.; a tradução
+  # de Rouanet foi revista por Márcio Seligmann-Silva. Novo a R$ 69,90; sebo entre
+  # R$ 62 e R$ 80.
+  - id: rec:cinema/benjamin-reprodutibilidade-tecnica
+    etapa: etapa:cinema/reprodutibilidade-tecnica
+    titulo: "A obra de arte na era de sua reprodutibilidade técnica, em Magia e técnica, arte e política (Walter Benjamin; Obras escolhidas v. 1; trad. Sérgio Paulo Rouanet; Brasiliense)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 70
+    obra: benjamin-magia-e-tecnica
+    duracao_min: 240
+    url: https://www.estantevirtual.com.br/busca?q=magia+e+tecnica+arte+e+politica+benjamin
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:cinema/ornamento-da-massa ------------------------------------
+  # 384 p., coletânea de 24 ensaios do Frankfurter Zeitung, cotejada com a edição
+  # Suhrkamp de 1977. A duração é de ler escolhendo os ensaios — o do título e os da
+  # massa e do espetáculo —, não de varrer o volume. Nove ofertas na busca, de R$ 160
+  # (usado) a R$ 335,70 (novo).
+  - id: rec:cinema/kracauer-ornamento-da-massa
+    etapa: etapa:cinema/ornamento-da-massa
+    titulo: "O ornamento da massa: ensaios (Siegfried Kracauer; trad. Carlos Eduardo Jordão Machado e Marlene Holzhausen; Cosac Naify, 2009 — col. Cinema, Teatro e Modernidade 12)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 160
+    obra: kracauer-ornamento-da-massa
+    duracao_min: 360
+    url: https://www.estantevirtual.com.br/busca?q=o+ornamento+da+massa+kracauer
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:cinema/triunfo-da-vontade ------------------------------------
+  - id: rec:cinema/triunfo-da-vontade
+    etapa: etapa:cinema/triunfo-da-vontade
+    titulo: "O triunfo da vontade (dir. Leni Riefenstahl, Alemanha, 1935, 114 min) — DVD restaurado da Synapse Films, alemão com legenda em inglês"
+    rev: 1
+    status: ativo
+    formato: video
+    idioma: de
+    custo: 182
+    duracao_min: 114
+    url: https://synapsefilms.com/products/triumph-of-the-will-2006-remaster-dvd
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:cinema/fascinante-fascismo -----------------------------------
+  - id: rec:cinema/sontag-fascinante-fascismo
+    etapa: etapa:cinema/fascinante-fascismo
+    titulo: "Fascinante fascismo, em Sob o signo de Saturno (Susan Sontag) — L&PM, 2. ed. 1986, p. 59-83, ou a tradução de Rubens Figueiredo pela Companhia das Letras"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 20
+    obra: sontag-sob-o-signo-de-saturno
+    duracao_min: 150
+    url: https://www.estantevirtual.com.br/busca?q=sob+o+signo+de+saturno+sontag
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # O original, aberto no site da revista. Artigo avulso: não declara `obra`.
+  - id: rec:cinema/sontag-fascinating-fascism-nyrb
+    etapa: etapa:cinema/fascinante-fascismo
+    titulo: "Fascinating Fascism (Susan Sontag, The New York Review of Books, 6 fev. 1975) — original em inglês"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en
+    custo: 0
+    duracao_min: 150
+    url: https://www.nybooks.com/articles/1975/02/06/fascinating-fascism/
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:cinema/testemunho-do-arquiteto -------------------------------
+  # Volume 1 da edição brasileira, que é onde está o Speer arquiteto — Nuremberg, a
+  # catedral de luz, o espetáculo montado de dentro. A duração é de leitura dos
+  # capítulos do espetáculo e da arquitetura com a atenção que a etapa pede às
+  # operações de autoexculpação, não do volume de cabo a rabo. Ofertas de R$ 25 a
+  # R$ 87,90.
+  - id: rec:cinema/speer-anos-de-gloria
+    etapa: etapa:cinema/testemunho-do-arquiteto
+    titulo: "Por dentro do III Reich: os anos de glória (Albert Speer) — vol. 1 da edição brasileira"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 25
+    obra: speer-anos-de-gloria
+    duracao_min: 780
+    url: https://www.estantevirtual.com.br/busca?q=por+dentro+do+iii+reich+speer
+    disponivel: true
+    verificado_em: 2026-11-05

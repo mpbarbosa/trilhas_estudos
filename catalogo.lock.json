@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 58,
-  "gerado_em": "2026-11-06T02:28:47+00:00",
-  "hash": "sha256:e3deee017799074bdaa4835e45f07c9cc087e06328cdd46574ed5021551f5e00",
+  "catalogo_versao": 59,
+  "gerado_em": "2026-11-06T12:37:05+00:00",
+  "hash": "sha256:9f56c595b68d68ae47cbf4f31089966c72e5465b19c03bcf126fec1ea905e38a",
   "competencias": [
     {
       "id": "comp:cinema/cinema-como-industria-e-ideologia",
@@ -29,6 +29,30 @@
       "descricao": "Uma técnica nova não explica a forma cultural que nasce com ela: faltam o mercado que a financia, a cidade que lhe dá público, o império que a distribui e a política que a tolera. A competência é nomear essas condições para um período datado, com o alcance de cada uma, e resistir à história contada de trás para frente.\n"
     },
     {
+      "id": "comp:cinema/critica-do-espetaculo-de-massa",
+      "titulo": "Ler a multidão como forma — espetáculo de massa e organização do trabalho",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um espetáculo de massa — revista, abertura de estádio, desfile, coreografia esportiva, show de intervalo — e a década em que ocorre: descrever a figura que os corpos compõem e por que procedimento ela se sustenta; relacioná-la à organização do trabalho e da produção daquele período, dizendo o que a relação explica e o que não explica; e dizer o que o público vê de si naquela figura, sem converter a análise em condenação moral de quem assiste.",
+      "descricao": "Kracauer olha as pernas alinhadas da revista de music-hall e vê a esteira da fábrica: a massa não comparece como povo nem como classe, mas como material de um ornamento que o próprio público admira sem se reconhecer nele. O risco da leitura é descambar em desprezo pela plateia. A competência mantém a análise na forma e na relação dela com a produção do período.\n"
+    },
+    {
+      "id": "comp:cinema/estetizacao-da-politica",
+      "titulo": "Reconhecer a estetização da política num evento ou numa obra",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um evento político montado para a imagem — desfile, comício, posse, cerimônia militar, propaganda de campanha, inauguração — e o registro dele: nomear os procedimentos que convertem política em espetáculo (massa enquadrada como forma, simetria, liturgia, lugar do chefe no quadro, ausência de contraditório) e dizer o que cada um subtrai de deliberação; e distinguir a tese da estetização da acusação genérica de propaganda, exibindo um evento político cuidadoso da própria imagem que **não** a satisfaz, e dizendo por quê.",
+      "descricao": "\"O fascismo estetiza a política\" virou palavra de ordem, e como insulto não distingue nada: todo governo cuida da própria imagem. A competência é cobrar da tese o que ela de fato afirma — que procedimentos de forma substituem a decisão política pela contemplação da própria massa — e mostrar onde isso se vê no material, em vez de deduzi-lo do regime que produziu a obra.\n"
+    },
+    {
+      "id": "comp:cinema/filme-de-encomenda-politica",
+      "titulo": "Ler um filme feito a serviço de um poder",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um filme feito por encomenda de um poder — regime, partido, governo, empresa, campanha — e a data dele: separar o que ele registra do que foi encenado para a câmera, dizendo em cada caso o que sustenta a separação; nomear os procedimentos que produzem o efeito pretendido (escala, angulação, montagem, som e música, recusa de contraplano, o que fica fora do quadro); e dizer o que o filme pede que o espectador aceite, sem recorrer nem ao descarte como mera propaganda nem ao elogio da forma separado da função.",
+      "descricao": "Diante de um filme de encomenda política as duas saídas fáceis se equivalem: descartá-lo como \"só propaganda\", o que dispensa de olhar, e admirar-lhe a forma como se a função fosse acidente. A competência é a terceira — separar o que o filme registra do que ele encena, e mostrar por que procedimento ele funciona sobre quem assiste.\n"
+    },
+    {
       "id": "comp:cinema/historiografia-do-primeiro-cinema",
       "titulo": "Periodização do primeiro cinema — espetáculo, narração e domesticação",
       "rev": 1,
@@ -37,12 +61,28 @@
       "descricao": "O cinema das duas primeiras décadas não é cinema clássico mal feito. Tem regime próprio — exibição de atração, olhar para a lente, autonomia do quadro — e a competência é situar um filme nesse regime pelos traços que ele mostra, em vez de medi-lo pela narrativa que vem depois.\n"
     },
     {
+      "id": "comp:cinema/leitura-de-memoria-de-implicado",
+      "titulo": "Ler memória de quem esteve do lado do poder",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dada uma memória escrita por alguém implicado num regime ou numa organização sob acusação: identificar as operações de autoexculpação do texto — o técnico que apenas executava, a responsabilidade deslocada para um ausente, o enquadramento estético do que foi crime, a ignorância alegada — citando a passagem de cada uma; dizer para que o texto é boa evidência e sobre o que ele é parte interessada; e, para uma afirmação determinada dele, nomear que documento externo a confirmaria ou a refutaria.",
+      "descricao": "A memória de um implicado é fonte e peça de defesa no mesmo volume: sabe coisas que nenhum documento externo sabe — procedimento, bastidor, logística, hierarquia vista de dentro — e tem interesse direto na conclusão do leitor. A competência é usar a primeira coisa sem engolir a segunda, e dizer onde a prova externa é indispensável.\n"
+    },
+    {
       "id": "comp:cinema/leitura-do-filme",
       "titulo": "Leitura de uma sequência de filme — plano, movimento e montagem",
       "rev": 1,
       "status": "ativo",
       "verificacao": "Diante de uma sequência de três a cinco minutos de um filme que não se viu antes: decupar os planos, nomear a escala e o movimento de câmera de cada um, dizer em cada corte que relação a montagem estabelece entre os dois planos, e explicar o que o ponto de vista escolhido mostra e o que ele deixa fora do quadro — sem recorrer ao resumo do argumento.",
       "descricao": "Ler o que está na tela antes de contar a história que ela narra: onde começa e acaba cada plano, que escala e que movimento de câmera o compõem, que relação o corte estabelece entre dois planos vizinhos, e de que lugar o filme pede que se olhe. O resumo do argumento é justamente o que esta competência não aceita como resposta.\n"
+    },
+    {
+      "id": "comp:cinema/reprodutibilidade-e-aura",
+      "titulo": "Efeito da reprodução técnica sobre o modo de existência de uma obra",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dada uma obra e um regime de reprodução determinado — gravura, fotografia, disco, filme, transmissão, arquivo digital: dizer o que a reprodução subtrai daquela obra e o que ela torna possível; distinguir nela valor de culto de valor de exposição, nomeando em que prática concreta cada um se realiza; e dizer que parte do próprio argumento se apoia em traço técnico datado e que parte seria nostalgia da obra única, apontando um fato do próprio regime que a contradiga.",
+      "descricao": "A tese de que a reprodução técnica destitui a obra do seu aqui-e-agora, e troca valor de culto por valor de exposição, é fácil de repetir e difícil de usar: sem data e sem técnica na mão, ela vira nostalgia da obra única. A competência é dizer, para uma obra e um regime de reprodução determinados, o que muda no modo de ela existir — e separar o que é perda do que é só deslocamento.\n"
     },
     {
       "id": "comp:dados/algebra-relacional",
@@ -1007,6 +1047,32 @@
       ]
     },
     {
+      "id": "etapa:cinema/fascinante-fascismo",
+      "titulo": "Fascinante fascismo — a sobrevida de uma estética",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 180,
+      "descricao": "O ensaio de Susan Sontag de 1975, que é de uma vez leitura do filme e recusa da defesa que o absolvia: Riefenstahl reabilitada como formalista pura, o documentário tratado como registro de um evento que só existiu para ser filmado, e a estética fascista sobrevivendo ao regime em lugares que não se apresentam como políticos. A etapa cobra confrontar a própria leitura da etapa anterior com a dela, e dizer onde discorda — não resumi-la.\n",
+      "trilha": "trilha:cinema/estetizacao-da-politica",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:cinema/filme-de-encomenda-politica",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/estetizacao-da-politica",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:cinema/estetizacao-da-politica",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
       "id": "etapa:cinema/invencao-da-vida-moderna",
       "titulo": "O cinema e a invenção da vida moderna",
       "rev": 1,
@@ -1074,6 +1140,110 @@
         },
         {
           "competencia": "comp:cinema/cinema-como-industria-e-ideologia",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:cinema/ornamento-da-massa",
+      "titulo": "O ornamento da massa — a multidão como material de forma",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 420,
+      "descricao": "Os ensaios de Kracauer para o *Frankfurter Zeitung*, com o do título no centro: as pernas alinhadas da revista de music-hall lidas como a esteira da fábrica, a massa que comparece não como povo nem como classe, mas como material de uma figura geométrica que o próprio público admira. Estuda-se a Alemanha de Weimar dos anos 1920 — antes do regime, e é isso que importa: o ornamento de massa já estava montado quando o comício o herdou.\n",
+      "trilha": "trilha:cinema/estetizacao-da-politica",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:cinema/cinema-como-industria-e-ideologia",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:cinema/critica-do-espetaculo-de-massa",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:cinema/reprodutibilidade-tecnica",
+      "titulo": "A obra de arte na era de sua reprodutibilidade técnica",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "descricao": "O ensaio de Benjamin, lido inteiro e não só pelo epílogo: o que a reprodução técnica faz com o aqui-e-agora da obra, a troca do valor de culto pelo valor de exposição, o ator diante do aparelho em vez do público, o público que examina sem se concentrar. O corte é ler a tese como argumento datado sobre técnica — e chegar ao epílogo, onde a estetização da política aparece como consequência dele, com a tese já na mão em vez de como palavra de ordem.\n",
+      "trilha": "trilha:cinema/estetizacao-da-politica",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:cinema/leitura-do-filme",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:cinema/reprodutibilidade-e-aura",
+          "nivel_resultante": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/estetizacao-da-politica",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:cinema/testemunho-do-arquiteto",
+      "titulo": "Por dentro do Terceiro Reich — o espetáculo visto por quem o construiu",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "descricao": "A memória de Albert Speer, arquiteto do regime e depois seu ministro de armamentos, lida como fonte e como peça de defesa no mesmo volume: a arquitetura de Nuremberg e a catedral de luz descritas por quem as projetou, o espetáculo contado do lado de dentro — e, no mesmo texto, o técnico que apenas executava, a responsabilidade deslocada para um ausente, a ignorância alegada. O corte não é o livro de cabo a rabo: são os capítulos do espetáculo e da arquitetura, mais as operações com que o autor se separa do que descreve.\n",
+      "trilha": "trilha:cinema/estetizacao-da-politica",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:cinema/estetizacao-da-politica",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:cinema/leitura-de-memoria-de-implicado",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:cinema/triunfo-da-vontade",
+      "titulo": "O triunfo da vontade — o comício como filme",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "descricao": "O filme de Riefenstahl sobre o congresso do partido nazista em Nuremberg, 1934, visto como objeto e não como ilustração: o que ali é registro e o que foi encenado para a câmera, como a massa é enquadrada para compor figura, o lugar reservado ao chefe no quadro, a ausência de contraplano, o que a montagem e a música produzem onde não há discurso. O corte é a terceira saída, nem descarte como mera propaganda nem elogio da forma separado da função — e a conclusão pedida é a de quem olhou, com Benjamin e Kracauer já lidos.\n",
+      "trilha": "trilha:cinema/estetizacao-da-politica",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:cinema/leitura-do-filme",
+          "nivel_minimo": "iniciante"
+        },
+        {
+          "competencia": "comp:cinema/estetizacao-da-politica",
+          "nivel_minimo": "iniciante"
+        },
+        {
+          "competencia": "comp:cinema/critica-do-espetaculo-de-massa",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:cinema/filme-de-encomenda-politica",
+          "nivel_resultante": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/estetizacao-da-politica",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -4582,6 +4752,44 @@
   ],
   "trilhas": [
     {
+      "id": "trilha:cinema/estetizacao-da-politica",
+      "titulo": "Estetização da política — da reprodutibilidade técnica ao comício filmado",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:cinema/reprodutibilidade-e-aura",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/estetizacao-da-politica",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:cinema/critica-do-espetaculo-de-massa",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/filme-de-encomenda-politica",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/leitura-de-memoria-de-implicado",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:cinema/reprodutibilidade-tecnica",
+        "etapa:cinema/ornamento-da-massa",
+        "etapa:cinema/triunfo-da-vontade",
+        "etapa:cinema/fascinante-fascismo",
+        "etapa:cinema/testemunho-do-arquiteto"
+      ],
+      "etapas_referenciadas": [
+        "etapa:cinema/o-que-e-cinema"
+      ]
+    },
+    {
       "id": "trilha:cinema/primeiro-cinema-e-vida-moderna",
       "titulo": "Cinema — do primeiro cinema à invenção da vida moderna",
       "rev": 1,
@@ -5273,6 +5481,21 @@
   ],
   "recursos": [
     {
+      "id": "rec:cinema/benjamin-reprodutibilidade-tecnica",
+      "titulo": "A obra de arte na era de sua reprodutibilidade técnica, em Magia e técnica, arte e política (Walter Benjamin; Obras escolhidas v. 1; trad. Sérgio Paulo Rouanet; Brasiliense)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/reprodutibilidade-tecnica",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 70.0,
+      "duracao_min": 240,
+      "url": "https://www.estantevirtual.com.br/busca?q=magia+e+tecnica+arte+e+politica+benjamin",
+      "disponivel": true,
+      "obra": "benjamin-magia-e-tecnica",
+      "verificado_em": "2026-11-05"
+    },
+    {
       "id": "rec:cinema/bernardet-o-que-e-cinema",
       "titulo": "O que é cinema (Jean-Claude Bernardet, Brasiliense, 1980 — Coleção Primeiros Passos 9)",
       "rev": 1,
@@ -5360,6 +5583,79 @@
       "url": "https://www.estantevirtual.com.br/busca?q=a+era+dos+imperios+hobsbawm",
       "disponivel": true,
       "obra": "hobsbawm-era-dos-imperios",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:cinema/kracauer-ornamento-da-massa",
+      "titulo": "O ornamento da massa: ensaios (Siegfried Kracauer; trad. Carlos Eduardo Jordão Machado e Marlene Holzhausen; Cosac Naify, 2009 — col. Cinema, Teatro e Modernidade 12)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/ornamento-da-massa",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 160.0,
+      "duracao_min": 360,
+      "url": "https://www.estantevirtual.com.br/busca?q=o+ornamento+da+massa+kracauer",
+      "disponivel": true,
+      "obra": "kracauer-ornamento-da-massa",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:cinema/sontag-fascinante-fascismo",
+      "titulo": "Fascinante fascismo, em Sob o signo de Saturno (Susan Sontag) — L&PM, 2. ed. 1986, p. 59-83, ou a tradução de Rubens Figueiredo pela Companhia das Letras",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/fascinante-fascismo",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 20.0,
+      "duracao_min": 150,
+      "url": "https://www.estantevirtual.com.br/busca?q=sob+o+signo+de+saturno+sontag",
+      "disponivel": true,
+      "obra": "sontag-sob-o-signo-de-saturno",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:cinema/sontag-fascinating-fascism-nyrb",
+      "titulo": "Fascinating Fascism (Susan Sontag, The New York Review of Books, 6 fev. 1975) — original em inglês",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/fascinante-fascismo",
+      "formato": "texto",
+      "idioma": "en",
+      "custo": 0.0,
+      "duracao_min": 150,
+      "url": "https://www.nybooks.com/articles/1975/02/06/fascinating-fascism/",
+      "disponivel": true,
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:cinema/speer-anos-de-gloria",
+      "titulo": "Por dentro do III Reich: os anos de glória (Albert Speer) — vol. 1 da edição brasileira",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/testemunho-do-arquiteto",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 25.0,
+      "duracao_min": 780,
+      "url": "https://www.estantevirtual.com.br/busca?q=por+dentro+do+iii+reich+speer",
+      "disponivel": true,
+      "obra": "speer-anos-de-gloria",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:cinema/triunfo-da-vontade",
+      "titulo": "O triunfo da vontade (dir. Leni Riefenstahl, Alemanha, 1935, 114 min) — DVD restaurado da Synapse Films, alemão com legenda em inglês",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/triunfo-da-vontade",
+      "formato": "video",
+      "idioma": "de",
+      "custo": 182.0,
+      "duracao_min": 114,
+      "url": "https://synapsefilms.com/products/triumph-of-the-will-2006-remaster-dvd",
+      "disponivel": true,
       "verificado_em": "2026-11-05"
     },
     {
