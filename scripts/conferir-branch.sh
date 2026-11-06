@@ -12,7 +12,8 @@
 #   scripts/conferir-branch.sh --sem-rede      # não faz fetch
 #   scripts/conferir-branch.sh --base main     # outra base (padrão: main)
 #
-# Saída: 0 = pode apagar o branch local; 1 = não pode; 2 = erro de uso.
+# Saída: 0 = pode apagar o que existe (o branch local; ou, sem ele, o remoto já
+#         contido na base); 1 = não pode; 2 = erro de uso.
 set -uo pipefail
 
 RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -43,6 +44,14 @@ if [ -z "$ALVO" ]; then
 fi
 [ "$FETCH" -eq 1 ] && git fetch -q origin 2>/dev/null
 
+# A base se resolve ANTES do caso "sem branch local": é contra ela que se decide
+# se o remoto pode ser apagado. Prefere-se `origin/<base>` à base local, que pode
+# estar atrás — é a mesma assimetria pela qual `git branch -d` recusa branch já
+# contido em `origin/main` enquanto o `main` local não foi atualizado.
+BASE_REF="refs/remotes/origin/$BASE"
+git show-ref --verify --quiet "$BASE_REF" || BASE_REF="refs/heads/$BASE"
+git show-ref --verify --quiet "$BASE_REF" || { echo "base inexistente: $BASE" >&2; exit 2; }
+
 # Branch local já apagado: ainda pode haver ref de rastreio pendurada (3ª camada).
 if ! git show-ref --verify --quiet "refs/heads/$ALVO"; then
   echo "branch local inexistente: $ALVO"
@@ -51,9 +60,46 @@ if ! git show-ref --verify --quiet "refs/heads/$ALVO"; then
       amarelo "⚠ há ref de rastreio origin/$ALVO; rode sem --sem-rede para saber se é obsoleta"
       exit 1
     fi
-    if [ -n "$(git ls-remote --heads origin "$ALVO" 2>/dev/null)" ]; then
-      amarelo "⚠ o branch existe só no origin — apagar lá perde o que não estiver na base:"
-      amarelo "    git log --oneline ${BASE}..origin/$ALVO"
+    SHA_SERVIDOR="$(git ls-remote --heads origin "$ALVO" 2>/dev/null | cut -f1)"
+    if [ -n "$SHA_SERVIDOR" ]; then
+      # Compara-se o que o SERVIDOR tem, não a ref de rastreio: ela é cópia local e
+      # pode estar atrasada. Se o objeto ainda não veio no fetch, cai-se na ref e se
+      # diz qual das duas respondeu — nunca se cala a diferença.
+      if git cat-file -e "${SHA_SERVIDOR}^{commit}" 2>/dev/null; then
+        PONTA="$SHA_SERVIDOR"; FONTE="o servidor"; CONFIAVEL=1
+      else
+        PONTA="refs/remotes/origin/$ALVO"; FONTE="a ref de rastreio"; CONFIAVEL=0
+      fi
+      EXC="$(git rev-list --count "$BASE_REF".."$PONTA")"
+      # Sem o objeto do servidor, "contido" seria conclusão tirada de cópia atrasada:
+      # a ref pode estar na base e o servidor ter andado desde ela, e aí o verde
+      # autorizaria apagar commit que este clone nunca viu. Não se aprova às cegas —
+      # o caso negativo, sim, continua valendo: o que a ref já mostra fora da base está
+      # fora da base.
+      if [ "$CONFIAVEL" -eq 0 ] && [ "$EXC" -eq 0 ]; then
+        amarelo "⚠ NÃO CONSEGUI CONFERIR: o servidor tem origin/$ALVO em ${SHA_SERVIDOR:0:7},"
+        amarelo "  objeto que não está neste clone. A ref de rastreio local está contida em"
+        amarelo "  ${BASE_REF#refs/remotes/}, mas isso é leitura de cópia atrasada e não"
+        amarelo "  autoriza apagar nada. Busque a ponta e rode de novo:"
+        amarelo "    git fetch origin $ALVO"
+        exit 1
+      fi
+      if [ "$EXC" -eq 0 ]; then
+        verde "✓ existe só no origin, e está CONTIDO em ${BASE_REF#refs/remotes/}"
+        verde "  (comparando $FONTE: 0 commit fora da base)"
+        verde "  PODE APAGAR o remoto, e sobra a ref de rastreio:"
+        verde "    git push origin --delete $ALVO"
+        verde "    git remote prune origin"
+        exit 0
+      fi
+      vermelho "✗ existe só no origin e tem $EXC commit(s) FORA de ${BASE_REF#refs/remotes/}"
+      vermelho "  (comparando $FONTE) — apagar lá perde isto:"
+      git log --oneline "$BASE_REF".."$PONTA" | sed 's/^/      /'
+      if [ "$CONFIAVEL" -eq 0 ]; then
+        amarelo "  E pode ser MAIS: o servidor está em ${SHA_SERVIDOR:0:7}, que não está neste"
+        amarelo "  clone. A lista acima é a da ref de rastreio. \`git fetch origin $ALVO\`."
+      fi
+      vermelho "  Mescle antes. Não há cópia local: o origin é a única."
     else
       amarelo "⚠ ref de rastreio OBSOLETA: origin/$ALVO não existe mais no servidor"
       amarelo "    git remote prune origin"
@@ -65,9 +111,6 @@ if ! git show-ref --verify --quiet "refs/heads/$ALVO"; then
 fi
 
 REMOTO="refs/remotes/origin/$ALVO"
-BASE_REF="refs/remotes/origin/$BASE"
-git show-ref --verify --quiet "$BASE_REF" || BASE_REF="refs/heads/$BASE"
-git show-ref --verify --quiet "$BASE_REF" || { echo "base inexistente: $BASE" >&2; exit 2; }
 
 # A existência do remoto se decide PERGUNTANDO AO SERVIDOR. A ref de rastreio
 # (refs/remotes/origin/X) sobrevive à exclusão do branch no servidor até alguém

@@ -50,7 +50,6 @@ de teste envelhecem em minutos, e um resumo desatualizado aqui contradiz a fonte
 
 | Área (prefixo) | Branch ou worktree | Intenção / terminado quando | Dono | Desde |
 |---|---|---|---|---|
-| `scripts/conferir-branch.sh` | `worktree-remoto-contido` | o caso "sem local, com remoto" confere se o remoto está contido na base em vez de avisar genérico; terminado quando testado em repo isolado nos dois casos e mesclado | sessão Claude | 2026-11-06 |
 
 Linha sem dono é área **ocupada**, não área livre: é trabalho de outra sessão,
 em curso e fora do git. As duas primeiras linhas desta tabela eram as duas áreas
