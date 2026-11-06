@@ -304,16 +304,24 @@ não é hipotética: o log do percurso mora fora do versionamento por decisão
 worktree, liste o que o git não vê:
 
 ```bash
-W=.claude/worktrees/meu-worktree
-git -C "$W" status --porcelain -uall --ignored | grep '^!!'
+git -C .claude/worktrees/meu-worktree status --porcelain -uall --ignored | grep '^!!'
 ```
 
 Sem achado, o `grep` sai com 1 e não imprime nada — é a resposta certa, não erro
-(verificado). E repare que o caminho vai numa variável **de propósito**: um
-marcador entre `<` e `>` num bloco de shell não é marcador, é redirecionamento de
-entrada. Colado, `git -C <worktree> …` morre com
-`zsh: no such file or directory: worktree` — e, se existir um arquivo com aquele
-nome, roda calado lendo dele. Aconteceu aqui, com a primeira versão desta linha.
+(verificado).
+
+**O caminho vai literal, numa linha só, e as duas versões anteriores desta mesma
+linha explicam por quê.** A primeira escrevia `git -C <worktree> …`: num bloco de
+shell um marcador entre `<` e `>` não é marcador, é redirecionamento de entrada,
+e colado ele morre com `zsh: no such file or directory: worktree` — ou, se
+existir arquivo com aquele nome, roda calado lendo dele. A segunda passava o
+caminho por variável, com o `W=…` num bloco e o `git -C "$W"` no bloco seguinte.
+**Cada bloco é um shell novo**, então a variável não chega — e `git -C ""` é
+**no-op** (verificado, git 2.53.0: saída 0, fica no diretório atual). Logo o
+comando não falha: ele responde sobre onde você está. Rodado do checkout raiz,
+listou o `.venv/` e o `percurso/percurso.sqlite3` **do raiz** como se fossem do
+worktree — saída 0, lista longa e plausível. A correção trocou um modo de falha
+barulhento por um silencioso que aponta para o repositório errado, que é pior.
 
 Se aparecer algo que você não saiba repor — banco, `.env`, credencial, artefato
 caro de reconstruir —, tire de lá antes, porque `git worktree remove` não vai
@@ -389,7 +397,16 @@ podia ser seguida até o fim neste repositório. Quem a seguiu esbarrou no
 aconteceu ao vivo — a frase que eu ia escrever era "não se pode remover o
 worktree de dentro dele", e o teste a desmentiu antes de ela ser publicada.
 
-Daí duas regras para quem mexer aqui:
+A sexta correção é de outra natureza, e é a única aqui que não é sobre o
+conteúdo da regra: a linha que lista o ignorado saiu errada **duas vezes
+seguidas**, e nas duas o erro apareceu quando o autor do repositório colou o
+comando. A segunda versão estava verificada — no shell de quem escreveu, numa
+invocação única, com o `W` já atribuído. Não estava verificada no meio em que ela
+seria usada: dois blocos, dois shells. **"Verificado" também tem escopo de
+ambiente**, e um comando que depende de estado anterior falha exatamente para
+quem o cola em vez de reescrever.
+
+Daí três regras para quem mexer aqui:
 
 1. **Escreva a regra no escopo do teste, não no escopo da intuição.** Se você
    testou que um comando isola um caminho, escreva isso — não "é a defesa".
@@ -401,3 +418,8 @@ Daí duas regras para quem mexer aqui:
    revisão pega a regra ampla demais, execução pega o comando que nunca rodou,
    releitura pega o que você já sabe procurar. Quando houver sessão par no mesmo
    checkout, mandar o texto custa uma mensagem.
+3. **Rode o comando como ele vai ser colado**: num shell novo, sem o estado da
+   sua sessão, e num bloco só se for para ser colado de uma vez. Caminho de
+   exemplo vai literal — não entre `<` e `>`, que é redirecionamento, e não numa
+   variável atribuída em outro bloco, porque `git -C ""` não reclama, responde
+   sobre o diretório errado.
