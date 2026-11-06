@@ -50,7 +50,6 @@ de teste envelhecem em minutos, e um resumo desatualizado aqui contradiz a fonte
 
 | Área (prefixo) | Branch ou worktree | Intenção / terminado quando | Dono | Desde |
 |---|---|---|---|---|
-| `.claude/skills/encerrar-branch/` | `worktree-skill-encerrar-branch` | acrescentar a camada worktree ao skill; terminado quando o PR estiver aberto | sessão da trilha "Estetização da política" | 2026-11-06 |
 
 Linha sem dono é área **ocupada**, não área livre: é trabalho de outra sessão,
 em curso e fora do git. As duas primeiras linhas desta tabela eram as duas áreas
