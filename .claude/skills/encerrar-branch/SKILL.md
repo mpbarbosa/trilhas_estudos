@@ -272,8 +272,8 @@ com **0** e removeu o diretório. O escopo do teste é esse — árvore limpa, d
 dentro, em repositório isolado. A consequência prática é que **o diretório onde o
 seu shell está deixa de existir**, então o comando seguinte não pode supor o cwd.
 
-Isso não é licença para `--force`, pelo motivo da armadilha 3. Com qualquer coisa
-não commitada na árvore, o próprio git barra:
+Isso não é licença para `--force`, pelo motivo da armadilha 3. Com arquivo não
+rastreado na árvore, o próprio git barra:
 
 ```
 fatal: '.' contains modified or untracked files, use --force to delete it
@@ -281,10 +281,35 @@ fatal: '.' contains modified or untracked files, use --force to delete it
 
 Saída 128 — e **arquivo apenas não rastreado já basta** para a recusa
 (verificado; o caso do arquivo modificado-e-rastreado está na mensagem do git,
-não no teste). Essa recusa é a guarda que torna a remoção segura aqui: num
-checkout compartilhado, o arquivo que apareceu pode ser edição ao vivo de outra
-sessão, e `--force` a destrói sem aviso. Se o git recusou, descubra de quem é o
-arquivo antes de insistir.
+não no teste). Num checkout compartilhado, o arquivo que apareceu pode ser edição
+ao vivo de outra sessão, e `--force` a destrói sem aviso: se o git recusou,
+descubra de quem é o arquivo antes de insistir.
+
+### A recusa não cobre arquivo ignorado, e é esse que some calado
+
+**Arquivo ignorado não conta como "não commitado" para este fim**, e a primeira
+versão desta seção errou nisso. Verificado: num worktree cuja árvore continha só
+coisas do `.gitignore` — um `.venv/` e um arquivo listado nele —,
+`git status --porcelain -uall` não mostrou nada, `git worktree remove` **sem**
+`--force` saiu com **0**, e o diretório foi apagado **com o conteúdo ignorado
+dentro**. Sem aviso, sem pergunta. O controle confirma que a diferença é ser
+ignorado: com um arquivo não rastreado e não ignorado, a mesma remoção recusou
+com saída 128.
+
+A guarda do parágrafo anterior, então, protege o que o git versiona ou vê, e
+**não** protege justamente o que está fora do git de propósito. Aqui essa classe
+não é hipotética: o log do percurso mora fora do versionamento por decisão
+([ADR-0008](../../../docs/adr/0008-percurso-como-log-de-fatos-datados.md)), e
+`.venv/` reaparece a cada `uv run` dentro do worktree. Antes de remover um
+worktree, liste o que o git não vê:
+
+```bash
+git -C <worktree> status --porcelain -uall --ignored | grep '^!!'
+```
+
+Se aparecer algo que você não saiba repor — banco, `.env`, credencial, artefato
+caro de reconstruir —, tire de lá antes, porque `git worktree remove` não vai
+avisar. Para um `.venv`, siga em frente: ele se reconstrói.
 
 ## Sequência que funciona
 
