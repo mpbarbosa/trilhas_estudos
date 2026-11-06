@@ -116,5 +116,11 @@ editado à mão, e um lock defasado faz `compilar --conferir` falhar para a pró
 pessoa. Avisos (recurso verificado há mais de 180 dias, etapa órfã) não bloqueiam,
 mas leia-os: etapa órfã só é alcançável por `exploracao`.
 
-Se a trilha for nova, acrescente-a à lista do [README.md](../../../README.md) e à
-tabela de `CLAUDE.md`.
+Se a trilha for nova, acrescente-a à lista do [README.md](../../../README.md).
+**Não** a acrescente a `CLAUDE.md`: a seção "Catálogo atual" de lá manda ler a
+contagem e a lista do lock, justamente para não manter duas.
+
+Se ela abre uma **área nova**, acrescente a área a `SETOR_DA_AREA` em
+`src/trilhas/web/apresentar/comum.py` — e a `ROTULO_AREA`, se o nome tem acento que
+o id não carrega. Área sem entrada lá não desaparece da tela: cai no setor residual
+"Outras áreas", o que é defesa contra mapa envelhecido, não o lugar dela.

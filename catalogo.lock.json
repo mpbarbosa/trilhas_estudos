@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 57,
-  "gerado_em": "2026-11-05T22:56:30+00:00",
-  "hash": "sha256:ebb522e465a7fbc6d505e72f9c2acf99a673affefcb3323278efbdacf63b7740",
+  "catalogo_versao": 58,
+  "gerado_em": "2026-11-06T02:28:47+00:00",
+  "hash": "sha256:e3deee017799074bdaa4835e45f07c9cc087e06328cdd46574ed5021551f5e00",
   "competencias": [
     {
       "id": "comp:cinema/cinema-como-industria-e-ideologia",
@@ -587,6 +587,46 @@
       "status": "ativo",
       "verificacao": "Demonstrar uma proposição que você não viu antes, escolhendo a estratégia e justificando por que ela cabe; e, dada uma \"prova\" com erro sutil, localizar o passo inválido e dizer qual regra ele viola.",
       "descricao": "Ler e escrever demonstração: quantificadores, implicação e sua recíproca, prova direta, contrapositiva, contradição, indução, contraexemplo — e distinguir argumento válido de argumento convincente.\n"
+    },
+    {
+      "id": "comp:politica/anatomia-do-dominio-total",
+      "titulo": "Distinguir domínio total de tirania e de ditadura",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um regime documentado que não os estudados: decidir se ele satisfaz o conceito de domínio total, percorrendo um a um os traços que o definem e dizendo quais estão presentes, quais estão ausentes e com que evidência; nomear o traço cuja ausência é decisiva, se houver; e dizer que diferença prática a classificação faz para prever o comportamento do regime — por exemplo se a repressão para quando a oposição cessa.",
+      "descricao": "Chamar de totalitário todo governo que reprime esvazia a palavra. A competência é operar o conceito pelos traços que o delimitam — movimento antes de Estado, ideologia com lei de movimento própria, duplicação de órgãos e indefinição deliberada de autoridade, polícia que persegue o inimigo objetivo e não o opositor, campo como laboratório de supressão da pessoa — e, com eles na mão, aceitar ou recusar a classificação de um regime, dizendo que traço falta.\n"
+    },
+    {
+      "id": "comp:politica/conceito-a-partir-de-material-historico",
+      "titulo": "Auditar um conceito político construído sobre material histórico",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um trecho de teoria política que afirma algo geral sobre um tipo de regime ou de movimento: separar as afirmações apoiadas em fato datado das apoiadas em interpretação do próprio autor; dizer, para a tese central, que evidência a confirmaria e que evidência a refutaria; e apontar uma passagem em que o conceito é aplicado a um caso que o material citado não cobre, dizendo que documento faltaria ali.",
+      "descricao": "Teoria política séria se escreve sobre documento datado, e é por aí que ela se audita: que fatos o autor usa, que peso cada um aguenta, e onde o conceito passa a andar sozinho, longe do material que o produziu. A competência não é checar notas de rodapé — é dizer o que precisaria ser verdade no mundo para a afirmação se sustentar, e se o texto mostra isso.\n"
+    },
+    {
+      "id": "comp:politica/critica-de-explicacao-psicologica-da-politica",
+      "titulo": "Avaliar o salto entre explicação do indivíduo e explicação do coletivo",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um argumento que explica um fenômeno político por disposição psicológica: marcar em que passo ele muda de nível de análise; nomear a mediação que faria a passagem (organização, instituição, incentivo material, veículo de propaganda) e dizer se o argumento a exibe; apontar que fato do caso o argumento deixa sem explicar; e propor uma explicação concorrente, de outro nível, dizendo que evidência decidiria entre as duas.",
+      "descricao": "Explicar política por caráter, medo ou necessidade de autoridade é fecundo e escorrega fácil: o que vale para um sujeito não se soma até virar regime, e a propriedade de um grupo não se reparte de volta em cada membro. A competência é localizar o ponto em que o argumento troca de nível — indivíduo, grupo, instituição — e dizer o que ele precisaria mostrar para atravessar, incluindo no argumento que se está construindo.\n"
+    },
+    {
+      "id": "comp:politica/dois-sentidos-de-liberdade",
+      "titulo": "Distinguir liberdade como ausência de vínculo e liberdade como capacidade",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dada uma situação documentada em que um vínculo de autoridade, tradição ou dependência se desfez — uma transição de regime, uma reforma de legislação trabalhista, a saída de alguém de uma instituição: dizer de que o sujeito ficou livre e para que ele ficou (ou não) capaz, nomeando o recurso material, cognitivo ou coletivo que falta para o segundo; e explicar por que, no caso, a perda do vínculo pode ser vivida como desamparo, sem concluir disso que o vínculo anterior era preferível.",
+      "descricao": "Dizer que alguém está livre de uma coerção não é dizer que ele tem o que fazer com a liberdade conquistada. A competência é separar os dois sentidos num caso concreto — o vínculo que caiu e a capacidade que não nasceu com a queda dele — e reconhecer o estado em que ganhar o primeiro produz insegurança em vez de autonomia. Sem isso, \"mais liberdade\" e \"melhor\" viram a mesma palavra.\n"
+    },
+    {
+      "id": "comp:politica/psicologia-social-da-submissao",
+      "titulo": "Explicar adesão de massa a um regime de dominação",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um caso documentado de adesão coletiva a um regime ou movimento autoritário que não os estudados: nomear ao menos três mecanismos que a sustentam, dizendo em cada caso que parte da adesão ele explica e que parte fica fora; apontar o grupo social em que o caso se concentrou e o que o distingue dos que não aderiram; e refutar, com um fato datado do próprio caso, tanto a explicação por engano quanto a explicação por patologia.",
+      "descricao": "Por que gente comum adere, aplaude e colabora. A competência é dar conta da adesão por mecanismos nomeáveis — isolamento, insegurança, submissão a uma autoridade que promete sentido, conformismo, prazer na destruição — sem as duas saídas fáceis: a de que os aderentes foram enganados por propaganda e a de que eram patológicos. As duas isentam quem adere e não explicam quem resistiu nas mesmas condições.\n"
     },
     {
       "id": "comp:programacao/analise-lexica",
@@ -3121,6 +3161,98 @@
       ]
     },
     {
+      "id": "etapa:politica/ideologia-e-terror",
+      "titulo": "Ideologia e terror — o conceito, e o que ele aguenta",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 240,
+      "descricao": "O capítulo final da parte III, em que Arendt para de descrever e enuncia: o terror como essência de um governo, não como instrumento dele; a ideologia que se emancipa da experiência e opera como lei de movimento, histórica ou natural; a lógica que substitui o pensamento; e o isolamento e a solidão como condição prévia da dominação, não como seu efeito. A etapa cobra ler o capítulo contra o material das etapas anteriores — que fato datado sustenta cada passo, e onde o conceito passa a andar sem documento.\n",
+      "trilha": "trilha:politica/totalitarismo-e-fuga-da-liberdade",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:politica/anatomia-do-dominio-total",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:politica/anatomia-do-dominio-total",
+          "nivel_resultante": "avancado"
+        },
+        {
+          "competencia": "comp:politica/conceito-a-partir-de-material-historico",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:politica/medo-a-liberdade",
+      "titulo": "O medo à liberdade — o vínculo que cai e o desamparo que sobra",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "descricao": "Fromm lido do começo, menos o capítulo sobre o nazismo, que fica para a última etapa: a emergência do indivíduo que se solta dos laços medievais, a ambiguidade da liberdade na Reforma, os dois aspectos da liberdade moderna, e os mecanismos de fuga com que o indivíduo isolado se livra do próprio desamparo — submissão a uma autoridade, destrutividade, conformismo automático. O corte é o mecanismo, não o caso histórico: estuda-se o que a liberdade cobra de quem a recebe sem ter com que sustentá-la.\n",
+      "trilha": "trilha:politica/totalitarismo-e-fuga-da-liberdade",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:politica/dois-sentidos-de-liberdade",
+          "nivel_resultante": "intermediario"
+        },
+        {
+          "competencia": "comp:politica/psicologia-social-da-submissao",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:politica/movimento-e-poder-totalitarios",
+      "titulo": "O movimento totalitário e o totalitarismo no poder",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "descricao": "O miolo da parte III de Arendt, e a parte do livro que o estudante apontou: a propaganda que não quer convencer e sim profetizar, a organização em camadas com a frente de simpatizantes protegendo o núcleo, a ficção de Estado totalitário com órgãos duplicados e autoridade de propósito indefinida, a polícia secreta que caça o inimigo objetivo — culpado por categoria, não por ato — e o domínio total exercido no campo de concentração. O corte é descritivo: como esse governo funciona, por que ele não para quando a oposição acaba, e em que ele difere de tirania e de ditadura.\n",
+      "trilha": "trilha:politica/totalitarismo-e-fuga-da-liberdade",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:politica/anatomia-do-dominio-total",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:politica/por-que-se-adere",
+      "titulo": "Por que se adere — caráter, massa e os dois níveis da explicação",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 360,
+      "descricao": "As duas respostas, lado a lado e em conflito. Fromm explica a adesão ao nazismo pela estrutura de caráter da classe média baixa alemã e pela função sadomasoquista da hierarquia; Arendt a explica pelo colapso das classes em massa — gente sem interesse comum, sem partido, sem lugar, disponível para o movimento, e a aliança entre a elite e a ralé que vem com ele. A etapa não pede escolher um dos dois: pede localizar onde cada argumento troca de nível de análise, que mediação faria a passagem, e que evidência decidiria entre eles.\n",
+      "trilha": "trilha:politica/totalitarismo-e-fuga-da-liberdade",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:politica/psicologia-social-da-submissao",
+          "nivel_minimo": "iniciante"
+        },
+        {
+          "competencia": "comp:politica/anatomia-do-dominio-total",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:politica/psicologia-social-da-submissao",
+          "nivel_resultante": "intermediario"
+        },
+        {
+          "competencia": "comp:politica/critica-de-explicacao-psicologica-da-politica",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:programacao/analise-lexica",
       "titulo": "Análise léxica — da expressão regular ao analisador que emite átomos",
       "rev": 1,
@@ -4875,6 +5007,40 @@
         "etapa:matematica/integral-e-acumulacao",
         "etapa:matematica/simetria-e-grupos",
         "etapa:matematica/projeto-demonstracao-propria"
+      ]
+    },
+    {
+      "id": "trilha:politica/totalitarismo-e-fuga-da-liberdade",
+      "titulo": "Totalitarismo — do domínio total ao medo de ser livre",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:politica/anatomia-do-dominio-total",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:politica/psicologia-social-da-submissao",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:politica/dois-sentidos-de-liberdade",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:politica/conceito-a-partir-de-material-historico",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:politica/critica-de-explicacao-psicologica-da-politica",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:politica/medo-a-liberdade",
+        "etapa:politica/movimento-e-poder-totalitarios",
+        "etapa:politica/ideologia-e-terror",
+        "etapa:politica/por-que-se-adere"
       ]
     },
     {
@@ -7975,6 +8141,96 @@
       "disponivel": true,
       "obra": "stewart-historia-da-simetria",
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:politica/arendt-ideologia-e-terror",
+      "titulo": "Origens do totalitarismo (Hannah Arendt; trad. Roberto Raposo; Companhia das Letras) — parte III, \"Ideologia e terror: uma nova forma de governo\"",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:politica/ideologia-e-terror",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 40.0,
+      "duracao_min": 240,
+      "url": "https://www.estantevirtual.com.br/busca?q=origens+do+totalitarismo+hannah+arendt",
+      "disponivel": true,
+      "obra": "arendt-origens-do-totalitarismo",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:politica/arendt-movimento-totalitario",
+      "titulo": "Origens do totalitarismo (Hannah Arendt; trad. Roberto Raposo; Companhia das Letras) — parte III, \"O movimento totalitário\"",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:politica/movimento-e-poder-totalitarios",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 40.0,
+      "duracao_min": 420,
+      "url": "https://www.estantevirtual.com.br/busca?q=origens+do+totalitarismo+hannah+arendt",
+      "disponivel": true,
+      "obra": "arendt-origens-do-totalitarismo",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:politica/arendt-sociedade-sem-classes",
+      "titulo": "Origens do totalitarismo (Hannah Arendt; trad. Roberto Raposo; Companhia das Letras) — parte III, abertura: a sociedade sem classes e a massa",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:politica/por-que-se-adere",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 40.0,
+      "duracao_min": 240,
+      "url": "https://www.estantevirtual.com.br/busca?q=origens+do+totalitarismo+hannah+arendt",
+      "disponivel": true,
+      "obra": "arendt-origens-do-totalitarismo",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:politica/arendt-totalitarismo-no-poder",
+      "titulo": "Origens do totalitarismo (Hannah Arendt; trad. Roberto Raposo; Companhia das Letras) — parte III, \"O totalitarismo no poder\": o Estado, a polícia secreta e o domínio total",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:politica/movimento-e-poder-totalitarios",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 40.0,
+      "duracao_min": 480,
+      "url": "https://www.estantevirtual.com.br/busca?q=origens+do+totalitarismo+hannah+arendt",
+      "disponivel": true,
+      "obra": "arendt-origens-do-totalitarismo",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:politica/fromm-medo-a-liberdade",
+      "titulo": "O medo à liberdade (Erich Fromm; trad. Octávio Alves Velho; Rio de Janeiro: Zahar) — o livro menos o capítulo sobre o nazismo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:politica/medo-a-liberdade",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 96.0,
+      "duracao_min": 600,
+      "url": "https://www.estantevirtual.com.br/busca?q=o+medo+a+liberdade+erich+fromm",
+      "disponivel": true,
+      "obra": "fromm-o-medo-a-liberdade",
+      "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:politica/fromm-psicologia-do-nazismo",
+      "titulo": "O medo à liberdade (Erich Fromm; trad. Octávio Alves Velho; Rio de Janeiro: Zahar) — cap. \"A psicologia do nazismo\"",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:politica/por-que-se-adere",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 96.0,
+      "duracao_min": 120,
+      "url": "https://www.estantevirtual.com.br/busca?q=o+medo+a+liberdade+erich+fromm",
+      "disponivel": true,
+      "obra": "fromm-o-medo-a-liberdade",
+      "verificado_em": "2026-11-05"
     },
     {
       "id": "rec:programacao/automate-boring-stuff",
