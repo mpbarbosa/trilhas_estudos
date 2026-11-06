@@ -28,6 +28,10 @@ trilha:
       titulo: O que um SGBD faz — os três níveis e a independência de dados
       rev: 1
       status: ativo
+      descricao: >
+        O que um SGBD faz antes de qualquer consulta: os três níveis da arquitetura
+        ANSI/SPARC, a independência de dados que eles compram, e as peças internas —
+        catálogo, otimizador, gerenciador de buffer e de transação.
       esforco_estimado_min: 480
       opcional: false
       requires: []
@@ -39,6 +43,10 @@ trilha:
       titulo: O modelo relacional — domínios, relações, chaves e integridade
       rev: 1
       status: ativo
+      descricao: >
+        Domínio, relação, tupla e chave; integridade de entidade e referencial; e o
+        tratamento do nulo. O artigo de Codd é lido ao lado do livro para separar o que
+        o modelo garante do que ele deixa para o SGBD.
       esforco_estimado_min: 720
       opcional: false
       requires:
@@ -53,6 +61,10 @@ trilha:
       titulo: Álgebra e cálculo relacional — duas formas de dizer a mesma consulta
       rev: 1
       status: ativo
+      descricao: >
+        As duas linguagens formais do modelo: seleção, projeção, junção e divisão na
+        álgebra, e a mesma consulta escrita como predicado no cálculo. Fecha na
+        equivalência entre as duas e no que significa ser relacionalmente completa.
       esforco_estimado_min: 720
       opcional: false
       requires:
@@ -66,6 +78,10 @@ trilha:
       titulo: SQL lido contra o modelo — o que a linguagem cumpre e onde diverge
       rev: 1
       status: ativo
+      descricao: >
+        SQL lida contra a álgebra que ela deveria implementar: o que a linguagem cumpre,
+        onde divergiu — duplicata, nulo de três valores, ordem de coluna — e o que disso
+        é decisão de padrão. Com exercícios de junção, agregação e subconsulta.
       esforco_estimado_min: 900
       opcional: false
       requires:
@@ -80,6 +96,10 @@ trilha:
       titulo: Dependência funcional e normalização até a FNBC
       rev: 1
       status: ativo
+      descricao: >
+        Dependência funcional como fato do domínio, decomposição sem perda de informação
+        e as formas normais até a FNBC. O critério é a anomalia que cada forma elimina,
+        não a forma pela forma.
       esforco_estimado_min: 900
       opcional: false
       requires:
@@ -93,6 +113,10 @@ trilha:
       titulo: 4FN, 5FN e os limites da decomposição
       rev: 1
       status: ativo
+      descricao: >
+        Onde a dependência funcional não alcança: dependência multivalorada e de junção,
+        4FN e 5FN — e por que a decomposição para antes de destruir a consulta.
+        Aprofundamento opcional do projeto de esquema.
       esforco_estimado_min: 480
       opcional: true          # aprofundamento: o objetivo da trilha para em FNBC
       requires:
@@ -107,6 +131,10 @@ trilha:
       titulo: Armazenamento e acesso — páginas, árvore B e hashing
       rev: 1
       status: ativo
+      descricao: >
+        Como a relação chega ao disco: página, registro, árvore B, hashing e índice
+        secundário — e o que cada estrutura cobra em leitura, escrita e espaço. O índice
+        aparece também pelo plano de execução, não só pela definição.
       esforco_estimado_min: 600
       opcional: false
       requires:
@@ -121,6 +149,10 @@ trilha:
       titulo: Transação, recuperação e concorrência — o que protege o dado
       rev: 1
       status: ativo
+      descricao: >
+        O que protege o dado quando algo falha ou quando dois clientes escrevem juntos:
+        transação e ACID, recuperação por log, bloqueio e impasse — e os níveis de
+        isolamento e o MVCC que os SGBDs atuais oferecem no lugar.
       esforco_estimado_min: 900
       opcional: false
       requires:
@@ -137,6 +169,10 @@ trilha:
       titulo: Projeto — de requisito em texto a esquema normalizado sob concorrência
       rev: 1
       status: ativo
+      descricao: >
+        Um requisito em texto corrido virando esquema normalizado em SQLite, com
+        consultas, índices escolhidos pelo plano e duas sessões concorrentes disputando
+        as mesmas linhas. É onde modelo, linguagem e proteção aparecem juntos.
       esforco_estimado_min: 1500
       opcional: false
       requires:

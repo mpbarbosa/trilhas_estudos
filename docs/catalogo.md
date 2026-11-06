@@ -92,6 +92,9 @@ trilha:
       titulo: JOINs e relacionamentos
       rev: 3
       status: ativo
+      descricao: >
+        Junção interna e externa sobre o esquema já modelado, com a condição escrita
+        pelo que o relacionamento é.
       esforco_estimado_min: 90
       opcional: false
       requires:
@@ -106,6 +109,11 @@ trilha:
   etapas_referenciadas:
     - etapa:programacao/logica-booleana
 ```
+
+`descricao` é opcional e é prosa de autoria, como na competência: diz o que se estuda
+na etapa e qual é o corte, para quem lê a tela da etapa antes de abrir um recurso. Não
+substitui `teaches` — o que a etapa desenvolve é o que está declarado em competência, e
+nenhuma validação lê a descrição.
 
 ### Recurso
 
@@ -133,7 +141,11 @@ há mais de 180 dias é reportado pela validação como aviso, não erro.
 `obra` é campo **opcional** do recurso e agrupa as fatias de um mesmo exemplar
 ([ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md)): um livro que
 atende sete etapas é sete recursos, porque um recurso pertence a uma etapa só, e as
-sete fatias declaram a mesma `obra`.
+sete fatias declaram a mesma `obra`. **Uma fatia só é um número legítimo de fatias**
+([ADR-0020](adr/0020-obra-declarada-tambem-em-exemplar-nao-fatiado.md)): o livro que
+entra inteiro numa etapa também declara `obra`, porque é ela que torna o exemplar
+endereçável — sem slug não há `/obra/<slug>` nem como uma trilha listar os próprios
+livros.
 
 ```yaml
   - id: rec:dados/date-vol1-sql
@@ -148,13 +160,15 @@ renomeá-la é um rename mecânico entre as fatias, sem a cerimônia de §6.
 `custo` continua por recurso e continua querendo dizer "o que custa ter acesso a este
 recurso" — `obra` não o move nem o reinterpreta. O que ela fixa é como somar:
 **qualquer agregação monetária conta cada obra uma vez**, pelo `custo` de uma de suas
-fatias; recurso sem `obra` é obra de si mesmo. Nenhuma agregação monetária existe
-hoje — o filtro de `custo_maximo` do motor é por recurso, nunca por caminho
-([motor §2.2](motor-de-sugestao.md)) —, então o campo é inerte até aparecer um
-consumidor. Declará-lo agora é barato porque só o autor da fatia sabe a resposta.
+fatias; recurso sem `obra` é obra de si mesmo. O campo deixou de ser inerte em
+2026-10-22, quando a tela da obra ([interface.md §5.13](interface.md)) se tornou o
+primeiro consumidor da regra: ela mostra o preço do exemplar uma vez e soma a duração
+das fatias. No **motor** continua não havendo agregação monetária alguma — o filtro de
+`custo_maximo` é por recurso, nunca por caminho
+([motor §2.2](motor-de-sugestao.md)).
 
 `parte_de` é campo **opcional** do recurso e marca um capítulo de outro recurso da
-mesma etapa ([ADR-0019](adr/0019-capitulo-como-parte-de-recurso.md)). Os recursos de
+mesma etapa ([ADR-0021](adr/0021-capitulo-como-parte-de-recurso.md)). Os recursos de
 uma etapa são alternativas — cada um a atende sozinho —, e um capítulo não é. A parte
 fica fora de `recursos_da_etapa`: o motor não a sugere, a validação 5 não a conta e
 `iniciar --recurso` a recusa. Ela existe para `trilhas-percurso percorrer` registrar a
@@ -162,9 +176,16 @@ leitura parcial de um livro que é, inteiro, o material de uma etapa só.
 
 ```yaml
   - id: rec:ia/prompt-engineering-for-llms-cap-02
-    obra: prompt-engineering-for-llms   # nas partes; o todo não a declara
+    obra: berryman-ziegler-prompt-engineering   # o mesmo slug do todo
     parte_de: rec:ia/prompt-engineering-for-llms
 ```
+
+**A parte declara a `obra` do todo, com o mesmo slug.** É um exemplar só: dois slugs
+dariam dois endereços `/obra/` e, pela regra de soma do
+[ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md), dois preços para o
+livro que se compra uma vez. Em troca, o rollup de `mostrar` conta o todo entre as
+fatias: onze capítulos de um livro dão **12 fatias**, e "2/12" quer dizer dois
+capítulos percorridos — não 2 de 12 capítulos.
 
 ---
 
@@ -193,7 +214,7 @@ Cada entidade tem `rev`, inteiro monotônico. **`rev` sobe só em mudança subst
 | Entidade | Substantivo (sobe `rev`) | Cosmético (não sobe) |
 |---|---|---|
 | Competência | `verificacao`, `status` | `titulo`, `descricao` |
-| Etapa | `requires`, `teaches`, `opcional`, `status`, `esforco_estimado_min` com variação > 20% | `titulo`, ordem no arquivo, ajuste fino de esforço |
+| Etapa | `requires`, `teaches`, `opcional`, `status`, `esforco_estimado_min` com variação > 20% | `titulo`, `descricao`, ordem no arquivo, ajuste fino de esforço |
 | Trilha | incluir/remover etapa **obrigatória**, `objetivo_declarado`, `status` | `titulo`, ordem de apresentação, etapa opcional |
 | Recurso | `etapa`, `status`, `disponivel`, `custo`, `obra`, `parte_de`, `idioma`, `formato` | `titulo`, `verificado_em`, `url` que aponta ao mesmo material |
 
@@ -247,7 +268,7 @@ Erro bloqueia o snapshot. Aviso é reportado e permite compilar.
 10. **Recurso verificado** há mais de 180 dias — *aviso*.
 11. **Etapa órfã**: ativa, fora de qualquer trilha ativa e não referenciada — *aviso* (alcançável só por `exploracao`).
 12. **Obra com custo único**: fatias ativas (ou em rascunho) que declaram a mesma `obra` declaram o mesmo `custo` — *erro*. Fatias de uma obra são um exemplar por definição; dois preços significam ou erro de digitação ou duas obras, e os dois casos se corrigem ([ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md)). Fatia depreciada fica de fora: preço de recurso retirado não é fato do exemplar de hoje.
-13. **Parte coerente**: recurso com `parte_de` aponta para recurso da mesma etapa que não é, ele próprio, parte — *erro* ([ADR-0019](adr/0019-capitulo-como-parte-de-recurso.md)).
+13. **Parte coerente**: recurso com `parte_de` aponta para recurso da mesma etapa que não é, ele próprio, parte — *erro* ([ADR-0021](adr/0021-capitulo-como-parte-de-recurso.md)).
 
 ### Snapshot
 

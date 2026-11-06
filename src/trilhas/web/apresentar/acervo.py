@@ -42,6 +42,38 @@ class ResumoTrilha:
 
 
 @dataclass(frozen=True, slots=True)
+class Prateleira:
+    """Uma área e as trilhas que moram nela — a prateleira da estante da abertura.
+
+    Agrupar por área é escolha de tela, não de domínio: a área já está no id
+    (`<tipo>:<area>/<slug>`, docs/catalogo.md §3) e nenhuma regra depende dela.
+    """
+
+    area: str
+    rotulo: str
+    """A área escrita em pt-BR — `programacao` é id, `programação` é o que se lê."""
+    trilhas: tuple[ResumoTrilha, ...]
+    esforco: str
+
+
+@dataclass(frozen=True, slots=True)
+class Setor:
+    """Prateleiras de áreas afins — o setor em que a estante é dividida.
+
+    Segundo agrupamento de tela em cima do primeiro, pelo mesmo motivo e com o mesmo
+    limite: `comum.SETOR_DA_AREA` é juízo editorial, nenhuma regra depende de setor e o
+    id não o carrega. Existe porque doze prateleiras em ordem alfabética fazem quem
+    procura conteúdo varrer a estante inteira.
+    """
+
+    id: str
+    rotulo: str
+    prateleiras: tuple[Prateleira, ...]
+    qtd_trilhas: int
+    esforco: str
+
+
+@dataclass(frozen=True, slots=True)
 class Contagem:
     rotulo: str
     quantidade: int
@@ -52,7 +84,7 @@ class VisaoInicio:
     catalogo_versao: int
     gerado_em: str
     hash_curto: str
-    trilhas: tuple[ResumoTrilha, ...]
+    setores: tuple[Setor, ...]
     totais: tuple[Contagem, ...]
     esforco_total: str
     ondas: int
@@ -79,8 +111,10 @@ def inicio(acervo: Acervo, *, hoje: date) -> VisaoInicio:
         catalogo_versao=acervo.cabecalho.catalogo_versao,
         gerado_em=acervo.cabecalho.gerado_em,
         hash_curto=acervo.cabecalho.hash[7:19] if acervo.cabecalho.hash else "",
-        trilhas=tuple(
-            _resumo(t, acervo) for t in sorted(cat.trilhas.values(), key=lambda t: t.titulo)
+        setores=_setores(
+            _prateleiras(
+                _resumo(t, acervo) for t in sorted(cat.trilhas.values(), key=lambda t: t.titulo)
+            )
         ),
         totais=(
             Contagem("trilhas", len(cat.trilhas)),
@@ -124,6 +158,50 @@ def _resumo(trilha: Trilha, acervo: Acervo) -> ResumoTrilha:
         esforco_min=sum(e.esforco_estimado_min for e in etapas),
         esforco=comum.duracao(sum(e.esforco_estimado_min for e in etapas)),
         ondas=(ondas[0], ondas[-1]) if ondas else (0, 0),
+    )
+
+
+def _prateleiras(resumos: Iterable[ResumoTrilha]) -> tuple[Prateleira, ...]:
+    """Uma prateleira por área, em ordem alfabética; dentro, a ordem recebida.
+
+    Área vazia — id sem `<area>/` — vira prateleira própria em vez de sumir: o que
+    está no catálogo tem de aparecer na tela, mesmo malformado.
+    """
+    por_area: dict[str, list[ResumoTrilha]] = {}
+    for resumo in resumos:
+        por_area.setdefault(resumo.area, []).append(resumo)
+    return tuple(
+        Prateleira(
+            area=area,
+            rotulo=comum.area(area),
+            trilhas=tuple(trilhas),
+            esforco=comum.duracao(sum(t.esforco_min for t in trilhas)),
+        )
+        for area, trilhas in sorted(por_area.items())
+    )
+
+
+def _setores(prateleiras: Iterable[Prateleira]) -> tuple[Setor, ...]:
+    """Agrupa as prateleiras em Exatas e Humanas, na ordem de `comum.ORDEM_SETOR`.
+
+    Setor fora dessa ordem — alguém acrescentou um a `SETOR_DA_AREA` e esqueceu a outra
+    tupla — entra no fim em ordem alfabética, em vez de levar as prateleiras consigo para
+    fora da tela. Setor sem prateleira nenhuma não vira seção vazia.
+    """
+    por_setor: dict[str, list[Prateleira]] = {}
+    for prateleira in prateleiras:
+        por_setor.setdefault(comum.setor_da_area(prateleira.area), []).append(prateleira)
+    ordem = [s for s in comum.ORDEM_SETOR if s in por_setor]
+    ordem += sorted(s for s in por_setor if s not in comum.ORDEM_SETOR)
+    return tuple(
+        Setor(
+            id=s,
+            rotulo=comum.setor(s),
+            prateleiras=tuple(por_setor[s]),
+            qtd_trilhas=sum(len(p.trilhas) for p in por_setor[s]),
+            esforco=comum.duracao(sum(t.esforco_min for p in por_setor[s] for t in p.trilhas)),
+        )
+        for s in ordem
     )
 
 

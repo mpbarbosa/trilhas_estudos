@@ -16,26 +16,28 @@ recursos:
   - id: rec:engenharia/vazquez-engenharia-de-requisitos
     etapa: etapa:engenharia/requisitos-e-atributos
     titulo: "Engenharia de Requisitos: software orientado ao negócio (Vazquez & Simões)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 70
     duracao_min: 900
     url: https://www.amazon.com.br/dp/B01M3S7HT7
+    obra: vazquez-engenharia-de-requisitos
     disponivel: true
     verificado_em: 2026-10-08
 
   - id: rec:engenharia/hathaway-requisitos-nao-funcionais
     etapa: etapa:engenharia/requisitos-e-atributos
     titulo: "Functional and Non-Functional Requirements — Simply Put! (Hathaway & Hathaway)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 25
     duracao_min: 300
     url: https://www.amazon.com.br/dp/1534983481
+    obra: hathaway-requisitos-nao-funcionais
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -167,26 +169,28 @@ recursos:
   - id: rec:engenharia/rys-git-tutorial
     etapa: etapa:engenharia/controle-de-versao
     titulo: "Ry's Git Tutorial (Ryan Hodson)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 25
     duracao_min: 300
     url: https://www.amazon.com.br/dp/B00QFIA5OC
+    obra: hodson-rys-git-tutorial
     disponivel: true
     verificado_em: 2026-10-08
 
   - id: rec:engenharia/pro-git
     etapa: etapa:engenharia/controle-de-versao
     titulo: "Pro Git, 2ª ed. (Chacon & Straub) — edição aberta, inclusive em português"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 0
     duracao_min: 720
     url: https://git-scm.com/book/pt-br/v2
+    obra: chacon-straub-pro-git
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -221,26 +225,28 @@ recursos:
   - id: rec:engenharia/effective-devops
     etapa: etapa:engenharia/operacao-e-incidente
     titulo: "Effective DevOps: Building a Culture of Collaboration, Affinity, and Tooling at Scale (Davis & Daniels)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 90
     duracao_min: 900
     url: https://www.amazon.com.br/dp/1491926309
+    obra: davis-daniels-effective-devops
     disponivel: true
     verificado_em: 2026-10-08
 
   - id: rec:engenharia/google-sre-books
     etapa: etapa:engenharia/operacao-e-incidente
     titulo: "Google SRE Books — edição aberta: SLO, resposta a incidente e postmortem sem culpado"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 900
     url: https://sre.google/books/
+    obra: google-sre-books
     disponivel: true
     verificado_em: 2026-10-08
 

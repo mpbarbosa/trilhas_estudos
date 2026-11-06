@@ -150,3 +150,37 @@ def test_recurso_sem_obra_fica_sem_agrupamento(tmp_path: Path) -> None:
     catalogo, problemas = carregar(tmp_path)
     assert not tem_erro(problemas)
     assert catalogo.recursos["rec:x/fatia"].obra is None
+
+
+def test_descricao_da_etapa_e_lida_e_opcional(tmp_path: Path) -> None:
+    """`descricao` é autorada como na competência, e a etapa que não a tem segue válida."""
+    escrever(
+        tmp_path,
+        "trilhas/t.yaml",
+        """versao_schema: 1
+trilha:
+  id: trilha:x/t
+  titulo: T
+  rev: 1
+  etapas:
+    - id: etapa:x/com
+      titulo: Com
+      rev: 1
+      status: ativo
+      descricao: >
+        Duas linhas de prosa que o autor escreveu,
+        dobradas num parágrafo só.
+      esforco_estimado_min: 30
+    - id: etapa:x/sem
+      titulo: Sem
+      rev: 1
+      status: ativo
+      esforco_estimado_min: 30
+""",
+    )
+    catalogo, problemas = carregar(tmp_path)
+    assert not tem_erro(problemas)
+    assert catalogo.etapas["etapa:x/com"].descricao == (
+        "Duas linhas de prosa que o autor escreveu, dobradas num parágrafo só.\n"
+    )
+    assert catalogo.etapas["etapa:x/sem"].descricao == ""

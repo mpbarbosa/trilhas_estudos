@@ -177,13 +177,24 @@ recursos:
   # (`obra: kernighan-ritchie-c`, acima), não desta etapa. Quem lê só português tem
   # caminho, mas tem um só, e ele é em Rust.
   #
-  # Nenhum declara `obra`: `obra` existe para uma agregação monetária contar o
-  # exemplar uma vez (ADR-0009), e obra gratuita soma zero de qualquer maneira.
+  # Só o livro de Rust declara `obra`. Desde a ADR-0020 `obra` quer dizer "este
+  # recurso é fatia de um exemplar endereçável", não "há o que agrupar", e gratuito
+  # não desqualifica: o livro de Rust tem edição impressa na No Starch e o site é a
+  # edição aberta dela, como em Pro Git e no OSTEP. Os dois guias do Beej não têm
+  # exemplar algum — nenhuma edição à venda, nenhum ISBN, documento revisado
+  # continuamente que o próprio autor chama de guia e de "beta-quality document",
+  # enquanto ele vende em brochura justamente os outros dois guias dele (Network
+  # Programming e Git). São referência aberta, e é assim que
+  # docs/bibliografia.md § O que não tem ficha os classifica. Declaravam `obra` entre
+  # 2026-11-01 e a escrita das fichas, por julgamento feito a partir de título e URL;
+  # a `obra` saiu quando a ficha foi escrita e olhou o material de perto, e a `rev`
+  # subiu outra vez porque remover `obra` é substantivo igual a acrescentá-la
+  # (docs/catalogo.md § 4) — `rev` nunca decresce (CAT-090).
   # =========================================================================
   - id: rec:programacao/beej-c-sistemas
     etapa: etapa:programacao/programacao-de-sistemas
     titulo: "Beej's Guide to C Programming — de `hello, world` a estruturas, apontadores, alocação manual, projetos de vários arquivos e o ambiente de fora (`argv`, variáveis, código de saída)"
-    rev: 1
+    rev: 3
     status: ativo
     formato: texto
     idioma: en-US
@@ -196,7 +207,7 @@ recursos:
   - id: rec:programacao/beej-ipc-descritores
     etapa: etapa:programacao/programacao-de-sistemas
     titulo: "Beej's Guide to Interprocess Communication — `fork`, canos, FIFOs e sinais: o processo filho, o descritor e a leitura que volta com menos bytes do que se pediu"
-    rev: 1
+    rev: 3
     status: ativo
     formato: texto
     idioma: en-US
@@ -209,13 +220,14 @@ recursos:
   - id: rec:programacao/rust-book-sistemas
     etapa: etapa:programacao/programacao-de-sistemas
     titulo: "The Rust Programming Language (Klabnik & Nichols) — caps. 1 a 12: tipos, posse e empréstimo, structs, módulos, coleções, tratamento de erro, e o projeto de E/S que o cap. 12 reparte em biblioteca e binário"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 900
     url: https://doc.rust-lang.org/book/
+    obra: klabnik-nichols-rust-book
     disponivel: true
     verificado_em: 2026-10-19
 
@@ -235,3 +247,91 @@ recursos:
     url: https://google.github.io/comprehensive-rust/pt-BR/
     disponivel: true
     verificado_em: 2026-10-19
+
+  # =========================================================================
+  # Price & Toscani, *Implementação de Linguagens de Programação: Compiladores*
+  # (Instituto de Informática da UFRGS / Sagra Luzzatto, 2000; Série Livros Didáticos
+  # nº 9). Uma fatia por etapa de trilha:programacao/compiladores, todas com
+  # `obra: price-toscani-compiladores` e o custo do exemplar inteiro (ADR-0009,
+  # ADR-0020). O estudante já tem o exemplar; o valor é o de um usado, porque a edição
+  # está fora de catálogo e circula em sebo.
+  #
+  # As fatias são por **assunto**, não por número de capítulo: o sumário não foi
+  # confirmado em fonte pública nenhuma (Amazon 503, Estante Virtual 403, editora e
+  # UFRGS sem lista de capítulos). Trocar os títulos por "cap. N, ..." quando o
+  # exemplar estiver em mão é cosmético (docs/catalogo.md §4).
+  # =========================================================================
+  # --- etapa:programacao/compilador-estrutura-e-fases ---------------------------
+  - id: rec:programacao/price-toscani-estrutura
+    etapa: etapa:programacao/compilador-estrutura-e-fases
+    titulo: "Implementação de Linguagens de Programação: Compiladores (Price & Toscani) — introdução: fases do compilador, compilador e interpretador"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 50
+    obra: price-toscani-compiladores
+    duracao_min: 120
+    url: https://www.amazon.com.br/dp/8524106395
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:programacao/analise-lexica -----------------------------------------
+  - id: rec:programacao/price-toscani-analise-lexica
+    etapa: etapa:programacao/analise-lexica
+    titulo: "Implementação de Linguagens de Programação: Compiladores — análise léxica: expressão regular, autômato finito e o analisador"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 50
+    obra: price-toscani-compiladores
+    duracao_min: 180
+    url: https://www.amazon.com.br/dp/8524106395
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:programacao/analise-sintatica --------------------------------------
+  - id: rec:programacao/price-toscani-analise-sintatica
+    etapa: etapa:programacao/analise-sintatica
+    titulo: "Implementação de Linguagens de Programação: Compiladores — análise sintática: gramáticas livres de contexto, métodos descendente e ascendente"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 50
+    obra: price-toscani-compiladores
+    duracao_min: 300
+    url: https://www.amazon.com.br/dp/8524106395
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:programacao/analise-semantica --------------------------------------
+  - id: rec:programacao/price-toscani-analise-semantica
+    etapa: etapa:programacao/analise-semantica
+    titulo: "Implementação de Linguagens de Programação: Compiladores — análise semântica: tabela de símbolos, tipos e tradução dirigida por sintaxe"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 50
+    obra: price-toscani-compiladores
+    duracao_min: 240
+    url: https://www.amazon.com.br/dp/8524106395
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:programacao/geracao-de-codigo --------------------------------------
+  - id: rec:programacao/price-toscani-geracao-de-codigo
+    etapa: etapa:programacao/geracao-de-codigo
+    titulo: "Implementação de Linguagens de Programação: Compiladores — geração de código: código intermediário, ambiente de execução e código final"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 50
+    obra: price-toscani-compiladores
+    duracao_min: 300
+    url: https://www.amazon.com.br/dp/8524106395
+    disponivel: true
+    verificado_em: 2026-11-05

@@ -13,15 +13,33 @@ from datetime import date
 from pathlib import Path
 
 from starlette.applications import Starlette
+from starlette.responses import Response
 from starlette.routing import Mount
 from starlette.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
+from starlette.types import Scope
 
 from . import rotas
 from .dados import NOME_DO_LOCK, Fonte
 from .encerrar import encerrar_processo
 
 AQUI = Path(__file__).parent
+
+
+class EstaticosRevalidados(StaticFiles):
+    """Estáticos que o navegador é obrigado a conferir antes de reusar.
+
+    Sem `Cache-Control` o navegador cacheia por heurística, e quem mexe no CSS
+    recarrega a página, vê a folha antiga e conclui que a mudança não funcionou —
+    perde-se mais tempo nisso do que o cache economiza em servidor local. `no-cache`
+    não proíbe guardar: obriga a perguntar, e a pergunta volta 304 enquanto o arquivo
+    não muda.
+    """
+
+    async def get_response(self, path: str, scope: Scope) -> Response:
+        resposta = await super().get_response(path, scope)
+        resposta.headers.setdefault("cache-control", "no-cache")
+        return resposta
 
 
 @dataclass(slots=True)
@@ -48,7 +66,11 @@ def criar_app(
     app = Starlette(
         routes=[
             *rotas.ROTAS,
-            Mount("/estatico", StaticFiles(directory=str(AQUI / "estatico")), name="estatico"),
+            Mount(
+                "/estatico",
+                EstaticosRevalidados(directory=str(AQUI / "estatico")),
+                name="estatico",
+            ),
         ],
         exception_handlers={404: rotas.nao_encontrado, 500: rotas.falhou},
     )

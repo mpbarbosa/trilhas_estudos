@@ -13,19 +13,31 @@
 # dados, onde o recorte é aplicado; e os Elementos sustentam uma etapa só. O corpo
 # da trilha é portanto material aberto, escolhido por ter exercício com resposta —
 # que é o que falta aos livros de divulgação.
+#
+# -------------------------------------------------------------------------
+#   obra: iezzi-murakami-fme-1 — Gelson Iezzi e Carlos Murakami, *Fundamentos de
+#     Matemática Elementar 1: Conjuntos, Funções* (Atual, 9ª ed., 2013, 410 p.,
+#     ISBN 978-85-357-1680-1). Lido no Kindle. Texto clássico de ensino médio e
+#     pré-vestibular, com muitos exercícios resolvidos e propostos, gabarito no
+#     fim e as "novas questões de vestibulares" desta edição. Duas fatias: os
+#     caps. 1 e 2 (lógica e conjuntos) entram na raiz como porta em pt-BR para o
+#     Book of Proof, que é mais exigente; os caps. 3 a 10 e os dois apêndices
+#     sustentam a etapa opcional de funções elementares. O custo é estimativa:
+#     o preço do Kindle na Amazon brasileira não foi conferido.
 versao_schema: 1
 recursos:
   # --- etapa:matematica/o-que-e-uma-prova ---------------------------------
   - id: rec:matematica/book-of-proof
     etapa: etapa:matematica/o-que-e-uma-prova
     titulo: "Book of Proof, 3ª ed. (Richard Hammack) — edição aberta, com exercícios resolvidos"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 1200
     url: https://www.people.vcu.edu/~rhammack/BookOfProof/
+    obra: hammack-book-of-proof
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -45,27 +57,58 @@ recursos:
   - id: rec:matematica/stewart-misterios
     etapa: etapa:matematica/o-que-e-uma-prova
     titulo: "Os mistérios matemáticos do professor Stewart (Ian Stewart) — divulgação: motiva e dá contexto, não treina demonstração"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 40
     duracao_min: 480
     url: https://www.amazon.com.br/dp/8537814547
+    obra: stewart-misterios-matematicos
     disponivel: true
     verificado_em: 2026-10-08
+
+  - id: rec:matematica/iezzi-fme-1-caps-1-2
+    etapa: etapa:matematica/o-que-e-uma-prova
+    titulo: "Fundamentos de Matemática Elementar 1 (Iezzi & Murakami) — caps. 1 e 2: noções de lógica e conjuntos"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 100
+    obra: iezzi-murakami-fme-1
+    duracao_min: 480
+    url: https://www.amazon.com.br/dp/8535716807
+    disponivel: true
+    verificado_em: 2026-10-24
+
+  # --- etapa:matematica/funcoes-elementares --------------------------------
+  - id: rec:matematica/iezzi-fme-1-caps-3-10
+    etapa: etapa:matematica/funcoes-elementares
+    titulo: "Fundamentos de Matemática Elementar 1 (Iezzi & Murakami) — caps. 3 a 10 e apêndices: conjuntos numéricos, relações, funções afim, quadrática e modular, composta e inversa, equações e inequações irracionais"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 100
+    obra: iezzi-murakami-fme-1
+    duracao_min: 1500
+    url: https://www.amazon.com.br/dp/8535716807
+    disponivel: true
+    verificado_em: 2026-10-24
 
   # --- etapa:matematica/geometria-de-euclides ------------------------------
   - id: rec:matematica/euclides-elementos
     etapa: etapa:matematica/geometria-de-euclides
     titulo: "Elementos de Geometria (Euclides)"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 20
     duracao_min: 1200
     url: https://www.amazon.com.br/dp/B00AGZCDLS
+    obra: euclides-elementos
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -100,13 +143,14 @@ recursos:
   - id: rec:matematica/openstax-calculus-v1
     etapa: etapa:matematica/limite-e-continuidade
     titulo: "OpenStax Calculus Volume 1 — limites e continuidade, com exercícios e respostas"
-    rev: 1
+    rev: 2
     status: ativo
     formato: exercicio
     idioma: en-US
     custo: 0
     duracao_min: 720
     url: https://openstax.org/details/books/calculus-volume-1
+    obra: openstax-calculus-v1
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -169,13 +213,14 @@ recursos:
   - id: rec:matematica/openstax-calculus-v2
     etapa: etapa:matematica/integral-e-acumulacao
     titulo: "OpenStax Calculus Volume 2 — integração e técnicas, com exercícios e respostas"
-    rev: 1
+    rev: 2
     status: ativo
     formato: exercicio
     idioma: en-US
     custo: 0
     duracao_min: 900
     url: https://openstax.org/details/books/calculus-volume-2
+    obra: openstax-calculus-v2
     disponivel: true
     verificado_em: 2026-10-08
 
@@ -183,26 +228,28 @@ recursos:
   - id: rec:matematica/stewart-simetria
     etapa: etapa:matematica/simetria-e-grupos
     titulo: "Uma história da simetria na matemática (Ian Stewart) — divulgação: dá o porquê histórico, não o formalismo"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: pt-BR
     custo: 40
     duracao_min: 600
     url: https://www.amazon.com.br/dp/8537808210
+    obra: stewart-historia-da-simetria
     disponivel: true
     verificado_em: 2026-10-08
 
   - id: rec:matematica/judson-abstract-algebra
     etapa: etapa:matematica/simetria-e-grupos
     titulo: "Abstract Algebra: Theory and Applications (Tom Judson) — edição aberta, grupos e grupos de simetria"
-    rev: 1
+    rev: 2
     status: ativo
     formato: texto
     idioma: en-US
     custo: 0
     duracao_min: 900
     url: https://abstract.ups.edu/
+    obra: judson-abstract-algebra
     disponivel: true
     verificado_em: 2026-10-08
 

@@ -112,6 +112,7 @@ class Etapa:
     rev: int
     status: Status
     esforco_estimado_min: int
+    descricao: str = ""
     trilha: str | None = None
     opcional: bool = False
     requires: tuple[Requisito, ...] = ()
@@ -141,7 +142,7 @@ class Recurso:
 
     @property
     def e_parte(self) -> bool:
-        """Capítulo de outro recurso da mesma etapa, não via de estudo dela (ADR-0019)."""
+        """Capítulo de outro recurso da mesma etapa, não via de estudo dela (ADR-0021)."""
         return self.parte_de is not None
 
 
@@ -201,7 +202,7 @@ class Catalogo:
 
         Parte de recurso (`parte_de`) fica de fora — é capítulo de uma dessas vias, não
         alternativa a ela, e escolhê-la faria o motor nomear um capítulo como o
-        material da etapa inteira (ADR-0019). Para alcançá-la, `recursos`.
+        material da etapa inteira (ADR-0021). Para alcançá-la, `recursos`.
         """
         return [r for r in self.recursos.values() if r.etapa == etapa_id and not r.e_parte]
 

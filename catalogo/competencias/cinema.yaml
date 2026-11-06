@@ -1,0 +1,205 @@
+# Primeira área de cinema do catálogo. As cinco competências são de leitura de filme
+# e de história de uma forma cultural, não do primeiro cinema: a verificação de cada
+# uma se cobra sobre um filme ou um período que não é o da trilha de hoje, e o cinema
+# de 1895 a 1915 é só onde esta trilha as exercita. Foi critério de desenho — uma
+# competência que só se verifica num corpus é assunto daquele corpus, não competência
+# (docs/catalogo.md §2) —, e é o que permite que o próximo livro da área entre como
+# etapa sem reescrever competência nenhuma.
+versao_schema: 1
+competencias:
+  - id: comp:cinema/leitura-do-filme
+    titulo: Leitura de uma sequência de filme — plano, movimento e montagem
+    rev: 1
+    status: ativo
+    descricao: >
+      Ler o que está na tela antes de contar a história que ela narra: onde começa e
+      acaba cada plano, que escala e que movimento de câmera o compõem, que relação o
+      corte estabelece entre dois planos vizinhos, e de que lugar o filme pede que se
+      olhe. O resumo do argumento é justamente o que esta competência não aceita como
+      resposta.
+    verificacao: >
+      Diante de uma sequência de três a cinco minutos de um filme que não se viu
+      antes: decupar os planos, nomear a escala e o movimento de câmera de cada um,
+      dizer em cada corte que relação a montagem estabelece entre os dois planos, e
+      explicar o que o ponto de vista escolhido mostra e o que ele deixa fora do
+      quadro — sem recorrer ao resumo do argumento.
+
+  - id: comp:cinema/cinema-como-industria-e-ideologia
+    titulo: Crítica da aparência de neutralidade do filme
+    rev: 1
+    status: ativo
+    descricao: >
+      Um filme não é janela: alguém escolheu de onde a câmera olha, quem fala, o que
+      fica fora do quadro, quanto se gastou e para que público. A competência é
+      desfazer a transparência — ligar o efeito de registro fiel às escolhas de
+      linguagem e às condições de produção que o fabricam, sem transformar isso em
+      suspeita genérica de que todo filme mente.
+    verificacao: >
+      Diante de um filme de ficção: listar três escolhas que o fazem parecer registro
+      transparente do mundo — enquadramento, ponto de vista, decupagem, elenco,
+      trilha — e dizer, em cada caso, o que fica fora do quadro por causa dela;
+      relacionar ao menos duas dessas escolhas a condições de produção (quem
+      financiou, para que público, em que regime de exibição); e apontar uma
+      afirmação sobre o mundo que o filme sustenta de fato, dizendo o que nele a
+      sustenta.
+
+  - id: comp:cinema/historiografia-do-primeiro-cinema
+    titulo: Periodização do primeiro cinema — espetáculo, narração e domesticação
+    rev: 1
+    status: ativo
+    descricao: >
+      O cinema das duas primeiras décadas não é cinema clássico mal feito. Tem regime
+      próprio — exibição de atração, olhar para a lente, autonomia do quadro — e a
+      competência é situar um filme nesse regime pelos traços que ele mostra, em vez
+      de medi-lo pela narrativa que vem depois.
+    verificacao: >
+      Diante de um filme anterior a 1915 e de sua data: situá-lo na periodização do
+      primeiro cinema e nomear os traços que sustentam a posição — atração exibida
+      frente à câmera, olhar dirigido à lente, continuidade construída por corte,
+      condução do olhar do espectador, lugar e público da exibição —; e apontar ao
+      menos um traço do filme que contraria a leitura do período como evolução linear
+      rumo à narrativa clássica.
+
+  - id: comp:cinema/cinema-e-modernidade
+    titulo: Relação entre uma forma cultural e a experiência moderna
+    rev: 1
+    status: ativo
+    descricao: >
+      A tese de que o cinema deu forma à percepção moderna — choque, multidão,
+      vitrine, velocidade — é fértil e fácil de usar mal: duas formas que se parecem
+      não provam que uma produziu a outra. A competência inclui classificar o próprio
+      argumento, dizendo onde ele se apoia em documento e onde é analogia.
+    verificacao: >
+      Dado um fenômeno da vida urbana do fim do século XIX — panorama, vitrine de loja
+      de departamentos, bulevar, viagem de trem, museu de cera, jornal ilustrado — e um
+      filme do mesmo período: dizer que regime de percepção os dois compartilham e em
+      que diferem; e separar, no próprio argumento, o que se apoia em evidência
+      documentada (público, local de exibição, imprensa da época) do que é analogia
+      entre formas, dizendo que documento faltaria para converter a analogia em tese.
+
+  - id: comp:cinema/contexto-historico-de-uma-forma-cultural
+    titulo: Situar uma forma cultural na história econômica e política de seu período
+    rev: 1
+    status: ativo
+    descricao: >
+      Uma técnica nova não explica a forma cultural que nasce com ela: faltam o
+      mercado que a financia, a cidade que lhe dá público, o império que a distribui e
+      a política que a tolera. A competência é nomear essas condições para um período
+      datado, com o alcance de cada uma, e resistir à história contada de trás para
+      frente.
+    verificacao: >
+      Dada uma novidade cultural e as três décadas em que ela aparece: nomear as
+      condições econômicas, políticas e sociais do período que a tornaram possível —
+      mercado, técnica, público urbano, cidade, império — dizendo em cada caso o que
+      ela explica e o que não explica; e refutar, com um fato datado do próprio
+      período, a afirmação de que a novidade era inevitável.
+
+# -------------------------------------------------------------------------
+# trilha:cinema/estetizacao-da-politica
+#
+# Cinco competências acrescentadas em 2026-11-05, pela bibliografia que o estudante
+# trouxe (Benjamin, Kracauer, Sontag, Speer e o filme de Riefenstahl). Valem o mesmo
+# critério das cinco primeiras: a `verificacao` se cobra fora do corpus da trilha —
+# qualquer regime de reprodução, qualquer espetáculo de massa, qualquer filme de
+# encomenda, qualquer memória de implicado. O comício de Nuremberg é só onde esta
+# trilha as exercita, e é o que permite que o próximo título da área entre como etapa
+# sem reescrever competência.
+#
+# `comp:cinema/leitura-de-memoria-de-implicado` é crítica de fonte, não cinema, e está
+# aqui pelo mesmo motivo que `comp:cinema/contexto-historico-de-uma-forma-cultural`:
+# `area` é organizacional, não semântica (docs/catalogo.md §3). O acoplamento real está
+# em `requires`/`teaches`.
+# -------------------------------------------------------------------------
+
+  - id: comp:cinema/reprodutibilidade-e-aura
+    titulo: Efeito da reprodução técnica sobre o modo de existência de uma obra
+    rev: 1
+    status: ativo
+    descricao: >
+      A tese de que a reprodução técnica destitui a obra do seu aqui-e-agora, e troca
+      valor de culto por valor de exposição, é fácil de repetir e difícil de usar: sem
+      data e sem técnica na mão, ela vira nostalgia da obra única. A competência é
+      dizer, para uma obra e um regime de reprodução determinados, o que muda no modo
+      de ela existir — e separar o que é perda do que é só deslocamento.
+    verificacao: >
+      Dada uma obra e um regime de reprodução determinado — gravura, fotografia,
+      disco, filme, transmissão, arquivo digital: dizer o que a reprodução subtrai
+      daquela obra e o que ela torna possível; distinguir nela valor de culto de valor
+      de exposição, nomeando em que prática concreta cada um se realiza; e dizer que
+      parte do próprio argumento se apoia em traço técnico datado e que parte seria
+      nostalgia da obra única, apontando um fato do próprio regime que a contradiga.
+
+  - id: comp:cinema/estetizacao-da-politica
+    titulo: Reconhecer a estetização da política num evento ou numa obra
+    rev: 1
+    status: ativo
+    descricao: >
+      "O fascismo estetiza a política" virou palavra de ordem, e como insulto não
+      distingue nada: todo governo cuida da própria imagem. A competência é cobrar da
+      tese o que ela de fato afirma — que procedimentos de forma substituem a decisão
+      política pela contemplação da própria massa — e mostrar onde isso se vê no
+      material, em vez de deduzi-lo do regime que produziu a obra.
+    verificacao: >
+      Dado um evento político montado para a imagem — desfile, comício, posse,
+      cerimônia militar, propaganda de campanha, inauguração — e o registro dele:
+      nomear os procedimentos que convertem política em espetáculo (massa enquadrada
+      como forma, simetria, liturgia, lugar do chefe no quadro, ausência de
+      contraditório) e dizer o que cada um subtrai de deliberação; e distinguir a tese
+      da estetização da acusação genérica de propaganda, exibindo um evento político
+      cuidadoso da própria imagem que **não** a satisfaz, e dizendo por quê.
+
+  - id: comp:cinema/critica-do-espetaculo-de-massa
+    titulo: Ler a multidão como forma — espetáculo de massa e organização do trabalho
+    rev: 1
+    status: ativo
+    descricao: >
+      Kracauer olha as pernas alinhadas da revista de music-hall e vê a esteira da
+      fábrica: a massa não comparece como povo nem como classe, mas como material de
+      um ornamento que o próprio público admira sem se reconhecer nele. O risco da
+      leitura é descambar em desprezo pela plateia. A competência mantém a análise na
+      forma e na relação dela com a produção do período.
+    verificacao: >
+      Dado um espetáculo de massa — revista, abertura de estádio, desfile, coreografia
+      esportiva, show de intervalo — e a década em que ocorre: descrever a figura que
+      os corpos compõem e por que procedimento ela se sustenta; relacioná-la à
+      organização do trabalho e da produção daquele período, dizendo o que a relação
+      explica e o que não explica; e dizer o que o público vê de si naquela figura,
+      sem converter a análise em condenação moral de quem assiste.
+
+  - id: comp:cinema/filme-de-encomenda-politica
+    titulo: Ler um filme feito a serviço de um poder
+    rev: 1
+    status: ativo
+    descricao: >
+      Diante de um filme de encomenda política as duas saídas fáceis se equivalem:
+      descartá-lo como "só propaganda", o que dispensa de olhar, e admirar-lhe a forma
+      como se a função fosse acidente. A competência é a terceira — separar o que o
+      filme registra do que ele encena, e mostrar por que procedimento ele funciona
+      sobre quem assiste.
+    verificacao: >
+      Dado um filme feito por encomenda de um poder — regime, partido, governo,
+      empresa, campanha — e a data dele: separar o que ele registra do que foi encenado
+      para a câmera, dizendo em cada caso o que sustenta a separação; nomear os
+      procedimentos que produzem o efeito pretendido (escala, angulação, montagem, som
+      e música, recusa de contraplano, o que fica fora do quadro); e dizer o que o
+      filme pede que o espectador aceite, sem recorrer nem ao descarte como mera
+      propaganda nem ao elogio da forma separado da função.
+
+  - id: comp:cinema/leitura-de-memoria-de-implicado
+    titulo: Ler memória de quem esteve do lado do poder
+    rev: 1
+    status: ativo
+    descricao: >
+      A memória de um implicado é fonte e peça de defesa no mesmo volume: sabe coisas
+      que nenhum documento externo sabe — procedimento, bastidor, logística, hierarquia
+      vista de dentro — e tem interesse direto na conclusão do leitor. A competência é
+      usar a primeira coisa sem engolir a segunda, e dizer onde a prova externa é
+      indispensável.
+    verificacao: >
+      Dada uma memória escrita por alguém implicado num regime ou numa organização sob
+      acusação: identificar as operações de autoexculpação do texto — o técnico que
+      apenas executava, a responsabilidade deslocada para um ausente, o enquadramento
+      estético do que foi crime, a ignorância alegada — citando a passagem de cada uma;
+      dizer para que o texto é boa evidência e sobre o que ele é parte interessada; e,
+      para uma afirmação determinada dele, nomear que documento externo a confirmaria
+      ou a refutaria.

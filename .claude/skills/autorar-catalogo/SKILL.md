@@ -49,20 +49,26 @@ Ordem que reduz retrabalho:
 
 1. Competências (com `verificacao`) na área certa.
 2. Etapas no arquivo da trilha, cada uma com `requires` e `teaches` em competências
-   — nunca etapa→etapa. Confira que nenhum `nivel_resultante` é inferior a um
+   — nunca etapa→etapa. Escreva também a `descricao` da etapa: duas ou três linhas de
+   prosa sobre o que se estuda e qual é o corte, no lugar de repetir o `titulo`. Confira que nenhum `nivel_resultante` é inferior a um
    `nivel_minimo` que a própria etapa exige da mesma competência (validação 7).
 3. A primeira etapa de qualquer caminho precisa de `requires: []`, senão a trilha
    não parte de perfil vazio (validações 3 e 6).
 4. **≥ 1 recurso ativo e disponível por etapa ativa** (validação 5) — etapa sem
    recurso bloqueia o snapshot. Preencha `verificado_em` com a data de hoje.
-   Se o recurso é um capítulo de livro que outras etapas também usam, declare `obra`
-   com o mesmo slug em todas as fatias e o mesmo `custo` — o do exemplar inteiro, que
-   se compra uma vez (validação 12). Só você sabe o agrupamento no momento de
-   escrever; depois ele não se recupera senão por adivinhação (ADR-0009).
-   Livro que é, inteiro, o material de **uma** etapa não se fatia assim: capítulos
-   para registrar leitura parcial levam `parte_de: <rec do livro>`, que os tira das
-   vias de estudo da etapa (validação 13, ADR-0019) — sem isso o motor sugere o
-   capítulo mais curto no lugar do livro.
+   **Se o recurso é um exemplar — livro, apostila, curso que se compra —, declare
+   `obra`**, mesmo que ele entre inteiro numa etapa só: uma fatia é um número legítimo
+   de fatias, e é a `obra` que dá ao exemplar o endereço `/obra/<slug>` e o faz
+   aparecer nos livros da trilha (ADR-0020). Sendo capítulo de um livro que outras
+   etapas também usam, o slug é o mesmo em todas as fatias, e o `custo` também — o do
+   exemplar inteiro, que se compra uma vez (validação 12). Só você sabe o agrupamento
+   no momento de escrever; depois ele não se recupera senão por adivinhação (ADR-0009).
+   Artigo, vídeo e exercício avulso **não** são exemplares e não declaram `obra`.
+   **Capítulo acrescentado para registrar leitura parcial é outra coisa**: ele declara
+   a mesma `obra` do livro e também `parte_de: <rec do livro>`, que o tira das vias de
+   estudo da etapa (validação 13, ADR-0021) — sem isso o motor sugere o capítulo mais
+   curto no lugar do livro. Fatia por etapa e parte são independentes: a primeira
+   **atende** uma etapa, a segunda não atende nenhuma.
 5. Toda competência exigida por alguma etapa ativa tem de ser ensinada por alguma
    etapa ativa (validação 4) — inclusive as que você assumiu como "pré-requisito
    externo". Se vem de outra trilha, use `etapas_referenciadas`.
@@ -115,5 +121,11 @@ editado à mão, e um lock defasado faz `compilar --conferir` falhar para a pró
 pessoa. Avisos (recurso verificado há mais de 180 dias, etapa órfã) não bloqueiam,
 mas leia-os: etapa órfã só é alcançável por `exploracao`.
 
-Se a trilha for nova, acrescente-a à lista do [README.md](../../../README.md) e à
-tabela de `CLAUDE.md`.
+Se a trilha for nova, acrescente-a à lista do [README.md](../../../README.md).
+**Não** a acrescente a `CLAUDE.md`: a seção "Catálogo atual" de lá manda ler a
+contagem e a lista do lock, justamente para não manter duas.
+
+Se ela abre uma **área nova**, acrescente a área a `SETOR_DA_AREA` em
+`src/trilhas/web/apresentar/comum.py` — e a `ROTULO_AREA`, se o nome tem acento que
+o id não carrega. Área sem entrada lá não desaparece da tela: cai no setor residual
+"Outras áreas", o que é defesa contra mapa envelhecido, não o lugar dela.

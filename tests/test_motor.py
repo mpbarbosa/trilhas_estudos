@@ -531,7 +531,7 @@ def test_catalogo_real_produz_sugestoes(catalogo_real: Path) -> None:
     assert all(s.explicacao for s in resultado.sugestoes)
 
 
-# --- parte de recurso não é via de estudo (ADR-0019) ---------------------------
+# --- parte de recurso não é via de estudo (ADR-0021) ---------------------------
 
 
 def test_capitulo_mais_curto_nao_e_sugerido_no_lugar_do_livro() -> None:

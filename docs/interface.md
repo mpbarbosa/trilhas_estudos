@@ -163,7 +163,7 @@ continua dando a CLI de CI.
 | Entidade | Campos que a UI mostra | Campos que a UI usa sem mostrar |
 |---|---|---|
 | `Trilha` | `titulo`, `objetivo_declarado`, nº de etapas, esforço somado | `id`, `rev`, `status`, `etapas_referenciadas` |
-| `Etapa` | `titulo`, `esforco_estimado_min`, `opcional`, `requires`, `teaches` | `id`, `rev`, `status`, `trilha` |
+| `Etapa` | `titulo`, `descricao`, `esforco_estimado_min`, `opcional`, `requires`, `teaches` | `id`, `rev`, `status`, `trilha` |
 | `Competência` | `titulo`, `descricao`, **`verificacao`** | `id`, `rev`, `status` |
 | `Recurso` | `titulo`, `formato`, `idioma`, `custo`, `duracao_min`, `url`, `verificado_em` | `id`, `rev`, `status`, `disponivel`, `etapa` |
 
@@ -268,6 +268,15 @@ layout é calculado no servidor por uma função pura `dispor(catalogo) -> posic
 determinística, com teste de ouro — e serve igualmente ao SVG de hoje e a um Cytoscape
 `preset` amanhã.
 
+Cada faixa carrega também uma **frase derivada do seu conteúdo** — o que a onda exige,
+o que desenvolve e quantas etapas libera, com o nível de cada competência —, no rótulo
+do SVG e numa linha da tabela equivalente. Ela é derivada e **não autorada**: onda não é
+entidade de catálogo, e a profundidade de uma etapa se desloca quando outra entra à sua
+frente, de modo que um texto escrito por número de onda passaria a descrever outra onda
+em silêncio — medido em [ADR-0019](adr/0019-descricao-de-onda-derivada-da-estrutura.md),
+que registra a decisão. Quem descreve o conteúdo em prosa de autoria é a `descricao` da
+etapa.
+
 **Codificação visual** (uma variável por canal, nunca duas no mesmo):
 
 | Canal | Significa |
@@ -303,10 +312,15 @@ flowchart TD
     A --> H["/catalogo — explorador"]
     H --> I["/catalogo/diagnostico — 11 validações"]
     H --> J["/catalogo/autoria — gera YAML"]
+    C --> K["/obra/{slug} — o exemplar, com export"]
+    A --> L["/obras — índice dos exemplares"]
+    L --> K
     F --> B
 ```
 
-Sete rotas de leitura, duas de autoria. Nenhuma modal profunda: tudo tem URL.
+Sete rotas de leitura, duas de autoria. Nenhuma modal profunda: tudo tem URL. A tela da
+obra (§5.13) entra pela etapa, porque é lá que se descobre que um recurso é fatia de um
+livro, e é a única que entrega arquivo.
 
 ### 5.2 `/` — **Agora** (a tela que justifica o projeto)
 
@@ -348,6 +362,30 @@ O que essa tela faz de melhor é explicar o **travamento**: clicar numa etapa tr
 abre "falta *Manipulação tabular* em `intermediario`; você está em `iniciante`; a etapa
 *NumPy e pandas* leva você lá" — com o caminho realçado no grafo. Travado sem explicação
 é o pior defeito possível numa interface de trilha.
+
+**Livros da trilha**: os exemplares que a trilha pede, cada um **uma vez** — a
+unidade de aquisição, enquanto o recurso é a de estudo. Um livro que atende cinco
+etapas aparece cinco vezes na seção de recursos e uma vez aqui, com o preço do
+exemplar inteiro ainda que a trilha use só parte dele, e com a duração **das fatias
+pedidas**, não a do livro todo. Havendo percurso, a estante marca o que já é seu e a
+soma diz quanto falta comprar, pela mesma `possuidos_em` do motor
+([ADR-0015](adr/0015-posse-de-exemplar-como-estante-declarada.md)) — duas propagações
+da posse discordariam em silêncio. Trilha sem `obra` declarada mostra texto de estado
+vazio que distingue "o catálogo ainda não marcou" de "não há livro", e toda trilha
+imprime quantos dos seus recursos não declaram exemplar — 144 dos 299 hoje, quase
+todos material que exemplar não tem: especificação, página de manual, código-fonte,
+artigo e projeto ([ADR-0020](adr/0020-obra-declarada-tambem-em-exemplar-nao-fatiado.md)).
+
+**Recursos da trilha**: o material de *todas* as etapas — próprias e emprestadas — numa
+seção só, com as mesmas colunas da §5.4 (formato, idioma, custo, duração,
+`verificado_em`) e na mesma ordem de escolha. Vem **agrupado por etapa**, nunca como
+lista plana: dentro de uma etapa os recursos são alternativas e um basta, entre etapas
+eles se somam. Lista plana — 78 linhas na trilha do emulador — se leria como
+bibliografia a percorrer inteira, que é o oposto do que o modelo diz. Etapa sem recurso
+aparece como grupo vazio com o aviso `CAT-050`: omiti-la esconderia justamente a que não
+é estudável, pela mesma razão que a §5.4 esmaece o recurso restrito em vez de ocultá-lo.
+A seção responde "o que preciso ter em mãos para fazer esta trilha", que nenhuma outra
+tela responde — a da etapa só mostra uma etapa, e a da obra tem o exemplar por eixo.
 
 ### 5.4 `/etapa/{id}` — etapa e escolha de recurso
 
@@ -633,6 +671,50 @@ de HTML, `?estudante=` preservado, e 409 sem percurso — sem banco nascendo.
 
 ---
 
+### 5.13 `/obras` e `/obra/{slug}` — o exemplar, e a exportação dele
+
+A pergunta que nenhuma outra tela responde: *"este livro que eu tenho na mão serve a quê
+no catálogo, e quanto dele falta?"*. A etapa compara recursos **dentro** de uma etapa;
+aqui o eixo é o exemplar, que atravessa etapas e trilhas.
+
+`obra` não é entidade de catálogo — não tem id, `rev`, `status` nem depreciação
+([catalogo.md §2](catalogo.md)) —, então a tela não oferece editar nem depreciar: só
+reúne o que as fatias dizem. O slug vem do campo `obra` das fatias. Recurso sem `obra` é
+obra de si mesmo para efeito de custo, e **não** tem página: não há slug para endereçá-lo,
+e inventar um criaria identificador que o catálogo não tem.
+
+Duas somas convivem, e a tela diz qual é qual:
+
+| derivada | regra | por quê |
+|---|---|---|
+| duração | **soma** as fatias | são partes complementares de um exemplar — ler as oito fatias do Date é ler o livro uma vez |
+| custo | conta **uma vez**, por fatia não depreciada | ADR-0009; somar mostraria R$ 180 por um livro de R$ 90 |
+
+É o **primeiro consumidor** do campo `obra`, que [catalogo.md §2](catalogo.md) descrevia
+como inerte por falta de um.
+
+`GET /obra/{slug}/exportar` entrega o mesmo conteúdo em Markdown, com
+`Content-Disposition: attachment`. GET, e não POST: exportar não grava nada, e a URL do
+export tem de ser recarregável e compartilhável como qualquer leitura. O arquivo leva no
+pé a `catalogo_versao` e o hash do snapshot pelo mesmo motivo que a sugestão os persiste
+([catalogo.md §5](catalogo.md)) — export sem a versão que o produziu não se confere
+depois.
+
+`/obras` é o índice: todos os exemplares fatiados, com fatias, duração somada, custo,
+etapas atendidas e idiomas. Fica **fora** de `/catalogo` de propósito — lá se listam
+entidades, e obra não é uma, então misturá-la faria o filtro por tipo prometer o que o
+modelo não tem. O total do índice conta cada exemplar **uma vez**, e é a primeira
+agregação monetária do projeto; recurso sem `obra` não entra nela, porque a soma
+responde "quanto custam os exemplares fatiados", não "quanto custa o catálogo". Catálogo
+sem obra alguma é tela desenhada, não erro — o campo é opcional.
+
+O nome do livro não é campo do modelo: é a **menor cabeça de título** entre as fatias, o
+pedaço antes do ` — ` que a convenção de título usa para separar livro de recorte. Quando
+uma fatia traz edição e autoria e outra só o título, vale a menor — título real escrito
+por quem autorou, não string montada pela interface.
+
+---
+
 ## 6. Regras duras da interface
 
 1. **Vocabulário único.** A UI usa `Competência`, `Etapa`, `Recurso`, `Trilha`,
@@ -696,6 +778,9 @@ Nível é **rampa sequencial**, nunca quatro cores distintas: a escala é ordina
 | GET | `/catalogo/diagnostico` | as 11 validações sobre o catálogo atual |
 | GET | `/catalogo/autoria` | formulários |
 | GET | `/sugestao/{id}` | auditoria |
+| GET | `/obras` | ✅ índice dos exemplares fatiados, com o custo contado uma vez (§5.13) |
+| GET | `/obra/{slug}` | ✅ o exemplar, suas fatias e as etapas que elas atendem (§5.13) |
+| GET | `/obra/{slug}/exportar` | ✅ o mesmo em Markdown, como anexo para baixar (§5.13) |
 | POST | `/progresso` | `{estudante, etapa, rev, estado, recurso?}` |
 | POST | `/evidencia` | `{estudante, competencia, nivel, tipo, confianca, data}` |
 | POST | `/matricula` | `{estudante, trilha, rev}` |

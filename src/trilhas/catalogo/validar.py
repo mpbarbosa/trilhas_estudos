@@ -449,7 +449,7 @@ def _e_outras(ids: list[str]) -> str:
 
 
 def _v13_parte_de_recurso(catalogo: Catalogo) -> list[Problema]:
-    """Parte aponta para recurso da mesma etapa que não é, ele próprio, parte (ADR-0019).
+    """Parte aponta para recurso da mesma etapa que não é, ele próprio, parte (ADR-0021).
 
     A parte é capítulo do material que atende a etapa, então mora na mesma etapa que
     ele: uma parte de outra etapa seria fatia de ADR-0009 com o campo errado. E um

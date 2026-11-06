@@ -177,3 +177,78 @@ competencias:
       Dado um entrelaçamento de duas transações, nomear a anomalia que ele produz e o
       nível de isolamento que a impede, e descrever o que o log permite refazer e
       desfazer numa falha ocorrida no meio do entrelaçamento.
+
+  # --- Estatística na avaliação de modelos ---------------------------------
+  # (trilha:dados/estatistica-na-avaliacao-de-modelos)
+  - id: comp:dados/vies-e-variancia
+    titulo: Diagnóstico de viés e variância de um modelo
+    rev: 1
+    status: ativo
+    descricao: >
+      Ler o erro de um modelo pela decomposição que o produz: viés alto como relação
+      relevante que o modelo não captura, variância alta como sensibilidade ao conjunto
+      de treino, e o que a curva de validação mostra de um e de outro — com
+      complexidade e regularização como os dois controles disponíveis.
+    verificacao: >
+      Diante das curvas de treino e validação de um modelo que você não ajustou, dizer
+      se ele subajusta ou sobreajusta, qual das duas parcelas do erro domina, e qual
+      mudança — mais complexidade, mais regularização, mais dado — atacaria essa
+      parcela; e dizer o que aconteceria com a outra.
+
+  - id: comp:dados/vies-de-amostragem
+    titulo: Viés de amostragem e representatividade
+    rev: 1
+    status: ativo
+    descricao: >
+      O processo de seleção como fonte de erro que nenhum volume de dado corrige:
+      quando a amostra favorece alguns casos, ela deixa de representar a população de
+      interesse, e o desempenho agregado esconde o desempenho por subgrupo.
+    verificacao: >
+      Dado um conjunto e a população que ele deveria representar, apontar em que o
+      processo de coleta os separa, medir o desempenho por subgrupo exibindo onde ele
+      cai, e dizer o que na coleta precisaria mudar — distinguindo o que a reponderação
+      resolve do que só a coleta nova resolve.
+
+  - id: comp:dados/escolha-de-teste-estatistico
+    titulo: Escolha do teste de hipótese
+    rev: 1
+    status: ativo
+    descricao: >
+      Escolher o teste pela pergunta, pelo delineamento e pelos pressupostos, não pelo
+      hábito: t para médias de dois grupos, ANOVA para três ou mais com as comparações
+      post-hoc que a seguem, qui-quadrado para associação entre categóricas — e o que
+      fazer quando um pressuposto não se sustenta.
+    verificacao: >
+      Para três perguntas com delineamentos diferentes, escolher o teste, nomear os
+      pressupostos que ele assume e como se confere cada um, e indicar a alternativa
+      quando um deles falha; e explicar por que um resultado significativo de ANOVA não
+      diz qual média difere.
+
+  - id: comp:dados/tamanho-de-efeito
+    titulo: Tamanho de efeito e relevância prática
+    rev: 1
+    status: ativo
+    descricao: >
+      A magnitude como pergunta separada da significância: d de Cohen entre duas
+      médias, η² e ω² em ANOVA, V de Cramér em associação categórica, r de Pearson e
+      ρ de Spearman em associação — cada um com o intervalo que o acompanha.
+    verificacao: >
+      A partir de um resultado significativo, calcular o tamanho de efeito adequado ao
+      delineamento, apresentá-lo com intervalo de confiança e sustentar uma decisão
+      sobre relevância prática; e explicar por que um p-valor pequeno é compatível com
+      um efeito desprezível, e um p-valor grande com um efeito relevante.
+
+  - id: comp:dados/comparacao-estatistica-de-modelos
+    titulo: Comparação estatística de modelos
+    rev: 1
+    status: ativo
+    descricao: >
+      Decidir se a diferença de desempenho entre dois modelos se sustenta: a dependência
+      entre dobras de validação cruzada, o teste t pareado corrigido de Nadeau e Bengio,
+      o intervalo da diferença e o tamanho de efeito — em lugar de comparar duas médias
+      de métrica e declarar a maior vencedora.
+    verificacao: >
+      Dadas as pontuações de dois modelos sobre as mesmas dobras, decidir se a diferença
+      se sustenta, relatando intervalo da diferença e tamanho de efeito, e demonstrar
+      numericamente por que o teste t ingênuo sobre as dobras subestima a variância —
+      nomeando a dependência que a correção trata.

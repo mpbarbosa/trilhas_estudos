@@ -1,0 +1,55 @@
+# Primeira área de literatura do catálogo. As três competências são de leitura
+# literária e não de um autor: a verificação de cada uma se cobra sobre um poema
+# qualquer, e "The Raven" é só o poema em que a trilha de hoje as exercita. Foi
+# critério de desenho — uma competência que só se verifica num texto é assunto
+# daquele texto, não competência (docs/catalogo.md §2).
+versao_schema: 1
+competencias:
+  - id: comp:literatura/leitura-de-poema-em-ingles
+    titulo: Leitura de poema em inglês no original — metro, rima e dicção
+    rev: 1
+    status: ativo
+    descricao: >
+      Ler um poema em inglês na língua em que foi escrito, e não em paráfrase: onde
+      cai a tônica e que metro isso compõe, como rima externa e interna se organizam
+      em estrofe, e o que fazer com a dicção que o inglês de hoje não usa mais —
+      arcaísmo, inversão e a palavra rara que carrega o verso.
+    verificacao: >
+      Diante de duas estrofes de um poema em inglês que não se leu antes: marcar as
+      sílabas tônicas e nomear o metro que elas compõem, descrever o esquema de rima
+      externa e apontar as rimas internas, listar as palavras de dicção arcaica ou
+      rara com o sentido que têm ali, e parafrasear as duas estrofes em prosa pt-BR
+      sem acrescentar imagem que o texto não traga.
+
+  - id: comp:literatura/poetica-declarada-do-autor
+    titulo: Confronto entre o poema e a poética que o autor declara
+    rev: 1
+    status: ativo
+    descricao: >
+      Um autor que explica como compôs o próprio poema é fonte interessada, não
+      laudo. A competência é ler os dois lado a lado: que decisões o texto de
+      poética reivindica — extensão, efeito pretendido, escolha do refrão, do metro,
+      do cenário —, onde cada uma se verifica no poema, e onde a explicação é
+      reconstrução depois do fato.
+    verificacao: >
+      Dado um poema e um texto em que o próprio autor explica como o compôs: listar
+      as decisões que o texto reivindica, apontar no poema o verso ou a estrofe em
+      que cada uma se verifica, e nomear ao menos duas que o poema não sustenta ou
+      que só se sustentam se a explicação for lida como racionalização posterior,
+      dizendo em cada caso o que no texto decide.
+
+  - id: comp:literatura/critica-do-poema
+    titulo: Avaliação de leituras críticas concorrentes de um mesmo poema
+    rev: 1
+    status: ativo
+    descricao: >
+      O mesmo poema lido por crítica de época e por crítica acadêmica posterior, e
+      em leituras que se excluem — a sincera e a paródica, por exemplo. O que a
+      competência cobra não é escolher a leitura simpática, é dizer de que o texto
+      cada leitura precisa para ficar de pé.
+    verificacao: >
+      Diante de duas leituras críticas incompatíveis do mesmo poema: dizer, para
+      cada uma, que passagem do poema ela precisa que exista e como a lê; dizer qual
+      das duas o texto sustenta melhor e por quê; e nomear uma evidência externa —
+      resenha de época, carta, outro texto do autor — que mudaria o veredito, ou
+      explicar por que nenhuma mudaria.

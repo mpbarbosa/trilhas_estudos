@@ -41,6 +41,10 @@ trilha:
       titulo: JOINs e relacionamentos
       rev: 1
       status: ativo
+      descricao: >
+        Junção interna e externa sobre o esquema já modelado, com a condição escrita
+        pelo que o relacionamento é — a única etapa-fixture com descrição, para a tela
+        ter os dois casos.
       esforco_estimado_min: 90
       opcional: false
       requires:

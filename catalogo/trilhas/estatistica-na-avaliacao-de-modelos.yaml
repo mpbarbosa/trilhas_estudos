@@ -1,0 +1,200 @@
+# Origem do recorte: uma publicação curta de Mara Dantas Pereira no LinkedIn
+# (rec:dados/post-estatistica-em-ml) que lista, em seis blocos, a estatística que um
+# modelo de aprendizado de máquina obriga a saber — média e variabilidade, viés e
+# variância, viés de amostragem, intervalo de confiança, teste de hipótese, p-valor e
+# tamanho de efeito — e termina nomeando o teste t corrigido de Nadeau e Bengio sem
+# explicá-lo. A publicação é mapa do assunto, não material de estudo: a trilha segue a
+# ordem dela e sustenta cada bloco em bibliografia aberta e revisável.
+#
+# Por que trilha nova e não etapa em trilha:dados/analise-de-dados-com-python: lá a
+# inferência serve à *afirmação sobre a população* (etapa:dados/estatistica-aplicada).
+# Aqui ela serve à *decisão entre dois modelos* — a amostra é o conjunto de dobras, as
+# observações são dependentes, e é essa dependência que o recorte existe para tratar.
+versao_schema: 1
+trilha:
+  id: trilha:dados/estatistica-na-avaliacao-de-modelos
+  titulo: Estatística na avaliação de modelos
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:dados/comparacao-estatistica-de-modelos
+      nivel: avancado
+    - competencia: comp:dados/inferencia-estatistica
+      nivel: avancado
+    - competencia: comp:dados/tamanho-de-efeito
+      nivel: intermediario
+
+  etapas:
+    # --- Entrada: a dispersão que a média esconde ----------------------------
+    - id: etapa:dados/dispersao-do-desempenho
+      titulo: A média não é o desempenho — variância e desvio-padrão do erro
+      rev: 1
+      status: ativo
+      descricao: >
+        Dois modelos com o mesmo MAE médio podem variar de forma muito diferente entre
+        partições dos dados, e a média sozinha não distingue um do outro. A etapa fecha
+        variância e desvio-padrão como medidas de dispersão do próprio desempenho, e a
+        distribuição amostral de uma métrica como objeto que se obtém reamostrando, antes
+        de qualquer fórmula fechada.
+      esforco_estimado_min: 360
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:dados/inferencia-estatistica
+          nivel_resultante: iniciante
+
+    # --- Dois ramos paralelos: erro do modelo e erro da amostra -------------
+    - id: etapa:dados/vies-e-variancia-do-modelo
+      titulo: Viés e variância — subajuste, sobreajuste e o que a validação mostra
+      rev: 1
+      status: ativo
+      descricao: >
+        A dispersão do erro lida como propriedade do modelo: viés alto é relação
+        relevante não capturada, variância alta é sensibilidade ao conjunto de treino,
+        e a curva de validação separa um caso do outro. Complexidade e regularização
+        entram como os dois controles, com o custo de mexer em cada um.
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:dados/inferencia-estatistica
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:dados/vies-e-variancia
+          nivel_resultante: intermediario
+
+    - id: etapa:dados/vies-de-amostragem
+      titulo: Viés de amostragem — quando a amostra não é a população de interesse
+      rev: 1
+      status: ativo
+      descricao: >
+        O erro que vem do processo de seleção, e que mais dado não corrige: a amostra
+        favorece alguns casos e deixa de representar a população sobre a qual o modelo
+        vai decidir. A prática é comparar amostra e população-alvo, medir desempenho por
+        subgrupo e documentar a procedência do conjunto.
+      esforco_estimado_min: 480
+      opcional: false
+      requires:
+        - competencia: comp:dados/inferencia-estatistica
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:dados/vies-de-amostragem
+          nivel_resultante: intermediario
+
+    # --- Inferência sobre a métrica ------------------------------------------
+    - id: etapa:dados/intervalo-de-confianca-do-desempenho
+      titulo: Intervalo de confiança — a precisão da estimativa, inclusive da diferença
+      rev: 1
+      status: ativo
+      descricao: >
+        Do ponto ao intervalo: a estimativa de uma métrica e a estimativa da *diferença*
+        entre duas, com a largura do intervalo lida como precisão. Inclui a leitura
+        frequentista correta — o procedimento de 95% cobre o parâmetro em cerca de 95%
+        das amostras repetidas, se os pressupostos valem — e o que ela não autoriza
+        dizer de um intervalo já calculado.
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:dados/inferencia-estatistica
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:dados/inferencia-estatistica
+          nivel_resultante: intermediario
+
+    - id: etapa:dados/escolha-do-teste-de-hipotese
+      titulo: t, ANOVA e qui-quadrado — escolher o teste pela pergunta
+      rev: 1
+      status: ativo
+      descricao: >
+        O teste como medida de compatibilidade entre dado e hipótese nula, e a escolha
+        feita pela pergunta, pelo delineamento e pelos pressupostos: t para duas médias,
+        ANOVA para três ou mais com as comparações post-hoc que a seguem, qui-quadrado
+        para associação entre categóricas — e a alternativa de cada um quando um
+        pressuposto não se sustenta.
+      esforco_estimado_min: 720
+      opcional: false
+      requires:
+        - competencia: comp:dados/inferencia-estatistica
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:dados/escolha-de-teste-estatistico
+          nivel_resultante: intermediario
+
+    - id: etapa:dados/p-valor-e-tamanho-de-efeito
+      titulo: O p-valor não diz magnitude — d de Cohen, η², V de Cramér, r e ρ
+      rev: 1
+      status: ativo
+      descricao: >
+        O que o p-valor é — probabilidade de uma estatística ao menos tão extrema, sob a
+        nula e sob os pressupostos do teste — e o que ele não é: magnitude nem relevância
+        prática. A etapa fecha o tamanho de efeito adequado a cada delineamento,
+        apresentado com intervalo, e os erros de leitura que a literatura catalogou.
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:dados/escolha-de-teste-estatistico
+          nivel_minimo: intermediario
+        - competencia: comp:dados/inferencia-estatistica
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:dados/tamanho-de-efeito
+          nivel_resultante: intermediario
+        - competencia: comp:dados/inferencia-estatistica
+          nivel_resultante: avancado
+
+    # --- Onde a trilha converge ---------------------------------------------
+    - id: etapa:dados/comparacao-estatistica-de-modelos
+      titulo: Este modelo é melhor? O teste t corrigido de Nadeau e Bengio
+      rev: 1
+      status: ativo
+      descricao: >
+        Comparar dois modelos é um problema de inferência com uma dificuldade própria: as
+        dobras de validação cruzada compartilham dados de treino, logo as pontuações não
+        são independentes, e o teste t ingênuo sobre elas subestima a variância e
+        encontra diferença onde não há. A etapa fecha a correção de Nadeau e Bengio, o
+        teste pareado 5x2cv e o que relatar junto com o resultado.
+      esforco_estimado_min: 720
+      opcional: false
+      requires:
+        - competencia: comp:dados/tamanho-de-efeito
+          nivel_minimo: intermediario
+        - competencia: comp:dados/vies-e-variancia
+          nivel_minimo: intermediario
+        - competencia: comp:programacao/python-dados
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:dados/comparacao-estatistica-de-modelos
+          nivel_resultante: intermediario
+
+    - id: etapa:dados/projeto-dois-modelos-comparados
+      titulo: Projeto — decidir entre dois modelos e sustentar a decisão
+      rev: 1
+      status: ativo
+      descricao: >
+        Uma comparação inteira sobre um conjunto público: dois modelos sobre as mesmas
+        dobras, a diferença relatada com intervalo e tamanho de efeito, o teste corrigido
+        aplicado e justificado, e uma seção sobre o que a procedência do conjunto impede
+        de concluir. A entrega é a decisão e o que a sustentaria se contestada.
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:dados/comparacao-estatistica-de-modelos
+          nivel_minimo: intermediario
+        - competencia: comp:dados/vies-de-amostragem
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:dados/comparacao-estatistica-de-modelos
+          nivel_resultante: avancado
+
+  # O Python vem de fora e não é redefinido aqui (catalogo.md §1 — etapa definida em um
+  # só arquivo): etapa:programacao/python-para-ia e etapa:dados/numpy-e-pandas já
+  # desenvolvem comp:programacao/python-dados, e é esse o pré-requisito real das duas
+  # últimas etapas — rodar validação cruzada e o teste corrigido é trabalho de código.
+  #
+  # Deliberadamente *não* se exige comp:dados/modelagem-preditiva: ela só é desenvolvida
+  # por etapa:dados/modelagem-preditiva-inicial, que está atrás de
+  # comp:dados/enquadramento-analitico, e enquadrar uma pergunta de negócio não é
+  # pré-requisito de comparar duas distribuições de pontuação. Exigi-la arrastaria cinco
+  # etapas de trilha:dados/analise-de-dados-com-python como dependência falsa.
+  etapas_referenciadas:
+    - etapa:programacao/python-para-ia
+    - etapa:dados/numpy-e-pandas

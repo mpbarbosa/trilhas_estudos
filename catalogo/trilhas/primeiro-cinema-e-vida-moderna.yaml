@@ -1,0 +1,127 @@
+versao_schema: 1
+trilha:
+  id: trilha:cinema/primeiro-cinema-e-vida-moderna
+  titulo: Cinema — do primeiro cinema à invenção da vida moderna
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:cinema/leitura-do-filme
+      nivel: intermediario
+    - competencia: comp:cinema/cinema-como-industria-e-ideologia
+      nivel: intermediario
+    - competencia: comp:cinema/historiografia-do-primeiro-cinema
+      nivel: intermediario
+    - competencia: comp:cinema/contexto-historico-de-uma-forma-cultural
+      nivel: intermediario
+    - competencia: comp:cinema/cinema-e-modernidade
+      nivel: intermediario
+
+  # Primeira trilha de cinema, e primeira área de cinema do catálogo. Nasce de uma
+  # bibliografia de cinco títulos trazida pelo estudante (2026-11-05) — Bernardet,
+  # Capuzzo, Costa, Charney & Schwartz e o Hobsbawm de *A era dos impérios* —, e por
+  # isso o recorte é o da lista: as duas primeiras décadas do cinema, lidas junto com
+  # a história do período em que ele aparece. Não é uma trilha de história do cinema
+  # até hoje, nem de análise de filme contemporâneo.
+  #
+  # Por que Hobsbawm numa trilha de cinema: a lista o trouxe, e ele é o que impede a
+  # tese de modernidade de se apoiar só em analogia entre formas
+  # (comp:cinema/cinema-e-modernidade). A etapa dele não exige nada e pode ser a
+  # primeira — é contexto, não consequência —, e é por ela que a trilha chega a
+  # etapa:cinema/invencao-da-vida-moderna com o período na mão.
+  #
+  # O desenho segue o de trilha:literatura/poe-o-corvo e trilha:filosofia/bhagavad-gita:
+  # a introdução que dá o vocabulário, o estudo que faz o corte histórico, e uma etapa
+  # que confronta o objeto com algo de fora dele — aqui a coletânea de Charney &
+  # Schwartz, que lê o cinema pela vida urbana, não pela história interna da técnica.
+  #
+  # As competências são gerais e se verificam em qualquer filme ou período
+  # (catalogo/competencias/cinema.yaml); as etapas são destes cinco livros. Outro
+  # título de cinema entra como etapa nova aqui, ou em trilha própria que referencie
+  # estas etapas, sem reescrever competência.
+  etapas:
+    # --- O vocabulário -------------------------------------------------------
+    - id: etapa:cinema/o-que-e-cinema
+      titulo: O que é cinema — linguagem, indústria e ideologia
+      rev: 1
+      status: ativo
+      descricao: >
+        A introdução de Bernardet, onde se aprende a desconfiar da tela: a câmera que
+        parece janela e é escolha de quem a põe, o enquadramento que inclui decidindo
+        o que fica fora, a montagem que produz sentido entre dois planos, e o filme
+        como produto de uma indústria com público, custo e censura. O corte é o
+        vocabulário — plano, decupagem, montagem, ponto de vista —, que as etapas
+        seguintes usam sem reapresentar.
+      esforco_estimado_min: 300
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:cinema/leitura-do-filme
+          nivel_resultante: iniciante
+        - competencia: comp:cinema/cinema-como-industria-e-ideologia
+          nivel_resultante: intermediario
+
+    # --- O período -----------------------------------------------------------
+    - id: etapa:cinema/a-era-dos-imperios
+      titulo: A era dos impérios (1875-1914) — o mundo em que o cinema aparece
+      rev: 1
+      status: ativo
+      descricao: >
+        As quatro décadas em que o cinematógrafo é inventado, lidas por Hobsbawm como
+        história econômica e política: a revolução centenária e a economia que muda de
+        ritmo, o capital que procura mercado fora da Europa, a cidade que concentra
+        público assalariado com tempo livre, e o império que distribui mercadoria e
+        imagem. Estuda-se o período, não o cinema — é o que torna possível dizer
+        depois o que a técnica nova não explica por si.
+      esforco_estimado_min: 420
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:cinema/contexto-historico-de-uma-forma-cultural
+          nivel_resultante: intermediario
+
+    # --- O objeto ------------------------------------------------------------
+    - id: etapa:cinema/o-primeiro-cinema
+      titulo: O primeiro cinema — espetáculo, narração, domesticação
+      rev: 1
+      status: ativo
+      descricao: >
+        O cinema de 1895 a 1915 no seu próprio regime, pelos três movimentos do
+        subtítulo de Flávia Cesarino Costa: a atração exibida frente à câmera, com o
+        ator que olha para a lente e o filme que se vende como número de variedades; a
+        passagem à narração, com continuidade construída no corte; e a domesticação do
+        espetáculo em sala, programa e público respeitável. O corte é ler esses filmes
+        pelo que fazem, não como ensaio imperfeito da narrativa clássica.
+      esforco_estimado_min: 540
+      opcional: false
+      requires:
+        - competencia: comp:cinema/leitura-do-filme
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:cinema/historiografia-do-primeiro-cinema
+          nivel_resultante: intermediario
+        - competencia: comp:cinema/leitura-do-filme
+          nivel_resultante: intermediario
+
+    # --- Fora da história interna do cinema ----------------------------------
+    - id: etapa:cinema/invencao-da-vida-moderna
+      titulo: O cinema e a invenção da vida moderna
+      rev: 1
+      status: ativo
+      descricao: >
+        A coletânea de Charney & Schwartz lê o cinema de fora da sua própria história
+        técnica: panorama e diorama, vitrine de loja de departamentos, bulevar, museu
+        de cera, trem, imprensa ilustrada — formas de olhar que já existiam quando o
+        cinematógrafo chegou e com as quais ele disputou o público. A etapa cobra
+        decidir, caso a caso, quando a semelhança entre duas formas é tese documentada
+        e quando é analogia; o capítulo de Hobsbawm sobre as artes do período entra
+        aqui como contraprova histórica, não como ilustração.
+      esforco_estimado_min: 870
+      opcional: false
+      requires:
+        - competencia: comp:cinema/historiografia-do-primeiro-cinema
+          nivel_minimo: intermediario
+        - competencia: comp:cinema/contexto-historico-de-uma-forma-cultural
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:cinema/cinema-e-modernidade
+          nivel_resultante: intermediario

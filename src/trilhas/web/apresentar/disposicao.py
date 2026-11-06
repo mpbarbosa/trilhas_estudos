@@ -16,7 +16,7 @@ from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass
 
 from ...catalogo.grafo import ArestaDerivada, Fecho
-from ...catalogo.modelo import Catalogo, Etapa, Status
+from ...catalogo.modelo import Catalogo, Etapa, Nivel, Status
 from ...motor.modelo import EstadoEtapa
 from . import comum
 
@@ -77,6 +77,8 @@ class Faixa:
     x: int
     rotulo: str
     quantidade: int
+    descricao: str = ""
+    """O que a onda exige, desenvolve e libera — derivado das etapas que ela contém."""
 
 
 @dataclass(frozen=True, slots=True)
@@ -158,13 +160,16 @@ def dispor(
         if a.origem in indice and a.destino in indice
     )
 
+    por_onda = {onda: por_coluna.get(coluna_da_onda[onda], []) for onda in ondas}
+    descricoes = _descrever_ondas(ondas, por_onda, arestas_do_escopo, catalogo)
     faixas = tuple(
         Faixa(
             onda=onda,
             coluna=coluna_da_onda[onda],
             x=MARGEM + coluna_da_onda[onda] * (LARGURA_NO + FOLGA_X),
             rotulo=f"onda {onda}",
-            quantidade=len(por_coluna.get(coluna_da_onda[onda], [])),
+            quantidade=len(por_onda[onda]),
+            descricao=descricoes[onda],
         )
         for onda in ondas
     )
@@ -180,6 +185,67 @@ def dispor(
         + max(1, linhas_max) * ALTURA_NO
         + max(0, linhas_max - 1) * FOLGA_Y,
     )
+
+
+def _descrever_ondas(
+    ondas: Sequence[int],
+    por_onda: Mapping[int, Sequence[Etapa]],
+    arestas: Sequence[ArestaDerivada],
+    catalogo: Catalogo,
+) -> dict[int, str]:
+    """A frase de cada onda, derivada das etapas que ela contém.
+
+    Derivada, nunca autorada: a onda não é entidade de catálogo — é a profundidade que
+    `fecho_progressivo` calcula, e ela se desloca quando uma etapa nova entra. Um texto
+    escrito à mão por número de onda passaria a descrever outra onda em silêncio.
+
+    Conta só o que está no escopo desenhado: as arestas já vêm filtradas por ele, e
+    prometer que a onda libera uma etapa que esta tela não mostra seria mentir sobre o
+    desenho.
+    """
+    onda_de = {etapa.id: onda for onda, etapas in por_onda.items() for etapa in etapas}
+    frases: dict[int, str] = {}
+    for onda in ondas:
+        etapas = por_onda[onda]
+        aqui = {etapa.id for etapa in etapas}
+        exige = _competencias(
+            ((r.competencia, r.nivel_minimo) for e in etapas for r in e.requires), catalogo
+        )
+        desenvolve = _competencias(
+            ((t.competencia, t.nivel_resultante) for e in etapas for t in e.teaches), catalogo
+        )
+        adiante = {
+            a.destino for a in arestas if a.origem in aqui and onda_de.get(a.destino, onda) > onda
+        }
+
+        if exige:
+            sentencas = [f"Exige {comum.enumerar(exige)}."]
+        else:
+            sentencas = [f"Abre o grafo com {comum.etapas(len(etapas))} sem pré-requisito."]
+        if desenvolve:
+            sentencas.append(f"Desenvolve {comum.enumerar(desenvolve)}.")
+        if adiante:
+            proxima = min(onda_de[destino] for destino in adiante)
+            sentencas.append(f"Libera {comum.etapas(len(adiante))} a partir da onda {proxima}.")
+        else:
+            sentencas.append("Nenhuma etapa adiante depende dela.")
+        frases[onda] = " ".join(sentencas)
+    return frases
+
+
+def _competencias(pares: Iterable[tuple[str, Nivel]], catalogo: Catalogo) -> tuple[str, ...]:
+    """Competências com o nível que a onda pede ou entrega, sem repetição e em ordem estável.
+
+    O nível entra na frase porque é ele que distingue duas passagens pela mesma
+    competência: uma etapa adiante pode reensiná-la num nível maior, e sem o nível a
+    onda pareceria repetir o que a anterior já fez.
+    """
+    maior: dict[str, Nivel] = {}
+    for ident, nivel in pares:
+        if nivel > maior.get(ident, Nivel.DESCONHECE):
+            maior[ident] = nivel
+    ordenadas = sorted((comum.titulo_de(catalogo, i), n) for i, n in maior.items())
+    return tuple(f"{titulo} ({comum.nivel(nivel)})" for titulo, nivel in ordenadas)
 
 
 def _contar_destravadas(arestas: Iterable[ArestaDerivada]) -> dict[str, int]:

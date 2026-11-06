@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<nav class="migalhas" aria-label="Onde estou">
+  <a href="/acervo">Acervo</a> › obra
+</nav>
+
+<h1>{{ v.nome }}</h1>
+<p class="meta">
+  <code>{{ v.slug }}</code>
+  <span class="etiqueta">{{ v.fatias|length }} fatia{{ '' if v.fatias|length == 1 else 's' }}</span>
+  {% if v.toda_depreciada %}<span class="etiqueta aviso">todas as fatias depreciadas</span>{% endif %}
+  · {{ v.duracao_total }} somados · {{ v.custo }} · {{ v.qtd_etapas }} etapa{{ '' if v.qtd_etapas == 1 else 's' }}
+  · {{ v.idiomas|join(', ') }} · {{ v.formatos|join(', ') }}
+</p>
+
+<p class="fraco">
+  Obra é o exemplar, não entidade de catálogo: não tem id, <code>rev</code> nem
+  <code>status</code> (<code>docs/catalogo.md</code> §2). O custo aparece <strong>uma
+  vez</strong>, como manda o ADR-0009, e a duração soma as fatias, porque são partes do
+  mesmo livro — não rotas alternativas, como são os recursos de uma etapa.
+</p>
+
+<div class="acao">
+  <a href="{{ v.exportar_href }}" download="{{ v.nome_do_arquivo }}">Exportar em Markdown</a>
+  <span class="fraco">{{ v.nome_do_arquivo }} · catálogo v{{ v.catalogo_versao }} · snapshot {{ v.snapshot }}</span>
+</div>
+
+<section>
+  <h2>Fatias</h2>
+  <table class="tabela">
+    <caption class="oculto">Fatias do exemplar e as etapas que elas atendem</caption>
+    <thead>
+      <tr>
+        <th scope="col">Recorte</th><th scope="col">Formato</th>
+        <th scope="col">Duração</th><th scope="col">Etapa</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for f in v.fatias %}
+      <tr id="{{ f.id }}" class="{% if not f.disponivel or f.status.value != 'ativo' %}esmaecido{% endif %}">
+        <td>
+          {% if f.url %}<a href="{{ f.url }}" rel="noreferrer nofollow">{{ f.recorte or f.titulo }}</a>
+          {% else %}{{ f.recorte or f.titulo }}{% endif %}
+          {% if not f.disponivel %}<span class="etiqueta ruim">indisponível</span>{% endif %}
+          {% if f.status.value != 'ativo' %}<span class="etiqueta aviso">{{ f.status.value }}</span>{% endif %}
+          <br><code class="fraco">{{ f.id }}</code>
+        </td>
+        <td>{{ f.formato }}</td>
+        <td class="num">{{ f.duracao }}</td>
+        <td>
+          <a href="{{ f.etapa_href }}">{{ f.etapa_titulo }}</a>
+          {% if not f.etapa_ativa %}<span class="etiqueta aviso">etapa não ativa</span>{% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

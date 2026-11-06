@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h1>Obras</h1>
+<p class="meta">
+  {{ v.qtd }} exemplar{{ '' if v.qtd == 1 else 'es' }} fatiado{{ '' if v.qtd == 1 else 's' }}
+  · {{ v.custo_total }} ao todo · {{ v.duracao_total }} somados
+  {% if v.gratuitas %}· {{ v.gratuitas }} sem custo{% endif %}
+</p>
+
+<p class="fraco">
+  O total conta <strong>cada exemplar uma vez</strong>, como manda o ADR-0009: somar
+  recurso a recurso cobraria oito vezes um livro fatiado em oito. Quem não declara
+  <code>obra</code> fica de fora — é obra de si mesmo
+  (<code>docs/catalogo.md</code> §2), não fatia de exemplar algum, e não tem slug para
+  ter página.
+</p>
+
+{% if v.obras %}
+<table class="tabela">
+  <caption class="oculto">Exemplares fatiados do catálogo</caption>
+  <thead>
+    <tr>
+      <th scope="col">Livro</th><th scope="col">Fatias</th><th scope="col">Duração</th>
+      <th scope="col">Custo</th><th scope="col">Etapas</th><th scope="col">Idiomas</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for o in v.obras %}
+    <tr id="{{ o.slug }}" class="{% if o.toda_depreciada %}esmaecido{% endif %}">
+      <td>
+        <a href="{{ o.href }}">{{ o.nome }}</a>
+        {% if o.toda_depreciada %}<span class="etiqueta aviso">todas as fatias depreciadas</span>{% endif %}
+        <br><code class="fraco">{{ o.slug }}</code>
+      </td>
+      <td class="num">{{ o.qtd_fatias }}</td>
+      <td class="num">{{ o.duracao }}</td>
+      <td class="num">{{ o.custo }}</td>
+      <td class="num">{{ o.qtd_etapas }}</td>
+      <td>{{ o.idiomas }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="alerta">
+  Nenhum exemplar declara <code>obra</code> neste catálogo. O campo é opcional: só vale
+  a pena quando um livro atende mais de uma etapa.
+</p>
+{% endif %}
+{% endblock %}

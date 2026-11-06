@@ -21,6 +21,7 @@ from ..motor import Opcoes, sugerir
 from ..motor.modelo import Percurso, Resultado
 from .apresentar import acervo as apresentar_acervo
 from .apresentar import detalhe, diagnostico
+from .apresentar import obra as apresentar_obra
 from .apresentar import sugestao as apresentar_sugestao
 from .escrever import (
     Acao,
@@ -32,6 +33,7 @@ from .escrever import (
 from .percurso import (
     evidencias_do_percurso,
     nome_do_estudante,
+    percorridos_do_percurso,
     percurso_completo,
     percursos_em,
 )
@@ -55,11 +57,6 @@ def _arquivo_de_percurso(request: Request) -> Path | None:
     arquivos = percursos_em(_ctx(request).fonte.percursos)
     escolhido = request.query_params.get("estudante", "").strip()
     return arquivos.get(escolhido) or (next(iter(arquivos.values()), None))
-
-
-def _percurso(request: Request) -> Percurso | None:
-    caminho = _arquivo_de_percurso(request)
-    return percurso_completo(caminho) if caminho else None
 
 
 def _responder(
@@ -146,8 +143,13 @@ async def lista(request: Request) -> Response:
 
 async def trilha(request: Request) -> Response:
     ctx = _ctx(request)
+    arquivo = _arquivo_de_percurso(request)
     visao = detalhe.trilha(
-        ctx.fonte.acervo(), request.path_params["ident"], percurso=_percurso(request)
+        ctx.fonte.acervo(),
+        request.path_params["ident"],
+        hoje=ctx.hoje(),
+        percurso=percurso_completo(arquivo) if arquivo else None,
+        percorridos=percorridos_do_percurso(arquivo) if arquivo else (),
     )
     if visao is None:
         return await nao_encontrado(request, None)
@@ -158,11 +160,13 @@ async def etapa(request: Request) -> Response:
     if request.method == "POST":
         return await _registrar_na_etapa(request)
     ctx = _ctx(request)
+    arquivo = _arquivo_de_percurso(request)
     visao = detalhe.etapa(
         ctx.fonte.acervo(),
         request.path_params["ident"],
         hoje=ctx.hoje(),
-        percurso=_percurso(request),
+        percurso=percurso_completo(arquivo) if arquivo else None,
+        percorridos=percorridos_do_percurso(arquivo) if arquivo else (),
     )
     if visao is None:
         return await nao_encontrado(request, None)
@@ -387,6 +391,46 @@ async def desligar(request: Request) -> Response:
     return resposta
 
 
+async def obras(request: Request) -> Response:
+    """Índice dos exemplares fatiados (docs/interface.md §5.13).
+
+    Fica fora de `/catalogo` de propósito: lá se listam **entidades**, e obra não é uma
+    — não tem id, `rev` nem `status` (catalogo.md §2). Misturá-la ao explorador faria
+    o filtro por tipo prometer o que o modelo não tem.
+    """
+    ctx = _ctx(request)
+    return _responder(
+        request, "obras.html", {"v": apresentar_obra.indice(ctx.fonte.acervo()), "titulo": "Obras"}
+    )
+
+
+async def obra(request: Request) -> Response:
+    """A tela do exemplar: as fatias, as etapas que elas atendem e o custo uma vez."""
+    ctx = _ctx(request)
+    visao = apresentar_obra.pagina(ctx.fonte.acervo(), request.path_params["slug"])
+    if visao is None:
+        return await nao_encontrado(request, None)
+    return _responder(request, "obra.html", {"v": visao, "titulo": visao.nome})
+
+
+async def obra_exportada(request: Request) -> Response:
+    """O Markdown da obra, como arquivo para baixar (docs/interface.md §5.13).
+
+    GET, e não POST: exportar não grava nada, e a URL do export tem de ser
+    compartilhável e recarregável como qualquer outra leitura. `attachment` com nome de
+    arquivo porque o destino é um arquivo em disco, não uma aba de texto.
+    """
+    ctx = _ctx(request)
+    visao = apresentar_obra.pagina(ctx.fonte.acervo(), request.path_params["slug"])
+    if visao is None:
+        return await nao_encontrado(request, None)
+    return Response(
+        apresentar_obra.markdown(visao),
+        media_type="text/markdown; charset=utf-8",
+        headers={"content-disposition": f'attachment; filename="{visao.nome_do_arquivo}"'},
+    )
+
+
 async def nao_encontrado(request: Request, exc: Exception | None = None) -> Response:
     return _responder(
         request,
@@ -421,5 +465,8 @@ ROTAS = [
     Route("/trilha/{ident:path}", trilha),
     Route("/etapa/{ident:path}", etapa, methods=["GET", "POST"]),
     Route("/competencia/{ident:path}", competencia, methods=["GET", "POST"]),
+    Route("/obras", obras),
+    Route("/obra/{slug}/exportar", obra_exportada),
+    Route("/obra/{slug}", obra),
     Route("/desligar", desligar, methods=["POST"]),
 ]

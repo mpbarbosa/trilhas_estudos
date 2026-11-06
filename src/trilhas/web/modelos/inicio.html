@@ -19,26 +19,60 @@
 </ul>
 
 <h2>Trilhas</h2>
-<div class="cartoes">
-  {% for t in v.trilhas %}
-  <article class="cartao">
-    <h3><a href="/trilha/{{ t.id }}">{{ t.titulo }}</a></h3>
-    <p class="meta">
-      <span class="etiqueta">{{ t.area }}</span>
-      {% if t.status.value != 'ativo' %}<span class="etiqueta aviso">{{ t.status.value }}</span>{% endif %}
-      {{ t.qtd_obrigatorias }} obrigatórias{% if t.qtd_opcionais %} · {{ t.qtd_opcionais }} opcionais{% endif %}
-      {% if t.qtd_emprestadas %} · {{ t.qtd_emprestadas }} emprestada(s){% endif %}
-      · {{ t.esforco }}
-      · ondas {{ t.ondas[0] }}–{{ t.ondas[1] }}
-    </p>
-    <p class="rotulo-campo">Objetivo declarado</p>
-    <ul class="alvos">
-      {% for a in t.objetivo %}
-      <li><a href="/competencia/{{ a.competencia_id }}">{{ a.titulo }}</a>
-        <span class="nivel nivel-{{ a.nivel }}">{{ a.nivel }}</span></li>
+<p class="fraco">
+  A estante tem dois setores — <strong>Exatas</strong> e <strong>Humanas</strong> —, e
+  dentro de cada um uma prateleira por área, em ordem alfabética. Cada livro é uma
+  trilha: a lombada marca o status, que também vem escrito, e o corpo do livro traz o
+  objetivo declarado.
+</p>
+
+<div class="estante">
+  {% for s in v.setores %}
+  <section class="setor">
+    <h3 class="setor-nome">
+      <span>{{ s.rotulo }}</span>
+      <span class="fraco">
+        {{ s.prateleiras | length }} área{{ '' if s.prateleiras | length == 1 else 's' }}
+        · {{ s.qtd_trilhas }} trilha{{ '' if s.qtd_trilhas == 1 else 's' }}
+        · {{ s.esforco }}
+      </span>
+    </h3>
+    <div class="prateleiras">
+      {% for p in s.prateleiras %}
+      <section class="prateleira">
+        <h4 class="plaqueta">
+          <span class="area">{{ p.rotulo or 'sem área' }}</span>
+          <span class="fraco">
+            {{ p.trilhas | length }} trilha{{ '' if p.trilhas | length == 1 else 's' }}
+            · {{ p.esforco }}
+          </span>
+        </h4>
+        <ul class="livros">
+          {% for t in p.trilhas %}
+          <li class="livro livro-{{ t.status.value }}">
+            <h5><a href="/trilha/{{ t.id }}">{{ t.titulo }}</a></h5>
+            <p class="meta">
+              {% if t.status.value != 'ativo' %}
+              <span class="etiqueta aviso">{{ t.status.value }}</span><br>
+              {% endif %}
+              {{ t.qtd_obrigatorias }} obrigatórias{% if t.qtd_opcionais %} · {{ t.qtd_opcionais }} opcionais{% endif %}
+              {% if t.qtd_emprestadas %} · {{ t.qtd_emprestadas }} emprestada(s){% endif %}
+              <br>{{ t.esforco }} · ondas {{ t.ondas[0] }}–{{ t.ondas[1] }}
+            </p>
+            <p class="rotulo-campo">Objetivo declarado</p>
+            <ul class="alvos">
+              {% for a in t.objetivo %}
+              <li><a href="/competencia/{{ a.competencia_id }}">{{ a.titulo }}</a>
+                <span class="nivel nivel-{{ a.nivel }}">{{ a.nivel }}</span></li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
       {% endfor %}
-    </ul>
-  </article>
+    </div>
+  </section>
   {% endfor %}
 </div>
 

@@ -1,0 +1,102 @@
+# Primeira área de política do catálogo. As cinco competências são de leitura de
+# teoria política e de crítica de explicação, não do nazismo nem do stalinismo: a
+# verificação de cada uma se cobra sobre um regime, um movimento ou um argumento que
+# não é o dos dois livros desta trilha, e a Europa de 1930 a 1945 é só onde ela as
+# exercita. Foi critério de desenho — uma competência que só se verifica num corpus é
+# assunto daquele corpus, não competência (docs/catalogo.md §2) —, e é o que permite
+# que o próximo livro da área entre como etapa sem reescrever competência nenhuma.
+versao_schema: 1
+competencias:
+  - id: comp:politica/dois-sentidos-de-liberdade
+    titulo: Distinguir liberdade como ausência de vínculo e liberdade como capacidade
+    rev: 1
+    status: ativo
+    descricao: >
+      Dizer que alguém está livre de uma coerção não é dizer que ele tem o que fazer
+      com a liberdade conquistada. A competência é separar os dois sentidos num caso
+      concreto — o vínculo que caiu e a capacidade que não nasceu com a queda dele —
+      e reconhecer o estado em que ganhar o primeiro produz insegurança em vez de
+      autonomia. Sem isso, "mais liberdade" e "melhor" viram a mesma palavra.
+    verificacao: >
+      Dada uma situação documentada em que um vínculo de autoridade, tradição ou
+      dependência se desfez — uma transição de regime, uma reforma de legislação
+      trabalhista, a saída de alguém de uma instituição: dizer de que o sujeito ficou
+      livre e para que ele ficou (ou não) capaz, nomeando o recurso material,
+      cognitivo ou coletivo que falta para o segundo; e explicar por que, no caso, a
+      perda do vínculo pode ser vivida como desamparo, sem concluir disso que o
+      vínculo anterior era preferível.
+
+  - id: comp:politica/psicologia-social-da-submissao
+    titulo: Explicar adesão de massa a um regime de dominação
+    rev: 1
+    status: ativo
+    descricao: >
+      Por que gente comum adere, aplaude e colabora. A competência é dar conta da
+      adesão por mecanismos nomeáveis — isolamento, insegurança, submissão a uma
+      autoridade que promete sentido, conformismo, prazer na destruição — sem as duas
+      saídas fáceis: a de que os aderentes foram enganados por propaganda e a de que
+      eram patológicos. As duas isentam quem adere e não explicam quem resistiu nas
+      mesmas condições.
+    verificacao: >
+      Dado um caso documentado de adesão coletiva a um regime ou movimento autoritário
+      que não os estudados: nomear ao menos três mecanismos que a sustentam, dizendo
+      em cada caso que parte da adesão ele explica e que parte fica fora; apontar o
+      grupo social em que o caso se concentrou e o que o distingue dos que não
+      aderiram; e refutar, com um fato datado do próprio caso, tanto a explicação por
+      engano quanto a explicação por patologia.
+
+  - id: comp:politica/anatomia-do-dominio-total
+    titulo: Distinguir domínio total de tirania e de ditadura
+    rev: 1
+    status: ativo
+    descricao: >
+      Chamar de totalitário todo governo que reprime esvazia a palavra. A competência
+      é operar o conceito pelos traços que o delimitam — movimento antes de Estado,
+      ideologia com lei de movimento própria, duplicação de órgãos e indefinição
+      deliberada de autoridade, polícia que persegue o inimigo objetivo e não o
+      opositor, campo como laboratório de supressão da pessoa — e, com eles na mão,
+      aceitar ou recusar a classificação de um regime, dizendo que traço falta.
+    verificacao: >
+      Dado um regime documentado que não os estudados: decidir se ele satisfaz o
+      conceito de domínio total, percorrendo um a um os traços que o definem e dizendo
+      quais estão presentes, quais estão ausentes e com que evidência; nomear o traço
+      cuja ausência é decisiva, se houver; e dizer que diferença prática a
+      classificação faz para prever o comportamento do regime — por exemplo se a
+      repressão para quando a oposição cessa.
+
+  - id: comp:politica/conceito-a-partir-de-material-historico
+    titulo: Auditar um conceito político construído sobre material histórico
+    rev: 1
+    status: ativo
+    descricao: >
+      Teoria política séria se escreve sobre documento datado, e é por aí que ela se
+      audita: que fatos o autor usa, que peso cada um aguenta, e onde o conceito
+      passa a andar sozinho, longe do material que o produziu. A competência não é
+      checar notas de rodapé — é dizer o que precisaria ser verdade no mundo para a
+      afirmação se sustentar, e se o texto mostra isso.
+    verificacao: >
+      Dado um trecho de teoria política que afirma algo geral sobre um tipo de regime
+      ou de movimento: separar as afirmações apoiadas em fato datado das apoiadas em
+      interpretação do próprio autor; dizer, para a tese central, que evidência a
+      confirmaria e que evidência a refutaria; e apontar uma passagem em que o
+      conceito é aplicado a um caso que o material citado não cobre, dizendo que
+      documento faltaria ali.
+
+  - id: comp:politica/critica-de-explicacao-psicologica-da-politica
+    titulo: Avaliar o salto entre explicação do indivíduo e explicação do coletivo
+    rev: 1
+    status: ativo
+    descricao: >
+      Explicar política por caráter, medo ou necessidade de autoridade é fecundo e
+      escorrega fácil: o que vale para um sujeito não se soma até virar regime, e a
+      propriedade de um grupo não se reparte de volta em cada membro. A competência é
+      localizar o ponto em que o argumento troca de nível — indivíduo, grupo,
+      instituição — e dizer o que ele precisaria mostrar para atravessar, incluindo no
+      argumento que se está construindo.
+    verificacao: >
+      Dado um argumento que explica um fenômeno político por disposição psicológica:
+      marcar em que passo ele muda de nível de análise; nomear a mediação que faria a
+      passagem (organização, instituição, incentivo material, veículo de propaganda) e
+      dizer se o argumento a exibe; apontar que fato do caso o argumento deixa sem
+      explicar; e propor uma explicação concorrente, de outro nível, dizendo que
+      evidência decidiria entre as duas.

@@ -22,6 +22,9 @@ trilha:
       titulo: Modelos, janela de contexto e a conversa como ferramenta de trabalho
       rev: 1
       status: ativo
+      descricao: >
+        Entrada da trilha: que modelos existem, o que a janela de contexto limita, e a
+        conversa usada como ferramenta de trabalho em vez de curiosidade.
       esforco_estimado_min: 300
       opcional: false
       requires: []
@@ -33,6 +36,9 @@ trilha:
       titulo: Prompt, contexto e saída estruturada
       rev: 1
       status: ativo
+      descricao: >
+        Prompt como interface: instrução, exemplo e contexto; e a saída estruturada que
+        deixa o programa consumir a resposta sem adivinhar formato.
       esforco_estimado_min: 420
       opcional: false
       requires:
@@ -49,6 +55,9 @@ trilha:
       titulo: A API por dentro — mensagens, streaming, cache e custo
       rev: 1
       status: ativo
+      descricao: >
+        A API vista de dentro: formato de mensagens, streaming, cache de prompt e
+        contagem de tokens, com o custo como consequência direta de cada escolha.
       esforco_estimado_min: 600
       opcional: false
       requires:
@@ -67,6 +76,10 @@ trilha:
       titulo: Onde o modelo roda — Bedrock, Google Cloud e Claude Platform on AWS
       rev: 1
       status: ativo
+      descricao: >
+        Onde o modelo roda além da API própria: Bedrock, Google Cloud e a plataforma na
+        AWS — autenticação, id de modelo, região, cota e retenção de dado. Ramo opcional
+        da trilha (ADR-0013).
       esforco_estimado_min: 300
       opcional: true
       requires:
@@ -80,6 +93,9 @@ trilha:
       titulo: Tool use e MCP — dar mãos ao modelo
       rev: 1
       status: ativo
+      descricao: >
+        Dar mãos ao modelo: definição de ferramenta, o laço de chamada e resultado, e o
+        MCP como protocolo para conectar dados e sistemas sem acoplar ao cliente.
       esforco_estimado_min: 900
       opcional: false
       requires:
@@ -96,6 +112,9 @@ trilha:
       titulo: Claude Code e Skills — o agente dentro do repositório
       rev: 1
       status: ativo
+      descricao: >
+        O agente operando dentro de um repositório: configuração, skills, subagentes e
+        hooks — e a especificação escrita antes de gerar código, não depois.
       esforco_estimado_min: 720
       opcional: false
       requires:
@@ -112,6 +131,9 @@ trilha:
       titulo: Construir um agente — laço, memória, subagentes e parada
       rev: 1
       status: ativo
+      descricao: >
+        O laço do agente construído peça por peça: decisão de ferramenta, memória entre
+        passos, subagentes e — o mais fácil de errar — o critério de parada.
       esforco_estimado_min: 1200
       opcional: false
       requires:
@@ -125,6 +147,10 @@ trilha:
       titulo: Agente em produção — salvaguardas, avaliação, custo e latência
       rev: 1
       status: ativo
+      descricao: >
+        O que separa um protótipo de um serviço: salvaguarda e limite de ação, avaliação
+        automática do comportamento, observabilidade, e o custo e a latência da
+        inferência tratados como requisito.
       esforco_estimado_min: 900
       opcional: false
       requires:
@@ -142,6 +168,9 @@ trilha:
       titulo: Projeto — agente próprio em serviço
       rev: 1
       status: ativo
+      descricao: >
+        Um agente próprio servido de ponta a ponta com o Agent SDK: ferramentas, estado,
+        limites — e o que falta para outra pessoa conseguir usá-lo.
       esforco_estimado_min: 1800
       opcional: false
       requires:

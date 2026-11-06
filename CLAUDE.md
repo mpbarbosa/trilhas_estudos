@@ -118,6 +118,11 @@ Outras sessões commitam neste repositório em paralelo. Confira `git status` e
 `git log` antes de escrever, e commite só o que você mudou: pode haver trabalho
 não commitado de outra sessão na árvore.
 
+Antes de escrever numa área, leia e declare a sua em
+[COORDINATION.md](COORDINATION.md) — ele guarda a reivindicação de área de cada
+sessão, que é o que o git não registra. Branch, PR e estado do trabalho se leem
+do git e dos documentos que os mantêm, nunca dele.
+
 Commits em pt-BR, no imperativo ou no padrão `catalogo: trilha "<título>"` usado
 no histórico.
 

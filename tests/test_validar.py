@@ -347,7 +347,7 @@ def test_fatia_depreciada_nao_prende_o_custo_da_obra() -> None:
 
 
 def _com_capitulo(**kw: object) -> Catalogo:
-    """O livro da etapa e um capítulo dele — o caso que §5.13 julga (ADR-0019)."""
+    """O livro da etapa e um capítulo dele — o caso que §5.13 julga (ADR-0021)."""
     cat = minimo_valido()
     cat.recursos["rec:x/livro-cap-1"] = recurso(
         "rec:x/livro-cap-1", "etapa:x/inicial", parte_de="rec:x/inicial", **kw

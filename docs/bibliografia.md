@@ -14,6 +14,31 @@ as fatias pagas de um mesmo exemplar declaram `obra` no recurso
 ([catalogo.md §2](catalogo.md)), e é esse campo, não esta lista, que a compilação
 valida.
 
+Desde [ADR-0020](adr/0020-obra-declarada-tambem-em-exemplar-nao-fatiado.md) a
+confrontação vale nos dois sentidos. **Refeita em 2026-11-01, depois de escritas as
+fichas que faltavam, ela fecha**: das 82 fichas deste documento, 81 têm `obra`
+declarada no catálogo — antes da ADR eram 24 —, e **nenhuma das 81 obras do catálogo
+está sem ficha**. A única ficha sem `obra` é a de *Python Fluente*, e é de propósito:
+o recurso está depreciado desde 2026-10-22, e recurso depreciado não recebe `obra`
+nova (ADR-0020).
+
+As onze obras que a confrontação listava como pendentes saíram da lista por dois
+caminhos. **Oito ganharam ficha**: as quatro de Hari Chetan
+(`chetan-30-dias-gita`, `chetan-daily-bhakti`, `chetan-gita-resumida`,
+`chetan-gita-traducao-autentica`), `flanagan-javascript-definitive-guide`,
+`klabnik-nichols-rust-book`, `kurniawan-node-succinctly` e
+`winand-use-the-index-luke`. **Três deixaram de declarar `obra`**, porque a ficha foi
+o primeiro momento em que alguém olhou o material de perto e ele não era livro:
+`beej-guide-c`, `beej-guide-ipc` e `guiafoca-linux` são referência aberta, sem editora,
+sem ISBN e sem edição à venda, e estão no
+[§ O que não tem ficha](#o-que-não-tem-ficha). Nos três, remover `obra` subiu a `rev`
+de 2 para 3, pela mesma regra que a havia subido ao acrescentá-la: `rev` nunca
+decresce (CAT-090, [catalogo.md §4](catalogo.md)).
+
+A conferência se refaz com
+`uv run python -c` sobre o lock e este arquivo; ela não entra na validação, pela
+mesma razão de sempre — este documento é descritivo.
+
 ## Como ler uma ficha
 
 | Campo | O que traz |
@@ -36,17 +61,40 @@ e *Pure React*, conferidas em 2026-10-17, e as de *The Visual Display of
 Quantitative Information*, *Engenharia de Prompts na Prática*, *Álgebra Linear com
 Python*, *Python for Everybody*, *Spec Driven Development — PT*, *Linux Command Line
 and Shell Scripting Bible*, *Shell Script Profissional*, *The Linux Command Line* e
-*Desenvolvimento Web com Flask*, acrescentadas em 2026-10-17.
+*Desenvolvimento Web com Flask*, acrescentadas em 2026-10-17, e as oito acrescentadas
+em 2026-11-01 — as quatro de Hari Chetan, *JavaScript: The Definitive Guide*,
+*Node.js Succinctly*, *SQL Performance Explained* e *The Rust Programming Language*
+—, conferidas nessa data.
 
 Preço, como regra, não entra aqui — vive em `custo` no recurso, com seu próprio
 `verificado_em`, e a pesquisa de 2026-10-12 não o alterou: conferiu link e edição,
 não preço. As nove fichas acrescentadas em 2026-10-17 são a exceção e **citam**
 preço, porque nelas o `custo` do recurso foi fixado na mesma passada — no caso do
 Tufte o preço é o próprio motivo de a ficha dizer qual tiragem o recurso aponta, e no
-do *Shell Scripting Bible* ele registra que o Kindle sai mais caro que o impresso.
+do *Shell Scripting Bible* ele registra que o Kindle sai mais caro que o impresso. As
+quatro fichas de Hari Chetan de 2026-11-01 são a outra exceção, pela mesma razão: o
+preço no Google Play BR é o que fixou o `custo` daqueles recursos, e a paginação delas
+vem da mesma página de loja.
 
 As divergências encontradas entre o catálogo e a obra real estão reunidas no
 [§ Divergências](#divergências) no fim.
+
+### Observação datada — 2026-11-05
+
+A confrontação de 2026-11-01 (acima) **não fecha mais**, e não por causa dela: o
+catálogo cresceu. Hoje são **85 obras com fatia ativa** e **83 fichas**, e quatro
+obras não são citadas por ficha nenhuma. Uma é a deste dia,
+`price-toscani-compiladores`, que ganhou ficha agora. As outras três entraram com as
+trilhas de literatura e de estatística e seguem **sem ficha**:
+`poe-o-corvo`, `lakens-statistical-inferences` e `reinhart-statistics-done-wrong`.
+
+Regenere a lista em vez de confiar nesta:
+
+```bash
+python3 -c 'import json,pathlib;d=json.load(open("catalogo.lock.json"));b=pathlib.Path("docs/bibliografia.md").read_text();o={};[o.setdefault(r["obra"],[]).append(r["id"]) for r in d["recursos"] if r.get("obra")];print([k for k,v in o.items() if not any(i in b for i in v)])'
+```
+
+---
 
 ---
 
@@ -166,6 +214,25 @@ As divergências encontradas entre o catálogo e a obra real estão reunidas no
 - **Acesso aberto** — https://wesmckinney.com/book/ (3ª ed. em inglês, liberada pelo autor)
 - **Original** — *Python for Data Analysis*, 3rd ed., O'Reilly, 2022
 - **Citada por** — `rec:dados/mckinney-python-analise-3ed`
+
+### SQL Performance Explained: Everything Developers Need to Know about SQL Performance
+
+- **Autoria** — Markus Winand
+- **Edição** — edição do autor, 30/07/2012, 204 p., en-US. Cobre Oracle, MySQL,
+  PostgreSQL, SQL Server e Db2 lado a lado. A edição alemã, de maio de 2012 e mesma
+  paginação, tem ISBN-13 978-3-9503078-1-8.
+- **Identificadores** — ISBN-13 978-3-9503078-2-5 · ISBN-10 `3950307826`
+- **Amazon** — https://www.amazon.com.br/dp/3950307826 (página da loja brasileira não
+  conferida; o autor vende brochura e PDF na própria loja, a partir de € 9,95)
+- **Acesso aberto** — https://use-the-index-luke.com/ — *Use The Index, Luke!* é a
+  edição web gratuita deste livro, nas palavras do próprio site ("free web-edition of
+  my book"). É esta edição que o catálogo cita, e é dela que vem o `custo: 0` do
+  recurso: o preço do impresso é outro.
+- **Citada por** — `rec:dados/use-the-index-luke` — declara
+  `obra: winand-use-the-index-luke`
+- **Nota** — a `obra` leva o nome do site, não do livro, porque é o site que o recurso
+  aponta. É o mesmo arranjo de *The Linux Command Line*: edição aberta citada pelo
+  catálogo, impresso existindo ao lado.
 
 ### The Visual Display of Quantitative Information
 
@@ -402,6 +469,33 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Citada por** — `rec:ia/hands-on-llms-embeddings`, `rec:ia/hands-on-llms-notebooks`,
   `rec:ia/hands-on-llms-rag`
 
+### Implementação de Linguagens de Programação: Compiladores
+
+- **Autoria** — Ana Maria de Alencar Price, Simão Sirineo Toscani
+- **Edição citada pelo catálogo** — Instituto de Informática da UFRGS / Sagra Luzzatto,
+  Porto Alegre, 2000, pt-BR; Série Livros Didáticos nº 9. É o exemplar que o estudante
+  tem: ISBN-10 `8524106395`. ISBN-13 e paginação **não confirmados** — a listagem da
+  Amazon dá 200 p., e não foi possível ler a página para conferir
+- **Reimpressão posterior** — Bookman / Instituto de Informática da UFRGS, 2008, citada
+  por ementa de disciplina; sem ISBN nem paginação confirmados
+- **Amazon** — https://www.amazon.com.br/dp/8524106395 (o ISBN-10 como ASIN, pela
+  convenção acima). A página devolveu HTTP 503 à leitura automatizada em 2026-11-05;
+  abre no navegador
+- **Citada por** — `rec:programacao/price-toscani-estrutura`,
+  `rec:programacao/price-toscani-analise-lexica`,
+  `rec:programacao/price-toscani-analise-sintatica`,
+  `rec:programacao/price-toscani-analise-semantica`,
+  `rec:programacao/price-toscani-geracao-de-codigo` — as cinco declaram
+  `obra: price-toscani-compiladores`
+- **Nota** — **o sumário não foi confirmado em fonte nenhuma**: Amazon 503, Estante
+  Virtual 403, e nem a editora nem a UFRGS publicam a lista de capítulos. As cinco
+  fatias são por **assunto** — estrutura, léxica, sintática, semântica, geração —,
+  não por número de capítulo, e nisso divergem da convenção de Tanenbaum & Woodhull
+  (ver [§ Divergências](#divergências)). A ordem dos assuntos vem de duas ementas que
+  adotam o livro, não do livro: ela é plausível e não é verificada. Quem tiver o
+  exemplar em mão: trocar os títulos por "cap. N, ..." é cosmético
+  ([catalogo.md §4](catalogo.md)) e não sobe `rev`
+
 ### Introduction to Information Retrieval
 
 - **Autoria** — Christopher D. Manning, Prabhakar Raghavan, Hinrich Schütze
@@ -481,7 +575,7 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Edição** — O'Reilly Media, 31/12/2024, 280 p., en-US
 - **Identificadores** — ISBN-13 978-1-09-815615-2 · ISBN-10 `1098156153`
 - **Amazon** — https://www.amazon.com.br/dp/1098156153
-- **Citada por** — `rec:ia/prompt-engineering-for-llms`, e os capítulos `rec:ia/prompt-engineering-for-llms-cap-01` a `-cap-11` como partes dele (`obra: prompt-engineering-for-llms`, ADR-0019)
+- **Citada por** — `rec:ia/prompt-engineering-for-llms`, e os capítulos `rec:ia/prompt-engineering-for-llms-cap-01` a `-cap-11` como partes dele (`obra: berryman-ziegler-prompt-engineering`, a mesma do todo, ADR-0021)
 
 ### Python Fluente
 
@@ -563,6 +657,26 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
   `programacao/`, que são organizacionais e não semânticas
   ([catalogo.md §3](catalogo.md))
 
+### The Rust Programming Language
+
+- **Autoria** — Steve Klabnik, Carol Nichols e, desde a 3ª edição, Chris Krycho, com
+  contribuições da comunidade Rust
+- **Edição** — 3ª ed., No Starch Press, 31/03/2026, 624 p., en-US. A 2ª edição é de
+  2023. A edição web, que é a que o catálogo cita, acompanha o compilador: em
+  2026-11-01 ela pressupõe Rust 1.97.0 e `edition = "2024"` no `Cargo.toml`.
+- **Identificadores** — 3ª ed.: ISBN-13 978-1-7185-0444-8 · ISBN-10 `1718504446`;
+  e-book 978-1-7185-0445-5
+- **Amazon** — https://www.amazon.com.br/dp/1718504446 (página da loja brasileira não
+  conferida)
+- **Editora** — https://nostarch.com/rust-programming-language-3e
+- **Acesso aberto** — https://doc.rust-lang.org/book/ (texto integral, mantido pelo
+  projeto Rust, que é quem detém o direito autoral da 3ª edição)
+- **Citada por** — `rec:programacao/rust-book-sistemas` (caps. 1 a 12) — declara
+  `obra: klabnik-nichols-rust-book`
+- **Nota** — ver [§ Divergências](#divergências): o recurso cita dois autores e um
+  recorte por número de capítulo, e a edição web que ele aponta passou a ter três
+  autores e a numeração da 3ª edição.
+
 ---
 
 ## Matemática
@@ -614,6 +728,27 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Edição interativa** — https://mathcs.clarku.edu/~djoyce/elements/elements.html
   (David E. Joyce, em inglês — é o recurso `rec:matematica/euclides-interativo`)
 - **Citada por** — `rec:matematica/euclides-elementos`
+
+### Fundamentos de Matemática Elementar 1: Conjuntos, Funções
+
+- **Autoria** — Gelson Iezzi e Carlos Murakami
+- **Edição** — 9ª ed., Atual Editora, 2013, 410 p., pt-BR; a capa traz o selo
+  "Novas questões de vestibulares" desta edição. Volume 1 da coleção de onze. Dez
+  capítulos — noções de lógica, conjuntos, conjuntos numéricos, relações,
+  introdução às funções, função constante e afim, função quadrática, função
+  modular, outras funções elementares, função composta e inversa — e dois
+  apêndices, equações e inequações irracionais. Exercícios com gabarito no fim.
+  Lido no Kindle.
+- **Identificadores** — ISBN-13 978-85-357-1680-1 · ISBN-10 `8535716807`; ASIN do
+  Kindle não conferido
+- **Amazon** — https://www.amazon.com.br/dp/8535716807 — página e preço não
+  conferidos em 2026-10-24; o `custo: 100` é estimativa
+- **Citada por** — `rec:matematica/iezzi-fme-1-caps-1-2`,
+  `rec:matematica/iezzi-fme-1-caps-3-10`
+- **Nota** — os caps. 1 e 2 vão para a raiz de
+  `trilha:matematica/prova-e-calculo`, como entrada em pt-BR antes do Book of
+  Proof; o resto do livro sustenta `etapa:matematica/funcoes-elementares`, base
+  opcional criada para ele, porque nenhuma etapa da trilha ensinava funções.
 
 ### Os mistérios matemáticos do Professor Stewart: resolvidos por Hemlock Soames e o dr. Watsup
 
@@ -701,9 +836,13 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
   978-1-7185-0452-3 · ISBN-10 `1718504527`. Baseada na mesma 7ª edição de internet
 - **Acesso aberto** — https://linuxcommand.org/tlcl.php
 - **Citada por** — `rec:so/shotts-linha-de-comando`, `rec:so/shotts-script-shell` —
-  as duas fatias **não** declaram `obra`, pela mesma razão das cinco do OSTEP: obra
-  gratuita soma zero em qualquer agregação monetária
-  ([ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md))
+  as duas fatias declaram `obra: shotts-tlcl`. Até 2026-11-01 não declaravam, pela
+  razão que valia também para as cinco do OSTEP — obra gratuita soma zero em qualquer
+  agregação monetária
+  ([ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md)) —, e a
+  [ADR-0020](adr/0020-obra-declarada-tambem-em-exemplar-nao-fatiado.md) inverteu isso:
+  `obra` é o que torna o exemplar endereçável, e sem ela a trilha não tem como listar
+  o livro
 - **Nota** — a tradução para português está listada como em andamento no site do
   autor, ainda sem versão publicada. É por isso que
   `etapa:so/linha-de-comando` depende do Guia Foca para o par "gratuito e em pt-BR".
@@ -775,6 +914,24 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Acesso aberto** — https://eloquentjavascript.net/ (CC BY-NC)
 - **Citada por** — `rec:web/eloquent-javascript`
 
+### JavaScript: The Definitive Guide
+
+- **Autoria** — David Flanagan
+- **Edição** — 7ª ed., O'Reilly Media, 23/06/2020, 704 p., en-US. Reescrita para
+  JavaScript moderno, até ES2020.
+- **Identificadores** — ISBN-13 978-1-491-95202-3 · ISBN-10 `1491952024`
+- **Amazon** — https://www.amazon.com.br/dp/1491952024 (página da loja brasileira não
+  conferida)
+- **Editora** — https://www.oreilly.com/library/view/javascript-the-definitive/9781491952016/
+  — é o endereço que o recurso aponta, que é a leitura pela assinatura O'Reilly e não
+  a compra; o `custo: 300` é o do impresso
+- **Citada por** — `rec:web/flanagan-javascript-linguagem-e-dom` (caps. 1 a 12, 14 e
+  15) — declara `obra: flanagan-javascript-definitive-guide`
+- **Nota** — dos 17 capítulos ficam de fora o 13 (assíncrono), o 16 (Node) e o 17
+  (ferramental). Os dois primeiros não são lacuna da trilha: o assíncrono tem recurso
+  próprio na mesma etapa (*Async JavaScript*, acima) e o Node tem
+  `etapa:web/javascript-no-servidor`.
+
 ### Mastering D3.js
 
 - **Autoria** — Pablo Navarro Castillo — série *Community Experience Distilled*
@@ -783,6 +940,23 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Amazon** — https://www.amazon.com.br/dp/B00N1X6926
 - **Citada por** — `rec:web/mastering-d3-castillo`
 - **Nota** — o código é de uma versão antiga da API do D3; o recurso já marca isso.
+
+### Node.js Succinctly
+
+- **Autoria** — Agus Kurniawan
+- **Edição** — Syncfusion, abr./2014, 109 p., e-book, en-US. Série *Succinctly*, de
+  e-books curtos que a Syncfusion publica de graça. Sem edição impressa e sem ISBN.
+- **Amazon** — não se aplica
+- **Acesso aberto** — era o PDF que a Syncfusion distribuía após cadastro, com
+  licença de leitura condicionada a obtê-lo em syncfusion.com. Em 2026-11-01,
+  https://www.syncfusion.com/succinctly-free-ebooks/nodejs serve um *Node.js
+  Succinctly* **de outro autor** (Emanuele DelBono, out./2016, 76 p.), e a edição de
+  Kurniawan não foi localizada em distribuição autorizada.
+- **Citada por** — `rec:web/node-succinctly-kurniawan` — declara
+  `obra: kurniawan-node-succinctly`
+- **Nota** — ver [§ Divergências](#divergências): o recurso aponta para a ficha do
+  Goodreads, que é catálogo e não o material. O próprio título do recurso já avisa que
+  o código é da era Node 0.10, anterior a promessas, `async`/`await` e ESM.
 
 ### Pure React
 
@@ -857,6 +1031,121 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Nota** — o fatiamento por capítulo segue o original em inglês; os títulos da
   edição brasileira não foram conferidos.
 
+## Filosofia
+
+As cinco fichas de Hari Chetan abaixo são o que o catálogo cita do autor, e **não são
+uma série de cinco**: o [site dele](https://harichetan.com/books/) numera quatro livros
+como *The Bhagavad Gita Series* e lista *Daily Bhakti Practices* sem número, nem na
+página de livros nem na do próprio título — a numeração "livro 5" que estava aqui e nos
+comentários do YAML não vem do autor, e foi corrigida em 2026-11-02. A
+[página de autor no Goodreads](https://www.goodreads.com/author/show/21384705.Hari_Chetan),
+conferida nessa data, lista **seis** obras distintas: os quatro da série, uma entrada
+duplicada do livro 3 e *God's Guide to Enlightenment: Unlock Your Consciousness, Meet
+Your Real Self, and Discover Your True Purpose in Life* (Kindle, 05/04/2021), que não é
+da série, não aparece no site do autor e não é citada por recurso nenhum — por isso não
+tem ficha aqui. *Daily Bhakti Practices*, por sua vez, não está no Goodreads.
+
+Preço e paginação das cinco vêm da página do Google Play BR em 2026-11-01, que é também
+de onde saiu o `custo` dos recursos.
+
+### 30 Days to Understanding the Bhagavad Gita: A Complete, Simple, and Step-by-Step Guide to the Million-Year-Old Confidential Knowledge
+
+- **Autoria** — Hari Chetan
+- **Edição** — edição do autor (independente), jun./2021, en-US. Livro 3 da série
+  *The Bhagavad Gita Series*. E-book de 245 p., R$ 24,99 no Google Play; há também
+  brochura e capa dura.
+- **Identificadores** — ASIN `B09827G9M6` (Kindle), `B0986FRJ5R` (brochura),
+  `B09GJML48Z` (capa dura); EAN `9791220819619` no Nook
+- **Amazon** — https://www.amazon.com.br/dp/B09827G9M6 (ASIN obtido resolvendo o link
+  do autor, que termina na loja brasileira; a página em si não foi conferida)
+- **Citada por** — `rec:filosofia/chetan-30-dias-gita` — declara
+  `obra: chetan-30-dias-gita`
+- **Nota** — expõe a doutrina em trinta passos; é exposição do autor, não o diálogo, e
+  por isso cita `etapa:filosofia/por-que-ler-a-gita`. Os "30 dias" são calendário e
+  não esforço: a `duracao_min` do recurso vem do ritmo medido no livro 1 (~1,9
+  min/p.), não do título.
+
+### Bhagavad Gita (in English): The Authentic English Translation for Accurate and Unbiased Understanding
+
+- **Autoria** — Hari Chetan
+- **Edição** — edição do autor (independente), ago./2021, en-US. Livro 2 da série
+  *The Bhagavad Gita Series*. E-book de 234 p., R$ 24,99 no Google Play; há também
+  brochura e capa dura. Os 701 versos com esclarecimentos entre parênteses, notas e o
+  contexto do Mahabharata.
+- **Identificadores** — ASIN `B09D3YWKG7` (Kindle), `B09CRT941H` (brochura),
+  `B09GJP4X6R` (capa dura); EAN `9791221311549` no Nook
+- **Amazon** — https://www.amazon.com.br/dp/B09D3YWKG7 (ASIN obtido resolvendo o link
+  do autor, que termina na loja brasileira; a página em si não foi conferida)
+- **Citada por** — `rec:filosofia/chetan-gita-traducao-autentica` — declara
+  `obra: chetan-gita-traducao-autentica`
+- **Nota** — é a Gita, não comentário sobre ela, e por isso é o único livro de Hari
+  Chetan que cita `etapa:filosofia/leitura-integral-da-gita`. Alternativa em prosa à
+  tradução em verso de Arnold, que é gratuita: os R$ 24,99 são o preço de ler a letra
+  em vez do tom.
+
+### Bhagavad Gita - The Perfect Philosophy: 15 Reasons That Make the Song of God the Most Scientific Ideology
+
+- **Autoria** — Hari Chetan (assinado "Chetan Hari" em algumas lojas)
+- **Edição** — edição do autor (independente), 26/06/2021, en-US. Livro 1 da série
+  *The Bhagavad Gita Series*. E-book de 97 p. no Google Play (95 no Goodreads); o
+  impresso tem cerca de 100 p.
+- **Identificadores** — ASIN `B09827WZX5` (Kindle); ISBN-13 `9798528163611`
+  (brochura), `9798480260151` (capa dura); EAN `9791220819497` no Nook
+- **Amazon** — https://www.amazon.com.br/dp/B09827WZX5 (ASIN confirmado no
+  StoryGraph e no link do autor; página da loja brasileira não conferida)
+- **Acesso aberto** — e-book gratuito por decisão do autor em todas as lojas,
+  conferido em 2026-10-26 na [página do livro](https://harichetan.com/books/bhagavad-gita-perfect-philosophy/)
+  e no Google Play
+- **Citada por** — `rec:filosofia/chetan-gita-perfect-philosophy` — declara
+  `obra: chetan-gita-perfect-philosophy`
+- **Nota** — não há sumário público, então as quinze razões não estão nomeadas aqui
+  e o livro entra inteiro numa etapa. É livro de convencimento, e a trilha o
+  confronta com a entrada da *Internet Encyclopedia of Philosophy*.
+
+### Daily Bhakti Practices: A Practical Guide to Living with Devotion and Purpose
+
+- **Autoria** — Hari Chetan
+- **Edição** — edição do autor (independente), dez./2024, en-US. Fora da série
+  numerada — o site do autor o lista sem número — e o único livro dele que não trata
+  da Gita. E-book de 87 p., R$ 25,99 no Google Play; a brochura da Lulu tem 100 p.,
+  de 19/12/2024. Há audiolivro de 2h12 em voz digital, que não é
+  `formato` do esquema — o recurso entra como texto.
+- **Identificadores** — ISBN-13 do e-book 979-12-23904-02-2. Sem ASIN: não há edição
+  na Amazon.
+- **Amazon** — não se aplica. O autor lista Google Play, Streetlib, Nook e Kobo para
+  o digital e a Lulu para o impresso:
+  https://harichetan.com/books/daily-bhakti-practices/
+- **Citada por** — `rec:filosofia/chetan-daily-bhakti` — declara
+  `obra: chetan-daily-bhakti`
+- **Nota** — é o único dos cinco que não está na Amazon (nem no Goodreads), e por
+  isso o único cujo `custo` não tem preço de Kindle com que ser conferido. A etapa que o recebe,
+  `etapa:filosofia/bhakti-na-pratica`, nasceu com ele e é opcional.
+
+### The Bhagavad Gita Summarized and Simplified: A Comprehensive and Easy-to-Read Summary of the Divine Song of God
+
+- **Autoria** — Hari Chetan
+- **Edição** — edição do autor (independente), set./2021, en-US. Livro 4 da série
+  *The Bhagavad Gita Series*. E-book de 149 p., R$ 19,99 no Google Play; há também
+  brochura e capa dura. Segue os dezoito capítulos, cada um com "Key Takeaways", e
+  fecha com os ensinamentos agrupados por tema.
+- **Identificadores** — ASIN `B09G168NZ9` (Kindle), `B09FS31N65` (brochura),
+  `B09GJJCVY1` (capa dura); ISBN-13 979-8480077049 na capa dura
+- **Amazon** — https://www.amazon.com.br/dp/B09G168NZ9 (ASIN obtido resolvendo o link
+  do autor, que termina na loja brasileira; a página em si não foi conferida)
+- **Citada por** — `rec:filosofia/chetan-gita-resumida` — declara
+  `obra: chetan-gita-resumida`
+- **Nota** — cita `etapa:filosofia/por-que-ler-a-gita` e não a da leitura integral,
+  porque resumo é exatamente o que a `comp:filosofia/argumento-da-gita` exclui ("a
+  leitura do texto inteiro, não do resumo"). Antes do diálogo ele serve como visão de
+  conjunto.
+
+### The Song Celestial, or Bhagavad-Gîtâ
+
+- **Autoria** — tradução de Sir Edwin Arnold
+- **Edição** — Trübner, 1885, em verso, en-US. Domínio público.
+- **Acesso aberto** — https://www.gutenberg.org/ebooks/2388
+- **Citada por** — `rec:filosofia/arnold-song-celestial`
+
 ## Línguas
 
 ### Introducing English Syntax: A Basic Guide for Students of English
@@ -876,12 +1165,94 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
   preço de lista da brochura em dólar, não o preço pago; a página da editora não
   mostrou preço em 2026-10-21.
 
+### Longman Student Grammar of Spoken and Written English
+
+- **Autoria** — Douglas Biber, Susan Conrad e Geoffrey Leech
+- **Edição** — Longman (Pearson Education), Harlow, 2002, 487 p., inglês. Versão
+  para estudante da *Longman Grammar of Spoken and Written English* (1999), baseada
+  no mesmo corpus; 13 capítulos, do 1 (a perspectiva do discurso) ao 13 (a
+  gramática da conversa). Há caderno de exercícios vendido à parte, não catalogado.
+- **Identificadores** — brochura: ISBN-13 978-0-582-23726-1 · ISBN-10 `0582237262`
+- **Amazon** — https://www.amazon.com.br/dp/0582237262 — capa comum a R$ 300,18 em
+  2026-10-22 (capa dura só usada, R$ 539,74); o recurso declara o da capa comum
+- **Citada por** — `rec:linguas/longman-student-grammar-caps-1-3-e-8`,
+  `rec:linguas/longman-student-grammar-caps-4-7`,
+  `rec:linguas/longman-student-grammar-caps-10-11`,
+  `rec:linguas/longman-student-grammar-caps-9-e-12`
+- **Nota** — a ordem dos capítulos não é a de
+  `trilha:linguas/sintaxe-do-ingles`, e as fatias seguem a trilha: o cap. 8 (a
+  gramática da oração) vai com os caps. 1 a 3 na oração simples, e o 12 (ordem das
+  palavras: clivadas, existenciais, inversão) vai com o 9 nas construções. O cap. 13
+  ficou sem etapa. A edição de 2002 é a que circula; não achei revisão posterior.
+
+### A University Grammar of English
+
+- **Autoria** — Randolph Quirk e Sidney Greenbaum
+- **Edição** — Longman, Londres, 1973, inglês. Versão condensada, para estudante,
+  de *A Grammar of Contemporary English* (Quirk, Greenbaum, Leech e Svartvik,
+  1972); 14 capítulos e três apêndices. Reeditada em 1990, com outro título, como
+  *A Student's Grammar of the English Language*.
+- **Identificadores** — brochura: ISBN-10 `0582552079`
+- **Amazon** — https://www.amazon.com.br/s?k=0582552079 — link de **busca**: fora
+  de catálogo, só circula usado, e o anúncio de origem não mostrava preço; o
+  recurso declara R$ 150 como estimativa
+- **Citada por** — `rec:linguas/quirk-greenbaum-university-grammar-caps-2-7-8`,
+  `rec:linguas/quirk-greenbaum-university-grammar-caps-3-6`,
+  `rec:linguas/quirk-greenbaum-university-grammar-caps-9-11-12`,
+  `rec:linguas/quirk-greenbaum-university-grammar-caps-10-13-14`
+- **Nota** — fatias pela trilha, não pela ordem do livro: caps. 2, 7 e 8 na oração
+  simples; 3 a 6 nos sintagmas; 9, 11 e 12 no período composto; 10, 13 e 14 nas
+  construções. Ficam sem etapa o cap. 1 (variedades do inglês) e os apêndices
+  (formação de palavras, prosódia, pontuação).
+
+### A Student's Introduction to English Grammar
+
+- **Autoria** — Rodney Huddleston e Geoffrey K. Pullum
+- **Edição** — 1ª ed., Cambridge University Press, 2005, 312 p., inglês. Versão
+  para graduação da *Cambridge Grammar of the English Language* (2002); 16
+  capítulos, do 1 (introdução) ao 16 (morfologia), com exercícios por capítulo.
+  Há 2ª edição (2022, brochura ISBN-13 978-1-009-08801-5), não catalogada: o
+  exemplar indicado é o de 2005.
+- **Identificadores** — brochura: ISBN-13 978-0-521-61288-3 · ISBN-10 `0521612888`
+- **Amazon** — https://www.amazon.com.br/dp/0521612888 — preço não conferido em
+  2026-10-22 (a página não abriu daqui); o `custo: 250` é estimativa a partir do
+  preço de lista da brochura em dólar
+- **Citada por** — `rec:linguas/huddleston-pullum-student-grammar-caps-1-2-4-8-9`,
+  `rec:linguas/huddleston-pullum-student-grammar-caps-3-5-7-e-12`,
+  `rec:linguas/huddleston-pullum-student-grammar-caps-10-13-14`,
+  `rec:linguas/huddleston-pullum-student-grammar-caps-11-e-15`
+- **Nota** — as fatias seguem `trilha:linguas/sintaxe-do-ingles`, não o livro: o
+  cap. 3 (verbos, tempo, aspecto, modo) vai com os sintagmas, onde a trilha põe o
+  sintagma verbal; negação (8) e tipos de oração (9) vão com a oração simples; as
+  relativas (11) vão com o sintagma complexo, como a pós-modificação oracional da
+  competência. O cap. 16 (morfologia) ficou sem etapa.
+
+### Viewpoint 1 Student's Book
+
+- **Autoria** — Michael McCarthy, Jeanne McCarten e Helen Sandiford
+- **Edição** — 1ª ed., Cambridge University Press, 2012, inglês norte-americano.
+  Livro-texto de inglês geral, nível B2 do QECR segundo a editora; continuação da
+  série *Touchstone*. Doze unidades (pp. 10–135) com um Checkpoint a cada três, e
+  as seções de cada unidade no fim do livro (Speaking naturally, pp. 138–143;
+  Vocabulary notebook, Grammar extra, leitura e escuta, pp. 144–167). Sumário
+  conferido no *frontmatter* da editora. Há edição atualizada (2015, ISBN-13
+  978-1-107-60151-2), não catalogada: a capa do exemplar é a de 2012.
+- **Identificadores** — ISBN-13 978-0-521-13186-5 · ISBN-10 `0521131863`
+- **Amazon** — https://www.amazon.com.br/dp/0521131863 — página e preço não
+  conferidos em 2026-10-22; o `custo: 250` é estimativa. O exemplar é o do curso
+  Alumni (Master 1 e 2).
+- **Citada por** — `rec:linguas/viewpoint-1-unidades-1-3`,
+  `rec:linguas/viewpoint-1-unidades-4-6`, `rec:linguas/viewpoint-1-unidades-7-9`,
+  `rec:linguas/viewpoint-1-unidades-10-12`
+- **Nota** — as fatias são os quatro blocos entre Checkpoints, cada um com o
+  próprio Checkpoint, e espinha de `trilha:linguas/ingles-geral-b2`.
+
 ## O que não tem ficha
 
 Recursos que não são livros ficam de fora: documentação oficial (MDN, pandas,
 scikit-learn, TypeScript Handbook, react.dev, docs.claude.com, MCP), material aberto
 de referência (arc42, microservices.io, adr.github.io, DORA, web.dev, ARIA APG,
-Paul's Online Math Notes, LibreTexts, Guia Foca Linux), artigos (*Attention Is All You Need*, *The
+Paul's Online Math Notes, LibreTexts, Guia Foca Linux, os dois guias do Beej), artigos (*Attention Is All You Need*, *The
 Illustrated Transformer*, Fowler, fitness functions, *A Mathematical Theory of
 Communication* de Shannon, *Notes on Programming in C* de Pike), vídeo (3Blue1Brown, aulas de
 *Statistical Rethinking*), repositórios de exercício (anthropic-cookbook) e os
@@ -890,6 +1261,18 @@ recursos de projeto.
 *Statistical Rethinking* (`rec:dados/statistical-rethinking-aulas`) tem livro
 homônimo, mas o recurso aponta para as aulas gravadas e o material aberto, não para
 o livro — por isso não ganhou ficha.
+
+Três chegaram aqui pelo caminho mais caro. Os dois guias do Beej
+(`rec:programacao/beej-c-sistemas`, `rec:programacao/beej-ipc-descritores`) e o Guia
+Foca Linux (`rec:so/guiafoca-linha-de-comando`) foram marcados como exemplar em
+2026-11-01, por julgamento feito a partir de título e URL, e a `obra` saiu quando a
+ficha foi escrita e olhou o material. Nenhum dos três tem editora, ISBN ou edição à
+venda. O Beej revisa continuamente, chama o próprio texto de guia e de "beta-quality
+document", e vende em brochura justamente os outros dois guias dele — *Network
+Programming* e *Git* —, não estes. O Guia Foca são cinco volumes versionados cada um
+por conta, parados em 27/07/2020, e já constava da lista acima desde a pesquisa de
+outubro: a marcação o contradisse. Remover `obra` subiu a `rev` dos três de 2 para 3
+([catalogo.md §4](catalogo.md)).
 
 ## Divergências
 
@@ -933,3 +1316,16 @@ depois.
    `custo` ora parece ser o que foi pago, ora o preço de reposição, e os dois não são a
    mesma coisa para o filtro de `custo_maximo`. Vale fixar qual dos dois `custo`
    significa antes de corrigir o número.
+8. **`rec:programacao/rust-book-sistemas`** cita dois autores, Klabnik & Nichols, e o
+   recorte "caps. 1 a 12", e aponta para https://doc.rust-lang.org/book/, que é a
+   edição web **viva**: ela acompanha o compilador e hoje corresponde à 3ª edição,
+   assinada também por Chris Krycho e pressupondo Rust 1.97.0. A numeração de
+   capítulos muda entre edições, como no item 2, e o slug da obra
+   (`klabnik-nichols-rust-book`) guarda a autoria de duas pessoas. Vale fixar qual
+   edição o catálogo assume; nada foi alterado.
+9. **`rec:web/node-succinctly-kurniawan`** aponta para a ficha do Goodreads, que é
+   catálogo e não o material. A Syncfusion, que publicou o livro, hoje serve em
+   https://www.syncfusion.com/succinctly-free-ebooks/nodejs um *Node.js Succinctly*
+   **de outro autor** (Emanuele DelBono, 2016), e a edição de Kurniawan de 2014 não
+   foi localizada em distribuição autorizada. Ou o recurso precisa de uma URL de onde
+   se obtenha o material, ou precisa ser depreciado.

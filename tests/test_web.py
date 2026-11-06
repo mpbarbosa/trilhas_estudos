@@ -22,6 +22,7 @@ from trilhas.percurso import (
     concluir_etapa,
     evidencias_de,
     iniciar_etapa,
+    percorrer_recurso,
     registrar_autoavaliacao,
 )
 from trilhas.percurso.eventos import Origem
@@ -67,6 +68,14 @@ def test_acervo_sem_snapshot_pede_para_compilar(tmp_path: Path) -> None:
     assert "trilhas compilar" in resposta.text
 
 
+def test_estatico_manda_o_navegador_revalidar() -> None:
+    """CSS mudado tem de aparecer no F5 — cache heurístico mostraria a tela antiga."""
+    cliente = TestClient(criar_app(lock=Path("nao-existe.json"), hoje=lambda: HOJE))
+    resposta = cliente.get("/estatico/estilo.css")
+    assert resposta.status_code == 200
+    assert resposta.headers["cache-control"] == "no-cache"
+
+
 def test_explorador_filtra_por_tipo(cliente: TestClient) -> None:
     resposta = cliente.get("/catalogo", params={"tipo": "comp"})
     assert resposta.status_code == 200
@@ -87,6 +96,108 @@ def test_trilha_desenha_grafo_e_tabela_equivalente(cliente: TestClient) -> None:
     assert "<svg" in resposta.text
     assert "Tabela equivalente ao grafo" in resposta.text
     assert "onda" in resposta.text
+
+
+def test_trilha_lista_as_ondas_com_o_que_cada_uma_faz(cliente: TestClient) -> None:
+    """A frase da onda é derivada (apresentar/disposicao.py) e chega pela tabela equivalente."""
+    resposta = cliente.get(f"/trilha/{_uma_trilha(cliente)}")
+    assert "O que a onda faz" in resposta.text
+    assert "Abre o grafo com" in resposta.text
+    assert "Nenhuma etapa adiante depende dela." in resposta.text
+
+
+def test_etapa_mostra_a_descricao_autorada_quando_existe(cliente: TestClient) -> None:
+    com = cliente.get("/etapa/etapa:dados/sql-join")
+    assert "Junção interna e externa sobre o esquema já modelado" in com.text
+    sem = cliente.get("/etapa/etapa:dados/sql-select")
+    assert sem.status_code == 200
+    assert 'class="prosa"' not in sem.text
+
+
+def test_trilha_reune_os_recursos_de_todas_as_suas_etapas(cliente: TestClient) -> None:
+    """Quem abre a trilha vê o material inteiro, sem abrir etapa por etapa.
+
+    Inclui as emprestadas: `logica-booleana` é definida fora de `fundamentos` e o
+    recurso dela faz parte do que estudar a trilha exige.
+    """
+    html = cliente.get("/trilha/trilha:dados/fundamentos").text
+    assert "Recursos da trilha" in html
+    assert "6 recurso(s) em 5 etapa(s)" in html
+    for recurso in (
+        "rec:dados/modelagem-basica-texto",
+        "rec:dados/sql-select-video",
+        "rec:dados/sql-select-exercicios",
+        "rec:dados/sql-join-exercicios",
+        "rec:dados/sql-group-by-texto",
+        "rec:programacao/logica-booleana-exercicios",
+    ):
+        assert recurso in html
+
+
+def test_recurso_de_etapa_fora_da_trilha_nao_entra(cliente: TestClient) -> None:
+    """A seção é o material das etapas da trilha, não o do catálogo inteiro."""
+    html = cliente.get("/trilha/trilha:dados/fundamentos").text
+    assert "rec:analise/etl-basico-projeto" not in html
+
+
+def test_recurso_da_trilha_vem_sob_a_etapa_que_ele_realiza(cliente: TestClient) -> None:
+    """Agrupado por etapa: recurso de etapas diferentes não é alternativa entre si."""
+    html = cliente.get("/trilha/trilha:dados/fundamentos").text
+    grupos = re.findall(r'<th scope="rowgroup".*?/etapa/([\w:/\-]+)"', html, re.DOTALL)
+    assert grupos == [
+        "etapa:programacao/logica-booleana",
+        "etapa:dados/modelagem-basica",
+        "etapa:dados/sql-select",
+        "etapa:dados/sql-group-by",
+        "etapa:dados/sql-join",
+    ]  # onda, e título dentro da onda — a mesma ordem da tabela de etapas
+
+
+def test_recurso_em_uso_tambem_se_marca_na_tela_da_trilha(com_log: TestClient) -> None:
+    """Mesma marca da tela da etapa — duas telas que discordassem sobre o que se
+    estuda por onde mandariam a pessoa conferir qual delas está certa."""
+    html = com_log.get("/trilha/trilha:dados/fundamentos").text
+    assert "recurso-em-uso" in html
+
+
+def test_recurso_percorrido_se_marca_na_tela_da_trilha(com_log: TestClient) -> None:
+    """O fato de recurso tem de aparecer na tela, ou ele só existe no log.
+
+    `rec:dados/sql-select-exercicios` não é o recurso em uso da etapa — é material
+    percorrido por fora dela —, e sem esta marca a tela o mostraria como quem nunca o
+    abriu, que foi o que levou a perguntar por que um livro lido não aparecia.
+    """
+    html = com_log.get("/trilha/trilha:dados/fundamentos").text
+    linha = _linha_do_recurso(html, "rec:dados/sql-select-exercicios")
+    assert "percorrido em" in linha
+
+
+def test_recurso_percorrido_nao_vira_estudando_por_aqui(com_log: TestClient) -> None:
+    """Percorrer não é estudar a etapa por aquele material (ADR-0012): as duas marcas
+    respondem a fatos diferentes e não podem cair na mesma linha por engano."""
+    html = com_log.get("/trilha/trilha:dados/fundamentos").text
+    percorrido = _linha_do_recurso(html, "rec:dados/sql-select-exercicios")
+    em_uso = _linha_do_recurso(html, "rec:dados/sql-select-video")
+    assert "estudando por aqui" not in percorrido
+    assert "percorrido em" not in em_uso
+    assert "estudando por aqui" in em_uso
+
+
+def test_recurso_percorrido_se_marca_na_tela_da_etapa(com_log: TestClient) -> None:
+    """Mesma marca das duas telas, pelo mesmo apresentador."""
+    html = com_log.get("/etapa/etapa:dados/sql-select").text
+    assert "percorrido em" in _linha_do_recurso(html, "rec:dados/sql-select-exercicios")
+
+
+def _linha_do_recurso(html: str, recurso_id: str) -> str:
+    """O `<tr>` que fala daquele recurso — asserção de tela que não vale a tabela toda.
+
+    O `<td` no filtro exclui o trecho anterior à tabela: na tela da etapa o id também
+    aparece no `<select>` do formulário, e sem ele a primeira "linha" seria o cabeçalho.
+    """
+    linhas = [bloco for bloco in html.split("<tr") if recurso_id in bloco and "<td" in bloco]
+    assert linhas, f"recurso ausente da tela: {recurso_id}"
+    return linhas[0]
 
 
 def test_trilha_inexistente_responde_404_com_tela(cliente: TestClient) -> None:
@@ -373,6 +484,7 @@ def com_log(lock: Path) -> TestClient:
     (pasta / "est-teste.yaml").write_text(PERCURSO_MATRICULADO, encoding="utf-8")
     entrada = fabrica.etapa("etapa:dados/modelagem-basica")
     seguinte = fabrica.etapa("etapa:dados/sql-select")
+    outro_material = fabrica.recurso("rec:dados/sql-select-exercicios", seguinte.id)
     with Repositorio.em_diretorio(pasta) as repo:
         repo.anexar(
             "est:teste",
@@ -381,6 +493,7 @@ def com_log(lock: Path) -> TestClient:
                 *concluir_etapa(entrada),
                 *iniciar_etapa(seguinte, recurso="rec:dados/sql-select-video"),
                 *concluir_etapa(seguinte),
+                *percorrer_recurso(outro_material),
             ],
         )
     return TestClient(criar_app(lock=lock, hoje=lambda: HOJE))
@@ -1168,3 +1281,179 @@ def test_estante_atravessa_a_projecao_do_log(lock: Path) -> None:
     percurso = percurso_completo(arquivo)
     assert percurso is not None
     assert percurso.estante == frozenset({"rec:dados/sql-select-video"})
+
+
+# --- obra: o exemplar e sua exportação (docs/interface.md §5.13) -----------------
+
+OBRA = "livro-de-teste"
+
+
+@pytest.fixture
+def lock_com_obra(tmp_path: Path) -> Path:
+    """Catálogo com duas fatias do mesmo exemplar — o fixture canônico não declara `obra`."""
+    catalogo = fabrica.catalogo(
+        fabrica.competencia("comp:x/base"),
+        fabrica.etapa(
+            "etapa:x/um",
+            titulo="Primeira etapa",
+            teaches=[("comp:x/base", Nivel.INICIANTE)],
+            trilha="trilha:x/t",
+        ),
+        fabrica.etapa(
+            "etapa:x/dois",
+            titulo="Segunda etapa",
+            requires=[("comp:x/base", Nivel.INICIANTE)],
+            trilha="trilha:x/t",
+        ),
+        fabrica.recurso(
+            "rec:x/livro-parte-1",
+            "etapa:x/um",
+            titulo="Livro de Teste (Autor) — parte 1: o começo",
+            custo=90,
+            duracao_min=120,
+            obra=OBRA,
+        ),
+        fabrica.recurso(
+            "rec:x/livro-parte-2",
+            "etapa:x/dois",
+            titulo="Livro de Teste (Autor) — parte 2: o resto",
+            custo=90,
+            duracao_min=180,
+            obra=OBRA,
+        ),
+        fabrica.trilha(
+            "trilha:x/t",
+            etapas=["etapa:x/um", "etapa:x/dois"],
+            objetivo=[("comp:x/base", Nivel.INICIANTE)],
+        ),
+    )
+    destino = tmp_path / "catalogo.lock.json"
+    destino.write_text(json.dumps(compilar(catalogo), ensure_ascii=False), encoding="utf-8")
+    return destino
+
+
+@pytest.fixture
+def cliente_com_obra(lock_com_obra: Path) -> TestClient:
+    return TestClient(criar_app(lock=lock_com_obra, hoje=lambda: HOJE))
+
+
+def test_obra_mostra_o_nome_do_livro_e_as_fatias(cliente_com_obra: TestClient) -> None:
+    resposta = cliente_com_obra.get(f"/obra/{OBRA}")
+    assert resposta.status_code == 200
+    assert "Livro de Teste (Autor)" in resposta.text
+    assert "parte 1: o começo" in resposta.text
+    assert "parte 2: o resto" in resposta.text
+    assert "Primeira etapa" in resposta.text and "Segunda etapa" in resposta.text
+
+
+def test_obra_conta_o_custo_do_exemplar_uma_vez(cliente_com_obra: TestClient) -> None:
+    """ADR-0009. Somar as duas fatias mostraria R$ 180 por um livro que custa R$ 90."""
+    html = cliente_com_obra.get(f"/obra/{OBRA}").text
+    assert "R$ 90" in html
+    assert "R$ 180" not in html
+
+
+def test_obra_soma_a_duracao_das_fatias(cliente_com_obra: TestClient) -> None:
+    """Aqui soma-se, ao contrário do esforço da etapa: fatia é parte, recurso é rota."""
+    html = cliente_com_obra.get(f"/obra/{OBRA}").text
+    assert "5 h" in html
+
+
+def test_obra_desconhecida_responde_404(cliente_com_obra: TestClient) -> None:
+    assert cliente_com_obra.get("/obra/nao-existe").status_code == 404
+
+
+def test_exportar_obra_entrega_markdown_como_arquivo(cliente_com_obra: TestClient) -> None:
+    resposta = cliente_com_obra.get(f"/obra/{OBRA}/exportar")
+    assert resposta.status_code == 200
+    assert resposta.headers["content-type"].startswith("text/markdown")
+    assert (
+        resposta.headers["content-disposition"] == 'attachment; filename="obra-livro-de-teste.md"'
+    )
+    corpo = resposta.text
+    assert corpo.startswith("# Livro de Teste (Autor)")
+    assert "| parte 1: o começo | 2 h | Primeira etapa (`etapa:x/um`) |" in corpo
+    assert "contado uma vez" in corpo
+    assert "- **formatos** — texto" in corpo
+
+
+def test_exportar_obra_cita_a_versao_que_o_produziu(cliente_com_obra: TestClient) -> None:
+    """Export sem a versão do catálogo não se confere depois (docs/catalogo.md §5)."""
+    corpo = cliente_com_obra.get(f"/obra/{OBRA}/exportar").text
+    assert "catálogo v" in corpo
+    assert "snapshot " in corpo
+
+
+def test_exportar_obra_desconhecida_responde_404(cliente_com_obra: TestClient) -> None:
+    assert cliente_com_obra.get("/obra/nao-existe/exportar").status_code == 404
+
+
+def test_etapa_liga_para_a_obra_da_fatia(cliente_com_obra: TestClient) -> None:
+    """Sem esse link a tela da obra existiria sem porta de entrada."""
+    html = cliente_com_obra.get("/etapa/etapa:x/um").text
+    assert f'href="/obra/{OBRA}"' in html
+
+
+def test_etapa_sem_obra_nao_oferece_o_link(cliente: TestClient) -> None:
+    """O fixture canônico não tem exemplar fatiado: nada a linkar."""
+    html = cliente.get(f"/etapa/{_uma_etapa(cliente)}").text
+    assert 'href="/obra/' not in html
+
+
+def test_indice_lista_os_exemplares_e_liga_para_cada_um(cliente_com_obra: TestClient) -> None:
+    resposta = cliente_com_obra.get("/obras")
+    assert resposta.status_code == 200
+    assert "Livro de Teste (Autor)" in resposta.text
+    assert f'href="/obra/{OBRA}"' in resposta.text
+
+
+def test_indice_soma_o_custo_contando_cada_exemplar_uma_vez(
+    cliente_com_obra: TestClient,
+) -> None:
+    """Duas fatias de R$ 90 são um livro de R$ 90, não R$ 180 (ADR-0009)."""
+    html = cliente_com_obra.get("/obras").text
+    assert "R$ 90" in html
+    assert "R$ 180" not in html
+
+
+def test_indice_sem_obra_alguma_e_tela_desenhada(cliente: TestClient) -> None:
+    """Estado vazio é tela, não 500 — o fixture canônico não declara `obra`."""
+    resposta = cliente.get("/obras")
+    assert resposta.status_code == 200
+    assert "Nenhum exemplar declara" in resposta.text
+
+
+def test_navegacao_leva_as_obras(cliente: TestClient) -> None:
+    """Sem link no topo, o índice existiria sem porta de entrada — como a obra estava."""
+    assert 'href="/obras"' in cliente.get("/acervo").text
+
+
+# --- livros da trilha (ADR-0020) -------------------------------------------------
+
+
+def test_trilha_lista_o_livro_uma_vez_com_o_preco_do_exemplar(
+    cliente_com_obra: TestClient,
+) -> None:
+    """Duas fatias, dois recursos, **um** livro e um preço (ADR-0009)."""
+    html = cliente_com_obra.get("/trilha/trilha:x/t").text
+    assert "Livros da trilha" in html
+    assert html.count("Livro de Teste (Autor)</a>") == 1
+    assert "1 livro(s), R$ 90 no total" in html
+    assert "o exemplar inteiro" in html  # a trilha usa as duas fatias
+    assert "/obra/livro-de-teste" in html
+
+
+def test_livro_leva_as_etapas_que_atende_na_trilha(cliente_com_obra: TestClient) -> None:
+    """A lista de livros responde "para quê", senão é uma lista de compras sem motivo."""
+    html = cliente_com_obra.get("/trilha/trilha:x/t").text
+    secao = html[html.index("Livros da trilha") : html.index("Recursos da trilha")]
+    assert "/etapa/etapa:x/um" in secao
+    assert "/etapa/etapa:x/dois" in secao
+
+
+def test_trilha_sem_exemplar_declarado_nao_diz_que_nao_ha_livro(cliente: TestClient) -> None:
+    """O fixture canônico não declara `obra`: a tela separa "não marcado" de "não há"."""
+    html = cliente.get("/trilha/trilha:dados/fundamentos").text
+    assert "Livros da trilha" in html
+    assert "o catálogo ainda não o marcou" in html
+    assert "6 recurso(s) desta trilha não declaram exemplar" in html

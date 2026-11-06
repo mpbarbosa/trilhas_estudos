@@ -31,6 +31,10 @@ trilha:
       titulo: Visão geral — o que é um SO, chamadas de sistema e estrutura do núcleo
       rev: 1
       status: ativo
+      descricao: >
+        Abre a trilha: o que um sistema operacional é, a chamada de sistema como
+        fronteira, e as formas de estruturar o núcleo — monolítico, em camadas,
+        micronúcleo.
       esforco_estimado_min: 480
       opcional: false
       requires: []
@@ -42,6 +46,9 @@ trilha:
       titulo: Processos, threads e comunicação entre processos
       rev: 1
       status: ativo
+      descricao: >
+        Processo, thread e comunicação entre processos; e a concorrência que vem com
+        eles: trava, variável de condição e semáforo, cada um com a corrida que resolve.
       esforco_estimado_min: 900
       opcional: false
       requires:
@@ -55,6 +62,10 @@ trilha:
       titulo: Escalonamento — políticas e o escalonador do MINIX
       rev: 1
       status: ativo
+      descricao: >
+        Quem roda agora, e por quanto tempo: política de escalonamento, fila multinível
+        e sorteio, com o escalonador do MINIX como caso concreto e simuladores para ver
+        cada política decidir.
       esforco_estimado_min: 420
       opcional: false
       requires:
@@ -69,6 +80,10 @@ trilha:
       titulo: Entrada/saída, drivers e impasses
       rev: 1
       status: ativo
+      descricao: >
+        Como o núcleo fala com o hardware: camadas de entrada/saída, driver e
+        interrupção — e os impasses que a disputa por dispositivo provoca, com detecção,
+        prevenção e evitação.
       esforco_estimado_min: 900
       opcional: false
       requires:
@@ -82,6 +97,9 @@ trilha:
       titulo: Gerenciamento de memória — paginação, substituição e segmentação
       rev: 1
       status: ativo
+      descricao: >
+        Espaço de endereçamento, paginação, TLB, política de substituição e segmentação
+        — o que o núcleo faz para que todo processo pense ter a máquina inteira.
       esforco_estimado_min: 900
       opcional: false
       requires:
@@ -95,6 +113,10 @@ trilha:
       titulo: Sistemas de arquivos — i-nodes, cache, consistência e proteção
       rev: 1
       status: ativo
+      descricao: >
+        Como o arquivo existe no disco: i-node, diretório, cache de bloco, consistência
+        depois de uma falha e proteção, com FFS e journaling do lado da implementação
+        atual.
       esforco_estimado_min: 900
       opcional: false
       requires:
@@ -128,6 +150,9 @@ trilha:
       titulo: Projeto — compilar e modificar o MINIX
       rev: 3
       status: ativo
+      descricao: >
+        O MINIX 3 compilado em máquina virtual, com uma chamada de sistema acrescentada
+        e o escalonador alterado — onde o núcleo deixa de ser leitura.
       esforco_estimado_min: 1500
       opcional: false
       requires:

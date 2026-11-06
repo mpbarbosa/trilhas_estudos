@@ -107,9 +107,15 @@ d = json.load(open(sys.argv[1]))
 print("/")
 print("/catalogo")
 print("/catalogo/diagnostico")
+print("/obras")
 for chave, prefixo in (("trilhas", "trilha"), ("etapas", "etapa"), ("competencias", "competencia")):
     for item in d.get(chave, [])[:3]:
         print(f"/{prefixo}/{item['id']}")
+# A obra é endereçada pelo slug do campo `obra`, não por id de catálogo — ela não é
+# entidade (catalogo.md §2). O export entra junto: é rota de leitura como as outras.
+for slug in sorted({r["obra"] for r in d.get("recursos", []) if r.get("obra")})[:2]:
+    print(f"/obra/{slug}")
+    print(f"/obra/{slug}/exportar")
 PY
 )
 

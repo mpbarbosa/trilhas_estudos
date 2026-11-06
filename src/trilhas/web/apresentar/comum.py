@@ -7,6 +7,7 @@ não espalhada em template.
 
 from __future__ import annotations
 
+from collections.abc import Sequence
 from datetime import date
 
 from ...catalogo.modelo import Catalogo, Formato, Nivel, Status
@@ -46,6 +47,48 @@ ROTULO_ORIGEM = {
 }
 """De onde veio a evidência. Pesa na confiança (CONTEXT §1), e por isso a tela a diz
 por extenso em vez de mostrar o token."""
+
+ROTULO_AREA = {
+    "ia": "IA",
+    "linguas": "línguas",
+    "matematica": "matemática",
+    "politica": "política",
+    "programacao": "programação",
+}
+"""Área é segmento de id, e id é ASCII (docs/catalogo.md §3). A plaqueta da estante
+escreve o acento que falta; área sem entrada aqui aparece como está — mapa que
+envelhece não pode esconder uma área nova da tela."""
+
+SETOR_DA_AREA = {
+    "dados": "exatas",
+    "engenharia": "exatas",
+    "ia": "exatas",
+    "matematica": "exatas",
+    "programacao": "exatas",
+    "so": "exatas",
+    "terminal": "exatas",
+    "web": "exatas",
+    "cinema": "humanas",
+    "economia": "humanas",
+    "filosofia": "humanas",
+    "linguas": "humanas",
+    "literatura": "humanas",
+    "politica": "humanas",
+}
+"""Em que setor da estante cada área fica — juízo editorial de tela, não regra de domínio.
+
+Mais de dez áreas em ordem alfabética obrigam quem procura conteúdo a varrer a estante inteira;
+dois setores cortam a varredura em dois. O corte é o usual em pt-BR: o que se demonstra e
+se mede de um lado, o que se lê e se interpreta do outro. `economia` fica em humanas por
+ser economia política (`trilha:economia/tecnofeudalismo`), não econometria.
+
+Área sem entrada aqui não desaparece: cai no setor residual, pela mesma razão de
+`ROTULO_AREA` — mapa que envelhece não pode esconder uma área nova da tela."""
+
+ROTULO_SETOR = {"exatas": "Exatas", "humanas": "Humanas", "": "Outras áreas"}
+
+ORDEM_SETOR = ("exatas", "humanas", "")
+"""Exatas antes de humanas por ser o lado maior do acervo; o residual sempre por último."""
 
 ROTULO_TIPO = {
     "trilha": "trilha",
@@ -94,6 +137,44 @@ def dinheiro(custo: float) -> str:
     if custo == int(custo):
         return f"R$ {int(custo)}"
     return f"R$ {custo:.2f}".replace(".", ",")
+
+
+def etapas(quantidade: int) -> str:
+    """`1` → `1 etapa`; `4` → `4 etapas`.
+
+    A frase da onda é prosa corrida, e o `etapa(s)` que serve a rótulo de tabela
+    soaria truncado dentro dela.
+    """
+    return f"{quantidade} etapa" + ("" if quantidade == 1 else "s")
+
+
+def enumerar(itens: Sequence[str], limite: int = 3) -> str:
+    """`[a, b]` → `a e b`; acima de `limite`, nomeia os primeiros e conta o resto.
+
+    Uma onda pode mexer em dez competências, e listar todas faria a frase deixar de
+    ser legível justamente onde ela precisa ser.
+    """
+    if not itens:
+        return ""
+    if len(itens) > limite:
+        nomeados = ", ".join(itens[:limite])
+        return f"{nomeados} e mais {len(itens) - limite}"
+    if len(itens) == 1:
+        return itens[0]
+    return f"{', '.join(itens[:-1])} e {itens[-1]}"
+
+
+def area(valor: str) -> str:
+    return ROTULO_AREA.get(valor, valor)
+
+
+def setor_da_area(valor: str) -> str:
+    """O setor de uma área; string vazia quando `SETOR_DA_AREA` não a conhece."""
+    return SETOR_DA_AREA.get(valor, "")
+
+
+def setor(valor: str) -> str:
+    return ROTULO_SETOR.get(valor, valor)
 
 
 def tipo_do_id(ident: str) -> str:

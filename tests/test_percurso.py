@@ -871,7 +871,7 @@ def test_cli_retratar_recusa_alvo_que_nao_e_evidencia(tmp_path: Path, capsys) ->
     assert "não uma evidência" in capsys.readouterr().err
 
 
-# --- parte de recurso: percorre-se, não se inicia por ela (ADR-0019) -----------
+# --- parte de recurso: percorre-se, não se inicia por ela (ADR-0021) -----------
 
 
 def test_iniciar_recusa_capitulo_e_aponta_o_todo() -> None:

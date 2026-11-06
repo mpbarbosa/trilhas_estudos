@@ -18,6 +18,10 @@
   · {{ v.esforco }} · onda {{ v.onda }}
 </p>
 
+{% if v.etapa.descricao %}
+<p class="prosa">{{ v.etapa.descricao }}</p>
+{% endif %}
+
 {% for alerta in v.alertas %}
 <p class="alerta" role="alert">{{ alerta }}</p>
 {% endfor %}
@@ -126,9 +130,13 @@
           {% if r.url %}<a href="{{ r.url }}" rel="noreferrer nofollow">{{ r.titulo }}</a>
           {% else %}{{ r.titulo }}{% endif %}
           {% if r.em_uso %}<span class="etiqueta estado estado-{{ v.estado.value }}">{% if v.estado.value == 'concluida' %}estudado por aqui{% else %}estudando por aqui{% endif %}</span>{% endif %}
+          {% if r.percorrido_em %}<span class="etiqueta estado">percorrido em {{ r.percorrido_em }}</span>{% endif %}
           {% if not r.disponivel %}<span class="etiqueta ruim">indisponível</span>{% endif %}
           {% if r.status.value != 'ativo' %}<span class="etiqueta aviso">{{ r.status.value }}</span>{% endif %}
           <br><code class="fraco">{{ r.id }}</code>
+          {% if r.obra %}
+          <a class="fraco" href="/obra/{{ r.obra }}">· fatia de um livro</a>
+          {% endif %}
         </td>
         <td>{{ r.formato }}</td>
         <td>{{ r.idioma }}</td>

@@ -31,6 +31,9 @@ trilha:
       titulo: Uma introdução em tutorial — a linguagem inteira por alto
       rev: 1
       status: ativo
+      descricao: >
+        A linguagem inteira por alto, pelo capítulo 1 do K&R: o bastante para escrever
+        programas úteis antes de ver cada parte com rigor.
       esforco_estimado_min: 600
       opcional: false
       requires: []
@@ -42,6 +45,9 @@ trilha:
       titulo: Tipos, operadores, expressões e controle de fluxo
       rev: 1
       status: ativo
+      descricao: >
+        Tipos, operadores e expressões, com as conversões implícitas que surpreendem; e
+        o controle de fluxo da linguagem, agora com rigor.
       esforco_estimado_min: 540
       opcional: false
       requires:
@@ -61,6 +67,9 @@ trilha:
       titulo: Funções e estrutura de programa — escopo, compilação separada e pré-processador
       rev: 2
       status: ativo
+      descricao: >
+        Como um programa em C se organiza: função, escopo, ligação, compilação separada
+        e pré-processador — a partir de onde um arquivo só deixa de bastar.
       esforco_estimado_min: 540
       opcional: false
       requires:
@@ -77,6 +86,10 @@ trilha:
       titulo: Apontadores e vetores
       rev: 1
       status: ativo
+      descricao: >
+        Apontador e vetor como a mesma aritmética vista de dois lados: endereço,
+        indireção, apontador para função e a relação com os argumentos de linha de
+        comando.
       esforco_estimado_min: 900
       opcional: false
       requires:
@@ -90,6 +103,9 @@ trilha:
       titulo: Estruturas — listas, árvores, tabelas de dispersão e uniões
       rev: 1
       status: ativo
+      descricao: >
+        Estrutura, união e estrutura autorreferente aplicadas às estruturas de dados
+        clássicas: lista, árvore e tabela de dispersão, com a alocação feita à mão.
       esforco_estimado_min: 720
       opcional: false
       requires:
@@ -103,6 +119,10 @@ trilha:
       titulo: Entrada e saída e a biblioteca padrão
       rev: 1
       status: ativo
+      descricao: >
+        Entrada e saída pela biblioteca padrão: fluxo, formatação, acesso a arquivo e
+        tratamento de erro — com o apêndice da biblioteca usado como referência de
+        trabalho.
       esforco_estimado_min: 540
       opcional: false
       requires:
@@ -126,6 +146,9 @@ trilha:
       titulo: A interface com o sistema UNIX — descritores, diretórios e um alocador
       rev: 2
       status: ativo
+      descricao: >
+        A camada abaixo da biblioteca padrão: descritor de arquivo, chamada de sistema,
+        leitura de diretório e um alocador de memória escrito do zero.
       esforco_estimado_min: 720
       opcional: false
       requires:
@@ -150,6 +173,10 @@ trilha:
       titulo: A prática da programação — estilo, depuração, teste e desempenho
       rev: 1
       status: ativo
+      descricao: >
+        O ofício em volta da linguagem: estilo, escolha de algoritmo, interface,
+        depuração, teste, desempenho e portabilidade — com a regra de medir antes de
+        otimizar. Ramo opcional.
       esforco_estimado_min: 900
       opcional: true
       requires:
