@@ -49,6 +49,33 @@ o branch sumiu; `git branch -r` lê o seu clone e continuará listando
 `origin/X` por tempo indefinido. Quem conferir só a segunda conclui que está
 limpo, e quem conferir só a terceira conclui que sobrou algo — ambos errados.
 
+### Branch que existe só no servidor: a pergunta é se está contido, e quem responde
+
+Branch mesclado por PR com `deleteBranchOnMerge` desligado fica exatamente
+assim: nada local, remoto de pé. `scripts/conferir-branch.sh` responde — ele
+compara a ponta contra `origin/<base>`, não contra a base local, que pode estar
+atrás (**é por isso que `git branch -d` recusa branch já contido em
+`origin/main` enquanto o seu `main` não foi atualizado**; aconteceu aqui, e a
+saída foi `git pull` antes de insistir, nunca `-D`).
+
+A sutileza está em **de onde** vem a ponta comparada. `git ls-remote` dá o SHA do
+servidor, mas o objeto pode não estar no clone — refspec parcial, fetch que não
+cobre aquele branch, push de outra pessoa depois do seu último fetch. Aí só há a
+ref de rastreio, que é **cópia atrasada**, e as duas respostas possíveis não valem
+o mesmo:
+
+| A ref de rastreio diz | Vale? |
+|---|---|
+| tem commit fora da base | **sim** — o que ela já mostra fora da base está fora da base; a contagem pode ser só **menor** que a do servidor |
+| está contida na base | **não** — o servidor pode ter andado desde ela, e o verde autorizaria apagar commit que este clone nunca viu |
+
+O diagnóstico foi escrito primeiro sem essa assimetria, e aprovava `PODE APAGAR
+o remoto` com saída 0 lendo cópia atrasada. Verificado no caso montado para isso
+— ref contida, servidor um commit adiante, objeto ausente do clone — e corrigido
+para recusar com `NÃO CONSEGUI CONFERIR` e mandar `git fetch origin <branch>`;
+com a ponta buscada, ele nomeia o commit que se perderia. **Entre o verde e o
+"não sei", num encerramento, "não sei" é a resposta útil.**
+
 ### Ao escrever um laço sobre essas refs, `origin/HEAD` entra como `origin`
 
 Se você for classificar as refs de rastreio em vez de olhar uma, cuidado com o
