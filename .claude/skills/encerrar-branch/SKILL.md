@@ -304,16 +304,38 @@ não é hipotética: o log do percurso mora fora do versionamento por decisão
 worktree, liste o que o git não vê:
 
 ```bash
-W=.claude/worktrees/meu-worktree
-git -C "$W" status --porcelain -uall --ignored | grep '^!!'
+git worktree list --porcelain | awk '/^worktree /{print $2}' | while read -r w; do
+  echo "== $w"; git -C "$w" status --porcelain --ignored | grep '^!!'
+done
 ```
 
-Sem achado, o `grep` sai com 1 e não imprime nada — é a resposta certa, não erro
-(verificado). E repare que o caminho vai numa variável **de propósito**: um
-marcador entre `<` e `>` num bloco de shell não é marcador, é redirecionamento de
-entrada. Colado, `git -C <worktree> …` morre com
-`zsh: no such file or directory: worktree` — e, se existir um arquivo com aquele
-nome, roda calado lendo dele. Aconteceu aqui, com a primeira versão desta linha.
+Cola como está, de qualquer diretório do repositório, e cada achado vem com o
+worktree a que pertence. Verificado do raiz e de dentro de um worktree: saída
+idêntica.
+
+**Sem `-uall`, de propósito — e as três versões anteriores desta linha
+explicam o resto.** As duas primeiras pediam que você editasse um caminho de
+exemplo, e falharam de dois jeitos:
+
+| Versão | Colada, faz | Por quê |
+|---|---|---|
+| `git -C <worktree> …` | `zsh: no such file or directory: worktree` | entre `<` e `>` não é marcador, é redirecionamento de entrada — e com um arquivo de nome `worktree` por perto, roda calado lendo dele |
+| `W=…` num bloco, `git -C "$W"` noutro | lista o ignorado **do diretório onde você está**, saída 0 | cada bloco é um shell novo, a variável não chega, e `git -C ""` é **no-op** (git 2.53.0) |
+| `git -C .claude/worktrees/meu-worktree … -uall` | `fatal: cannot change to …`, 128 | falha correta, mas ainda exige editar — e o `-uall` arruinava a resposta |
+
+A segunda é a pior das três: não falha. Rodada do checkout raiz, devolveu o
+`.venv/` e o `percurso/percurso.sqlite3` **do raiz** como se fossem do worktree.
+
+E o `-uall` era defeito independente do caminho: ele expande cada diretório
+ignorado arquivo por arquivo, então neste repositório a resposta vinha com
+**2977 linhas** no raiz, e o `percurso/percurso.sqlite3` — a única coisa dali
+que não se repõe — sepultado no meio do `.venv/` e do `.mypy_cache/`. Sem
+`-uall` são **15 linhas**, com os diretórios colapsados, e dá para ler. Medido
+nos dois modos. Uma lista ilegível é pior que nenhuma: ninguém a lê até o fim
+antes de remover o worktree.
+
+Sem achado nenhum, o `grep` não imprime nada sob aquele `==` — é a resposta
+certa, não erro.
 
 Se aparecer algo que você não saiba repor — banco, `.env`, credencial, artefato
 caro de reconstruir —, tire de lá antes, porque `git worktree remove` não vai
@@ -353,8 +375,9 @@ tem trabalho dentro não é sobra nenhuma, e a recusa do `git worktree remove` (
 
 ## Ao editar esta skill: "verificado" não autoriza a generalização
 
-Esta skill foi corrigida quatro vezes em um dia, sempre por defeito de quem a
-escreveu. As quatro não têm a mesma causa, e a diferença importa:
+Esta skill foi corrigida **nove vezes**, sempre por defeito de quem a escreveu:
+quatro em 2026-10-13 e cinco em 2026-11-06. As causas não são a mesma, e a
+diferença importa. As quatro do primeiro dia:
 
 | Correção | O que estava errado | Causa |
 |---|---|---|
@@ -389,15 +412,44 @@ podia ser seguida até o fim neste repositório. Quem a seguiu esbarrou no
 aconteceu ao vivo — a frase que eu ia escrever era "não se pode remover o
 worktree de dentro dele", e o teste a desmentiu antes de ela ser publicada.
 
-Daí duas regras para quem mexer aqui:
+As correções seis a oito são de outra natureza, e são as únicas aqui que não
+são sobre o conteúdo de uma regra: **uma linha só — a que lista o ignorado —
+saiu errada três vezes seguidas**, e nas três o erro apareceu quando o autor do
+repositório colou o comando. Nenhuma das três foi pega relendo.
+
+A segunda versão estava verificada: no shell de quem escreveu, numa invocação
+única, com o `W` já atribuído. Não estava verificada no meio em que seria usada
+— dois blocos, dois shells. **"Verificado" também tem escopo de ambiente**, e um
+comando que depende de estado anterior falha exatamente para quem o cola em vez
+de reescrever.
+
+A terceira falhava direito (`fatal`, 128) e ainda assim estava errada por dois
+motivos que nenhuma releitura minha pegou: **exigia editar um caminho**, e quem
+cola, cola antes de editar — três vezes, observadas; e carregava um `-uall` que
+eu nunca tinha olhado a saída, porque nas três vezes anteriores o comando morreu
+antes de produzi-la. Quando finalmente produziu, eram 2977 linhas enterrando o
+único achado que importava. **Um comando que falha nunca mostra que a resposta
+dele é inservível** — e "verificado" no caso de erro não diz nada sobre o caso
+de sucesso.
+
+Daí três regras para quem mexer aqui:
 
 1. **Escreva a regra no escopo do teste, não no escopo da intuição.** Se você
    testou que um comando isola um caminho, escreva isso — não "é a defesa".
-2. **Olhe de onde vieram as quatro correções, não só quantas foram.** Duas
+2. **Olhe de onde vieram as correções, não só quantas foram.** Das nove, duas
    (`67fdb02`, `0314adc`) vieram de uma sessão par lendo o texto publicado; uma
-   (`b0fd1c2`) de alguém executar o comando recomendado, que falhou na frente de
-   quem o usava; uma (`655062e`) do próprio autor, relendo. É uma skill num dia
-   e não dá lei, mas as três origens são diferentes e nenhuma cobre as outras:
-   revisão pega a regra ampla demais, execução pega o comando que nunca rodou,
-   releitura pega o que você já sabe procurar. Quando houver sessão par no mesmo
-   checkout, mandar o texto custa uma mensagem.
+   (`655062e`) do próprio autor, relendo; e **seis** de alguém executar o que
+   estava recomendado — `b0fd1c2`, a camada de worktree que faltava, e as três
+   versões seguidas da linha do ignorado. As três origens não se cobrem: revisão
+   pega a regra ampla demais, releitura pega o que você já sabe procurar, e
+   execução — dois terços dos casos aqui — pega o que ninguém imaginou,
+   inclusive na correção anterior. Quando houver sessão par no mesmo checkout,
+   mandar o texto custa uma mensagem.
+3. **Rode o comando como ele vai ser colado, e leia a saída do caso que dá
+   certo.** Shell novo, sem o estado da sua sessão, num bloco só se for para ser
+   colado de uma vez. Prefira o comando que **descobre** o que precisa — aqui,
+   `git worktree list` — a um com caminho de exemplo para editar: entre `<` e `>`
+   é redirecionamento, em variável de outro bloco `git -C ""` responde sobre o
+   diretório errado sem reclamar, e literal ainda exige a edição que o leitor não
+   faz. Se a saída não couber na tela, você publicou uma lista que ninguém vai
+   ler.
