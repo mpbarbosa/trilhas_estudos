@@ -304,8 +304,16 @@ não é hipotética: o log do percurso mora fora do versionamento por decisão
 worktree, liste o que o git não vê:
 
 ```bash
-git -C <worktree> status --porcelain -uall --ignored | grep '^!!'
+W=.claude/worktrees/meu-worktree
+git -C "$W" status --porcelain -uall --ignored | grep '^!!'
 ```
+
+Sem achado, o `grep` sai com 1 e não imprime nada — é a resposta certa, não erro
+(verificado). E repare que o caminho vai numa variável **de propósito**: um
+marcador entre `<` e `>` num bloco de shell não é marcador, é redirecionamento de
+entrada. Colado, `git -C <worktree> …` morre com
+`zsh: no such file or directory: worktree` — e, se existir um arquivo com aquele
+nome, roda calado lendo dele. Aconteceu aqui, com a primeira versão desta linha.
 
 Se aparecer algo que você não saiba repor — banco, `.env`, credencial, artefato
 caro de reconstruir —, tire de lá antes, porque `git worktree remove` não vai
