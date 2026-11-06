@@ -1,14 +1,14 @@
 ---
 name: encerrar-branch
-description: Procedimento para fechar o trabalho de um branch neste repositório compartilhado — publicar, mesclar, apagar local e remoto — sem destruir commit de outra sessão nem roubar o trabalho não commitado dela. Use ao terminar um branch, ao limpar o repositório, quando `git branch -d` recusa ou aceita com aviso, quando `git switch` é bloqueado por arquivos não commitados, antes de qualquer `git stash`, ou ao responder se a sessão pode ser encerrada.
+description: Procedimento para fechar o trabalho de um branch neste repositório compartilhado — publicar, mesclar, apagar local e remoto — sem destruir commit de outra sessão nem roubar o trabalho não commitado dela. Use ao terminar um branch, ao limpar o repositório, quando `git branch -d` recusa ou aceita com aviso, quando `git switch` é bloqueado por arquivos não commitados, antes de qualquer `git stash`, ao remover o worktree em que o trabalho nasceu, ou ao responder se a sessão pode ser encerrada.
 ---
 
 # Encerrar um branch
 
 **Outras sessões commitam, editam e fazem stash neste mesmo checkout**
 (CLAUDE.md §Git). Isso não é detalhe: é o que torna errada quase toda a intuição
-normal sobre limpeza de branch. As quatro armadilhas abaixo aconteceram de fato
-aqui, e cada uma tem um comando que parece ter dado certo.
+normal sobre limpeza de branch. As armadilhas abaixo aconteceram de fato aqui, e
+cada uma tem um comando que parece ter dado certo.
 
 Antes de apagar ou trocar qualquer coisa:
 
@@ -40,7 +40,7 @@ fica pendurada apontando para um branch que já não existe no servidor:
 
 | Camada | Como conferir | Como remover |
 |---|---|---|
-| local | `git branch --format='%(refname:short)'` | `git branch -d X` |
+| local | `git branch --format='%(refname:short)'` | `git branch -d X` — falha enquanto um worktree o tiver em HEAD (§8) |
 | remoto | `git ls-remote --heads origin` | `git push origin --delete X` |
 | ref de rastreio | `git branch -r` | `git remote prune origin` |
 
@@ -49,11 +49,44 @@ o branch sumiu; `git branch -r` lê o seu clone e continuará listando
 `origin/X` por tempo indefinido. Quem conferir só a segunda conclui que está
 limpo, e quem conferir só a terceira conclui que sobrou algo — ambos errados.
 
+### Ao escrever um laço sobre essas refs, `origin/HEAD` entra como `origin`
+
+Se você for classificar as refs de rastreio em vez de olhar uma, cuidado com o
+formato. `%(refname:short)` encurta `refs/remotes/origin/HEAD` para **`origin`**,
+sem barra nenhuma — verificado:
+
+```
+git branch -r --format='%(refname:short)'    ->   origin
+                                                 origin/main
+```
+
+Logo `grep -v '^origin/HEAD'` não filtra nada, `${r#origin/}` deixa `origin`
+intacto, e `git ls-remote --heads origin origin` volta vazio. O laço conclui que
+`origin` é um branch que sumiu do servidor. **Falha na direção tranquilizadora:**
+ele não some um achado, ele inventa um e o classifica como seguro. Aconteceu aqui,
+num laço escrito para conferir se o prune perderia commit.
+
+Duas saídas, as duas verificadas devolvendo só `origin/main`:
+
+```bash
+git for-each-ref --format='%(refname:short)' \
+    --exclude=refs/remotes/origin/HEAD refs/remotes/origin
+git for-each-ref --format='%(refname:short) %(symref)' refs/remotes/origin \
+  | awk '$2==""{print $1}'
+```
+
 Se o repositório tem `deleteBranchOnMerge` ligado
 (`gh repo view --json deleteBranchOnMerge`), o merge já apaga o remoto, e o
 `--delete` depois falha com `remote ref does not exist`. **Isso é a limpeza
 tendo funcionado**, não um erro: confirme com `git ls-remote` antes de
 investigar, e rode o prune, que é o que de fato restava.
+
+**A configuração desligada não garante o contrário.** A tela de merge do GitHub
+tem um botão *Delete branch* que é manual e independente dela, então o remoto
+pode ter sumido mesmo com a opção `false`. Verificado em 2026-11-06: com
+`deleteBranchOnMerge` ainda `false`, o branch remoto do PR #53 já não existia
+depois do merge. Ou seja, a configuração prevê o caso automático e mais nada —
+quem decide se o remoto existe é `git ls-remote`, sempre.
 
 ## 2. O branch que você criou pode não ser mais só seu
 
@@ -212,15 +245,58 @@ outra sessão também editou, `git commit -- CAMINHO` com índice vazio commita 
 árvore inteira daquele arquivo — as linhas dela junto. Ali a defesa continua
 sendo `git add -p` e commit sem pathspec.
 
+## 8. O branch preso num worktree não se apaga, e o worktree sai primeiro
+
+Neste repositório o trabalho nasce em worktree próprio (COORDINATION.md regra 7),
+e isso acrescenta uma **pré-condição à camada local** da tabela do §1: enquanto
+algum worktree tiver o branch em HEAD, `git branch -d` recusa. Verificado com o
+branch já contido na base — isto é, sem nada de exclusivo para o `-d` reclamar:
+
+```
+error: cannot delete branch 'feature' used by worktree at '<caminho do worktree>'
+```
+
+Saída 1, e a mensagem é **a mesma** rodando da raiz do checkout ou de dentro do
+próprio worktree. É isto que `scripts/conferir-branch.sh` reporta como
+`este branch está em uso em outro worktree — apagar vai falhar`.
+
+A ordem, então, tem quatro passos e não três: **worktree → local → remoto →
+ref de rastreio**. Removido o worktree, o mesmo `git branch -d` que recusava
+apaga sem reclamar (verificado).
+
+### `git worktree remove .` de dentro do próprio worktree funciona
+
+A intuição diz que não se serra o galho em que se está sentado, e ela está
+errada: verificado, de dentro de um worktree limpo, `git worktree remove .` saiu
+com **0** e removeu o diretório. O escopo do teste é esse — árvore limpa, de
+dentro, em repositório isolado. A consequência prática é que **o diretório onde o
+seu shell está deixa de existir**, então o comando seguinte não pode supor o cwd.
+
+Isso não é licença para `--force`, pelo motivo da armadilha 3. Com qualquer coisa
+não commitada na árvore, o próprio git barra:
+
+```
+fatal: '.' contains modified or untracked files, use --force to delete it
+```
+
+Saída 128 — e **arquivo apenas não rastreado já basta** para a recusa
+(verificado; o caso do arquivo modificado-e-rastreado está na mensagem do git,
+não no teste). Essa recusa é a guarda que torna a remoção segura aqui: num
+checkout compartilhado, o arquivo que apareceu pode ser edição ao vivo de outra
+sessão, e `--force` a destrói sem aviso. Se o git recusou, descubra de quem é o
+arquivo antes de insistir.
+
 ## Sequência que funciona
 
 ```bash
 scripts/conferir-branch.sh meu-branch     # 1. diagnóstico; respeite a saída 1
 git push origin meu-branch                # 2. nada mais é cópia única
 gh pr create --base main --head meu-branch --title "…"
-# 3. depois do merge:
-git switch main && git pull
-git branch -d meu-branch                  # 4. local
+# 3. depois do merge, a camada que não está na tabela do §1:
+git worktree remove .claude/worktrees/meu-worktree   # recusa se houver não commitado
+git worktree list                                    # confirme que saiu
+git switch main && git pull                          # só no caso SEM worktree
+git branch -d meu-branch                  # 4. local; antes do passo 3 isto recusava
 # 5. remoto: o merge do PR costuma apagar. Confira e, se sobrou:
 git ls-remote --heads origin | grep meu-branch
 git push origin --delete meu-branch
@@ -235,6 +311,12 @@ Rode os comandos de novo, não confie no que você relatou antes — é o que
 deixada de propósito** ou **de outra sessão**; só a primeira é falha. Branch
 remoto deixado de propósito (porque guarda commit ainda não mesclado) precisa ser
 declarado como tal, ou a próxima sessão o apaga achando que é lixo.
+
+Vale para worktree também, e com uma assimetria: `git worktree list` mostra a
+máquina inteira, não a sua parte. Diga qual é o seu e em que estado — limpo e
+mesclado é sobra de arrumação, que não perde nada se a janela fechar; o que ainda
+tem trabalho dentro não é sobra nenhuma, e a recusa do `git worktree remove` (§8)
+é o que vai distinguir os dois na hora de apagar.
 
 ## Ao editar esta skill: "verificado" não autoriza a generalização
 
@@ -264,6 +346,15 @@ problema e não de quem olha.
 A primeira é mais banal e mais comum: escrever um comando que parece óbvio e não
 rodá-lo. Ela foi descoberta por alguém **executando** a recomendação, que é a
 única coisa que pega esse caso.
+
+A quinta mudança não corrigiu redação: faltava uma **camada inteira**. O texto
+descrevia três lugares onde um branch mora e nenhum worktree, embora a regra 7 do
+COORDINATION.md mande o trabalho nascer num — então a sequência publicada não
+podia ser seguida até o fim neste repositório. Quem a seguiu esbarrou no
+`conferir-branch.sh` dizendo "apagar vai falhar", que é **a mesma origem da
+`b0fd1c2`**: executar o que estava recomendado. E dentro dessa mudança a regra 1
+aconteceu ao vivo — a frase que eu ia escrever era "não se pode remover o
+worktree de dentro dele", e o teste a desmentiu antes de ela ser publicada.
 
 Daí duas regras para quem mexer aqui:
 
