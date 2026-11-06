@@ -1,0 +1,142 @@
+# Convenções deste arquivo:
+#   custo  — em BRL, aproximado na data de `verificado_em`; 0 = gratuito.
+#   idioma — tag BCP 47.
+#
+# -------------------------------------------------------------------------
+# trilha:politica/totalitarismo-e-fuga-da-liberdade
+#
+#   Os dois exemplares vêm das duas referências em ABNT que o estudante trouxe em
+#   2026-11-05, ambas com `ANO`, `EDITORA` e página em branco. O que se confirmou e o
+#   que não:
+#
+#   obra: arendt-origens-do-totalitarismo — Companhia das Letras, tradução de Roberto
+#     Raposo, como ele escreveu. A **1ª ed. brasileira é de 1989** (ISBN
+#     85-7164-065-3, ~560 p.); a reedição em volume único de 2012 e a Companhia de
+#     Bolso de 2013 trazem o mesmo texto com 832 p. e ISBN 978-85-359-2204-2. As
+#     quatro fatias são do mesmo exemplar e por isso declaram o mesmo custo
+#     (docs/catalogo.md §5.12). **A numeração dos capítulos da parte III se confirmou
+#     só em parte**: "O movimento totalitário" e "O totalitarismo no poder" aparecem
+#     no sumário da edição brasileira, e "Ideologia e terror: uma nova forma de
+#     governo" é o capítulo final na edição inglesa. O título do cap. 10 e os números
+#     de página variam entre a edição de 1989 e a de 2012 — confira no exemplar, não
+#     aqui. "Domínio total" não é capítulo: é seção do capítulo sobre o totalitarismo
+#     no poder, que é o que a indicação do estudante aponta.
+#
+#   obra: fromm-o-medo-a-liberdade — tradução de Octávio Alves Velho, Rio de Janeiro,
+#     como ele escreveu, e **a editora depende da edição**: as ofertas de 1960 a 1974
+#     são da Zahar Editores, e a 14ª ed. de 1983 saiu pela Guanabara Koogan, que
+#     herdou o catálogo. Está declarada a Zahar, que é a editora da obra em quase
+#     todas as edições. O livro está **fora de catálogo** e só existe em sebo, o que
+#     explica o custo: é o exemplar mais caro desta trilha, três vezes o da Arendt.
+#
+#   Por isso a `url` é a busca do Estante Virtual, e não a página de uma editora: para
+#   o Fromm é onde o exemplar existe hoje, e para a Arendt é onde as três edições
+#   aparecem juntas. O `custo` é a **oferta mais baixa observada na busca em
+#   2026-11-05** — R$ 40 para a Arendt de 2012 (a de bolso saía a partir de R$ 67
+#   nova) e R$ 96,25 para o Fromm de 1968, cuja faixa ia até R$ 272. Preço de sebo
+#   oscila por exemplar, e o número aqui envelhece mais rápido que o link.
+# -------------------------------------------------------------------------
+versao_schema: 1
+recursos:
+  # --- etapa:politica/medo-a-liberdade ------------------------------------
+  # O livro menos o capítulo sobre o nazismo, que é fatia própria na última etapa:
+  # liberdade como problema psicológico, a emergência do indivíduo, a Reforma, os dois
+  # aspectos da liberdade moderna, os mecanismos de fuga, e o capítulo final sobre
+  # liberdade e democracia.
+  - id: rec:politica/fromm-medo-a-liberdade
+    etapa: etapa:politica/medo-a-liberdade
+    titulo: "O medo à liberdade (Erich Fromm; trad. Octávio Alves Velho; Rio de Janeiro: Zahar) — o livro menos o capítulo sobre o nazismo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 96
+    obra: fromm-o-medo-a-liberdade
+    duracao_min: 600
+    url: https://www.estantevirtual.com.br/busca?q=o+medo+a+liberdade+erich+fromm
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:politica/movimento-e-poder-totalitarios ----------------------
+  - id: rec:politica/arendt-movimento-totalitario
+    etapa: etapa:politica/movimento-e-poder-totalitarios
+    titulo: "Origens do totalitarismo (Hannah Arendt; trad. Roberto Raposo; Companhia das Letras) — parte III, \"O movimento totalitário\""
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 40
+    obra: arendt-origens-do-totalitarismo
+    duracao_min: 420
+    url: https://www.estantevirtual.com.br/busca?q=origens+do+totalitarismo+hannah+arendt
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # A fatia que a indicação do estudante aponta: "domínio total" é a seção final deste
+  # capítulo, depois do chamado Estado totalitário e da polícia secreta.
+  - id: rec:politica/arendt-totalitarismo-no-poder
+    etapa: etapa:politica/movimento-e-poder-totalitarios
+    titulo: "Origens do totalitarismo (Hannah Arendt; trad. Roberto Raposo; Companhia das Letras) — parte III, \"O totalitarismo no poder\": o Estado, a polícia secreta e o domínio total"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 40
+    obra: arendt-origens-do-totalitarismo
+    duracao_min: 480
+    url: https://www.estantevirtual.com.br/busca?q=origens+do+totalitarismo+hannah+arendt
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:politica/ideologia-e-terror ----------------------------------
+  # Capítulo curto e denso, acrescentado por Arendt depois da 1ª edição inglesa. A
+  # duração é de leitura com anotação contra o material dos capítulos anteriores, que
+  # é o que a etapa cobra — não a de uma passada de leitura.
+  - id: rec:politica/arendt-ideologia-e-terror
+    etapa: etapa:politica/ideologia-e-terror
+    titulo: "Origens do totalitarismo (Hannah Arendt; trad. Roberto Raposo; Companhia das Letras) — parte III, \"Ideologia e terror: uma nova forma de governo\""
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 40
+    obra: arendt-origens-do-totalitarismo
+    duracao_min: 240
+    url: https://www.estantevirtual.com.br/busca?q=origens+do+totalitarismo+hannah+arendt
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # --- etapa:politica/por-que-se-adere ------------------------------------
+  # O capítulo de Fromm sobre a psicologia do nazismo: a estrutura de caráter da classe
+  # média baixa alemã e a função da hierarquia. Fatia própria, aqui e não na etapa de
+  # abertura, porque é a resposta que a última etapa põe em conflito com Arendt.
+  - id: rec:politica/fromm-psicologia-do-nazismo
+    etapa: etapa:politica/por-que-se-adere
+    titulo: "O medo à liberdade (Erich Fromm; trad. Octávio Alves Velho; Rio de Janeiro: Zahar) — cap. \"A psicologia do nazismo\""
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 96
+    obra: fromm-o-medo-a-liberdade
+    duracao_min: 120
+    url: https://www.estantevirtual.com.br/busca?q=o+medo+a+liberdade+erich+fromm
+    disponivel: true
+    verificado_em: 2026-11-05
+
+  # A abertura da parte III: as classes que viram massa, a gente sem interesse comum
+  # disponível para o movimento, e a aliança entre a elite e a ralé. É a explicação
+  # concorrente da de Fromm — por isso fatia própria, nesta etapa.
+  - id: rec:politica/arendt-sociedade-sem-classes
+    etapa: etapa:politica/por-que-se-adere
+    titulo: "Origens do totalitarismo (Hannah Arendt; trad. Roberto Raposo; Companhia das Letras) — parte III, abertura: a sociedade sem classes e a massa"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 40
+    obra: arendt-origens-do-totalitarismo
+    duracao_min: 240
+    url: https://www.estantevirtual.com.br/busca?q=origens+do+totalitarismo+hannah+arendt
+    disponivel: true
+    verificado_em: 2026-11-05

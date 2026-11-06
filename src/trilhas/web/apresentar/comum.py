@@ -52,6 +52,7 @@ ROTULO_AREA = {
     "ia": "IA",
     "linguas": "línguas",
     "matematica": "matemática",
+    "politica": "política",
     "programacao": "programação",
 }
 """Área é segmento de id, e id é ASCII (docs/catalogo.md §3). A plaqueta da estante
@@ -72,6 +73,7 @@ SETOR_DA_AREA = {
     "filosofia": "humanas",
     "linguas": "humanas",
     "literatura": "humanas",
+    "politica": "humanas",
 }
 """Em que setor da estante cada área fica — juízo editorial de tela, não regra de domínio.
 

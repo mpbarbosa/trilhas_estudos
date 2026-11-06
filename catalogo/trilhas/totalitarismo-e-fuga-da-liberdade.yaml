@@ -1,0 +1,141 @@
+versao_schema: 1
+trilha:
+  id: trilha:politica/totalitarismo-e-fuga-da-liberdade
+  titulo: Totalitarismo — do domínio total ao medo de ser livre
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:politica/anatomia-do-dominio-total
+      nivel: avancado
+    - competencia: comp:politica/psicologia-social-da-submissao
+      nivel: intermediario
+    - competencia: comp:politica/dois-sentidos-de-liberdade
+      nivel: intermediario
+    - competencia: comp:politica/conceito-a-partir-de-material-historico
+      nivel: intermediario
+    - competencia: comp:politica/critica-de-explicacao-psicologica-da-politica
+      nivel: intermediario
+
+  # Primeira trilha de política, e primeira área de política do catálogo. Nasce de
+  # duas referências em ABNT trazidas pelo estudante (2026-11-05) — Arendt, com a
+  # indicação "parte III, sobre o domínio total", e Fromm —, e o recorte é o da lista:
+  # as duas perguntas que esses dois livros fazem sobre o mesmo material europeu. Não
+  # é uma trilha de história do nazismo, nem de teoria política geral, nem de
+  # psicanálise.
+  #
+  # A indicação do estudante é o que fixa o corte em Arendt: a parte III, não o livro
+  # inteiro. Antissemitismo e Imperialismo (partes I e II) ficam de fora — entram como
+  # etapas novas aqui, se e quando ele quiser, porque são outras duas perguntas.
+  #
+  # Por que os dois juntos, e em que ordem: Fromm (1941) pergunta por que gente comum
+  # abandona a liberdade que acabou de ganhar; Arendt (1951) pergunta o que o regime
+  # faz com ela depois. Um é mecanismo psicológico e social, o outro é anatomia de
+  # governo, e nenhum dos dois caminhos depende do outro para começar — por isso as
+  # duas etapas de abertura têm `requires: []`. A trilha só os cruza na última etapa,
+  # onde o capítulo de Fromm sobre a psicologia do nazismo encontra o capítulo de
+  # Arendt sobre a sociedade sem classes e a pergunta passa a ser qual dos dois níveis
+  # de explicação sustenta o quê — é ali, não antes, que
+  # comp:politica/critica-de-explicacao-psicologica-da-politica se cobra.
+  #
+  # O desenho segue o de trilha:cinema/primeiro-cinema-e-vida-moderna e
+  # trilha:filosofia/bhagavad-gita: as etapas que dão o vocabulário, a etapa que faz
+  # o corte conceitual, e uma etapa final que confronta o objeto com algo de fora
+  # dele — aqui, cada um dos dois livros sendo o fora do outro.
+  #
+  # As competências são gerais e se verificam sobre regime, movimento ou argumento que
+  # não é o dos dois livros (catalogo/competencias/politica.yaml); as etapas são destes
+  # dois. Outro título da área entra como etapa nova aqui, ou em trilha própria que
+  # referencie estas etapas, sem reescrever competência.
+  etapas:
+    # --- A liberdade como problema ------------------------------------------
+    - id: etapa:politica/medo-a-liberdade
+      titulo: O medo à liberdade — o vínculo que cai e o desamparo que sobra
+      rev: 1
+      status: ativo
+      descricao: >
+        Fromm lido do começo, menos o capítulo sobre o nazismo, que fica para a última
+        etapa: a emergência do indivíduo que se solta dos laços medievais, a
+        ambiguidade da liberdade na Reforma, os dois aspectos da liberdade moderna, e
+        os mecanismos de fuga com que o indivíduo isolado se livra do próprio
+        desamparo — submissão a uma autoridade, destrutividade, conformismo
+        automático. O corte é o mecanismo, não o caso histórico: estuda-se o que a
+        liberdade cobra de quem a recebe sem ter com que sustentá-la.
+      esforco_estimado_min: 600
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:politica/dois-sentidos-de-liberdade
+          nivel_resultante: intermediario
+        - competencia: comp:politica/psicologia-social-da-submissao
+          nivel_resultante: iniciante
+
+    # --- A anatomia do regime -----------------------------------------------
+    - id: etapa:politica/movimento-e-poder-totalitarios
+      titulo: O movimento totalitário e o totalitarismo no poder
+      rev: 1
+      status: ativo
+      descricao: >
+        O miolo da parte III de Arendt, e a parte do livro que o estudante apontou: a
+        propaganda que não quer convencer e sim profetizar, a organização em camadas
+        com a frente de simpatizantes protegendo o núcleo, a ficção de Estado
+        totalitário com órgãos duplicados e autoridade de propósito indefinida, a
+        polícia secreta que caça o inimigo objetivo — culpado por categoria, não por
+        ato — e o domínio total exercido no campo de concentração. O corte é
+        descritivo: como esse governo funciona, por que ele não para quando a oposição
+        acaba, e em que ele difere de tirania e de ditadura.
+      esforco_estimado_min: 900
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:politica/anatomia-do-dominio-total
+          nivel_resultante: intermediario
+
+    # --- O conceito ---------------------------------------------------------
+    - id: etapa:politica/ideologia-e-terror
+      titulo: Ideologia e terror — o conceito, e o que ele aguenta
+      rev: 1
+      status: ativo
+      descricao: >
+        O capítulo final da parte III, em que Arendt para de descrever e enuncia: o
+        terror como essência de um governo, não como instrumento dele; a ideologia que
+        se emancipa da experiência e opera como lei de movimento, histórica ou
+        natural; a lógica que substitui o pensamento; e o isolamento e a solidão como
+        condição prévia da dominação, não como seu efeito. A etapa cobra ler o
+        capítulo contra o material das etapas anteriores — que fato datado sustenta
+        cada passo, e onde o conceito passa a andar sem documento.
+      esforco_estimado_min: 240
+      opcional: false
+      requires:
+        - competencia: comp:politica/anatomia-do-dominio-total
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:politica/anatomia-do-dominio-total
+          nivel_resultante: avancado
+        - competencia: comp:politica/conceito-a-partir-de-material-historico
+          nivel_resultante: intermediario
+
+    # --- Um livro como o fora do outro --------------------------------------
+    - id: etapa:politica/por-que-se-adere
+      titulo: Por que se adere — caráter, massa e os dois níveis da explicação
+      rev: 1
+      status: ativo
+      descricao: >
+        As duas respostas, lado a lado e em conflito. Fromm explica a adesão ao nazismo
+        pela estrutura de caráter da classe média baixa alemã e pela função
+        sadomasoquista da hierarquia; Arendt a explica pelo colapso das classes em
+        massa — gente sem interesse comum, sem partido, sem lugar, disponível para o
+        movimento, e a aliança entre a elite e a ralé que vem com ele. A etapa não pede
+        escolher um dos dois: pede localizar onde cada argumento troca de nível de
+        análise, que mediação faria a passagem, e que evidência decidiria entre eles.
+      esforco_estimado_min: 360
+      opcional: false
+      requires:
+        - competencia: comp:politica/psicologia-social-da-submissao
+          nivel_minimo: iniciante
+        - competencia: comp:politica/anatomia-do-dominio-total
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:politica/psicologia-social-da-submissao
+          nivel_resultante: intermediario
+        - competencia: comp:politica/critica-de-explicacao-psicologica-da-politica
+          nivel_resultante: intermediario
