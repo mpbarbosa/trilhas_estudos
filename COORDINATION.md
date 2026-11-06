@@ -50,7 +50,6 @@ de teste envelhecem em minutos, e um resumo desatualizado aqui contradiz a fonte
 
 | Área (prefixo) | Branch ou worktree | Intenção / terminado quando | Dono | Desde |
 |---|---|---|---|---|
-| `CLAUDE.md` §Comandos | `worktree-claude-md-marcadores` | os três `<etapa>`/`<recurso>`/`<seq>` deixam de ser redirecionamento de shell; terminado quando as formas novas foram rodadas e mesclado | sessão Claude | 2026-11-06 |
 
 Linha sem dono é área **ocupada**, não área livre: é trabalho de outra sessão,
 em curso e fora do git. As duas primeiras linhas desta tabela eram as duas áreas
