@@ -258,7 +258,21 @@ error: cannot delete branch 'feature' used by worktree at '<caminho do worktree>
 
 Saída 1, e a mensagem é **a mesma** rodando da raiz do checkout ou de dentro do
 próprio worktree. É isto que `scripts/conferir-branch.sh` reporta como
-`este branch está em uso em outro worktree — apagar vai falhar`.
+`este branch está em uso no worktree <caminho> — apagar vai falhar`, agora com o
+caminho e com o `git worktree remove` que destrava.
+
+**E o diagnóstico tinha um ponto cego simétrico**, corrigido junto: ele detectava
+"em uso em **outro** worktree", nunca o caso de estar sendo rodado **de dentro**
+do worktree que detém o branch. Ali ele caía no conselho genérico
+`git switch main` — que de dentro de um worktree ligado falha com **128**
+(`fatal: 'main' is already used by worktree at …`), porque um branch só fica em
+checkout num lugar. Aconteceu nesta sessão, com o diagnóstico anunciando
+`PODE APAGAR` e saída 0 logo antes. Agora ele distingue worktree principal de
+ligado: no ligado manda `cd` para o principal e `git worktree remove`, e repete
+a conferência do ignorado. Verificado em repositório isolado nos três casos —
+de dentro do worktree (conselho executado até o fim, saída 0), do principal com
+o branch detido por um ligado (saída 1, com o caminho), e do principal com um
+branch comum em HEAD (`git switch main`, preservado).
 
 A ordem, então, tem quatro passos e não três: **worktree → local → remoto →
 ref de rastreio**. Removido o worktree, o mesmo `git branch -d` que recusava

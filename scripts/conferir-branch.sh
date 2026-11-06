@@ -16,7 +16,9 @@
 set -uo pipefail
 
 RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-cd "$RAIZ"
+# Sem a guarda, um cd que falha deixa o resto do script lendo OUTRO
+# repositório — com saída 0 e veredito plausível. SC2164.
+cd "$RAIZ" || { echo "não consegui entrar em $RAIZ" >&2; exit 2; }
 
 BASE=main
 ALVO=""
@@ -127,7 +129,10 @@ fi
 # --- 2. O branch está em uso em outro worktree? --------------------------
 if git worktree list --porcelain | grep -qx "branch refs/heads/$ALVO" &&
    [ "$(git rev-parse --abbrev-ref HEAD)" != "$ALVO" ]; then
-  vermelho "✗ este branch está em uso em outro worktree — apagar vai falhar"
+  WT_DONO="$(git worktree list --porcelain |
+    awk -v b="branch refs/heads/$ALVO" '/^worktree /{w=$2} $0==b{print w; exit}')"
+  vermelho "✗ este branch está em uso no worktree $WT_DONO — apagar vai falhar"
+  vermelho "    o worktree sai primeiro:  git worktree remove $WT_DONO"
   problema=1
 fi
 fi   # fim do bloco que só faz sentido fora da base
@@ -187,8 +192,24 @@ fi
 # O veredito cobre as TRÊS camadas: anunciar só o local faz a pessoa limpar o
 # clone e deixar a cópia do servidor para trás — a assimetria do §1 da skill.
 verde "PODE APAGAR — e são exclusões separadas:"
+# `git switch` não serve de dentro de um worktree ligado: um branch só pode estar
+# em checkout num lugar, então se a base já está no principal o switch morre com
+# 128. Lá a saída é remover o próprio worktree, que é a camada do §8 da skill.
 if [ "$(git rev-parse --abbrev-ref HEAD)" = "$ALVO" ]; then
-  verde "  git switch $BASE                        # ele está em HEAD"
+  WT_PRINCIPAL="$(git worktree list --porcelain | sed -n '1s/^worktree //p')"
+  AQUI="$(git rev-parse --show-toplevel)"
+  if [ "$AQUI" != "$WT_PRINCIPAL" ]; then
+    verde "  # você está DENTRO do worktree que detém $ALVO; ele sai primeiro:"
+    verde "  cd $WT_PRINCIPAL"
+    verde "  git worktree remove $AQUI"
+    if git worktree list --porcelain | grep -qx "branch refs/heads/$BASE"; then
+      verde "  #   (\`git switch $BASE\` aqui falha: $BASE está em checkout no principal)"
+    fi
+    verde "  #   e o remove leva o ignorado de dentro sem avisar — confira antes:"
+    verde "  #   git -C $AQUI status --porcelain --ignored | grep '^!!'"
+  else
+    verde "  git switch $BASE                        # ele está em HEAD"
+  fi
 fi
 verde "  git branch -d $ALVO"
 

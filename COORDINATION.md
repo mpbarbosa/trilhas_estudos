@@ -50,7 +50,6 @@ de teste envelhecem em minutos, e um resumo desatualizado aqui contradiz a fonte
 
 | Área (prefixo) | Branch ou worktree | Intenção / terminado quando | Dono | Desde |
 |---|---|---|---|---|
-| `scripts/conferir-branch.sh` | `worktree-conferir-worktree` | o veredito deixa de recomendar `git switch` de dentro de um worktree ligado; terminado quando testado em repo isolado e mesclado | sessão Claude (skill encerrar-branch) | 2026-11-06 |
 
 Linha sem dono é área **ocupada**, não área livre: é trabalho de outra sessão,
 em curso e fora do git. As duas primeiras linhas desta tabela eram as duas áreas
