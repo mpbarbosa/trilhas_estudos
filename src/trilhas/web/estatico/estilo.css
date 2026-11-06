@@ -189,28 +189,56 @@ select:focus-visible, .no:focus-visible rect {
    agrupar por área não pode custar três telas de rolagem num catálogo em que quase toda
    área tem uma trilha só.
 
-   O setor é o cabeçalho que separa os dois blocos, sublinhado e com a contagem ao lado:
-   doze prateleiras alfabéticas não dizem por onde começar a procurar, duas âncoras
-   dizem. É um corte de navegação — nenhum id carrega setor (acervo.Setor).
+   Setor e prateleira são níveis diferentes, e a tela tem de dizer isso sem depender de
+   cor (§6.7). Os dois rótulos já foram maiúsculas espaçadas de tamanho quase igual
+   (.9rem contra .8rem), à mesma margem esquerda: `DADOS` lia-se como irmão de `EXATAS`,
+   não como filho — e na segunda coluna da grade `ENGENHARIA` parecia um terceiro setor.
+   A distinção agora é de **espécie**, não de grau, em quatro traços que se somam:
+
+     1. tamanho — o nome do setor é 1.1rem contra .75rem da plaqueta, um degrau inteiro
+        da escala tipográfica, não meio ponto;
+     2. forma — o setor é cabeçalho de seção, com barra de acento e régua atravessando a
+        largura toda; a prateleira é plaqueta, aba presa à caixa dos livros (mesmo fundo,
+        bordas emendadas). São objetos de tipos diferentes, e não o mesmo rótulo menor;
+     3. contenção — as prateleiras entram recuadas atrás de um montante vertical, que é
+        quem diz "o que está à direita desta linha pertence ao setor acima". O montante
+        serve às duas colunas da grade; um tique ligando rótulo a rótulo só serviria à
+        primeira;
+     4. permanência — o nome do setor gruda no topo (`sticky`) enquanto se rola. Exatas
+        é mais alto que a tela, e sem isso a prateleira perde o pai de vista na metade
+        da lista.
+
+   O setor é corte de navegação — nenhum id o carrega (acervo.Setor): doze prateleiras
+   alfabéticas não dizem por onde começar a procurar, duas âncoras dizem.
 
    Dentro da prateleira os livros ficam encostados (`column-gap: 0`): a tábua é a
    borda de baixo de cada livro, e borda com borda ela atravessa a fileira inteira,
    inclusive quando a fileira quebra. Lombada colorida por status — e o status
    também vem escrito na etiqueta, porque cor não é o único portador (§6.7). */
 
-.estante { display: grid; gap: 2rem; margin: 1rem 0 2rem; }
+.estante { display: grid; gap: 2.5rem; margin: 1rem 0 2rem; }
 .setor { margin: 0; }
 .setor-nome {
   display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap;
-  margin: 0 0 .75rem; padding-bottom: .3rem;
-  font-size: .9rem; border-bottom: 2px solid var(--borda-forte);
+  /* gruda no topo: o topo da página não é fixo, então nada mais disputa a faixa. */
+  position: sticky; top: 0; z-index: 2;
+  margin: 0 0 1rem; padding: .5rem 0 .35rem;
+  font-size: 1.1rem; background: var(--fundo);
+  border-bottom: 2px solid var(--borda-forte);
+}
+.setor-nome::before {
+  /* marca de acento: onde um módulo da estante começa */
+  content: ""; flex: none; align-self: center;
+  width: .28rem; height: 1.05em; border-radius: 2px; background: var(--acento);
 }
 .setor-nome > span:first-child {
-  font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .12em;
 }
 .setor-nome .fraco { font-weight: 400; text-transform: none; letter-spacing: normal; }
 .prateleiras {
-  display: grid; gap: 1.5rem 1.25rem;
+  display: grid; gap: 1.75rem 1.25rem;
+  /* o montante do módulo: tudo à direita dele é deste setor */
+  padding-left: 1rem; border-left: 2px solid var(--borda-forte);
   /* `min(24rem, 100%)`: abaixo de 24rem a coluna encolhe em vez de estourar a
      largura da página — num telefone de 360px a estante rolava de lado. */
   grid-template-columns: repeat(auto-fit, minmax(min(24rem, 100%), 1fr));
@@ -220,19 +248,27 @@ select:focus-visible, .no:focus-visible rect {
 }
 .prateleira { margin: 0; }
 .plaqueta {
-  display: flex; align-items: baseline; gap: .5rem; flex-wrap: wrap;
-  margin: 0 0 .35rem; font-size: .8rem; font-weight: 400;
+  /* aba emendada à caixa dos livros: mesmo fundo, borda de baixo cedida a ela. */
+  display: flex; align-items: baseline; gap: .45rem; flex-wrap: wrap;
+  margin: 0; padding: .25rem .6rem; width: max-content; max-width: 100%;
+  font-size: .75rem; font-weight: 400;
+  background: var(--estante);
+  border: 1px solid var(--borda); border-bottom: none;
+  border-radius: 6px 6px 0 0;
 }
 .plaqueta .area {
-  font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--texto);
+  font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--texto);
 }
+/* `.fraco` é .85rem absoluto — dentro da plaqueta de .75rem ficaria maior que o nome
+   da área. */
+.plaqueta .fraco { font-size: .75rem; }
 .livros {
   list-style: none; margin: 0; padding: .9rem .9rem 0;
   display: flex; flex-wrap: wrap; align-items: stretch;
   column-gap: 0; row-gap: .9rem;
   background: var(--estante);
   border: 1px solid var(--borda); border-bottom: none;
-  border-radius: var(--raio) var(--raio) 4px 4px;
+  border-radius: 0 var(--raio) 4px 4px;
 }
 .livro {
   position: relative; overflow: hidden;
@@ -261,6 +297,10 @@ select:focus-visible, .no:focus-visible rect {
 .livro-depreciado { border-left-color: var(--borda-forte); opacity: .6; }
 
 .alvos { list-style: none; padding: 0; margin: 0; display: grid; gap: .25rem; font-size: .9rem; }
+
+@media (max-width: 30rem) {
+  .prateleiras { padding-left: .55rem; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .livro { transition: none; }
