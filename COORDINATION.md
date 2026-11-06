@@ -50,6 +50,7 @@ de teste envelhecem em minutos, e um resumo desatualizado aqui contradiz a fonte
 
 | Área (prefixo) | Branch ou worktree | Intenção / terminado quando | Dono | Desde |
 |---|---|---|---|---|
+| `src/trilhas/web/` (estante da abertura) | `web-hierarquia-setor-prateleira` (worktree `.claude/worktrees/hierarquia`) | Destacar a hierarquia setor → prateleira na estante de `/acervo`; terminado quando CSS, template, teste e docs/interface.md estiverem no PR | sessão Claude (hierarquia) | 2026-11-06 |
 
 Linha sem dono é área **ocupada**, não área livre: é trabalho de outra sessão,
 em curso e fora do git. As duas primeiras linhas desta tabela eram as duas áreas
