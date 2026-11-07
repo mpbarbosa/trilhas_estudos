@@ -320,3 +320,347 @@ recursos:
     url: https://www.amazon.com.br/dp/1394364946
     disponivel: true
     verificado_em: 2026-10-17
+
+  # -------------------------------------------------------------------------
+  # trilha:so/edicao-de-texto-no-vi
+  #
+  #   O exemplar que abriu a trilha é o *vi Editor Pocket Reference* de Arnold
+  #   Robbins (O'Reilly, 1ª ed., 18 jan. 1999; 66 p. na impressão, ISBN
+  #   9781565924970; a edição Kindle que o estudante trouxe declara ISBN
+  #   978-0596108687 e custa R$ 43,45, com a capa comum a partir de R$ 34,90 —
+  #   conferido em 07/11/2026 na página da Amazon.com.br). Está fatiado em seis, uma
+  #   fatia por etapa, pelos **grupos de tabela** do livrinho. Todas as fatias
+  #   declaram `obra: robbins-vi-pocket-reference` e o mesmo `custo` (validação 12):
+  #   é um exemplar, comprado uma vez.
+  #
+  #   As fatias são nomeadas por assunto, não por capítulo: o livro é tabular e a
+  #   página da O'Reilly recusa leitura automática (403 em 07/11/2026), de modo que a
+  #   numeração interna não se confirmou em fonte pública. O que se confirmou foi a
+  #   descrição da própria editora na página da Amazon — "movement and editing
+  #   commands, the command-line options, and other elements of the vi editor in an
+  #   easy-to-use tabular format" — e é esse o recorte das fatias. A `duracao_min` de
+  #   cada uma é de **consulta**, não de curso: 66 páginas de tabela não ensinam
+  #   gramática de edição, e o livro diz isso de si mesmo ao se declarar "companion
+  #   volume" ao *Learning the vi Editor*.
+  #
+  #   Por isso cada etapa leva também um capítulo do **manual do usuário do Vim**
+  #   (vimhelp.org), que é o material que ensina o que a tabela resume, e é a via
+  #   gratuita da trilha inteira. Ele **não** declara `obra`: é documentação de
+  #   projeto, versionada com o editor e sem editora nem ISBN — mesma classificação
+  #   de rec:so/guiafoca-linha-de-comando. Os capítulos citados são os do sumário
+  #   `usr_toc` conferido em 07/11/2026.
+  #
+  #   Os dois livros pagos que entram ao lado: *Learning the vi and Vim Editors:
+  #   Power and Agility Beyond Just Text Editing*, 8ª ed. (Robbins & Hannah,
+  #   O'Reilly, 17 nov. 2021, 938 p., Kindle R$ 307,56), que é o volume de que o
+  #   livrinho é companheiro, em quatro fatias; e *Practical Vim*, 2ª ed. (Drew Neil,
+  #   Pragmatic Bookshelf, 1 dez. 2015, 356 p., ISBN 9781680501278, R$ 238,32), numa
+  #   fatia só, na etapa de repetição — é o livro que trata edição repetida como
+  #   assunto central.
+  #
+  #   LACUNA, registrada e não resolvida: **nenhum recurso desta trilha está em
+  #   pt-BR**. O exemplar do estudante, a ajuda do Vim e os dois exercícios
+  #   interativos são em inglês. Quem lê só português não tem via aqui, ao contrário
+  #   do que acontece em etapa:so/linha-de-comando, que tem o Guia Foca.
+  # -------------------------------------------------------------------------
+
+  # --- etapa:so/vi-modos-e-primeiros-passos --------------------------------
+  - id: rec:so/vim-manual-primeiros-passos
+    etapa: etapa:so/vi-modos-e-primeiros-passos
+    titulo: "Vim user manual — cap. 2, *The first steps in Vim*: modos, movimento básico, inserir, desfazer e sair"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://vimhelp.org/usr_02.txt.html
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  # Tutorial interativo no navegador, com o texto de exercício dentro da página —
+  # serve a quem ainda não quer abrir o editor na própria máquina. O `vimtutor` que
+  # acompanha toda instalação do Vim cobre o mesmo terreno e não está aqui porque não
+  # tem URL própria: roda local, é o mesmo material, e a etapa o cita na descrição.
+  - id: rec:so/openvim-tutorial-interativo
+    etapa: etapa:so/vi-modos-e-primeiros-passos
+    titulo: "Interactive Vim tutorial (openvim.com) — os modos e os primeiros comandos, exercitados no navegador"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://www.openvim.com/
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  - id: rec:so/robbins-vi-pocket-ref-opcoes-e-saida
+    etapa: etapa:so/vi-modos-e-primeiros-passos
+    titulo: "vi Editor Pocket Reference (Arnold Robbins, O'Reilly, 1999) — opções de linha de comando e os comandos de gravar e sair"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 43
+    duracao_min: 30
+    url: https://www.amazon.com.br/dp/B0043EWUFM
+    obra: robbins-vi-pocket-reference
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  - id: rec:so/robbins-hannah-learning-vi-vim-basico
+    etapa: etapa:so/vi-modos-e-primeiros-passos
+    titulo: "Learning the vi and Vim Editors, 8ª ed. (Robbins & Hannah, O'Reilly, 2021) — o editor, a sessão e a edição simples"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 307
+    duracao_min: 240
+    url: https://www.amazon.com.br/dp/B09M699LTR
+    obra: robbins-hannah-learning-vi-vim
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  # --- etapa:so/vi-operador-e-movimento ------------------------------------
+  - id: rec:so/vim-manual-movimento-e-pequenas-mudancas
+    etapa: etapa:so/vi-operador-e-movimento
+    titulo: "Vim user manual — cap. 3 e 4, *Moving around* e *Making small changes*: movimento por unidade de texto e o operador que o toma por alvo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://vimhelp.org/usr_03.txt.html
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  # Desafio de edição pontuado pelo número de teclas: o mesmo arquivo antes e depois,
+  # e a solução vale menos quanto mais se teclou. É o exercício que cobra a composição
+  # da competência em vez da tecla repetida — a verificação de comp:so/edicao-modal
+  # pede exatamente isso.
+  - id: rec:so/vimgolf-desafios
+    etapa: etapa:so/vi-operador-e-movimento
+    titulo: "VimGolf — desafios de edição pontuados por número de teclas digitadas"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://www.vimgolf.com/
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  - id: rec:so/robbins-vi-pocket-ref-movimento-e-edicao
+    etapa: etapa:so/vi-operador-e-movimento
+    titulo: "vi Editor Pocket Reference — as tabelas de comandos de movimento e de edição, que são o miolo do livro"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 43
+    duracao_min: 45
+    url: https://www.amazon.com.br/dp/B0043EWUFM
+    obra: robbins-vi-pocket-reference
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  - id: rec:so/robbins-hannah-learning-vi-vim-edicao
+    etapa: etapa:so/vi-operador-e-movimento
+    titulo: "Learning the vi and Vim Editors, 8ª ed. — movimento, operador e edição além do básico"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 307
+    duracao_min: 360
+    url: https://www.amazon.com.br/dp/B09M699LTR
+    obra: robbins-hannah-learning-vi-vim
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  # --- etapa:so/vi-ex-faixas-e-global --------------------------------------
+  - id: rec:so/vim-manual-grandes-mudancas-e-padroes
+    etapa: etapa:so/vi-ex-faixas-e-global
+    titulo: "Vim user manual — cap. 10 e 27, *Making big changes* e *Search commands and patterns*: faixa, substituição, comando global e a sintaxe de padrão do editor"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 210
+    url: https://vimhelp.org/usr_10.txt.html
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  - id: rec:so/robbins-vi-pocket-ref-ex-e-regex
+    etapa: etapa:so/vi-ex-faixas-e-global
+    titulo: "vi Editor Pocket Reference — a tabela de comandos `ex` e a de metacaracteres de expressão regular"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 43
+    duracao_min: 45
+    url: https://www.amazon.com.br/dp/B0043EWUFM
+    obra: robbins-vi-pocket-reference
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  - id: rec:so/robbins-hannah-learning-vi-vim-ex-e-global
+    etapa: etapa:so/vi-ex-faixas-e-global
+    titulo: "Learning the vi and Vim Editors, 8ª ed. — o editor `ex` e a substituição global"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 307
+    duracao_min: 300
+    url: https://www.amazon.com.br/dp/B09M699LTR
+    obra: robbins-hannah-learning-vi-vim
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  # --- etapa:so/vi-registros-e-macros --------------------------------------
+  - id: rec:so/vim-manual-repeticao
+    etapa: etapa:so/vi-registros-e-macros
+    titulo: "Vim user manual — cap. 26 e 21, *Repeating* e *Go away and come back*: repetir a última mudança, gravar macro, registros e marcas"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 150
+    url: https://vimhelp.org/usr_26.txt.html
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  - id: rec:so/robbins-vi-pocket-ref-macros-e-registros
+    etapa: etapa:so/vi-registros-e-macros
+    titulo: "vi Editor Pocket Reference — as tabelas de macro, de registro e de marca"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 43
+    duracao_min: 30
+    url: https://www.amazon.com.br/dp/B0043EWUFM
+    obra: robbins-vi-pocket-reference
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  - id: rec:so/neil-practical-vim-repeticao
+    etapa: etapa:so/vi-registros-e-macros
+    titulo: "Practical Vim, 2ª ed. (Drew Neil, Pragmatic Bookshelf, 2015) — a edição repetida como assunto central: o ponto, as macros e os registros"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 238
+    duracao_min: 300
+    url: https://www.amazon.com.br/dp/1680501275
+    obra: neil-practical-vim
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  # --- etapa:so/vi-configuracao-e-ajuda ------------------------------------
+  - id: rec:so/vim-manual-opcoes-e-mapeamentos
+    etapa: etapa:so/vi-configuracao-e-ajuda
+    titulo: "Vim user manual — cap. 5 e 40, *Set your settings* e *Make new commands*: arquivo de inicialização, opções e mapeamento"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 150
+    url: https://vimhelp.org/usr_05.txt.html
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  # A ajuda interna do editor, publicada na web pelo mesmo texto que `:help` mostra.
+  # Entra como recurso próprio porque a segunda metade da competência é saber
+  # consultá-la — e o `quickref` é a página por onde se entra nela.
+  - id: rec:so/vim-ajuda-interna-e-quickref
+    etapa: etapa:so/vi-configuracao-e-ajuda
+    titulo: "Vim help — o sumário do manual (`usr_toc`) e a referência rápida (`quickref`), que é o mesmo texto que `:help` mostra na máquina"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://vimhelp.org/quickref.txt.html
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  - id: rec:so/robbins-vi-pocket-ref-opcoes
+    etapa: etapa:so/vi-configuracao-e-ajuda
+    titulo: "vi Editor Pocket Reference — a tabela de opções do editor, com o nome curto e o padrão de cada uma"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 43
+    duracao_min: 30
+    url: https://www.amazon.com.br/dp/B0043EWUFM
+    obra: robbins-vi-pocket-reference
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  # --- etapa:so/vi-no-fluxo-do-terminal ------------------------------------
+  - id: rec:so/vim-manual-varios-arquivos-e-janelas
+    etapa: etapa:so/vi-no-fluxo-do-terminal
+    titulo: "Vim user manual — cap. 7 e 8, *Editing more than one file* e *Splitting windows*: a sessão com vários arquivos e a tela dividida"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 150
+    url: https://vimhelp.org/usr_07.txt.html
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  - id: rec:so/vim-manual-programas-e-compilacao
+    etapa: etapa:so/vi-no-fluxo-do-terminal
+    titulo: "Vim user manual — cap. 29 e 30, *Moving through programs* e *Editing programs*: navegar por marca de símbolo, chamar a compilação e saltar ao erro"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://vimhelp.org/usr_29.txt.html
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  - id: rec:so/robbins-vi-pocket-ref-varios-arquivos-e-unix
+    etapa: etapa:so/vi-no-fluxo-do-terminal
+    titulo: "vi Editor Pocket Reference — as tabelas de acesso a vários arquivos e de interação com o UNIX"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 43
+    duracao_min: 30
+    url: https://www.amazon.com.br/dp/B0043EWUFM
+    obra: robbins-vi-pocket-reference
+    disponivel: true
+    verificado_em: 2026-11-07
+
+  - id: rec:so/robbins-hannah-learning-vi-vim-programadores
+    etapa: etapa:so/vi-no-fluxo-do-terminal
+    titulo: "Learning the vi and Vim Editors, 8ª ed. — o Vim de quem programa: várias janelas, compilação e navegação por código"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 307
+    duracao_min: 300
+    url: https://www.amazon.com.br/dp/B09M699LTR
+    obra: robbins-hannah-learning-vi-vim
+    disponivel: true
+    verificado_em: 2026-11-07

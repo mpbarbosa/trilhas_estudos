@@ -35,10 +35,11 @@ persistência do percurso — nada do que o estudante faz é gravado.
   - *TypeScript — do tipo primitivo à arquitetura de tipos* ([trilha](catalogo/trilhas/typescript-sistema-de-tipos.yaml)) — ambiente e anotação, objeto, função e classe, união e estreitamento, genéricos, derivação e transformação de tipos, predicado e função de asserção, configuração do compilador e arquitetura, pelo *Total TypeScript* de Matt Pocock com Taylor Bell
   - *Totalitarismo — do domínio total ao medo de ser livre* ([trilha](catalogo/trilhas/totalitarismo-e-fuga-da-liberdade.yaml)) — os mecanismos de fuga da liberdade em Fromm, o movimento e o regime totalitários na parte III de Arendt, o conceito enunciado em "Ideologia e terror" e as duas explicações da adesão postas em conflito
   - *Estetização da política — da reprodutibilidade técnica ao comício filmado* ([trilha](catalogo/trilhas/estetizacao-da-politica.yaml)) — a reprodutibilidade técnica em Benjamin, a massa como forma em Kracauer, *O triunfo da vontade* como objeto, a crítica de Susan Sontag e o espetáculo visto de dentro na memória de Albert Speer
+  - *Edição de texto no terminal — o vi, dos modos ao `ex` e à repetição* ([trilha](catalogo/trilhas/edicao-de-texto-no-vi.yaml)) — modos e a gramática de operador e movimento, faixa de endereços e substituição global no `ex`, registros e macros gravadas, configuração e consulta à ajuda interna, e o editor entre processos: janelas, filtros do UNIX e compilação, pelo *vi Editor Pocket Reference* de Arnold Robbins
 
   Fora das trilhas, três [etapas avulsas](catalogo/etapas/avulsas.yaml) de
-  pré-requisito compartilhado das trilhas de SO, de C e de emulador de terminal: duas
-  de shell e linha de comando, declaradas em
+  pré-requisito compartilhado das trilhas de SO, de C, de emulador de terminal e de
+  edição de texto no vi: duas de shell e linha de comando, declaradas em
   [ADR-0010](docs/adr/0010-shell-como-pre-requisito-declarado.md), e uma de
   programação de sistemas — descritor, estrutura em memória e programa em módulos,
   sem linguagem declarada —, em
