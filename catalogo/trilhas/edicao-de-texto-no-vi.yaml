@@ -1,0 +1,166 @@
+versao_schema: 1
+trilha:
+  id: trilha:so/edicao-de-texto-no-vi
+  titulo: Edição de texto no terminal — o vi, dos modos ao `ex` e à repetição
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:so/edicao-modal
+      nivel: intermediario
+    - competencia: comp:so/comandos-ex-e-faixas
+      nivel: intermediario
+    - competencia: comp:so/repeticao-e-registros
+      nivel: intermediario
+    - competencia: comp:so/configuracao-do-editor
+      nivel: intermediario
+    - competencia: comp:so/editor-no-fluxo-do-terminal
+      nivel: intermediario
+
+  # Nasce de um exemplar: o *vi Editor Pocket Reference* de Arnold Robbins (O'Reilly,
+  # 1ª ed., jan. 1999, 66 p.), que o estudante trouxe pela página da edição Kindle. O
+  # livro é tabela, não curso — ele próprio se declara "companion volume" ao *Learning
+  # the vi Editor* —, e isso decidiu o desenho: as etapas são cortadas pelos **grupos
+  # de tabela** do livrinho (opções de linha de comando e saída; movimento e edição;
+  # comandos `ex` e expressão regular; macros e registros; opções; vários arquivos e
+  # interação com o UNIX), e cada etapa leva, ao lado da fatia, um capítulo do manual
+  # do usuário do Vim, que é o material que ensina o que a tabela só resume.
+  #
+  # As competências são de edição modal e não do vi (catalogo/competencias/so.yaml):
+  # é o mesmo movimento de trilha:literatura/poe-o-corvo, onde um poema só sustenta
+  # competências de leitura de poema. Outro editor da família — ou o Neovim de hoje —
+  # entra como etapa nova, sem reescrever competência.
+  #
+  # O grafo não é uma fila. Depois de `vi-operador-e-movimento`, as etapas de `ex`,
+  # de repetição e de configuração são independentes e podem ser cursadas em paralelo
+  # (ADR-0002); só `vi-no-fluxo-do-terminal` espera duas delas, porque filtrar uma
+  # faixa por comando externo é endereçamento `ex` mais shell.
+  etapas:
+    # --- Sobreviver ----------------------------------------------------------
+    - id: etapa:so/vi-modos-e-primeiros-passos
+      titulo: Modos — abrir, mover, inserir, salvar e sair
+      rev: 1
+      status: ativo
+      descricao: >
+        A etapa que resolve o problema de quem abre o vi por acidente: os modos de
+        comando, de inserção e de linha, como se sai de cada um, o movimento por
+        caractere, palavra e linha, e as três formas de encerrar — gravar, descartar,
+        gravar e sair. Inclui as opções de linha de comando que decidem em que arquivo
+        e em que linha o editor abre. O corte é chegar a editar um arquivo sem medo;
+        a gramática da edição é a etapa seguinte.
+      esforco_estimado_min: 120
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:so/edicao-modal
+          nivel_resultante: iniciante
+
+    # --- A gramática ---------------------------------------------------------
+    - id: etapa:so/vi-operador-e-movimento
+      titulo: Operador e movimento — a edição que se compõe
+      rev: 1
+      status: ativo
+      descricao: >
+        O centro da trilha: `operador + movimento`, o contador que o multiplica, o
+        objeto de texto como alvo, e o movimento por unidade — palavra, frase,
+        parágrafo, busca de padrão, casamento de delimitador. Estuda-se contra o
+        hábito: a mesma edição feita por tecla repetida e feita por composição, para
+        ver o que a segunda forma deixa pronto para repetir depois.
+      esforco_estimado_min: 300
+      opcional: false
+      requires:
+        - competencia: comp:so/edicao-modal
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:so/edicao-modal
+          nivel_resultante: intermediario
+
+    # --- Três ramos independentes -------------------------------------------
+    - id: etapa:so/vi-ex-faixas-e-global
+      titulo: '`ex` — faixa de endereços, substituição e o comando global'
+      rev: 1
+      status: ativo
+      descricao: >
+        O editor de linha que mora debaixo do de tela: faixa por número, `.`, `$`,
+        `%`, marca e `/padrão/`; substituição com grupo de captura e referência; e o
+        comando global, que roda outro comando nas linhas que casam ou não casam um
+        padrão. É aqui que a edição deixa de ser teclada e passa a ser dita — e onde a
+        expressão regular do editor, que não é a do `grep`, tem de ser lida com
+        cuidado.
+      esforco_estimado_min: 300
+      opcional: false
+      requires:
+        - competencia: comp:so/edicao-modal
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:so/comandos-ex-e-faixas
+          nivel_resultante: intermediario
+
+    - id: etapa:so/vi-registros-e-macros
+      titulo: Repetição — última mudança, registros, marcas e macros gravadas
+      rev: 1
+      status: ativo
+      descricao: >
+        Repetir sem repetir: o repetidor da última mudança e o que ele não alcança, a
+        macro gravada e executada com contador, os registros nomeados e numerados — e
+        qual deles uma exclusão sobrescreve sem avisar —, e as marcas, que são como se
+        volta ao ponto de onde se saiu. O corte é a edição repetitiva de um arquivo
+        real, não o truque isolado.
+      esforco_estimado_min: 240
+      opcional: false
+      requires:
+        - competencia: comp:so/edicao-modal
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:so/repeticao-e-registros
+          nivel_resultante: intermediario
+
+    - id: etapa:so/vi-configuracao-e-ajuda
+      titulo: Configuração — opções, mapeamentos, arquivo de inicialização e a ajuda interna
+      rev: 1
+      status: ativo
+      descricao: >
+        Configurar pouco e por motivo: as opções que mudam de verdade o comportamento,
+        o mapeamento e o comando que ele atropela, e um arquivo de inicialização que
+        se possa ler linha a linha. A outra metade da etapa é a ajuda que vem dentro
+        do editor — aprender a achar ali a resposta da versão instalada, em vez de
+        copiar configuração alheia.
+      esforco_estimado_min: 180
+      opcional: false
+      requires:
+        - competencia: comp:so/edicao-modal
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:so/configuracao-do-editor
+          nivel_resultante: intermediario
+
+    # --- O editor entre processos -------------------------------------------
+    - id: etapa:so/vi-no-fluxo-do-terminal
+      titulo: Vários arquivos, janelas divididas, filtros do UNIX e compilação
+      rev: 1
+      status: ativo
+      descricao: >
+        O editor como um processo entre outros: vários arquivos na mesma sessão,
+        janelas divididas, uma faixa de linhas passada por um comando externo e
+        substituída pela saída dele, a compilação chamada de dentro do editor com
+        salto ao erro reportado, e o retorno ao shell sem perder a sessão. Exige a
+        linha de comando do UNIX — o filtro é `ex` mais shell, e sem a casca não há o
+        que filtrar.
+      esforco_estimado_min: 300
+      opcional: false
+      requires:
+        - competencia: comp:so/edicao-modal
+          nivel_minimo: intermediario
+        - competencia: comp:so/comandos-ex-e-faixas
+          nivel_minimo: intermediario
+        - competencia: comp:so/linha-de-comando
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:so/editor-no-fluxo-do-terminal
+          nivel_resultante: intermediario
+
+  # Definida em catalogo/etapas/avulsas.yaml e já referenciada pelas trilhas de SO e
+  # de C. Referenciar é o que a torna alcançável a quem se matricular só nesta: sem
+  # isso o motor não a geraria como `proxima_etapa` e o estudante ficaria travado em
+  # `vi-no-fluxo-do-terminal` sem nada que o destravasse (docs/catalogo.md §5.3).
+  etapas_referenciadas:
+    - etapa:so/linha-de-comando

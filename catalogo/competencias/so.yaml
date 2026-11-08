@@ -127,3 +127,104 @@ competencias:
       reporte falha em `stderr` e devolva código de saída diferente de zero se algum
       item falhou, e justificar cada par de aspas que impede a divisão de palavra num
       nome de arquivo com espaço.
+
+  # ---------------------------------------------------------------------------
+  # Edição de texto no terminal (trilha:so/edicao-de-texto-no-vi).
+  #
+  # As cinco são de **edição modal**, não do `vi` nem do Vim: a verificação de cada
+  # uma se cobra em qualquer editor da família — vi, Vim, nvi, elvis, vile — ou no
+  # modo modal de outro editor, e o vi é só o editor em que a trilha de hoje as
+  # exercita. Mesmo critério das competências de literatura: competência que só se
+  # verifica num programa é assunto daquele programa (docs/catalogo.md §2). Outro
+  # editor da família entra como etapa, sem reescrever competência nenhuma.
+  #
+  # Ficam na área `so` pelo mesmo motivo que `comp:so/linha-de-comando`: no UNIX o
+  # editor de tela cheia é parte da interface do sistema com quem o usa, e `area` é
+  # organizacional, não semântica (docs/catalogo.md §3).
+  # ---------------------------------------------------------------------------
+  - id: comp:so/edicao-modal
+    titulo: Edição modal de texto — modos e a gramática de operador e movimento
+    rev: 1
+    status: ativo
+    descricao: >
+      Um editor modal não é um editor com atalhos: a mesma tecla quer dizer coisas
+      diferentes conforme o modo, e a edição se **compõe** — um operador, um
+      movimento ou objeto de texto, e um contador que multiplica a composição. A
+      competência é operar nessa gramática: saber em que modo se está e como sair
+      dele, mover por unidade de texto — palavra, frase, parágrafo, casamento de
+      padrão — em vez de por tecla de seta, e desfazer na granularidade em que a
+      mudança foi feita.
+    verificacao: >
+      Diante de um arquivo e do texto que se quer no fim dele, fazer a transformação
+      sem seta e sem mouse: dizer em que modo cada tecla digitada atua e como se sai
+      dele, escrever a sequência na forma operador + movimento, com contador onde a
+      edição se repete, e apontar no exercício uma edição que a composição resolve
+      numa ordem só e que teclar à mão repetiria.
+
+  - id: comp:so/comandos-ex-e-faixas
+    titulo: Comandos de linha `ex` — faixa de endereços, substituição e comando global
+    rev: 1
+    status: ativo
+    descricao: >
+      Por baixo do editor de tela cheia há um editor de linha endereçável, e toda
+      edição pode ser dita como "nestas linhas, faça isto". A competência é escrever
+      essa frase: faixa por número de linha, `.`, `$`, `%`, marca ou casamento de
+      padrão; substituição com grupo de captura e referência; e o comando global, que
+      aplica outro comando às linhas que casam — ou às que não casam — um padrão.
+    verificacao: >
+      Dada uma tarefa de edição que atinge só as linhas que casam um padrão num
+      arquivo de centenas de linhas, resolvê-la num **único** comando de linha e
+      explicar cada parte — a faixa, o comando, o padrão, a captura e a referência a
+      ela —, dizer o que acontece com as linhas que não casam, e dizer como se desfaz
+      o comando inteiro se o padrão tiver pegado uma linha a mais.
+
+  - id: comp:so/repeticao-e-registros
+    titulo: Repetição de edição — última mudança, registros, marcas e macros gravadas
+    rev: 1
+    status: ativo
+    descricao: >
+      A terceira vez que uma edição se repete, ela deixou de ser edição e passou a ser
+      programa. A competência é reconhecer isso e ter os três instrumentos: repetir a
+      última mudança, gravar uma macro e executá-la com contador, e guardar texto em
+      registro nomeado em vez de depender do último corte. Com as marcas, que é o que
+      permite voltar ao ponto de onde se saiu.
+    verificacao: >
+      Repetir a mesma edição em pontos não contíguos de um arquivo de dois modos —
+      repetindo a última mudança e gravando uma macro com contador —, dizendo o que
+      cada um dos dois não alcança; e, num par de copiar e colar, nomear de que
+      registro o texto saiu e para qual foi, distinguindo registro nomeado de
+      numerado e dizendo qual dos dois uma exclusão posterior sobrescreve.
+
+  - id: comp:so/configuracao-do-editor
+    titulo: Configuração do editor e consulta à documentação interna
+    rev: 1
+    status: ativo
+    descricao: >
+      Um editor que se configura é um editor que se pode estragar: opção que muda o
+      comportamento de uma tecla, mapeamento que atropela um comando que já existia,
+      arquivo de inicialização copiado da internet que ninguém sabe ler. A competência
+      é a inversa disso — configurar pouco e por motivo, e usar a documentação que vem
+      dentro do editor como primeira fonte, que é onde a resposta é da versão
+      instalada e não de uma postagem de 2013.
+    verificacao: >
+      Escrever um arquivo de configuração mínimo — opções, um mapeamento e, se houver,
+      um autocomando — justificando linha a linha o que ela muda e o que ela atropela;
+      e responder a uma pergunta sobre o comportamento do editor citando pelo nome o
+      tópico da ajuda interna que a responde, não a memória nem uma busca na web.
+
+  - id: comp:so/editor-no-fluxo-do-terminal
+    titulo: O editor no fluxo de trabalho do terminal
+    rev: 1
+    status: ativo
+    descricao: >
+      O editor não roda sozinho: abre vários arquivos, divide a tela, passa uma faixa
+      de linhas por um comando externo, chama a compilação e salta ao erro que ela
+      reportou, e devolve o terminal ao shell sem perder o que estava aberto. A
+      competência é usar essa fronteira — o editor como um processo entre outros, e
+      não como ambiente fechado que substitui o sistema.
+    verificacao: >
+      Numa árvore de código: abrir dois arquivos em janelas divididas e mover texto de
+      uma para a outra; filtrar uma faixa de linhas por um comando externo do UNIX sem
+      sair do editor; rodar a compilação de dentro dele e saltar ao primeiro erro
+      reportado; e voltar ao shell e retomar a sessão com os arquivos e as marcas onde
+      estavam — dizendo, em cada caso, qual processo executou o quê.
