@@ -100,3 +100,159 @@ competencias:
       dizer se o argumento a exibe; apontar que fato do caso o argumento deixa sem
       explicar; e propor uma explicação concorrente, de outro nível, dizendo que
       evidência decidiria entre as duas.
+
+# -------------------------------------------------------------------------
+# trilha:politica/desinformacao-e-resistencia
+#
+# Sete competências acrescentadas em 2026-11-10, pela bibliografia de monografia que o
+# estudante trouxe colada. Mesmo critério das cinco primeiras: a `verificacao` se cobra
+# **fora** do corpus da trilha — qualquer dispositivo de vigilância, qualquer registro
+# audiovisual contestado, qualquer movimento que surgiu ou não surgiu, qualquer regime
+# que se diz fascista. O século XX europeu e a eleição contemporânea são só onde esta
+# trilha as exercita.
+#
+# A trilha de 2026-11-05 (Arendt e Fromm) cobriu o **domínio total** e a **adesão**.
+# Esta cobre o que fica do outro lado: o controle que se exerce sobre o que se pode
+# saber, e o que as pessoas fazem quando não podem recusar em público. As competências
+# não se sobrepõem por construção — `comp:politica/anatomia-do-dominio-total` classifica
+# regime, `comp:politica/transcrito-oculto` lê o comportamento de quem vive sob ele —, e
+# as duas trilhas se encontram só em `comp:politica/fascismo-como-processo`, que é a
+# crítica da própria classificação por essência.
+# -------------------------------------------------------------------------
+
+  - id: comp:politica/controle-pela-linguagem-e-pelo-passado
+    titulo: Reconhecer controle exercido sobre a linguagem e sobre o registro do passado
+    rev: 1
+    status: ativo
+    descricao: >
+      Um regime que reescreve o arquivo e estreita o vocabulário não está só mentindo:
+      está retirando os meios de formular a objeção. A competência é identificar esse
+      trabalho em material real — que palavra desapareceu, que registro foi corrigido,
+      que contradição deixou de ser enunciável — e fazê-lo sem a inflação retórica que
+      chama de orwelliano qualquer eufemismo oficial.
+    verificacao: >
+      Dado um caso documentado de alteração oficial de linguagem ou de registro —
+      renomeação administrativa, correção de dado publicado, retirada de documento de
+      arquivo, glossário imposto, remoção de página: dizer o que a alteração torna
+      indizível ou inverificável, e para quem; nomear o que resta de rastro e por que via
+      a mudança ainda é detectável; distinguir o caso do eufemismo burocrático comum,
+      exibindo um eufemismo que **não** satisfaz a descrição e dizendo por quê; e apontar
+      que condição material o controle precisa ter para funcionar (monopólio do arquivo,
+      ausência de cópia independente, impunidade).
+
+  - id: comp:politica/vigilancia-e-disciplina
+    titulo: Analisar um dispositivo de vigilância pelo efeito disciplinar que produz
+    rev: 1
+    status: ativo
+    descricao: >
+      O efeito de um dispositivo de vigilância não está em quem ele pega, e sim no que
+      ele faz com quem não sabe se está sendo visto: a conduta se ajusta sozinha, e a
+      economia do poder fica barata. A competência é analisar um dispositivo por essa
+      via — visibilidade desigual, incerteza do olhar, interiorização da regra — sem o
+      uso do panóptico como metáfora decorativa para qualquer câmera.
+    verificacao: >
+      Dado um dispositivo real de observação de pessoas — ponto eletrônico, software de
+      produtividade, prova vigiada, câmera de escola, catraca, aplicativo de entrega:
+      descrever a distribuição de visibilidade (quem vê, quem é visto, quem sabe quando)
+      e dizer que conduta ele induz em quem não foi punido; nomear o que o dispositivo
+      mede e o que as pessoas passam a otimizar, com a divergência entre os dois;
+      distinguir o efeito disciplinar da simples coleta de dados, exibindo uma coleta que
+      **não** produz esse efeito; e dizer que mudança no dispositivo reduziria o efeito
+      sem reduzir a informação que ele coleta.
+
+  - id: comp:politica/prova-audiovisual-e-deep-fake
+    titulo: Avaliar o estatuto de prova de um registro audiovisual contestado
+    rev: 1
+    status: ativo
+    descricao: >
+      Quando qualquer vídeo pode ter sido fabricado, o dano maior não é acreditar no
+      falso: é a autoridade conveniente de poder negar o verdadeiro. A competência é
+      raciocinar sobre o estatuto de prova de um registro — procedência, cadeia de
+      custódia, corroboração independente, incentivo de quem o divulga e de quem o nega —
+      e dizer o que a dúvida bem fundada autoriza concluir, que é menos do que os dois
+      lados querem.
+    verificacao: >
+      Dado um registro audiovisual contestado e o contexto de sua circulação: listar o que
+      se poderia verificar sobre ele e por que meio (procedência do arquivo, cadeia de
+      custódia, fonte independente do mesmo evento, metadados, perícia) e dizer o que
+      cada verificação decide e o que não decide; dizer que conclusão a incerteza
+      restante autoriza, distinguindo "não autenticado" de "falso"; nomear quem se
+      beneficia da autenticidade e quem se beneficia da dúvida; e dizer que regra
+      institucional — de prova, de plataforma, de redação — mudaria o resultado, e a que
+      custo.
+
+  - id: comp:politica/transcrito-oculto
+    titulo: Distinguir consentimento de conformidade pública sob dominação
+    rev: 1
+    status: ativo
+    descricao: >
+      Subordinado que não protesta em público não é subordinado que concorda: a
+      conformidade é uma atuação exigida pela situação, e a recusa existe num registro
+      que o poder não escuta — anonimato, boato, sabotagem miúda, ironia, deferência
+      exagerada. A competência é ler os dois registros e resistir às duas conclusões
+      apressadas: a de que há consentimento e a de que toda deferência esconde revolta.
+    verificacao: >
+      Dada uma relação de dominação documentada que não a estudada — trabalho, prisão,
+      escola, casa, clientelismo rural: descrever o que o registro público exige dos
+      subordinados e por que sanção; apontar duas práticas do registro oculto e dizer
+      por que evidência se sabe delas e que risco correm seus autores; dizer que
+      evidência distinguiria, naquele caso, conformidade de adesão genuína; e explicar
+      por que a passagem do oculto ao aberto é rara e o que no caso a tornaria possível.
+
+  - id: comp:politica/estrutura-de-oportunidade-politica
+    titulo: Explicar o surgimento — ou a ausência — de um movimento pela estrutura de oportunidade
+    rev: 1
+    status: ativo
+    descricao: >
+      Movimento não nasce de quantidade de sofrimento: nasce quando o arranjo de
+      autoridade se abre, há organização já montada para aproveitar a brecha e um grupo
+      se reconhece capaz de agir. A competência é usar esse esquema em caso de surgimento
+      **e** em caso de ausência — explicar por que não houve movimento onde o sofrimento
+      era igual é o teste que a tese precisa passar.
+    verificacao: >
+      Dados dois casos comparáveis de privação documentada, num dos quais surgiu um
+      movimento e no outro não: nomear o que mudou na estrutura de autoridade do primeiro
+      (eleição, cisão de elite, guerra, decisão judicial, pressão externa) e o que não
+      mudou no segundo; identificar as organizações preexistentes que serviram de base em
+      cada caso; dizer o que fez (ou não) o grupo se considerar capaz de agir; e apontar
+      um fato que o esquema deixa sem explicar, dizendo que explicação concorrente o
+      cobriria.
+
+  - id: comp:politica/fascismo-como-processo
+    titulo: Operar o fascismo como processo, e não como essência
+    rev: 1
+    status: ativo
+    descricao: >
+      Procurar a definição de fascismo por lista de atributos ideológicos é o caminho que
+      não chega: os movimentos contradisseram seus próprios programas sem perder nada. A
+      competência é classificar por processo — como o movimento nasce, como se enraíza,
+      como chega ao poder por aliança com conservadores que pensam controlá-lo, como
+      exerce o poder e como radicaliza — e dizer, para um caso, em que etapa ele parou.
+    verificacao: >
+      Dado um movimento ou regime que não os estudados: situá-lo nas etapas do processo
+      (criação, enraizamento, chegada ao poder, exercício do poder, radicalização),
+      dizendo em qual ele parou e com que evidência; nomear os aliados conservadores que
+      o viabilizaram, se houve, e o que eles esperavam obter; dizer que atributo do
+      programa o próprio movimento contrariou na prática, e o que isso mostra sobre
+      classificar por ideologia; e decidir se a classificação de fascista se sustenta,
+      nomeando a etapa cuja ausência é decisiva.
+
+  - id: comp:politica/ruptura-institucional-por-via-legal
+    titulo: Reconhecer mudança de forma de governo conduzida por via legal
+    rev: 1
+    status: ativo
+    descricao: >
+      A ruptura que importa raramente chega de fardado na tribuna: chega por voto de
+      emergência, delegação de poderes, prorrogação e reforma aprovada no rito. A
+      competência é acompanhar o procedimento passo a passo, dizer em que ponto o
+      conteúdo contradiz o limite que a própria ordem se deu, e separar o que é
+      inconstitucional do que é apenas intolerável — sem tratar toda derrota política
+      como golpe.
+    verificacao: >
+      Dado um processo documentado de mudança institucional conduzido pelas formas
+      vigentes — emenda, lei de emergência, delegação legislativa, interpretação de
+      corte: reconstituir os passos e nomear quem concedeu o quê em cada um; dizer que
+      limite material da ordem anterior o resultado contradiz, se contradiz, e onde esse
+      limite está escrito; distinguir a mudança que a ordem admite da que ela proíbe,
+      exibindo uma reforma profunda que **não** rompe o limite; e dizer que mecanismo
+      poderia ter interrompido o processo e por que não interrompeu.

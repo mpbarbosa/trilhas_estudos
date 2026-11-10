@@ -162,6 +162,44 @@ trilha:
         - competencia: comp:cinema/leitura-de-memoria-de-implicado
           nivel_resultante: intermediario
 
+    # --- Opcional: o esteticismo antes do regime -----------------------------
+    # Acrescentada em 2026-11-10, do item que sobrou da bibliografia de monografia que o
+    # estudante colou naquele dia: as outras vinte e cinco referências sem casa foram para
+    # trilha:cinema/analise-filmica-de-uma-saga e trilha:politica/desinformacao-e-resistencia,
+    # e o D'Annunzio é desta trilha, porque é aqui que o esteticismo se discute.
+    #
+    # **É opcional de propósito, e isso tem efeito de catálogo**: incluir etapa opcional
+    # não é mudança substantiva (docs/catalogo.md §4), então a `rev` da trilha não sobe e
+    # nenhum percurso já concluído reabre. Opcional também pelo recorte — a trilha fecha
+    # sem ela, e a competência que ela desenvolve não entra no `objetivo_declarado`
+    # (acrescentar objetivo **seria** substantivo).
+    #
+    # Vem depois do filme, não antes, pelo mesmo motivo que a Sontag: lido antes, o
+    # romance entregaria mastigada a genealogia que as etapas anteriores constroem a
+    # partir do material. E a etapa cobra explicitamente a recusa da leitura retrospectiva
+    # — o esteta de 1889 não é o anúncio necessário do regime de 1934, e D'Annunzio ter
+    # terminado em Fiume não é argumento sobre o livro.
+    - id: etapa:cinema/o-esteta-e-o-culto-da-beleza
+      titulo: O prazer — o esteticismo como programa, antes de ser traço de regime
+      rev: 1
+      status: ativo
+      descricao: >
+        O romance de D'Annunzio de 1889, lido como documento de um programa: a existência
+        conduzida como composição, o gosto promovido a critério último, a indiferença
+        moral apresentada como refinamento e não como falha — e o que isso reserva às
+        outras pessoas do livro, que a narrativa mostra sem comentar. O corte é descrever
+        o programa pelas passagens em que ele se professa, dizer onde o próprio texto lhe
+        cobra o preço, e separar o parentesco com a política estetizada da leitura
+        retrospectiva que faz de todo esteta um fascista em potencial.
+      esforco_estimado_min: 900
+      opcional: true
+      requires:
+        - competencia: comp:cinema/estetizacao-da-politica
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:cinema/esteticismo-como-programa
+          nivel_resultante: intermediario
+
   # etapa:cinema/o-que-e-cinema é de trilha:cinema/primeiro-cinema-e-vida-moderna e
   # está aqui por referência, nunca redefinida (docs/catalogo.md §1): é ela que dá
   # comp:cinema/leitura-do-filme e comp:cinema/cinema-como-industria-e-ideologia, que

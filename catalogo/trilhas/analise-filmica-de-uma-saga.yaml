@@ -1,0 +1,291 @@
+versao_schema: 1
+trilha:
+  id: trilha:cinema/analise-filmica-de-uma-saga
+  titulo: Análise fílmica de uma saga — o plano, o mito, o som e o efeito especial
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:cinema/analise-formal-do-filme
+      nivel: intermediario
+    - competencia: comp:cinema/som-no-cinema
+      nivel: intermediario
+    - competencia: comp:cinema/modo-melodramatico
+      nivel: intermediario
+    - competencia: comp:cinema/estrutura-mitica-da-narrativa
+      nivel: intermediario
+    - competencia: comp:cinema/efeito-especial-e-sublime
+      nivel: intermediario
+    - competencia: comp:cinema/heranca-de-um-estilo-historico
+      nivel: intermediario
+    - competencia: comp:cinema/cinema-como-industria-e-ideologia
+      nivel: avancado
+    - competencia: comp:cinema/filme-como-fonte-historica
+      nivel: intermediario
+    - competencia: comp:cinema/industria-cultural-e-contestacao
+      nivel: intermediario
+    - competencia: comp:cinema/leitura-critica-de-uma-saga
+      nivel: intermediario
+
+  # Terceira trilha da área de cinema. Nasce da bibliografia que o estudante colou em
+  # 2026-11-10 — a lista de referências inteira de uma monografia sobre uma saga de
+  # ficção científica e o totalitarismo do século XX, trinta e sete itens em ABNT, sem
+  # uma palavra de pedido.
+  #
+  # **Dez dos itens já tinham casa** e não entram aqui: Benjamin, Kracauer, Sontag,
+  # Speer e Hobsbawm estão em trilha:cinema/estetizacao-da-politica e em
+  # trilha:cinema/primeiro-cinema-e-vida-moderna; Bernardet, Capuzzo e Charney &
+  # Schwartz, na primeira trilha da área; Arendt e Fromm, em
+  # trilha:politica/totalitarismo-e-fuga-da-liberdade. O que sobrou são vinte e seis
+  # itens sem `rec:` no catálogo, e eles se partem em dois conjuntos que não se
+  # misturam: o aparato de **análise de filme e de história do cinema** (esta trilha) e
+  # o aparato de **controle, desinformação e resistência**
+  # (trilha:politica/desinformacao-e-resistencia). O vigésimo sexto é o D'Annunzio, que
+  # foi para trilha:cinema/estetizacao-da-politica como etapa opcional, porque é lá que
+  # o esteticismo se discute.
+  #
+  # **O recorte é o da lista, e a lista não traz filmografia.** Esta trilha ensina o
+  # aparato com que se analisa uma saga; a saga não está catalogada como recurso porque
+  # o estudante não a citou entre as referências, e inventar um recurso de streaming que
+  # ele não pediu seria decidir no lugar dele. É lacuna conhecida, não esquecimento: se
+  # a filmografia vier, cada filme entra como recurso de uma etapa nova de análise, como
+  # *O triunfo da vontade* entrou na trilha de 2026-11-05.
+  #
+  # **A trilha não reabre o vocabulário**: ela referencia etapa:cinema/o-que-e-cinema,
+  # de trilha:cinema/primeiro-cinema-e-vida-moderna, que é onde plano, decupagem,
+  # montagem e ponto de vista se aprendem e de onde vem
+  # comp:cinema/cinema-como-industria-e-ideologia. É por ela que a trilha parte de
+  # perfil vazio.
+  #
+  # **A forma do grafo:** uma raiz (Bordwell e Thompson) de que pendem cinco ramos
+  # independentes — som, melodrama, efeito especial, estilo herdado e, por outro
+  # caminho, história —, mais um ramo que não depende de nada (Campbell). Isso é
+  # deliberado: nenhum desses aparatos é pré-requisito do outro, e exigir ordem entre
+  # eles seria inventar dependência para enfileirar a trilha. Só a última etapa converge,
+  # porque julgar a leitura que outra disciplina faz de uma obra exige ter a análise
+  # formal e o esquema mítico já na mão — é com eles que se mede o que a leitura arrisca.
+  etapas:
+    # --- A raiz: o filme inteiro como sistema --------------------------------
+    - id: etapa:cinema/forma-e-estilo-do-filme
+      titulo: A arte do cinema — forma narrativa e os quatro sistemas de estilo
+      rev: 1
+      status: ativo
+      descricao: >
+        O manual de Bordwell e Thompson lido como o que ele é: a gramática de descrever um
+        filme inteiro, não um glossário para consultar. Forma como sistema de expectativa
+        e satisfação, narração e distribuição do que o espectador sabe, e os quatro
+        sistemas de estilo — mise-en-scène, fotografia, montagem, som — tratados cada um
+        por si e depois no que fazem juntos. O corte é descrever, do começo ao fim, um
+        filme que não se escolheu por gostar dele; o inventário de recursos técnicos
+        corretamente nomeados é justamente o que a etapa não aceita como resposta.
+      esforco_estimado_min: 1500
+      opcional: false
+      requires:
+        - competencia: comp:cinema/leitura-do-filme
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:cinema/analise-formal-do-filme
+          nivel_resultante: intermediario
+        - competencia: comp:cinema/leitura-do-filme
+          nivel_resultante: avancado
+
+    # --- Ramo: o que se obedece sem perceber --------------------------------
+    - id: etapa:cinema/som-e-musica-no-filme
+      titulo: A audiovisão — som, ponto de escuta e música narrativa
+      rev: 1
+      status: ativo
+      descricao: >
+        O som como o elemento que o espectador menos nota e mais obedece: o valor
+        acrescentado que ele dá à imagem, a síncrese que cola um ruído a um gesto que
+        nada tinha com ele, o fora de campo que só existe porque se ouve, e a música que
+        unifica o corte e data a cena sem se anunciar. O exercício central é assistir
+        duas vezes, com som e sem, e sustentar a diferença no que se viu — não na
+        afirmação genérica de que a trilha manipula.
+      esforco_estimado_min: 420
+      opcional: false
+      requires:
+        - competencia: comp:cinema/analise-formal-do-filme
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:cinema/som-no-cinema
+          nivel_resultante: intermediario
+
+    # --- Ramo: o excesso como forma de dizer -------------------------------
+    - id: etapa:cinema/modo-melodramatico
+      titulo: A imaginação melodramática — a moral exteriorizada em gesto
+      rev: 1
+      status: ativo
+      descricao: >
+        Brooks a partir de Balzac e Henry James, e o que ele constrói serve muito além
+        deles: o melodrama não como gênero piegas do século XIX, mas como modo de um
+        mundo que perdeu o fundamento sagrado e precisa exibir a moral em gesto, em
+        quadro e em excesso, porque já não pode enunciá-la. Mudez expressiva, virtude que
+        só vale reconhecida em público, maniqueísmo como recurso de legibilidade. O corte
+        é operar o modo como descrição, com o preço que ele cobra em ambiguidade — e não
+        como insulto.
+      esforco_estimado_min: 780
+      opcional: false
+      requires:
+        - competencia: comp:cinema/analise-formal-do-filme
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:cinema/modo-melodramatico
+          nivel_resultante: intermediario
+
+    # --- Ramo que não depende de nada --------------------------------------
+    - id: etapa:cinema/monomito-e-seus-limites
+      titulo: O herói de mil faces — o monomito e a conta que ele deve
+      rev: 1
+      status: ativo
+      descricao: >
+        Campbell lido inteiro, com as três partes do percurso e o material comparativo de
+        onde ele as tira — e lido com a pergunta que o próprio livro não faz: o que o
+        esquema exclui. A etapa cobra os dois movimentos no mesmo trabalho: mapear uma
+        narrativa nas etapas da jornada, episódio por episódio, e depois mostrar que
+        narrativa do mesmo gênero o esquema não descreveria. Sem o segundo, a leitura
+        mítica é descrição que não exclui nada, e é por isso que ela convence tanto.
+      esforco_estimado_min: 900
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:cinema/estrutura-mitica-da-narrativa
+          nivel_resultante: intermediario
+
+    # --- Ramo: quando a narrativa para para ser vista ----------------------
+    - id: etapa:cinema/efeito-especial-e-sublime
+      titulo: O infinito artificial — o efeito especial como atração e como sublime
+      rev: 1
+      status: ativo
+      descricao: >
+        O capítulo de Bukatman sobre efeito especial e sublime: o momento em que a
+        narrativa se suspende e a escala desmedida se oferece à contemplação, com
+        parentesco declarado na pintura de paisagem do século XIX e no sublime que ela
+        fabricava. O corte é trocar as duas réguas usuais — se o efeito convence, se
+        envelheceu — pela pergunta do que ele faz com o corpo de quem assiste, e ligar
+        isso à condição industrial que o produziu, inclusive à publicidade que o próprio
+        efeito recebe.
+      esforco_estimado_min: 240
+      opcional: false
+      requires:
+        - competencia: comp:cinema/analise-formal-do-filme
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:cinema/efeito-especial-e-sublime
+          nivel_resultante: intermediario
+
+    # --- Ramo: a forma que migra -------------------------------------------
+    - id: etapa:cinema/heranca-expressionista
+      titulo: A tela demoníaca — o expressionismo alemão e o que dele migrou
+      rev: 1
+      status: ativo
+      descricao: >
+        Eisner sobre o cinema alemão de Weimar, a influência de Max Reinhardt e o que o
+        expressionismo fez com luz, sombra, cenário e corpo do ator. A etapa usa o livro
+        para o problema mais difícil, que é o da herança: rastrear num filme posterior
+        quais traços migraram, por que via material eles migraram — emigração de
+        técnicos, estúdio, cópia em circulação — e que semelhanças são convergência
+        independente. Dizer que um filme "é expressionista" porque tem sombra dura é o
+        que a etapa recusa.
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:cinema/analise-formal-do-filme
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:cinema/heranca-de-um-estilo-historico
+          nivel_resultante: intermediario
+
+    # --- Ramo da história: a indústria -------------------------------------
+    - id: etapa:cinema/arte-e-industria
+      titulo: Arte e indústria — o filme como produto de um negócio
+      rev: 1
+      status: ativo
+      descricao: >
+        Rosenfeld sobre a tensão constitutiva entre obra e mercadoria no cinema, e Sklar
+        sobre a história social do cinema americano: quem fez os filmes, para que público,
+        com que dinheiro, sob que censura, e o que o país aprendeu sobre si nas salas. A
+        etapa fecha o que etapa:cinema/o-que-e-cinema abriu — a aparência de neutralidade
+        do filme — pelo lado das condições de produção, e é aqui que a competência da
+        primeira trilha chega a avançado.
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:cinema/cinema-como-industria-e-ideologia
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:cinema/cinema-como-industria-e-ideologia
+          nivel_resultante: avancado
+
+    # --- Ramo da história: a fonte -----------------------------------------
+    - id: etapa:cinema/filme-como-fonte-historica
+      titulo: Cinema e história — o filme como fonte do tempo que o fez
+      rev: 1
+      status: ativo
+      descricao: >
+        Ferro sobre o filme como documento para o historiador, com o deslocamento que
+        organiza a etapa: um filme de época é fonte ruim sobre a época representada e
+        fonte boa sobre a que o produziu, e isso vale também para o filme que não fala de
+        história nenhuma. Chartier entra pelo lado do método — prática, representação,
+        apropriação —, que é o que impede de ler o filme como espelho da mentalidade do
+        público. O corte é extrair evidência involuntária e dizer que outra fonte a
+        confirmaria.
+      esforco_estimado_min: 420
+      opcional: false
+      requires:
+        - competencia: comp:cinema/cinema-como-industria-e-ideologia
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:cinema/filme-como-fonte-historica
+          nivel_resultante: intermediario
+
+    # --- Ramo da história: a geração ---------------------------------------
+    - id: etapa:cinema/contracultura-e-renovacao-da-industria
+      titulo: A contracultura — a oposição juvenil e a indústria que a absorveu
+      rev: 1
+      status: ativo
+      descricao: >
+        Roszak de 1969, lido como fonte da própria década e não como retrato dela: a
+        sociedade tecnocrática descrita de dentro, e a oposição juvenil que o livro tenta
+        explicar enquanto ela acontecia. A etapa cobra o movimento duplo — o que essa
+        contestação conseguiu inscrever nas obras de uma indústria cultural que se
+        renovava, e o que a absorção lhe retirou — contra o relato heroico da geração que
+        mudou tudo e contra a tese de que recuperação comercial anula todo conteúdo.
+      esforco_estimado_min: 780
+      opcional: false
+      requires:
+        - competencia: comp:cinema/cinema-como-industria-e-ideologia
+          nivel_minimo: avancado
+      teaches:
+        - competencia: comp:cinema/industria-cultural-e-contestacao
+          nivel_resultante: intermediario
+
+    # --- Convergência: a obra lida por outra disciplina --------------------
+    - id: etapa:cinema/leituras-de-outra-disciplina
+      titulo: A saga lida de fora — filosofia e crítica sobre obra popular
+      rev: 1
+      status: ativo
+      descricao: >
+        A coletânea de Irwin, que lê uma saga de ficção científica à luz de problemas
+        filosóficos, e o ensaio de Mike Thorn sobre o Episódio III como declaração
+        artística. São dois gêneros diferentes — a antologia de disciplina e a crítica
+        autoral — e a etapa trata os dois pela mesma pergunta: a obra é objeto ou é
+        ilustração de uma tese que o autor já tinha? Decide-se isso mostrando que detalhe
+        da obra sustenta a leitura e que detalhe a complicaria, e é por isso que esta
+        etapa vem depois da análise formal e do monomito: são eles que dão com que medir.
+      esforco_estimado_min: 540
+      opcional: false
+      requires:
+        - competencia: comp:cinema/analise-formal-do-filme
+          nivel_minimo: intermediario
+        - competencia: comp:cinema/estrutura-mitica-da-narrativa
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:cinema/leitura-critica-de-uma-saga
+          nivel_resultante: intermediario
+
+  # etapa:cinema/o-que-e-cinema é de trilha:cinema/primeiro-cinema-e-vida-moderna e está
+  # aqui por referência, nunca redefinida (docs/catalogo.md §1): é ela que dá
+  # comp:cinema/leitura-do-filme e comp:cinema/cinema-como-industria-e-ideologia, que a
+  # raiz e os dois ramos de história exigem, e é por ela que a trilha parte de perfil
+  # vazio.
+  etapas_referenciadas:
+    - etapa:cinema/o-que-e-cinema

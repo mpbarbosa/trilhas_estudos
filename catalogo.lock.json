@@ -1,9 +1,17 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 62,
-  "gerado_em": "2026-11-07T18:03:47+00:00",
-  "hash": "sha256:e27d8d141493ed0f052d1df0af6a96b6127fa30da6ab9373270484120d1fa6ce",
+  "catalogo_versao": 63,
+  "gerado_em": "2026-11-10T11:13:42+00:00",
+  "hash": "sha256:3cf873ee22e1aef7b009fe1b824398353407c63299ee8e76d443cd01f34f9214",
   "competencias": [
+    {
+      "id": "comp:cinema/analise-formal-do-filme",
+      "titulo": "Análise formal de um filme inteiro — forma narrativa e sistemas de estilo",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Diante de um longa-metragem de ficção que não se viu antes: descrever o princípio de forma que organiza o todo e localizar os pontos em que ele se firma e em que se rompe; dizer, para dois momentos de informação decisiva, o que a narração dá ao espectador que os personagens não têm (ou o contrário) e que efeito isso produz; para uma cena escolhida, mostrar como mise-en-scène, fotografia, montagem e som concorrem para o mesmo efeito, nomeando um ponto em que um deles o contraria; e dizer que parte da análise mudaria se o filme tivesse outro final.",
+      "descricao": "Descrever um filme inteiro como sistema, e não como sucessão de momentos marcantes: que princípio de forma organiza o todo, como a narração distribui o que o espectador sabe e quando, e como mise-en-scène, fotografia, montagem e som colaboram ou brigam entre si. O erro que a competência exclui é o inventário — listar recursos técnicos corretamente nomeados sem dizer o que cada um faz naquele filme.\n"
+    },
     {
       "id": "comp:cinema/cinema-como-industria-e-ideologia",
       "titulo": "Crítica da aparência de neutralidade do filme",
@@ -37,12 +45,44 @@
       "descricao": "Kracauer olha as pernas alinhadas da revista de music-hall e vê a esteira da fábrica: a massa não comparece como povo nem como classe, mas como material de um ornamento que o próprio público admira sem se reconhecer nele. O risco da leitura é descambar em desprezo pela plateia. A competência mantém a análise na forma e na relação dela com a produção do período.\n"
     },
     {
+      "id": "comp:cinema/efeito-especial-e-sublime",
+      "titulo": "Ler o efeito especial como atração e como experiência do sublime",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dada uma sequência de efeito visual de um filme, com sua data e a técnica empregada: dizer onde a narrativa se suspende e o que é oferecido à contemplação em seu lugar; descrever como a escala e a duração do plano situam o corpo do espectador diante do que se mostra; distinguir o juízo sobre o efeito do juízo sobre o realismo dele, exibindo um efeito tecnicamente datado que continua funcionando e um tecnicamente impecável que não funciona; e relacionar o efeito à condição industrial que o produziu (custo, prazo, publicidade do próprio efeito).",
+      "descricao": "O efeito especial costuma ser julgado por duas réguas igualmente cegas: se \"convence\" — a régua do realismo — ou se \"envelheceu\" — a régua da técnica. A competência é a terceira leitura: o efeito como momento em que a narrativa para e se oferece à contemplação, e a escala desmedida como experiência de sublime fabricado, com o lugar que ela reserva ao espectador.\n"
+    },
+    {
+      "id": "comp:cinema/esteticismo-como-programa",
+      "titulo": "Ler o esteticismo como programa — a vida tratada como obra de arte",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um texto literário ou um documento que professe o culto da forma e do gosto: reconstituir o programa — que critérios substituem os morais, que prazeres contam, que esforço a composição da própria vida exige — citando as passagens; dizer o que o programa reserva às outras pessoas do texto, com a cena que o mostra; apontar onde o próprio texto cobra o preço do programa, se cobra; e dizer o que o esteticismo tem em comum com a política estetizada e o que o separa dela, recusando a leitura do primeiro como anúncio necessário da segunda.",
+      "descricao": "Antes de ser traço de regime, a subordinação de tudo à forma foi programa de vida privada: a existência conduzida como composição, o gosto como critério último, a indiferença moral apresentada não como falha mas como refinamento. A competência é descrever esse programa num texto que o professa e dizer o que ele faz com o outro — e separar isso da acusação retrospectiva, que lê todo esteta como fascista em potencial.\n"
+    },
+    {
       "id": "comp:cinema/estetizacao-da-politica",
       "titulo": "Reconhecer a estetização da política num evento ou numa obra",
       "rev": 1,
       "status": "ativo",
       "verificacao": "Dado um evento político montado para a imagem — desfile, comício, posse, cerimônia militar, propaganda de campanha, inauguração — e o registro dele: nomear os procedimentos que convertem política em espetáculo (massa enquadrada como forma, simetria, liturgia, lugar do chefe no quadro, ausência de contraditório) e dizer o que cada um subtrai de deliberação; e distinguir a tese da estetização da acusação genérica de propaganda, exibindo um evento político cuidadoso da própria imagem que **não** a satisfaz, e dizendo por quê.",
       "descricao": "\"O fascismo estetiza a política\" virou palavra de ordem, e como insulto não distingue nada: todo governo cuida da própria imagem. A competência é cobrar da tese o que ela de fato afirma — que procedimentos de forma substituem a decisão política pela contemplação da própria massa — e mostrar onde isso se vê no material, em vez de deduzi-lo do regime que produziu a obra.\n"
+    },
+    {
+      "id": "comp:cinema/estrutura-mitica-da-narrativa",
+      "titulo": "Auditar a leitura mítica de uma narrativa",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dada uma narrativa que não a estudada: mapear nela as etapas do percurso do herói, citando o episódio que preenche cada uma e marcando as que ficam vazias ou preenchidas à força; apontar dois traços decisivos da narrativa que o esquema não capta e dizer que leitura os captaria; dizer que narrativa do mesmo gênero o esquema **não** descreveria, e por quê; e separar, na própria leitura, o que é estrutura encontrada no texto do que é molde imposto a ele.",
+      "descricao": "O monomito explica tanto que quase não se refuta: com etapas suficientemente largas, toda história vira jornada do herói. A competência não é aplicar o esquema — é aplicá-lo e depois cobrar-lhe a conta: que episódios ele ilumina, que episódios ele força, e que diferença entre duas narrativas ele apaga. Sem esse segundo movimento, a leitura mítica é descrição que não exclui nada.\n"
+    },
+    {
+      "id": "comp:cinema/filme-como-fonte-historica",
+      "titulo": "Usar um filme como fonte para a história de seu tempo",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um filme de ficção com data e país de produção, e uma pergunta histórica sobre aquele período: dizer sobre o que o filme é boa fonte e sobre o que não é, com a razão em cada caso; extrair dele duas evidências involuntárias — o que era representável, o que era censurável, que público se pressupõe, que consenso se dispensa de explicar — e dizer que outra fonte confirmaria cada uma; separar a representação que o filme faz do período representado do testemunho que ele dá do período em que foi feito; e refutar, com um fato datado, a leitura do filme como reflexo direto da mentalidade de seu público.",
+      "descricao": "Um filme de época é fonte ruim sobre a época que representa e fonte boa sobre a época que o fez — e isso vale também para o filme que não fala de história nenhuma. A competência é extrair dele o que ele testemunha sem querer (o que podia ser dito, mostrado, financiado e exibido naquele ano) e distinguir isso do que ele afirma de propósito, evitando a leitura do filme como espelho da sociedade.\n"
     },
     {
       "id": "comp:cinema/filme-de-encomenda-politica",
@@ -53,12 +93,36 @@
       "descricao": "Diante de um filme de encomenda política as duas saídas fáceis se equivalem: descartá-lo como \"só propaganda\", o que dispensa de olhar, e admirar-lhe a forma como se a função fosse acidente. A competência é a terceira — separar o que o filme registra do que ele encena, e mostrar por que procedimento ele funciona sobre quem assiste.\n"
     },
     {
+      "id": "comp:cinema/heranca-de-um-estilo-historico",
+      "titulo": "Rastrear a herança de um estilo histórico num filme posterior",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dados um estilo histórico datado e um filme posterior que não o estudado: nomear três traços de forma do estilo e dizer, para cada um, se o filme o apresenta, com a cena que o mostra; propor a via material da transmissão (emigração de técnicos, escola, distribuição, manual, remake) e dizer que documento a confirmaria; identificar uma semelhança que se explica melhor por convergência independente ou por um terceiro intermediário; e dizer o que a filiação explica no filme que a leitura sem ela não explicaria.",
+      "descricao": "Dizer que um filme \"é expressionista\" porque tem sombra dura é o tipo de filiação que não custa nada e não prova nada. A competência é tratar a herança como afirmação histórica sujeita a prova: que traços de forma migraram, por que via material eles migraram — pessoas, estúdios, manuais, cópias em circulação — e que semelhanças são convergência independente.\n"
+    },
+    {
       "id": "comp:cinema/historiografia-do-primeiro-cinema",
       "titulo": "Periodização do primeiro cinema — espetáculo, narração e domesticação",
       "rev": 1,
       "status": "ativo",
       "verificacao": "Diante de um filme anterior a 1915 e de sua data: situá-lo na periodização do primeiro cinema e nomear os traços que sustentam a posição — atração exibida frente à câmera, olhar dirigido à lente, continuidade construída por corte, condução do olhar do espectador, lugar e público da exibição —; e apontar ao menos um traço do filme que contraria a leitura do período como evolução linear rumo à narrativa clássica.",
       "descricao": "O cinema das duas primeiras décadas não é cinema clássico mal feito. Tem regime próprio — exibição de atração, olhar para a lente, autonomia do quadro — e a competência é situar um filme nesse regime pelos traços que ele mostra, em vez de medi-lo pela narrativa que vem depois.\n"
+    },
+    {
+      "id": "comp:cinema/industria-cultural-e-contestacao",
+      "titulo": "Explicar como uma indústria cultural absorve a contestação de sua época",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um período de renovação de uma indústria cultural que não o estudado — editora, gravadora, estúdio, televisão, plataforma — e um movimento de contestação contemporâneo dele: nomear as condições econômicas e demográficas que abriram a indústria àquela linguagem; apontar duas coisas que a contestação inscreveu nas obras e duas que a absorção neutralizou, com a obra que mostra cada uma; dizer o que aconteceu com os autores do movimento depois, e com os que ficaram fora; e refutar, com um fato datado, tanto o relato da ruptura total quanto o da pura recuperação comercial.",
+      "descricao": "Uma indústria cultural que se renova com a linguagem de quem a contesta não está nem capitulando nem sendo generosa: está resolvendo um problema de público e de custo. A competência é descrever esse movimento pelos dois lados — o que a contestação consegue inscrever na obra e o que a absorção lhe retira — sem a narrativa heroica da geração que mudou tudo nem a tese de que recuperação comercial anula qualquer conteúdo.\n"
+    },
+    {
+      "id": "comp:cinema/leitura-critica-de-uma-saga",
+      "titulo": "Avaliar leituras de uma obra popular feitas por outras disciplinas",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um texto acadêmico ou crítico que lê uma obra popular à luz de outra disciplina: reconstituir a tese e dizer que evidência da obra ela cita; apontar um episódio ou detalhe da obra que a complica, e dizer se o texto o enfrenta ou o ignora; decidir se a obra é objeto ou ilustração — se a tese sobreviveria intacta com outra obra no lugar — e sustentar a decisão; e dizer uma coisa que o texto ensina sobre a obra e uma que ele ensina apenas sobre a disciplina de quem o escreveu.",
+      "descricao": "Filosofia, direito, teologia e ciência política leem obra popular, e o gênero tem um vício próprio: a obra entra como ilustração de uma tese que o autor já tinha, e qualquer episódio serve porque nada do texto pode contrariá-la. A competência é julgar a leitura pelo que ela arrisca — que detalhe da obra a sustenta, que detalhe a complicaria, e o que ela afirma sobre a obra que não se poderia afirmar sem ela.\n"
     },
     {
       "id": "comp:cinema/leitura-de-memoria-de-implicado",
@@ -77,12 +141,28 @@
       "descricao": "Ler o que está na tela antes de contar a história que ela narra: onde começa e acaba cada plano, que escala e que movimento de câmera o compõem, que relação o corte estabelece entre dois planos vizinhos, e de que lugar o filme pede que se olhe. O resumo do argumento é justamente o que esta competência não aceita como resposta.\n"
     },
     {
+      "id": "comp:cinema/modo-melodramatico",
+      "titulo": "Reconhecer o modo melodramático numa narrativa",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dada uma narrativa (filme, romance, série, peça) que não a estudada: decidir se ela opera no modo melodramático, percorrendo os procedimentos que o definem e dizendo quais estão presentes, com a passagem ou a cena que sustenta cada um; nomear o que a narrativa ganha em legibilidade moral e o que perde em ambiguidade por causa deles; distinguir o modo do juízo de valor, exibindo uma narrativa melodramática que se considere boa e uma não melodramática que se considere ruim; e apontar uma cena em que o excesso faz trabalho que o diálogo não faria.",
+      "descricao": "\"Melodramático\" é usado como insulto — exagerado, piegas — e assim não distingue nada. Como modo, ele tem procedimentos nomeáveis: moral exteriorizada em gesto e em quadro, virtude que precisa ser reconhecida publicamente, mudez expressiva, excesso como forma de dizer o que o mundo dessacralizado já não enuncia. A competência é operá-lo como descrição, com o custo que ele cobra da narrativa.\n"
+    },
+    {
       "id": "comp:cinema/reprodutibilidade-e-aura",
       "titulo": "Efeito da reprodução técnica sobre o modo de existência de uma obra",
       "rev": 1,
       "status": "ativo",
       "verificacao": "Dada uma obra e um regime de reprodução determinado — gravura, fotografia, disco, filme, transmissão, arquivo digital: dizer o que a reprodução subtrai daquela obra e o que ela torna possível; distinguir nela valor de culto de valor de exposição, nomeando em que prática concreta cada um se realiza; e dizer que parte do próprio argumento se apoia em traço técnico datado e que parte seria nostalgia da obra única, apontando um fato do próprio regime que a contradiga.",
       "descricao": "A tese de que a reprodução técnica destitui a obra do seu aqui-e-agora, e troca valor de culto por valor de exposição, é fácil de repetir e difícil de usar: sem data e sem técnica na mão, ela vira nostalgia da obra única. A competência é dizer, para uma obra e um regime de reprodução determinados, o que muda no modo de ela existir — e separar o que é perda do que é só deslocamento.\n"
+    },
+    {
+      "id": "comp:cinema/som-no-cinema",
+      "titulo": "Escuta de um filme — som como portador de sentido e música narrativa",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Diante de uma sequência de filme com trilha sonora, assistida com som e depois sem som: dizer o que o som acrescenta que a imagem não sustenta sozinha — espaço, duração, fora de campo, atribuição de ponto de escuta — e o que ele subtrai de ambiguidade; classificar cada elemento sonoro como diegético ou não, e apontar um em que a classificação é discutível, dizendo por quê; nomear a função que a música cumpre ali (unificar o corte, datar a cena, antecipar o desfecho, marcar um personagem) e dizer em que a cena mudaria com outra música; e distinguir essa análise da afirmação genérica de que a trilha manipula o espectador.",
+      "descricao": "O som do cinema é o que menos se percebe e mais se obedece: ele diz onde a cena está, quanto tempo ela dura, o que a imagem não mostra e o que o espectador deve sentir sem perceber que lhe disseram. A competência é escutar o filme separando o que vem da imagem do que o som acrescenta — e resistir às duas saídas fáceis, tratar a trilha como ilustração do que já se via e tratar toda música como manipulação.\n"
     },
     {
       "id": "comp:dados/algebra-relacional",
@@ -645,6 +725,14 @@
       "descricao": "Teoria política séria se escreve sobre documento datado, e é por aí que ela se audita: que fatos o autor usa, que peso cada um aguenta, e onde o conceito passa a andar sozinho, longe do material que o produziu. A competência não é checar notas de rodapé — é dizer o que precisaria ser verdade no mundo para a afirmação se sustentar, e se o texto mostra isso.\n"
     },
     {
+      "id": "comp:politica/controle-pela-linguagem-e-pelo-passado",
+      "titulo": "Reconhecer controle exercido sobre a linguagem e sobre o registro do passado",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um caso documentado de alteração oficial de linguagem ou de registro — renomeação administrativa, correção de dado publicado, retirada de documento de arquivo, glossário imposto, remoção de página: dizer o que a alteração torna indizível ou inverificável, e para quem; nomear o que resta de rastro e por que via a mudança ainda é detectável; distinguir o caso do eufemismo burocrático comum, exibindo um eufemismo que **não** satisfaz a descrição e dizendo por quê; e apontar que condição material o controle precisa ter para funcionar (monopólio do arquivo, ausência de cópia independente, impunidade).",
+      "descricao": "Um regime que reescreve o arquivo e estreita o vocabulário não está só mentindo: está retirando os meios de formular a objeção. A competência é identificar esse trabalho em material real — que palavra desapareceu, que registro foi corrigido, que contradição deixou de ser enunciável — e fazê-lo sem a inflação retórica que chama de orwelliano qualquer eufemismo oficial.\n"
+    },
+    {
       "id": "comp:politica/critica-de-explicacao-psicologica-da-politica",
       "titulo": "Avaliar o salto entre explicação do indivíduo e explicação do coletivo",
       "rev": 1,
@@ -661,12 +749,60 @@
       "descricao": "Dizer que alguém está livre de uma coerção não é dizer que ele tem o que fazer com a liberdade conquistada. A competência é separar os dois sentidos num caso concreto — o vínculo que caiu e a capacidade que não nasceu com a queda dele — e reconhecer o estado em que ganhar o primeiro produz insegurança em vez de autonomia. Sem isso, \"mais liberdade\" e \"melhor\" viram a mesma palavra.\n"
     },
     {
+      "id": "comp:politica/estrutura-de-oportunidade-politica",
+      "titulo": "Explicar o surgimento — ou a ausência — de um movimento pela estrutura de oportunidade",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dados dois casos comparáveis de privação documentada, num dos quais surgiu um movimento e no outro não: nomear o que mudou na estrutura de autoridade do primeiro (eleição, cisão de elite, guerra, decisão judicial, pressão externa) e o que não mudou no segundo; identificar as organizações preexistentes que serviram de base em cada caso; dizer o que fez (ou não) o grupo se considerar capaz de agir; e apontar um fato que o esquema deixa sem explicar, dizendo que explicação concorrente o cobriria.",
+      "descricao": "Movimento não nasce de quantidade de sofrimento: nasce quando o arranjo de autoridade se abre, há organização já montada para aproveitar a brecha e um grupo se reconhece capaz de agir. A competência é usar esse esquema em caso de surgimento **e** em caso de ausência — explicar por que não houve movimento onde o sofrimento era igual é o teste que a tese precisa passar.\n"
+    },
+    {
+      "id": "comp:politica/fascismo-como-processo",
+      "titulo": "Operar o fascismo como processo, e não como essência",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um movimento ou regime que não os estudados: situá-lo nas etapas do processo (criação, enraizamento, chegada ao poder, exercício do poder, radicalização), dizendo em qual ele parou e com que evidência; nomear os aliados conservadores que o viabilizaram, se houve, e o que eles esperavam obter; dizer que atributo do programa o próprio movimento contrariou na prática, e o que isso mostra sobre classificar por ideologia; e decidir se a classificação de fascista se sustenta, nomeando a etapa cuja ausência é decisiva.",
+      "descricao": "Procurar a definição de fascismo por lista de atributos ideológicos é o caminho que não chega: os movimentos contradisseram seus próprios programas sem perder nada. A competência é classificar por processo — como o movimento nasce, como se enraíza, como chega ao poder por aliança com conservadores que pensam controlá-lo, como exerce o poder e como radicaliza — e dizer, para um caso, em que etapa ele parou.\n"
+    },
+    {
+      "id": "comp:politica/prova-audiovisual-e-deep-fake",
+      "titulo": "Avaliar o estatuto de prova de um registro audiovisual contestado",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um registro audiovisual contestado e o contexto de sua circulação: listar o que se poderia verificar sobre ele e por que meio (procedência do arquivo, cadeia de custódia, fonte independente do mesmo evento, metadados, perícia) e dizer o que cada verificação decide e o que não decide; dizer que conclusão a incerteza restante autoriza, distinguindo \"não autenticado\" de \"falso\"; nomear quem se beneficia da autenticidade e quem se beneficia da dúvida; e dizer que regra institucional — de prova, de plataforma, de redação — mudaria o resultado, e a que custo.",
+      "descricao": "Quando qualquer vídeo pode ter sido fabricado, o dano maior não é acreditar no falso: é a autoridade conveniente de poder negar o verdadeiro. A competência é raciocinar sobre o estatuto de prova de um registro — procedência, cadeia de custódia, corroboração independente, incentivo de quem o divulga e de quem o nega — e dizer o que a dúvida bem fundada autoriza concluir, que é menos do que os dois lados querem.\n"
+    },
+    {
       "id": "comp:politica/psicologia-social-da-submissao",
       "titulo": "Explicar adesão de massa a um regime de dominação",
       "rev": 1,
       "status": "ativo",
       "verificacao": "Dado um caso documentado de adesão coletiva a um regime ou movimento autoritário que não os estudados: nomear ao menos três mecanismos que a sustentam, dizendo em cada caso que parte da adesão ele explica e que parte fica fora; apontar o grupo social em que o caso se concentrou e o que o distingue dos que não aderiram; e refutar, com um fato datado do próprio caso, tanto a explicação por engano quanto a explicação por patologia.",
       "descricao": "Por que gente comum adere, aplaude e colabora. A competência é dar conta da adesão por mecanismos nomeáveis — isolamento, insegurança, submissão a uma autoridade que promete sentido, conformismo, prazer na destruição — sem as duas saídas fáceis: a de que os aderentes foram enganados por propaganda e a de que eram patológicos. As duas isentam quem adere e não explicam quem resistiu nas mesmas condições.\n"
+    },
+    {
+      "id": "comp:politica/ruptura-institucional-por-via-legal",
+      "titulo": "Reconhecer mudança de forma de governo conduzida por via legal",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um processo documentado de mudança institucional conduzido pelas formas vigentes — emenda, lei de emergência, delegação legislativa, interpretação de corte: reconstituir os passos e nomear quem concedeu o quê em cada um; dizer que limite material da ordem anterior o resultado contradiz, se contradiz, e onde esse limite está escrito; distinguir a mudança que a ordem admite da que ela proíbe, exibindo uma reforma profunda que **não** rompe o limite; e dizer que mecanismo poderia ter interrompido o processo e por que não interrompeu.",
+      "descricao": "A ruptura que importa raramente chega de fardado na tribuna: chega por voto de emergência, delegação de poderes, prorrogação e reforma aprovada no rito. A competência é acompanhar o procedimento passo a passo, dizer em que ponto o conteúdo contradiz o limite que a própria ordem se deu, e separar o que é inconstitucional do que é apenas intolerável — sem tratar toda derrota política como golpe.\n"
+    },
+    {
+      "id": "comp:politica/transcrito-oculto",
+      "titulo": "Distinguir consentimento de conformidade pública sob dominação",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dada uma relação de dominação documentada que não a estudada — trabalho, prisão, escola, casa, clientelismo rural: descrever o que o registro público exige dos subordinados e por que sanção; apontar duas práticas do registro oculto e dizer por que evidência se sabe delas e que risco correm seus autores; dizer que evidência distinguiria, naquele caso, conformidade de adesão genuína; e explicar por que a passagem do oculto ao aberto é rara e o que no caso a tornaria possível.",
+      "descricao": "Subordinado que não protesta em público não é subordinado que concorda: a conformidade é uma atuação exigida pela situação, e a recusa existe num registro que o poder não escuta — anonimato, boato, sabotagem miúda, ironia, deferência exagerada. A competência é ler os dois registros e resistir às duas conclusões apressadas: a de que há consentimento e a de que toda deferência esconde revolta.\n"
+    },
+    {
+      "id": "comp:politica/vigilancia-e-disciplina",
+      "titulo": "Analisar um dispositivo de vigilância pelo efeito disciplinar que produz",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um dispositivo real de observação de pessoas — ponto eletrônico, software de produtividade, prova vigiada, câmera de escola, catraca, aplicativo de entrega: descrever a distribuição de visibilidade (quem vê, quem é visto, quem sabe quando) e dizer que conduta ele induz em quem não foi punido; nomear o que o dispositivo mede e o que as pessoas passam a otimizar, com a divergência entre os dois; distinguir o efeito disciplinar da simples coleta de dados, exibindo uma coleta que **não** produz esse efeito; e dizer que mudança no dispositivo reduziria o efeito sem reduzir a informação que ele coleta.",
+      "descricao": "O efeito de um dispositivo de vigilância não está em quem ele pega, e sim no que ele faz com quem não sabe se está sendo visto: a conduta se ajusta sozinha, e a economia do poder fica barata. A competência é analisar um dispositivo por essa via — visibilidade desigual, incerteza do olhar, interiorização da regra — sem o uso do panóptico como metáfora decorativa para qualquer câmera.\n"
     },
     {
       "id": "comp:programacao/analise-lexica",
@@ -1087,6 +1223,72 @@
       ]
     },
     {
+      "id": "etapa:cinema/arte-e-industria",
+      "titulo": "Arte e indústria — o filme como produto de um negócio",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "descricao": "Rosenfeld sobre a tensão constitutiva entre obra e mercadoria no cinema, e Sklar sobre a história social do cinema americano: quem fez os filmes, para que público, com que dinheiro, sob que censura, e o que o país aprendeu sobre si nas salas. A etapa fecha o que etapa:cinema/o-que-e-cinema abriu — a aparência de neutralidade do filme — pelo lado das condições de produção, e é aqui que a competência da primeira trilha chega a avançado.\n",
+      "trilha": "trilha:cinema/analise-filmica-de-uma-saga",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:cinema/cinema-como-industria-e-ideologia",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:cinema/cinema-como-industria-e-ideologia",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:cinema/contracultura-e-renovacao-da-industria",
+      "titulo": "A contracultura — a oposição juvenil e a indústria que a absorveu",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 780,
+      "descricao": "Roszak de 1969, lido como fonte da própria década e não como retrato dela: a sociedade tecnocrática descrita de dentro, e a oposição juvenil que o livro tenta explicar enquanto ela acontecia. A etapa cobra o movimento duplo — o que essa contestação conseguiu inscrever nas obras de uma indústria cultural que se renovava, e o que a absorção lhe retirou — contra o relato heroico da geração que mudou tudo e contra a tese de que recuperação comercial anula todo conteúdo.\n",
+      "trilha": "trilha:cinema/analise-filmica-de-uma-saga",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:cinema/cinema-como-industria-e-ideologia",
+          "nivel_minimo": "avancado"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:cinema/industria-cultural-e-contestacao",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:cinema/efeito-especial-e-sublime",
+      "titulo": "O infinito artificial — o efeito especial como atração e como sublime",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 240,
+      "descricao": "O capítulo de Bukatman sobre efeito especial e sublime: o momento em que a narrativa se suspende e a escala desmedida se oferece à contemplação, com parentesco declarado na pintura de paisagem do século XIX e no sublime que ela fabricava. O corte é trocar as duas réguas usuais — se o efeito convence, se envelheceu — pela pergunta do que ele faz com o corpo de quem assiste, e ligar isso à condição industrial que o produziu, inclusive à publicidade que o próprio efeito recebe.\n",
+      "trilha": "trilha:cinema/analise-filmica-de-uma-saga",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:cinema/analise-formal-do-filme",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:cinema/efeito-especial-e-sublime",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:cinema/fascinante-fascismo",
       "titulo": "Fascinante fascismo — a sobrevida de uma estética",
       "rev": 1,
@@ -1113,6 +1315,76 @@
       ]
     },
     {
+      "id": "etapa:cinema/filme-como-fonte-historica",
+      "titulo": "Cinema e história — o filme como fonte do tempo que o fez",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 420,
+      "descricao": "Ferro sobre o filme como documento para o historiador, com o deslocamento que organiza a etapa: um filme de época é fonte ruim sobre a época representada e fonte boa sobre a que o produziu, e isso vale também para o filme que não fala de história nenhuma. Chartier entra pelo lado do método — prática, representação, apropriação —, que é o que impede de ler o filme como espelho da mentalidade do público. O corte é extrair evidência involuntária e dizer que outra fonte a confirmaria.\n",
+      "trilha": "trilha:cinema/analise-filmica-de-uma-saga",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:cinema/cinema-como-industria-e-ideologia",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:cinema/filme-como-fonte-historica",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:cinema/forma-e-estilo-do-filme",
+      "titulo": "A arte do cinema — forma narrativa e os quatro sistemas de estilo",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1500,
+      "descricao": "O manual de Bordwell e Thompson lido como o que ele é: a gramática de descrever um filme inteiro, não um glossário para consultar. Forma como sistema de expectativa e satisfação, narração e distribuição do que o espectador sabe, e os quatro sistemas de estilo — mise-en-scène, fotografia, montagem, som — tratados cada um por si e depois no que fazem juntos. O corte é descrever, do começo ao fim, um filme que não se escolheu por gostar dele; o inventário de recursos técnicos corretamente nomeados é justamente o que a etapa não aceita como resposta.\n",
+      "trilha": "trilha:cinema/analise-filmica-de-uma-saga",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:cinema/leitura-do-filme",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:cinema/analise-formal-do-filme",
+          "nivel_resultante": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/leitura-do-filme",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:cinema/heranca-expressionista",
+      "titulo": "A tela demoníaca — o expressionismo alemão e o que dele migrou",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "descricao": "Eisner sobre o cinema alemão de Weimar, a influência de Max Reinhardt e o que o expressionismo fez com luz, sombra, cenário e corpo do ator. A etapa usa o livro para o problema mais difícil, que é o da herança: rastrear num filme posterior quais traços migraram, por que via material eles migraram — emigração de técnicos, estúdio, cópia em circulação — e que semelhanças são convergência independente. Dizer que um filme \"é expressionista\" porque tem sombra dura é o que a etapa recusa.\n",
+      "trilha": "trilha:cinema/analise-filmica-de-uma-saga",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:cinema/analise-formal-do-filme",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:cinema/heranca-de-um-estilo-historico",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:cinema/invencao-da-vida-moderna",
       "titulo": "O cinema e a invenção da vida moderna",
       "rev": 1,
@@ -1134,6 +1406,92 @@
       "teaches": [
         {
           "competencia": "comp:cinema/cinema-e-modernidade",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:cinema/leituras-de-outra-disciplina",
+      "titulo": "A saga lida de fora — filosofia e crítica sobre obra popular",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 540,
+      "descricao": "A coletânea de Irwin, que lê uma saga de ficção científica à luz de problemas filosóficos, e o ensaio de Mike Thorn sobre o Episódio III como declaração artística. São dois gêneros diferentes — a antologia de disciplina e a crítica autoral — e a etapa trata os dois pela mesma pergunta: a obra é objeto ou é ilustração de uma tese que o autor já tinha? Decide-se isso mostrando que detalhe da obra sustenta a leitura e que detalhe a complicaria, e é por isso que esta etapa vem depois da análise formal e do monomito: são eles que dão com que medir.\n",
+      "trilha": "trilha:cinema/analise-filmica-de-uma-saga",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:cinema/analise-formal-do-filme",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/estrutura-mitica-da-narrativa",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:cinema/leitura-critica-de-uma-saga",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:cinema/modo-melodramatico",
+      "titulo": "A imaginação melodramática — a moral exteriorizada em gesto",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 780,
+      "descricao": "Brooks a partir de Balzac e Henry James, e o que ele constrói serve muito além deles: o melodrama não como gênero piegas do século XIX, mas como modo de um mundo que perdeu o fundamento sagrado e precisa exibir a moral em gesto, em quadro e em excesso, porque já não pode enunciá-la. Mudez expressiva, virtude que só vale reconhecida em público, maniqueísmo como recurso de legibilidade. O corte é operar o modo como descrição, com o preço que ele cobra em ambiguidade — e não como insulto.\n",
+      "trilha": "trilha:cinema/analise-filmica-de-uma-saga",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:cinema/analise-formal-do-filme",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:cinema/modo-melodramatico",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:cinema/monomito-e-seus-limites",
+      "titulo": "O herói de mil faces — o monomito e a conta que ele deve",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "descricao": "Campbell lido inteiro, com as três partes do percurso e o material comparativo de onde ele as tira — e lido com a pergunta que o próprio livro não faz: o que o esquema exclui. A etapa cobra os dois movimentos no mesmo trabalho: mapear uma narrativa nas etapas da jornada, episódio por episódio, e depois mostrar que narrativa do mesmo gênero o esquema não descreveria. Sem o segundo, a leitura mítica é descrição que não exclui nada, e é por isso que ela convence tanto.\n",
+      "trilha": "trilha:cinema/analise-filmica-de-uma-saga",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:cinema/estrutura-mitica-da-narrativa",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:cinema/o-esteta-e-o-culto-da-beleza",
+      "titulo": "O prazer — o esteticismo como programa, antes de ser traço de regime",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "descricao": "O romance de D'Annunzio de 1889, lido como documento de um programa: a existência conduzida como composição, o gosto promovido a critério último, a indiferença moral apresentada como refinamento e não como falha — e o que isso reserva às outras pessoas do livro, que a narrativa mostra sem comentar. O corte é descrever o programa pelas passagens em que ele se professa, dizer onde o próprio texto lhe cobra o preço, e separar o parentesco com a política estetizada da leitura retrospectiva que faz de todo esteta um fascista em potencial.\n",
+      "trilha": "trilha:cinema/estetizacao-da-politica",
+      "opcional": true,
+      "requires": [
+        {
+          "competencia": "comp:cinema/estetizacao-da-politica",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:cinema/esteticismo-como-programa",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -1229,6 +1587,28 @@
         {
           "competencia": "comp:cinema/estetizacao-da-politica",
           "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:cinema/som-e-musica-no-filme",
+      "titulo": "A audiovisão — som, ponto de escuta e música narrativa",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 420,
+      "descricao": "O som como o elemento que o espectador menos nota e mais obedece: o valor acrescentado que ele dá à imagem, a síncrese que cola um ruído a um gesto que nada tinha com ele, o fora de campo que só existe porque se ouve, e a música que unifica o corte e data a cena sem se anunciar. O exercício central é assistir duas vezes, com som e sem, e sustentar a diferença no que se viu — não na afirmação genérica de que a trilha manipula.\n",
+      "trilha": "trilha:cinema/analise-filmica-de-uma-saga",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:cinema/analise-formal-do-filme",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:cinema/som-no-cinema",
+          "nivel_resultante": "intermediario"
         }
       ]
     },
@@ -3371,6 +3751,66 @@
       ]
     },
     {
+      "id": "etapa:politica/anatomia-do-fascismo",
+      "titulo": "A anatomia do fascismo — as cinco etapas, no lugar da lista de atributos",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 780,
+      "descricao": "Paxton contra o método que procura a essência do fascismo numa lista de atributos ideológicos: os movimentos contradisseram os próprios programas sem perder nada, e o que os descreve é o processo — criação, enraizamento, chegada ao poder por aliança com conservadores que pensavam controlá-los, exercício do poder, radicalização. A etapa cobra situar um caso que não os do livro nessas etapas e dizer em qual ele parou, nomeando os aliados que o viabilizaram e o que eles esperavam obter.\n",
+      "trilha": "trilha:politica/desinformacao-e-resistencia",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:politica/fascismo-como-processo",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:politica/ascensao-contada-de-perto",
+      "titulo": "Der Fuehrer — a ascensão narrada por quem a cobriu enquanto acontecia",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1800,
+      "descricao": "Heiden, jornalista que cobriu o partido nazista em Munique desde os anos 1920 e escreveu este volume no exílio, em 1944: a ascensão contada passo a passo, com as manobras, as alianças e os cálculos errados de quem achava que controlava o movimento. A etapa o usa de duas maneiras ao mesmo tempo — como material fino sobre as etapas que Paxton descreve, e como fonte de alguém que escrevia em guerra, sem saber o fim e com interesse em ser lido. É o que leva comp:politica/fascismo-como-processo a avançado: o conceito encostado num caso documentado em detalhe.\n",
+      "trilha": "trilha:politica/desinformacao-e-resistencia",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:politica/fascismo-como-processo",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:politica/fascismo-como-processo",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:politica/deep-fake-como-problema-publico",
+      "titulo": "Deep fakes — quando o vídeo deixa de provar e a negação fica fácil",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "descricao": "O artigo de Chesney e Citron, que montou o problema público do deep fake, e o de Fornasier, Cury e Holanda, que o discute no direito brasileiro e na eleição. A etapa se organiza pelo dano que não é o óbvio: não acreditar no falso, e sim a autoridade conveniente de poder negar o verdadeiro — o que Chesney e Citron chamam de dividendo do mentiroso. O corte é raciocinar sobre estatuto de prova (procedência, cadeia de custódia, corroboração independente, incentivo de quem divulga e de quem nega) e dizer o que a dúvida bem fundada autoriza concluir, que é menos do que os dois lados querem.\n",
+      "trilha": "trilha:politica/desinformacao-e-resistencia",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:politica/controle-pela-linguagem-e-pelo-passado",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:politica/prova-audiovisual-e-deep-fake",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:politica/ideologia-e-terror",
       "titulo": "Ideologia e terror — o conceito, e o que ele aguenta",
       "rev": 1,
@@ -3392,6 +3832,22 @@
         },
         {
           "competencia": "comp:politica/conceito-a-partir-de-material-historico",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:politica/linguagem-e-passado-sob-controle",
+      "titulo": "1984 — a língua estreitada e o arquivo corrigido",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "descricao": "O romance de Orwell lido pelo mecanismo e não pela atmosfera: o trabalho diário de corrigir o registro publicado, a novilíngua como projeto de estreitar o que pode ser pensado, a duplipensa como exigência prática do funcionário, e o apêndice sobre os princípios da novilíngua, que é onde o livro explica o próprio dispositivo. O corte é extrair dali critérios aplicáveis a um caso real e documentado de alteração oficial de linguagem ou de registro — e é o que separa a leitura da adjetivação fácil, que chama de orwelliano qualquer eufemismo de repartição.\n",
+      "trilha": "trilha:politica/desinformacao-e-resistencia",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:politica/controle-pela-linguagem-e-pelo-passado",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -3433,6 +3889,28 @@
       ]
     },
     {
+      "id": "etapa:politica/oportunidade-politica-e-insurgencia",
+      "titulo": "Estrutura de oportunidade — por que o movimento nasce aqui e não ali",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1080,
+      "descricao": "McAdam sobre a insurgência negra americana de 1930 a 1970 e Goodwin sobre os movimentos revolucionários do pós-guerra: os dois contra a explicação por quantidade de sofrimento, e os dois construindo o mesmo tipo de resposta — abertura no arranjo de autoridade, organização já montada para aproveitar a brecha, e um grupo que se reconhece capaz de agir. A etapa cobra o esquema no caso em que o movimento surgiu **e** no caso comparável em que não surgiu, que é o teste que a tese precisa passar; vem depois do transcrito oculto porque é ele que explica o que existia antes de haver movimento algum.\n",
+      "trilha": "trilha:politica/desinformacao-e-resistencia",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:politica/transcrito-oculto",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:politica/estrutura-de-oportunidade-politica",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:politica/por-que-se-adere",
       "titulo": "Por que se adere — caráter, massa e os dois níveis da explicação",
       "rev": 1,
@@ -3458,6 +3936,66 @@
         },
         {
           "competencia": "comp:politica/critica-de-explicacao-psicologica-da-politica",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:politica/ruptura-pela-via-legal",
+      "titulo": "Da república ao império — a mudança de forma de governo feita no rito",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 240,
+      "descricao": "O artigo de Fares Paulo e Lopes de Siqueira, que examina a passagem de uma república ficcional a império pela perspectiva do direito constitucional brasileiro e da forma de governo como cláusula pétrea. A etapa usa o caso de ficção pelo que ele tem de didático — o procedimento inteiro à vista, emergência, delegação, aclamação — e cobra o que o artigo não faz: aplicar o mesmo acompanhamento a um processo real conduzido pelas formas vigentes, dizendo em que ponto o conteúdo contradiz o limite que a ordem se deu. Também se cobra aqui a pergunta da trilha irmã: a obra é objeto ou ilustração.\n",
+      "trilha": "trilha:politica/desinformacao-e-resistencia",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:politica/fascismo-como-processo",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:politica/ruptura-institucional-por-via-legal",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:politica/transcrito-oculto",
+      "titulo": "O transcrito oculto — a conformidade em público e a recusa fora dele",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "descricao": "Scott contra a leitura da ausência de protesto como consentimento: o registro público é uma atuação que a situação exige, e a recusa existe num segundo registro que o poder não escuta — anonimato, boato, sabotagem miúda, ironia, deferência tão exagerada que insulta. A etapa é a contraparte direta da anterior: depois de descrever o dispositivo que disciplina, descrever o que as pessoas fazem dentro dele. E cobra as duas recusas: a de que há consentimento e a de que toda deferência esconde revolta.\n",
+      "trilha": "trilha:politica/desinformacao-e-resistencia",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:politica/vigilancia-e-disciplina",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:politica/transcrito-oculto",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:politica/vigiar-e-punir",
+      "titulo": "Vigiar e punir — do suplício ao olhar que dispensa a punição",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1080,
+      "descricao": "Foucault do suplício público à prisão, com o deslocamento que interessa à trilha: o poder que fica barato quando a visibilidade é desigual e quem é visto não sabe quando. A etapa trabalha a parte do panoptismo e da disciplina, e cobra a aplicação a um dispositivo real e banal — ponto eletrônico, software de produtividade, prova vigiada —, descrevendo que conduta ele induz em quem nunca foi punido. O uso do panóptico como metáfora decorativa para qualquer câmera é o que a etapa recusa.\n",
+      "trilha": "trilha:politica/desinformacao-e-resistencia",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:politica/vigilancia-e-disciplina",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -4926,6 +5464,69 @@
   ],
   "trilhas": [
     {
+      "id": "trilha:cinema/analise-filmica-de-uma-saga",
+      "titulo": "Análise fílmica de uma saga — o plano, o mito, o som e o efeito especial",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:cinema/analise-formal-do-filme",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/som-no-cinema",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/modo-melodramatico",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/estrutura-mitica-da-narrativa",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/efeito-especial-e-sublime",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/heranca-de-um-estilo-historico",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/cinema-como-industria-e-ideologia",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:cinema/filme-como-fonte-historica",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/industria-cultural-e-contestacao",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:cinema/leitura-critica-de-uma-saga",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:cinema/forma-e-estilo-do-filme",
+        "etapa:cinema/som-e-musica-no-filme",
+        "etapa:cinema/modo-melodramatico",
+        "etapa:cinema/monomito-e-seus-limites",
+        "etapa:cinema/efeito-especial-e-sublime",
+        "etapa:cinema/heranca-expressionista",
+        "etapa:cinema/arte-e-industria",
+        "etapa:cinema/filme-como-fonte-historica",
+        "etapa:cinema/contracultura-e-renovacao-da-industria",
+        "etapa:cinema/leituras-de-outra-disciplina"
+      ],
+      "etapas_referenciadas": [
+        "etapa:cinema/o-que-e-cinema"
+      ]
+    },
+    {
       "id": "trilha:cinema/estetizacao-da-politica",
       "titulo": "Estetização da política — da reprodutibilidade técnica ao comício filmado",
       "rev": 1,
@@ -4957,7 +5558,8 @@
         "etapa:cinema/ornamento-da-massa",
         "etapa:cinema/triunfo-da-vontade",
         "etapa:cinema/fascinante-fascismo",
-        "etapa:cinema/testemunho-do-arquiteto"
+        "etapa:cinema/testemunho-do-arquiteto",
+        "etapa:cinema/o-esteta-e-o-culto-da-beleza"
       ],
       "etapas_referenciadas": [
         "etapa:cinema/o-que-e-cinema"
@@ -5392,6 +5994,52 @@
       ]
     },
     {
+      "id": "trilha:politica/desinformacao-e-resistencia",
+      "titulo": "Desinformação e resistência — da prova audiovisual falsificada ao transcrito oculto",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:politica/controle-pela-linguagem-e-pelo-passado",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:politica/vigilancia-e-disciplina",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:politica/prova-audiovisual-e-deep-fake",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:politica/transcrito-oculto",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:politica/estrutura-de-oportunidade-politica",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:politica/fascismo-como-processo",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:politica/ruptura-institucional-por-via-legal",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:politica/linguagem-e-passado-sob-controle",
+        "etapa:politica/vigiar-e-punir",
+        "etapa:politica/anatomia-do-fascismo",
+        "etapa:politica/deep-fake-como-problema-publico",
+        "etapa:politica/transcrito-oculto",
+        "etapa:politica/oportunidade-politica-e-insurgencia",
+        "etapa:politica/ascensao-contada-de-perto",
+        "etapa:politica/ruptura-pela-via-legal"
+      ]
+    },
+    {
       "id": "trilha:politica/totalitarismo-e-fuga-da-liberdade",
       "titulo": "Totalitarismo — do domínio total ao medo de ser livre",
       "rev": 1,
@@ -5724,6 +6372,66 @@
       "verificado_em": "2026-11-05"
     },
     {
+      "id": "rec:cinema/bordwell-thompson-arte-do-cinema",
+      "titulo": "A arte do cinema: uma introdução (David Bordwell e Kristin Thompson; trad. Roberta Gregoli; Editora da Unicamp / Edusp, 2013)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/forma-e-estilo-do-filme",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 200.0,
+      "duracao_min": 1500,
+      "url": "https://www.estantevirtual.com.br/busca?q=a+arte+do+cinema+bordwell",
+      "disponivel": true,
+      "obra": "bordwell-thompson-arte-do-cinema",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:cinema/brooks-melodramatic-imagination",
+      "titulo": "The Melodramatic Imagination: Balzac, Henry James, Melodrama, and the Mode of Excess (Peter Brooks; Yale University Press, 1976; brochura 1995)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/modo-melodramatico",
+      "formato": "texto",
+      "idioma": "en",
+      "custo": 182.0,
+      "duracao_min": 780,
+      "url": "https://yalebooks.yale.edu/book/9780300065534/the-melodramatic-imagination/",
+      "disponivel": true,
+      "obra": "brooks-melodramatic-imagination",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:cinema/bukatman-artificial-infinite",
+      "titulo": "The Artificial Infinite: On Special Effects and the Sublime, cap. 4 de Matters of Gravity (Scott Bukatman; Duke University Press, 2003, a partir da p. 81)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/efeito-especial-e-sublime",
+      "formato": "texto",
+      "idioma": "en",
+      "custo": 121.0,
+      "duracao_min": 240,
+      "url": "https://www.dukeupress.edu/matters-of-gravity",
+      "disponivel": true,
+      "obra": "bukatman-matters-of-gravity",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:cinema/campbell-heroi-de-mil-faces",
+      "titulo": "O herói de mil faces (Joseph Campbell; trad. Adail Ubirajara Sobral; Cultrix — ou a edição revista e ampliada de 2024)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/monomito-e-seus-limites",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 63.0,
+      "duracao_min": 900,
+      "url": "https://www.estantevirtual.com.br/busca?q=o+heroi+de+mil+faces+campbell",
+      "disponivel": true,
+      "obra": "campbell-heroi-de-mil-faces",
+      "verificado_em": "2026-11-10"
+    },
+    {
       "id": "rec:cinema/capuzzo-aventura-do-sonho",
       "titulo": "Cinema: a aventura do sonho (Heitor Capuzzo, Companhia Editora Nacional, 1986 — Coleção Portas Abertas 12)",
       "rev": 1,
@@ -5754,6 +6462,36 @@
       "verificado_em": "2026-11-05"
     },
     {
+      "id": "rec:cinema/chartier-historia-cultural",
+      "titulo": "A história cultural: entre práticas e representações (Roger Chartier; trad. Maria Manuela Galhardo; Lisboa: Difusão Editorial, 1988 — Memória e Sociedade 1)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/filme-como-fonte-historica",
+      "formato": "texto",
+      "idioma": "pt-PT",
+      "custo": 300.0,
+      "duracao_min": 540,
+      "url": "https://www.estantevirtual.com.br/busca?q=a+historia+cultural+entre+praticas+e+representacoes+chartier",
+      "disponivel": true,
+      "obra": "chartier-a-historia-cultural",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:cinema/chion-audiovisao",
+      "titulo": "A audiovisão: som e imagem no cinema (Michel Chion; trad. Pedro Elói Duarte; Lisboa: Texto & Grafia, 3. ed. 2016)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/som-e-musica-no-filme",
+      "formato": "texto",
+      "idioma": "pt-PT",
+      "custo": 111.0,
+      "duracao_min": 420,
+      "url": "https://www.bertrand.pt/pesquisa/audiovisao",
+      "disponivel": true,
+      "obra": "chion-a-audiovisao",
+      "verificado_em": "2026-11-10"
+    },
+    {
       "id": "rec:cinema/costa-o-primeiro-cinema",
       "titulo": "O primeiro cinema: espetáculo, narração, domesticação (Flávia Cesarino Costa, Azougue, 2. ed. 2005)",
       "rev": 1,
@@ -5767,6 +6505,66 @@
       "disponivel": true,
       "obra": "costa-o-primeiro-cinema",
       "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:cinema/dannunzio-pleasure",
+      "titulo": "Pleasure (Gabriele D'Annunzio; trad. Lara Gochin Raffaelli; introd. Alexander Stille; Penguin Classics, 2013) — original Il piacere, 1889",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/o-esteta-e-o-culto-da-beleza",
+      "formato": "texto",
+      "idioma": "en",
+      "custo": 110.0,
+      "duracao_min": 900,
+      "url": "https://www.barnesandnoble.com/s/9780143106746",
+      "disponivel": true,
+      "obra": "dannunzio-pleasure",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:cinema/eisner-tela-demoniaca",
+      "titulo": "A tela demoníaca: as influências de Max Reinhardt e do expressionismo (Lotte H. Eisner; trad. Lúcia Nagib; Paz e Terra)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/heranca-expressionista",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 10.0,
+      "duracao_min": 600,
+      "url": "https://www.estantevirtual.com.br/busca?q=a+tela+demoniaca+eisner",
+      "disponivel": true,
+      "obra": "eisner-a-tela-demoniaca",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:cinema/ferro-cinema-e-historia",
+      "titulo": "Cinema e história (Marc Ferro; trad. Flávia Nascimento; Paz e Terra, 1992)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/filme-como-fonte-historica",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 60.0,
+      "duracao_min": 360,
+      "url": "https://www.estantevirtual.com.br/busca?q=cinema+e+historia+marc+ferro",
+      "disponivel": true,
+      "obra": "ferro-cinema-e-historia",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:cinema/gorbman-unheard-melodies",
+      "titulo": "Unheard Melodies: Narrative Film Music (Claudia Gorbman; Indiana University Press / BFI Publishing, 1987)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/som-e-musica-no-filme",
+      "formato": "texto",
+      "idioma": "en",
+      "custo": 798.0,
+      "duracao_min": 480,
+      "url": "https://biblio.co.uk/9780253204363",
+      "disponivel": true,
+      "obra": "gorbman-unheard-melodies",
+      "verificado_em": "2026-11-10"
     },
     {
       "id": "rec:cinema/hobsbawm-as-artes-transformadas",
@@ -5799,6 +6597,21 @@
       "verificado_em": "2026-11-05"
     },
     {
+      "id": "rec:cinema/irwin-star-wars-e-a-filosofia",
+      "titulo": "Star Wars e a filosofia (coord. William Irwin; Madras, 2005)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/leituras-de-outra-disciplina",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 20.0,
+      "duracao_min": 480,
+      "url": "https://www.estantevirtual.com.br/busca?q=star+wars+e+a+filosofia+irwin",
+      "disponivel": true,
+      "obra": "irwin-star-wars-e-a-filosofia",
+      "verificado_em": "2026-11-10"
+    },
+    {
       "id": "rec:cinema/kracauer-ornamento-da-massa",
       "titulo": "O ornamento da massa: ensaios (Siegfried Kracauer; trad. Carlos Eduardo Jordão Machado e Marlene Holzhausen; Cosac Naify, 2009 — col. Cinema, Teatro e Modernidade 12)",
       "rev": 1,
@@ -5812,6 +6625,51 @@
       "disponivel": true,
       "obra": "kracauer-ornamento-da-massa",
       "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:cinema/rosenfeld-cinema-arte-e-industria",
+      "titulo": "Cinema: arte e indústria (Anatol Rosenfeld; Perspectiva, 2002 — Coleção Debates 288)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/arte-e-industria",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 17.0,
+      "duracao_min": 480,
+      "url": "https://www.estantevirtual.com.br/busca?q=cinema+arte+e+industria+rosenfeld",
+      "disponivel": true,
+      "obra": "rosenfeld-cinema-arte-e-industria",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:cinema/roszak-contracultura",
+      "titulo": "A contracultura: reflexões sobre a sociedade tecnocrática e a oposição juvenil (Theodore Roszak; trad. Donaldson M. Garschagen; Vozes, 2. ed. 1972)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/contracultura-e-renovacao-da-industria",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 29.0,
+      "duracao_min": 780,
+      "url": "https://www.estantevirtual.com.br/busca?q=a+contracultura+roszak",
+      "disponivel": true,
+      "obra": "roszak-a-contracultura",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:cinema/sklar-movie-made-america",
+      "titulo": "Movie-Made America: A Cultural History of American Movies (Robert Sklar; Vintage, ed. revista e atualizada, 1994)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/arte-e-industria",
+      "formato": "texto",
+      "idioma": "en",
+      "custo": 127.0,
+      "duracao_min": 1200,
+      "url": "https://www.penguinrandomhouse.com/books/168188/movie-made-america-by-robert-sklar/9780679755494",
+      "disponivel": true,
+      "obra": "sklar-movie-made-america",
+      "verificado_em": "2026-11-10"
     },
     {
       "id": "rec:cinema/sontag-fascinante-fascismo",
@@ -5856,6 +6714,20 @@
       "disponivel": true,
       "obra": "speer-anos-de-gloria",
       "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:cinema/thorn-episodio-iii",
+      "titulo": "Star Wars Episode III: Revenge of the Sith — George Lucas's Greatest Artistic Statement? (Mike Thorn, Bright Lights Film Journal, 28 ago. 2016)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:cinema/leituras-de-outra-disciplina",
+      "formato": "texto",
+      "idioma": "en",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://brightlightsfilm.com/star-wars-episode-iii-revenge-sith-george-lucass-greatest-artistic-statement/",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
     },
     {
       "id": "rec:cinema/triunfo-da-vontade",
@@ -8888,6 +9760,63 @@
       "verificado_em": "2026-11-05"
     },
     {
+      "id": "rec:politica/chesney-citron-deep-fakes",
+      "titulo": "Deep Fakes: A Looming Challenge for Privacy, Democracy, and National Security (Robert Chesney e Danielle Keats Citron; 107 California Law Review 1753, 2019) — versão aberta em SSRN",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:politica/deep-fake-como-problema-publico",
+      "formato": "texto",
+      "idioma": "en",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3213954",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:politica/fares-paulo-republica-ao-imperio",
+      "titulo": "Da república ao império: uma análise sobre a saga Star Wars, sob a perspectiva do direito constitucional brasileiro e a forma de governo como cláusula pétrea (Rodolfo Fares Paulo e Agnéia Luciana Lopes de Siqueira; Cult de Cultura, v. 2, n. 1, 2022)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:politica/ruptura-pela-via-legal",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://revistas.est.edu.br/cult/article/view/1583",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:politica/fornasier-deep-fakes-democracia",
+      "titulo": "Deep fakes como desafio à democracia ante a manipulação da opinião pública na era da pós-verdade (Mateus de Oliveira Fornasier, Natalia Ues Cury e Glauber Holanda; Juris Poiesis, v. 26, n. 39, 2023)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:politica/deep-fake-como-problema-publico",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 150,
+      "url": "https://mestradoedoutoradoestacio.periodicoscientificos.com.br/index.php/jurispoiesis/article/view/9633",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:politica/foucault-vigiar-e-punir",
+      "titulo": "Vigiar e punir: nascimento da prisão (Michel Foucault; trad. Raquel Ramalhete; Petrópolis: Vozes)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:politica/vigiar-e-punir",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 89.0,
+      "duracao_min": 1080,
+      "url": "https://www.estantevirtual.com.br/busca?q=vigiar+e+punir+foucault+vozes",
+      "disponivel": true,
+      "obra": "foucault-vigiar-e-punir",
+      "verificado_em": "2026-11-10"
+    },
+    {
       "id": "rec:politica/fromm-medo-a-liberdade",
       "titulo": "O medo à liberdade (Erich Fromm; trad. Octávio Alves Velho; Rio de Janeiro: Zahar) — o livro menos o capítulo sobre o nazismo",
       "rev": 1,
@@ -8916,6 +9845,95 @@
       "disponivel": true,
       "obra": "fromm-o-medo-a-liberdade",
       "verificado_em": "2026-11-05"
+    },
+    {
+      "id": "rec:politica/goodwin-no-other-way-out",
+      "titulo": "No Other Way Out: States and Revolutionary Movements, 1945-1991 (Jeff Goodwin; Cambridge University Press, 2001)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:politica/oportunidade-politica-e-insurgencia",
+      "formato": "texto",
+      "idioma": "en",
+      "custo": 232.0,
+      "duracao_min": 1200,
+      "url": "https://www.cambridge.org/core/books/no-other-way-out/4FE3A4E9C2E57BC2B4C1D5D1D0C3C4B0",
+      "disponivel": true,
+      "obra": "goodwin-no-other-way-out",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:politica/heiden-der-fuehrer",
+      "titulo": "Der Fuehrer: Hitler's Rise to Power (Konrad Heiden; trad. Ralph Manheim; Boston: Houghton Mifflin, 1944) — digitalização aberta no Internet Archive",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:politica/ascensao-contada-de-perto",
+      "formato": "texto",
+      "idioma": "en",
+      "custo": 0.0,
+      "duracao_min": 1800,
+      "url": "https://archive.org/details/derfuehrerhitlersrisetopower",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:politica/mcadam-political-process",
+      "titulo": "Political Process and the Development of Black Insurgency, 1930-1970 (Doug McAdam; University of Chicago Press, 2. ed. 1999)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:politica/oportunidade-politica-e-insurgencia",
+      "formato": "texto",
+      "idioma": "en",
+      "custo": 182.0,
+      "duracao_min": 1080,
+      "url": "https://press.uchicago.edu/ucp/books/book/chicago/P/bo5939918.html",
+      "disponivel": true,
+      "obra": "mcadam-political-process",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:politica/orwell-1984-principis",
+      "titulo": "1984 (George Orwell; trad. Karla Lima; Jandira, SP: Principis, 2021)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:politica/linguagem-e-passado-sob-controle",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 31.0,
+      "duracao_min": 600,
+      "url": "https://www.estantevirtual.com.br/busca?q=1984+orwell+principis",
+      "disponivel": true,
+      "obra": "orwell-1984-principis",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:politica/paxton-anatomia-do-fascismo",
+      "titulo": "A anatomia do fascismo (Robert O. Paxton; trad. Patrícia Zimbres e Paula Zimbres; Paz e Terra, 2007)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:politica/anatomia-do-fascismo",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 77.0,
+      "duracao_min": 780,
+      "url": "https://www.estantevirtual.com.br/busca?q=a+anatomia+do+fascismo+paxton",
+      "disponivel": true,
+      "obra": "paxton-anatomia-do-fascismo",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:politica/scott-domination-arts-of-resistance",
+      "titulo": "Domination and the Arts of Resistance: Hidden Transcripts (James C. Scott; Yale University Press, 1990)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:politica/transcrito-oculto",
+      "formato": "texto",
+      "idioma": "en",
+      "custo": 128.0,
+      "duracao_min": 900,
+      "url": "https://yalebooks.yale.edu/book/9780300056693/domination-and-the-arts-of-resistance/",
+      "disponivel": true,
+      "obra": "scott-domination-and-the-arts-of-resistance",
+      "verificado_em": "2026-11-10"
     },
     {
       "id": "rec:programacao/automate-boring-stuff",

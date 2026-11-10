@@ -203,3 +203,229 @@ competencias:
       dizer para que o texto é boa evidência e sobre o que ele é parte interessada; e,
       para uma afirmação determinada dele, nomear que documento externo a confirmaria
       ou a refutaria.
+
+# -------------------------------------------------------------------------
+# trilha:cinema/analise-filmica-de-uma-saga
+#
+# Nove competências acrescentadas em 2026-11-10, pela bibliografia de monografia que o
+# estudante trouxe colada. Valem o mesmo critério das dez primeiras: a `verificacao` se
+# cobra **fora** do corpus da trilha — qualquer filme de ficção, qualquer narrativa de
+# viagem do herói, qualquer estilo histórico, qualquer leitura de obra popular feita por
+# outra disciplina. A saga que originou a lista é só onde esta trilha as exercitaria, e é
+# o que permite que o próximo título da área entre como etapa sem reescrever competência.
+#
+# `comp:cinema/filme-como-fonte-historica` e `comp:cinema/industria-cultural-e-contestacao`
+# são de ofício de historiador, não de leitura de filme, e estão aqui pelo mesmo motivo
+# que `comp:cinema/leitura-de-memoria-de-implicado`: `area` é organizacional, não
+# semântica (docs/catalogo.md §3). O acoplamento real está em `requires`/`teaches`.
+#
+# **Por que `comp:cinema/analise-formal-do-filme` não é `comp:cinema/leitura-do-filme`
+# com nível maior:** a primeira é o filme inteiro como sistema — forma narrativa e os
+# quatro sistemas de estilo articulados —, a segunda é a sequência decupada. Quem decupa
+# bem uma sequência não descreve por isso a forma do filme todo; e a verificação de uma
+# não cobre a da outra. A etapa de Bordwell e Thompson exige a segunda e desenvolve as
+# duas, que é o que diz como elas se encaixam.
+# -------------------------------------------------------------------------
+
+  - id: comp:cinema/analise-formal-do-filme
+    titulo: Análise formal de um filme inteiro — forma narrativa e sistemas de estilo
+    rev: 1
+    status: ativo
+    descricao: >
+      Descrever um filme inteiro como sistema, e não como sucessão de momentos marcantes:
+      que princípio de forma organiza o todo, como a narração distribui o que o
+      espectador sabe e quando, e como mise-en-scène, fotografia, montagem e som
+      colaboram ou brigam entre si. O erro que a competência exclui é o inventário —
+      listar recursos técnicos corretamente nomeados sem dizer o que cada um faz naquele
+      filme.
+    verificacao: >
+      Diante de um longa-metragem de ficção que não se viu antes: descrever o princípio
+      de forma que organiza o todo e localizar os pontos em que ele se firma e em que se
+      rompe; dizer, para dois momentos de informação decisiva, o que a narração dá ao
+      espectador que os personagens não têm (ou o contrário) e que efeito isso produz;
+      para uma cena escolhida, mostrar como mise-en-scène, fotografia, montagem e som
+      concorrem para o mesmo efeito, nomeando um ponto em que um deles o contraria; e
+      dizer que parte da análise mudaria se o filme tivesse outro final.
+
+  - id: comp:cinema/som-no-cinema
+    titulo: Escuta de um filme — som como portador de sentido e música narrativa
+    rev: 1
+    status: ativo
+    descricao: >
+      O som do cinema é o que menos se percebe e mais se obedece: ele diz onde a cena
+      está, quanto tempo ela dura, o que a imagem não mostra e o que o espectador deve
+      sentir sem perceber que lhe disseram. A competência é escutar o filme separando o
+      que vem da imagem do que o som acrescenta — e resistir às duas saídas fáceis,
+      tratar a trilha como ilustração do que já se via e tratar toda música como
+      manipulação.
+    verificacao: >
+      Diante de uma sequência de filme com trilha sonora, assistida com som e depois sem
+      som: dizer o que o som acrescenta que a imagem não sustenta sozinha — espaço,
+      duração, fora de campo, atribuição de ponto de escuta — e o que ele subtrai de
+      ambiguidade; classificar cada elemento sonoro como diegético ou não, e apontar um
+      em que a classificação é discutível, dizendo por quê; nomear a função que a música
+      cumpre ali (unificar o corte, datar a cena, antecipar o desfecho, marcar um
+      personagem) e dizer em que a cena mudaria com outra música; e distinguir essa
+      análise da afirmação genérica de que a trilha manipula o espectador.
+
+  - id: comp:cinema/modo-melodramatico
+    titulo: Reconhecer o modo melodramático numa narrativa
+    rev: 1
+    status: ativo
+    descricao: >
+      "Melodramático" é usado como insulto — exagerado, piegas — e assim não distingue
+      nada. Como modo, ele tem procedimentos nomeáveis: moral exteriorizada em gesto e
+      em quadro, virtude que precisa ser reconhecida publicamente, mudez expressiva,
+      excesso como forma de dizer o que o mundo dessacralizado já não enuncia. A
+      competência é operá-lo como descrição, com o custo que ele cobra da narrativa.
+    verificacao: >
+      Dada uma narrativa (filme, romance, série, peça) que não a estudada: decidir se ela
+      opera no modo melodramático, percorrendo os procedimentos que o definem e dizendo
+      quais estão presentes, com a passagem ou a cena que sustenta cada um; nomear o que
+      a narrativa ganha em legibilidade moral e o que perde em ambiguidade por causa
+      deles; distinguir o modo do juízo de valor, exibindo uma narrativa melodramática
+      que se considere boa e uma não melodramática que se considere ruim; e apontar uma
+      cena em que o excesso faz trabalho que o diálogo não faria.
+
+  - id: comp:cinema/estrutura-mitica-da-narrativa
+    titulo: Auditar a leitura mítica de uma narrativa
+    rev: 1
+    status: ativo
+    descricao: >
+      O monomito explica tanto que quase não se refuta: com etapas suficientemente
+      largas, toda história vira jornada do herói. A competência não é aplicar o
+      esquema — é aplicá-lo e depois cobrar-lhe a conta: que episódios ele ilumina, que
+      episódios ele força, e que diferença entre duas narrativas ele apaga. Sem esse
+      segundo movimento, a leitura mítica é descrição que não exclui nada.
+    verificacao: >
+      Dada uma narrativa que não a estudada: mapear nela as etapas do percurso do herói,
+      citando o episódio que preenche cada uma e marcando as que ficam vazias ou
+      preenchidas à força; apontar dois traços decisivos da narrativa que o esquema não
+      capta e dizer que leitura os captaria; dizer que narrativa do mesmo gênero o
+      esquema **não** descreveria, e por quê; e separar, na própria leitura, o que é
+      estrutura encontrada no texto do que é molde imposto a ele.
+
+  - id: comp:cinema/efeito-especial-e-sublime
+    titulo: Ler o efeito especial como atração e como experiência do sublime
+    rev: 1
+    status: ativo
+    descricao: >
+      O efeito especial costuma ser julgado por duas réguas igualmente cegas: se
+      "convence" — a régua do realismo — ou se "envelheceu" — a régua da técnica. A
+      competência é a terceira leitura: o efeito como momento em que a narrativa para e
+      se oferece à contemplação, e a escala desmedida como experiência de sublime
+      fabricado, com o lugar que ela reserva ao espectador.
+    verificacao: >
+      Dada uma sequência de efeito visual de um filme, com sua data e a técnica
+      empregada: dizer onde a narrativa se suspende e o que é oferecido à contemplação em
+      seu lugar; descrever como a escala e a duração do plano situam o corpo do
+      espectador diante do que se mostra; distinguir o juízo sobre o efeito do juízo
+      sobre o realismo dele, exibindo um efeito tecnicamente datado que continua
+      funcionando e um tecnicamente impecável que não funciona; e relacionar o efeito à
+      condição industrial que o produziu (custo, prazo, publicidade do próprio efeito).
+
+  - id: comp:cinema/heranca-de-um-estilo-historico
+    titulo: Rastrear a herança de um estilo histórico num filme posterior
+    rev: 1
+    status: ativo
+    descricao: >
+      Dizer que um filme "é expressionista" porque tem sombra dura é o tipo de filiação
+      que não custa nada e não prova nada. A competência é tratar a herança como
+      afirmação histórica sujeita a prova: que traços de forma migraram, por que via
+      material eles migraram — pessoas, estúdios, manuais, cópias em circulação — e que
+      semelhanças são convergência independente.
+    verificacao: >
+      Dados um estilo histórico datado e um filme posterior que não o estudado: nomear
+      três traços de forma do estilo e dizer, para cada um, se o filme o apresenta, com a
+      cena que o mostra; propor a via material da transmissão (emigração de técnicos,
+      escola, distribuição, manual, remake) e dizer que documento a confirmaria;
+      identificar uma semelhança que se explica melhor por convergência independente ou
+      por um terceiro intermediário; e dizer o que a filiação explica no filme que a
+      leitura sem ela não explicaria.
+
+  - id: comp:cinema/filme-como-fonte-historica
+    titulo: Usar um filme como fonte para a história de seu tempo
+    rev: 1
+    status: ativo
+    descricao: >
+      Um filme de época é fonte ruim sobre a época que representa e fonte boa sobre a
+      época que o fez — e isso vale também para o filme que não fala de história
+      nenhuma. A competência é extrair dele o que ele testemunha sem querer (o que podia
+      ser dito, mostrado, financiado e exibido naquele ano) e distinguir isso do que ele
+      afirma de propósito, evitando a leitura do filme como espelho da sociedade.
+    verificacao: >
+      Dado um filme de ficção com data e país de produção, e uma pergunta histórica sobre
+      aquele período: dizer sobre o que o filme é boa fonte e sobre o que não é, com a
+      razão em cada caso; extrair dele duas evidências involuntárias — o que era
+      representável, o que era censurável, que público se pressupõe, que consenso se
+      dispensa de explicar — e dizer que outra fonte confirmaria cada uma; separar a
+      representação que o filme faz do período representado do testemunho que ele dá do
+      período em que foi feito; e refutar, com um fato datado, a leitura do filme como
+      reflexo direto da mentalidade de seu público.
+
+  - id: comp:cinema/industria-cultural-e-contestacao
+    titulo: Explicar como uma indústria cultural absorve a contestação de sua época
+    rev: 1
+    status: ativo
+    descricao: >
+      Uma indústria cultural que se renova com a linguagem de quem a contesta não está
+      nem capitulando nem sendo generosa: está resolvendo um problema de público e de
+      custo. A competência é descrever esse movimento pelos dois lados — o que a
+      contestação consegue inscrever na obra e o que a absorção lhe retira — sem a
+      narrativa heroica da geração que mudou tudo nem a tese de que recuperação comercial
+      anula qualquer conteúdo.
+    verificacao: >
+      Dado um período de renovação de uma indústria cultural que não o estudado — editora,
+      gravadora, estúdio, televisão, plataforma — e um movimento de contestação
+      contemporâneo dele: nomear as condições econômicas e demográficas que abriram a
+      indústria àquela linguagem; apontar duas coisas que a contestação inscreveu nas
+      obras e duas que a absorção neutralizou, com a obra que mostra cada uma; dizer o
+      que aconteceu com os autores do movimento depois, e com os que ficaram fora; e
+      refutar, com um fato datado, tanto o relato da ruptura total quanto o da pura
+      recuperação comercial.
+
+  - id: comp:cinema/leitura-critica-de-uma-saga
+    titulo: Avaliar leituras de uma obra popular feitas por outras disciplinas
+    rev: 1
+    status: ativo
+    descricao: >
+      Filosofia, direito, teologia e ciência política leem obra popular, e o gênero tem
+      um vício próprio: a obra entra como ilustração de uma tese que o autor já tinha, e
+      qualquer episódio serve porque nada do texto pode contrariá-la. A competência é
+      julgar a leitura pelo que ela arrisca — que detalhe da obra a sustenta, que detalhe
+      a complicaria, e o que ela afirma sobre a obra que não se poderia afirmar sem ela.
+    verificacao: >
+      Dado um texto acadêmico ou crítico que lê uma obra popular à luz de outra
+      disciplina: reconstituir a tese e dizer que evidência da obra ela cita; apontar um
+      episódio ou detalhe da obra que a complica, e dizer se o texto o enfrenta ou o
+      ignora; decidir se a obra é objeto ou ilustração — se a tese sobreviveria intacta
+      com outra obra no lugar — e sustentar a decisão; e dizer uma coisa que o texto
+      ensina sobre a obra e uma que ele ensina apenas sobre a disciplina de quem o
+      escreveu.
+
+# -------------------------------------------------------------------------
+# etapa:cinema/o-esteta-e-o-culto-da-beleza — etapa opcional acrescentada em
+# 2026-11-10 a trilha:cinema/estetizacao-da-politica (ver o arquivo daquela trilha).
+# A competência está aqui, e não entre as nove acima, porque é dela que se trata: o
+# esteticismo como programa de vida, anterior ao regime que o herdaria.
+# -------------------------------------------------------------------------
+
+  - id: comp:cinema/esteticismo-como-programa
+    titulo: Ler o esteticismo como programa — a vida tratada como obra de arte
+    rev: 1
+    status: ativo
+    descricao: >
+      Antes de ser traço de regime, a subordinação de tudo à forma foi programa de vida
+      privada: a existência conduzida como composição, o gosto como critério último, a
+      indiferença moral apresentada não como falha mas como refinamento. A competência é
+      descrever esse programa num texto que o professa e dizer o que ele faz com o outro
+      — e separar isso da acusação retrospectiva, que lê todo esteta como fascista em
+      potencial.
+    verificacao: >
+      Dado um texto literário ou um documento que professe o culto da forma e do gosto:
+      reconstituir o programa — que critérios substituem os morais, que prazeres contam,
+      que esforço a composição da própria vida exige — citando as passagens; dizer o que
+      o programa reserva às outras pessoas do texto, com a cena que o mostra; apontar
+      onde o próprio texto cobra o preço do programa, se cobra; e dizer o que o
+      esteticismo tem em comum com a política estetizada e o que o separa dela, recusando
+      a leitura do primeiro como anúncio necessário da segunda.

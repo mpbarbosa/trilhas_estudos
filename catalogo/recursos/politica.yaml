@@ -140,3 +140,250 @@ recursos:
     url: https://www.estantevirtual.com.br/busca?q=origens+do+totalitarismo+hannah+arendt
     disponivel: true
     verificado_em: 2026-11-05
+
+# -------------------------------------------------------------------------
+# trilha:politica/desinformacao-e-resistencia
+#
+#   Os dez itens vêm da bibliografia de monografia que o estudante colou em 2026-11-10.
+#   Como na trilha anterior da área, a `url` de livro fora de catálogo editorial é a
+#   busca do Estante Virtual, e o `custo` é a **oferta mais baixa observada na busca em
+#   2026-11-10**, usado incluído — número que envelhece mais rápido que o link.
+#
+#   **Quatro dos dez são gratuitos**, e é isso que torna a trilha percorrível sem
+#   comprar nada em três das oito etapas: os dois artigos sobre deep fake, o artigo de
+#   direito constitucional e o Heiden digitalizado no Internet Archive.
+#
+#   **Os três preços em dólar** (Scott, McAdam, Goodwin) foram convertidos pela cotação
+#   do Banco Central Europeu de **2026-11-09**, R$ 5,5167/US$, via frankfurter.dev, e
+#   **não incluem frete internacional nem imposto de importação**, que para livro podem
+#   dobrar o valor.
+#
+#   obra: orwell-1984-principis — Principis (Jandira, SP), tradução de Karla Lima, como
+#     o estudante escreveu. Em catálogo editorial; a busca devolveu um exemplar novo de
+#     2023 a R$ 31,41, que é o `custo`. **Não se conferiu o preço na própria editora nem
+#     no varejo grande**, e as edições de bolso da Principis costumam sair mais baratas
+#     que em sebo — o número aqui é teto, não piso.
+#
+#   obra: foucault-vigiar-e-punir — Vozes, tradução de Raquel Ramalhete, como o
+#     estudante escreveu (ele citou a 20. ed., 1999). Em catálogo; a busca devolveu
+#     **uma** oferta, nova, a R$ 89,10, que é o `custo`. A etapa não pede o livro todo —
+#     ver a duração do recurso.
+#
+#   obra: paxton-anatomia-do-fascismo — Paz e Terra, tradução de Patrícia e Paula
+#     Zimbres, como o estudante escreveu. Em catálogo: 13 exemplares novos e 5 usados a
+#     partir de R$ 76,92, que é o `custo`. A busca mostra duas fichas — uma com título
+#     "A anatomia do Fascismo", datada 2007, a partir de R$ 179,00, e outra "Anatomia do
+#     fascismo", sem data, que é a barata. **Não se confirmou se são edições diferentes
+#     ou duas fichas do mesmo livro**; o `custo` é o da oferta mais baixa.
+#
+#   obra: scott-domination-and-the-arts-of-resistance — Yale, 1990; **a edição em
+#     catálogo é a brochura revista, ISBN 978-0-300-05669-3**, e as fontes divergem na
+#     paginação (251 p. na de 1990 e numa listagem da Blackwell's; 269 p. na brochura,
+#     segundo o Goodreads). O `custo` é a conversão de US$ 23,16, o preço da Blackwell's
+#     em 2026-11-10; a resenha da *American Political Science Review* dava US$ 29,95 em
+#     1990, e um varejista australiano lista AU$ 34,95 hoje. Sem tradução brasileira
+#     conhecida.
+#
+#   obra: mcadam-political-process — **a edição em catálogo é a 2ª, de 1999**, da
+#     University of Chicago Press, 346 p., ISBN 978-0-226-55553-9, com o preço de tabela
+#     de US$ 33,00 que dois varejistas repetem — e é essa a conversão do `custo`. O
+#     estudante citou a 1ª, de 1982. **Armadilha de ISBN:** uma livraria lista
+#     US$ 21,00, mas sob o ISBN 978-0-226-55552-2, que é outra tiragem; não é o preço
+#     desta edição. Sem tradução brasileira conhecida.
+#
+#   obra: goodwin-no-other-way-out — Cambridge University Press, brochura de junho de
+#     2001, ISBN 978-0-521-62948-5, col. Cambridge Studies in Comparative Politics. A
+#     paginação divergiu entre as fontes (428 e 407 p. na brochura; 416 na capa dura). O
+#     `custo` é a conversão do preço de tabela de US$ 42,00 que vários varejistas
+#     repetem — mas **há usado muito mais barato** (US$ 7,29 na ThriftBooks em
+#     2026-11-10), e para quem aceita usado o número aqui é cinco vezes o necessário.
+#     Por isso o McAdam é a primeira via da etapa e este é a segunda.
+#
+#   rec:politica/chesney-citron-deep-fakes — publicado em 107 *California Law Review*
+#     1753 (out. 2019), como o estudante escreveu. **Não se achou PDF aberto no site do
+#     periódico**; o que se confirmou foi a versão em SSRN, 68 p., primeiro depósito em
+#     21/07/2018 e última revisão em 17/12/2019 — e é essa a `url`. Artigo avulso: não
+#     declara `obra`.
+#
+#   rec:politica/fornasier-deep-fakes-democracia — **o ano está errado na referência do
+#     estudante.** Ele deu 2024; a página do periódico dá **v. 26, n. 39 (2023)**, com
+#     DOI https://doi.org/10.5935/26.39.2023.9633. Autores e título conferem — Mateus de
+#     Oliveira Fornasier, Natalia Ues Cury e Glauber Holanda, todos da UNIJUÍ. Acesso
+#     aberto. Artigo avulso: não declara `obra`.
+#
+#   rec:politica/fares-paulo-republica-ao-imperio — **o ano também está errado.** Ele
+#     deu 2023; a página do periódico dá **v. 2, n. 1 (2022)**, no dossiê "Arte
+#     sequencial, cultura pop e reflexões contemporâneas" da *Cult de Cultura*, revista
+#     da Faculdades EST (São Leopoldo, que é a cidade que ele escreveu). Autores da
+#     Faculdade FASIPE. O artigo declara viés "exclusivamente pedagógico", o que é
+#     exatamente o que a etapa cobra que se julgue. Acesso aberto; não declara `obra`.
+#
+#   rec:politica/heiden-der-fuehrer — Houghton Mifflin (Boston, 1944), tradução de Ralph
+#     Manheim, como o estudante escreveu; também saiu pela Gollancz em Londres (1944 e
+#     1945) e pela Beacon Press em 1969, e um registro dá 788 p. **Está digitalizado e
+#     aberto no Internet Archive**, no item `derfuehrerhitlersrisetopower`, com PDF
+#     (~92 MB) e EPUB derivado — por isso `custo: 0`. **Atenção:** a busca do Archive
+#     devolve dezenove itens com este título, e a maioria são cópias de **empréstimo
+#     controlado** (identificadores no padrão `derfuehrerhitler0000konr_*`), que exigem
+#     conta e fila de espera. A `url` aqui é a do item aberto; se ele sair do ar, as
+#     outras continuam servindo, com empréstimo. Não declara `obra`: é digitalização
+#     aberta, não exemplar que se compre.
+# -------------------------------------------------------------------------
+
+  # --- etapa:politica/linguagem-e-passado-sob-controle --------------------
+  # O romance inteiro, incluindo o apêndice sobre os princípios da novilíngua, que é
+  # onde o livro expõe o próprio dispositivo e é o que a etapa cobra de fato.
+  - id: rec:politica/orwell-1984-principis
+    etapa: etapa:politica/linguagem-e-passado-sob-controle
+    titulo: "1984 (George Orwell; trad. Karla Lima; Jandira, SP: Principis, 2021)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 31
+    obra: orwell-1984-principis
+    duracao_min: 600
+    url: https://www.estantevirtual.com.br/busca?q=1984+orwell+principis
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:politica/vigiar-e-punir --------------------------------------
+  # A duração é de ler o livro com peso na terceira e na quarta partes — a disciplina e o
+  # panoptismo —, que é o corte da etapa, e não a de varrer as quatro.
+  - id: rec:politica/foucault-vigiar-e-punir
+    etapa: etapa:politica/vigiar-e-punir
+    titulo: "Vigiar e punir: nascimento da prisão (Michel Foucault; trad. Raquel Ramalhete; Petrópolis: Vozes)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 89
+    obra: foucault-vigiar-e-punir
+    duracao_min: 1080
+    url: https://www.estantevirtual.com.br/busca?q=vigiar+e+punir+foucault+vozes
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:politica/anatomia-do-fascismo --------------------------------
+  - id: rec:politica/paxton-anatomia-do-fascismo
+    etapa: etapa:politica/anatomia-do-fascismo
+    titulo: "A anatomia do fascismo (Robert O. Paxton; trad. Patrícia Zimbres e Paula Zimbres; Paz e Terra, 2007)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 77
+    obra: paxton-anatomia-do-fascismo
+    duracao_min: 780
+    url: https://www.estantevirtual.com.br/busca?q=a+anatomia+do+fascismo+paxton
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:politica/deep-fake-como-problema-publico ---------------------
+  # 68 p. de artigo jurídico. A duração é de leitura com anotação sobre um caso real,
+  # que é o que a etapa cobra. Artigo avulso: não declara `obra`.
+  - id: rec:politica/chesney-citron-deep-fakes
+    etapa: etapa:politica/deep-fake-como-problema-publico
+    titulo: "Deep Fakes: A Looming Challenge for Privacy, Democracy, and National Security (Robert Chesney e Danielle Keats Citron; 107 California Law Review 1753, 2019) — versão aberta em SSRN"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en
+    custo: 0
+    duracao_min: 300
+    url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3213954
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # A via em português, e a que traz o direito brasileiro e a eleição. Acesso aberto.
+  - id: rec:politica/fornasier-deep-fakes-democracia
+    etapa: etapa:politica/deep-fake-como-problema-publico
+    titulo: "Deep fakes como desafio à democracia ante a manipulação da opinião pública na era da pós-verdade (Mateus de Oliveira Fornasier, Natalia Ues Cury e Glauber Holanda; Juris Poiesis, v. 26, n. 39, 2023)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 150
+    url: https://mestradoedoutoradoestacio.periodicoscientificos.com.br/index.php/jurispoiesis/article/view/9633
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:politica/transcrito-oculto -----------------------------------
+  - id: rec:politica/scott-domination-arts-of-resistance
+    etapa: etapa:politica/transcrito-oculto
+    titulo: "Domination and the Arts of Resistance: Hidden Transcripts (James C. Scott; Yale University Press, 1990)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en
+    custo: 128
+    obra: scott-domination-and-the-arts-of-resistance
+    duracao_min: 900
+    url: https://yalebooks.yale.edu/book/9780300056693/domination-and-the-arts-of-resistance/
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:politica/oportunidade-politica-e-insurgencia -----------------
+  # 346 p. na 2ª ed., com o posfácio que revisa o modelo vinte e cinco anos depois — que
+  # é parte do que a etapa cobra, porque é onde o próprio autor lhe acha os limites.
+  - id: rec:politica/mcadam-political-process
+    etapa: etapa:politica/oportunidade-politica-e-insurgencia
+    titulo: "Political Process and the Development of Black Insurgency, 1930-1970 (Doug McAdam; University of Chicago Press, 2. ed. 1999)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en
+    custo: 182
+    obra: mcadam-political-process
+    duracao_min: 1080
+    url: https://press.uchicago.edu/ucp/books/book/chicago/P/bo5939918.html
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # A segunda via, e a comparativa: o caso em que o movimento não surgiu é o que ela faz
+  # melhor, e é o teste que a etapa cobra. Ver na nota acima o usado muito mais barato.
+  - id: rec:politica/goodwin-no-other-way-out
+    etapa: etapa:politica/oportunidade-politica-e-insurgencia
+    titulo: "No Other Way Out: States and Revolutionary Movements, 1945-1991 (Jeff Goodwin; Cambridge University Press, 2001)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en
+    custo: 232
+    obra: goodwin-no-other-way-out
+    duracao_min: 1200
+    url: https://www.cambridge.org/core/books/no-other-way-out/4FE3A4E9C2E57BC2B4C1D5D1D0C3C4B0
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:politica/ascensao-contada-de-perto ---------------------------
+  # 788 p. A duração é de leitura das partes da ascensão com anotação contra as etapas de
+  # Paxton, que é o que a etapa cobra, e não de uma passada pelo volume inteiro.
+  - id: rec:politica/heiden-der-fuehrer
+    etapa: etapa:politica/ascensao-contada-de-perto
+    titulo: "Der Fuehrer: Hitler's Rise to Power (Konrad Heiden; trad. Ralph Manheim; Boston: Houghton Mifflin, 1944) — digitalização aberta no Internet Archive"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en
+    custo: 0
+    duracao_min: 1800
+    url: https://archive.org/details/derfuehrerhitlersrisetopower
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:politica/ruptura-pela-via-legal ------------------------------
+  # 14 p. de artigo. Acesso aberto; não declara `obra`.
+  - id: rec:politica/fares-paulo-republica-ao-imperio
+    etapa: etapa:politica/ruptura-pela-via-legal
+    titulo: "Da república ao império: uma análise sobre a saga Star Wars, sob a perspectiva do direito constitucional brasileiro e a forma de governo como cláusula pétrea (Rodolfo Fares Paulo e Agnéia Luciana Lopes de Siqueira; Cult de Cultura, v. 2, n. 1, 2022)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 90
+    url: https://revistas.est.edu.br/cult/article/view/1583
+    disponivel: true
+    verificado_em: 2026-11-10
