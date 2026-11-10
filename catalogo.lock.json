@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 63,
-  "gerado_em": "2026-11-10T11:13:42+00:00",
-  "hash": "sha256:3cf873ee22e1aef7b009fe1b824398353407c63299ee8e76d443cd01f34f9214",
+  "catalogo_versao": 64,
+  "gerado_em": "2026-11-10T12:00:21+00:00",
+  "hash": "sha256:39a3cfb8a881152c3d028bef684e8d15bf6a78c0ac86ccb10519a000d21a98c6",
   "competencias": [
     {
       "id": "comp:cinema/analise-formal-do-filme",
@@ -6598,7 +6598,7 @@
     },
     {
       "id": "rec:cinema/irwin-star-wars-e-a-filosofia",
-      "titulo": "Star Wars e a filosofia (coord. William Irwin; Madras, 2005)",
+      "titulo": "Star Wars e a filosofia (coord. William Irwin; São Paulo: Madras, 2011)",
       "rev": 1,
       "status": "ativo",
       "etapa": "etapa:cinema/leituras-de-outra-disciplina",
@@ -9775,7 +9775,7 @@
     },
     {
       "id": "rec:politica/fares-paulo-republica-ao-imperio",
-      "titulo": "Da república ao império: uma análise sobre a saga Star Wars, sob a perspectiva do direito constitucional brasileiro e a forma de governo como cláusula pétrea (Rodolfo Fares Paulo e Agnéia Luciana Lopes de Siqueira; Cult de Cultura, v. 2, n. 1, 2022)",
+      "titulo": "Da república ao império: uma análise sobre a saga Star Wars, sob a perspectiva do direito constitucional brasileiro e a forma de governo como cláusula pétrea (Rodolfo Fares Paulo e Agnéia Luciana Lopes de Siqueira; Cult de Cultura, São Leopoldo, v. 2, n. 1, p. 1-14, 2023)",
       "rev": 1,
       "status": "ativo",
       "etapa": "etapa:politica/ruptura-pela-via-legal",
@@ -9789,7 +9789,7 @@
     },
     {
       "id": "rec:politica/fornasier-deep-fakes-democracia",
-      "titulo": "Deep fakes como desafio à democracia ante a manipulação da opinião pública na era da pós-verdade (Mateus de Oliveira Fornasier, Natalia Ues Cury e Glauber Holanda; Juris Poiesis, v. 26, n. 39, 2023)",
+      "titulo": "Deep fakes como desafio à democracia ante a manipulação da opinião pública na era da pós-verdade (Mateus de Oliveira Fornasier, Natalia Ues Cury e Glauber Holanda; Juris Poiesis, v. 26, n. 39, p. 106-124 — fascículo datado de 2023, publicação datada de 2024 pelo periódico)",
       "rev": 1,
       "status": "ativo",
       "etapa": "etapa:politica/deep-fake-como-problema-publico",
