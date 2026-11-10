@@ -205,6 +205,36 @@ recursos:
     disponivel: true
     verificado_em: 2026-10-19
 
+  # --- etapa:ia/modelo-de-linguagem-como-aprendiz-multitarefa -------------
+  # O PDF da OpenAI não imprime ano, data, veículo nem versão em página nenhuma —
+  # conferido no documento em 2026-11-10, não em página de catálogo. Por isso o
+  # título não declara ano: o que circula como "2019" é atribuição de terceiro.
+  - id: rec:ia/paper-gpt2-aprendiz-multitarefa
+    etapa: etapa:ia/modelo-de-linguagem-como-aprendiz-multitarefa
+    titulo: "Language Models are Unsupervised Multitask Learners (Radford, Wu, Child, Luan, Amodei e Sutskever; OpenAI) — o artigo do GPT-2, sem ano impresso no documento"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 300
+    url: https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:ia/gpt2-codigo-oficial
+    etapa: etapa:ia/modelo-de-linguagem-como-aprendiz-multitarefa
+    titulo: "openai/gpt-2 — código oficial de amostragem, apontado pela nota 5 do próprio artigo"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://github.com/openai/gpt-2
+    disponivel: true
+    verificado_em: 2026-11-10
+
   # --- etapa:ia/llm-do-zero -----------------------------------------------
   - id: rec:ia/build-llm-from-scratch
     etapa: etapa:ia/llm-do-zero

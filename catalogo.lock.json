@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 64,
-  "gerado_em": "2026-11-10T12:00:21+00:00",
-  "hash": "sha256:39a3cfb8a881152c3d028bef684e8d15bf6a78c0ac86ccb10519a000d21a98c6",
+  "catalogo_versao": 65,
+  "gerado_em": "2026-11-10T16:30:12+00:00",
+  "hash": "sha256:3e5d26b82b48aa26932b7f497e502d849e1f4d2c96f8db9fd35d4cbe2b8dea28",
   "competencias": [
     {
       "id": "comp:cinema/analise-formal-do-filme",
@@ -571,6 +571,14 @@
       "status": "ativo",
       "verificacao": "Implementar duas estratégias sobre o mesmo modelo de trigrama — uma aditiva e uma de desconto, como Katz ou Kneser-Ney — e sustentar pela perplexidade no conjunto retido qual delas adotar.",
       "descricao": "Redistribuir massa de probabilidade para o que não foi observado: suavização aditiva, desconto, interpolação e retrocesso para ordens menores.\n"
+    },
+    {
+      "id": "comp:ia/transferencia-zero-shot",
+      "titulo": "Transferência zero-shot e seus controles",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Diante de um resultado zero-shot publicado, nomear como a tarefa foi condicionada na entrada, apontar a linha de base trivial que o cerca e descrever a medição de sobreposição entre treino e teste que o sustentaria ou derrubaria.",
+      "descricao": "Ler um resultado de tarefa resolvida sem treino supervisionado: como a tarefa é condicionada no próprio texto, que linha de base trivial a cerca, e quanto do número vem de sobreposição entre o corpus de treino e o conjunto de teste.\n"
     },
     {
       "id": "comp:ia/uso-de-llm-por-api",
@@ -2985,6 +2993,28 @@
         {
           "competencia": "comp:ia/modelo-de-linguagem-ngrama",
           "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/modelo-de-linguagem-como-aprendiz-multitarefa",
+      "titulo": "O modelo de linguagem como aprendiz multitarefa",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 420,
+      "descricao": "O artigo do GPT-2 inteiro: a tese de que a tarefa se condiciona no próprio texto — p(saída | entrada, tarefa) sem cabeça nem parâmetro novo —, o corpus WebText e o BPE sobre bytes, os resultados zero-shot em oito conjuntos e a análise de sobreposição de 8-gramas que os qualifica. Ramo opcional: é de onde vem a prática de descrever a tarefa no prompt, e o único ponto da trilha que mede o que a escala compra sem supervisão.\n",
+      "trilha": "trilha:ia/llm-transformer-rag",
+      "opcional": true,
+      "requires": [
+        {
+          "competencia": "comp:ia/arquitetura-transformer",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/transferencia-zero-shot",
+          "nivel_resultante": "intermediario"
         }
       ]
     },
@@ -5843,6 +5873,7 @@
         "etapa:ia/panorama-llm-transformer-rag",
         "etapa:ia/fundamentos-aprendizado-profundo",
         "etapa:ia/transformer-por-dentro",
+        "etapa:ia/modelo-de-linguagem-como-aprendiz-multitarefa",
         "etapa:ia/llm-do-zero",
         "etapa:ia/embeddings-e-busca-semantica",
         "etapa:ia/engenharia-de-prompt",
@@ -8303,6 +8334,20 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:ia/gpt2-codigo-oficial",
+      "titulo": "openai/gpt-2 — código oficial de amostragem, apontado pela nota 5 do próprio artigo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/modelo-de-linguagem-como-aprendiz-multitarefa",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://github.com/openai/gpt-2",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
       "id": "rec:ia/hands-on-llms-embeddings",
       "titulo": "Hands-On Large Language Models (Alammar & Grootendorst) — embeddings, busca e clusterização",
       "rev": 2,
@@ -8828,6 +8873,20 @@
       "url": "https://arxiv.org/abs/2201.11903",
       "disponivel": true,
       "verificado_em": "2026-10-19"
+    },
+    {
+      "id": "rec:ia/paper-gpt2-aprendiz-multitarefa",
+      "titulo": "Language Models are Unsupervised Multitask Learners (Radford, Wu, Child, Luan, Amodei e Sutskever; OpenAI) — o artigo do GPT-2, sem ano impresso no documento",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/modelo-de-linguagem-como-aprendiz-multitarefa",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
     },
     {
       "id": "rec:ia/projeto-agente-claude-sdk",

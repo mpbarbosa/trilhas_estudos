@@ -83,6 +83,26 @@ trilha:
         - competencia: comp:ia/arquitetura-transformer
           nivel_resultante: intermediario
 
+    - id: etapa:ia/modelo-de-linguagem-como-aprendiz-multitarefa
+      titulo: O modelo de linguagem como aprendiz multitarefa
+      rev: 1
+      status: ativo
+      descricao: >
+        O artigo do GPT-2 inteiro: a tese de que a tarefa se condiciona no próprio texto
+        — p(saída | entrada, tarefa) sem cabeça nem parâmetro novo —, o corpus WebText e
+        o BPE sobre bytes, os resultados zero-shot em oito conjuntos e a análise de
+        sobreposição de 8-gramas que os qualifica. Ramo opcional: é de onde vem a prática
+        de descrever a tarefa no prompt, e o único ponto da trilha que mede o que a
+        escala compra sem supervisão.
+      esforco_estimado_min: 420
+      opcional: true          # leitura de origem: a trilha não a exige para o objetivo
+      requires:
+        - competencia: comp:ia/arquitetura-transformer
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ia/transferencia-zero-shot
+          nivel_resultante: intermediario
+
     - id: etapa:ia/llm-do-zero
       titulo: Construir um LLM do zero
       rev: 1

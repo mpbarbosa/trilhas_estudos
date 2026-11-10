@@ -23,6 +23,19 @@ competencias:
       Sobre um diagrama em branco, descrever o percurso de um token nomeando cada
       bloco, e explicar por que o custo de atenção cresce com o quadrado do contexto.
 
+  - id: comp:ia/transferencia-zero-shot
+    titulo: Transferência zero-shot e seus controles
+    rev: 1
+    status: ativo
+    descricao: >
+      Ler um resultado de tarefa resolvida sem treino supervisionado: como a tarefa é
+      condicionada no próprio texto, que linha de base trivial a cerca, e quanto do
+      número vem de sobreposição entre o corpus de treino e o conjunto de teste.
+    verificacao: >
+      Diante de um resultado zero-shot publicado, nomear como a tarefa foi condicionada
+      na entrada, apontar a linha de base trivial que o cerca e descrever a medição de
+      sobreposição entre treino e teste que o sustentaria ou derrubaria.
+
   - id: comp:ia/representacao-vetorial
     titulo: Representação vetorial e busca semântica
     rev: 1
