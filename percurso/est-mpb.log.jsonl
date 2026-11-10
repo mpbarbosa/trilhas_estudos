@@ -64,3 +64,6 @@
 {"dados": {"recurso": "rec:ia/kodel-spec-driven-development", "recurso_rev": 2}, "em": "2026-11-02T20:04:20.633427+00:00", "seq": 64, "tipo": "recurso_percorrido"}
 {"dados": {"recurso": "rec:literatura/poe-o-corvo", "recurso_rev": 1}, "em": "2026-11-02T20:26:46.205280+00:00", "seq": 65, "tipo": "recurso_percorrido"}
 {"dados": {"etapa": "etapa:programacao/compilador-estrutura-e-fases", "etapa_rev": 1, "recurso": "rec:programacao/price-toscani-estrutura"}, "em": "2026-11-05T14:23:23.371859+00:00", "seq": 66, "tipo": "etapa_iniciada"}
+{"dados": {"recurso": "rec:ia/prompt-engineering-for-llms-cap-01", "recurso_rev": 1}, "em": "2026-11-10T16:12:05.184134+00:00", "seq": 67, "tipo": "recurso_percorrido"}
+{"dados": {"recurso": "rec:ia/prompt-engineering-for-llms-cap-02", "recurso_rev": 1}, "em": "2026-11-10T16:12:05.425372+00:00", "seq": 68, "tipo": "recurso_percorrido"}
+{"dados": {"recurso": "rec:ia/prompt-engineering-for-llms-cap-03", "recurso_rev": 1}, "em": "2026-11-10T16:12:05.664310+00:00", "seq": 69, "tipo": "recurso_percorrido"}
