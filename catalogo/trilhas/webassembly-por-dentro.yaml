@@ -1,0 +1,260 @@
+versao_schema: 1
+trilha:
+  id: trilha:web/webassembly-por-dentro
+  titulo: WebAssembly por dentro — do primeiro módulo ao binário e ao WASI
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:web/modulo-wasm-e-maquina-virtual
+      nivel: intermediario
+    - competencia: comp:web/interoperacao-modulo-e-hospedeiro
+      nivel: avancado
+    - competencia: comp:web/vinculacao-e-abi-de-modulo
+      nivel: avancado
+    - competencia: comp:web/concorrencia-em-memoria-compartilhada
+      nivel: intermediario
+    - competencia: comp:web/formato-binario-de-modulo
+      nivel: avancado
+    - competencia: comp:web/modulo-fora-do-navegador
+      nivel: intermediario
+
+  # Nasce de um exemplar: *Desmistificando WebAssembly — alta performance,
+  # portabilidade e segurança*, de Raphael Amorim (Casa do Código, set. 2023,
+  # 311 p. no impresso), que o estudante trouxe pela página da edição Kindle. O
+  # sumário dos onze capítulos está publicado pela editora, então as fatias em
+  # catalogo/recursos/web.yaml são por **número de capítulo**, como as de
+  # Tanenbaum em catalogo/recursos/so.yaml, e não por assunto.
+  #
+  # O corte das etapas segue os capítulos, porque o livro é curso e não tabela: ele
+  # parte de um módulo mínimo e vai somando aparato. Duas uniões se fizeram por os
+  # capítulos serem um assunto só — vinculação (5) com codificação de dados (6) ficam
+  # separadas porque a segunda é o uso da primeira, e tipos de erro (8) entra junto
+  # com o formato de texto (9), que é onde a mensagem de erro passa a se poder ler.
+  #
+  # As competências são de **código binário portátil**, não de WebAssembly-o-produto
+  # nem de Rust (catalogo/competencias/web.yaml): a `verificacao` de cada uma se cobra
+  # sobre qualquer módulo e qualquer cadeia de ferramentas. Rust é a linguagem de
+  # origem dos exemplos do livro, e por isso aparece nos recursos; não é objetivo da
+  # trilha, e nenhuma etapa ensina ou exige competência de Rust — se o estudante
+  # trouxer um material de Rust, ele é trilha nova, não etapa daqui.
+  #
+  # A área é `web` por organização, não por fronteira do assunto: o capítulo 11 é
+  # justamente o módulo **fora** do navegador (docs/catalogo.md §3 — área é
+  # organizacional, o acoplamento real está em `requires`/`teaches`).
+  #
+  # O grafo não é uma fila. Depois do capítulo 3, três ramos correm em paralelo
+  # (ADR-0002): o projeto do editor de imagem, a vinculação, e a leitura do formato.
+  # Só `wasm-wasi-fora-do-navegador` espera dois deles, porque rodar fora do navegador
+  # é vinculação mais leitura do binário, sem hospedeiro de navegador que resolva nada.
+  etapas:
+    # --- O que é, antes de compilar qualquer coisa ---------------------------
+    - id: etapa:web/wasm-o-que-e-e-para-que
+      titulo: O que é WebAssembly — e o problema que ele resolve
+      rev: 1
+      status: ativo
+      descricao: >
+        Abre a trilha sem compilar nada: por que um formato binário portátil apareceu
+        na Web, o que ele é e o que ele explicitamente não é — não é linguagem, não
+        substitui JavaScript e não tem acesso ao documento —, e as três promessas que
+        o resto da trilha vai cobrar: performance, portabilidade e isolamento. O corte
+        é saber dizer quando a tecnologia se aplica e quando não vale o custo.
+      esforco_estimado_min: 90
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:web/modulo-wasm-e-maquina-virtual
+          nivel_resultante: iniciante
+
+    - id: etapa:web/wasm-maquina-virtual-e-primeiro-modulo
+      titulo: Máquina virtual, formatos e o primeiro módulo compilado
+      rev: 1
+      status: ativo
+      descricao: >
+        O modelo de execução e o primeiro binário próprio: a máquina virtual de pilha,
+        os tipos de valor que ela conhece, os dois formatos do mesmo módulo — texto
+        legível e binário — e a cadeia de ferramentas que leva de uma função em
+        linguagem de origem ao arquivo compilado. Estuda-se com a saída na mão: para
+        cada construção escrita, o que apareceu do outro lado.
+      esforco_estimado_min: 300
+      opcional: false
+      requires:
+        - competencia: comp:web/modulo-wasm-e-maquina-virtual
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:web/modulo-wasm-e-maquina-virtual
+          nivel_resultante: intermediario
+
+    # --- A fronteira com o hospedeiro ---------------------------------------
+    - id: etapa:web/wasm-no-javascript
+      titulo: O módulo visto do JavaScript — instância, memória, globais e tabelas
+      rev: 1
+      status: ativo
+      descricao: >
+        A API que o navegador expõe e a fronteira que ela desenha: módulo contra
+        instância, compilação e instanciamento a partir de uma resposta de rede, a
+        memória linear lida e escrita do outro lado por matrizes tipadas e `DataView`,
+        valores globais e tabelas de referência. É aqui que fica claro que o módulo
+        não alcança nada por si: tudo que ele pode tocar foi importado.
+      esforco_estimado_min: 420
+      opcional: false
+      requires:
+        - competencia: comp:web/modulo-wasm-e-maquina-virtual
+          nivel_minimo: intermediario
+        - competencia: comp:web/javascript-de-aplicacao
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:web/interoperacao-modulo-e-hospedeiro
+          nivel_resultante: intermediario
+
+    # --- Três ramos independentes -------------------------------------------
+    - id: etapa:web/wasm-editor-de-imagem
+      titulo: 'Projeto: editor de imagem — filtros no módulo contra os mesmos filtros no hospedeiro'
+      rev: 1
+      status: ativo
+      descricao: >
+        A etapa em que a interoperação deixa de ser exemplo: uma imagem do canvas
+        passada à memória do módulo, filtros de cor, opacidade e inversão escritos
+        primeiro no hospedeiro e depois no módulo, e a comparação medida entre as duas
+        versões sobre a mesma imagem. O corte é o custo da travessia — descobrir em
+        que tamanho de dado a cópia come o ganho.
+      esforco_estimado_min: 480
+      opcional: false
+      requires:
+        - competencia: comp:web/interoperacao-modulo-e-hospedeiro
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:web/interoperacao-modulo-e-hospedeiro
+          nivel_resultante: avancado
+
+    - id: etapa:web/wasm-vinculacao-e-abi
+      titulo: Vinculação e interface binária — o contrato entre unidades compiladas
+      rev: 1
+      status: ativo
+      descricao: >
+        O que duas unidades compiladas cumprem para se chamarem: a interface binária
+        de aplicativo da linguagem de origem, o bloco externo que declara um símbolo
+        que não está ali, e a diferença prática entre vincular estaticamente e
+        dinamicamente — no tamanho do binário, no carregamento e no que falha quando a
+        outra metade não aparece.
+      esforco_estimado_min: 240
+      opcional: false
+      requires:
+        - competencia: comp:web/modulo-wasm-e-maquina-virtual
+          nivel_minimo: intermediario
+        - competencia: comp:web/interoperacao-modulo-e-hospedeiro
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:web/vinculacao-e-abi-de-modulo
+          nivel_resultante: intermediario
+
+    - id: etapa:web/wasm-codificacao-e-strings
+      titulo: Codificação de dados — a cadeia de texto que atravessa a fronteira
+      rev: 1
+      status: ativo
+      descricao: >
+        O caso que mostra que o módulo só conhece números: codificar e decodificar
+        dados na travessia, UTF-8 e por que o comprimento em bytes não é o
+        comprimento em caracteres, e a passagem de uma cadeia de texto da linguagem de
+        origem ao módulo e de volta — com quem aloca, quem libera e quem guarda o
+        ponteiro e o tamanho.
+      esforco_estimado_min: 240
+      opcional: false
+      requires:
+        - competencia: comp:web/interoperacao-modulo-e-hospedeiro
+          nivel_minimo: avancado
+        - competencia: comp:web/vinculacao-e-abi-de-modulo
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:web/vinculacao-e-abi-de-modulo
+          nivel_resultante: avancado
+
+    - id: etapa:web/wasm-threads-e-atomicos
+      titulo: Threads, memória compartilhada e instruções atômicas
+      rev: 1
+      status: ativo
+      descricao: >
+        Mais de um fio de execução sobre a mesma memória linear: memória declarada
+        compartilhada e o que o hospedeiro exige para permiti-la, a instrução atômica e
+        a garantia que ela dá, a espera e o despertar sobre um endereço, e os
+        trabalhadores que executam o módulo em paralelo. Estuda-se pelo erro: o mesmo
+        cálculo sem sincronização, para ver o resultado errado antes de corrigi-lo.
+      esforco_estimado_min: 300
+      opcional: false
+      requires:
+        - competencia: comp:web/interoperacao-modulo-e-hospedeiro
+          nivel_minimo: avancado
+      teaches:
+        - competencia: comp:web/concorrencia-em-memoria-compartilhada
+          nivel_resultante: intermediario
+
+    # --- Ler o arquivo ------------------------------------------------------
+    - id: etapa:web/wasm-erros-e-formato-de-texto
+      titulo: Os três momentos de falha e o formato de texto que os explica
+      rev: 1
+      status: ativo
+      descricao: >
+        Duas metades que se exigem: os três momentos em que um módulo falha — ao
+        compilar, ao configurar a instância e em tempo de execução — e o formato de
+        texto, que é onde a mensagem passa a se poder ler. Instruções numéricas e de
+        controle escritas à mão, até conseguir dizer o que um trecho faz sem compilá-lo.
+      esforco_estimado_min: 300
+      opcional: false
+      requires:
+        - competencia: comp:web/modulo-wasm-e-maquina-virtual
+          nivel_minimo: intermediario
+        - competencia: comp:web/interoperacao-modulo-e-hospedeiro
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:web/formato-binario-de-modulo
+          nivel_resultante: intermediario
+
+    - id: etapa:web/wasm-estrutura-binaria-e-ferramental
+      titulo: Estrutura binária e ferramental — desmontar, interpretar, converter e otimizar
+      rev: 1
+      status: ativo
+      descricao: >
+        O binário como objeto de estudo, com as ferramentas oficiais na mão: as seções
+        da estrutura, a visualização e a descompilação de um arquivo que não se
+        escreveu, a execução pelo interpretador, a conversão para C e para JavaScript,
+        e a otimização — medida no tamanho e no tempo, não aceita pela promessa da
+        bandeira.
+      esforco_estimado_min: 360
+      opcional: false
+      requires:
+        - competencia: comp:web/formato-binario-de-modulo
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:web/formato-binario-de-modulo
+          nivel_resultante: avancado
+
+    # --- Fora do navegador --------------------------------------------------
+    - id: etapa:web/wasm-wasi-fora-do-navegador
+      titulo: WASI — o mesmo binário onde não há página
+      rev: 1
+      status: ativo
+      descricao: >
+        O módulo rodando sem navegador: a interface de sistema que lhe dá arquivo,
+        relógio e entrada padrão, o tempo de execução autônomo que o carrega, e o
+        modelo de capacidades — o diretório que não foi concedido na linha de comando
+        não existe para o módulo, e essa falha não é erro de programação. Inclui
+        escrever em arquivo, a mesma chamada vista no formato de texto, e fios de
+        execução fora do navegador.
+      esforco_estimado_min: 360
+      opcional: false
+      requires:
+        - competencia: comp:web/vinculacao-e-abi-de-modulo
+          nivel_minimo: intermediario
+        - competencia: comp:web/formato-binario-de-modulo
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:web/modulo-fora-do-navegador
+          nivel_resultante: intermediario
+
+  # Definidas em catalogo/trilhas/web-do-protocolo-a-interface.yaml. Referenciar é o
+  # que as torna alcançáveis a quem se matricular só nesta trilha: `wasm-no-javascript`
+  # exige JavaScript de aplicação — a API do módulo é uma API de JavaScript —, e a
+  # etapa de JavaScript exige documento e estilo. Sem as duas referências o estudante
+  # ficaria travado no capítulo 3 sem nada que o destravasse (docs/catalogo.md §5.3).
+  etapas_referenciadas:
+    - etapa:web/documento-e-estilo
+    - etapa:web/javascript-de-aplicacao
