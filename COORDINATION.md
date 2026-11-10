@@ -57,6 +57,24 @@ desta entrega — apareceram na árvore em minutos, uma depois da outra, e saír
 daqui no commit que as levou (regra 4). A tabela vale no momento em que você a
 lê e não substitui um `git status -uall` antes de escrever.
 
+## Observação datada — 2026-11-10
+
+O branch `claude/project-thread-ipajii`, que a observação de 05/11 pediu para **não
+apagar sem decidir com o usuário**, não existe mais em nenhuma das três camadas — e
+isso não é perda: ele saiu junto com a mescla do PR #32, registrada na observação de
+06/11. Conferido hoje, imediatamente antes de escrever esta linha:
+`git ls-remote --heads origin claude/project-thread-ipajii` não devolve nada,
+`git branch -vv` só tem `main`, e `gh pr view 32` diz MERGED em
+2026-11-06T19:42:57Z. **Não há nada a decidir ali**: a observação de 05/11 é registro
+do que se decidiu, não pendência aberta.
+
+Erro de leitura que vale registrar porque é fácil de repetir: uma sessão leu só o
+**fim** deste arquivo (`tail -25`) e concluiu que ele ainda descrevia o PR #32 como
+aberto, contradizendo o `gh`. As observações datadas estão em ordem decrescente, de
+modo que o fim do arquivo é a observação **mais velha** e a correção de 06/11 está
+acima dela. Quem vier conferir uma observação datada leia a seção inteira, ou ao
+menos o primeiro cabeçalho `## Observação datada` — ele é o que vale.
+
 ## Observação datada — 2026-11-06
 
 O [PR #32](https://github.com/mpbarbosa/trilhas_estudos/pull/32), que a observação
