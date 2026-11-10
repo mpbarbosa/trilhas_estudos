@@ -326,6 +326,9 @@ recursos:
 #     au cinéma* (Nathan, 1990). **Não existe tradução brasileira conhecida**, e o
 #     exemplar se compra em Portugal: € 17,90 na Bertrand em 2026-11-10, com uma segunda
 #     edição esgotada a € 7,50. O `custo` é a conversão do € 17,90, sem frete de Portugal.
+#     **Ressalva de método:** esta é a edição que *existe*, não necessariamente a que o
+#     estudante leu — ele não declarou nenhuma. Se ele tiver lido outra, é ela que entra,
+#     com `obra` e `custo` seus.
 #
 #   obra: gorbman-unheard-melodies — **é o item mais caro do catálogo, e por falta de
 #     oferta, não por preço de capa.** Indiana University Press com a BFI, 1987, 186 p.,
@@ -391,13 +394,17 @@ recursos:
 #     1969). Fora de catálogo, mas abundante em sebo: 33 ofertas na busca, de R$ 28,90
 #     (que é o `custo`) a R$ 140,00.
 #
-#   obra: irwin-star-wars-e-a-filosofia — Madras, coordenação de William Irwin, como o
-#     estudante escreveu; original *Star Wars and Philosophy* (Open Court, 2005). **O
-#     ano e a paginação se contradizem entre as fontes**: um varejista dá Madras 2000 com
-#     224 p., o Skoob dá 2005 com 218 p., e os dois citam o mesmo ISBN-10 8573749970. As
-#     cinco ofertas da busca são todas datadas de 2005, a partir de R$ 20,00, que é o
-#     `custo`. **O estudante deixou o tradutor em branco (`[tradutor]`) e ele não se
-#     achou** — não aparece nas listagens de sebo.
+#   obra: irwin-star-wars-e-a-filosofia — São Paulo: Madras, coordenação de William
+#     Irwin, **2011, como o estudante escreveu**; original *Star Wars and Philosophy*
+#     (Open Court, 2005). **Três anos circulam para o mesmo ISBN-10 8573749970**: um
+#     varejista dá Madras 2000 com 224 p., o Skoob dá 2005 com 218 p., as cinco ofertas de
+#     sebo são todas datadas de 2005, e o estudante leu 2011. A primeira versão desta
+#     entrada declarava 2005, o que foi erro de método: nenhuma das fontes de catálogo
+#     pesa mais que a folha de rosto do exemplar, e o único que diz ter tido um exemplar
+#     na mão é ele. Está declarado o 2011; o `custo` de R$ 20,00 é a oferta mais baixa das
+#     fichas de 2005, porque não houve oferta de 2011 na busca. **O tradutor ficou em
+#     branco (`[tradutor]`) e não se achou** — não aparece nas listagens de sebo, e só a
+#     folha de rosto o fecha.
 #
 #   rec:cinema/thorn-episodio-iii — o ensaio está aberto na *Bright Lights Film
 #     Journal*, na URL que o estudante deu, com a data de 28 de agosto de 2016.
@@ -613,7 +620,7 @@ recursos:
   # pela pergunta da etapa — objeto ou ilustração —, não de varrer o volume.
   - id: rec:cinema/irwin-star-wars-e-a-filosofia
     etapa: etapa:cinema/leituras-de-outra-disciplina
-    titulo: "Star Wars e a filosofia (coord. William Irwin; Madras, 2005)"
+    titulo: "Star Wars e a filosofia (coord. William Irwin; São Paulo: Madras, 2011)"
     rev: 1
     status: ativo
     formato: texto

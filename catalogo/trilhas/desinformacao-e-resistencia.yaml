@@ -44,11 +44,15 @@ trilha:
   # constitucional — a ascensão vista de perto e a ruptura conduzida pelas formas legais,
   # que são os dois modos de examinar a chegada ao poder que o processo descreve.
   #
-  # **Dois itens em português desta lista são de 2022 e 2023, não de 2023 e 2024.** As
-  # referências que o estudante colou datam o artigo de Fornasier, Cury e Holanda de 2024
-  # e o de Fares Paulo e Lopes de Siqueira de 2023; as páginas dos dois periódicos dizem
-  # outra coisa (ver as notas em catalogo/recursos/politica.yaml). Isso é fato da
-  # monografia dele, não do catálogo — mas é o tipo de erro que um parecerista marca.
+  # **Os dois artigos em português têm data disputada, e a disputa é dos periódicos.**
+  # A primeira versão desta trilha afirmou que as duas referências do estudante estavam
+  # erradas, com base na página de cada revista. Estava errada ela: o PDF de Fares Paulo
+  # imprime 2023 no rodapé de todas as páginas, que é o que ele citou, e o de Fornasier
+  # não imprime ano nenhum, enquanto a página do periódico oferece 2023 no fascículo e
+  # 2024 na citação que ela mesma gera. As notas em catalogo/recursos/politica.yaml
+  # trazem as duas medições. **A regra que ficou: quando a página do periódico e o
+  # documento divergem, vale o documento** — e, não havendo documento que decida, se
+  # declara a divergência em vez de escolher.
   etapas:
     # --- Raiz: a linguagem e o arquivo --------------------------------------
     - id: etapa:politica/linguagem-e-passado-sob-controle

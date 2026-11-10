@@ -205,18 +205,35 @@ recursos:
 #     21/07/2018 e última revisão em 17/12/2019 — e é essa a `url`. Artigo avulso: não
 #     declara `obra`.
 #
-#   rec:politica/fornasier-deep-fakes-democracia — **o ano está errado na referência do
-#     estudante.** Ele deu 2024; a página do periódico dá **v. 26, n. 39 (2023)**, com
-#     DOI https://doi.org/10.5935/26.39.2023.9633. Autores e título conferem — Mateus de
+#   rec:politica/fornasier-deep-fakes-democracia — **o periódico se contradiz no ano, e o
+#     artigo não resolve.** A referência do estudante dá 2024; a página da *Juris Poiesis*
+#     dá quatro campos que não concordam: fascículo "v. 26 n. 39 (**2023**)", DOI
+#     https://doi.org/10.5935/26.39.2023.**9633** (com o 2023 dentro), "Como citar" com
+#     "(**2024**)" e "Publicado" em **2024-03-20**. **O PDF do artigo não imprime ano
+#     nenhum** — medido por extração de texto na sessão do repositório da monografia, que
+#     também confirmou a paginação: 19 páginas numeradas de 106 a 124, como o estudante
+#     escreveu. Está declarado o fascículo, que é o que a ABNT identifica numa referência
+#     de periódico — mas isso é argumento, não medição, e por isso o `titulo` nomeia as
+#     duas datas em vez de escolher uma. **Não é erro do estudante:** o 2024 dele bate com
+#     a citação que o próprio periódico gera. Autores e título conferem — Mateus de
 #     Oliveira Fornasier, Natalia Ues Cury e Glauber Holanda, todos da UNIJUÍ. Acesso
 #     aberto. Artigo avulso: não declara `obra`.
 #
-#   rec:politica/fares-paulo-republica-ao-imperio — **o ano também está errado.** Ele
-#     deu 2023; a página do periódico dá **v. 2, n. 1 (2022)**, no dossiê "Arte
-#     sequencial, cultura pop e reflexões contemporâneas" da *Cult de Cultura*, revista
-#     da Faculdades EST (São Leopoldo, que é a cidade que ele escreveu). Autores da
-#     Faculdade FASIPE. O artigo declara viés "exclusivamente pedagógico", o que é
-#     exatamente o que a etapa cobra que se julgue. Acesso aberto; não declara `obra`.
+#   rec:politica/fares-paulo-republica-ao-imperio — **o 2023 do estudante está certo, e
+#     a primeira versão desta entrada o trocou por engano.** A página do periódico mostra
+#     **2022** no fascículo e **2024** em "Como citar" e em "Publicado" (2024-09-09), e
+#     nunca 2023 — foi dela que saiu a troca. Mas o **PDF do artigo imprime, no rodapé de
+#     todas as páginas**, "Cult de Cultura: Revista Interdisciplinar sobre Arte
+#     Sequencial, Mídias e Cultura Pop, São Leopoldo, v. 2, n. 1, p. 1-14, **2023**", que
+#     é também de onde vem o `p. 1-14` que o site não mostra. Medição feita na sessão do
+#     repositório da monografia, sobre o exemplar guardado lá; aqui está declarado o que o
+#     documento imprime. Regra que fica: **quando a página do periódico e o documento
+#     divergem, vale o documento** — é ele que o leitor tem na mão e que uma banca
+#     confere. O dossiê é "Arte sequencial, cultura pop e reflexões contemporâneas",
+#     revista das Faculdades EST (São Leopoldo, a cidade que o estudante escreveu);
+#     autores da Faculdade FASIPE. O artigo declara viés "exclusivamente pedagógico", o
+#     que é exatamente o que a etapa cobra que se julgue. Acesso aberto; não declara
+#     `obra`.
 #
 #   rec:politica/heiden-der-fuehrer — Houghton Mifflin (Boston, 1944), tradução de Ralph
 #     Manheim, como o estudante escreveu; também saiu pela Gollancz em Londres (1944 e
@@ -298,7 +315,7 @@ recursos:
   # A via em português, e a que traz o direito brasileiro e a eleição. Acesso aberto.
   - id: rec:politica/fornasier-deep-fakes-democracia
     etapa: etapa:politica/deep-fake-como-problema-publico
-    titulo: "Deep fakes como desafio à democracia ante a manipulação da opinião pública na era da pós-verdade (Mateus de Oliveira Fornasier, Natalia Ues Cury e Glauber Holanda; Juris Poiesis, v. 26, n. 39, 2023)"
+    titulo: "Deep fakes como desafio à democracia ante a manipulação da opinião pública na era da pós-verdade (Mateus de Oliveira Fornasier, Natalia Ues Cury e Glauber Holanda; Juris Poiesis, v. 26, n. 39, p. 106-124 — fascículo datado de 2023, publicação datada de 2024 pelo periódico)"
     rev: 1
     status: ativo
     formato: texto
@@ -377,7 +394,7 @@ recursos:
   # 14 p. de artigo. Acesso aberto; não declara `obra`.
   - id: rec:politica/fares-paulo-republica-ao-imperio
     etapa: etapa:politica/ruptura-pela-via-legal
-    titulo: "Da república ao império: uma análise sobre a saga Star Wars, sob a perspectiva do direito constitucional brasileiro e a forma de governo como cláusula pétrea (Rodolfo Fares Paulo e Agnéia Luciana Lopes de Siqueira; Cult de Cultura, v. 2, n. 1, 2022)"
+    titulo: "Da república ao império: uma análise sobre a saga Star Wars, sob a perspectiva do direito constitucional brasileiro e a forma de governo como cláusula pétrea (Rodolfo Fares Paulo e Agnéia Luciana Lopes de Siqueira; Cult de Cultura, São Leopoldo, v. 2, n. 1, p. 1-14, 2023)"
     rev: 1
     status: ativo
     formato: texto
