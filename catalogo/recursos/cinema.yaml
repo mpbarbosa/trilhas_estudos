@@ -396,15 +396,20 @@ recursos:
 #
 #   obra: irwin-star-wars-e-a-filosofia — São Paulo: Madras, coordenação de William
 #     Irwin, **2011, como o estudante escreveu**; original *Star Wars and Philosophy*
-#     (Open Court, 2005). **Três anos circulam para o mesmo ISBN-10 8573749970**: um
-#     varejista dá Madras 2000 com 224 p., o Skoob dá 2005 com 218 p., as cinco ofertas de
-#     sebo são todas datadas de 2005, e o estudante leu 2011. A primeira versão desta
-#     entrada declarava 2005, o que foi erro de método: nenhuma das fontes de catálogo
-#     pesa mais que a folha de rosto do exemplar, e o único que diz ter tido um exemplar
-#     na mão é ele. Está declarado o 2011; o `custo` de R$ 20,00 é a oferta mais baixa das
-#     fichas de 2005, porque não houve oferta de 2011 na busca. **O tradutor ficou em
-#     branco (`[tradutor]`) e não se achou** — não aparece nas listagens de sebo, e só a
-#     folha de rosto o fecha.
+#     (Open Court, 2005). **O 2011 é palavra do autor, não campo conferido** — a distinção
+#     importa, e é o que esta nota afirma e não mais que isso. Três anos circulam para o
+#     mesmo ISBN-10 8573749970: um varejista dá Madras **2000** com 224 p., o Skoob dá
+#     **2005** com 218 p., as cinco ofertas de sebo são todas de 2005, e o estudante leu
+#     **2011**. O 2000 **cai por impossibilidade**: é anterior ao original americano, de
+#     2005 (medição registrada na sessão do repositório da monografia). Sobram 2005 e
+#     2011, e o 2011 vence por ser o que o autor diz ter tido na mão — não por fonte
+#     melhor. A primeira versão desta entrada declarava 2005, o que foi erro de método:
+#     ficha de sebo é cadastro de vendedor e não pesa mais que uma folha de rosto. O
+#     `custo` de R$ 20,00 é a oferta mais baixa das fichas de 2005, porque não houve
+#     oferta de 2011 na busca. **Quatro campos desta entrada só a folha de rosto fecha**:
+#     o ano, o papel de Irwin (coordenação, organização ou edição), o subtítulo e o
+#     tradutor — que o estudante deixou em branco (`[tradutor]`) e que não se achou em
+#     listagem nenhuma.
 #
 #   rec:cinema/thorn-episodio-iii — o ensaio está aberto na *Bright Lights Film
 #     Journal*, na URL que o estudante deu, com a data de 28 de agosto de 2016.
