@@ -290,3 +290,383 @@ recursos:
     url: https://www.estantevirtual.com.br/busca?q=por+dentro+do+iii+reich+speer
     disponivel: true
     verificado_em: 2026-11-05
+
+# -------------------------------------------------------------------------
+# trilha:cinema/analise-filmica-de-uma-saga
+#
+#   Os quatorze itens vêm da bibliografia de monografia que o estudante colou em
+#   2026-11-10. Como nas duas trilhas anteriores da área, a `url` de livro fora de
+#   catálogo editorial é a busca do Estante Virtual e não a página de uma editora: é
+#   onde o exemplar existe para comprar hoje. O `custo` é a **oferta mais baixa
+#   observada na busca em 2026-11-10**, usado incluído, e envelhece mais rápido que o
+#   link.
+#
+#   **Os cinco preços em moeda estrangeira** (Brooks, Bukatman, Sklar, Gorbman e, na
+#   trilha de política, Scott, McAdam e Goodwin) foram convertidos pelas cotações do
+#   Banco Central Europeu de **2026-11-09**, via frankfurter.dev: R$ 5,5167/US$,
+#   R$ 6,1748/€ e R$ 7,4012/£. **Nenhum deles inclui frete internacional nem imposto de
+#   importação**, que para livro podem dobrar o valor — a trilha de 2026-11-05 registrou
+#   o mesmo com o DVD da Synapse.
+#
+#   obra: bordwell-thompson-arte-do-cinema — a 2013 da Editora da Unicamp com a Edusp,
+#     tradução de Roberta Gregoli, como o estudante escreveu; 768 p. (listagem da
+#     Martins Fontes Paulista e resenha na *Imagofagia*). ISBN 978-85-268-1020-4
+#     (Unicamp). **Há impressão posterior em circulação**: a busca do Estante Virtual
+#     devolveu exemplares datados de 2025 e 2026 (R$ 263,89 e a partir de R$ 200), além
+#     do de 2013 a R$ 250. O `custo` de R$ 200 é a oferta mais baixa do conjunto. Um
+#     artigo do *Jornal da Unicamp* de 2014 dava R$ 250,00 na editora e a Martins Fontes
+#     listava R$ 330,00; **não se conferiu o preço de hoje na loja da Unicamp nem na
+#     Edusp**, então o livro pode estar mais barato comprado direto.
+#
+#   obra: chion-a-audiovisao — **a edição é portuguesa, não brasileira.** O estudante
+#     citou a obra sem dados de edição; o que se confirmou foi o registro da Biblioteca
+#     Nacional de Portugal: *A Audiovisão: som e imagem no cinema*, trad. Pedro Elói
+#     Duarte, Lisboa, Texto & Grafia, 1. ed. 2011 e 3. ed. 2016, col. Mi-mé-sis (Artes e
+#     espetáculo) 8, 175 p. + 8 p. de estampas; original *L'audio-vision: son et image
+#     au cinéma* (Nathan, 1990). **Não existe tradução brasileira conhecida**, e o
+#     exemplar se compra em Portugal: € 17,90 na Bertrand em 2026-11-10, com uma segunda
+#     edição esgotada a € 7,50. O `custo` é a conversão do € 17,90, sem frete de Portugal.
+#
+#   obra: gorbman-unheard-melodies — **é o item mais caro do catálogo, e por falta de
+#     oferta, não por preço de capa.** Indiana University Press com a BFI, 1987, 186 p.,
+#     está fora de catálogo; a única oferta observada foi uma usada da primeira
+#     impressão a £ 107,78 na biblio.co.uk (frete incluído para os EUA, não para o
+#     Brasil). A página da autora na Universidade de Washington fala de uma segunda
+#     edição "em conclusão" vinte e cinco anos depois da primeira; **não se confirmou
+#     que ela tenha saído**. Por isso o Chion é a via principal da etapa e este é a
+#     segunda: quem quiser o capítulo de música narrativa sem gastar isso encontra
+#     Gorbman citada e resumida em qualquer bibliografia de som no cinema — inclusive
+#     como tradutora da edição inglesa do próprio Chion.
+#
+#   obra: campbell-heroi-de-mil-faces — tradução de Adail Ubirajara Sobral pela
+#     Cultrix, como o estudante escreveu. **A edição em catálogo hoje é outra**: a busca
+#     devolveu 8 exemplares novos e 7 usados datados de **2024**, a partir de R$ 62,90, e
+#     o Skoob atribui essa edição "atualizada, revisada e ampliada" à **Palas Athena**,
+#     448 p., nas Obras Completas da Fundação Joseph Campbell — não à Cultrix. As
+#     impressões Cultrix/Pensamento de 1995 e 2008 tinham ~414 p. **Os registros se
+#     contradizem no ISBN** (o Skoob dá à edição de 2024 o mesmo ISBN-10 das Cultrix),
+#     então confira a editora no exemplar. O `custo` é a oferta mais baixa do conjunto.
+#
+#   obra: bukatman-matters-of-gravity — o estudante deixou a paginação do capítulo em
+#     branco (`p. [x-y]`). A página da Duke University Press confirma: *Matters of
+#     Gravity: Special Effects and Supermen in the 20th Century*, julho de 2003, 296 p.,
+#     55 ilustrações, e o cap. 4 é "The Artificial Infinite: On Special Effects and the
+#     Sublime", **começando na p. 81**, dentro da seção "Two Kaleidoscopic Perceptions".
+#     **A página final do capítulo não se confirmou.** O `custo` é a conversão de
+#     US$ 21,95, o preço de brochura citado numa resenha da *Leonardo* em 2004 — **é
+#     cifra de 2004, não de hoje**; um atacadista lista US$ 40,00 de preço de tabela, e
+#     a página da Duke não mostrou preço. A etapa usa um capítulo só, mas o `custo`
+#     declarado é o do exemplar inteiro, que é o que se compra.
+#
+#   obra: eisner-a-tela-demoniaca — o estudante deu Paz e Terra, 2007, trad. Lúcia
+#     Nagib. **A edição de 2007 não se confirmou em fonte nenhuma**: o Skoob registra
+#     Paz e Terra 1985, 283 p. (ISBN-10 8521904541), e a busca do Estante Virtual
+#     devolveu exemplares de 1985 e de **2002** — estes com 4 usados e 3 novos a partir
+#     de R$ 10,00, que é o `custo` declarado. O título completo, nas duas, é *A tela
+#     demoníaca: as influências de Max Reinhardt e do expressionismo*. Se a de 2007
+#     existir, é reimpressão do mesmo texto; quem tiver o exemplar corrige esta nota.
+#
+#   obra: rosenfeld-cinema-arte-e-industria — **é o único livro em pt-BR desta trilha
+#     que segue em catálogo editorial.** A busca devolveu a edição de 2023 da
+#     Perspectiva com 8 exemplares novos a partir de R$ 24,00, além de um usado da de
+#     2002 a R$ 16,89, que é o `custo`. O estudante citou a de 2002, 264 p., Coleção
+#     Debates 288.
+#
+#   obra: ferro-cinema-e-historia — Paz e Terra, 1992, trad. Flávia Nascimento, 143 p.,
+#     como o estudante escreveu. Fora de catálogo: nove ofertas na busca, de R$ 60,00
+#     (que é o `custo`) a R$ 110,00, com reimpressões de 2010 e 2012 entre as mais
+#     caras.
+#
+#   obra: chartier-a-historia-cultural — **o item mais caro em pt-BR do catálogo, com
+#     duas ofertas no mundo.** Difusão Editorial (Lisboa, 1988), trad. Maria Manuela
+#     Galhardo, 244 p., col. Memória e Sociedade 1, como o estudante escreveu: a busca
+#     devolveu **dois** exemplares, a R$ 299,89 e R$ 349,99. Por isso ele é a segunda
+#     via da etapa e o Ferro é a primeira. **Há uma edição brasileira do mesmo texto
+#     pela Forense Universitária** que apareceu em citação acadêmica mas não se
+#     confirmou aqui; quem a achar em oferta deve preferi-la, e ela entra como obra
+#     própria, com `obra` e `custo` seus.
+#
+#   obra: roszak-a-contracultura — Vozes, 2. ed. 1972, trad. Donaldson M. Garschagen,
+#     como o estudante escreveu; original *The Making of a Counter Culture* (Doubleday,
+#     1969). Fora de catálogo, mas abundante em sebo: 33 ofertas na busca, de R$ 28,90
+#     (que é o `custo`) a R$ 140,00.
+#
+#   obra: irwin-star-wars-e-a-filosofia — Madras, coordenação de William Irwin, como o
+#     estudante escreveu; original *Star Wars and Philosophy* (Open Court, 2005). **O
+#     ano e a paginação se contradizem entre as fontes**: um varejista dá Madras 2000 com
+#     224 p., o Skoob dá 2005 com 218 p., e os dois citam o mesmo ISBN-10 8573749970. As
+#     cinco ofertas da busca são todas datadas de 2005, a partir de R$ 20,00, que é o
+#     `custo`. **O estudante deixou o tradutor em branco (`[tradutor]`) e ele não se
+#     achou** — não aparece nas listagens de sebo.
+#
+#   rec:cinema/thorn-episodio-iii — o ensaio está aberto na *Bright Lights Film
+#     Journal*, na URL que o estudante deu, com a data de 28 de agosto de 2016.
+#     **Atenção à data de acesso que ele registrou: "9 nov. 2026"** — é de ontem, não de
+#     uma consulta antiga. Artigo avulso: não declara `obra` (docs/catalogo.md §2).
+# -------------------------------------------------------------------------
+
+  # --- etapa:cinema/forma-e-estilo-do-filme -------------------------------
+  # 768 p. de manual, e a etapa não pede o livro de cabo a rabo: a duração é de ler as
+  # partes de forma, narração e dos quatro sistemas de estilo, e de voltar a elas
+  # enquanto se descreve um filme inteiro — que é o que a etapa cobra.
+  - id: rec:cinema/bordwell-thompson-arte-do-cinema
+    etapa: etapa:cinema/forma-e-estilo-do-filme
+    titulo: "A arte do cinema: uma introdução (David Bordwell e Kristin Thompson; trad. Roberta Gregoli; Editora da Unicamp / Edusp, 2013)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 200
+    obra: bordwell-thompson-arte-do-cinema
+    duracao_min: 1500
+    url: https://www.estantevirtual.com.br/busca?q=a+arte+do+cinema+bordwell
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:cinema/som-e-musica-no-filme ---------------------------------
+  # 175 p. A duração é de leitura com o exercício que a etapa cobra pelo meio — a mesma
+  # sequência com som e sem —, não de uma passada.
+  - id: rec:cinema/chion-audiovisao
+    etapa: etapa:cinema/som-e-musica-no-filme
+    titulo: "A audiovisão: som e imagem no cinema (Michel Chion; trad. Pedro Elói Duarte; Lisboa: Texto & Grafia, 3. ed. 2016)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-PT
+    custo: 111
+    obra: chion-a-audiovisao
+    duracao_min: 420
+    url: https://www.bertrand.pt/pesquisa/audiovisao
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # A segunda via, e a específica sobre música: 186 p. sobre a música que o espectador
+  # não escuta como música. Caríssima por falta de oferta — ver a nota acima.
+  - id: rec:cinema/gorbman-unheard-melodies
+    etapa: etapa:cinema/som-e-musica-no-filme
+    titulo: "Unheard Melodies: Narrative Film Music (Claudia Gorbman; Indiana University Press / BFI Publishing, 1987)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en
+    custo: 798
+    obra: gorbman-unheard-melodies
+    duracao_min: 480
+    url: https://biblio.co.uk/9780253204363
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:cinema/modo-melodramatico ------------------------------------
+  # 251 p. na brochura da Yale de 1995 (ISBN 978-0-300-06553-4); uma listagem de sebo dá
+  # 235, que é provavelmente erro de cadastro. Sem tradução brasileira conhecida.
+  - id: rec:cinema/brooks-melodramatic-imagination
+    etapa: etapa:cinema/modo-melodramatico
+    titulo: "The Melodramatic Imagination: Balzac, Henry James, Melodrama, and the Mode of Excess (Peter Brooks; Yale University Press, 1976; brochura 1995)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en
+    custo: 182
+    obra: brooks-melodramatic-imagination
+    duracao_min: 780
+    url: https://yalebooks.yale.edu/book/9780300065534/the-melodramatic-imagination/
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:cinema/monomito-e-seus-limites -------------------------------
+  # ~414 p. nas impressões Cultrix, 448 na edição de 2024. A duração é de leitura
+  # inteira: a etapa cobra o esquema completo, porque é a parte vazia do mapa que
+  # sustenta a crítica dele.
+  - id: rec:cinema/campbell-heroi-de-mil-faces
+    etapa: etapa:cinema/monomito-e-seus-limites
+    titulo: "O herói de mil faces (Joseph Campbell; trad. Adail Ubirajara Sobral; Cultrix — ou a edição revista e ampliada de 2024)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 63
+    obra: campbell-heroi-de-mil-faces
+    duracao_min: 900
+    url: https://www.estantevirtual.com.br/busca?q=o+heroi+de+mil+faces+campbell
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:cinema/efeito-especial-e-sublime -----------------------------
+  # Um capítulo, a partir da p. 81 do volume. A duração é de leitura com anotação contra
+  # uma sequência de efeito escolhida, que é o que a etapa cobra.
+  - id: rec:cinema/bukatman-artificial-infinite
+    etapa: etapa:cinema/efeito-especial-e-sublime
+    titulo: "The Artificial Infinite: On Special Effects and the Sublime, cap. 4 de Matters of Gravity (Scott Bukatman; Duke University Press, 2003, a partir da p. 81)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en
+    custo: 121
+    obra: bukatman-matters-of-gravity
+    duracao_min: 240
+    url: https://www.dukeupress.edu/matters-of-gravity
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:cinema/heranca-expressionista --------------------------------
+  # 283 p. na edição de 1985, com as estampas que a etapa usa de fato: a descrição de
+  # luz e cenário se confere nas reproduções.
+  - id: rec:cinema/eisner-tela-demoniaca
+    etapa: etapa:cinema/heranca-expressionista
+    titulo: "A tela demoníaca: as influências de Max Reinhardt e do expressionismo (Lotte H. Eisner; trad. Lúcia Nagib; Paz e Terra)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 10
+    obra: eisner-a-tela-demoniaca
+    duracao_min: 600
+    url: https://www.estantevirtual.com.br/busca?q=a+tela+demoniaca+eisner
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:cinema/arte-e-industria --------------------------------------
+  # 264 p. de ensaios; a duração é de ler os que tratam da tensão entre obra e
+  # mercadoria, que é o corte da etapa.
+  - id: rec:cinema/rosenfeld-cinema-arte-e-industria
+    etapa: etapa:cinema/arte-e-industria
+    titulo: "Cinema: arte e indústria (Anatol Rosenfeld; Perspectiva, 2002 — Coleção Debates 288)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 17
+    obra: rosenfeld-cinema-arte-e-industria
+    duracao_min: 480
+    url: https://www.estantevirtual.com.br/busca?q=cinema+arte+e+industria+rosenfeld
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # A segunda via, e a longa: ~432 p. na brochura revista e atualizada da Vintage (ISBN
+  # 978-0-679-75549-4), que é a edição em catálogo. O estudante citou a 1ª, Random House
+  # 1975, 340 p., com subtítulo "a social history"; a revista traz "a cultural history".
+  - id: rec:cinema/sklar-movie-made-america
+    etapa: etapa:cinema/arte-e-industria
+    titulo: "Movie-Made America: A Cultural History of American Movies (Robert Sklar; Vintage, ed. revista e atualizada, 1994)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en
+    custo: 127
+    obra: sklar-movie-made-america
+    duracao_min: 1200
+    url: https://www.penguinrandomhouse.com/books/168188/movie-made-america-by-robert-sklar/9780679755494
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:cinema/filme-como-fonte-historica ----------------------------
+  # 143 p. A duração é de leitura com anotação sobre um filme escolhido, que é o que a
+  # etapa cobra — não de uma passada pelo livro.
+  - id: rec:cinema/ferro-cinema-e-historia
+    etapa: etapa:cinema/filme-como-fonte-historica
+    titulo: "Cinema e história (Marc Ferro; trad. Flávia Nascimento; Paz e Terra, 1992)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 60
+    obra: ferro-cinema-e-historia
+    duracao_min: 360
+    url: https://www.estantevirtual.com.br/busca?q=cinema+e+historia+marc+ferro
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # A segunda via, e a do método: 244 p. sobre prática, representação e apropriação. É o
+  # que impede de ler o filme como espelho da mentalidade do público — e é caríssimo,
+  # com duas ofertas no mundo. Ver a nota acima.
+  - id: rec:cinema/chartier-historia-cultural
+    etapa: etapa:cinema/filme-como-fonte-historica
+    titulo: "A história cultural: entre práticas e representações (Roger Chartier; trad. Maria Manuela Galhardo; Lisboa: Difusão Editorial, 1988 — Memória e Sociedade 1)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-PT
+    custo: 300
+    obra: chartier-a-historia-cultural
+    duracao_min: 540
+    url: https://www.estantevirtual.com.br/busca?q=a+historia+cultural+entre+praticas+e+representacoes+chartier
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:cinema/contracultura-e-renovacao-da-industria ----------------
+  - id: rec:cinema/roszak-contracultura
+    etapa: etapa:cinema/contracultura-e-renovacao-da-industria
+    titulo: "A contracultura: reflexões sobre a sociedade tecnocrática e a oposição juvenil (Theodore Roszak; trad. Donaldson M. Garschagen; Vozes, 2. ed. 1972)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 29
+    obra: roszak-a-contracultura
+    duracao_min: 780
+    url: https://www.estantevirtual.com.br/busca?q=a+contracultura+roszak
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:cinema/leituras-de-outra-disciplina --------------------------
+  # ~220 p. de antologia. A duração é de ler escolhendo os ensaios e julgando cada um
+  # pela pergunta da etapa — objeto ou ilustração —, não de varrer o volume.
+  - id: rec:cinema/irwin-star-wars-e-a-filosofia
+    etapa: etapa:cinema/leituras-de-outra-disciplina
+    titulo: "Star Wars e a filosofia (coord. William Irwin; Madras, 2005)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 20
+    obra: irwin-star-wars-e-a-filosofia
+    duracao_min: 480
+    url: https://www.estantevirtual.com.br/busca?q=star+wars+e+a+filosofia+irwin
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # O segundo gênero: crítica autoral sobre um filme só, aberta na revista. É o item
+  # gratuito da trilha, e o que torna a última etapa alcançável sem comprar nada.
+  # Artigo avulso: não declara `obra`.
+  - id: rec:cinema/thorn-episodio-iii
+    etapa: etapa:cinema/leituras-de-outra-disciplina
+    titulo: "Star Wars Episode III: Revenge of the Sith — George Lucas's Greatest Artistic Statement? (Mike Thorn, Bright Lights Film Journal, 28 ago. 2016)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en
+    custo: 0
+    duracao_min: 60
+    url: https://brightlightsfilm.com/star-wars-episode-iii-revenge-sith-george-lucass-greatest-artistic-statement/
+    disponivel: true
+    verificado_em: 2026-11-10
+
+# -------------------------------------------------------------------------
+# etapa:cinema/o-esteta-e-o-culto-da-beleza — etapa opcional acrescentada em 2026-11-10
+# a trilha:cinema/estetizacao-da-politica.
+#
+#   obra: dannunzio-pleasure — **é tradução inglesa de um romance italiano, e foi assim
+#     que o estudante o citou**: *Pleasure*, trad. Lara Gochin Raffaelli, introdução de
+#     Alexander Stille, Penguin Books (Penguin Classics), 2013, original *Il piacere*,
+#     1889. ISBN 978-0-14-310674-6. **A paginação divergiu entre as fontes** — 320, 384 e
+#     386 p. —, e a data também: 30/07/2013 em alguns registros, 21/08/2013 em outros. O
+#     `custo` é a conversão de US$ 20,00, o preço da Barnes & Noble sob esse ISBN, pela
+#     cotação do BCE de 2026-11-09 (R$ 5,5167/US$), **sem frete internacional nem imposto
+#     de importação**; há usado a partir de ~CA$ 14,89 em sebo internacional. **Não se
+#     procurou tradução brasileira de *Il piacere*** — se houver, entra como obra
+#     própria, com `obra` e `custo` seus, e deve ser preferida.
+# -------------------------------------------------------------------------
+
+  - id: rec:cinema/dannunzio-pleasure
+    etapa: etapa:cinema/o-esteta-e-o-culto-da-beleza
+    titulo: "Pleasure (Gabriele D'Annunzio; trad. Lara Gochin Raffaelli; introd. Alexander Stille; Penguin Classics, 2013) — original Il piacere, 1889"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en
+    custo: 110
+    obra: dannunzio-pleasure
+    duracao_min: 900
+    url: https://www.barnesandnoble.com/s/9780143106746
+    disponivel: true
+    verificado_em: 2026-11-10

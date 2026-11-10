@@ -1,0 +1,226 @@
+versao_schema: 1
+trilha:
+  id: trilha:politica/desinformacao-e-resistencia
+  titulo: Desinformação e resistência — da prova audiovisual falsificada ao transcrito oculto
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:politica/controle-pela-linguagem-e-pelo-passado
+      nivel: intermediario
+    - competencia: comp:politica/vigilancia-e-disciplina
+      nivel: intermediario
+    - competencia: comp:politica/prova-audiovisual-e-deep-fake
+      nivel: intermediario
+    - competencia: comp:politica/transcrito-oculto
+      nivel: intermediario
+    - competencia: comp:politica/estrutura-de-oportunidade-politica
+      nivel: intermediario
+    - competencia: comp:politica/fascismo-como-processo
+      nivel: avancado
+    - competencia: comp:politica/ruptura-institucional-por-via-legal
+      nivel: intermediario
+
+  # Segunda trilha da área de política, e a irmã de
+  # trilha:cinema/analise-filmica-de-uma-saga: as duas saem da mesma bibliografia de
+  # monografia, colada pelo estudante em 2026-11-10, e a divisão entre elas é a dos dois
+  # aparatos que a lista traz — o de análise de filme e história do cinema, que ficou
+  # lá, e o de controle, desinformação e resistência, que é este.
+  #
+  # **O que esta trilha não repete.** trilha:politica/totalitarismo-e-fuga-da-liberdade,
+  # de 2026-11-05, cobriu o domínio total (Arendt) e a adesão (Fromm) — por que gente
+  # comum entra. Esta trilha fica com o outro lado: o controle sobre o que se pode saber
+  # e o que as pessoas fazem quando não podem recusar em público. Arendt e Fromm não
+  # entram aqui, e nenhuma etapa de lá é referenciada: as duas trilhas partem de perfil
+  # vazio por caminhos próprios e só se encontram em
+  # comp:politica/fascismo-como-processo, que é a crítica da classificação por essência
+  # que a trilha de Arendt faz por conceito.
+  #
+  # **A forma do grafo: três raízes, não uma.** Orwell, Foucault e Paxton abrem a trilha
+  # em paralelo, com requires vazio — nenhum dos três é pré-requisito dos outros, e
+  # enfileirá-los seria inventar dependência. De Orwell desce o deep fake (o controle do
+  # registro, agora com a técnica que o automatiza); de Foucault desce o transcrito
+  # oculto e, dele, a oportunidade política (a vigilância, depois o que se faz sob ela, e
+  # só então quando isso vira movimento); de Paxton descem o Heiden e o artigo de direito
+  # constitucional — a ascensão vista de perto e a ruptura conduzida pelas formas legais,
+  # que são os dois modos de examinar a chegada ao poder que o processo descreve.
+  #
+  # **Dois itens em português desta lista são de 2022 e 2023, não de 2023 e 2024.** As
+  # referências que o estudante colou datam o artigo de Fornasier, Cury e Holanda de 2024
+  # e o de Fares Paulo e Lopes de Siqueira de 2023; as páginas dos dois periódicos dizem
+  # outra coisa (ver as notas em catalogo/recursos/politica.yaml). Isso é fato da
+  # monografia dele, não do catálogo — mas é o tipo de erro que um parecerista marca.
+  etapas:
+    # --- Raiz: a linguagem e o arquivo --------------------------------------
+    - id: etapa:politica/linguagem-e-passado-sob-controle
+      titulo: 1984 — a língua estreitada e o arquivo corrigido
+      rev: 1
+      status: ativo
+      descricao: >
+        O romance de Orwell lido pelo mecanismo e não pela atmosfera: o trabalho diário de
+        corrigir o registro publicado, a novilíngua como projeto de estreitar o que pode
+        ser pensado, a duplipensa como exigência prática do funcionário, e o apêndice
+        sobre os princípios da novilíngua, que é onde o livro explica o próprio
+        dispositivo. O corte é extrair dali critérios aplicáveis a um caso real e
+        documentado de alteração oficial de linguagem ou de registro — e é o que separa a
+        leitura da adjetivação fácil, que chama de orwelliano qualquer eufemismo de
+        repartição.
+      esforco_estimado_min: 600
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:politica/controle-pela-linguagem-e-pelo-passado
+          nivel_resultante: intermediario
+
+    # --- Raiz: o olhar que disciplina ---------------------------------------
+    - id: etapa:politica/vigiar-e-punir
+      titulo: Vigiar e punir — do suplício ao olhar que dispensa a punição
+      rev: 1
+      status: ativo
+      descricao: >
+        Foucault do suplício público à prisão, com o deslocamento que interessa à trilha:
+        o poder que fica barato quando a visibilidade é desigual e quem é visto não sabe
+        quando. A etapa trabalha a parte do panoptismo e da disciplina, e cobra a
+        aplicação a um dispositivo real e banal — ponto eletrônico, software de
+        produtividade, prova vigiada —, descrevendo que conduta ele induz em quem nunca
+        foi punido. O uso do panóptico como metáfora decorativa para qualquer câmera é o
+        que a etapa recusa.
+      esforco_estimado_min: 1080
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:politica/vigilancia-e-disciplina
+          nivel_resultante: intermediario
+
+    # --- Raiz: o fascismo como processo -------------------------------------
+    - id: etapa:politica/anatomia-do-fascismo
+      titulo: A anatomia do fascismo — as cinco etapas, no lugar da lista de atributos
+      rev: 1
+      status: ativo
+      descricao: >
+        Paxton contra o método que procura a essência do fascismo numa lista de atributos
+        ideológicos: os movimentos contradisseram os próprios programas sem perder nada, e
+        o que os descreve é o processo — criação, enraizamento, chegada ao poder por
+        aliança com conservadores que pensavam controlá-los, exercício do poder,
+        radicalização. A etapa cobra situar um caso que não os do livro nessas etapas e
+        dizer em qual ele parou, nomeando os aliados que o viabilizaram e o que eles
+        esperavam obter.
+      esforco_estimado_min: 780
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:politica/fascismo-como-processo
+          nivel_resultante: intermediario
+
+    # --- De Orwell: o registro falsificável --------------------------------
+    - id: etapa:politica/deep-fake-como-problema-publico
+      titulo: Deep fakes — quando o vídeo deixa de provar e a negação fica fácil
+      rev: 1
+      status: ativo
+      descricao: >
+        O artigo de Chesney e Citron, que montou o problema público do deep fake, e o de
+        Fornasier, Cury e Holanda, que o discute no direito brasileiro e na eleição. A
+        etapa se organiza pelo dano que não é o óbvio: não acreditar no falso, e sim a
+        autoridade conveniente de poder negar o verdadeiro — o que Chesney e Citron
+        chamam de dividendo do mentiroso. O corte é raciocinar sobre estatuto de prova
+        (procedência, cadeia de custódia, corroboração independente, incentivo de quem
+        divulga e de quem nega) e dizer o que a dúvida bem fundada autoriza concluir, que
+        é menos do que os dois lados querem.
+      esforco_estimado_min: 300
+      opcional: false
+      requires:
+        - competencia: comp:politica/controle-pela-linguagem-e-pelo-passado
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:politica/prova-audiovisual-e-deep-fake
+          nivel_resultante: intermediario
+
+    # --- De Foucault: o que se faz sob o olhar ------------------------------
+    - id: etapa:politica/transcrito-oculto
+      titulo: O transcrito oculto — a conformidade em público e a recusa fora dele
+      rev: 1
+      status: ativo
+      descricao: >
+        Scott contra a leitura da ausência de protesto como consentimento: o registro
+        público é uma atuação que a situação exige, e a recusa existe num segundo
+        registro que o poder não escuta — anonimato, boato, sabotagem miúda, ironia,
+        deferência tão exagerada que insulta. A etapa é a contraparte direta da anterior:
+        depois de descrever o dispositivo que disciplina, descrever o que as pessoas
+        fazem dentro dele. E cobra as duas recusas: a de que há consentimento e a de que
+        toda deferência esconde revolta.
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:politica/vigilancia-e-disciplina
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:politica/transcrito-oculto
+          nivel_resultante: intermediario
+
+    # --- Do transcrito oculto: quando vira movimento -----------------------
+    - id: etapa:politica/oportunidade-politica-e-insurgencia
+      titulo: Estrutura de oportunidade — por que o movimento nasce aqui e não ali
+      rev: 1
+      status: ativo
+      descricao: >
+        McAdam sobre a insurgência negra americana de 1930 a 1970 e Goodwin sobre os
+        movimentos revolucionários do pós-guerra: os dois contra a explicação por
+        quantidade de sofrimento, e os dois construindo o mesmo tipo de resposta —
+        abertura no arranjo de autoridade, organização já montada para aproveitar a
+        brecha, e um grupo que se reconhece capaz de agir. A etapa cobra o esquema no
+        caso em que o movimento surgiu **e** no caso comparável em que não surgiu, que é
+        o teste que a tese precisa passar; vem depois do transcrito oculto porque é ele
+        que explica o que existia antes de haver movimento algum.
+      esforco_estimado_min: 1080
+      opcional: false
+      requires:
+        - competencia: comp:politica/transcrito-oculto
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:politica/estrutura-de-oportunidade-politica
+          nivel_resultante: intermediario
+
+    # --- De Paxton: a ascensão vista de perto ------------------------------
+    - id: etapa:politica/ascensao-contada-de-perto
+      titulo: Der Fuehrer — a ascensão narrada por quem a cobriu enquanto acontecia
+      rev: 1
+      status: ativo
+      descricao: >
+        Heiden, jornalista que cobriu o partido nazista em Munique desde os anos 1920 e
+        escreveu este volume no exílio, em 1944: a ascensão contada passo a passo, com as
+        manobras, as alianças e os cálculos errados de quem achava que controlava o
+        movimento. A etapa o usa de duas maneiras ao mesmo tempo — como material fino
+        sobre as etapas que Paxton descreve, e como fonte de alguém que escrevia em
+        guerra, sem saber o fim e com interesse em ser lido. É o que leva
+        comp:politica/fascismo-como-processo a avançado: o conceito encostado num caso
+        documentado em detalhe.
+      esforco_estimado_min: 1800
+      opcional: false
+      requires:
+        - competencia: comp:politica/fascismo-como-processo
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:politica/fascismo-como-processo
+          nivel_resultante: avancado
+
+    # --- De Paxton: a ruptura pelas formas ---------------------------------
+    - id: etapa:politica/ruptura-pela-via-legal
+      titulo: Da república ao império — a mudança de forma de governo feita no rito
+      rev: 1
+      status: ativo
+      descricao: >
+        O artigo de Fares Paulo e Lopes de Siqueira, que examina a passagem de uma
+        república ficcional a império pela perspectiva do direito constitucional
+        brasileiro e da forma de governo como cláusula pétrea. A etapa usa o caso de
+        ficção pelo que ele tem de didático — o procedimento inteiro à vista, emergência,
+        delegação, aclamação — e cobra o que o artigo não faz: aplicar o mesmo
+        acompanhamento a um processo real conduzido pelas formas vigentes, dizendo em que
+        ponto o conteúdo contradiz o limite que a ordem se deu. Também se cobra aqui a
+        pergunta da trilha irmã: a obra é objeto ou ilustração.
+      esforco_estimado_min: 240
+      opcional: false
+      requires:
+        - competencia: comp:politica/fascismo-como-processo
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:politica/ruptura-institucional-por-via-legal
+          nivel_resultante: intermediario
