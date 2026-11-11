@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 65,
-  "gerado_em": "2026-11-10T16:30:12+00:00",
-  "hash": "sha256:3e5d26b82b48aa26932b7f497e502d849e1f4d2c96f8db9fd35d4cbe2b8dea28",
+  "catalogo_versao": 66,
+  "gerado_em": "2026-11-10T22:46:35+00:00",
+  "hash": "sha256:79da8fa2f31cabb5c3ed1d48001b9adab758d3ae323bce84283665873a1b527c",
   "competencias": [
     {
       "id": "comp:cinema/analise-formal-do-filme",
@@ -1141,12 +1141,28 @@
       "descricao": "O compilador como parte do projeto: `tsconfig.json` por alvo (aplicação no navegador, Node, biblioteca publicada), resolução de módulo, rigor adotado em etapas, arquivo de declaração e o que é emitido — e a arquitetura que mantém os tipos legíveis e conferíveis quando o projeto cresce.\n"
     },
     {
+      "id": "comp:web/concorrencia-em-memoria-compartilhada",
+      "titulo": "Concorrência sobre memória compartilhada",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Escrever um cálculo que duas ou mais execuções paralelas dividem sobre a mesma memória, demonstrar o resultado errado que a versão sem sincronização produz, e corrigi-lo com operação atômica em vez de espera por tempo.",
+      "descricao": "Mais de um fio de execução sobre a mesma memória: memória declarada compartilhada, a operação atômica e o que ela garante, a espera e o despertar sobre um endereço, e os requisitos que o hospedeiro impõe para permitir tudo isso.\n"
+    },
+    {
       "id": "comp:web/documento-e-estilo",
       "titulo": "Documento e estilo",
       "rev": 1,
       "status": "ativo",
       "verificacao": "Reproduzir um layout de duas dimensões que se mantenha legível de 320px a 1920px sem valores fixos de altura, e explicar por que uma regra sua vence outra na cascata.",
       "descricao": "HTML como estrutura com significado e CSS como camada de apresentação: fluxo normal, modelo de caixa, cascata e especificidade, layout por grid e flexbox, e adaptação a tamanhos de tela.\n"
+    },
+    {
+      "id": "comp:web/formato-binario-de-modulo",
+      "titulo": "Leitura e manipulação do formato binário",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Diante de um binário que não se escreveu, desmontá-lo para o formato de texto, dizer o que cada seção declara, localizar uma função exportada e suas instruções; e, diante de uma falha, dizer se ela é de compilação, de instanciamento ou de execução, pelo que a mensagem nomeia.",
+      "descricao": "O arquivo como objeto de estudo: o formato de texto e suas instruções numéricas e de controle, as seções da estrutura binária, as ferramentas que desmontam, interpretam, convertem e otimizam um módulo — e os três momentos em que ele pode falhar, que são compilação, instanciamento e execução.\n"
     },
     {
       "id": "comp:web/http-e-protocolo",
@@ -1165,6 +1181,14 @@
       "descricao": "Compor uma interface em unidades com estado e limites claros: onde o estado mora, o que causa nova renderização, efeitos e sincronização com o servidor, e o custo de cada abstração.\n"
     },
     {
+      "id": "comp:web/interoperacao-modulo-e-hospedeiro",
+      "titulo": "Interoperação entre o módulo e o hospedeiro",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Transferir nos dois sentidos um dado que não é número — uma imagem, um vetor de bytes ou uma cadeia de texto — entre o hospedeiro e o módulo, sem cópia desnecessária, e justificar a escolha de onde a memória foi alocada e quem conhece seu endereço e seu comprimento.",
+      "descricao": "A fronteira que o módulo não atravessa sozinho: importação e exportação, a memória linear vista do hospedeiro por matrizes tipadas, valores globais, tabelas de referência, e a instância como o objeto onde tudo isso se junta.\n"
+    },
+    {
       "id": "comp:web/javascript-de-aplicacao",
       "titulo": "JavaScript de aplicação",
       "rev": 1,
@@ -1179,6 +1203,22 @@
       "status": "ativo",
       "verificacao": "Servir uma API HTTP própria, sem framework, que leia e escreva arquivo; depois trocar a leitura pela variante síncrona e mostrar — medindo a latência de uma segunda requisição concorrente — o que o bloqueio do laço de eventos custa.",
       "descricao": "A mesma linguagem fora do navegador: o laço de eventos de Node sem DOM, resolução de módulos (CommonJS e ESM), I/O de arquivo e de rede sem bloquear, um servidor HTTP escrito à mão, e dependência de terceiro com o custo que ela traz.\n"
+    },
+    {
+      "id": "comp:web/modulo-fora-do-navegador",
+      "titulo": "Módulo portátil fora do navegador",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Rodar um módulo em tempo de execução autônomo fazendo-o ler e escrever um arquivo, e mostrar que o mesmo módulo falha quando o diretório não lhe é concedido — distinguindo essa falha de um erro de programação.",
+      "descricao": "O mesmo binário rodando onde não há página: a interface de sistema que lhe dá arquivo, relógio e entrada padrão, o tempo de execução autônomo que o carrega, e o modelo de capacidades, em que o que não foi concedido na linha de comando não existe para o módulo.\n"
+    },
+    {
+      "id": "comp:web/modulo-wasm-e-maquina-virtual",
+      "titulo": "Módulo WebAssembly e a máquina virtual que o executa",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Diante de uma função em linguagem compilável para o formato, prever os tipos de valor da assinatura resultante, compilar o módulo e mostrar na saída onde cada parte da função foi, e dizer o que aquele módulo é incapaz de fazer sem que o hospedeiro lhe conceda.",
+      "descricao": "O modelo de execução antes do código: a máquina virtual de pilha, os tipos de valor que ela conhece, os dois formatos do mesmo módulo — texto e binário —, o que a compilação de uma linguagem de origem produz, e o isolamento em caixa de areia que define o que um módulo pode e não pode alcançar por si.\n"
     },
     {
       "id": "comp:web/python-no-servidor",
@@ -1203,6 +1243,14 @@
       "status": "ativo",
       "verificacao": "Diante de um tipo mantido em duplicata — escrito à mão ao lado do valor, do esquema ou da função que ele deveria acompanhar —, derivá-lo da fonte única e mostrar que uma mudança na fonte passa a quebrar a compilação no ponto exato em que a duplicata mentiria calada.",
       "descricao": "Derivar um tipo do que já existe em vez de redigitá-lo: `keyof`, `typeof`, acesso indexado, tipo mapeado e tipo condicional, genérico como transformação, e `satisfies` no lugar da anotação que apaga a informação que se queria manter.\n"
+    },
+    {
+      "id": "comp:web/vinculacao-e-abi-de-modulo",
+      "titulo": "Vinculação e interface binária de aplicativo",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Fazer um módulo chamar código compilado separadamente, declarando o símbolo e a convenção de chamada, e explicar o que muda na saída e no carregamento quando a mesma dependência é vinculada estaticamente ou dinamicamente.",
+      "descricao": "O contrato que duas unidades compiladas cumprem para se chamarem: a interface binária da linguagem de origem, o símbolo declarado externo, a vinculação estática contra a dinâmica, e a codificação com que um tipo da linguagem chega do outro lado como bytes em memória.\n"
     },
     {
       "id": "comp:web/visualizacao-no-navegador",
@@ -5490,6 +5538,240 @@
           "nivel_resultante": "intermediario"
         }
       ]
+    },
+    {
+      "id": "etapa:web/wasm-codificacao-e-strings",
+      "titulo": "Codificação de dados — a cadeia de texto que atravessa a fronteira",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 240,
+      "descricao": "O caso que mostra que o módulo só conhece números: codificar e decodificar dados na travessia, UTF-8 e por que o comprimento em bytes não é o comprimento em caracteres, e a passagem de uma cadeia de texto da linguagem de origem ao módulo e de volta — com quem aloca, quem libera e quem guarda o ponteiro e o tamanho.\n",
+      "trilha": "trilha:web/webassembly-por-dentro",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/interoperacao-modulo-e-hospedeiro",
+          "nivel_minimo": "avancado"
+        },
+        {
+          "competencia": "comp:web/vinculacao-e-abi-de-modulo",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/vinculacao-e-abi-de-modulo",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/wasm-editor-de-imagem",
+      "titulo": "Projeto: editor de imagem — filtros no módulo contra os mesmos filtros no hospedeiro",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 480,
+      "descricao": "A etapa em que a interoperação deixa de ser exemplo: uma imagem do canvas passada à memória do módulo, filtros de cor, opacidade e inversão escritos primeiro no hospedeiro e depois no módulo, e a comparação medida entre as duas versões sobre a mesma imagem. O corte é o custo da travessia — descobrir em que tamanho de dado a cópia come o ganho.\n",
+      "trilha": "trilha:web/webassembly-por-dentro",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/interoperacao-modulo-e-hospedeiro",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/interoperacao-modulo-e-hospedeiro",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/wasm-erros-e-formato-de-texto",
+      "titulo": "Os três momentos de falha e o formato de texto que os explica",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "descricao": "Duas metades que se exigem: os três momentos em que um módulo falha — ao compilar, ao configurar a instância e em tempo de execução — e o formato de texto, que é onde a mensagem passa a se poder ler. Instruções numéricas e de controle escritas à mão, até conseguir dizer o que um trecho faz sem compilá-lo.\n",
+      "trilha": "trilha:web/webassembly-por-dentro",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/modulo-wasm-e-maquina-virtual",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:web/interoperacao-modulo-e-hospedeiro",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/formato-binario-de-modulo",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/wasm-estrutura-binaria-e-ferramental",
+      "titulo": "Estrutura binária e ferramental — desmontar, interpretar, converter e otimizar",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 360,
+      "descricao": "O binário como objeto de estudo, com as ferramentas oficiais na mão: as seções da estrutura, a visualização e a descompilação de um arquivo que não se escreveu, a execução pelo interpretador, a conversão para C e para JavaScript, e a otimização — medida no tamanho e no tempo, não aceita pela promessa da bandeira.\n",
+      "trilha": "trilha:web/webassembly-por-dentro",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/formato-binario-de-modulo",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/formato-binario-de-modulo",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/wasm-maquina-virtual-e-primeiro-modulo",
+      "titulo": "Máquina virtual, formatos e o primeiro módulo compilado",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "descricao": "O modelo de execução e o primeiro binário próprio: a máquina virtual de pilha, os tipos de valor que ela conhece, os dois formatos do mesmo módulo — texto legível e binário — e a cadeia de ferramentas que leva de uma função em linguagem de origem ao arquivo compilado. Estuda-se com a saída na mão: para cada construção escrita, o que apareceu do outro lado.\n",
+      "trilha": "trilha:web/webassembly-por-dentro",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/modulo-wasm-e-maquina-virtual",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/modulo-wasm-e-maquina-virtual",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/wasm-no-javascript",
+      "titulo": "O módulo visto do JavaScript — instância, memória, globais e tabelas",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 420,
+      "descricao": "A API que o navegador expõe e a fronteira que ela desenha: módulo contra instância, compilação e instanciamento a partir de uma resposta de rede, a memória linear lida e escrita do outro lado por matrizes tipadas e `DataView`, valores globais e tabelas de referência. É aqui que fica claro que o módulo não alcança nada por si: tudo que ele pode tocar foi importado.\n",
+      "trilha": "trilha:web/webassembly-por-dentro",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/modulo-wasm-e-maquina-virtual",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:web/javascript-de-aplicacao",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/interoperacao-modulo-e-hospedeiro",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/wasm-o-que-e-e-para-que",
+      "titulo": "O que é WebAssembly — e o problema que ele resolve",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 90,
+      "descricao": "Abre a trilha sem compilar nada: por que um formato binário portátil apareceu na Web, o que ele é e o que ele explicitamente não é — não é linguagem, não substitui JavaScript e não tem acesso ao documento —, e as três promessas que o resto da trilha vai cobrar: performance, portabilidade e isolamento. O corte é saber dizer quando a tecnologia se aplica e quando não vale o custo.\n",
+      "trilha": "trilha:web/webassembly-por-dentro",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:web/modulo-wasm-e-maquina-virtual",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/wasm-threads-e-atomicos",
+      "titulo": "Threads, memória compartilhada e instruções atômicas",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "descricao": "Mais de um fio de execução sobre a mesma memória linear: memória declarada compartilhada e o que o hospedeiro exige para permiti-la, a instrução atômica e a garantia que ela dá, a espera e o despertar sobre um endereço, e os trabalhadores que executam o módulo em paralelo. Estuda-se pelo erro: o mesmo cálculo sem sincronização, para ver o resultado errado antes de corrigi-lo.\n",
+      "trilha": "trilha:web/webassembly-por-dentro",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/interoperacao-modulo-e-hospedeiro",
+          "nivel_minimo": "avancado"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/concorrencia-em-memoria-compartilhada",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/wasm-vinculacao-e-abi",
+      "titulo": "Vinculação e interface binária — o contrato entre unidades compiladas",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 240,
+      "descricao": "O que duas unidades compiladas cumprem para se chamarem: a interface binária de aplicativo da linguagem de origem, o bloco externo que declara um símbolo que não está ali, e a diferença prática entre vincular estaticamente e dinamicamente — no tamanho do binário, no carregamento e no que falha quando a outra metade não aparece.\n",
+      "trilha": "trilha:web/webassembly-por-dentro",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/modulo-wasm-e-maquina-virtual",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:web/interoperacao-modulo-e-hospedeiro",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/vinculacao-e-abi-de-modulo",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:web/wasm-wasi-fora-do-navegador",
+      "titulo": "WASI — o mesmo binário onde não há página",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 360,
+      "descricao": "O módulo rodando sem navegador: a interface de sistema que lhe dá arquivo, relógio e entrada padrão, o tempo de execução autônomo que o carrega, e o modelo de capacidades — o diretório que não foi concedido na linha de comando não existe para o módulo, e essa falha não é erro de programação. Inclui escrever em arquivo, a mesma chamada vista no formato de texto, e fios de execução fora do navegador.\n",
+      "trilha": "trilha:web/webassembly-por-dentro",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:web/vinculacao-e-abi-de-modulo",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:web/formato-binario-de-modulo",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:web/modulo-fora-do-navegador",
+          "nivel_resultante": "intermediario"
+        }
+      ]
     }
   ],
   "trilhas": [
@@ -6368,6 +6650,54 @@
         "etapa:web/typescript-predicado-e-assercao",
         "etapa:web/typescript-compilador-e-arquitetura",
         "etapa:web/typescript-projeto-aplicacao"
+      ]
+    },
+    {
+      "id": "trilha:web/webassembly-por-dentro",
+      "titulo": "WebAssembly por dentro — do primeiro módulo ao binário e ao WASI",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:web/modulo-wasm-e-maquina-virtual",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:web/interoperacao-modulo-e-hospedeiro",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:web/vinculacao-e-abi-de-modulo",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:web/concorrencia-em-memoria-compartilhada",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:web/formato-binario-de-modulo",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:web/modulo-fora-do-navegador",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:web/wasm-o-que-e-e-para-que",
+        "etapa:web/wasm-maquina-virtual-e-primeiro-modulo",
+        "etapa:web/wasm-no-javascript",
+        "etapa:web/wasm-editor-de-imagem",
+        "etapa:web/wasm-vinculacao-e-abi",
+        "etapa:web/wasm-codificacao-e-strings",
+        "etapa:web/wasm-threads-e-atomicos",
+        "etapa:web/wasm-erros-e-formato-de-texto",
+        "etapa:web/wasm-estrutura-binaria-e-ferramental",
+        "etapa:web/wasm-wasi-fora-do-navegador"
+      ],
+      "etapas_referenciadas": [
+        "etapa:web/documento-e-estilo",
+        "etapa:web/javascript-de-aplicacao"
       ]
     }
   ],
@@ -11873,6 +12203,156 @@
       "verificado_em": "2026-10-20"
     },
     {
+      "id": "rec:web/amorim-wasm-cap-01",
+      "titulo": "Desmistificando WebAssembly (Raphael Amorim) — cap. 1, Introdução: do Node.js ao WebAssembly, e o que WebAssembly é",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-o-que-e-e-para-que",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 44.9,
+      "duracao_min": 60,
+      "url": "https://www.casadocodigo.com.br/products/livro-webassembly",
+      "disponivel": true,
+      "obra": "amorim-desmistificando-webassembly",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/amorim-wasm-cap-02",
+      "titulo": "Desmistificando WebAssembly (Raphael Amorim) — cap. 2, Fundamentos ao primeiro módulo: máquina virtual, formatos de arquivo, tipos de valores e compilação para o binário",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-maquina-virtual-e-primeiro-modulo",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 44.9,
+      "duracao_min": 180,
+      "url": "https://www.casadocodigo.com.br/products/livro-webassembly",
+      "disponivel": true,
+      "obra": "amorim-desmistificando-webassembly",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/amorim-wasm-cap-03",
+      "titulo": "Desmistificando WebAssembly (Raphael Amorim) — cap. 3, Por trás da magia no navegador: matrizes tipadas, `DataView`, módulo e instanciamento, memória, globais e tabelas",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-no-javascript",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 44.9,
+      "duracao_min": 210,
+      "url": "https://www.casadocodigo.com.br/products/livro-webassembly",
+      "disponivel": true,
+      "obra": "amorim-desmistificando-webassembly",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/amorim-wasm-cap-04",
+      "titulo": "Desmistificando WebAssembly (Raphael Amorim) — cap. 4, Criando um editor de imagem: dados da imagem na memória, e os filtros escritos primeiro em JavaScript e depois em WebAssembly",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-editor-de-imagem",
+      "formato": "projeto",
+      "idioma": "pt-BR",
+      "custo": 44.9,
+      "duracao_min": 210,
+      "url": "https://www.casadocodigo.com.br/products/livro-webassembly",
+      "disponivel": true,
+      "obra": "amorim-desmistificando-webassembly",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/amorim-wasm-cap-05",
+      "titulo": "Desmistificando WebAssembly (Raphael Amorim) — cap. 5, Vinculação e interface binária de aplicativo: C ABI e Rust ABI, blocos externos, vinculação dinâmica e estática",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-vinculacao-e-abi",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 44.9,
+      "duracao_min": 150,
+      "url": "https://www.casadocodigo.com.br/products/livro-webassembly",
+      "disponivel": true,
+      "obra": "amorim-desmistificando-webassembly",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/amorim-wasm-cap-06",
+      "titulo": "Desmistificando WebAssembly (Raphael Amorim) — cap. 6, Encoding e Strings: codificação e decodificação de dados, UTF-8, e a cadeia de texto do Rust para o módulo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-codificacao-e-strings",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 44.9,
+      "duracao_min": 120,
+      "url": "https://www.casadocodigo.com.br/products/livro-webassembly",
+      "disponivel": true,
+      "obra": "amorim-desmistificando-webassembly",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/amorim-wasm-cap-07",
+      "titulo": "Desmistificando WebAssembly (Raphael Amorim) — cap. 7, Threads e atômicos: memória compartilhada, instruções atômicas e Web Workers",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-threads-e-atomicos",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 44.9,
+      "duracao_min": 120,
+      "url": "https://www.casadocodigo.com.br/products/livro-webassembly",
+      "disponivel": true,
+      "obra": "amorim-desmistificando-webassembly",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/amorim-wasm-cap-08-09",
+      "titulo": "Desmistificando WebAssembly (Raphael Amorim) — cap. 8 e 9: erro de compilação, de configuração da instância e de tempo de execução; e o formato de texto com suas instruções numéricas e de controle",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-erros-e-formato-de-texto",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 44.9,
+      "duracao_min": 180,
+      "url": "https://www.casadocodigo.com.br/products/livro-webassembly",
+      "disponivel": true,
+      "obra": "amorim-desmistificando-webassembly",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/amorim-wasm-cap-10",
+      "titulo": "Desmistificando WebAssembly (Raphael Amorim) — cap. 10, Estruturas binárias, WABT e Binaryen: visualização, interpretação, descompilação, `wasm2c`, `wasm2js`, `wasm-tools` e otimização",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-estrutura-binaria-e-ferramental",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 44.9,
+      "duracao_min": 210,
+      "url": "https://www.casadocodigo.com.br/products/livro-webassembly",
+      "disponivel": true,
+      "obra": "amorim-desmistificando-webassembly",
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/amorim-wasm-cap-11",
+      "titulo": "Desmistificando WebAssembly (Raphael Amorim) — cap. 11, WASI: arquitetura, Wasmtime, WASI com Rust e com o formato de texto, escrita em arquivo e `pthreads`",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-wasi-fora-do-navegador",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 44.9,
+      "duracao_min": 240,
+      "url": "https://www.casadocodigo.com.br/products/livro-webassembly",
+      "disponivel": true,
+      "obra": "amorim-desmistificando-webassembly",
+      "verificado_em": "2026-11-10"
+    },
+    {
       "id": "rec:web/aria-authoring-practices",
       "titulo": "ARIA Authoring Practices Guide (W3C WAI) — padrões de componente com teclado e estado",
       "rev": 1,
@@ -11885,6 +12365,20 @@
       "url": "https://www.w3.org/WAI/ARIA/apg/",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/binaryen-otimizacao",
+      "titulo": "Binaryen — `wasm-opt` e as passagens de otimização: o que cada uma faz ao binário, para medir o ganho em vez de supor",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-estrutura-binaria-e-ferramental",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://github.com/WebAssembly/binaryen",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
     },
     {
       "id": "rec:web/burnham-async-javascript",
@@ -12059,6 +12553,118 @@
       "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/mdn-matrizes-tipadas",
+      "titulo": "MDN — JavaScript typed arrays: buffer, visão e `DataView`, que é como o hospedeiro lê a memória linear do módulo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-no-javascript",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Typed_arrays",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/mdn-wasm-api-javascript",
+      "titulo": "MDN — Using the WebAssembly JavaScript API: compilar, instanciar, importar e exportar, memória, tabela e global",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-no-javascript",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://developer.mozilla.org/en-US/docs/WebAssembly/Guides/Using_the_JavaScript_API",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/mdn-wasm-conceitos",
+      "titulo": "MDN — WebAssembly concepts: o que é, por que apareceu, e como se encaixa ao lado do JavaScript",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-o-que-e-e-para-que",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://developer.mozilla.org/en-US/docs/WebAssembly/Guides/Concepts",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/mdn-wasm-entrada-ptbr",
+      "titulo": "MDN — WebAssembly (página de entrada em português; os guias internos só existem em inglês)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-o-que-e-e-para-que",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 30,
+      "url": "https://developer.mozilla.org/pt-BR/docs/WebAssembly",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/mdn-wasm-formato-de-texto",
+      "titulo": "MDN — Understanding WebAssembly text format: a forma legível do módulo, instrução por instrução",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-erros-e-formato-de-texto",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://developer.mozilla.org/en-US/docs/WebAssembly/Guides/Understanding_the_text_format",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/mdn-wasm-interface-javascript",
+      "titulo": "MDN — WebAssembly JavaScript interface: as três classes de erro do objeto `WebAssembly` — `CompileError`, `LinkError` e `RuntimeError` — e o que cada uma nomeia",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-erros-e-formato-de-texto",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://developer.mozilla.org/en-US/docs/WebAssembly/Reference/JavaScript_interface",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/mdn-wasm-rust-para-wasm",
+      "titulo": "MDN — Compiling from Rust to WebAssembly: do fonte ao `.wasm` carregado na página, com a cadeia de ferramentas montada",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-maquina-virtual-e-primeiro-modulo",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 150,
+      "url": "https://developer.mozilla.org/en-US/docs/WebAssembly/Guides/Rust_to_Wasm",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/mdn-web-workers",
+      "titulo": "MDN — Using Web Workers: o fio de execução do lado do hospedeiro, que é quem carrega o módulo em paralelo",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-threads-e-atomicos",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
     },
     {
       "id": "rec:web/meyer-css-and-documents",
@@ -12312,6 +12918,20 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:web/rustwasm-game-of-life",
+      "titulo": "Rust and WebAssembly — tutorial do Game of Life: projeto completo com a grade na memória do módulo, desenhada e medida pelo hospedeiro",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-editor-de-imagem",
+      "formato": "projeto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://rustwasm.github.io/docs/book/game-of-life/introduction.html",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
       "id": "rec:web/starlette-docs",
       "titulo": "Starlette — documentação oficial: aplicação, rotas, requisição, resposta, templates Jinja2, arquivos estáticos e cliente de teste (ASGI)",
       "rev": 1,
@@ -12467,6 +13087,104 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:web/wabt-ferramental",
+      "titulo": "WABT — WebAssembly Binary Toolkit: `wat2wasm`, `wasm2wat`, `wasm-objdump`, `wasm-interp`, `wasm-decompile` e `wasm2c`, com exemplos de uso",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-estrutura-binaria-e-ferramental",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://github.com/WebAssembly/wabt",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/wasi-dev",
+      "titulo": "wasi.dev — WebAssembly System Interface: o modelo de capacidades e as interfaces que o módulo recebe fora do navegador",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-wasi-fora-do-navegador",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://wasi.dev/",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/wasm-bindgen-livro",
+      "titulo": "The `wasm-bindgen` Guide: como cada tipo da linguagem de origem atravessa a fronteira — cadeia de texto, estrutura, vetor — e o código de cola que isso exige",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-codificacao-e-strings",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://rustwasm.github.io/docs/wasm-bindgen/",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/wasm-spec-formato-binario",
+      "titulo": "WebAssembly Core Specification — Binary Format: as seções do arquivo, na fonte normativa",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-estrutura-binaria-e-ferramental",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://webassembly.github.io/spec/core/binary/index.html",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/wasm-tool-conventions-c-abi",
+      "titulo": "WebAssembly tool-conventions — Basic C ABI: a convenção que as cadeias de ferramentas cumprem para que unidades compiladas separadamente se chamem",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-vinculacao-e-abi",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://github.com/WebAssembly/tool-conventions/blob/main/BasicCABI.md",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/wasm-tool-conventions-vinculacao-dinamica",
+      "titulo": "WebAssembly tool-conventions — Dynamic Linking: o que muda no binário e no carregamento quando a outra metade não vem embutida",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-vinculacao-e-abi",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://github.com/WebAssembly/tool-conventions/blob/main/DynamicLinking.md",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/wasmtime-documentacao",
+      "titulo": "Wasmtime — documentação: rodar um módulo fora do navegador pela linha de comando, concedendo diretório e variável de ambiente explicitamente",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-wasi-fora-do-navegador",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 180,
+      "url": "https://docs.wasmtime.dev/",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
       "id": "rec:web/web-dev-learn-accessibility",
       "titulo": "web.dev — Learn Accessibility: semântica, foco, contraste e nome acessível",
       "rev": 1,
@@ -12493,6 +13211,34 @@
       "url": "https://web.dev/learn/css",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:web/webassembly-org-guia-do-desenvolvedor",
+      "titulo": "webassembly.org — Developer's Guide: o primeiro módulo a partir de C, de Rust ou de outra linguagem de origem",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-maquina-virtual-e-primeiro-modulo",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://webassembly.org/getting-started/developers-guide/",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
+    },
+    {
+      "id": "rec:web/webdev-wasm-threads",
+      "titulo": "web.dev — Using WebAssembly threads: memória compartilhada, atômicos, e os cabeçalhos de isolamento que o navegador exige para permiti-los",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:web/wasm-threads-e-atomicos",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 120,
+      "url": "https://web.dev/articles/webassembly-threads",
+      "disponivel": true,
+      "verificado_em": "2026-11-10"
     },
     {
       "id": "rec:web/what-every-web-developer-http",

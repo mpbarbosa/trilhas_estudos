@@ -684,3 +684,428 @@ recursos:
     url: https://www.typescriptlang.org/play/
     disponivel: true
     verificado_em: 2026-11-05
+
+  # =========================================================================
+  # trilha:web/webassembly-por-dentro
+  #
+  # O exemplar que abriu a trilha: Raphael Amorim, *Desmistificando WebAssembly —
+  # alta performance, portabilidade e segurança*, Casa do Código, set. 2023. Dez
+  # fatias, uma por etapa, obra `amorim-desmistificando-webassembly`, cortadas pelo
+  # número de capítulo porque o sumário dos onze capítulos está publicado pela
+  # editora.
+  #
+  # DIVERGÊNCIA DE FICHA, declarada em vez de resolvida (regra de
+  # docs/catalogo.md §4 sobre o que é cosmético, e a de não corrigir referência por
+  # ficha de terceiro): a editora declara 311 páginas e ISBN 978-85-5519-346-0; a
+  # página da edição Kindle, por onde o livro chegou (ASIN B0CJWL9Z5V), declara 334
+  # páginas e ISBN-13 978-8555193477. São duas fichas do mesmo título em dois
+  # formatos; nenhum exemplar foi medido aqui.
+  #
+  # `custo: 44.9` é a oferta mais baixa **observada** em 2026-11-10, o e-book na
+  # loja da editora (que declara dar acesso a atualizações futuras). No mesmo dia o
+  # impresso saía a R$ 79,90, o combo a R$ 109,90 e o Kindle a R$ 49,90. A `url`
+  # aponta para a página da editora por ser onde o preço declarado se confere e onde
+  # o sumário está publicado.
+  #
+  # Toda etapa tem ao menos uma via gratuita ao lado da fatia paga. ATENÇÃO sobre
+  # idioma: a documentação do MDN sobre WebAssembly só tem a página de entrada
+  # traduzida — as páginas de guia em `pt-BR` redirecionam para `en-US`, conferido em
+  # 2026-11-10. Fora do livro, a trilha é em inglês.
+  # =========================================================================
+
+  # --- etapa:web/wasm-o-que-e-e-para-que ----------------------------------
+  - id: rec:web/amorim-wasm-cap-01
+    etapa: etapa:web/wasm-o-que-e-e-para-que
+    titulo: "Desmistificando WebAssembly (Raphael Amorim) — cap. 1, Introdução: do Node.js ao WebAssembly, e o que WebAssembly é"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 44.9
+    duracao_min: 60
+    url: https://www.casadocodigo.com.br/products/livro-webassembly
+    obra: amorim-desmistificando-webassembly
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:web/mdn-wasm-conceitos
+    etapa: etapa:web/wasm-o-que-e-e-para-que
+    titulo: "MDN — WebAssembly concepts: o que é, por que apareceu, e como se encaixa ao lado do JavaScript"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://developer.mozilla.org/en-US/docs/WebAssembly/Guides/Concepts
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:web/mdn-wasm-entrada-ptbr
+    etapa: etapa:web/wasm-o-que-e-e-para-que
+    titulo: "MDN — WebAssembly (página de entrada em português; os guias internos só existem em inglês)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 30
+    url: https://developer.mozilla.org/pt-BR/docs/WebAssembly
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:web/wasm-maquina-virtual-e-primeiro-modulo -------------------
+  - id: rec:web/amorim-wasm-cap-02
+    etapa: etapa:web/wasm-maquina-virtual-e-primeiro-modulo
+    titulo: "Desmistificando WebAssembly (Raphael Amorim) — cap. 2, Fundamentos ao primeiro módulo: máquina virtual, formatos de arquivo, tipos de valores e compilação para o binário"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 44.9
+    duracao_min: 180
+    url: https://www.casadocodigo.com.br/products/livro-webassembly
+    obra: amorim-desmistificando-webassembly
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:web/mdn-wasm-rust-para-wasm
+    etapa: etapa:web/wasm-maquina-virtual-e-primeiro-modulo
+    titulo: "MDN — Compiling from Rust to WebAssembly: do fonte ao `.wasm` carregado na página, com a cadeia de ferramentas montada"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 150
+    url: https://developer.mozilla.org/en-US/docs/WebAssembly/Guides/Rust_to_Wasm
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:web/webassembly-org-guia-do-desenvolvedor
+    etapa: etapa:web/wasm-maquina-virtual-e-primeiro-modulo
+    titulo: "webassembly.org — Developer's Guide: o primeiro módulo a partir de C, de Rust ou de outra linguagem de origem"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://webassembly.org/getting-started/developers-guide/
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:web/wasm-no-javascript ---------------------------------------
+  - id: rec:web/amorim-wasm-cap-03
+    etapa: etapa:web/wasm-no-javascript
+    titulo: "Desmistificando WebAssembly (Raphael Amorim) — cap. 3, Por trás da magia no navegador: matrizes tipadas, `DataView`, módulo e instanciamento, memória, globais e tabelas"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 44.9
+    duracao_min: 210
+    url: https://www.casadocodigo.com.br/products/livro-webassembly
+    obra: amorim-desmistificando-webassembly
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:web/mdn-wasm-api-javascript
+    etapa: etapa:web/wasm-no-javascript
+    titulo: "MDN — Using the WebAssembly JavaScript API: compilar, instanciar, importar e exportar, memória, tabela e global"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 240
+    url: https://developer.mozilla.org/en-US/docs/WebAssembly/Guides/Using_the_JavaScript_API
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:web/mdn-matrizes-tipadas
+    etapa: etapa:web/wasm-no-javascript
+    titulo: "MDN — JavaScript typed arrays: buffer, visão e `DataView`, que é como o hospedeiro lê a memória linear do módulo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Typed_arrays
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:web/wasm-editor-de-imagem ------------------------------------
+  - id: rec:web/amorim-wasm-cap-04
+    etapa: etapa:web/wasm-editor-de-imagem
+    titulo: "Desmistificando WebAssembly (Raphael Amorim) — cap. 4, Criando um editor de imagem: dados da imagem na memória, e os filtros escritos primeiro em JavaScript e depois em WebAssembly"
+    rev: 1
+    status: ativo
+    formato: projeto
+    idioma: pt-BR
+    custo: 44.9
+    duracao_min: 210
+    url: https://www.casadocodigo.com.br/products/livro-webassembly
+    obra: amorim-desmistificando-webassembly
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:web/rustwasm-game-of-life
+    etapa: etapa:web/wasm-editor-de-imagem
+    titulo: "Rust and WebAssembly — tutorial do Game of Life: projeto completo com a grade na memória do módulo, desenhada e medida pelo hospedeiro"
+    rev: 1
+    status: ativo
+    formato: projeto
+    idioma: en-US
+    custo: 0
+    duracao_min: 600
+    url: https://rustwasm.github.io/docs/book/game-of-life/introduction.html
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:web/wasm-vinculacao-e-abi ------------------------------------
+  - id: rec:web/amorim-wasm-cap-05
+    etapa: etapa:web/wasm-vinculacao-e-abi
+    titulo: "Desmistificando WebAssembly (Raphael Amorim) — cap. 5, Vinculação e interface binária de aplicativo: C ABI e Rust ABI, blocos externos, vinculação dinâmica e estática"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 44.9
+    duracao_min: 150
+    url: https://www.casadocodigo.com.br/products/livro-webassembly
+    obra: amorim-desmistificando-webassembly
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:web/wasm-tool-conventions-c-abi
+    etapa: etapa:web/wasm-vinculacao-e-abi
+    titulo: "WebAssembly tool-conventions — Basic C ABI: a convenção que as cadeias de ferramentas cumprem para que unidades compiladas separadamente se chamem"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://github.com/WebAssembly/tool-conventions/blob/main/BasicCABI.md
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:web/wasm-tool-conventions-vinculacao-dinamica
+    etapa: etapa:web/wasm-vinculacao-e-abi
+    titulo: "WebAssembly tool-conventions — Dynamic Linking: o que muda no binário e no carregamento quando a outra metade não vem embutida"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://github.com/WebAssembly/tool-conventions/blob/main/DynamicLinking.md
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:web/wasm-codificacao-e-strings -------------------------------
+  - id: rec:web/amorim-wasm-cap-06
+    etapa: etapa:web/wasm-codificacao-e-strings
+    titulo: "Desmistificando WebAssembly (Raphael Amorim) — cap. 6, Encoding e Strings: codificação e decodificação de dados, UTF-8, e a cadeia de texto do Rust para o módulo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 44.9
+    duracao_min: 120
+    url: https://www.casadocodigo.com.br/products/livro-webassembly
+    obra: amorim-desmistificando-webassembly
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:web/wasm-bindgen-livro
+    etapa: etapa:web/wasm-codificacao-e-strings
+    titulo: "The `wasm-bindgen` Guide: como cada tipo da linguagem de origem atravessa a fronteira — cadeia de texto, estrutura, vetor — e o código de cola que isso exige"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 240
+    url: https://rustwasm.github.io/docs/wasm-bindgen/
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:web/wasm-threads-e-atomicos ----------------------------------
+  - id: rec:web/amorim-wasm-cap-07
+    etapa: etapa:web/wasm-threads-e-atomicos
+    titulo: "Desmistificando WebAssembly (Raphael Amorim) — cap. 7, Threads e atômicos: memória compartilhada, instruções atômicas e Web Workers"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 44.9
+    duracao_min: 120
+    url: https://www.casadocodigo.com.br/products/livro-webassembly
+    obra: amorim-desmistificando-webassembly
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:web/webdev-wasm-threads
+    etapa: etapa:web/wasm-threads-e-atomicos
+    titulo: "web.dev — Using WebAssembly threads: memória compartilhada, atômicos, e os cabeçalhos de isolamento que o navegador exige para permiti-los"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://web.dev/articles/webassembly-threads
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:web/mdn-web-workers
+    etapa: etapa:web/wasm-threads-e-atomicos
+    titulo: "MDN — Using Web Workers: o fio de execução do lado do hospedeiro, que é quem carrega o módulo em paralelo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:web/wasm-erros-e-formato-de-texto ----------------------------
+  - id: rec:web/amorim-wasm-cap-08-09
+    etapa: etapa:web/wasm-erros-e-formato-de-texto
+    titulo: "Desmistificando WebAssembly (Raphael Amorim) — cap. 8 e 9: erro de compilação, de configuração da instância e de tempo de execução; e o formato de texto com suas instruções numéricas e de controle"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 44.9
+    duracao_min: 180
+    url: https://www.casadocodigo.com.br/products/livro-webassembly
+    obra: amorim-desmistificando-webassembly
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:web/mdn-wasm-formato-de-texto
+    etapa: etapa:web/wasm-erros-e-formato-de-texto
+    titulo: "MDN — Understanding WebAssembly text format: a forma legível do módulo, instrução por instrução"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://developer.mozilla.org/en-US/docs/WebAssembly/Guides/Understanding_the_text_format
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:web/mdn-wasm-interface-javascript
+    etapa: etapa:web/wasm-erros-e-formato-de-texto
+    titulo: "MDN — WebAssembly JavaScript interface: as três classes de erro do objeto `WebAssembly` — `CompileError`, `LinkError` e `RuntimeError` — e o que cada uma nomeia"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://developer.mozilla.org/en-US/docs/WebAssembly/Reference/JavaScript_interface
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:web/wasm-estrutura-binaria-e-ferramental ---------------------
+  - id: rec:web/amorim-wasm-cap-10
+    etapa: etapa:web/wasm-estrutura-binaria-e-ferramental
+    titulo: "Desmistificando WebAssembly (Raphael Amorim) — cap. 10, Estruturas binárias, WABT e Binaryen: visualização, interpretação, descompilação, `wasm2c`, `wasm2js`, `wasm-tools` e otimização"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 44.9
+    duracao_min: 210
+    url: https://www.casadocodigo.com.br/products/livro-webassembly
+    obra: amorim-desmistificando-webassembly
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:web/wabt-ferramental
+    etapa: etapa:web/wasm-estrutura-binaria-e-ferramental
+    titulo: "WABT — WebAssembly Binary Toolkit: `wat2wasm`, `wasm2wat`, `wasm-objdump`, `wasm-interp`, `wasm-decompile` e `wasm2c`, com exemplos de uso"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://github.com/WebAssembly/wabt
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:web/binaryen-otimizacao
+    etapa: etapa:web/wasm-estrutura-binaria-e-ferramental
+    titulo: "Binaryen — `wasm-opt` e as passagens de otimização: o que cada uma faz ao binário, para medir o ganho em vez de supor"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://github.com/WebAssembly/binaryen
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:web/wasm-spec-formato-binario
+    etapa: etapa:web/wasm-estrutura-binaria-e-ferramental
+    titulo: "WebAssembly Core Specification — Binary Format: as seções do arquivo, na fonte normativa"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://webassembly.github.io/spec/core/binary/index.html
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  # --- etapa:web/wasm-wasi-fora-do-navegador ------------------------------
+  - id: rec:web/amorim-wasm-cap-11
+    etapa: etapa:web/wasm-wasi-fora-do-navegador
+    titulo: "Desmistificando WebAssembly (Raphael Amorim) — cap. 11, WASI: arquitetura, Wasmtime, WASI com Rust e com o formato de texto, escrita em arquivo e `pthreads`"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 44.9
+    duracao_min: 240
+    url: https://www.casadocodigo.com.br/products/livro-webassembly
+    obra: amorim-desmistificando-webassembly
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:web/wasi-dev
+    etapa: etapa:web/wasm-wasi-fora-do-navegador
+    titulo: "wasi.dev — WebAssembly System Interface: o modelo de capacidades e as interfaces que o módulo recebe fora do navegador"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 120
+    url: https://wasi.dev/
+    disponivel: true
+    verificado_em: 2026-11-10
+
+  - id: rec:web/wasmtime-documentacao
+    etapa: etapa:web/wasm-wasi-fora-do-navegador
+    titulo: "Wasmtime — documentação: rodar um módulo fora do navegador pela linha de comando, concedendo diretório e variável de ambiente explicitamente"
+    rev: 1
+    status: ativo
+    formato: exercicio
+    idioma: en-US
+    custo: 0
+    duracao_min: 180
+    url: https://docs.wasmtime.dev/
+    disponivel: true
+    verificado_em: 2026-11-10
