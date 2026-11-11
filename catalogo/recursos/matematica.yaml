@@ -266,3 +266,44 @@ recursos:
     url: https://www.people.vcu.edu/~rhammack/BookOfProof/
     disponivel: true
     verificado_em: 2026-10-08
+
+  # =========================================================================
+  # trilha:matematica/computacao-intervalar — dois livros da Série Livros
+  # Didáticos do Instituto de Informática da UFRGS, um por etapa, cada um inteiro
+  # numa fatia e com `obra` (ADR-0020). Custo estimado, não conferido; `url` de
+  # busca, porque as páginas de produto não foram confirmadas.
+  #   obra: oliveira-diverio-claudio-matematica-intervalar — Paulo Werlang de
+  #     Oliveira, Tiarajú Asmuz Diverio e Dalcidio Moraes Claudio, *Fundamentos da
+  #     Matemática Intervalar*.
+  #   obra: hoher-holbig-diverio-pascal-xsc — Charles Hoher, Carlos Amaral Holbig e
+  #     Tiarajú Asmuz Diverio, *Programando em Pascal XSC*.
+  # =========================================================================
+  # --- etapa:matematica/fundamentos-da-matematica-intervalar ----------------
+  - id: rec:matematica/oliveira-diverio-claudio-matematica-intervalar
+    etapa: etapa:matematica/fundamentos-da-matematica-intervalar
+    titulo: "Fundamentos da Matemática Intervalar (Paulo Werlang de Oliveira, Tiarajú Asmuz Diverio & Dalcidio Claudio)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 80
+    obra: oliveira-diverio-claudio-matematica-intervalar
+    duracao_min: 720
+    url: https://www.amazon.com.br/s?k=Fundamentos+da+Matem%C3%A1tica+Intervalar
+    disponivel: true
+    verificado_em: 2026-11-11
+
+  # --- etapa:matematica/programacao-intervalar-em-pascal-xsc ----------------
+  - id: rec:matematica/hoher-holbig-diverio-pascal-xsc
+    etapa: etapa:matematica/programacao-intervalar-em-pascal-xsc
+    titulo: "Programando em Pascal XSC (Charles Hoher, Carlos Holbig & Tiarajú Asmuz Diverio)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 80
+    obra: hoher-holbig-diverio-pascal-xsc
+    duracao_min: 720
+    url: https://www.amazon.com.br/s?k=Programando+em+Pascal+XSC
+    disponivel: true
+    verificado_em: 2026-11-11

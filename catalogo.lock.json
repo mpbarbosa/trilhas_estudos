@@ -1,9 +1,41 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 66,
-  "gerado_em": "2026-11-10T22:46:35+00:00",
-  "hash": "sha256:79da8fa2f31cabb5c3ed1d48001b9adab758d3ae323bce84283665873a1b527c",
+  "catalogo_versao": 67,
+  "gerado_em": "2026-11-11T20:01:05+00:00",
+  "hash": "sha256:effefccd422f49273a5ac900f98001eea439c077d615b0efaf9816193f712c59",
   "competencias": [
+    {
+      "id": "comp:arquitetura/computador-pessoal",
+      "titulo": "Arquitetura do computador pessoal — processador, memória, barramento e periférico",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Para uma leitura de disco num computador pessoal, descrever o caminho do dado do periférico até um registrador do processador — controlador, acesso direto à memória, barramento, cache — e dizer em que ponto do caminho a interrupção avisa o processador e o que ele faz ao recebê-la.",
+      "descricao": "Como o modelo abstrato vira a máquina sobre a mesa: a família de processadores do PC, a hierarquia de memória com cache, os barramentos e o chipset, a ligação dos periféricos por interrupção e acesso direto à memória, e o que muda de uma geração para outra.\n"
+    },
+    {
+      "id": "comp:arquitetura/organizacao-basica",
+      "titulo": "Organização básica de um computador — representação de dados e ciclo de instrução",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um programa curto em linguagem de máquina de uma máquina hipotética de acumulador, executá-lo à mão registrando o estado do acumulador, do contador de programa e dos códigos de condição a cada instrução, e dizer em que instrução um transbordamento em complemento de dois aparece e por quê.",
+      "descricao": "Sistemas de numeração e representação de inteiros em complemento de dois, os componentes de uma máquina de von Neumann (unidade de controle, unidade aritmética, registradores, memória, barramento) e o ciclo de busca, decodificação e execução, aprendidos sobre máquinas hipotéticas mínimas como o Neander e o Ahmes.\n"
+    },
+    {
+      "id": "comp:arquitetura/programacao-em-montagem",
+      "titulo": "Conjunto de instruções e programação em linguagem de montagem",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Escrever em linguagem de montagem de uma máquina de registradores uma sub-rotina que percorre um vetor na memória e devolve o maior elemento, chamada de dois pontos do programa, e justificar o modo de endereçamento escolhido em cada acesso e o que a pilha guarda entre a chamada e o retorno.",
+      "descricao": "O conjunto de instruções como contrato entre hardware e software: modos de endereçamento, desvio condicional, pilha, sub-rotina com passagem de parâmetro, entrada e saída e interrupção, praticados numa máquina hipotética de registradores como o Cesar.\n"
+    },
+    {
+      "id": "comp:arquitetura/projeto-de-circuito-integrado",
+      "titulo": "Concepção de circuitos integrados — do comportamento ao leiaute",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Desenhar o esquema em transistores CMOS de uma porta NAND de duas entradas, explicar por que a saída nunca fica ligada à alimentação e à terra ao mesmo tempo, e situar a porta nos níveis de descrição do fluxo, dizendo o que cada nível acrescenta ao anterior.",
+      "descricao": "O fluxo de concepção de um circuito integrado digital: tecnologia CMOS, a porta lógica como transistores, os níveis de descrição (comportamental, lógico, elétrico, físico), metodologias de projeto (célula padrão, matriz de portas, totalmente dedicado) e as ferramentas que levam a descrição ao leiaute.\n"
+    },
     {
       "id": "comp:cinema/analise-formal-do-filme",
       "titulo": "Análise formal de um filme inteiro — forma narrativa e sistemas de estilo",
@@ -163,6 +195,38 @@
       "status": "ativo",
       "verificacao": "Diante de uma sequência de filme com trilha sonora, assistida com som e depois sem som: dizer o que o som acrescenta que a imagem não sustenta sozinha — espaço, duração, fora de campo, atribuição de ponto de escuta — e o que ele subtrai de ambiguidade; classificar cada elemento sonoro como diegético ou não, e apontar um em que a classificação é discutível, dizendo por quê; nomear a função que a música cumpre ali (unificar o corte, datar a cena, antecipar o desfecho, marcar um personagem) e dizer em que a cena mudaria com outra música; e distinguir essa análise da afirmação genérica de que a trilha manipula o espectador.",
       "descricao": "O som do cinema é o que menos se percebe e mais se obedece: ele diz onde a cena está, quanto tempo ela dura, o que a imagem não mostra e o que o espectador deve sentir sem perceber que lhe disseram. A competência é escutar o filme separando o que vem da imagem do que o som acrescenta — e resistir às duas saídas fáceis, tratar a trilha como ilustração do que já se via e tratar toda música como manipulação.\n"
+    },
+    {
+      "id": "comp:computacao/complexidade-de-algoritmos",
+      "titulo": "Complexidade de algoritmos — análise assintótica, técnicas de projeto e NP-completude",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Para um algoritmo recursivo dado, escrever a recorrência do seu custo e resolvê-la em notação Θ; e, para um problema dado, mostrar que pertence a NP exibindo o verificador polinomial e reduzir a ele um problema NP-completo conhecido.",
+      "descricao": "Medir o custo de um algoritmo independentemente da máquina: notação assintótica, pior caso e caso médio, recorrências, as técnicas de projeto (divisão e conquista, programação dinâmica, algoritmo guloso, tentativa e erro) e as classes P e NP, com a redução polinomial que caracteriza um problema NP-completo.\n"
+    },
+    {
+      "id": "comp:computacao/computabilidade",
+      "titulo": "Computabilidade — máquinas universais, funções recursivas e o indecidível",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Demonstrar que o problema da parada é indecidível pelo argumento da diagonalização e, por redução a partir dele, que decidir se um programa qualquer imprime uma dada saída também é indecidível, deixando explícito o que a redução constrói.",
+      "descricao": "O que pode ser computado: programas e máquinas como modelos, a máquina de Turing e as equivalentes, a tese de Church, as funções recursivas, a máquina universal, e os problemas indecidíveis — o da parada à frente — com a redução como método de mostrar que outro também é.\n"
+    },
+    {
+      "id": "comp:computacao/linguagens-formais",
+      "titulo": "Linguagens formais e autômatos — da linguagem regular à hierarquia de Chomsky",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Para três linguagens dadas, classificar cada uma na hierarquia de Chomsky apresentando o reconhecedor mínimo que a aceita — autômato finito, autômato com pilha ou máquina de Turing — e provar pelo lema do bombeamento que a de classe mais alta não pertence à classe imediatamente abaixo.",
+      "descricao": "Linguagem como conjunto de palavras e as classes que a hierarquia de Chomsky separa: regular (autômato finito, expressão regular, gramática regular), livre do contexto (gramática e autômato com pilha), sensível ao contexto e enumerável recursivamente, com os lemas do bombeamento e as propriedades de fechamento.\n"
+    },
+    {
+      "id": "comp:computacao/teoria-das-categorias",
+      "titulo": "Teoria das categorias aplicada à computação",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Mostrar que conjuntos e funções formam uma categoria verificando identidade e associatividade; construir nela o produto e o coproduto de dois objetos pela propriedade universal; e exibir um funtor entre duas categorias de origem computacional dizendo o que ele preserva.",
+      "descricao": "Categoria, funtor e transformação natural como linguagem para estruturas da computação: construções universais (produto, coproduto, limite), adjunção, e as categorias que modelam autômatos, tipos e programas.\n"
     },
     {
       "id": "comp:dados/algebra-relacional",
@@ -661,6 +725,14 @@
       "descricao": "Um autor que explica como compôs o próprio poema é fonte interessada, não laudo. A competência é ler os dois lado a lado: que decisões o texto de poética reivindica — extensão, efeito pretendido, escolha do refrão, do metro, do cenário —, onde cada uma se verifica no poema, e onde a explicação é reconstrução depois do fato.\n"
     },
     {
+      "id": "comp:matematica/aritmetica-intervalar",
+      "titulo": "Aritmética intervalar — o número como intervalo e o erro como garantia",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Avaliar intervalarmente duas expressões algebricamente equivalentes de uma mesma função sobre um intervalo dado, explicar pela dependência por que os resultados diferem e dizer qual delas é mais estreita, e mostrar que ambos contêm a imagem exata.",
+      "descricao": "O intervalo real como número: operações aritméticas sobre intervalos e suas propriedades algébricas (a subdistributividade no lugar da distributividade), a dependência entre ocorrências de uma variável, a extensão intervalar de uma função e o intervalo de máquina com arredondamento direcionado, de onde vem a garantia de que o resultado exato está contido no calculado.\n"
+    },
+    {
       "id": "comp:matematica/calculo-diferencial",
       "titulo": "Cálculo diferencial",
       "rev": 1,
@@ -675,6 +747,14 @@
       "status": "ativo",
       "verificacao": "Resolver um problema de acumulação montando a integral a partir do enunciado, e explicar em que sentido o teorema fundamental diz que derivar e integrar se desfazem — e em que sentido não.",
       "descricao": "A integral como acumulação e como área: soma de Riemann, teorema fundamental, técnicas de integração e aplicação a grandezas acumuladas.\n"
+    },
+    {
+      "id": "comp:matematica/computacao-verificada-pascal-xsc",
+      "titulo": "Computação científica verificada em Pascal-XSC",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Escrever em Pascal-XSC um programa que resolve um sistema linear pequeno e mal condicionado devolvendo um vetor de intervalos que comprovadamente contém a solução, e comparar com a solução em ponto flutuante comum, dizendo o que a versão verificada garante e a outra não.",
+      "descricao": "Programar com garantia numérica numa linguagem feita para isso: os tipos intervalares e complexos do Pascal-XSC, o arredondamento direcionado, o produto escalar exato, a sobrecarga de operadores e as rotinas de inclusão que entregam a solução de um problema dentro de um intervalo verificado.\n"
     },
     {
       "id": "comp:matematica/estrutura-e-simetria",
@@ -1263,6 +1343,88 @@
   ],
   "etapas": [
     {
+      "id": "etapa:arquitetura/arquitetura-do-computador-pessoal",
+      "titulo": "Arquitetura do computador pessoal — processador, memória, barramento e periférico",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "descricao": "Do modelo à máquina sobre a mesa: a família de processadores do PC, a hierarquia de memória com cache, barramentos e chipset, e a ligação dos periféricos por interrupção e acesso direto à memória. Pressupõe a montagem porque é nela que a interrupção e o endereçamento deixam de ser abstratos.\n",
+      "trilha": "trilha:arquitetura/arquitetura-de-computadores",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:arquitetura/programacao-em-montagem",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:arquitetura/computador-pessoal",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:arquitetura/concepcao-de-circuitos-integrados",
+      "titulo": "Concepção de circuitos integrados — da porta CMOS ao leiaute",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "descricao": "O nível que as outras etapas dão por pronto: tecnologia CMOS, a porta lógica feita de transistores, os níveis de descrição de um circuito e as metodologias e ferramentas que levam a descrição ao leiaute do chip. Aprofundamento opcional, fora do objetivo da trilha.\n",
+      "trilha": "trilha:arquitetura/arquitetura-de-computadores",
+      "opcional": true,
+      "requires": [
+        {
+          "competencia": "comp:arquitetura/organizacao-basica",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:arquitetura/projeto-de-circuito-integrado",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:arquitetura/conjunto-de-instrucoes-e-montagem",
+      "titulo": "Conjunto de instruções e montagem — o Cesar, a pilha e a interrupção",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "descricao": "A máquina de registradores com conjunto de instruções completo: modos de endereçamento, pilha e sub-rotina, entrada e saída mapeada em memória e interrupção. Termina com programas escritos em linguagem de montagem e executados no simulador.\n",
+      "trilha": "trilha:arquitetura/arquitetura-de-computadores",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:arquitetura/organizacao-basica",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:arquitetura/programacao-em-montagem",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:arquitetura/organizacao-por-maquinas-hipoteticas",
+      "titulo": "Organização do computador por máquinas hipotéticas — do Neander ao Ramses",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 720,
+      "descricao": "Abre a trilha sem hardware real: sistemas de numeração e complemento de dois, e o computador de von Neumann montado peça por peça em máquinas mínimas de acumulador, cada uma acrescentando à anterior o que lhe faltava — códigos de condição, registradores, modos de endereçamento.\n",
+      "trilha": "trilha:arquitetura/arquitetura-de-computadores",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:arquitetura/organizacao-basica",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:cinema/a-era-dos-imperios",
       "titulo": "A era dos impérios (1875-1914) — o mundo em que o cinema aparece",
       "rev": 1,
@@ -1720,6 +1882,82 @@
         },
         {
           "competencia": "comp:cinema/estetizacao-da-politica",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:computacao/complexidade-de-algoritmos",
+      "titulo": "Complexidade de algoritmos — análise, técnicas de projeto e NP-completude",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "descricao": "O custo do algoritmo independente da máquina: notação assintótica, pior caso e caso médio, recorrência, as técnicas de projeto — divisão e conquista, programação dinâmica, guloso, tentativa e erro — e as classes P e NP com a redução polinomial.\n",
+      "trilha": "trilha:computacao/teoria-da-computacao",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:computacao/complexidade-de-algoritmos",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:computacao/linguagens-formais-e-automatos",
+      "titulo": "Linguagens formais e autômatos — das linguagens regulares à hierarquia de Chomsky",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "descricao": "Linguagem como conjunto de palavras e as classes que a separam: autômato finito, expressão regular e gramática regular; gramática livre do contexto e autômato com pilha; as linguagens sensíveis ao contexto e as enumeráveis recursivamente, com os lemas do bombeamento e as propriedades de fechamento.\n",
+      "trilha": "trilha:computacao/teoria-da-computacao",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:computacao/linguagens-formais",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:computacao/maquinas-universais-e-computabilidade",
+      "titulo": "Máquinas universais e computabilidade — o que pode e o que não pode ser computado",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1200,
+      "descricao": "Programas, máquinas e computações como objetos formais; a máquina de Turing e os modelos equivalentes, a tese de Church, as funções recursivas, e o limite: o problema da parada e a redução como método para mostrar que outros problemas também são indecidíveis.\n",
+      "trilha": "trilha:computacao/teoria-da-computacao",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:computacao/linguagens-formais",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:computacao/computabilidade",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:computacao/teoria-das-categorias",
+      "titulo": "Teoria das categorias para ciência da computação",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 1500,
+      "descricao": "Categoria, funtor e transformação natural como linguagem comum a estruturas da computação: construções universais, adjunção e as categorias que modelam autômatos, tipos e programas. Opcional: pede maturidade matemática que o objetivo da trilha não exige.\n",
+      "trilha": "trilha:computacao/teoria-da-computacao",
+      "opcional": true,
+      "requires": [
+        {
+          "competencia": "comp:computacao/linguagens-formais",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:computacao/teoria-das-categorias",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -3699,6 +3937,22 @@
       ]
     },
     {
+      "id": "etapa:matematica/fundamentos-da-matematica-intervalar",
+      "titulo": "Fundamentos da matemática intervalar — operações, dependência e extensão intervalar",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "descricao": "O intervalo como número: aritmética intervalar e suas propriedades, a subdistributividade, o problema da dependência, a extensão intervalar de uma função e o intervalo de máquina com arredondamento direcionado, de onde vem a garantia de inclusão.\n",
+      "trilha": "trilha:matematica/computacao-intervalar",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:matematica/aritmetica-intervalar",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:matematica/geometria-de-euclides",
       "titulo": "Os Elementos — geometria como sistema axiomático",
       "rev": 1,
@@ -3776,6 +4030,28 @@
       "teaches": [
         {
           "competencia": "comp:matematica/raciocinio-dedutivo",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:matematica/programacao-intervalar-em-pascal-xsc",
+      "titulo": "Programação intervalar em Pascal-XSC — tipos, arredondamento e rotinas de inclusão",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "descricao": "A teoria posta numa linguagem: tipos intervalares e complexos, arredondamento direcionado, produto escalar exato, sobrecarga de operadores e as rotinas que devolvem a solução de um problema dentro de um intervalo verificado.\n",
+      "trilha": "trilha:matematica/computacao-intervalar",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:matematica/aritmetica-intervalar",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:matematica/computacao-verificada-pascal-xsc",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -5776,6 +6052,32 @@
   ],
   "trilhas": [
     {
+      "id": "trilha:arquitetura/arquitetura-de-computadores",
+      "titulo": "Arquitetura de computadores — da máquina hipotética ao computador pessoal",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:arquitetura/organizacao-basica",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:arquitetura/programacao-em-montagem",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:arquitetura/computador-pessoal",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:arquitetura/organizacao-por-maquinas-hipoteticas",
+        "etapa:arquitetura/conjunto-de-instrucoes-e-montagem",
+        "etapa:arquitetura/arquitetura-do-computador-pessoal",
+        "etapa:arquitetura/concepcao-de-circuitos-integrados"
+      ]
+    },
+    {
       "id": "trilha:cinema/analise-filmica-de-uma-saga",
       "titulo": "Análise fílmica de uma saga — o plano, o mito, o som e o efeito especial",
       "rev": 1,
@@ -5909,6 +6211,32 @@
         "etapa:cinema/a-era-dos-imperios",
         "etapa:cinema/o-primeiro-cinema",
         "etapa:cinema/invencao-da-vida-moderna"
+      ]
+    },
+    {
+      "id": "trilha:computacao/teoria-da-computacao",
+      "titulo": "Teoria da computação — linguagens formais, computabilidade e complexidade",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:computacao/linguagens-formais",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:computacao/computabilidade",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:computacao/complexidade-de-algoritmos",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:computacao/linguagens-formais-e-automatos",
+        "etapa:computacao/maquinas-universais-e-computabilidade",
+        "etapa:computacao/complexidade-de-algoritmos",
+        "etapa:computacao/teoria-das-categorias"
       ]
     },
     {
@@ -6274,6 +6602,26 @@
         "etapa:literatura/o-corvo-no-original",
         "etapa:literatura/a-filosofia-da-composicao",
         "etapa:literatura/o-corvo-em-debate"
+      ]
+    },
+    {
+      "id": "trilha:matematica/computacao-intervalar",
+      "titulo": "Computação intervalar — o resultado numérico com erro garantido",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:matematica/aritmetica-intervalar",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:matematica/computacao-verificada-pascal-xsc",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:matematica/fundamentos-da-matematica-intervalar",
+        "etapa:matematica/programacao-intervalar-em-pascal-xsc"
       ]
     },
     {
@@ -6703,6 +7051,66 @@
   ],
   "recursos": [
     {
+      "id": "rec:arquitetura/reis-concepcao-circuitos-integrados",
+      "titulo": "Concepção de Circuitos Integrados (Ricardo Augusto da Luz Reis, org.)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:arquitetura/concepcao-de-circuitos-integrados",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 100.0,
+      "duracao_min": 900,
+      "url": "https://www.amazon.com.br/s?k=Concep%C3%A7%C3%A3o+de+Circuitos+Integrados+Ricardo+Reis",
+      "disponivel": true,
+      "obra": "reis-concepcao-circuitos-integrados",
+      "verificado_em": "2026-11-11"
+    },
+    {
+      "id": "rec:arquitetura/weber-arquitetura-pcs",
+      "titulo": "Arquitetura de Computadores Pessoais (Raul Fernando Weber)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:arquitetura/arquitetura-do-computador-pessoal",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 100.0,
+      "duracao_min": 900,
+      "url": "https://www.amazon.com.br/s?k=Arquitetura+de+Computadores+Pessoais+Raul+Weber",
+      "disponivel": true,
+      "obra": "weber-arquitetura-pcs",
+      "verificado_em": "2026-11-11"
+    },
+    {
+      "id": "rec:arquitetura/weber-fundamentos-cesar-e-montagem",
+      "titulo": "Fundamentos de Arquitetura de Computadores (Raul Fernando Weber) — a máquina Cesar: modos de endereçamento, pilha, sub-rotina, entrada e saída e interrupção",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:arquitetura/conjunto-de-instrucoes-e-montagem",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 100.0,
+      "duracao_min": 720,
+      "url": "https://www.amazon.com.br/s?k=Fundamentos+de+Arquitetura+de+Computadores+Raul+Weber",
+      "disponivel": true,
+      "obra": "weber-fundamentos-arquitetura",
+      "verificado_em": "2026-11-11"
+    },
+    {
+      "id": "rec:arquitetura/weber-fundamentos-maquinas-de-acumulador",
+      "titulo": "Fundamentos de Arquitetura de Computadores (Raul Fernando Weber) — representação de dados, organização de von Neumann e as máquinas Neander, Ahmes e Ramses",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:arquitetura/organizacao-por-maquinas-hipoteticas",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 100.0,
+      "duracao_min": 600,
+      "url": "https://www.amazon.com.br/s?k=Fundamentos+de+Arquitetura+de+Computadores+Raul+Weber",
+      "disponivel": true,
+      "obra": "weber-fundamentos-arquitetura",
+      "verificado_em": "2026-11-11"
+    },
+    {
       "id": "rec:cinema/benjamin-reprodutibilidade-tecnica",
       "titulo": "A obra de arte na era de sua reprodutibilidade técnica, em Magia e técnica, arte e política (Walter Benjamin; Obras escolhidas v. 1; trad. Sérgio Paulo Rouanet; Brasiliense)",
       "rev": 1,
@@ -7105,6 +7513,66 @@
       "verificado_em": "2026-11-05"
     },
     {
+      "id": "rec:computacao/diverio-menezes-teoria-da-computacao",
+      "titulo": "Teoria da Computação: Máquinas Universais e Computabilidade (Tiarajú Asmuz Diverio & Paulo Blauth Menezes)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:computacao/maquinas-universais-e-computabilidade",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 100.0,
+      "duracao_min": 1080,
+      "url": "https://www.amazon.com.br/s?k=Teoria+da+Computa%C3%A7%C3%A3o+Diverio+Menezes",
+      "disponivel": true,
+      "obra": "diverio-menezes-teoria-da-computacao",
+      "verificado_em": "2026-11-11"
+    },
+    {
+      "id": "rec:computacao/menezes-haeusler-teoria-das-categorias",
+      "titulo": "Teoria das Categorias para Ciência da Computação (Paulo Blauth Menezes & Edward Hermann Haeusler)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:computacao/teoria-das-categorias",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 100.0,
+      "duracao_min": 1320,
+      "url": "https://www.amazon.com.br/s?k=Teoria+das+Categorias+Ci%C3%AAncia+da+Computa%C3%A7%C3%A3o+Menezes+Haeusler",
+      "disponivel": true,
+      "obra": "menezes-haeusler-teoria-das-categorias",
+      "verificado_em": "2026-11-11"
+    },
+    {
+      "id": "rec:computacao/menezes-linguagens-formais-e-automatos",
+      "titulo": "Linguagens Formais e Autômatos (Paulo Blauth Menezes)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:computacao/linguagens-formais-e-automatos",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 100.0,
+      "duracao_min": 1080,
+      "url": "https://www.amazon.com.br/s?k=Linguagens+Formais+e+Aut%C3%B4matos+Paulo+Blauth+Menezes",
+      "disponivel": true,
+      "obra": "menezes-linguagens-formais-e-automatos",
+      "verificado_em": "2026-11-11"
+    },
+    {
+      "id": "rec:computacao/toscani-veloso-complexidade-de-algoritmos",
+      "titulo": "Complexidade de Algoritmos (Laira Vieira Toscani & Paulo A. S. Veloso)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:computacao/complexidade-de-algoritmos",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 100.0,
+      "duracao_min": 1080,
+      "url": "https://www.amazon.com.br/s?k=Complexidade+de+Algoritmos+Toscani+Veloso",
+      "disponivel": true,
+      "obra": "toscani-veloso-complexidade-de-algoritmos",
+      "verificado_em": "2026-11-11"
+    },
+    {
       "id": "rec:dados/arquitetura-de-sgbd-hellerstein",
       "titulo": "Architecture of a Database System (Hellerstein, Stonebraker & Hamilton) — como um SGBD moderno é organizado por dentro",
       "rev": 1,
@@ -7400,6 +7868,51 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:dados/heuser-abordagem-relacional",
+      "titulo": "Projeto de Banco de Dados (Carlos Alberto Heuser) — abordagem relacional: tabela, chave primária, chave estrangeira e restrições de integridade",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/modelo-relacional",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 120.0,
+      "duracao_min": 240,
+      "url": "https://www.amazon.com.br/s?k=Projeto+de+Banco+de+Dados+Heuser",
+      "disponivel": true,
+      "obra": "heuser-projeto-de-banco-de-dados",
+      "verificado_em": "2026-11-11"
+    },
+    {
+      "id": "rec:dados/heuser-modelagem-er-e-transformacao",
+      "titulo": "Projeto de Banco de Dados (Carlos Alberto Heuser) — modelagem entidade-relacionamento, construção do modelo e transformação ER → relacional",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/projeto-esquema-ponta-a-ponta",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 120.0,
+      "duracao_min": 600,
+      "url": "https://www.amazon.com.br/s?k=Projeto+de+Banco+de+Dados+Heuser",
+      "disponivel": true,
+      "obra": "heuser-projeto-de-banco-de-dados",
+      "verificado_em": "2026-11-11"
+    },
+    {
+      "id": "rec:dados/heuser-normalizacao",
+      "titulo": "Projeto de Banco de Dados (Carlos Alberto Heuser) — normalização: dependência funcional e as formas normais",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/dependencia-e-normalizacao",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 120.0,
+      "duracao_min": 240,
+      "url": "https://www.amazon.com.br/s?k=Projeto+de+Banco+de+Dados+Heuser",
+      "disponivel": true,
+      "obra": "heuser-projeto-de-banco-de-dados",
+      "verificado_em": "2026-11-11"
+    },
+    {
       "id": "rec:dados/kline-calculus",
       "titulo": "Calculus: An Intuitive and Physical Approach, 2ª ed. (Morris Kline) — derivada, gradiente e otimização",
       "rev": 2,
@@ -7641,6 +8154,21 @@
       "disponivel": true,
       "obra": "santos-algebra-linear-python",
       "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:dados/santos-azeredo-tabelas",
+      "titulo": "Tabelas: Organização e Pesquisa (Clésio dos Santos & Paulo de Azeredo) — pesquisa sequencial e binária, árvores de pesquisa balanceadas, árvore B e dispersão",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:dados/armazenamento-e-indices",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 60.0,
+      "duracao_min": 900,
+      "url": "https://www.amazon.com.br/s?k=Tabelas+Organiza%C3%A7%C3%A3o+e+Pesquisa+Cl%C3%A9sio+dos+Santos",
+      "disponivel": true,
+      "obra": "santos-azeredo-tabelas",
+      "verificado_em": "2026-11-11"
     },
     {
       "id": "rec:dados/scikit-learn-guia",
@@ -9897,6 +10425,21 @@
       "verificado_em": "2026-10-08"
     },
     {
+      "id": "rec:matematica/hoher-holbig-diverio-pascal-xsc",
+      "titulo": "Programando em Pascal XSC (Charles Hoher, Carlos Holbig & Tiarajú Asmuz Diverio)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:matematica/programacao-intervalar-em-pascal-xsc",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 80.0,
+      "duracao_min": 720,
+      "url": "https://www.amazon.com.br/s?k=Programando+em+Pascal+XSC",
+      "disponivel": true,
+      "obra": "hoher-holbig-diverio-pascal-xsc",
+      "verificado_em": "2026-11-11"
+    },
+    {
       "id": "rec:matematica/iezzi-fme-1-caps-1-2",
       "titulo": "Fundamentos de Matemática Elementar 1 (Iezzi & Murakami) — caps. 1 e 2: noções de lógica e conjuntos",
       "rev": 1,
@@ -9999,6 +10542,21 @@
       "url": "https://math.libretexts.org/Bookshelves/Mathematical_Logic_and_Proof",
       "disponivel": true,
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:matematica/oliveira-diverio-claudio-matematica-intervalar",
+      "titulo": "Fundamentos da Matemática Intervalar (Paulo Werlang de Oliveira, Tiarajú Asmuz Diverio & Dalcidio Claudio)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:matematica/fundamentos-da-matematica-intervalar",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 80.0,
+      "duracao_min": 720,
+      "url": "https://www.amazon.com.br/s?k=Fundamentos+da+Matem%C3%A1tica+Intervalar",
+      "disponivel": true,
+      "obra": "oliveira-diverio-claudio-matematica-intervalar",
+      "verificado_em": "2026-11-11"
     },
     {
       "id": "rec:matematica/openstax-calculus-v1",
@@ -10722,6 +11280,96 @@
       "disponivel": true,
       "obra": "neil-practical-vim",
       "verificado_em": "2026-11-07"
+    },
+    {
+      "id": "rec:so/oliveira-carissimi-toscani-gerencia-de-entrada-e-saida",
+      "titulo": "Sistemas Operacionais (Oliveira, Carissimi & Toscani) — gerência de entrada e saída: dispositivos, drivers e o software de E/S",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/entrada-saida-e-impasses",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 120.0,
+      "duracao_min": 180,
+      "url": "https://www.amazon.com.br/s?k=Sistemas+Operacionais+Oliveira+Carissimi+Toscani",
+      "disponivel": true,
+      "obra": "oliveira-carissimi-toscani-so",
+      "verificado_em": "2026-11-11"
+    },
+    {
+      "id": "rec:so/oliveira-carissimi-toscani-gerencia-de-memoria",
+      "titulo": "Sistemas Operacionais (Oliveira, Carissimi & Toscani) — gerência de memória: partições, paginação, segmentação e memória virtual",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/gerenciamento-de-memoria",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 120.0,
+      "duracao_min": 240,
+      "url": "https://www.amazon.com.br/s?k=Sistemas+Operacionais+Oliveira+Carissimi+Toscani",
+      "disponivel": true,
+      "obra": "oliveira-carissimi-toscani-so",
+      "verificado_em": "2026-11-11"
+    },
+    {
+      "id": "rec:so/oliveira-carissimi-toscani-gerencia-do-processador",
+      "titulo": "Sistemas Operacionais (Oliveira, Carissimi & Toscani) — gerência do processador: políticas de escalonamento",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/escalonamento-de-processos",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 120.0,
+      "duracao_min": 180,
+      "url": "https://www.amazon.com.br/s?k=Sistemas+Operacionais+Oliveira+Carissimi+Toscani",
+      "disponivel": true,
+      "obra": "oliveira-carissimi-toscani-so",
+      "verificado_em": "2026-11-11"
+    },
+    {
+      "id": "rec:so/oliveira-carissimi-toscani-introducao",
+      "titulo": "Sistemas Operacionais (Oliveira, Carissimi & Toscani) — introdução e multiprogramação: o que o sistema operacional faz e como se organiza",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/visao-geral-e-chamadas-de-sistema",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 120.0,
+      "duracao_min": 180,
+      "url": "https://www.amazon.com.br/s?k=Sistemas+Operacionais+Oliveira+Carissimi+Toscani",
+      "disponivel": true,
+      "obra": "oliveira-carissimi-toscani-so",
+      "verificado_em": "2026-11-11"
+    },
+    {
+      "id": "rec:so/oliveira-carissimi-toscani-programacao-concorrente",
+      "titulo": "Sistemas Operacionais (Oliveira, Carissimi & Toscani) — programação concorrente: processos, threads, exclusão mútua, semáforos, monitores e troca de mensagens",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/processos-e-concorrencia",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 120.0,
+      "duracao_min": 300,
+      "url": "https://www.amazon.com.br/s?k=Sistemas+Operacionais+Oliveira+Carissimi+Toscani",
+      "disponivel": true,
+      "obra": "oliveira-carissimi-toscani-so",
+      "verificado_em": "2026-11-11"
+    },
+    {
+      "id": "rec:so/oliveira-carissimi-toscani-sistema-de-arquivos",
+      "titulo": "Sistemas Operacionais (Oliveira, Carissimi & Toscani) — sistema de arquivos: diretórios, alocação, cache e proteção",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/sistemas-de-arquivos",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 120.0,
+      "duracao_min": 180,
+      "url": "https://www.amazon.com.br/s?k=Sistemas+Operacionais+Oliveira+Carissimi+Toscani",
+      "disponivel": true,
+      "obra": "oliveira-carissimi-toscani-so",
+      "verificado_em": "2026-11-11"
     },
     {
       "id": "rec:so/openvim-tutorial-interativo",

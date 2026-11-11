@@ -1,0 +1,56 @@
+versao_schema: 1
+trilha:
+  id: trilha:matematica/computacao-intervalar
+  titulo: Computação intervalar — o resultado numérico com erro garantido
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:matematica/aritmetica-intervalar
+      nivel: intermediario
+    - competencia: comp:matematica/computacao-verificada-pascal-xsc
+      nivel: intermediario
+
+  # Dois livros da Série Livros Didáticos do Instituto de Informática da UFRGS, que
+  # registram a escola de matemática intervalar formada ali: *Fundamentos da
+  # Matemática Intervalar* (Oliveira, Diverio & Claudio), a teoria, e *Programando em
+  # Pascal XSC* (Hoher, Holbig & Diverio), a prática. A ordem é dependência de fato:
+  # sem a aritmética intervalar, o tipo `interval` do Pascal-XSC é uma caixa preta e
+  # a garantia que ele dá não se verifica.
+  #
+  # Defasagem conhecida: o Pascal-XSC não tem manutenção ativa, e o compilador
+  # precisa ser obtido em arquivo histórico. A segunda etapa vale pelo método; quem
+  # não conseguir o compilador pode reproduzir os exercícios em C-XSC ou numa
+  # biblioteca intervalar atual, e isso não muda o que a etapa ensina.
+  etapas:
+    - id: etapa:matematica/fundamentos-da-matematica-intervalar
+      titulo: Fundamentos da matemática intervalar — operações, dependência e extensão intervalar
+      rev: 1
+      status: ativo
+      descricao: >
+        O intervalo como número: aritmética intervalar e suas propriedades, a
+        subdistributividade, o problema da dependência, a extensão intervalar de uma
+        função e o intervalo de máquina com arredondamento direcionado, de onde vem
+        a garantia de inclusão.
+      esforco_estimado_min: 900
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:matematica/aritmetica-intervalar
+          nivel_resultante: intermediario
+
+    - id: etapa:matematica/programacao-intervalar-em-pascal-xsc
+      titulo: Programação intervalar em Pascal-XSC — tipos, arredondamento e rotinas de inclusão
+      rev: 1
+      status: ativo
+      descricao: >
+        A teoria posta numa linguagem: tipos intervalares e complexos, arredondamento
+        direcionado, produto escalar exato, sobrecarga de operadores e as rotinas que
+        devolvem a solução de um problema dentro de um intervalo verificado.
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:matematica/aritmetica-intervalar
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:matematica/computacao-verificada-pascal-xsc
+          nivel_resultante: intermediario

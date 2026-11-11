@@ -664,3 +664,103 @@ recursos:
     obra: robbins-hannah-learning-vi-vim
     disponivel: true
     verificado_em: 2026-11-07
+
+  # =========================================================================
+  # Rômulo Silva de Oliveira, Alexandre da Silva Carissimi e Simão Sirineo Toscani,
+  # *Sistemas Operacionais* (Série Livros Didáticos do Instituto de Informática da
+  # UFRGS). Segundo livro-texto da trilha, em pt-BR e escrito no Brasil, ao lado do
+  # Tanenbaum & Woodhull: uma fatia por etapa de conceito, todas com
+  # `obra: oliveira-carissimi-toscani-so` e o custo do exemplar inteiro (ADR-0009,
+  # ADR-0020). Não entra no projeto do MINIX, que é do Tanenbaum. Fatias por assunto,
+  # porque o sumário não foi conferido em exemplar; custo estimado; `url` de busca.
+  # Recurso novo não muda a `rev` das etapas (docs/catalogo.md §4).
+  # =========================================================================
+  # --- etapa:so/visao-geral-e-chamadas-de-sistema ---------------------------
+  - id: rec:so/oliveira-carissimi-toscani-introducao
+    etapa: etapa:so/visao-geral-e-chamadas-de-sistema
+    titulo: "Sistemas Operacionais (Oliveira, Carissimi & Toscani) — introdução e multiprogramação: o que o sistema operacional faz e como se organiza"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 120
+    obra: oliveira-carissimi-toscani-so
+    duracao_min: 180
+    url: https://www.amazon.com.br/s?k=Sistemas+Operacionais+Oliveira+Carissimi+Toscani
+    disponivel: true
+    verificado_em: 2026-11-11
+
+  # --- etapa:so/processos-e-concorrencia ------------------------------------
+  - id: rec:so/oliveira-carissimi-toscani-programacao-concorrente
+    etapa: etapa:so/processos-e-concorrencia
+    titulo: "Sistemas Operacionais (Oliveira, Carissimi & Toscani) — programação concorrente: processos, threads, exclusão mútua, semáforos, monitores e troca de mensagens"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 120
+    obra: oliveira-carissimi-toscani-so
+    duracao_min: 300
+    url: https://www.amazon.com.br/s?k=Sistemas+Operacionais+Oliveira+Carissimi+Toscani
+    disponivel: true
+    verificado_em: 2026-11-11
+
+  # --- etapa:so/escalonamento-de-processos ----------------------------------
+  - id: rec:so/oliveira-carissimi-toscani-gerencia-do-processador
+    etapa: etapa:so/escalonamento-de-processos
+    titulo: "Sistemas Operacionais (Oliveira, Carissimi & Toscani) — gerência do processador: políticas de escalonamento"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 120
+    obra: oliveira-carissimi-toscani-so
+    duracao_min: 180
+    url: https://www.amazon.com.br/s?k=Sistemas+Operacionais+Oliveira+Carissimi+Toscani
+    disponivel: true
+    verificado_em: 2026-11-11
+
+  # --- etapa:so/gerenciamento-de-memoria ------------------------------------
+  - id: rec:so/oliveira-carissimi-toscani-gerencia-de-memoria
+    etapa: etapa:so/gerenciamento-de-memoria
+    titulo: "Sistemas Operacionais (Oliveira, Carissimi & Toscani) — gerência de memória: partições, paginação, segmentação e memória virtual"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 120
+    obra: oliveira-carissimi-toscani-so
+    duracao_min: 240
+    url: https://www.amazon.com.br/s?k=Sistemas+Operacionais+Oliveira+Carissimi+Toscani
+    disponivel: true
+    verificado_em: 2026-11-11
+
+  # --- etapa:so/entrada-saida-e-impasses ------------------------------------
+  - id: rec:so/oliveira-carissimi-toscani-gerencia-de-entrada-e-saida
+    etapa: etapa:so/entrada-saida-e-impasses
+    titulo: "Sistemas Operacionais (Oliveira, Carissimi & Toscani) — gerência de entrada e saída: dispositivos, drivers e o software de E/S"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 120
+    obra: oliveira-carissimi-toscani-so
+    duracao_min: 180
+    url: https://www.amazon.com.br/s?k=Sistemas+Operacionais+Oliveira+Carissimi+Toscani
+    disponivel: true
+    verificado_em: 2026-11-11
+
+  # --- etapa:so/sistemas-de-arquivos ----------------------------------------
+  - id: rec:so/oliveira-carissimi-toscani-sistema-de-arquivos
+    etapa: etapa:so/sistemas-de-arquivos
+    titulo: "Sistemas Operacionais (Oliveira, Carissimi & Toscani) — sistema de arquivos: diretórios, alocação, cache e proteção"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 120
+    obra: oliveira-carissimi-toscani-so
+    duracao_min: 180
+    url: https://www.amazon.com.br/s?k=Sistemas+Operacionais+Oliveira+Carissimi+Toscani
+    disponivel: true
+    verificado_em: 2026-11-11

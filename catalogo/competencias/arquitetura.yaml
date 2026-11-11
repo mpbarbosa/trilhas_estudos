@@ -1,0 +1,64 @@
+# Competências de trilha:arquitetura/arquitetura-de-computadores. A área nasce com a
+# trilha: arquitetura de computadores não é sistema operacional (`so/`) nem
+# programação (`programacao/`) — é o nível abaixo dos dois, o que eles pressupõem.
+versao_schema: 1
+competencias:
+  - id: comp:arquitetura/organizacao-basica
+    titulo: Organização básica de um computador — representação de dados e ciclo de instrução
+    rev: 1
+    status: ativo
+    descricao: >
+      Sistemas de numeração e representação de inteiros em complemento de dois, os
+      componentes de uma máquina de von Neumann (unidade de controle, unidade
+      aritmética, registradores, memória, barramento) e o ciclo de busca, decodificação
+      e execução, aprendidos sobre máquinas hipotéticas mínimas como o Neander e o Ahmes.
+    verificacao: >
+      Dado um programa curto em linguagem de máquina de uma máquina hipotética de
+      acumulador, executá-lo à mão registrando o estado do acumulador, do contador de
+      programa e dos códigos de condição a cada instrução, e dizer em que instrução um
+      transbordamento em complemento de dois aparece e por quê.
+
+  - id: comp:arquitetura/programacao-em-montagem
+    titulo: Conjunto de instruções e programação em linguagem de montagem
+    rev: 1
+    status: ativo
+    descricao: >
+      O conjunto de instruções como contrato entre hardware e software: modos de
+      endereçamento, desvio condicional, pilha, sub-rotina com passagem de parâmetro,
+      entrada e saída e interrupção, praticados numa máquina hipotética de
+      registradores como o Cesar.
+    verificacao: >
+      Escrever em linguagem de montagem de uma máquina de registradores uma sub-rotina
+      que percorre um vetor na memória e devolve o maior elemento, chamada de dois
+      pontos do programa, e justificar o modo de endereçamento escolhido em cada acesso
+      e o que a pilha guarda entre a chamada e o retorno.
+
+  - id: comp:arquitetura/computador-pessoal
+    titulo: Arquitetura do computador pessoal — processador, memória, barramento e periférico
+    rev: 1
+    status: ativo
+    descricao: >
+      Como o modelo abstrato vira a máquina sobre a mesa: a família de processadores
+      do PC, a hierarquia de memória com cache, os barramentos e o chipset, a ligação
+      dos periféricos por interrupção e acesso direto à memória, e o que muda de uma
+      geração para outra.
+    verificacao: >
+      Para uma leitura de disco num computador pessoal, descrever o caminho do dado do
+      periférico até um registrador do processador — controlador, acesso direto à
+      memória, barramento, cache — e dizer em que ponto do caminho a interrupção avisa
+      o processador e o que ele faz ao recebê-la.
+
+  - id: comp:arquitetura/projeto-de-circuito-integrado
+    titulo: Concepção de circuitos integrados — do comportamento ao leiaute
+    rev: 1
+    status: ativo
+    descricao: >
+      O fluxo de concepção de um circuito integrado digital: tecnologia CMOS, a porta
+      lógica como transistores, os níveis de descrição (comportamental, lógico,
+      elétrico, físico), metodologias de projeto (célula padrão, matriz de portas,
+      totalmente dedicado) e as ferramentas que levam a descrição ao leiaute.
+    verificacao: >
+      Desenhar o esquema em transistores CMOS de uma porta NAND de duas entradas,
+      explicar por que a saída nunca fica ligada à alimentação e à terra ao mesmo
+      tempo, e situar a porta nos níveis de descrição do fluxo, dizendo o que cada
+      nível acrescenta ao anterior.

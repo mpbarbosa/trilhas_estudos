@@ -748,3 +748,79 @@ recursos:
     url: https://archive.ics.uci.edu/
     disponivel: true
     verificado_em: 2026-11-05
+
+  # =========================================================================
+  # Dois livros da Série Livros Didáticos do Instituto de Informática da UFRGS
+  # (Sagra Luzzatto, depois Bookman), postos como fatias em etapas que já existem.
+  # Recurso novo não muda a `rev` de etapa nenhuma (docs/catalogo.md §4). Custo
+  # estimado, não conferido; `url` de busca, porque as páginas de produto não foram
+  # confirmadas. Fatias por assunto: o sumário não foi conferido em exemplar.
+  #
+  #   obra: heuser-projeto-de-banco-de-dados — Carlos Alberto Heuser, *Projeto de
+  #     Banco de Dados*. Três fatias: a abordagem relacional, a normalização, e a
+  #     modelagem entidade-relacionamento com a transformação ER → relacional, que é
+  #     o que o projeto de esquema ponta a ponta pede.
+  #   obra: santos-azeredo-tabelas — Clésio dos Santos e Paulo de Azeredo,
+  #     *Tabelas: Organização e Pesquisa*. Uma fatia: árvores de pesquisa e
+  #     dispersão são o assunto de armazenamento-e-indices, vistos da estrutura de
+  #     dados e não do SGBD.
+  # =========================================================================
+  # --- etapa:dados/modelo-relacional ---------------------------------------
+  - id: rec:dados/heuser-abordagem-relacional
+    etapa: etapa:dados/modelo-relacional
+    titulo: "Projeto de Banco de Dados (Carlos Alberto Heuser) — abordagem relacional: tabela, chave primária, chave estrangeira e restrições de integridade"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 120
+    obra: heuser-projeto-de-banco-de-dados
+    duracao_min: 240
+    url: https://www.amazon.com.br/s?k=Projeto+de+Banco+de+Dados+Heuser
+    disponivel: true
+    verificado_em: 2026-11-11
+
+  # --- etapa:dados/dependencia-e-normalizacao ------------------------------
+  - id: rec:dados/heuser-normalizacao
+    etapa: etapa:dados/dependencia-e-normalizacao
+    titulo: "Projeto de Banco de Dados (Carlos Alberto Heuser) — normalização: dependência funcional e as formas normais"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 120
+    obra: heuser-projeto-de-banco-de-dados
+    duracao_min: 240
+    url: https://www.amazon.com.br/s?k=Projeto+de+Banco+de+Dados+Heuser
+    disponivel: true
+    verificado_em: 2026-11-11
+
+  # --- etapa:dados/projeto-esquema-ponta-a-ponta ---------------------------
+  - id: rec:dados/heuser-modelagem-er-e-transformacao
+    etapa: etapa:dados/projeto-esquema-ponta-a-ponta
+    titulo: "Projeto de Banco de Dados (Carlos Alberto Heuser) — modelagem entidade-relacionamento, construção do modelo e transformação ER → relacional"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 120
+    obra: heuser-projeto-de-banco-de-dados
+    duracao_min: 600
+    url: https://www.amazon.com.br/s?k=Projeto+de+Banco+de+Dados+Heuser
+    disponivel: true
+    verificado_em: 2026-11-11
+
+  # --- etapa:dados/armazenamento-e-indices ---------------------------------
+  - id: rec:dados/santos-azeredo-tabelas
+    etapa: etapa:dados/armazenamento-e-indices
+    titulo: "Tabelas: Organização e Pesquisa (Clésio dos Santos & Paulo de Azeredo) — pesquisa sequencial e binária, árvores de pesquisa balanceadas, árvore B e dispersão"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 60
+    obra: santos-azeredo-tabelas
+    duracao_min: 900
+    url: https://www.amazon.com.br/s?k=Tabelas+Organiza%C3%A7%C3%A3o+e+Pesquisa+Cl%C3%A9sio+dos+Santos
+    disponivel: true
+    verificado_em: 2026-11-11

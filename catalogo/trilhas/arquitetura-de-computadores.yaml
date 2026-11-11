@@ -1,0 +1,100 @@
+versao_schema: 1
+trilha:
+  id: trilha:arquitetura/arquitetura-de-computadores
+  titulo: Arquitetura de computadores — da máquina hipotética ao computador pessoal
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:arquitetura/organizacao-basica
+      nivel: intermediario
+    - competencia: comp:arquitetura/programacao-em-montagem
+      nivel: intermediario
+    - competencia: comp:arquitetura/computador-pessoal
+      nivel: intermediario
+
+  # Segue os dois livros de Raul Fernando Weber na Série Livros Didáticos do
+  # Instituto de Informática da UFRGS: *Fundamentos de Arquitetura de Computadores*,
+  # que ensina pela progressão de máquinas hipotéticas (Neander, Ahmes, Ramses,
+  # Cesar), e *Arquitetura de Computadores Pessoais*, que leva o modelo à máquina
+  # real. O primeiro se reparte em duas etapas porque o corte dele é nítido: as
+  # máquinas de acumulador ensinam o ciclo de instrução, o Cesar ensina o conjunto
+  # de instruções e a montagem.
+  #
+  # *Concepção de Circuitos Integrados* (Ricardo Reis), da mesma série, desce um
+  # nível abaixo e entra como etapa opcional: não é exigida pelo objetivo, mas é
+  # quem responde de onde vem a porta lógica que as outras etapas dão por pronta.
+  #
+  # LIMITE DE VERIFICAÇÃO: o sumário dos três livros não foi conferido em exemplar.
+  # As fatias de catalogo/recursos/arquitetura.yaml são por assunto; trocar os
+  # títulos por "cap. N, ..." é cosmético (docs/catalogo.md §4).
+  etapas:
+    - id: etapa:arquitetura/organizacao-por-maquinas-hipoteticas
+      titulo: Organização do computador por máquinas hipotéticas — do Neander ao Ramses
+      rev: 1
+      status: ativo
+      descricao: >
+        Abre a trilha sem hardware real: sistemas de numeração e complemento de dois,
+        e o computador de von Neumann montado peça por peça em máquinas mínimas de
+        acumulador, cada uma acrescentando à anterior o que lhe faltava — códigos de
+        condição, registradores, modos de endereçamento.
+      esforco_estimado_min: 720
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:arquitetura/organizacao-basica
+          nivel_resultante: intermediario
+
+    - id: etapa:arquitetura/conjunto-de-instrucoes-e-montagem
+      titulo: Conjunto de instruções e montagem — o Cesar, a pilha e a interrupção
+      rev: 1
+      status: ativo
+      descricao: >
+        A máquina de registradores com conjunto de instruções completo: modos de
+        endereçamento, pilha e sub-rotina, entrada e saída mapeada em memória e
+        interrupção. Termina com programas escritos em linguagem de montagem e
+        executados no simulador.
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:arquitetura/organizacao-basica
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:arquitetura/programacao-em-montagem
+          nivel_resultante: intermediario
+
+    - id: etapa:arquitetura/arquitetura-do-computador-pessoal
+      titulo: Arquitetura do computador pessoal — processador, memória, barramento e periférico
+      rev: 1
+      status: ativo
+      descricao: >
+        Do modelo à máquina sobre a mesa: a família de processadores do PC, a
+        hierarquia de memória com cache, barramentos e chipset, e a ligação dos
+        periféricos por interrupção e acesso direto à memória. Pressupõe a montagem
+        porque é nela que a interrupção e o endereçamento deixam de ser abstratos.
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:arquitetura/programacao-em-montagem
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:arquitetura/computador-pessoal
+          nivel_resultante: intermediario
+
+    # --- Abaixo da porta lógica ------------------------------------------------
+    - id: etapa:arquitetura/concepcao-de-circuitos-integrados
+      titulo: Concepção de circuitos integrados — da porta CMOS ao leiaute
+      rev: 1
+      status: ativo
+      descricao: >
+        O nível que as outras etapas dão por pronto: tecnologia CMOS, a porta lógica
+        feita de transistores, os níveis de descrição de um circuito e as
+        metodologias e ferramentas que levam a descrição ao leiaute do chip.
+        Aprofundamento opcional, fora do objetivo da trilha.
+      esforco_estimado_min: 900
+      opcional: true
+      requires:
+        - competencia: comp:arquitetura/organizacao-basica
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:arquitetura/projeto-de-circuito-integrado
+          nivel_resultante: intermediario

@@ -1,0 +1,71 @@
+# Convenções deste arquivo:
+#   custo  — em BRL, aproximado na data de `verificado_em`; 0 = gratuito.
+#   idioma — tag BCP 47.
+#
+# Quatro livros da Série Livros Didáticos do Instituto de Informática da UFRGS
+# (Sagra Luzzatto, depois Bookman), um por etapa de
+# trilha:computacao/teoria-da-computacao, cada um inteiro numa fatia e com `obra`
+# (ADR-0020). Custo estimado, não conferido; `url` de busca na Amazon porque as
+# páginas de produto não foram confirmadas (docs/bibliografia.md, convenção dos
+# links).
+versao_schema: 1
+recursos:
+  # --- etapa:computacao/linguagens-formais-e-automatos -----------------------
+  - id: rec:computacao/menezes-linguagens-formais-e-automatos
+    etapa: etapa:computacao/linguagens-formais-e-automatos
+    titulo: "Linguagens Formais e Autômatos (Paulo Blauth Menezes)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 100
+    obra: menezes-linguagens-formais-e-automatos
+    duracao_min: 1080
+    url: https://www.amazon.com.br/s?k=Linguagens+Formais+e+Aut%C3%B4matos+Paulo+Blauth+Menezes
+    disponivel: true
+    verificado_em: 2026-11-11
+
+  # --- etapa:computacao/maquinas-universais-e-computabilidade ----------------
+  - id: rec:computacao/diverio-menezes-teoria-da-computacao
+    etapa: etapa:computacao/maquinas-universais-e-computabilidade
+    titulo: "Teoria da Computação: Máquinas Universais e Computabilidade (Tiarajú Asmuz Diverio & Paulo Blauth Menezes)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 100
+    obra: diverio-menezes-teoria-da-computacao
+    duracao_min: 1080
+    url: https://www.amazon.com.br/s?k=Teoria+da+Computa%C3%A7%C3%A3o+Diverio+Menezes
+    disponivel: true
+    verificado_em: 2026-11-11
+
+  # --- etapa:computacao/complexidade-de-algoritmos ---------------------------
+  - id: rec:computacao/toscani-veloso-complexidade-de-algoritmos
+    etapa: etapa:computacao/complexidade-de-algoritmos
+    titulo: "Complexidade de Algoritmos (Laira Vieira Toscani & Paulo A. S. Veloso)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 100
+    obra: toscani-veloso-complexidade-de-algoritmos
+    duracao_min: 1080
+    url: https://www.amazon.com.br/s?k=Complexidade+de+Algoritmos+Toscani+Veloso
+    disponivel: true
+    verificado_em: 2026-11-11
+
+  # --- etapa:computacao/teoria-das-categorias --------------------------------
+  - id: rec:computacao/menezes-haeusler-teoria-das-categorias
+    etapa: etapa:computacao/teoria-das-categorias
+    titulo: "Teoria das Categorias para Ciência da Computação (Paulo Blauth Menezes & Edward Hermann Haeusler)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 100
+    obra: menezes-haeusler-teoria-das-categorias
+    duracao_min: 1320
+    url: https://www.amazon.com.br/s?k=Teoria+das+Categorias+Ci%C3%AAncia+da+Computa%C3%A7%C3%A3o+Menezes+Haeusler
+    disponivel: true
+    verificado_em: 2026-11-11
