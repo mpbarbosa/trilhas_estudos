@@ -49,6 +49,7 @@ ROTULO_ORIGEM = {
 por extenso em vez de mostrar o token."""
 
 ROTULO_AREA = {
+    "computacao": "computação",
     "ia": "IA",
     "linguas": "línguas",
     "matematica": "matemática",
@@ -60,6 +61,8 @@ escreve o acento que falta; área sem entrada aqui aparece como está — mapa q
 envelhece não pode esconder uma área nova da tela."""
 
 SETOR_DA_AREA = {
+    "arquitetura": "exatas",
+    "computacao": "exatas",
     "dados": "exatas",
     "engenharia": "exatas",
     "ia": "exatas",

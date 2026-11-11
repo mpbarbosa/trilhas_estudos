@@ -98,6 +98,48 @@ python3 -c 'import json,pathlib;d=json.load(open("catalogo.lock.json"));b=pathli
 
 ---
 
+## Arquitetura de computadores
+
+### Arquitetura de Computadores Pessoais
+
+- **Autoria** — Raul Fernando Weber
+- **Edição** — Série Livros Didáticos do Instituto de Informática da UFRGS (Sagra
+  Luzzatto; reedições pela Bookman), pt-BR. Edição, data, páginas e ISBN **não
+  confirmados**: o livro entrou no catálogo pela lista da série impressa num livro da
+  coleção, fotografada pelo estudante em 2026-11-11, e não pelo exemplar
+- **Amazon** — https://www.amazon.com.br/s?k=Arquitetura+de+Computadores+Pessoais+Raul+Weber — link de busca;
+  página de produto não confirmada
+- **Citada por** — `rec:arquitetura/weber-arquitetura-pcs` — declara `obra: weber-arquitetura-pcs`
+
+### Concepção de Circuitos Integrados
+
+- **Autoria** — Ricardo Augusto da Luz Reis (org.)
+- **Edição** — Série Livros Didáticos do Instituto de Informática da UFRGS (Sagra
+  Luzzatto; reedições pela Bookman), pt-BR. Edição, data, páginas e ISBN **não
+  confirmados**: o livro entrou no catálogo pela lista da série impressa num livro da
+  coleção, fotografada pelo estudante em 2026-11-11, e não pelo exemplar
+- **Amazon** — https://www.amazon.com.br/s?k=Concep%C3%A7%C3%A3o+de+Circuitos+Integrados+Ricardo+Reis — link de busca;
+  página de produto não confirmada
+- **Citada por** — `rec:arquitetura/reis-concepcao-circuitos-integrados` — declara
+  `obra: reis-concepcao-circuitos-integrados`
+
+### Fundamentos de Arquitetura de Computadores
+
+- **Autoria** — Raul Fernando Weber
+- **Edição** — Série Livros Didáticos do Instituto de Informática da UFRGS (Sagra
+  Luzzatto; reedições pela Bookman), pt-BR. Edição, data, páginas e ISBN **não
+  confirmados**: o livro entrou no catálogo pela lista da série impressa num livro da
+  coleção, fotografada pelo estudante em 2026-11-11, e não pelo exemplar
+- **Amazon** — https://www.amazon.com.br/s?k=Fundamentos+de+Arquitetura+de+Computadores+Raul+Weber — link de busca;
+  página de produto não confirmada
+- **Citada por** — `rec:arquitetura/weber-fundamentos-maquinas-de-acumulador`,
+  `rec:arquitetura/weber-fundamentos-cesar-e-montagem` — as duas declaram
+  `obra: weber-fundamentos-arquitetura`
+- **Nota** — fatias por **assunto** (máquinas de acumulador; o Cesar), não por capítulo:
+  trocar por "cap. N, ..." com o exemplar em mão é cosmético ([catalogo.md §4](catalogo.md))
+
+---
+
 ## Dados
 
 ### Álgebra Linear com Python: Aprenda na prática os principais conceitos
@@ -196,6 +238,20 @@ python3 -c 'import json,pathlib;d=json.load(open("catalogo.lock.json"));b=pathli
 - **Amazon** — https://www.amazon.com.br/dp/B0DQVMKS9N
 - **Citada por** — `rec:dados/dianguila-matematica-ciencia-de-dados`
 
+### Projeto de Banco de Dados
+
+- **Autoria** — Carlos Alberto Heuser
+- **Edição** — Série Livros Didáticos do Instituto de Informática da UFRGS (Sagra
+  Luzzatto; reedições pela Bookman), pt-BR. Edição, data, páginas e ISBN **não
+  confirmados**: o livro entrou no catálogo pela lista da série impressa num livro da
+  coleção, fotografada pelo estudante em 2026-11-11, e não pelo exemplar
+- **Amazon** — https://www.amazon.com.br/s?k=Projeto+de+Banco+de+Dados+Heuser — link de busca;
+  página de produto não confirmada
+- **Citada por** — `rec:dados/heuser-abordagem-relacional`, `rec:dados/heuser-normalizacao`,
+  `rec:dados/heuser-modelagem-er-e-transformacao` — as três declaram
+  `obra: heuser-projeto-de-banco-de-dados`
+- **Nota** — fatias por **assunto**; o sumário não foi conferido em exemplar
+
 ### Python Data Science Handbook: Essential Tools for Working with Data
 
 - **Autoria** — Jake VanderPlas
@@ -233,6 +289,17 @@ python3 -c 'import json,pathlib;d=json.load(open("catalogo.lock.json"));b=pathli
 - **Nota** — a `obra` leva o nome do site, não do livro, porque é o site que o recurso
   aponta. É o mesmo arranjo de *The Linux Command Line*: edição aberta citada pelo
   catálogo, impresso existindo ao lado.
+
+### Tabelas: Organização e Pesquisa
+
+- **Autoria** — Clésio dos Santos, Paulo de Azeredo
+- **Edição** — Série Livros Didáticos do Instituto de Informática da UFRGS (Sagra
+  Luzzatto; reedições pela Bookman), pt-BR. Edição, data, páginas e ISBN **não
+  confirmados**: o livro entrou no catálogo pela lista da série impressa num livro da
+  coleção, fotografada pelo estudante em 2026-11-11, e não pelo exemplar
+- **Amazon** — https://www.amazon.com.br/s?k=Tabelas+Organiza%C3%A7%C3%A3o+e+Pesquisa+Cl%C3%A9sio+dos+Santos — link de busca;
+  página de produto não confirmada
+- **Citada por** — `rec:dados/santos-azeredo-tabelas` — declara `obra: santos-azeredo-tabelas`
 
 ### The Visual Display of Quantitative Information
 
@@ -729,6 +796,18 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
   (David E. Joyce, em inglês — é o recurso `rec:matematica/euclides-interativo`)
 - **Citada por** — `rec:matematica/euclides-elementos`
 
+### Fundamentos da Matemática Intervalar
+
+- **Autoria** — Paulo Werlang de Oliveira, Tiarajú Asmuz Diverio, Dalcidio Moraes Claudio
+- **Edição** — Série Livros Didáticos do Instituto de Informática da UFRGS (Sagra
+  Luzzatto; reedições pela Bookman), pt-BR. Edição, data, páginas e ISBN **não
+  confirmados**: o livro entrou no catálogo pela lista da série impressa num livro da
+  coleção, fotografada pelo estudante em 2026-11-11, e não pelo exemplar
+- **Amazon** — https://www.amazon.com.br/s?k=Fundamentos+da+Matem%C3%A1tica+Intervalar — link de busca;
+  página de produto não confirmada
+- **Citada por** — `rec:matematica/oliveira-diverio-claudio-matematica-intervalar` — declara
+  `obra: oliveira-diverio-claudio-matematica-intervalar`
+
 ### Fundamentos de Matemática Elementar 1: Conjuntos, Funções
 
 - **Autoria** — Gelson Iezzi e Carlos Murakami
@@ -757,6 +836,18 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Identificadores** — ISBN-13 978-85-378-1454-3 · ISBN-10 `8537814547`
 - **Amazon** — https://www.amazon.com.br/dp/8537814547
 - **Citada por** — `rec:matematica/stewart-misterios`
+
+### Programando em Pascal XSC
+
+- **Autoria** — Charles Hoher, Carlos Amaral Holbig, Tiarajú Asmuz Diverio
+- **Edição** — Série Livros Didáticos do Instituto de Informática da UFRGS (Sagra
+  Luzzatto; reedições pela Bookman), pt-BR. Edição, data, páginas e ISBN **não
+  confirmados**: o livro entrou no catálogo pela lista da série impressa num livro da
+  coleção, fotografada pelo estudante em 2026-11-11, e não pelo exemplar
+- **Amazon** — https://www.amazon.com.br/s?k=Programando+em+Pascal+XSC — link de busca;
+  página de produto não confirmada
+- **Citada por** — `rec:matematica/hoher-holbig-diverio-pascal-xsc` — declara
+  `obra: hoher-holbig-diverio-pascal-xsc`
 
 ### Uma história da simetria na matemática
 
@@ -813,6 +904,25 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
   cita `etapa:so/script-shell` e não `etapa:so/linha-de-comando`
   ([ADR-0010](adr/0010-shell-como-pre-requisito-declarado.md)).
 
+### Sistemas Operacionais
+
+- **Autoria** — Rômulo Silva de Oliveira, Alexandre da Silva Carissimi, Simão Sirineo Toscani
+- **Edição** — Série Livros Didáticos do Instituto de Informática da UFRGS (Sagra
+  Luzzatto; reedições pela Bookman), pt-BR. Edição, data, páginas e ISBN **não
+  confirmados**: o livro entrou no catálogo pela lista da série impressa num livro da
+  coleção, fotografada pelo estudante em 2026-11-11, e não pelo exemplar
+- **Amazon** — https://www.amazon.com.br/s?k=Sistemas+Operacionais+Oliveira+Carissimi+Toscani — link de busca;
+  página de produto não confirmada
+- **Citada por** — `rec:so/oliveira-carissimi-toscani-introducao`,
+  `rec:so/oliveira-carissimi-toscani-programacao-concorrente`,
+  `rec:so/oliveira-carissimi-toscani-gerencia-do-processador`,
+  `rec:so/oliveira-carissimi-toscani-gerencia-de-memoria`,
+  `rec:so/oliveira-carissimi-toscani-gerencia-de-entrada-e-saida`,
+  `rec:so/oliveira-carissimi-toscani-sistema-de-arquivos` — as seis declaram
+  `obra: oliveira-carissimi-toscani-so`
+- **Nota** — fatias por **assunto**, uma por etapa de conceito da trilha de SO; o livro não
+  entra no projeto do MINIX, que é do Tanenbaum & Woodhull
+
 ### Sistemas Operacionais: Projeto e Implementação
 
 - **Autoria** — Andrew S. Tanenbaum, Albert S. Woodhull; trad. João Tortello (3ª ed.)
@@ -846,6 +956,63 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Nota** — a tradução para português está listada como em andamento no site do
   autor, ainda sem versão publicada. É por isso que
   `etapa:so/linha-de-comando` depende do Guia Foca para o par "gratuito e em pt-BR".
+
+---
+
+## Teoria da computação
+
+### Complexidade de Algoritmos
+
+- **Autoria** — Laira Vieira Toscani, Paulo A. S. Veloso
+- **Edição** — Série Livros Didáticos do Instituto de Informática da UFRGS (Sagra
+  Luzzatto; reedições pela Bookman), pt-BR. Edição, data, páginas e ISBN **não
+  confirmados**: o livro entrou no catálogo pela lista da série impressa num livro da
+  coleção, fotografada pelo estudante em 2026-11-11, e não pelo exemplar
+- **Amazon** — https://www.amazon.com.br/s?k=Complexidade+de+Algoritmos+Toscani+Veloso — link de busca;
+  página de produto não confirmada
+- **Citada por** — `rec:computacao/toscani-veloso-complexidade-de-algoritmos` — declara
+  `obra: toscani-veloso-complexidade-de-algoritmos`
+
+### Linguagens Formais e Autômatos
+
+- **Autoria** — Paulo Blauth Menezes
+- **Edição** — Série Livros Didáticos do Instituto de Informática da UFRGS (Sagra
+  Luzzatto; reedições pela Bookman), pt-BR. Edição, data, páginas e ISBN **não
+  confirmados**: o livro entrou no catálogo pela lista da série impressa num livro da
+  coleção, fotografada pelo estudante em 2026-11-11, e não pelo exemplar
+- **Amazon** — https://www.amazon.com.br/s?k=Linguagens+Formais+e+Aut%C3%B4matos+Paulo+Blauth+Menezes — link de busca;
+  página de produto não confirmada
+- **Citada por** — `rec:computacao/menezes-linguagens-formais-e-automatos` — declara
+  `obra: menezes-linguagens-formais-e-automatos`
+
+### Teoria da Computação: Máquinas Universais e Computabilidade
+
+- **Autoria** — Tiarajú Asmuz Diverio, Paulo Blauth Menezes
+- **Edição** — Série Livros Didáticos do Instituto de Informática da UFRGS (Sagra
+  Luzzatto; reedições pela Bookman), pt-BR. Edição, data, páginas e ISBN **não
+  confirmados**: o livro entrou no catálogo pela lista da série impressa num livro da
+  coleção, fotografada pelo estudante em 2026-11-11, e não pelo exemplar
+- **Amazon** — https://www.amazon.com.br/s?k=Teoria+da+Computa%C3%A7%C3%A3o+Diverio+Menezes — link de busca;
+  página de produto não confirmada
+- **Citada por** — `rec:computacao/diverio-menezes-teoria-da-computacao` — declara
+  `obra: diverio-menezes-teoria-da-computacao`
+- **Nota** — o subtítulo é o com que o livro circula nas edições da Bookman, não
+  conferido em exemplar; a lista fotografada traz só *Teoria da Computação*
+
+### Teoria das Categorias para Ciência da Computação
+
+- **Autoria** — Paulo Blauth Menezes, Edward Hermann Haeusler
+- **Edição** — Série Livros Didáticos do Instituto de Informática da UFRGS (Sagra
+  Luzzatto; reedições pela Bookman), pt-BR. Edição, data, páginas e ISBN **não
+  confirmados**: o livro entrou no catálogo pela lista da série impressa num livro da
+  coleção, fotografada pelo estudante em 2026-11-11, e não pelo exemplar
+- **Amazon** — https://www.amazon.com.br/s?k=Teoria+das+Categorias+Ci%C3%AAncia+da+Computa%C3%A7%C3%A3o+Menezes+Haeusler — link de busca;
+  página de produto não confirmada
+- **Citada por** — `rec:computacao/menezes-haeusler-teoria-das-categorias` — declara
+  `obra: menezes-haeusler-teoria-das-categorias`
+- **Nota** — a lista fotografada dá o título como *Teoria das Categorias e Ciência da
+  Computação*; o catálogo usa "para", título com que o livro circula nas edições da
+  Bookman — divergência não resolvida sem o exemplar
 
 ---
 

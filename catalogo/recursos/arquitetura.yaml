@@ -1,0 +1,79 @@
+# Convenções deste arquivo:
+#   custo  — em BRL, aproximado na data de `verificado_em`; 0 = gratuito.
+#   idioma — tag BCP 47.
+#
+# Três livros da Série Livros Didáticos do Instituto de Informática da UFRGS
+# (Sagra Luzzatto, depois Bookman), todos exemplares e todos com `obra` (ADR-0020).
+# O custo é estimativa, não conferida: livro da série em sebo ou na edição Bookman
+# vigente. As páginas de produto não foram confirmadas, então a `url` é de busca na
+# Amazon, pela convenção de docs/bibliografia.md.
+#
+# -------------------------------------------------------------------------
+#   obra: weber-fundamentos-arquitetura — Raul Fernando Weber, *Fundamentos de
+#     Arquitetura de Computadores*. Duas fatias: as máquinas de acumulador (Neander,
+#     Ahmes, Ramses) e o Cesar com montagem, pilha e interrupção.
+#   obra: weber-arquitetura-pcs — Raul Fernando Weber, *Arquitetura de Computadores
+#     Pessoais*. Uma fatia, o livro inteiro.
+#   obra: reis-concepcao-circuitos-integrados — Ricardo Augusto da Luz Reis (org.),
+#     *Concepção de Circuitos Integrados*. Uma fatia, o livro inteiro.
+versao_schema: 1
+recursos:
+  # --- etapa:arquitetura/organizacao-por-maquinas-hipoteticas ----------------
+  - id: rec:arquitetura/weber-fundamentos-maquinas-de-acumulador
+    etapa: etapa:arquitetura/organizacao-por-maquinas-hipoteticas
+    titulo: "Fundamentos de Arquitetura de Computadores (Raul Fernando Weber) — representação de dados, organização de von Neumann e as máquinas Neander, Ahmes e Ramses"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 100
+    obra: weber-fundamentos-arquitetura
+    duracao_min: 600
+    url: https://www.amazon.com.br/s?k=Fundamentos+de+Arquitetura+de+Computadores+Raul+Weber
+    disponivel: true
+    verificado_em: 2026-11-11
+
+  # --- etapa:arquitetura/conjunto-de-instrucoes-e-montagem -------------------
+  - id: rec:arquitetura/weber-fundamentos-cesar-e-montagem
+    etapa: etapa:arquitetura/conjunto-de-instrucoes-e-montagem
+    titulo: "Fundamentos de Arquitetura de Computadores (Raul Fernando Weber) — a máquina Cesar: modos de endereçamento, pilha, sub-rotina, entrada e saída e interrupção"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 100
+    obra: weber-fundamentos-arquitetura
+    duracao_min: 720
+    url: https://www.amazon.com.br/s?k=Fundamentos+de+Arquitetura+de+Computadores+Raul+Weber
+    disponivel: true
+    verificado_em: 2026-11-11
+
+  # --- etapa:arquitetura/arquitetura-do-computador-pessoal -------------------
+  - id: rec:arquitetura/weber-arquitetura-pcs
+    etapa: etapa:arquitetura/arquitetura-do-computador-pessoal
+    titulo: "Arquitetura de Computadores Pessoais (Raul Fernando Weber)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 100
+    obra: weber-arquitetura-pcs
+    duracao_min: 900
+    url: https://www.amazon.com.br/s?k=Arquitetura+de+Computadores+Pessoais+Raul+Weber
+    disponivel: true
+    verificado_em: 2026-11-11
+
+  # --- etapa:arquitetura/concepcao-de-circuitos-integrados -------------------
+  - id: rec:arquitetura/reis-concepcao-circuitos-integrados
+    etapa: etapa:arquitetura/concepcao-de-circuitos-integrados
+    titulo: "Concepção de Circuitos Integrados (Ricardo Augusto da Luz Reis, org.)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 100
+    obra: reis-concepcao-circuitos-integrados
+    duracao_min: 900
+    url: https://www.amazon.com.br/s?k=Concep%C3%A7%C3%A3o+de+Circuitos+Integrados+Ricardo+Reis
+    disponivel: true
+    verificado_em: 2026-11-11
