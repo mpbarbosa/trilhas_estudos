@@ -1,0 +1,103 @@
+versao_schema: 1
+trilha:
+  id: trilha:computacao/teoria-da-computacao
+  titulo: Teoria da computação — linguagens formais, computabilidade e complexidade
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:computacao/linguagens-formais
+      nivel: intermediario
+    - competencia: comp:computacao/computabilidade
+      nivel: intermediario
+    - competencia: comp:computacao/complexidade-de-algoritmos
+      nivel: intermediario
+
+  # Os livros teóricos da Série Livros Didáticos do Instituto de Informática da
+  # UFRGS: *Linguagens Formais e Autômatos* (Paulo Blauth Menezes), *Teoria da
+  # Computação: Máquinas Universais e Computabilidade* (Diverio & Menezes),
+  # *Complexidade de Algoritmos* (Laira Toscani & Paulo Veloso) e, como
+  # aprofundamento, *Teoria das Categorias para Ciência da Computação* (Menezes &
+  # Haeusler).
+  #
+  # Duas raízes, e não uma linha. Computabilidade pressupõe linguagens formais —
+  # a máquina de Turing é o topo da hierarquia de Chomsky antes de ser o modelo de
+  # computação —, mas a análise de algoritmos não pressupõe nem uma nem outra: o
+  # livro de Toscani & Veloso se lê com pseudocódigo e recorrência. Prender a
+  # complexidade à computabilidade seria declarar em `requires` uma ordem de leitura,
+  # que é o que `requires` não declara.
+  #
+  # Relação com trilha:programacao/compiladores: lá, a análise léxica e a sintática
+  # usam autômato e gramática como ferramenta de quem escreve um compilador; aqui
+  # eles são objeto de estudo. Nenhuma das duas trilhas exige a outra.
+  #
+  # LIMITE DE VERIFICAÇÃO: os sumários não foram conferidos em exemplar; as fatias de
+  # catalogo/recursos/computacao.yaml são por assunto.
+  etapas:
+    - id: etapa:computacao/linguagens-formais-e-automatos
+      titulo: Linguagens formais e autômatos — das linguagens regulares à hierarquia de Chomsky
+      rev: 1
+      status: ativo
+      descricao: >
+        Linguagem como conjunto de palavras e as classes que a separam: autômato
+        finito, expressão regular e gramática regular; gramática livre do contexto e
+        autômato com pilha; as linguagens sensíveis ao contexto e as enumeráveis
+        recursivamente, com os lemas do bombeamento e as propriedades de fechamento.
+      esforco_estimado_min: 1200
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:computacao/linguagens-formais
+          nivel_resultante: intermediario
+
+    - id: etapa:computacao/maquinas-universais-e-computabilidade
+      titulo: Máquinas universais e computabilidade — o que pode e o que não pode ser computado
+      rev: 1
+      status: ativo
+      descricao: >
+        Programas, máquinas e computações como objetos formais; a máquina de Turing e
+        os modelos equivalentes, a tese de Church, as funções recursivas, e o limite:
+        o problema da parada e a redução como método para mostrar que outros
+        problemas também são indecidíveis.
+      esforco_estimado_min: 1200
+      opcional: false
+      requires:
+        - competencia: comp:computacao/linguagens-formais
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:computacao/computabilidade
+          nivel_resultante: intermediario
+
+    - id: etapa:computacao/complexidade-de-algoritmos
+      titulo: Complexidade de algoritmos — análise, técnicas de projeto e NP-completude
+      rev: 1
+      status: ativo
+      descricao: >
+        O custo do algoritmo independente da máquina: notação assintótica, pior caso
+        e caso médio, recorrência, as técnicas de projeto — divisão e conquista,
+        programação dinâmica, guloso, tentativa e erro — e as classes P e NP com a
+        redução polinomial.
+      esforco_estimado_min: 1200
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:computacao/complexidade-de-algoritmos
+          nivel_resultante: intermediario
+
+    # --- Aprofundamento ---------------------------------------------------------
+    - id: etapa:computacao/teoria-das-categorias
+      titulo: Teoria das categorias para ciência da computação
+      rev: 1
+      status: ativo
+      descricao: >
+        Categoria, funtor e transformação natural como linguagem comum a estruturas
+        da computação: construções universais, adjunção e as categorias que modelam
+        autômatos, tipos e programas. Opcional: pede maturidade matemática que o
+        objetivo da trilha não exige.
+      esforco_estimado_min: 1500
+      opcional: true
+      requires:
+        - competencia: comp:computacao/linguagens-formais
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:computacao/teoria-das-categorias
+          nivel_resultante: intermediario

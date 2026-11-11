@@ -1,0 +1,68 @@
+# Competências de trilha:computacao/teoria-da-computacao. A área `computacao/` guarda
+# o que é ciência da computação teórica — linguagens, computabilidade, complexidade,
+# estruturas — e não cabe em `programacao/`, que é o fazer, nem em `matematica/`,
+# cujo objeto não é a computação.
+#
+# comp:computacao/linguagens-formais não substitui comp:programacao/analise-lexica:
+# a primeira é a teoria das classes de linguagem, a segunda é o reconhecedor escrito
+# para um compilador. Uma pode ajudar a outra; nenhuma exige a outra.
+versao_schema: 1
+competencias:
+  - id: comp:computacao/linguagens-formais
+    titulo: Linguagens formais e autômatos — da linguagem regular à hierarquia de Chomsky
+    rev: 1
+    status: ativo
+    descricao: >
+      Linguagem como conjunto de palavras e as classes que a hierarquia de Chomsky
+      separa: regular (autômato finito, expressão regular, gramática regular), livre
+      do contexto (gramática e autômato com pilha), sensível ao contexto e enumerável
+      recursivamente, com os lemas do bombeamento e as propriedades de fechamento.
+    verificacao: >
+      Para três linguagens dadas, classificar cada uma na hierarquia de Chomsky
+      apresentando o reconhecedor mínimo que a aceita — autômato finito, autômato com
+      pilha ou máquina de Turing — e provar pelo lema do bombeamento que a de classe
+      mais alta não pertence à classe imediatamente abaixo.
+
+  - id: comp:computacao/computabilidade
+    titulo: Computabilidade — máquinas universais, funções recursivas e o indecidível
+    rev: 1
+    status: ativo
+    descricao: >
+      O que pode ser computado: programas e máquinas como modelos, a máquina de Turing
+      e as equivalentes, a tese de Church, as funções recursivas, a máquina universal,
+      e os problemas indecidíveis — o da parada à frente — com a redução como método
+      de mostrar que outro também é.
+    verificacao: >
+      Demonstrar que o problema da parada é indecidível pelo argumento da
+      diagonalização e, por redução a partir dele, que decidir se um programa qualquer
+      imprime uma dada saída também é indecidível, deixando explícito o que a redução
+      constrói.
+
+  - id: comp:computacao/complexidade-de-algoritmos
+    titulo: Complexidade de algoritmos — análise assintótica, técnicas de projeto e NP-completude
+    rev: 1
+    status: ativo
+    descricao: >
+      Medir o custo de um algoritmo independentemente da máquina: notação assintótica,
+      pior caso e caso médio, recorrências, as técnicas de projeto (divisão e
+      conquista, programação dinâmica, algoritmo guloso, tentativa e erro) e as classes
+      P e NP, com a redução polinomial que caracteriza um problema NP-completo.
+    verificacao: >
+      Para um algoritmo recursivo dado, escrever a recorrência do seu custo e
+      resolvê-la em notação Θ; e, para um problema dado, mostrar que pertence a NP
+      exibindo o verificador polinomial e reduzir a ele um problema NP-completo
+      conhecido.
+
+  - id: comp:computacao/teoria-das-categorias
+    titulo: Teoria das categorias aplicada à computação
+    rev: 1
+    status: ativo
+    descricao: >
+      Categoria, funtor e transformação natural como linguagem para estruturas da
+      computação: construções universais (produto, coproduto, limite), adjunção, e as
+      categorias que modelam autômatos, tipos e programas.
+    verificacao: >
+      Mostrar que conjuntos e funções formam uma categoria verificando identidade e
+      associatividade; construir nela o produto e o coproduto de dois objetos pela
+      propriedade universal; e exibir um funtor entre duas categorias de origem
+      computacional dizendo o que ele preserva.

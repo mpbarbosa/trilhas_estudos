@@ -84,3 +84,38 @@ competencias:
       Dada uma função definida por partes, determinar domínio e imagem, esboçar o
       gráfico sem tabela de valores, decidir se é injetora ou sobrejetora e, quando
       couber, obter a inversa e restringir o domínio para que ela exista.
+
+  # --- Computação intervalar (trilha:matematica/computacao-intervalar) ----------
+  # Duas competências porque são dois livros com dois objetos: a matemática do
+  # intervalo, que se faz no papel, e a computação verificada, que se faz numa
+  # linguagem com arredondamento direcionado.
+  - id: comp:matematica/aritmetica-intervalar
+    titulo: Aritmética intervalar — o número como intervalo e o erro como garantia
+    rev: 1
+    status: ativo
+    descricao: >
+      O intervalo real como número: operações aritméticas sobre intervalos e suas
+      propriedades algébricas (a subdistributividade no lugar da distributividade), a
+      dependência entre ocorrências de uma variável, a extensão intervalar de uma
+      função e o intervalo de máquina com arredondamento direcionado, de onde vem a
+      garantia de que o resultado exato está contido no calculado.
+    verificacao: >
+      Avaliar intervalarmente duas expressões algebricamente equivalentes de uma mesma
+      função sobre um intervalo dado, explicar pela dependência por que os resultados
+      diferem e dizer qual delas é mais estreita, e mostrar que ambos contêm a imagem
+      exata.
+
+  - id: comp:matematica/computacao-verificada-pascal-xsc
+    titulo: Computação científica verificada em Pascal-XSC
+    rev: 1
+    status: ativo
+    descricao: >
+      Programar com garantia numérica numa linguagem feita para isso: os tipos
+      intervalares e complexos do Pascal-XSC, o arredondamento direcionado, o produto
+      escalar exato, a sobrecarga de operadores e as rotinas de inclusão que entregam
+      a solução de um problema dentro de um intervalo verificado.
+    verificacao: >
+      Escrever em Pascal-XSC um programa que resolve um sistema linear pequeno e mal
+      condicionado devolvendo um vetor de intervalos que comprovadamente contém a
+      solução, e comparar com a solução em ponto flutuante comum, dizendo o que a
+      versão verificada garante e a outra não.
