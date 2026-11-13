@@ -985,6 +985,29 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Citada por** — `rec:computacao/menezes-linguagens-formais-e-automatos` — declara
   `obra: menezes-linguagens-formais-e-automatos`
 
+### Linguagens formais: teorias e conceitos
+
+- **Autoria** — Marcus Vinicius Midena Ramos, João José Neto, Italo Santiago Vega
+- **Edição** — Blucher (série *Research and Practice in Computing*), 2023, 1ª edição,
+  608 p., brochura, 17×24 cm, pt-BR. Conferida na página da editora em 2026-11-12 —
+  é a única ficha desta seção que não veio de lista fotografada
+- **Identificadores** — ISBN-13 978-65-5506-716-3; ISBN-10 6555067160
+- **Amazon** — https://www.amazon.com.br/dp/6555067160 — página de produto confirmada
+- **Editora** — https://www.blucher.com.br/linguagens-formais-9786555067163 — publica
+  o sumário em oito capítulos, e é ele que fatiou o exemplar entre as duas etapas, por
+  número de capítulo e não por assunto
+- **Preço** — ficha que cita preço, pela exceção do § *Como ler uma ficha*: o `custo`
+  dos recursos foi fixado nesta passada. Em 2026-11-12, R$ 146,99 à vista no Pix na
+  Amazon (lista R$ 163,33; outras 19 ofertas a partir de R$ 160,00) e R$ 235,00 na
+  editora. Há e-book anunciado pela editora, de preço não observado
+- **Citada por** — `rec:computacao/ramos-linguagens-regulares-e-livres-de-contexto` e
+  `rec:computacao/ramos-linguagens-recursivas-e-decidibilidade` — ambos declaram
+  `obra: ramos-neto-vega-linguagens-formais`
+- **Nota** — venceu a 1ª edição do Prêmio Jabuti Acadêmico, segundo a página da
+  editora. A capa da Amazon traz o título como *Linguagens Formais: Teorias e
+  Conceitos*; a editora separa título e subtítulo (*Linguagens formais* /
+  *Teorias e conceitos*). O catálogo usa a forma da editora
+
 ### Teoria da Computação: Máquinas Universais e Computabilidade
 
 - **Autoria** — Tiarajú Asmuz Diverio, Paulo Blauth Menezes

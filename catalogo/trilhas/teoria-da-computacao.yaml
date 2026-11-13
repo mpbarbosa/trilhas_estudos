@@ -30,8 +30,14 @@ trilha:
   # usam autômato e gramática como ferramenta de quem escreve um compilador; aqui
   # eles são objeto de estudo. Nenhuma das duas trilhas exige a outra.
   #
-  # LIMITE DE VERIFICAÇÃO: os sumários não foram conferidos em exemplar; as fatias de
-  # catalogo/recursos/computacao.yaml são por assunto.
+  # Fora da série, *Linguagens formais: teorias e conceitos* (Ramos, Neto & Vega,
+  # Blucher, 2023) é segunda via em pt-BR e atende as duas etapas obrigatórias de
+  # linguagens formais e de computabilidade, em duas fatias do mesmo exemplar.
+  #
+  # LIMITE DE VERIFICAÇÃO: dos quatro livros da série UFRGS nenhum sumário foi
+  # conferido em exemplar, e as fatias deles em catalogo/recursos/computacao.yaml são
+  # por assunto. As duas fatias do Ramos são a exceção: saem do sumário publicado
+  # pela editora, por número de capítulo.
   etapas:
     - id: etapa:computacao/linguagens-formais-e-automatos
       titulo: Linguagens formais e autômatos — das linguagens regulares à hierarquia de Chomsky
