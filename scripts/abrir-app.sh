@@ -50,7 +50,7 @@ trap limpar EXIT
 case "$ROTA" in
   /trilha/*|/etapa/*|/competencia/*)
     tipo="${ROTA#/}"; tipo="${tipo%%/*}"
-    resto="${ROTA#/$tipo/}"
+    resto="${ROTA#/"$tipo"/}"
     case "$resto" in
       "$tipo":*) ;;
       *) vermelho "aviso: '$ROTA' provavelmente dá 404 — o id já traz o prefixo, use /$tipo/$tipo:$resto" ;;
@@ -67,10 +67,15 @@ if [ -e .git/MERGE_HEAD ] || [ -e .git/rebase-merge ] || [ -e .git/rebase-apply 
   exit 1
 fi
 
-CONFLITADOS="$(git --no-pager grep -lE '^(<{7}|={7}|>{7})( |$)' -- 'src/**/*.py' '*.json' 2>/dev/null)"
-if [ -n "$CONFLITADOS" ]; then
+# mapfile, e não "$CONFLITADOS": este printf imprime UM arquivo POR LINHA, e é a
+# divisão de palavras que fazia isso. Pôr aspas no escalar — o que o SC2086
+# sugere — juntaria todos os nomes numa linha só; o array preserva a linha por
+# arquivo e ainda aceita nome com espaço, que a divisão de palavras partia em dois.
+mapfile -t CONFLITADOS < <(
+  git --no-pager grep -lE '^(<{7}|={7}|>{7})( |$)' -- 'src/**/*.py' '*.json' 2>/dev/null)
+if [ "${#CONFLITADOS[@]}" -gt 0 ]; then
   vermelho "marcadores de conflito em arquivos versionados:"
-  printf '  %s\n' $CONFLITADOS >&2
+  printf '  %s\n' "${CONFLITADOS[@]}" >&2
   exit 1
 fi
 
