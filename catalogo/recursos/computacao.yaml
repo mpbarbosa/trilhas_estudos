@@ -8,6 +8,10 @@
 # (ADR-0020). Custo estimado, não conferido; `url` de busca na Amazon porque as
 # páginas de produto não foram confirmadas (docs/bibliografia.md, convenção dos
 # links).
+#
+# E, fora da série, *Linguagens formais: teorias e conceitos* (Ramos, Neto & Vega,
+# Blucher), em duas fatias — o único exemplar daqui com página de produto, preço e
+# sumário conferidos. Ver o bloco dele no fim do arquivo.
 versao_schema: 1
 recursos:
   # --- etapa:computacao/linguagens-formais-e-automatos -----------------------
@@ -69,3 +73,49 @@ recursos:
     url: https://www.amazon.com.br/s?k=Teoria+das+Categorias+Ci%C3%AAncia+da+Computa%C3%A7%C3%A3o+Menezes+Haeusler
     disponivel: true
     verificado_em: 2026-11-11
+
+  # --- Linguagens formais: teorias e conceitos (Ramos, Neto & Vega) ----------
+  # Blucher, 2023, 1ª ed., 608 p., ISBN 978-65-5506-716-3 — vencedor do Prêmio
+  # Jabuti Acadêmico. Segunda via em pt-BR para linguagens formais, ao lado do
+  # Menezes, e única que cobre as duas etapas obrigatórias num exemplar só.
+  #
+  # As duas fatias são por **capítulo**, e não por assunto: o sumário está
+  # publicado na página da editora (blucher.com.br/linguagens-formais-9786555067163),
+  # conferido em 2026-11-12. Caps. 1-4 param na hierarquia até livres de contexto;
+  # dos caps. 5-7 em diante o objeto é a máquina de Turing — linguagens recursivas
+  # e recursivamente enumeráveis são definidas por ela —, com decidibilidade e
+  # redutibilidade, que é o que a etapa de computabilidade pede.
+  #
+  # `custo` é o mesmo nas duas fatias (validação 12): o exemplar se compra uma vez.
+  # Oferta mais baixa observada em 2026-11-12 para este ISBN: R$ 146,99 à vista no
+  # Pix na Amazon (preço de lista R$ 163,33; outras 19 ofertas a partir de
+  # R$ 160,00). Na editora, R$ 235,00. A Estante Virtual mostra ficha homônima a
+  # partir de R$ 143,80, mas datada de 2026 e sem ISBN na listagem — não confirmada
+  # para esta edição, e por isso não é ela que fixa o `custo`.
+  - id: rec:computacao/ramos-linguagens-regulares-e-livres-de-contexto
+    etapa: etapa:computacao/linguagens-formais-e-automatos
+    titulo: "Linguagens formais: teorias e conceitos (Ramos, Neto & Vega), caps. 1-4: matemática discreta, conceitos básicos, linguagens regulares e livres de contexto"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 147
+    obra: ramos-neto-vega-linguagens-formais
+    duracao_min: 900
+    url: https://www.amazon.com.br/dp/6555067160
+    disponivel: true
+    verificado_em: 2026-11-12
+
+  - id: rec:computacao/ramos-linguagens-recursivas-e-decidibilidade
+    etapa: etapa:computacao/maquinas-universais-e-computabilidade
+    titulo: "Linguagens formais: teorias e conceitos (Ramos, Neto & Vega), caps. 5-8: linguagens sensíveis ao contexto, recursivas e recursivamente enumeráveis, decidibilidade e redutibilidade"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 147
+    obra: ramos-neto-vega-linguagens-formais
+    duracao_min: 540
+    url: https://www.amazon.com.br/dp/6555067160
+    disponivel: true
+    verificado_em: 2026-11-12

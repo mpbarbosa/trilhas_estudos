@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 67,
-  "gerado_em": "2026-11-11T20:01:05+00:00",
-  "hash": "sha256:effefccd422f49273a5ac900f98001eea439c077d615b0efaf9816193f712c59",
+  "catalogo_versao": 68,
+  "gerado_em": "2026-11-13T00:36:12+00:00",
+  "hash": "sha256:1831912d562ebf4752ec2b416daac124ed5b551636c8859f0b73d81428891367",
   "competencias": [
     {
       "id": "comp:arquitetura/computador-pessoal",
@@ -7556,6 +7556,36 @@
       "disponivel": true,
       "obra": "menezes-linguagens-formais-e-automatos",
       "verificado_em": "2026-11-11"
+    },
+    {
+      "id": "rec:computacao/ramos-linguagens-recursivas-e-decidibilidade",
+      "titulo": "Linguagens formais: teorias e conceitos (Ramos, Neto & Vega), caps. 5-8: linguagens sensíveis ao contexto, recursivas e recursivamente enumeráveis, decidibilidade e redutibilidade",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:computacao/maquinas-universais-e-computabilidade",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 147.0,
+      "duracao_min": 540,
+      "url": "https://www.amazon.com.br/dp/6555067160",
+      "disponivel": true,
+      "obra": "ramos-neto-vega-linguagens-formais",
+      "verificado_em": "2026-11-12"
+    },
+    {
+      "id": "rec:computacao/ramos-linguagens-regulares-e-livres-de-contexto",
+      "titulo": "Linguagens formais: teorias e conceitos (Ramos, Neto & Vega), caps. 1-4: matemática discreta, conceitos básicos, linguagens regulares e livres de contexto",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:computacao/linguagens-formais-e-automatos",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 147.0,
+      "duracao_min": 900,
+      "url": "https://www.amazon.com.br/dp/6555067160",
+      "disponivel": true,
+      "obra": "ramos-neto-vega-linguagens-formais",
+      "verificado_em": "2026-11-12"
     },
     {
       "id": "rec:computacao/toscani-veloso-complexidade-de-algoritmos",
