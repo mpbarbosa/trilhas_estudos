@@ -68,3 +68,6 @@
 {"dados": {"recurso": "rec:ia/prompt-engineering-for-llms-cap-02", "recurso_rev": 1}, "em": "2026-11-10T16:12:05.425372+00:00", "seq": 68, "tipo": "recurso_percorrido"}
 {"dados": {"recurso": "rec:ia/prompt-engineering-for-llms-cap-03", "recurso_rev": 1}, "em": "2026-11-10T16:12:05.664310+00:00", "seq": 69, "tipo": "recurso_percorrido"}
 {"dados": {"recurso": "rec:programacao/price-toscani-estrutura", "recurso_rev": 1}, "em": "2026-11-11T20:57:54.325513+00:00", "seq": 70, "tipo": "recurso_percorrido"}
+{"dados": {"recurso": "rec:computacao/ramos-linguagens-regulares-e-livres-de-contexto", "recurso_rev": 1}, "em": "2026-11-13T01:00:26.635505+00:00", "seq": 71, "tipo": "recurso_percorrido"}
+{"dados": {"recurso": "rec:computacao/ramos-linguagens-recursivas-e-decidibilidade", "recurso_rev": 1}, "em": "2026-11-13T01:00:30.597415+00:00", "seq": 72, "tipo": "recurso_percorrido"}
+{"dados": {"etapa": "etapa:computacao/linguagens-formais-e-automatos", "etapa_rev": 1, "recurso": null}, "em": "2026-11-13T01:02:24.147260+00:00", "seq": 73, "tipo": "etapa_iniciada"}
