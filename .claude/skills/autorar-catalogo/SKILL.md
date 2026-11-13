@@ -13,6 +13,14 @@ vez de confiar na memória. Esta skill é o **procedimento** e os erros que ele 
 
 - `uv run trilhas validar` para começar de um catálogo verde. Se já está vermelho,
   resolva isso primeiro ou saiba que a falha não é sua.
+- `scripts/onde-cabe.sh <autor|titulo|isbn>` **antes de decidir o recorte**: a obra
+  pode já estar no catálogo noutra edição, e aí o movimento é relatar e parar, não
+  criar recurso. `scripts/onde-cabe.sh --area <area>` mostra as trilhas, etapas e
+  obras que a área já tem — é o que distingue "livro sem casa" de "livro cuja casa
+  já existe", e no segundo caso a entrada é fatia de exemplar, não trilha nova.
+- `scripts/ficha-livro.sh <url|isbn10>` para a ficha do exemplar. Quando a loja da
+  editora publica o sumário, ele sai capítulo por capítulo — e aí o fatiamento por
+  etapa se faz por **número de capítulo**, não por assunto adivinhado.
 - Decida **o objetivo da trilha em competências**, não em assuntos. Uma trilha sem
   `objetivo_declarado` verificável não passa na validação 6.
 - Para cada competência nova: escreva `verificacao` antes do `titulo`. Se não

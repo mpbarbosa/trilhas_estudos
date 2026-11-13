@@ -112,6 +112,22 @@ Em resumo: etapas moram no arquivo da trilha que as introduz; recursos ficam em
 `catalogo/recursos/<area>.yaml` por terem ciclo de vida próprio; outras trilhas
 referenciam etapas por id em `etapas_referenciadas`, nunca redefinem.
 
+Dois scripts respondem, antes de escrever, o que custava quatro leituras de
+arquivo inteiro — ambos só leem:
+
+```bash
+scripts/onde-cabe.sh <termo>           # a obra já está no catálogo? 1 = nada casou
+scripts/onde-cabe.sh --area <area>     # trilhas, etapas e obras que a área já tem
+scripts/ficha-livro.sh <url|isbn10>    # ficha da loja em campos, não a página
+```
+
+`ficha-livro.sh` não normaliza e não adivinha: campo ausente sai como
+`NÃO ENCONTRADO`, e preço sai com o contexto ao lado, porque "R$ 146,99" sozinho
+esconde que era à vista no Pix. Saída 3 = a loja não cedeu ao `curl`; aí vale o
+navegador. E `onde-cabe.sh` substitui a **descoberta**, não a autoria: a convenção
+deste repositório mora na prosa dos comentários, então leia o arquivo antes de
+escrever nele.
+
 ## Git
 
 Outras sessões commitam neste repositório em paralelo. Confira `git status` e
@@ -134,7 +150,17 @@ branch, rode o diagnóstico — ele só lê:
 
 ```bash
 scripts/conferir-branch.sh [branch]   # 0 = pode apagar o local; 1 = não pode
+scripts/sobras.sh                     # varre TODAS as camadas e classifica; não apaga
 ```
+
+Para abrir o trabalho no worktree que a regra 7 do COORDINATION.md exige:
+
+```bash
+scripts/entregar-em-worktree.sh <slug> <caminho>...   # cria, leva o diff, roda o gate
+```
+
+Ele exige os caminhos **do seu** trabalho de propósito: a árvore é compartilhada e
+nenhum script sabe o que é seu. Não commita e não publica — isso continua seu.
 
 Duas regras ficam aqui por serem curtas e caras quando ignoradas: **guarda de
 branch compara o valor** (`[ "$(git branch --show-current)" = main ] && git add …`,
