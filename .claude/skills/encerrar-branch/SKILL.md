@@ -385,12 +385,13 @@ avisar. Para um `.venv`, siga em frente: ele se reconstrói.
 ## Sequência que funciona
 
 ```bash
+scripts/sobras.sh                         # 0. o inventário das quatro camadas
 scripts/conferir-branch.sh meu-branch     # 1. diagnóstico; respeite a saída 1
 git push origin meu-branch                # 2. nada mais é cópia única
 gh pr create --base main --head meu-branch --title "…"
 # 3. depois do merge, a camada que não está na tabela do §1:
-git worktree remove .claude/worktrees/meu-worktree   # recusa se houver não commitado
-git worktree list                                    # confirme que saiu
+git worktree remove CAMINHO               # o caminho que sobras.sh imprimiu, nunca um palpite
+git worktree list                         # confirme que saiu
 git switch main && git pull                          # só no caso SEM worktree
 git branch -d meu-branch                  # 4. local; antes do passo 3 isto recusava
 # 5. remoto: o merge do PR costuma apagar. Confira e, se sobrou:
@@ -399,6 +400,20 @@ git push origin --delete meu-branch
 # 6. ref de rastreio: sobra mesmo quando 4 e 5 deram certo
 git remote prune origin
 ```
+
+`scripts/sobras.sh` é o passo 0 porque reúne numa ida o que esta skill manda
+conferir em quatro: worktrees (com o sujo e o **ignorado**, que some sem aviso),
+branches locais, o que o servidor tem por `git ls-remote`, e as refs de rastreio
+órfãs — com o `--exclude=refs/remotes/origin/HEAD` que evita o `origin` sem barra
+descrito acima. Ele **não apaga nada**: imprime o comando e para. E respeita as
+duas assimetrias desta skill — objeto ausente do clone vira `NÃO CONSEGUI
+CONFERIR`, não verde; e sem `gh` autenticado nenhum item é dado como seguro por
+falta de PR.
+
+Escopo do que foi verificado nele: repositório isolado com branch contido, branch
+com commit fora da base, ref de rastreio órfã criada apagando no servidor por fora
+(como faz o botão *Delete branch*), e ausência de `gh`. O caso de worktree com
+trabalho não commitado foi verificado neste repositório.
 
 ## Ao responder "posso encerrar?"
 
