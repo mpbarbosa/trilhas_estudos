@@ -1336,6 +1336,90 @@ de onde saiu o `custo` dos recursos.
 - **Acesso aberto** — https://www.gutenberg.org/ebooks/2388
 - **Citada por** — `rec:filosofia/arnold-song-celestial`
 
+## IHC
+
+As cinco fichas da trilha `trilha:ihc/captologia`, conferidas em 2026-11-14. Como nas
+fichas de 2026-10-17, **elas citam preço**, porque o `custo` dos recursos foi fixado
+na mesma passada — e em dois casos o `custo` é estimativa, dita como tal. Amazon e
+lojas brasileiras recusam o `curl` deste ambiente: nenhuma página de produto da
+Amazon foi conferida, e os links abaixo são de busca pelo ISBN.
+
+### Persuasive Technology: Using Computers to Change What We Think and Do
+
+- **Autoria** — B.J. Fogg
+- **Edição** — Morgan Kaufmann (série *Interactive Technologies*), jan./2003, 312 p.,
+  en-US. Nenhuma tradução brasileira encontrada.
+- **Identificadores** — ISBN-13 `9781558606432`
+- **Amazon** — https://www.amazon.com.br/s?k=9781558606432 (link de busca)
+- **Sumário** — https://www.oreilly.com/library/view/persuasive-technology/9781558606432/:
+  introdução; 1 Overview of Captology; 2 The Functional Triad; 3 Computers as
+  Persuasive Tools; 4 … as Persuasive Media: Simulation; 5 … as Persuasive Social
+  Actors; 6 Credibility and Computers; 7 Credibility and the World Wide Web;
+  8 Increasing Persuasion through Mobility and Connectivity; 9 The Ethics of
+  Persuasive Technology; 10 Captology: Looking Forward; apêndice com o resumo dos
+  princípios.
+- **Citada por** — `rec:ihc/fogg-persuasive-technology-caps-1-5`,
+  `rec:ihc/fogg-persuasive-technology-caps-6-10` — declaram
+  `obra: fogg-persuasive-technology`
+- **Nota** — **o `custo` de R$ 300 é estimativa** do impresso importado: nenhuma página
+  lida mostrou preço. O fatiamento é por número de capítulo, pelo sumário acima.
+
+### Micro-hábitos: pequenas mudanças que mudam tudo
+
+- **Autoria** — B.J. Fogg; trad. Bruno Fiuza e Roberta Clapp. Original: *Tiny Habits:
+  The Small Changes That Change Everything* (2019).
+- **Edição** — 1ª ed., HarperCollins Brasil, 2020, 336 p., brochura, pt-BR
+- **Identificadores** — ISBN-13 `9788595086883`
+- **Amazon** — https://www.amazon.com.br/s?k=9788595086883 (link de busca). R$ 38,43 à
+  vista (de R$ 54,90) na [Martins Fontes Paulista](https://www.martinsfontespaulista.com.br/micro-habitos-905206/p),
+  cuja página diz ao mesmo tempo "esgotado" e "sob encomenda"; editora, ano, páginas e
+  ISBN conferem no [Skoob](https://www.skoob.com.br/book/1135342).
+- **Citada por** — `rec:ihc/fogg-micro-habitos` — declara `obra: fogg-micro-habitos`
+
+### Hooked (Engajado): como construir produtos e serviços formadores de hábitos
+
+- **Autoria** — Nir Eyal (com Ryan Hoover no original); tradutor não informado pela
+  loja. Original: *Hooked: How to Build Habit-Forming Products* (Portfolio/Penguin,
+  2014).
+- **Edição** — 1ª ed., 2020, 218 p., brochura, pt-BR. A
+  [Martins Fontes Paulista](https://www.martinsfontespaulista.com.br/hooked--engajado--900793/p)
+  cadastra a editora como "AlfaCon Concursos Públicos" — o prefixo do ISBN é coerente
+  com isso, mas não se conferiu em outra fonte.
+- **Identificadores** — ISBN-13 `9788583394761`
+- **Amazon** — https://www.amazon.com.br/s?k=9788583394761 (link de busca). R$ 88,81 à
+  vista na Martins Fontes Paulista, com a disponibilidade contraditória na página.
+- **Citada por** — `rec:ihc/eyal-hooked-engajado` — declara `obra: eyal-hooked-engajado`
+
+### Irresistível: por que você é viciado em tecnologia e como lidar com ela
+
+- **Autoria** — Adam Alter; trad. Cássio de Arantes Leite. Original: *Irresistible:
+  The Rise of Addictive Technology and the Business of Keeping Us Hooked* (Penguin
+  Press, 2017).
+- **Edição** — Objetiva (Companhia das Letras), lançada em 16/04/2018, 296 p.,
+  brochura, pt-BR
+- **Identificadores** — ISBN-13 `9788547000585`
+- **Editora** — https://www.companhiadasletras.com.br/livro/9788547000585/irresistivel,
+  R$ 92,90, sem dizer se é preço de capa — é a `url` do recurso.
+- **Citada por** — `rec:ihc/alter-irresistivel` — declara `obra: alter-irresistivel`
+
+### Algoritmos de destruição em massa: como o big data aumenta a desigualdade e ameaça a democracia
+
+- **Autoria** — Cathy O'Neil; tradutor não encontrado. Original: *Weapons of Math
+  Destruction* (Crown, 2016).
+- **Edição** — 1ª ed., Rua do Sabão, Santo André (SP), 2020, 341 p., pt-BR, pela
+  referência da [resenha na ReCiC/UESB](https://periodicos2.uesb.br/index.php/recic/article/download/10883/6817/29565).
+  Doze capítulos com introdução e conclusão, segundo a mesma resenha.
+- **Identificadores** — ISBN-13 `9786586460025` (pela resenha; não conferido em
+  catálogo de loja)
+- **Amazon** — https://www.amazon.com.br/s?k=9786586460025 (link de busca)
+- **Citada por** — `rec:ihc/oneil-algoritmos-de-destruicao-em-massa` — declara
+  `obra: oneil-algoritmos-de-destruicao-em-massa`
+- **Nota** — **o `custo` de R$ 70 é estimativa**: nenhuma página lida mostrou preço.
+  Duas referências acadêmicas divergem — a da UESB dá Santo André e doze capítulos, a
+  de *Estudos de Sociologia* (UNESP, 2022) dá São Paulo e dez —, e um post de leitor
+  traz um ISBN-10 brasileiro (`6586460166`) que não corresponde ao ISBN-13 acima. Vale
+  o exemplar, quando houver um em mãos.
+
 ## Línguas
 
 ### Introducing English Syntax: A Basic Guide for Students of English

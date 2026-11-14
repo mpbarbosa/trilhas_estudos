@@ -51,6 +51,7 @@ por extenso em vez de mostrar o token."""
 ROTULO_AREA = {
     "computacao": "computação",
     "ia": "IA",
+    "ihc": "IHC",
     "linguas": "línguas",
     "matematica": "matemática",
     "politica": "política",
@@ -74,6 +75,7 @@ SETOR_DA_AREA = {
     "cinema": "humanas",
     "economia": "humanas",
     "filosofia": "humanas",
+    "ihc": "humanas",
     "linguas": "humanas",
     "literatura": "humanas",
     "politica": "humanas",
@@ -83,7 +85,9 @@ SETOR_DA_AREA = {
 Mais de dez áreas em ordem alfabética obrigam quem procura conteúdo a varrer a estante inteira;
 dois setores cortam a varredura em dois. O corte é o usual em pt-BR: o que se demonstra e
 se mede de um lado, o que se lê e se interpreta do outro. `economia` fica em humanas por
-ser economia política (`trilha:economia/tecnofeudalismo`), não econometria.
+ser economia política (`trilha:economia/tecnofeudalismo`), não econometria, e `ihc` também,
+por ser lida e não medida: a captologia de `trilha:ihc/captologia` é ensaio sobre persuasão
+e comportamento, não experimento de usabilidade.
 
 Área sem entrada aqui não desaparece: cai no setor residual, pela mesma razão de
 `ROTULO_AREA` — mapa que envelhece não pode esconder uma área nova da tela."""

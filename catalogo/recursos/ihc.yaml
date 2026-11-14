@@ -1,0 +1,127 @@
+# Convenções deste arquivo:
+#   custo  — em BRL, aproximado na data de `verificado_em`; 0 = gratuito.
+#   idioma — tag BCP 47.
+#
+# -------------------------------------------------------------------------
+# trilha:ihc/captologia
+#
+# Fichas conferidas em 2026-11-14 nas páginas citadas em docs/bibliografia.md §IHC.
+# As lojas brasileiras não respondem ao `curl` deste ambiente, e a Amazon também não:
+# os dados saíram de leitura das páginas por outro meio, e a `url` de cada recurso é
+# a busca da Amazon pelo ISBN-13, como em catalogo/recursos/economia.yaml.
+#
+#   obra: fogg-persuasive-technology — B.J. Fogg, *Persuasive Technology: Using
+#     Computers to Change What We Think and Do* (Morgan Kaufmann, 2003, 312 p.,
+#     ISBN 978-1-55860-643-2), em inglês: nenhuma tradução brasileira encontrada.
+#     Duas fatias, pelo sumário da O'Reilly: introdução e caps. 1-5, caps. 6-10 e
+#     apêndice. **O custo é ESTIMATIVA** do impresso importado; nenhuma página lida
+#     mostrou preço. Corrija quando houver preço pago ou observado.
+#   obra: fogg-micro-habitos — B.J. Fogg, *Micro-hábitos: pequenas mudanças que mudam
+#     tudo*, trad. Bruno Fiuza e Roberta Clapp (HarperCollins Brasil, 2020, 336 p.,
+#     ISBN 978-85-950-8688-3). R$ 38,43 à vista, brochura, na Martins Fontes Paulista
+#     (de R$ 54,90), com a página dizendo ao mesmo tempo "esgotado" e "sob encomenda".
+#   obra: eyal-hooked-engajado — Nir Eyal, *Hooked (Engajado): como construir produtos
+#     e serviços formadores de hábitos* (1ª ed., 2020, 218 p., ISBN 978-85-8339-476-1).
+#     R$ 88,81 à vista, brochura, na Martins Fontes Paulista. A loja cadastra a editora
+#     como AlfaCon, e o tradutor não aparece — ver a ficha.
+#   obra: alter-irresistivel — Adam Alter, *Irresistível: por que você é viciado em
+#     tecnologia e como lidar com ela*, trad. Cássio de Arantes Leite (Objetiva, 2018,
+#     296 p., ISBN 978-85-470-0058-5). R$ 92,90 na página da Companhia das Letras, sem
+#     dizer se é preço de capa ou promocional.
+#   obra: oneil-algoritmos-de-destruicao-em-massa — Cathy O'Neil, *Algoritmos de
+#     destruição em massa: como o big data aumenta a desigualdade e ameaça a
+#     democracia* (Rua do Sabão, 2020, 341 p., ISBN 978-65-86460-02-5, pela referência
+#     da resenha na ReCiC/UESB). **O custo é ESTIMATIVA**: nenhuma página lida mostrou
+#     preço.
+# -------------------------------------------------------------------------
+versao_schema: 1
+recursos:
+  # --- etapa:ihc/captologia-e-triade-funcional ----------------------------
+  - id: rec:ihc/fogg-persuasive-technology-caps-1-5
+    etapa: etapa:ihc/captologia-e-triade-funcional
+    titulo: "Persuasive Technology (B.J. Fogg) — introdução e caps. 1 a 5: a captologia e a tríade funcional"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 300
+    obra: fogg-persuasive-technology
+    duracao_min: 540
+    url: https://www.amazon.com.br/s?k=9781558606432
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/credibilidade-mobilidade-e-etica -------------------------
+  - id: rec:ihc/fogg-persuasive-technology-caps-6-10
+    etapa: etapa:ihc/credibilidade-mobilidade-e-etica
+    titulo: "Persuasive Technology (B.J. Fogg) — caps. 6 a 10 e apêndice: credibilidade, mobilidade e ética"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 300
+    obra: fogg-persuasive-technology
+    duracao_min: 480
+    url: https://www.amazon.com.br/s?k=9781558606432
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/micro-habitos-e-b-map ------------------------------------
+  - id: rec:ihc/fogg-micro-habitos
+    etapa: etapa:ihc/micro-habitos-e-b-map
+    titulo: "Micro-hábitos: pequenas mudanças que mudam tudo (B.J. Fogg)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 38.43
+    obra: fogg-micro-habitos
+    duracao_min: 600
+    url: https://www.amazon.com.br/s?k=9788595086883
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/modelo-do-gancho -----------------------------------------
+  - id: rec:ihc/eyal-hooked-engajado
+    etapa: etapa:ihc/modelo-do-gancho
+    titulo: "Hooked (Engajado): como construir produtos e serviços formadores de hábitos (Nir Eyal)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 88.81
+    obra: eyal-hooked-engajado
+    duracao_min: 420
+    url: https://www.amazon.com.br/s?k=9788583394761
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/vicio-comportamental-por-design --------------------------
+  - id: rec:ihc/alter-irresistivel
+    etapa: etapa:ihc/vicio-comportamental-por-design
+    titulo: "Irresistível: por que você é viciado em tecnologia e como lidar com ela (Adam Alter)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 92.90
+    obra: alter-irresistivel
+    duracao_min: 540
+    url: https://www.companhiadasletras.com.br/livro/9788547000585/irresistivel
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/algoritmos-de-destruicao-em-massa ------------------------
+  - id: rec:ihc/oneil-algoritmos-de-destruicao-em-massa
+    etapa: etapa:ihc/algoritmos-de-destruicao-em-massa
+    titulo: "Algoritmos de destruição em massa: como o big data aumenta a desigualdade e ameaça a democracia (Cathy O'Neil)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 70
+    obra: oneil-algoritmos-de-destruicao-em-massa
+    duracao_min: 600
+    url: https://www.amazon.com.br/s?k=9786586460025
+    disponivel: true
+    verificado_em: 2026-11-14

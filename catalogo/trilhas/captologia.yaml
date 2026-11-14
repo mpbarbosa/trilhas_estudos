@@ -1,0 +1,180 @@
+versao_schema: 1
+trilha:
+  id: trilha:ihc/captologia
+  titulo: Captologia — da tecnologia persuasiva ao vício por design e ao algoritmo em escala
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:ihc/triade-funcional-da-persuasao
+      nivel: intermediario
+    - competencia: comp:ihc/credibilidade-de-sistema-computacional
+      nivel: intermediario
+    - competencia: comp:ihc/modelo-de-comportamento-de-fogg
+      nivel: intermediario
+    - competencia: comp:ihc/ciclo-do-gancho
+      nivel: intermediario
+    - competencia: comp:ihc/vicio-comportamental-por-design
+      nivel: intermediario
+    - competencia: comp:ihc/dano-algoritmico-em-escala
+      nivel: intermediario
+    - competencia: comp:ihc/etica-da-tecnologia-persuasiva
+      nivel: avancado
+
+  # Primeira trilha da área ihc, pedida pelo estudante em 2026-11-14 com cinco livros:
+  # Fogg (*Persuasive Technology*, 2003, e *Tiny Habits*, 2019), Eyal (*Hooked*, 2014),
+  # Alter (*Irresistible*, 2017) e O'Neil (*Weapons of Math Destruction*, 2016). Os
+  # quatro últimos têm edição brasileira e entram por ela; *Persuasive Technology* não
+  # tem tradução encontrada e entra em inglês.
+  #
+  # **A forma do grafo: duas raízes que se encontram no gancho.** Fogg abre a trilha
+  # duas vezes, com requires vazio nas duas: o livro de 2003, que funda o campo e dá o
+  # vocabulário (tríade funcional, credibilidade, ética), e o de 2019, que dá o modelo
+  # de comportamento B=MAP aplicado ao próprio estudante. Nenhum é pré-requisito do
+  # outro, e enfileirá-los seria inventar dependência. Eyal exige os dois, porque
+  # *Hooked* se apoia declaradamente no modelo de Fogg e lê o produto pelos papéis que
+  # o livro de 2003 nomeia.
+  #
+  # **Depois do gancho, o julgamento.** Alter vem depois de Eyal porque é a leitura do
+  # mesmo ciclo pelo lado de quem não consegue largar o produto, e exige a ética
+  # introduzida no cap. 9 de Fogg. O'Neil fecha a trilha: não é persuasão no sentido de
+  # Fogg — o modelo de pontuação não convence ninguém, decide —, e entra aqui pelo que o
+  # estudante chamou de influência em escala. É onde a ética chega a avançado, porque o
+  # esquema de intenção, método e resultado tem de ser esticado até o caso em que não há
+  # persuadido nenhum, só pontuados.
+  #
+  # **O que esta trilha não repete.** comp:politica/vigilancia-e-disciplina
+  # (trilha:politica/desinformacao-e-resistencia) já cobra a análise de dispositivo de
+  # vigilância pelo efeito disciplinar; a vigilância como princípio persuasivo, no cap. 3
+  # de Fogg, é lida aqui só como um dos papéis da ferramenta, sem referenciar a etapa de
+  # Foucault.
+  etapas:
+    # --- Raiz: o campo e o vocabulário -------------------------------------
+    - id: etapa:ihc/captologia-e-triade-funcional
+      titulo: Persuasive Technology, introdução e caps. 1 a 5 — o computador como ferramenta, mídia e ator social
+      rev: 1
+      status: ativo
+      descricao: >
+        Fogg funda a captologia e a delimita: persuasão é mudança de atitude ou de
+        comportamento sem coerção nem engano, e interessa a que o computador foi
+        projetado para produzir, não o efeito colateral. Os caps. 2 a 5 são a tríade
+        funcional — ferramenta, mídia de simulação, ator social — com os princípios de
+        cada papel. O corte é decompor um produto atual, vinte anos mais novo que os
+        exemplos do livro, por esses papéis.
+      esforco_estimado_min: 540
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:ihc/triade-funcional-da-persuasao
+          nivel_resultante: intermediario
+
+    # --- Da tríade: credibilidade, mobilidade e ética -----------------------
+    - id: etapa:ihc/credibilidade-mobilidade-e-etica
+      titulo: Persuasive Technology, caps. 6 a 10 — credibilidade, mobilidade e a ética da persuasão
+      rev: 1
+      status: ativo
+      descricao: >
+        A segunda metade do livro: credibilidade em geral e na web (caps. 6 e 7), o que
+        a conexão e a mobilidade acrescentam à persuasão (cap. 8), a ética da tecnologia
+        persuasiva (cap. 9) e o fechamento sobre o futuro do campo (cap. 10), com o
+        apêndice que resume os princípios. O corte é usar o cap. 9 como esquema de
+        julgamento — intenção, método, resultado — que as etapas seguintes vão esticar.
+      esforco_estimado_min: 480
+      opcional: false
+      requires:
+        - competencia: comp:ihc/triade-funcional-da-persuasao
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/credibilidade-de-sistema-computacional
+          nivel_resultante: intermediario
+        - competencia: comp:ihc/etica-da-tecnologia-persuasiva
+          nivel_resultante: iniciante
+
+    # --- Raiz: o modelo de comportamento ------------------------------------
+    - id: etapa:ihc/micro-habitos-e-b-map
+      titulo: Micro-hábitos — o modelo B=MAP, a âncora e a versão mínima
+      rev: 1
+      status: ativo
+      descricao: >
+        Fogg dezesseis anos depois, aplicando o próprio modelo ao leitor: comportamento é
+        motivação, capacidade e gatilho no mesmo instante, e a motivação é o elemento
+        menos confiável. O livro ensina a desenhar hábito por âncora, versão mínima e
+        celebração. A etapa cobra as duas direções: projetar um micro-hábito real e
+        mantê-lo por algumas semanas, e usar o mesmo diagnóstico num gatilho de produto
+        — que é a ponte para Eyal.
+      esforco_estimado_min: 600
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:ihc/modelo-de-comportamento-de-fogg
+          nivel_resultante: intermediario
+
+    # --- Das duas raízes: o produto formador de hábito ----------------------
+    - id: etapa:ihc/modelo-do-gancho
+      titulo: Hooked (Engajado) — gatilho, ação, recompensa variável e investimento
+      rev: 1
+      status: ativo
+      descricao: >
+        Eyal transforma o modelo de Fogg em método de produto: o gatilho externo que
+        vira interno, a ação mais simples possível, a recompensa variável da tribo, da
+        caça ou do eu, e o investimento que carrega o próximo gatilho. O livro termina
+        na matriz de manipulação, que pergunta se quem desenha usaria o produto e se ele
+        melhora a vida de quem usa. O corte é ler o ciclo com precisão e levar a matriz a
+        sério, sem tratá-la como absolvição.
+      esforco_estimado_min: 420
+      opcional: false
+      requires:
+        - competencia: comp:ihc/modelo-de-comportamento-de-fogg
+          nivel_minimo: intermediario
+        - competencia: comp:ihc/triade-funcional-da-persuasao
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/ciclo-do-gancho
+          nivel_resultante: intermediario
+
+    # --- Do gancho: o lado de quem não larga --------------------------------
+    - id: etapa:ihc/vicio-comportamental-por-design
+      titulo: Irresistível — os ingredientes do vício comportamental e como desarmá-los
+      rev: 1
+      status: ativo
+      descricao: >
+        Alter lê o mesmo ciclo de Eyal pelo outro lado: o uso compulsivo como vício
+        comportamental, decomposto em seis ingredientes que o design dosa — metas,
+        retorno imprevisível, progresso, escalada, tensão não resolvida e interação
+        social —, e a última parte sobre o que fazer com eles. A etapa cobra separar o
+        que é escolha de design, e portanto reversível, do que é disposição de quem usa,
+        e julgar o caso pelo esquema de Fogg.
+      esforco_estimado_min: 540
+      opcional: false
+      requires:
+        - competencia: comp:ihc/ciclo-do-gancho
+          nivel_minimo: intermediario
+        - competencia: comp:ihc/etica-da-tecnologia-persuasiva
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:ihc/vicio-comportamental-por-design
+          nivel_resultante: intermediario
+        - competencia: comp:ihc/etica-da-tecnologia-persuasiva
+          nivel_resultante: intermediario
+
+    # --- Fechamento: a influência em escala ---------------------------------
+    - id: etapa:ihc/algoritmos-de-destruicao-em-massa
+      titulo: Algoritmos de destruição em massa — opacidade, escala e dano
+      rev: 1
+      status: ativo
+      descricao: >
+        O'Neil sobre os modelos de pontuação que decidem matrícula, emprego, crédito,
+        seguro, sentença e o anúncio que cada um vê: opacos, em escala e danosos, quase
+        sempre com um laço de retroalimentação que confirma o próprio erro. Não é
+        persuasão no sentido de Fogg, e é por isso que fecha a trilha: a ética tem de
+        valer também onde ninguém é convencido, só pontuado. O corte é aplicar os três
+        critérios a um modelo que o livro não estuda.
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:ihc/etica-da-tecnologia-persuasiva
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/dano-algoritmico-em-escala
+          nivel_resultante: intermediario
+        - competencia: comp:ihc/etica-da-tecnologia-persuasiva
+          nivel_resultante: avancado
