@@ -253,3 +253,78 @@ competencias:
       Etiquetar um corpus de teste com um HMM treinado em corpus rotulado, reportar a
       acurácia global e por etiqueta, e analisar dois erros distinguindo falha do
       modelo de ambiguidade que o contexto não resolve.
+
+  # --- Análise de sentimentos (trilha:ia/analise-de-sentimentos) --------------
+  # Quatro competências, na divisão de Bing Liu: o problema como estrutura (a
+  # quíntupla da opinião), a classificação de polaridade por aprendizado, o léxico
+  # como alternativa e insumo, e a granularidade de aspecto, que é onde o
+  # problema deixa de ser classificação de texto. Pré-processamento de texto é
+  # competência à parte porque serve a qualquer tarefa de PLN, não só a esta.
+  - id: comp:ia/problema-de-analise-de-sentimento
+    titulo: O problema da análise de sentimentos
+    rev: 1
+    status: ativo
+    descricao: >
+      Definir opinião como estrutura — entidade, aspecto, orientação, titular e
+      momento —, separar subjetividade de polaridade e reconhecer em que nível
+      (documento, sentença, aspecto) uma pergunta de sentimento se coloca.
+    verificacao: >
+      Dado um conjunto de resenhas reais, decompor cinco opiniões na quíntupla de
+      Liu, apontar uma sentença subjetiva sem polaridade e uma objetiva que carrega
+      opinião implícita, e dizer em que nível cada pergunta de negócio dada exige
+      a análise.
+
+  - id: comp:ia/preprocessamento-de-texto
+    titulo: Pré-processamento de texto para PLN
+    rev: 1
+    status: ativo
+    descricao: >
+      Levar texto cru a unidades analisáveis: carregar corpus, tokenizar,
+      normalizar, contar frequências e extrair atributos, com as escolhas de cada
+      passo declaradas.
+    verificacao: >
+      Sobre um corpus em arquivo, entregar um pipeline que tokenize, normalize e
+      produza a distribuição de frequência e um vetor de atributos por documento,
+      justificando duas escolhas — o que fazer com caixa, pontuação ou negação —
+      pelo efeito delas na tarefa.
+
+  - id: comp:ia/classificacao-de-sentimento
+    titulo: Classificação supervisionada de sentimento
+    rev: 1
+    status: ativo
+    descricao: >
+      Classificar polaridade de documento e sentença por aprendizado
+      supervisionado — Naive Bayes e regressão logística sobre atributos de texto —
+      e avaliar o classificador como se deve.
+    verificacao: >
+      Treinar Naive Bayes e regressão logística sobre um corpus rotulado de
+      resenhas, reportar precisão, revocação e F1 por classe num conjunto retido,
+      e analisar três erros distinguindo negação, ironia e opinião sobre outro
+      alvo.
+
+  - id: comp:ia/lexico-de-sentimento
+    titulo: Léxicos de sentimento
+    rev: 1
+    status: ativo
+    descricao: >
+      Usar e construir léxicos de polaridade, afeto e conotação: escolher entre
+      léxicos prontos, gerá-los por dicionário ou por corpus, e saber onde a
+      contagem de palavras falha.
+    verificacao: >
+      Pontuar o mesmo corpus com dois léxicos diferentes, explicar a divergência
+      entre eles em três documentos, e expandir um léxico-semente por corpus,
+      dizendo que palavra entrou com polaridade errada e por quê.
+
+  - id: comp:ia/sentimento-por-aspecto
+    titulo: Análise de sentimento por aspecto
+    rev: 1
+    status: ativo
+    descricao: >
+      Extrair as entidades e os aspectos de que uma opinião fala e atribuir
+      orientação a cada um, separando "a bateria é ótima" de "a tela é ruim" na
+      mesma resenha.
+    verificacao: >
+      Sobre resenhas de um domínio, extrair os aspectos mais citados, agrupar
+      sinônimos, atribuir orientação por aspecto e entregar o resumo de opinião
+      por aspecto, com dois casos em que a orientação depende do aspecto e não da
+      palavra.
