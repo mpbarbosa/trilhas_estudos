@@ -1716,6 +1716,100 @@ ficha sem o preço, que veio então de livraria.
   é esta.
 
 
+As cinco fichas da trilha `trilha:ihc/reconhecimento-de-emocao-na-voz`, conferidas em
+2026-11-14 e acrescentadas na mesma data. **Nenhum preço é estimativa**: os cinco são
+importados e saíram da Amazon BR lida no navegador embutido, que é a `url` de cada
+recurso. Duas fichas registram inversão de preço ou coincidência que enganaria quem
+lesse rápido — estão nas notas.
+
+Os **dois recursos gratuitos** daquela trilha não têm ficha aqui, de propósito, pela
+regra que deixou `beej-guide-c` fora: o capítulo aberto do livro de PLN brasileiro e o
+repositório do CORAA SER não são exemplares — sem editora, sem ISBN, sem edição à
+venda — e estão no [§ O que não tem ficha](#o-que-não-tem-ficha).
+
+### Computational Paralinguistics: Emotion, Affect and Personality in Speech and Language Processing
+
+- **Autoria** — Björn Schuller e Anton Batliner
+- **Edição** — 1ª ed., Wiley, Hoboken; anúncio da editora em nov./2013 e imprenta de
+  biblioteca 2014 — é a mesma edição —, 344 p., capa dura, en-US. Registros de
+  recurso eletrônico dão 345 p.
+- **Identificadores** — ISBN-13 `9781119971368` · ISBN-10 `1119971365`. Eletrônicos:
+  `9781118706633` (PDF), `9781118706626` (ePub); DOI `10.1002/9781118706664`.
+- **Amazon** — https://www.amazon.com.br/s?k=9781119971368 (link de busca).
+  R$ 785,83 em capa dura, entrega grátis prevista para 14–16/12.
+- **Citada por** — `rec:ihc/schuller-batliner-computational-paralinguistics` — declara
+  `obra: schuller-batliner-computational-paralinguistics`
+- **Nota** — é a obra de referência do canal vocal, e a razão é de autoridade
+  verificável, não de resenha: Schuller organizou os *Emotion Challenges* do
+  INTERSPEECH e assina o openSMILE, o extrator de atributos que a literatura da área
+  usa como padrão.
+
+### Emotion Recognition using Speech Features
+
+- **Autoria** — K. Sreenivasa Rao e Shashidhar G. Koolagudi
+- **Edição** — SpringerBriefs in Speech Technology, 07/11/2012, XII+124 p., brochura,
+  en-US. Alguns catálogos datam 2013.
+- **Identificadores** — ISBN-13 `9781461451426` (impresso) · `9781461451433`
+  (eletrônico); DOI `10.1007/978-1-4614-5143-3`
+- **Amazon** — https://www.amazon.com.br/s?k=9781461451426 (link de busca). R$ 320,80
+  em capa comum.
+- **Sumário** — capítulos de reconhecimento por informação da fonte de excitação, por
+  informação do tracto vocal e por informação prosódica, pelas descrições de catálogo
+  consultadas.
+- **Citada por** — `rec:ihc/rao-koolagudi-emotion-recognition-speech-features` —
+  declara `obra: rao-koolagudi-emotion-recognition-speech-features`
+
+### Robust Emotion Recognition using Spectral and Prosodic Features
+
+- **Autoria** — K. Sreenivasa Rao e Shashidhar G. Koolagudi
+- **Edição** — SpringerBriefs in Speech Technology, jan./2013, 118 p., brochura, en-US
+- **Identificadores** — ISBN-13 `9781461463597` (brochura) · `9781461463603`
+  (eletrônico); DOI `10.1007/978-1-4614-6360-3`
+- **Amazon** — https://www.amazon.com.br/s?k=9781461463597 (link de busca). R$ 320,80
+  em capa comum.
+- **Citada por** — `rec:ihc/rao-koolagudi-robust-emotion-recognition` — declara
+  `obra: rao-koolagudi-robust-emotion-recognition`
+- **Nota** — ⚠️ **R$ 320,80 é exatamente o preço da ficha anterior, e é coincidência
+  de loja, não erro de digitação.** São dois exemplares distintos, dos mesmos autores
+  e na mesma série, com ISBN, paginação e slug de `obra` próprios. A validação 12
+  cobra preço único **dentro** de uma obra e não tem nada a dizer entre obras — quem
+  encontrar os dois números iguais no lock não achou um defeito.
+
+### The Oxford Handbook of Voice Perception
+
+- **Autoria** — Sascha Frühholz e Pascal Belin (orgs.), série *Oxford Library of
+  Psychology*
+- **Edição** — Oxford University Press, 29/01/2019, 976 p., capa dura, en-US. O Google
+  Books lista uma edição eletrônica com 939 p. e outro ISBN (`9780191841668`).
+- **Identificadores** — ISBN-13 `9780198743187` · ISBN-10 `0198743181`
+- **Amazon** — https://www.amazon.com.br/s?k=9780198743187 (link de busca).
+  R$ 1.804,57 em capa dura.
+- **Citada por** — `rec:ihc/fruhholz-belin-oxford-handbook-voice-perception` — declara
+  `obra: fruhholz-belin-oxford-handbook-voice-perception`
+- **Nota** — **é a obra mais cara do catálogo**, à frente do *Oxford Handbook of
+  Affective Computing* (R$ 1.513,82). Uma fatia só: o sumário capítulo a capítulo não
+  foi conferido em nenhuma página lida, e nomear intervalo seria inventar — o mesmo
+  critério aplicado às duas fatias do handbook de computação afetiva.
+
+### Intelligent Audio Analysis
+
+- **Autoria** — Björn W. Schuller, série *Signals and Communication Technology*
+- **Edição** — Springer, capa dura de 08/05/2013, XXVIII+345 p., en-US; brochura de
+  19/05/2015.
+- **Identificadores** — capa dura ISBN-13 `9783642368059` · brochura
+  `9783642442773` · eletrônico `9783642368066`; DOI `10.1007/978-3-642-36806-6`
+- **Amazon** — https://www.amazon.com.br/s?k=9783642368059 (link de busca).
+  R$ 550,16 em capa dura.
+- **Citada por** — `rec:ihc/schuller-intelligent-audio-analysis` — declara
+  `obra: schuller-intelligent-audio-analysis`
+- **Nota** — ⚠️ **a capa comum sai mais cara que a capa dura**: a brochura de 2015
+  (`9783642442773`) está a R$ 657,83 na mesma loja, contra R$ 550,16 da capa dura. O
+  recurso aponta a capa dura por ser a barata. É o mesmo tipo de inversão registrada
+  na ficha do *Shell Scripting Bible*, em que o Kindle saía mais caro que o impresso:
+  vale conferir os dois formatos antes de fixar `custo`, porque a suposição usual
+  erra.
+
+
 ## Línguas
 
 ### Introducing English Syntax: A Basic Guide for Students of English
@@ -1843,6 +1937,18 @@ Programming* e *Git* —, não estes. O Guia Foca são cinco volumes versionados
 por conta, parados em 27/07/2020, e já constava da lista acima desde a pesquisa de
 outubro: a marcação o contradisse. Remover `obra` subiu a `rev` dos três de 2 para 3
 ([catalogo.md §4](catalogo.md)).
+
+Dois entraram em 2026-11-14 com a trilha de reconhecimento de emoção na voz, e
+**nasceram sem `obra`** em vez de perdê-la depois — é o caso dos três guias acima
+aplicado na hora de escrever, não na hora de corrigir. O capítulo de recursos de fala
+do livro aberto de PLN da comunidade brasileira
+(`rec:ihc/pln-brasileiras-recursos-de-fala`) é material aberto de referência: tem
+edição numerada, mas é publicado em PDF aberto pela própria comunidade, sem editora
+comercial, sem ISBN e sem edição à venda. E o CORAA SER
+(`rec:ihc/projeto-corpus-coraa-ser`) é **corpus**, não leitura: o recurso é de
+`formato: projeto` e aponta o repositório em que o corpus se baixa, de modo que não é
+exemplar por dois motivos independentes. Os dois estão com url conferida por `curl`
+(HTTP 200 em 2026-11-14).
 
 ## Divergências
 

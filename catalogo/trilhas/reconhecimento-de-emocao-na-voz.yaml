@@ -1,0 +1,188 @@
+versao_schema: 1
+trilha:
+  id: trilha:ihc/reconhecimento-de-emocao-na-voz
+  titulo: Reconhecimento de emoção na voz — da tarefa paralinguística ao corpus que não sustenta a alegação
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:ihc/paralinguistica-como-tarefa
+      nivel: intermediario
+    - competencia: comp:ihc/fontes-do-sinal-de-emocao-na-fala
+      nivel: intermediario
+    - competencia: comp:ihc/percepcao-vocal-do-afeto
+      nivel: intermediario
+    - competencia: comp:ihc/corpus-de-emocao-na-fala
+      nivel: intermediario
+
+  # Terceira trilha da área ihc, pedida em 2026-11-14 no mesmo dia e na sequência da
+  # computação afetiva: o estudante pediu livros sobre reconhecimento de emoção em voz
+  # e mandou registrá-los. Cinco obras, todas em inglês — `onde-cabe.sh` por "voz",
+  # "voice", "speech", "prosod", "Schuller" e "Batliner" não achou nenhuma delas, e
+  # não há livro brasileiro sobre o tema (ver a etapa de português, abaixo).
+  #
+  # **É especialização, e a dependência é declarada.**
+  # `etapa:ihc/deteccao-de-afeto-por-sinal` (trilha:ihc/computacao-afetiva) já trata
+  # voz como uma modalidade entre quatro. Em vez de recomeçar, a primeira etapa daqui
+  # **exige** `comp:ihc/reconhecimento-de-afeto-por-sinal`, e as duas etapas que levam
+  # até ela entram em `etapas_referenciadas`. Quem vem da outra trilha chega
+  # destravado; quem chega direto recebe as duas como pré-requisito.
+  #
+  # **A forma do grafo: um troco, dois galhos e um fecho.** Schuller e Batliner abrem
+  # (a tarefa), e dali saem dois galhos que não se cruzam: o sinal (Rao e Koolagudi,
+  # com o segundo volume como aprofundamento opcional) e o ouvinte humano (o handbook
+  # de percepção vocal). O corpus fecha, exigindo os dois: só se julga um corpus de
+  # emoção na fala sabendo que atributo ele permite extrair E qual é o teto humano na
+  # mesma tarefa.
+  #
+  # **Por que o fecho é o corpus, e não um classificador.** O canal vocal tem um
+  # problema de construto que o facial não tem na mesma forma: quase todo corpus
+  # histórico é de fala **atuada**, com rótulo limpo e estímulo irreal, e uma acurácia
+  # alta contra ele pode estar medindo a competência de atores em produzir estereótipo
+  # vocal. Isto não é crítica externa ao campo — é o que decide se qualquer número
+  # citado vale algo —, e é por isso que a competência de corpus é a última e está no
+  # objetivo declarado.
+  #
+  # **Não há livro-texto recente de aprendizado profundo para isto, e a trilha não
+  # finge que há.** Procurou-se título de 2023 a 2025 na Springer e na CRC em
+  # 2026-11-14 e só apareceram capítulos e artigos de anais. Schuller e Batliner são a
+  # base conceitual; o estado da arte mora em *challenges* (ComParE/INTERSPEECH) e em
+  # artigo, que não é exemplar e não entra como recurso de catálogo.
+  #
+  # **O que esta trilha não repete.** comp:ihc/validade-de-construto-na-inferencia-de-emocao
+  # (trilha:ihc/computacao-afetiva) é a crítica geral, de Barrett, e vale para
+  # qualquer modalidade; `comp:ihc/corpus-de-emocao-na-fala` é a instância vocal e
+  # operacional dela — contagem de falantes, esquema de classes, fala atuada —, e não
+  # exige a outra de propósito: quem chega por aqui pode fazer o juízo técnico sem ter
+  # lido Barrett, e sai da trilha com motivo para lê-la.
+  etapas:
+    # --- Troco: a tarefa, antes do sinal ------------------------------------
+    - id: etapa:ihc/paralinguistica-computacional
+      titulo: Computational Paralinguistics — emoção como uma tarefa paralinguística entre várias
+      rev: 1
+      status: ativo
+      descricao: >
+        Schuller e Batliner tratam no mesmo encadeamento — corpus, atributos,
+        classificador, protocolo — tudo o que na fala não é o que se diz: emoção,
+        personalidade, idade, intoxicação, sonolência, carga cognitiva, saúde. O valor
+        de abrir por aqui é não tratar emoção como problema sui generis: o que a
+        distingue das vizinhas é a definição do rótulo, não a técnica. Os autores são
+        quem organizou os *challenges* de emoção do INTERSPEECH e quem assina o
+        openSMILE, de modo que o livro vem de quem fixou o protocolo do campo. O corte
+        é classificar uma alegação de produto pela tarefa e pelo rótulo que ela usa.
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:ihc/reconhecimento-de-afeto-por-sinal
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/paralinguistica-como-tarefa
+          nivel_resultante: intermediario
+
+    # --- Galho do sinal -----------------------------------------------------
+    - id: etapa:ihc/fontes-do-sinal-de-emocao-na-fala
+      titulo: Emotion Recognition using Speech Features — excitação, tracto vocal e prosódia
+      rev: 1
+      status: ativo
+      descricao: >
+        Rao e Koolagudi organizam o problema pela origem física do atributo, e é por
+        isso que este volume curto vale mais que um panorama: um capítulo para a
+        informação da fonte de excitação, um para a do tracto vocal e um para a
+        prosódica. O corte é saber qual fonte carrega qual parte do afeto — e o que se
+        perde no atalho de medir só coeficientes cepstrais, que é o que quase todo
+        tutorial faz.
+      esforco_estimado_min: 420
+      opcional: false
+      requires:
+        - competencia: comp:ihc/paralinguistica-como-tarefa
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/fontes-do-sinal-de-emocao-na-fala
+          nivel_resultante: intermediario
+
+    - id: etapa:ihc/atributos-espectrais-e-prosodicos-robustos
+      titulo: Robust Emotion Recognition — atributos espectrais sincronizados ao pitch e sub-silábicos
+      rev: 1
+      status: ativo
+      descricao: >
+        O segundo volume dos mesmos autores, e aprofundamento genuíno em vez de
+        repetição: propõe caracterizar emoção por atributos espectrais sincronizados ao
+        *pitch* e por unidades sub-silábicas, em lugar da janela fixa. Opcional porque
+        é uma proposta de pesquisa específica, não a base — vale para quem vai extrair
+        atributo e precisa de alternativa ao padrão.
+      esforco_estimado_min: 420
+      opcional: true
+      requires:
+        - competencia: comp:ihc/fontes-do-sinal-de-emocao-na-fala
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/fontes-do-sinal-de-emocao-na-fala
+          nivel_resultante: avancado
+
+    # --- Galho do ouvinte ---------------------------------------------------
+    - id: etapa:ihc/percepcao-humana-da-voz
+      titulo: The Oxford Handbook of Voice Perception — como o ouvinte humano extrai afeto da voz
+      rev: 1
+      status: ativo
+      descricao: >
+        O handbook de percepção vocal, de consulta por capítulo: que pistas o ouvinte
+        humano usa, com que acerto e com que viés de familiaridade, língua e identidade
+        de quem fala, e o que o cérebro faz com voz que não faz com outro som. Entra
+        porque é daqui que sai o **teto realista** de desempenho e o critério para
+        separar "superou pessoa" de "superou o rótulo". O corte é usar a percepção
+        humana como referência explícita de qualquer número automático.
+      esforco_estimado_min: 720
+      opcional: false
+      requires:
+        - competencia: comp:ihc/paralinguistica-como-tarefa
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/percepcao-vocal-do-afeto
+          nivel_resultante: intermediario
+
+    # --- Fecho: o corpus, e é em português ----------------------------------
+    - id: etapa:ihc/corpus-de-emocao-na-fala-em-portugues
+      titulo: O corpus como limite — fala atuada, fala espontânea e o CORAA SER em português
+      rev: 1
+      status: ativo
+      descricao: >
+        A etapa que decide o valor de todo o resto, e a única gratuita da trilha. O
+        capítulo aberto de recursos de fala do livro de PLN da comunidade brasileira
+        situa o reconhecimento de emoção entre as tarefas paralinguísticas e aponta o
+        CORAA SER, corpus de emoção em fala espontânea do português brasileiro,
+        derivado do C-ORAL-BRASIL I. O projeto é o exercício inteiro: ler o corpus de
+        perto — são cerca de 50 minutos, e o esquema de classes da v1.0 mistura emoção
+        com sexo do falante ("neutra", "feminina não neutra", "masculina não neutra")
+        — e dizer o que ele autoriza concluir. É mais instrutivo que um corpus bom.
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:ihc/fontes-do-sinal-de-emocao-na-fala
+          nivel_minimo: intermediario
+        - competencia: comp:ihc/percepcao-vocal-do-afeto
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/corpus-de-emocao-na-fala
+          nivel_resultante: intermediario
+
+    # --- Base opcional, para quem chega sem processamento de sinal ----------
+    - id: etapa:ihc/analise-de-audio-como-base
+      titulo: Intelligent Audio Analysis — janela, atributo de baixo nível e funcional
+      rev: 1
+      status: ativo
+      descricao: >
+        O encadeamento que o reconhecimento de emoção pressupõe e raramente ensina:
+        janelamento, representação espectral, atributos de baixo nível, os funcionais
+        que os agregam no segmento, normalização e classificador. Opcional e com
+        `requires` vazio de propósito: é base para quem chega sem processamento de
+        sinal, e quem já tem pode ignorá-la sem perder nada da trilha. Vale além da
+        emoção — é o mesmo encadeamento de qualquer tarefa de áudio.
+      esforco_estimado_min: 840
+      opcional: true
+      requires: []
+      teaches:
+        - competencia: comp:ihc/analise-de-sinal-de-audio
+          nivel_resultante: intermediario
+
+  etapas_referenciadas:
+    - etapa:ihc/computacao-afetiva-o-campo
+    - etapa:ihc/deteccao-de-afeto-por-sinal

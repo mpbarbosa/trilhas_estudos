@@ -353,3 +353,128 @@ competencias:
       pontuado de contestar; e avaliar uma intervenção regulatória concreta — proibição
       por contexto, exigência de consentimento, abertura de auditoria — dizendo o que
       ela não resolve.
+
+# -------------------------------------------------------------------------
+# trilha:ihc/reconhecimento-de-emocao-na-voz
+#
+# Terceira trilha da área, pedida pelo estudante em 2026-11-14 logo depois da
+# computação afetiva: ele pediu livros sobre reconhecimento de emoção **em voz** e
+# mandou registrá-los. É especialização, não trilha paralela —
+# `etapa:ihc/deteccao-de-afeto-por-sinal` (trilha:ihc/computacao-afetiva) trata voz
+# como uma modalidade entre quatro, e esta trilha abre esse canal. Por isso ela
+# **exige** aquela competência e referencia as duas etapas que levam até ela, em vez
+# de recomeçar do zero.
+#
+# Cinco competências, e a ordem delas é a tese: **situar** (emoção é uma tarefa
+# paralinguística entre várias, não um campo próprio), **decompor o sinal** (fonte de
+# excitação, tracto vocal, prosódia — não "atributos de áudio" em bloco),
+# **comparar com o ouvinte humano**, e **julgar o corpus**, que é onde o canal vocal
+# tem um problema que o facial não tem na mesma forma: quase todo corpus histórico é
+# de fala atuada, e acurácia alta contra ele pode estar medindo a competência de
+# atores em produzir estereótipo vocal. A quinta, a análise de sinal, é base opcional
+# para quem chega sem ela.
+#
+# Mesmo critério das outras: a `verificacao` se cobra fora do corpus da trilha —
+# qualquer gravação, qualquer corpus, qualquer sistema em uso.
+# -------------------------------------------------------------------------
+
+  - id: comp:ihc/paralinguistica-como-tarefa
+    titulo: Situar o reconhecimento de emoção entre as tarefas paralinguísticas da fala
+    rev: 1
+    status: ativo
+    descricao: >
+      Paralinguística computacional é o que na fala não é o que se diz: emoção, mas
+      também personalidade, idade, sexo, intoxicação, sonolência, carga cognitiva e
+      estado de saúde. Schuller e Batliner tratam essas tarefas com o mesmo
+      encadeamento — corpus, atributos, classificador, protocolo — e é isso que a
+      competência exige enxergar: emoção não é um problema sui generis, e o que a
+      distingue das vizinhas é a definição do rótulo, não a técnica.
+    verificacao: >
+      Dada uma alegação de produto ou de artigo sobre o que se extrai da voz: dizer
+      qual é a tarefa paralinguística em jogo e qual rótulo ela usa; apontar uma tarefa
+      vizinha que o mesmo sinal e o mesmo extrator atenderiam, e dizer o que mudaria no
+      conjunto de rótulos; dizer se o sistema está medindo estado (que passa) ou traço
+      (que não passa), e por que a diferença muda o protocolo de avaliação; e nomear
+      uma tarefa paralinguística cuja confusão com emoção explicaria um resultado bom
+      pelo motivo errado.
+
+  - id: comp:ihc/fontes-do-sinal-de-emocao-na-fala
+    titulo: Decompor o sinal de fala nas fontes de que a emoção é extraída
+    rev: 1
+    status: ativo
+    descricao: >
+      Rao e Koolagudi organizam o problema pela origem física do atributo, e não pela
+      biblioteca que o calcula: informação da fonte de excitação (o que a glote faz),
+      informação do tracto vocal (a filtragem, de onde saem os atributos espectrais e
+      os cepstrais) e informação prosódica (entoação, duração, intensidade ao longo do
+      enunciado). A competência é saber qual fonte carrega qual parte do afeto, e por
+      que juntar tudo num vetor único esconde a resposta.
+    verificacao: >
+      Dado um enunciado gravado e um objetivo de reconhecimento: atribuir cada atributo
+      que você usaria a uma das três fontes (excitação, tracto vocal, prosódia) e dizer
+      o que cada uma contribui naquele caso; dizer qual delas sobrevive a uma gravação
+      ruim de telefone e qual não, justificando pela banda e pelo ruído; apontar um
+      atributo prosódico que depende do **enunciado inteiro** e dizer o que isso impõe
+      à janela de análise; e dizer o que você perderia medindo só coeficientes
+      cepstrais, que é o atalho mais comum.
+
+  - id: comp:ihc/percepcao-vocal-do-afeto
+    titulo: Comparar o reconhecimento automático com o que o ouvinte humano faz
+    rev: 1
+    status: ativo
+    descricao: >
+      Antes de medir máquina contra rótulo, há a pergunta de como o ouvinte humano
+      extrai afeto de uma voz — que pistas usa, com que acerto, com que viés de
+      familiaridade, língua e identidade de quem fala, e o que o cérebro faz com voz
+      que não faz com outro som. A competência é usar a percepção humana como
+      referência explícita: é dela que vem o teto realista de desempenho, e é ela que
+      diz quando a tarefa é mal definida também para gente.
+    verificacao: >
+      Dado um resultado de reconhecimento automático de emoção em voz: dizer qual é o
+      acerto humano na mesma tarefa e com que concordância entre ouvintes, e onde esse
+      número foi obtido; julgar se o sistema superou pessoa ou superou **o rótulo**, e
+      explicar a diferença; nomear duas pistas vocais que o ouvinte humano usa e dizer
+      se o extrator do sistema as captura; apontar um efeito de familiaridade, de
+      língua ou de identidade do falante que contaminaria a comparação; e dizer o que
+      um teto humano baixo significa para a alegação do produto.
+
+  - id: comp:ihc/corpus-de-emocao-na-fala
+    titulo: Julgar um corpus de emoção na fala pelo que ele pode sustentar
+    rev: 1
+    status: ativo
+    descricao: >
+      É a competência que decide o valor de todo o resto. Um corpus de fala atuada tem
+      rótulo limpo e estímulo irreal; um de fala espontânea tem o inverso, e costuma ser
+      pequeno e desbalanceado. Somam-se a isso a língua, o número de falantes, o canal
+      de gravação, quem anotou e com que concordância, e o esquema de classes — que às
+      vezes mistura dimensões que não são emoção. A competência é dizer o que o corpus
+      autoriza concluir, e o que não.
+    verificacao: >
+      Dado um corpus de emoção na fala e uma métrica publicada sobre ele: dizer se a
+      fala é atuada, induzida ou espontânea e o que isso faz com a validade externa;
+      contar falantes, duração e distribuição de classes, e dizer qual classe a métrica
+      agregada está escondendo; examinar o esquema de rótulos e apontar uma classe que
+      não é emoção, ou que mistura emoção com outro atributo do falante; dizer se a
+      avaliação pode ser independente de falante com aquele número de falantes; e dizer
+      que alegação do estado da arte **deixa de se sustentar** se avaliada só nesse
+      corpus.
+
+  - id: comp:ihc/analise-de-sinal-de-audio
+    titulo: Percorrer o encadeamento de análise de um sinal de áudio até o classificador
+    rev: 1
+    status: ativo
+    descricao: >
+      A base de processamento que o reconhecimento de emoção pressupõe e raramente
+      ensina: janelamento e sobreposição, representação espectral, extração de atributos
+      de baixo nível e sua agregação em funcionais sobre o segmento, normalização, e só
+      então o classificador. Competência de base, oferecida como etapa opcional para
+      quem chega sem ela — e útil além da emoção, porque é o mesmo encadeamento de
+      qualquer tarefa de áudio.
+    verificacao: >
+      Dado um sinal de áudio e uma tarefa de classificação por segmento: escolher
+      tamanho e sobreposição de janela e justificar pelo fenômeno que se quer medir, não
+      pelo padrão da biblioteca; distinguir atributo de baixo nível do funcional que o
+      agrega, e dizer que informação o funcional destrói; dizer onde a normalização
+      entra e por que normalizar por falante muda o que o classificador pode aprender;
+      e apontar um ponto do encadeamento em que uma decisão de pré-processamento
+      vazaria informação do conjunto de teste.
