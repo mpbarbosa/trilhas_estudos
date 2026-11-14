@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 70,
-  "gerado_em": "2026-11-14T19:09:02+00:00",
-  "hash": "sha256:d81ac20ec53cf78a4b202ede431a6f4341bee8625b8a92912953b35d88ee2152",
+  "catalogo_versao": 71,
+  "gerado_em": "2026-11-14T19:20:55+00:00",
+  "hash": "sha256:233cc8ad9a2389e53eb2c8a2b1742be7df8d2b32aa72c38f271f8bfe98641e66",
   "competencias": [
     {
       "id": "comp:arquitetura/computador-pessoal",
@@ -485,12 +485,44 @@
       "descricao": "A Gita como objeto de filosofia, e não só de fé: as leituras metaéticas (deontologia, consequencialismo ou nenhuma das duas), o problema da guerra justa e o que uma afirmação como \"a ideologia mais científica\" pode e não pode querer dizer.\n"
     },
     {
+      "id": "comp:filosofia/critica-do-ensaio-sobre-tecnologia",
+      "titulo": "Crítica do ensaio de diagnóstico sobre a técnica",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Separar, numa lista de teses de um ensaio sobre tecnologia, quais são empíricas (dizendo que medida as decidiria), quais são interpretações de um quadro declarado (nomeando o quadro) e quais são juízos de valor; apontar ao menos um ponto em que o texto não cumpre o critério que ele mesmo exige; e, sendo coletânea, nomear duas teses de capítulos diferentes que não se sustentam juntas.",
+      "descricao": "Ler o gênero que mistura clínica, filosofia, reportagem e literatura — e que às vezes se declara assim, como \"ciência poética\" — sem confundir seus registros: o que é descrição, o que é interpretação dentro de um quadro teórico declarado, o que é prognóstico e o que é lamento. Vale também para a coletânea, em que autores de formações diferentes sustentam teses incompatíveis sob um título só.\n"
+    },
+    {
+      "id": "comp:filosofia/delegacao-da-vida-interior",
+      "titulo": "Delegação da vida interior a sistemas técnicos",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Tomar uma prática cotidiana hoje mediada por sistema e descrever três estados — o que se fazia antes, o que o sistema passou a fazer, o que o sujeito deixou de fazer — e, para cada item do terceiro, dizer que evidência sustentaria que houve perda de função e não só troca de meio. Declarar explicitamente os itens em que a evidência não existe.",
+      "descricao": "O que muda quando preferir, lembrar, encontrar alguém, chorar, cuidar e esperar passam a ser propostos, mediados ou guardados por sistemas. O corte difícil é entre mudança de meio e perda de função: escrever num editor não é delegar a escrita, e a diferença tem de ser argumentada, não suposta pelo tom.\n"
+    },
+    {
       "id": "comp:filosofia/gita-contexto-e-conceitos",
       "titulo": "Contexto e conceitos centrais da Bhagavad Gita",
       "rev": 1,
       "status": "ativo",
       "verificacao": "Contar a cena de abertura a quem nunca ouviu falar da Gita, em até meia página, e definir dharma, karma, atman e ação sem apego ao fruto com um exemplo de decisão cotidiana para cada um, sem recorrer a outro termo sânscrito na definição.",
       "descricao": "Onde a Gita se situa — o diálogo entre Krishna e Arjuna no campo de Kurukshetra, dentro do Mahabharata — e o vocabulário que ela pressupõe: dharma, karma, atman, os três caminhos (karma, jnana e bhakti ioga) e a ação sem apego ao fruto.\n"
+    },
+    {
+      "id": "comp:filosofia/subjetividade-artificial",
+      "titulo": "Subjetividade artificial como conceito",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Diante de um dispositivo ou serviço corrente, separar o que nele é inteligência artificial do que seria subjetividade artificial, nomeando qual função psíquica está em jogo e se ela é assistida, mediada ou ocupada — e dizer, para cada caso, que observação faria a classificação mudar. Uma resposta que não aponte nenhuma observação capaz de refutá-la não cumpre o critério.",
+      "descricao": "A tese de que não é só a inteligência que a máquina reproduz, mas a vida interior — memória, afeto, desejo, escolha, luto —, e o que isso exige que se distinga: assistir uma função psíquica, mediá-la e ocupá-la. Inclui a forma em que o fenômeno costuma ser descrito, a do familiar que ficou estranho, e o preço de usar \"pós-humano\" como se fosse um só conceito.\n"
+    },
+    {
+      "id": "comp:filosofia/subjetividade-na-tradicao-filosofica",
+      "titulo": "O sujeito antes da máquina — a palavra \"subjetividade\" nas tradições que a usam",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Tomar um texto sobre técnica que fale em subjetividade e localizar a frase em que a acepção muda, dizendo de qual para qual; depois reenunciar a tese central do texto nas duas acepções e apontar qual delas o autor precisaria sustentar para que a tese fosse forte — e se ele a sustenta.",
+      "descricao": "\"Subjetividade\" não quer dizer a mesma coisa no sujeito moderno da filosofia, no sujeito dividido da psicanálise e no uso corrente de \"a minha experiência\". Um texto sobre tecnologia costuma passar de uma acepção à outra sem avisar, e a tese muda de tamanho conforme a acepção em que se a lê.\n"
     },
     {
       "id": "comp:ia/adaptacao-de-modelo",
@@ -2951,6 +2983,44 @@
       ]
     },
     {
+      "id": "etapa:filosofia/conceito-de-subjetividade-artificial",
+      "titulo": "Gozai por nós, caps. 1 a 3 — a subjetividade artificial, a estranha familiar e a condição pós-humana",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 180,
+      "descricao": "Os três capítulos de abertura enunciam o conceito que dá nome ao livro: não a inteligência reproduzida, mas a vida interior — e a nomeiam pelo avesso, como \"a estranha familiar\", o que já é uma escolha teórica. O terceiro traz a condição pós-humana, termo que carrega pelo menos duas conversas diferentes. O corte é sair daqui com a distinção que o resto da trilha vai usar: função psíquica assistida, mediada ou ocupada.\n",
+      "trilha": "trilha:filosofia/subjetividade-artificial",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:filosofia/subjetividade-artificial",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:filosofia/critica-da-ciencia-poetica",
+      "titulo": "Gozai por nós, Apêndices 2 e 3 e Posfácio — \"Leia por nós\", o comentário e o livro sobre si mesmo",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 150,
+      "descricao": "O fecho em que a coletânea se vira para si: o Apêndice 2 (\"Leia por nós:\") devolve o trocadilho do título ao leitor, o Apêndice 3 é um comentário e o posfácio fecha. A etapa é curta de leitura e longa de trabalho: é onde se cobra do livro o critério que ele exige dos outros, e onde se nomeiam duas teses de capítulos diferentes que não se sustentam juntas — uma coletânea de nove formações não tem por que ser coerente, e dizer isso é a leitura, não a objeção.\n",
+      "trilha": "trilha:filosofia/subjetividade-artificial",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:filosofia/critica-do-ensaio-sobre-tecnologia",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:filosofia/critica-do-ensaio-sobre-tecnologia",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
       "id": "etapa:filosofia/gita-em-debate",
       "titulo": "A Gita em debate — metaética, guerra justa e o que \"científica\" quer dizer",
       "rev": 1,
@@ -2968,6 +3038,28 @@
       "teaches": [
         {
           "competencia": "comp:filosofia/critica-da-gita",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:filosofia/intimo-delegado-a-sistemas",
+      "titulo": "Gozai por nós, caps. 7 a 12 e Apêndice 1 — recomendação, mal-estar, amor, felicidade, traição e o caso Isabela",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 360,
+      "descricao": "O bloco em que o livro desce ao cotidiano: a recomendação que antecipa o gosto (cap. 7), o mal-estar tecnológico lido pelo Eu (cap. 8), as tecnologias do encontro (cap. 9), a felicidade como projeto (cap. 10) e a fidelidade deslocada (cap. 11). Os caps. 12 e o Apêndice 1 formam um par — \"Perdão Isabela\" e \"Isabela antes da tecnologia\" — e se leem juntos, o que é a razão de o apêndice entrar aqui e não no fecho. O corte é o difícil: separar, caso a caso, perda de função de troca de meio, e dizer onde a evidência falta.\n",
+      "trilha": "trilha:filosofia/subjetividade-artificial",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:filosofia/subjetividade-artificial",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:filosofia/delegacao-da-vida-interior",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -3006,6 +3098,58 @@
       "teaches": [
         {
           "competencia": "comp:filosofia/gita-contexto-e-conceitos",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:filosofia/subjetividade-artificial-setor-a-setor",
+      "titulo": "Gozai por nós, caps. 13 a 19 — cinema, sala de aula, lágrima, máquina, consultório, trabalho e os algoritmos do fim",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "descricao": "Sete capítulos que aplicam a tese a sete domínios: o cinema e a sala de aula \"artificiais\", a qualidade da lágrima, o \"(Não) sois máquina\", a clínica que não toca (cap. 17), o tempo convertido em dinheiro e a morte algoritmizada. É a prova real da trilha, porque é aqui que a tese pode se mostrar forte num setor e vazia noutro. O corte é não ler os sete do mesmo jeito: escolher um em que ela se sustenta, um em que não, e sustentar os dois julgamentos.\n",
+      "trilha": "trilha:filosofia/subjetividade-artificial",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:filosofia/delegacao-da-vida-interior",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:filosofia/subjetividade-na-tradicao-filosofica",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:filosofia/delegacao-da-vida-interior",
+          "nivel_resultante": "avancado"
+        },
+        {
+          "competencia": "comp:filosofia/critica-do-ensaio-sobre-tecnologia",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:filosofia/subjetividade-e-a-tradicao",
+      "titulo": "Gozai por nós, caps. 4 a 6 — a inteligência artificial e mais além, a subjetividade na filosofia e a pergunta pelo outro",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 180,
+      "descricao": "Onde o livro declara de que tradição fala: o cap. 5 situa \"subjetividade\" na filosofia e o cap. 6 — \"Que outro é esse?\" — abre a questão do outro, que na psicanálise não é a mesma coisa que na ética. O cap. 4 marca a fronteira com a inteligência artificial propriamente dita. O corte é cobrar precisão do vocabulário: em que acepção cada capítulo usa a palavra, e o que acontece com a tese do cap. 1 quando se troca uma acepção pela outra.\n",
+      "trilha": "trilha:filosofia/subjetividade-artificial",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:filosofia/subjetividade-artificial",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:filosofia/subjetividade-na-tradicao-filosofica",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -6843,6 +6987,37 @@
       ]
     },
     {
+      "id": "trilha:filosofia/subjetividade-artificial",
+      "titulo": "Subjetividade artificial — da vida interior reproduzida à crítica do ensaio que a diagnostica",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:filosofia/subjetividade-artificial",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:filosofia/subjetividade-na-tradicao-filosofica",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:filosofia/delegacao-da-vida-interior",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:filosofia/critica-do-ensaio-sobre-tecnologia",
+          "nivel": "avancado"
+        }
+      ],
+      "etapas": [
+        "etapa:filosofia/conceito-de-subjetividade-artificial",
+        "etapa:filosofia/subjetividade-e-a-tradicao",
+        "etapa:filosofia/intimo-delegado-a-sistemas",
+        "etapa:filosofia/subjetividade-artificial-setor-a-setor",
+        "etapa:filosofia/critica-da-ciencia-poetica"
+      ]
+    },
+    {
       "id": "trilha:ia/analise-de-sentimentos",
       "titulo": "Análise de sentimentos — da opinião como problema ao classificador avaliado",
       "rev": 1,
@@ -9321,6 +9496,81 @@
       "url": "https://iep.utm.edu/bhagavad/",
       "disponivel": true,
       "verificado_em": "2026-10-26"
+    },
+    {
+      "id": "rec:filosofia/simonetti-gozai-apendices-e-posfacio",
+      "titulo": "Gozai por nós (Alfredo Simonetti, org., 2023) — Apêndices 2 e 3 e Posfácio: \"Leia por nós:\", o comentário e o fecho",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/critica-da-ciencia-poetica",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 9.99,
+      "duracao_min": 70,
+      "url": "https://www.amazon.com.br/dp/B0CQRJ84FY",
+      "disponivel": true,
+      "obra": "simonetti-gozai-por-nos",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:filosofia/simonetti-gozai-caps-1-3",
+      "titulo": "Gozai por nós (Alfredo Simonetti, org., 2023) — caps. 1 a 3: a subjetividade artificial, a estranha familiar e a condição pós-humana",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/conceito-de-subjetividade-artificial",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 9.99,
+      "duracao_min": 140,
+      "url": "https://www.amazon.com.br/dp/B0CQRJ84FY",
+      "disponivel": true,
+      "obra": "simonetti-gozai-por-nos",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:filosofia/simonetti-gozai-caps-13-19",
+      "titulo": "Gozai por nós (Alfredo Simonetti, org., 2023) — caps. 13 a 19: cinema artificial, sala de aula artificial, a qualidade da lágrima, (Não) sois máquina, \"Não me toque, doutor!\", tempo é dinheiro e os algoritmos do fim",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/subjetividade-artificial-setor-a-setor",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 9.99,
+      "duracao_min": 230,
+      "url": "https://www.amazon.com.br/dp/B0CQRJ84FY",
+      "disponivel": true,
+      "obra": "simonetti-gozai-por-nos",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:filosofia/simonetti-gozai-caps-4-6",
+      "titulo": "Gozai por nós (Alfredo Simonetti, org., 2023) — caps. 4 a 6: a inteligência artificial e mais além, a subjetividade na filosofia e \"Que outro é esse?\"",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/subjetividade-e-a-tradicao",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 9.99,
+      "duracao_min": 140,
+      "url": "https://www.amazon.com.br/dp/B0CQRJ84FY",
+      "disponivel": true,
+      "obra": "simonetti-gozai-por-nos",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:filosofia/simonetti-gozai-caps-7-12",
+      "titulo": "Gozai por nós (Alfredo Simonetti, org., 2023) — caps. 7 a 12 e Apêndice 1: recomendação, mal-estar tecnológico, tecnologias do encontro, felicidade, traição e Isabela",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/intimo-delegado-a-sistemas",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 9.99,
+      "duracao_min": 290,
+      "url": "https://www.amazon.com.br/dp/B0CQRJ84FY",
+      "disponivel": true,
+      "obra": "simonetti-gozai-por-nos",
+      "verificado_em": "2026-11-14"
     },
     {
       "id": "rec:ia/ai-engineering-agentes-producao",

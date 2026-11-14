@@ -1401,6 +1401,49 @@ de onde saiu o `custo` dos recursos.
   isso o único cujo `custo` não tem preço de Kindle com que ser conferido. A etapa que o recebe,
   `etapa:filosofia/bhakti-na-pratica`, nasceu com ele e é opcional.
 
+### Gozai por nós: Estudos sobre a subjetividade artificial
+
+- **Autoria** — Alfredo Simonetti (organizador e autor principal), psiquiatra e
+  psicanalista. **Obra coletiva**: o texto de orelha cita, além de psicanalistas e
+  psicólogos clínicos, médicos, uma estudante universitária, um historiador, um
+  jornalista e um linguista, e mais uma colaboração literária. **A amostra não atribui
+  autoria capítulo a capítulo**, e nenhum nome além do de Simonetti foi conferido.
+- **Edição** — 1ª ed., publicada em 20/12/2023, pt-BR. Capa comum de 348 p.; e-book
+  Kindle de 412 p. (ASIN `B0CQRJ84FY`, 7,3 MB).
+- **Identificadores** — ISBN-13 `9788571721159`, ISBN-10 `8571721157` (o mesmo ISBN-13
+  consta na ficha do Kindle)
+- **Editora** — **não resolvida**, e a divergência fica registrada em vez de arbitrada:
+  a capa impressa na amostra diz *ALPENDRE Books*; o isbnsearch.org atribui o ISBN à
+  *Editora Amoler*; `editoraamoler.com.br` não resolve DNS (14/11/2026) e a página da
+  Amazon não traz campo de editora nem na capa comum nem no Kindle. Nenhum campo do
+  catálogo depende disto.
+- **Amazon** — https://www.amazon.com.br/dp/B0CQRJ84FY (Kindle, R$ 9,99 em 14/11/2026,
+  incluído no Kindle Unlimited) e https://www.amazon.com.br/dp/8571721157 (capa comum,
+  R$ 94,90, ou R$ 90,15 à vista no Pix, na mesma data). O `custo` e a `url` das cinco
+  fatias são os do Kindle.
+- **Título** — a capa diz *Estudos* no plural; a Amazon anuncia *Estudo* no singular,
+  nos dois formatos. Esta ficha segue a capa; os recursos citam só o título principal.
+- **Sumário** — 19 capítulos, 3 apêndices e um posfácio, conferidos um a um na amostra
+  Kindle em 14/11/2026: 1 A Subjetividade artificial; 2 A estranha familiar; 3 A
+  condição pós-humana; 4 A inteligência artificial e mais além; 5 A Subjetividade na
+  filosofia; 6 Que outro é esse?; 7 Nós achamos que você vai gostar disso; 8 O
+  Mal-estar Tecnológico: e o Eu com isso?; 9 O novo amor: as tecnologias do encontro;
+  10 A felicidade é mais que uma vontade; 11 Quantas vezes você já traiu amanhã?; 12
+  Perdão Isabela; 13 Cinema artificial; 14 Sala de aula artificial; 15 A qualidade da
+  lágrima; 16 (Não) sois máquina; 17 Não me toque, doutor!; 18 Tempo é dinheiro; 19 Os
+  algoritmos do fim; Apêndice 1 ISABELA ANTES DA TECNOLOGIA; Apêndice 2 LEIA POR NÓS:;
+  Apêndice 3 UM COMENTÁRIO; POSFÁCIO. **A paginação por capítulo não está no sumário da
+  amostra** e não foi conferida em lugar nenhum.
+- **Citada por** — `rec:filosofia/simonetti-gozai-caps-1-3`,
+  `rec:filosofia/simonetti-gozai-caps-4-6`, `rec:filosofia/simonetti-gozai-caps-7-12`,
+  `rec:filosofia/simonetti-gozai-caps-13-19` e
+  `rec:filosofia/simonetti-gozai-apendices-e-posfacio` — as cinco declaram
+  `obra: simonetti-gozai-por-nos`
+- **Nota** — o livro se autoclassifica "ciência poética", expressão do próprio
+  organizador citada na orelha. O título é trocadilho com a ladainha "rogai por nós", e
+  o Apêndice 2 ("LEIA POR NÓS:") o devolve ao leitor — mas **que leitura psicanalítica
+  o livro faz do gozo não foi conferida**: nada além do sumário e da orelha foi lido.
+
 ### The Bhagavad Gita Summarized and Simplified: A Comprehensive and Easy-to-Read Summary of the Divine Song of God
 
 - **Autoria** — Hari Chetan

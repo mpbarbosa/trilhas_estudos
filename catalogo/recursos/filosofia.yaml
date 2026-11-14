@@ -152,3 +152,107 @@ recursos:
     obra: chetan-daily-bhakti
     disponivel: true
     verificado_em: 2026-11-01
+
+# -------------------------------------------------------------------------
+# trilha:filosofia/subjetividade-artificial
+#
+#   Cinco fatias de um exemplar só — *Gozai por nós*, coletânea organizada por
+#   Alfredo Simonetti —, uma por etapa, todas com `obra: simonetti-gozai-por-nos` e
+#   o mesmo `custo`, que é o do exemplar comprado uma vez (validação 12).
+#
+#   **Qual exemplar.** O `custo` 9.99 e a `url` são os da edição Kindle (ASIN
+#   B0CQRJ84FY, R$ 9,99, incluída no Kindle Unlimited), conferidos na Amazon BR em
+#   2026-11-14 — é a via mais barata e é a edição cujo sumário foi lido. A capa
+#   comum do mesmo ISBN-13 custava R$ 94,90 (R$ 90,15 à vista no Pix) na mesma data,
+#   348 p. contra 412 do Kindle. Se o estudante estiver lendo em papel, trocar
+#   `custo` e `url` é mudança substantiva de recurso (docs/catalogo.md §4) e sobe a
+#   `rev` das cinco fatias, não a da etapa.
+#
+#   **Duração.** Estimativa, não medida: ~2,5 min/p. sobre as 348 p. da capa comum
+#   (~870 min no total), repartidas por número de capítulos, porque o sumário da
+#   amostra não traz paginação por capítulo. Ver o comentário LIMITE DE VERIFICAÇÃO
+#   no arquivo da trilha.
+#
+#   **Editora não resolvida.** A capa impressa "ALPENDRE Books"; o isbnsearch.org
+#   atribui o ISBN à "Editora Amoler"; o site editoraamoler.com.br não resolve DNS e
+#   a página da Amazon não imprime editora em campo nenhum. A ficha em
+#   docs/bibliografia.md registra a divergência em vez de escolher — nenhum campo do
+#   recurso depende dela.
+# -------------------------------------------------------------------------
+
+  # --- etapa:filosofia/conceito-de-subjetividade-artificial ---------------
+  - id: rec:filosofia/simonetti-gozai-caps-1-3
+    etapa: etapa:filosofia/conceito-de-subjetividade-artificial
+    titulo: "Gozai por nós (Alfredo Simonetti, org., 2023) — caps. 1 a 3: a subjetividade artificial, a estranha familiar e a condição pós-humana"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 9.99
+    duracao_min: 140
+    url: https://www.amazon.com.br/dp/B0CQRJ84FY
+    obra: simonetti-gozai-por-nos
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:filosofia/subjetividade-e-a-tradicao -------------------------
+  - id: rec:filosofia/simonetti-gozai-caps-4-6
+    etapa: etapa:filosofia/subjetividade-e-a-tradicao
+    titulo: "Gozai por nós (Alfredo Simonetti, org., 2023) — caps. 4 a 6: a inteligência artificial e mais além, a subjetividade na filosofia e \"Que outro é esse?\""
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 9.99
+    duracao_min: 140
+    url: https://www.amazon.com.br/dp/B0CQRJ84FY
+    obra: simonetti-gozai-por-nos
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:filosofia/intimo-delegado-a-sistemas -------------------------
+  # Seis capítulos mais o Apêndice 1, que se lê colado ao cap. 12 ("Perdão Isabela" /
+  # "Isabela antes da tecnologia") — daí esta fatia ser a mais longa das cinco.
+  - id: rec:filosofia/simonetti-gozai-caps-7-12
+    etapa: etapa:filosofia/intimo-delegado-a-sistemas
+    titulo: "Gozai por nós (Alfredo Simonetti, org., 2023) — caps. 7 a 12 e Apêndice 1: recomendação, mal-estar tecnológico, tecnologias do encontro, felicidade, traição e Isabela"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 9.99
+    duracao_min: 290
+    url: https://www.amazon.com.br/dp/B0CQRJ84FY
+    obra: simonetti-gozai-por-nos
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:filosofia/subjetividade-artificial-setor-a-setor -------------
+  - id: rec:filosofia/simonetti-gozai-caps-13-19
+    etapa: etapa:filosofia/subjetividade-artificial-setor-a-setor
+    titulo: "Gozai por nós (Alfredo Simonetti, org., 2023) — caps. 13 a 19: cinema artificial, sala de aula artificial, a qualidade da lágrima, (Não) sois máquina, \"Não me toque, doutor!\", tempo é dinheiro e os algoritmos do fim"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 9.99
+    duracao_min: 230
+    url: https://www.amazon.com.br/dp/B0CQRJ84FY
+    obra: simonetti-gozai-por-nos
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:filosofia/critica-da-ciencia-poetica -------------------------
+  - id: rec:filosofia/simonetti-gozai-apendices-e-posfacio
+    etapa: etapa:filosofia/critica-da-ciencia-poetica
+    titulo: "Gozai por nós (Alfredo Simonetti, org., 2023) — Apêndices 2 e 3 e Posfácio: \"Leia por nós:\", o comentário e o fecho"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 9.99
+    duracao_min: 70
+    url: https://www.amazon.com.br/dp/B0CQRJ84FY
+    obra: simonetti-gozai-por-nos
+    disponivel: true
+    verificado_em: 2026-11-14
