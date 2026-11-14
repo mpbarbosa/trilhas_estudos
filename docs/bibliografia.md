@@ -1553,6 +1553,169 @@ Amazon foi conferida, e os links abaixo são de busca pelo ISBN.
   traz um ISBN-10 brasileiro (`6586460166`) que não corresponde ao ISBN-13 acima. Vale
   o exemplar, quando houver um em mãos.
 
+As nove fichas da trilha `trilha:ihc/computacao-afetiva`, conferidas em 2026-11-14 e
+acrescentadas na mesma data. **Elas citam preço, e nenhum é estimativa**: cada um saiu
+de uma página de produto lida no navegador embutido, que é também a `url` do recurso.
+A Amazon BR recusa o `curl` deste ambiente mas responde ao navegador — foi assim que
+os cinco importados saíram —, e as duas editoras brasileiras consultadas publicam a
+ficha sem o preço, que veio então de livraria.
+
+### Affective Computing
+
+- **Autoria** — Rosalind W. Picard
+- **Edição** — MIT Press; brochura de 24/07/2000 do original de 1997, 306 p., en-US.
+  Nenhuma tradução brasileira encontrada. Dois catálogos de livraria dão 304 p. e um
+  registro de biblioteca dá 292 p. de texto mais o material inicial; 306 é o número
+  mais repetido.
+- **Identificadores** — ISBN-13 `9780262661157` · ISBN-10 `0262661158`
+- **Amazon** — https://www.amazon.com.br/s?k=9780262661157 (link de busca; a página de
+  produto por ISBN-10 devolve 404). R$ 473,48 em capa comum, com "6 ofertas de
+  produtos novos e usados" a partir de R$ 259,99 ao lado.
+- **Citada por** — `rec:ihc/picard-affective-computing` — declara
+  `obra: picard-affective-computing`
+
+### The Oxford Handbook of Affective Computing
+
+- **Autoria** — Rafael A. Calvo, Sidney K. D'Mello, Jonathan Gratch e Arvid Kappas
+  (orgs.), série *Oxford Library of Psychology*
+- **Edição** — Oxford University Press, 2015 (uma livraria dá 15/01/2015), capa dura,
+  624 p., en-US. O catálogo da Texas A&M registra xvii + 603 p., diferença que deve
+  ser do material inicial, não conferida.
+- **Identificadores** — ISBN-13 `9780199942237` · ISBN-10 `0199942234`
+- **Amazon** — https://www.amazon.com.br/s?k=9780199942237 (link de busca). R$ 1.513,82
+  em capa dura, e a mesma página anuncia R$ 1.593,50 "à vista no Pix" — **mais alto**
+  que o preço normal. A contradição está registrada como lida.
+- **Sumário** — 41 capítulos em cinco seções, pela descrição da editora: história e
+  teoria, detecção, geração, metodologias e aplicações; o cap. 1 é introdução dos
+  quatro organizadores e a seção um traz um capítulo de Rosalind Picard. ⚠️ **Os
+  números de capítulo de cada seção não foram conferidos em nenhuma página lida**, e é
+  por isso que as duas fatias do catálogo são nomeadas por seção, não por intervalo de
+  capítulos.
+- **Citada por** — `rec:ihc/oxford-handbook-affective-computing-deteccao`,
+  `rec:ihc/oxford-handbook-affective-computing-geracao` — declaram
+  `obra: oxford-handbook-affective-computing`
+- **Nota** — é a obra mais cara do catálogo, e sozinha custa mais que as cinco da
+  captologia somadas.
+
+### Emotion Recognition: A Pattern Analysis Approach
+
+- **Autoria** — Amit Konar e Aruna Chakraborty (orgs.); capítulos com outros
+  contribuintes, entre eles Anisha Halder e Atulya K. Nagar
+- **Edição** — John Wiley & Sons, Hoboken, 2015, capa dura, 584 p., en-US. Um registro
+  de biblioteca dá xxxi + 548 p. e um recurso eletrônico dá 583 p.; as datas de
+  lançamento divergem entre 27/01 e 20/03/2015.
+- **Identificadores** — ISBN-13 `9781118130667` · ISBN-10 `1118130669`. Edições
+  eletrônicas em `9781118910603` e `9781118910610`; DOI `10.1002/9781118910566`.
+- **Amazon** — https://www.amazon.com.br/s?k=9781118130667 (link de busca). R$ 814,37
+  em capa dura, com entrega prevista entre 30/12/2026 e 13/01/2027, e "5 ofertas de
+  produtos novos e usados" a partir de R$ 762,00.
+- **Citada por** — `rec:ihc/konar-chakraborty-emotion-recognition` — declara
+  `obra: konar-chakraborty-emotion-recognition`
+
+### O erro de Descartes: emoção, razão e o cérebro humano
+
+- **Autoria** — António R. Damásio; trad. Dora Vicente e Georgina Segurado. Original:
+  *Descartes' Error: Emotion, Reason and the Human Brain* (Putnam, 1994).
+- **Edição** — Companhia das Letras, selo Edição Econômica, lançada em 19/11/2012,
+  264 p., brochura, 23x16 cm, pt-BR. A ficha da editora dá 264 p.; o Skoob dá 360 p.
+  para o mesmo ISBN-13, e a primeira edição brasileira (1996, ISBN-10 `8571645302`)
+  tinha 336 p.
+- **Identificadores** — ISBN-13 `9788535922004`
+- **Amazon** — não conferida. Preço de R$ 67,90 à vista na
+  [Martins Fontes Paulista](https://www.martinsfontespaulista.com.br/o-erro-de-descartes-695903/p),
+  que é a `url` do recurso; a
+  [página da Companhia das Letras](https://www.companhiadasletras.com.br/9788535922004-o-erro-de-descartes-595/p)
+  traz a ficha técnica completa e **nenhum preço**.
+- **Citada por** — `rec:ihc/damasio-o-erro-de-descartes` — declara
+  `obra: damasio-o-erro-de-descartes`
+
+### The Emotion Machine: Commonsense Thinking, Artificial Intelligence, and the Future of the Human Mind
+
+- **Autoria** — Marvin Minsky
+- **Edição** — Simon & Schuster; brochura de 13/11/2007 do original em capa dura de
+  07/11/2006, 400 p., en-US. Um registro de biblioteca dá 387 p. Nenhuma tradução
+  brasileira encontrada.
+- **Identificadores** — ISBN-13 `9780743276641` · ISBN-10 `0743276647`
+- **Amazon** — https://www.amazon.com.br/s?k=9780743276641 (link de busca). R$ 110,96,
+  de R$ 211,88.
+- **Citada por** — `rec:ihc/minsky-the-emotion-machine` — declara
+  `obra: minsky-the-emotion-machine`
+
+### The Man Who Lied to His Laptop: What We Can Learn About Ourselves from Our Machines
+
+- **Autoria** — Clifford Nass e Corina Yen
+- **Edição** — Current/Penguin; brochura de 24/04/2013 do original em capa dura de 2010
+  (*What Machines Teach Us about Human Relationships*, ISBN-13 `9781617230011`), 256 p.,
+  en-US. As contagens divergem muito entre edições: 256 p. na brochura e no e-book,
+  208 p. pela *Publishers Weekly* e vii + 230 p. num catálogo de biblioteca para a capa
+  dura de 2010. Nenhuma tradução brasileira encontrada.
+- **Identificadores** — ISBN-13 `9781617230042`
+- **Amazon** — https://www.amazon.com.br/s?k=9781617230042 (link de busca). R$ 100,67,
+  com o aviso "Somente 1 em estoque".
+- **Citada por** — `rec:ihc/nass-yen-the-man-who-lied-to-his-laptop` — declara
+  `obra: nass-yen-the-man-who-lied-to-his-laptop`
+- **Nota** — o estoque de um exemplar é o motivo de esta ficha ser a primeira a
+  reconferir quando a validação 10 cobrar os 180 dias.
+
+### Emotional Design: Why We Love (or Hate) Everyday Things
+
+- **Autoria** — Donald A. Norman
+- **Edição** — Basic Books, brochura, 272 p., en-US. A capa dura original tem ISBN-10
+  `0465051359`.
+- **Identificadores** — ISBN-13 `9780465051366` · ISBN-10 `0465051367`
+- **Amazon** — https://www.amazon.com.br/s?k=9780465051366 (link de busca). R$ 103,79,
+  com "Economize R$ 15,00 nas compras de 2 ou mais".
+- **Citada por** — `rec:ihc/norman-emotional-design` — declara
+  `obra: norman-emotional-design`
+- **Nota** — ⚠️ **a tradução brasileira existe e está fora de catálogo.** *Design
+  Emocional: por que adoramos (ou detestamos) os objetos do dia-a-dia*, Rocco, 2008,
+  278 p., ISBN-13 `9788532523327` pelo [Skoob](https://www.skoob.com.br/book/35397) —
+  fonte única, catálogo colaborativo, não confirmada na editora. A busca da Martins
+  Fontes Paulista por "design emocional" devolve **um** produto, de outro autor. O
+  recurso entra em inglês porque é o exemplar que se compra hoje; se a Rocco reeditar,
+  o movimento é recurso novo com a mesma `obra`, não troca de `url`.
+
+### Como as emoções são feitas: a vida secreta do cérebro
+
+- **Autoria** — Lisa Feldman Barrett; trad. Cássio de Arantes Leite. Original:
+  *How Emotions Are Made: The Secret Life of the Brain* (2017).
+- **Edição** — Objetiva (Grupo Companhia das Letras), lançada em 28/07/2026, 472 p.,
+  brochura, 23x16 cm, 695 g, pt-BR
+- **Identificadores** — ISBN-13 `9788539009619`. O Google Books traz outro par
+  (`8539010100` / `9788539010103`) para o mesmo título, não conferido.
+- **Amazon** — não conferida. R$ 99,90 na
+  [busca da Martins Fontes Paulista](https://www.martinsfontespaulista.com.br/como%20as%20emocoes%20sao%20feitas?_q=como%20as%20emocoes%20sao%20feitas&map=ft),
+  que é a `url` do recurso, sem marca de "Sob Encomenda".
+- **Citada por** — `rec:ihc/barrett-como-as-emocoes-sao-feitas` — declara
+  `obra: barrett-como-as-emocoes-sao-feitas`
+- **Nota** — ⚠️ **armadilha de leitura de página, registrada para não se repetir.** A
+  [página da Companhia das Letras](https://www.companhiadasletras.com.br/9788539009619-como-as-emocoes-sao-feitas-4213/p)
+  traz a ficha técnica completa e **não traz o preço deste livro**; logo abaixo dela,
+  a vitrine "Você também pode gostar" exibe R$ 99,90 ao lado de *Felicidade autêntica*,
+  de Seligman. O preço deste recurso coincide por acidente, e veio da livraria, não
+  dessa vitrine.
+
+### Atlas da IA: poder, política e os custos planetários da inteligência artificial
+
+- **Autoria** — Kate Crawford; trad. Humberto do Amaral. Original: *Atlas of AI:
+  Power, Politics, and the Planetary Costs of Artificial Intelligence* (Yale
+  University Press, 2021, 336 p., ISBN-13 `9780300209570`).
+- **Edição** — 1ª ed., Edições Sesc São Paulo, lançada em 16/07/2025, 380 p., brochura,
+  pt-BR. Duas livrarias dão 138 p., número que não se sustenta.
+- **Identificadores** — ISBN-13 `9788594933287`
+- **Amazon** — não conferida. R$ 98,00 na
+  [Travessa](https://www.travessa.com.br/atlas-da-ia-poder-politica-e-os-custos-planetarios-da-inteligencia-artificial/artigo/48fa31a0-b199-4b13-854e-47555d594d1f),
+  com "Adicionar à sacola" — é a `url` do recurso.
+- **Citada por** — `rec:ihc/crawford-atlas-da-ia` — declara `obra: crawford-atlas-da-ia`
+- **Nota** — ⚠️ **preço mais baixo de exemplar que não se compra.** A
+  [Livraria Loyola](https://www.livrarialoyola.com.br/produto/atlas-da-ia-poder-politica-e-os-custos-planetarios-da-inteligencia-artificial-418663)
+  anuncia R$ 78,40 (20% sobre R$ 98,00, mesmo valor no Pix) e na mesma página diz
+  **"Produto esgotado"**, com formulário de aviso de reposição. O `custo` do recurso é
+  o da Travessa. Não há edição brasileira da Ubu nem de outra editora que não a Sesc;
+  há uma portuguesa da Relógio D'Água (2024, 304 p., ISBN-13 `9789897834356`), que não
+  é esta.
+
+
 ## Línguas
 
 ### Introducing English Syntax: A Basic Guide for Students of English

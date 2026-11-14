@@ -1,0 +1,255 @@
+versao_schema: 1
+trilha:
+  id: trilha:ihc/computacao-afetiva
+  titulo: Computação afetiva — do afeto na decisão ao detector de emoção e à crítica dele
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:ihc/tres-capacidades-da-computacao-afetiva
+      nivel: intermediario
+    - competencia: comp:ihc/emocao-na-decisao
+      nivel: intermediario
+    - competencia: comp:ihc/reconhecimento-de-afeto-por-sinal
+      nivel: intermediario
+    - competencia: comp:ihc/emocao-sintetica-em-agente
+      nivel: intermediario
+    - competencia: comp:ihc/resposta-social-a-maquina
+      nivel: intermediario
+    - competencia: comp:ihc/design-emocional-em-tres-niveis
+      nivel: intermediario
+    - competencia: comp:ihc/validade-de-construto-na-inferencia-de-emocao
+      nivel: avancado
+    - competencia: comp:ihc/critica-politica-do-reconhecimento-de-emocao
+      nivel: intermediario
+
+  # Segunda trilha da área ihc, pedida pelo estudante em 2026-11-14 a partir de uma
+  # lista de sugestões de leitura sobre computação afetiva. Nove obras entram:
+  # Picard (*Affective Computing*, 1997/2000), o *Oxford Handbook of Affective
+  # Computing* (2015) em duas fatias, Konar e Chakraborty (*Emotion Recognition*,
+  # 2015), Damásio (*O erro de Descartes*), Minsky (*The Emotion Machine*), Nass e Yen
+  # (*The Man Who Lied to His Laptop*), Norman (*Emotional Design*), Barrett (*Como as
+  # emoções são feitas*) e Crawford (*Atlas da IA*). Quatro têm edição brasileira e
+  # entram por ela; as cinco restantes entram em inglês, por não se ter encontrado
+  # tradução — no caso de Norman, a tradução da Rocco existe e **está fora de
+  # catálogo**, o que está dito na ficha.
+  #
+  # **A forma do grafo: duas raízes, e a dúvida depois do detector.** Picard abre o
+  # campo e dá a distinção de que tudo depende — reconhecer, expressar e ter afeto são
+  # três coisas. Damásio abre em paralelo, com requires vazio, e não é pré-requisito
+  # de Picard nem o contrário: um diz o que um sistema afetivo poderia ser, o outro diz
+  # por que afeto não é ruído sobre a razão. Enfileirá-los inventaria dependência.
+  #
+  # **Do campo saem três ramos que não se cruzam.** Reconhecer (Oxford Handbook, seção
+  # de detecção, com Konar como via alternativa), produzir (Handbook, seção de geração,
+  # com Minsky, e aqui Damásio é exigido: o enquadramento de emoção como maneira de
+  # pensar só se sustenta se afeto já participa da deliberação) e a resposta de quem
+  # usa (Nass, e depois Norman, porque projetar para a resposta social vem depois de
+  # medi-la).
+  #
+  # **E então a trilha vira contra o próprio corpus.** Barrett exige o campo E o
+  # detector — a crítica de validade de construto não se aprende antes de saber o que
+  # é um reconhecedor, senão vira slogan —, e é onde a competência chega a avançado.
+  # Crawford fecha, exigindo Barrett: a leitura política é a que explica por que uma
+  # teoria psicológica contestada virou infraestrutura vendida a quem contrata e
+  # vigia, e ela não funciona sem o argumento técnico antes.
+  #
+  # **O canal textual não é redefinido aqui.** Inferir afeto de texto é o problema da
+  # análise de sentimentos, e ele tem casa: `etapa:ia/o-problema-da-analise-de-sentimentos`
+  # (trilha:ia/analise-de-sentimentos) já cobra a quíntupla de Liu e os três níveis em
+  # que a pergunta se coloca. Entra em `etapas_referenciadas`, e de propósito **nenhuma
+  # etapa desta trilha exige a competência dela**: é a quarta modalidade, disponível a
+  # quem quiser o canal de texto, e não um pré-requisito para julgar a face ou a voz.
+  #
+  # **O que esta trilha não repete.** comp:ihc/dano-algoritmico-em-escala
+  # (trilha:ihc/captologia) já cobra opacidade, escala e dano num modelo de pontuação
+  # qualquer; a crítica aqui é específica do reconhecimento de emoção — o dano que
+  # existe mesmo quando o sistema acerta, porque o construto não se sustenta — e é por
+  # isso que é competência própria e não um nível a mais naquela.
+  #
+  # **Aviso de custo, que nesta trilha é estrutural.** O Oxford Handbook custa
+  # R$ 1.513,82 e Konar R$ 814,37, preços lidos na Amazon BR em 2026-11-14. As duas
+  # etapas de reconhecimento e de geração são, de longe, as mais caras do catálogo, e
+  # a via alternativa de uma delas é caríssima também: um estudante com
+  # `custo_maximo` modesto verá as duas filtradas pelo motor (motor §2.2) e a trilha
+  # travar aí. Isso está registrado em vez de disfarçado com um recurso gratuito
+  # inventado; a saída honesta é biblioteca universitária, e ela não é um recurso
+  # catalogável com url.
+  etapas:
+    # --- Raiz: o campo e as três capacidades --------------------------------
+    - id: etapa:ihc/computacao-afetiva-o-campo
+      titulo: Affective Computing — reconhecer, expressar e ter afeto, e por que são três coisas
+      rev: 1
+      status: ativo
+      descricao: >
+        Picard funda o campo e o delimita: o que seria um computador que reconhece o
+        afeto de quem usa, que o expressa, e que tem um estado afetivo capaz de alterar
+        o próprio processamento. O livro é de 1997 e a parte técnica envelheceu — não há
+        aprendizado profundo nele —, o que não o tira do lugar: a formulação do problema
+        e a separação das três capacidades é a referência que a literatura inteira
+        continua citando. O corte é usar a distinção para desmontar uma promessa de
+        produto atual, e dizer qual das três capacidades ela de fato entrega.
+      esforco_estimado_min: 600
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:ihc/tres-capacidades-da-computacao-afetiva
+          nivel_resultante: intermediario
+
+    # --- Raiz: por que afeto importa numa decisão ---------------------------
+    - id: etapa:ihc/emocao-na-decisao-racional
+      titulo: O erro de Descartes — marcador somático e a decisão que a razão sozinha não explica
+      rev: 1
+      status: ativo
+      descricao: >
+        Damásio a partir da lesão pré-frontal ventromedial: pacientes com raciocínio,
+        linguagem e memória preservados e marcação emocional destruída decidem
+        catastroficamente a vida prática. Daí a hipótese do marcador somático, que põe
+        o corpo na pré-seleção das opções antes da deliberação. A etapa cobra as duas
+        direções: ler uma decisão real com o mecanismo, e dizer o que dele **não** se
+        segue — que medir afeto melhore decisão alguma, salto que a indústria do
+        reconhecimento de emoção faz sem anunciar.
+      esforco_estimado_min: 480
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:ihc/emocao-na-decisao
+          nivel_resultante: intermediario
+
+    # --- Do campo: o reconhecedor -------------------------------------------
+    - id: etapa:ihc/deteccao-de-afeto-por-sinal
+      titulo: Detecção de afeto — face, voz, fisiologia e a fusão de modalidades
+      rev: 1
+      status: ativo
+      descricao: >
+        A seção de detecção do Oxford Handbook, com Konar e Chakraborty como via
+        alternativa mais voltada a sinal e classificador: que atributos se extraem de
+        face, voz, eletrodermia e postura, como se treina e como se avalia, e como se
+        combinam modalidades — fusão no nível do atributo ou no da decisão. O corte é o
+        que afunda esses sistemas antes do algoritmo: de onde veio o rótulo, se a
+        avaliação separa sujeito de sessão, e que estados o sinal escolhido
+        simplesmente não distingue.
+      esforco_estimado_min: 720
+      opcional: false
+      requires:
+        - competencia: comp:ihc/tres-capacidades-da-computacao-afetiva
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/reconhecimento-de-afeto-por-sinal
+          nivel_resultante: intermediario
+
+    # --- Do campo e da decisão: o agente que tem estado ---------------------
+    - id: etapa:ihc/emocao-sintetica-e-agente-afetivo
+      titulo: Geração de afeto — expressão legível e o estado que muda a deliberação
+      rev: 1
+      status: ativo
+      descricao: >
+        A seção de geração do Oxford Handbook, com Minsky ao lado: de um lado as
+        arquiteturas de avaliação (appraisal) que transformam evento em estado e estado
+        em comportamento, e a expressão por face, voz e corpo; de outro a tese forte de
+        Minsky, de emoção como "maneira de pensar" — um recurso que desliga outros
+        recursos —, contra a emoção como verniz sobre a cognição. A etapa cobra
+        especificar um estado afetivo de agente em eventos, duração e decaimento, e
+        mostrar que o comportamento resultante não sai de uma regra sem afeto.
+      esforco_estimado_min: 660
+      opcional: false
+      requires:
+        - competencia: comp:ihc/tres-capacidades-da-computacao-afetiva
+          nivel_minimo: intermediario
+        - competencia: comp:ihc/emocao-na-decisao
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/emocao-sintetica-em-agente
+          nivel_resultante: intermediario
+
+    # --- Do campo: o que o usuário faz com a máquina ------------------------
+    - id: etapa:ihc/resposta-social-a-maquina
+      titulo: The Man Who Lied to His Laptop — a regra social aplicada à máquina
+      rev: 1
+      status: ativo
+      descricao: >
+        Nass e Yen contam os experimentos do laboratório de Stanford em que pessoas
+        tratam computadores socialmente: retribuem favor, respondem a lisonja, atribuem
+        personalidade e gênero a uma voz sintética, e se constrangem ao criticar a
+        máquina na frente dela — sabendo que é máquina, e negando que fazem isso. O
+        corte é metodológico tanto quanto temático: a etapa cobra prever o efeito de
+        uma escolha de interface e desenhar o controle que testaria a previsão, porque
+        perguntar ao usuário não mede isto.
+      esforco_estimado_min: 420
+      opcional: false
+      requires:
+        - competencia: comp:ihc/tres-capacidades-da-computacao-afetiva
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:ihc/resposta-social-a-maquina
+          nivel_resultante: intermediario
+
+    # --- Da resposta social: projetar para ela ------------------------------
+    - id: etapa:ihc/design-emocional-em-tres-niveis
+      titulo: Emotional Design — visceral, comportamental e reflexivo, e quando eles se contradizem
+      rev: 1
+      status: ativo
+      descricao: >
+        Norman separa a reação imediata à forma, o prazer e a frustração de usar, e o
+        que o objeto diz de quem o tem. Vem depois de Nass porque projetar para a
+        resposta social pressupõe saber medi-la. O corte é a contradição entre níveis,
+        que é onde o livro é útil e onde ele costuma ser citado errado: o artefato que
+        se mantém pelo reflexivo apesar de ruim no comportamental, e a correção de um
+        nível que estraga outro.
+      esforco_estimado_min: 480
+      opcional: false
+      requires:
+        - competencia: comp:ihc/resposta-social-a-maquina
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/design-emocional-em-tres-niveis
+          nivel_resultante: intermediario
+
+    # --- Contra o próprio corpus: o construto -------------------------------
+    - id: etapa:ihc/validade-da-inferencia-de-emocao
+      titulo: Como as emoções são feitas — variabilidade, degeneração e o rótulo como teoria
+      rev: 1
+      status: ativo
+      descricao: >
+        Barrett reúne a evidência contra a emoção básica com assinatura facial e
+        corporal estável: variabilidade dentro da categoria, degeneração entre
+        categorias, e emoção como construção do cérebro no contexto. Exige o campo e o
+        detector porque é crítica de construto, não de opinião: o que ela derruba é a
+        premissa do conjunto de rótulos de que o reconhecedor da etapa anterior parte.
+        A etapa cobra reescrever a alegação de um sistema real numa forma defensável —
+        sobre movimento facial, não sobre raiva — e dizer o que a reescrita custa.
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:ihc/tres-capacidades-da-computacao-afetiva
+          nivel_minimo: intermediario
+        - competencia: comp:ihc/reconhecimento-de-afeto-por-sinal
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/validade-de-construto-na-inferencia-de-emocao
+          nivel_resultante: avancado
+
+    # --- Fechamento: o construto frágil como infraestrutura -----------------
+    - id: etapa:ihc/reconhecimento-de-emocao-como-infraestrutura
+      titulo: Atlas da IA — a teoria contestada que virou infraestrutura de classificação
+      rev: 1
+      status: ativo
+      descricao: >
+        Crawford lê a IA como indústria extrativa — mineral, energética, de trabalho de
+        rotulagem, de dados tomados sem consentimento — e o capítulo sobre afeto é o
+        argumento mais direto do livro: uma psicologia contestada foi convertida em
+        produto de classificação e vendida a quem contrata, vigia e pune. Fecha a
+        trilha porque precisa de Barrett antes: o ponto não é que o detector erra, e
+        sim que um detector perfeitamente acurado produziria o mesmo dano. O corte é
+        rastrear um uso real do sensor ao contrato, e avaliar uma intervenção
+        regulatória pelo que ela não resolve.
+      esforco_estimado_min: 540
+      opcional: false
+      requires:
+        - competencia: comp:ihc/validade-de-construto-na-inferencia-de-emocao
+          nivel_minimo: avancado
+      teaches:
+        - competencia: comp:ihc/critica-politica-do-reconhecimento-de-emocao
+          nivel_resultante: intermediario
+
+  etapas_referenciadas:
+    - etapa:ia/o-problema-da-analise-de-sentimentos
