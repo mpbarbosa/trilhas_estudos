@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 68,
-  "gerado_em": "2026-11-13T00:36:12+00:00",
-  "hash": "sha256:1831912d562ebf4752ec2b416daac124ed5b551636c8859f0b73d81428891367",
+  "catalogo_versao": 69,
+  "gerado_em": "2026-11-14T03:48:45+00:00",
+  "hash": "sha256:118757467ce36b0cd7aa7bdef7d1bb7961b97f463b5bdb1807ca360694265182",
   "competencias": [
     {
       "id": "comp:arquitetura/computador-pessoal",
@@ -525,6 +525,14 @@
       "descricao": "Definir conjuntos de avaliação, métricas de fidelidade ao contexto e detecção de regressão para decisões de mudança de prompt, de modelo ou de recuperação.\n"
     },
     {
+      "id": "comp:ia/classificacao-de-sentimento",
+      "titulo": "Classificação supervisionada de sentimento",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Treinar Naive Bayes e regressão logística sobre um corpus rotulado de resenhas, reportar precisão, revocação e F1 por classe num conjunto retido, e analisar três erros distinguindo negação, ironia e opinião sobre outro alvo.",
+      "descricao": "Classificar polaridade de documento e sentença por aprendizado supervisionado — Naive Bayes e regressão logística sobre atributos de texto — e avaliar o classificador como se deve.\n"
+    },
+    {
       "id": "comp:ia/desenvolvimento-assistido-por-ia",
       "titulo": "Desenvolvimento assistido por agente de codificação",
       "rev": 1,
@@ -581,6 +589,14 @@
       "descricao": "Escolher e operar a hospedagem do modelo: limite de segurança do provedor, autenticação pela nuvem (função de serviço, identidade federada, token de curta duração), id de modelo e endpoint por plataforma, endpoint global, multirregional e regional, cota por região, paridade de recursos, retenção de dados e log de atividade.\n"
     },
     {
+      "id": "comp:ia/lexico-de-sentimento",
+      "titulo": "Léxicos de sentimento",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Pontuar o mesmo corpus com dois léxicos diferentes, explicar a divergência entre eles em três documentos, e expandir um léxico-semente por corpus, dizendo que palavra entrou com polaridade errada e por quê.",
+      "descricao": "Usar e construir léxicos de polaridade, afeto e conotação: escolher entre léxicos prontos, gerá-los por dicionário ou por corpus, e saber onde a contagem de palavras falha.\n"
+    },
+    {
       "id": "comp:ia/modelo-de-linguagem-ngrama",
       "titulo": "Modelo de linguagem de n-gramas",
       "rev": 1,
@@ -605,6 +621,22 @@
       "descricao": "Colocar e manter uma aplicação com LLM em serviço: observabilidade de custo e latência, cache, limites de taxa, salvaguardas de entrada e saída, retrocesso.\n"
     },
     {
+      "id": "comp:ia/preprocessamento-de-texto",
+      "titulo": "Pré-processamento de texto para PLN",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Sobre um corpus em arquivo, entregar um pipeline que tokenize, normalize e produza a distribuição de frequência e um vetor de atributos por documento, justificando duas escolhas — o que fazer com caixa, pontuação ou negação — pelo efeito delas na tarefa.",
+      "descricao": "Levar texto cru a unidades analisáveis: carregar corpus, tokenizar, normalizar, contar frequências e extrair atributos, com as escolhas de cada passo declaradas.\n"
+    },
+    {
+      "id": "comp:ia/problema-de-analise-de-sentimento",
+      "titulo": "O problema da análise de sentimentos",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um conjunto de resenhas reais, decompor cinco opiniões na quíntupla de Liu, apontar uma sentença subjetiva sem polaridade e uma objetiva que carrega opinião implícita, e dizer em que nível cada pergunta de negócio dada exige a análise.",
+      "descricao": "Definir opinião como estrutura — entidade, aspecto, orientação, titular e momento —, separar subjetividade de polaridade e reconhecer em que nível (documento, sentença, aspecto) uma pergunta de sentimento se coloca.\n"
+    },
+    {
       "id": "comp:ia/rag-pipeline",
       "titulo": "Pipeline de RAG",
       "rev": 1,
@@ -627,6 +659,14 @@
       "status": "ativo",
       "verificacao": "Indexar um corpus de pelo menos mil documentos, recuperar os k vizinhos de uma consulta e explicar um caso em que a busca léxica falharia e a vetorial acerta.",
       "descricao": "Produzir embeddings de texto, medir similaridade e usar um índice vetorial para recuperar conteúdo por significado, não por palavra.\n"
+    },
+    {
+      "id": "comp:ia/sentimento-por-aspecto",
+      "titulo": "Análise de sentimento por aspecto",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Sobre resenhas de um domínio, extrair os aspectos mais citados, agrupar sinônimos, atribuir orientação por aspecto e entregar o resumo de opinião por aspecto, com dois casos em que a orientação depende do aspecto e não da palavra.",
+      "descricao": "Extrair as entidades e os aspectos de que uma opinião fala e atribuir orientação a cada um, separando \"a bateria é ótima\" de \"a tela é ruim\" na mesma resenha.\n"
     },
     {
       "id": "comp:ia/suavizacao-e-retrocesso",
@@ -2989,6 +3029,32 @@
       ]
     },
     {
+      "id": "etapa:ia/classificacao-de-sentimento-supervisionada",
+      "titulo": "Classificação supervisionada — Naive Bayes e regressão logística",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 720,
+      "descricao": "Polaridade de documento e de sentença como classificação: Naive Bayes como linha de base, regressão logística como o classificador que se ajusta, e a avaliação por precisão, revocação e F1 com validação cruzada. Fecha com o que é próprio de sentimento — negação, subjetividade e domínio.\n",
+      "trilha": "trilha:ia/analise-de-sentimentos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/problema-de-analise-de-sentimento",
+          "nivel_minimo": "iniciante"
+        },
+        {
+          "competencia": "comp:ia/preprocessamento-de-texto",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/classificacao-de-sentimento",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:ia/claude-api-e-sdk",
       "titulo": "A API por dentro — mensagens, streaming, cache e custo",
       "rev": 1,
@@ -3241,6 +3307,28 @@
       ]
     },
     {
+      "id": "etapa:ia/lexicos-de-sentimento",
+      "titulo": "Léxicos de sentimento, afeto e conotação",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 540,
+      "descricao": "A via sem rótulo: léxicos prontos de polaridade e emoção, como se induz um léxico por dicionário ou por corpus a partir de sementes, e por que a palavra \"previsível\" é elogio num romance e defeito num thriller.\n",
+      "trilha": "trilha:ia/analise-de-sentimentos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/problema-de-analise-de-sentimento",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/lexico-de-sentimento",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:ia/llm-do-zero",
       "titulo": "Construir um LLM do zero",
       "rev": 1,
@@ -3353,6 +3441,44 @@
       ]
     },
     {
+      "id": "etapa:ia/o-problema-da-analise-de-sentimentos",
+      "titulo": "O problema da análise de sentimentos — opinião, alvo e nível",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 360,
+      "descricao": "O que é uma opinião antes de qualquer algoritmo: a quíntupla de Liu, subjetividade contra polaridade, opinião regular e comparativa, e os três níveis — documento, sentença, aspecto — em que a pergunta se coloca.\n",
+      "trilha": "trilha:ia/analise-de-sentimentos",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:ia/problema-de-analise-de-sentimento",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/opiniao-comparativa-e-opiniao-falsa",
+      "titulo": "Opinião comparativa, opinião falsa e qualidade da resenha",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "descricao": "Os casos que a quíntupla regular não cobre: \"A é melhor que B\", a resenha escrita para enganar e o que torna uma resenha útil. Opcional: aprofunda o problema, não a técnica que o objetivo declara.\n",
+      "trilha": "trilha:ia/analise-de-sentimentos",
+      "opcional": true,
+      "requires": [
+        {
+          "competencia": "comp:ia/problema-de-analise-de-sentimento",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/problema-de-analise-de-sentimento",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
       "id": "etapa:ia/panorama-llm-transformer-rag",
       "titulo": "Panorama — LLM, transformer e RAG",
       "rev": 1,
@@ -3425,6 +3551,32 @@
         {
           "competencia": "comp:ia/operacao-de-aplicacoes-llm",
           "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/projeto-classificador-de-sentimento",
+      "titulo": "Projeto — classificador de sentimento comparado e avaliado",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "descricao": "Reproduzir o experimento de Pang, Lee e Vaithyanathan sobre o corpus de resenhas do NLTK: léxico, Naive Bayes e regressão logística sobre a mesma partição, F1 por classe, e a análise de erro que diz onde cada via falha.\n",
+      "trilha": "trilha:ia/analise-de-sentimentos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/classificacao-de-sentimento",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:ia/lexico-de-sentimento",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/classificacao-de-sentimento",
+          "nivel_resultante": "avancado"
         }
       ]
     },
@@ -3537,6 +3689,54 @@
       ]
     },
     {
+      "id": "etapa:ia/sentimento-em-corpus-com-tidytext",
+      "titulo": "Sentimento em corpus inteiro com tidytext, em R",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "descricao": "A análise por léxico levada ao corpus: texto em formato tidy, três léxicos comparados sobre os mesmos romances, a trajetória do sentimento ao longo da narrativa e a negação tratada por bigramas. Opcional por ser em R; a linguagem se aprende no próprio cap. 1.\n",
+      "trilha": "trilha:ia/analise-de-sentimentos",
+      "opcional": true,
+      "requires": [
+        {
+          "competencia": "comp:ia/lexico-de-sentimento",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/lexico-de-sentimento",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/sentimento-por-aspecto",
+      "titulo": "Sentimento por aspecto — extrair o alvo e classificar cada um",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 720,
+      "descricao": "Onde o problema deixa de ser classificação de texto: extrair entidades e aspectos, agrupar os sinônimos, atribuir orientação por aspecto e resumir a opinião de muitas resenhas aspecto a aspecto.\n",
+      "trilha": "trilha:ia/analise-de-sentimentos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ia/classificacao-de-sentimento",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:ia/lexico-de-sentimento",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/sentimento-por-aspecto",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:ia/suavizacao-e-retrocesso",
       "titulo": "Suavização, desconto e retrocesso — o que fazer com o que não se viu",
       "rev": 1,
@@ -3554,6 +3754,28 @@
       "teaches": [
         {
           "competencia": "comp:ia/suavizacao-e-retrocesso",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ia/texto-como-dado-com-nltk",
+      "titulo": "Texto como dado — corpus, tokens e frequências com o NLTK",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "descricao": "Os três primeiros capítulos do livro do NLTK: carregar e explorar corpus, incluído o de resenhas de filme, tokenizar e normalizar texto cru, e contar frequências — o material de que todo classificador de sentimento parte.\n",
+      "trilha": "trilha:ia/analise-de-sentimentos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:programacao/python-dados",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ia/preprocessamento-de-texto",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -6422,6 +6644,39 @@
         "etapa:filosofia/leitura-integral-da-gita",
         "etapa:filosofia/gita-em-debate",
         "etapa:filosofia/bhakti-na-pratica"
+      ]
+    },
+    {
+      "id": "trilha:ia/analise-de-sentimentos",
+      "titulo": "Análise de sentimentos — da opinião como problema ao classificador avaliado",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:ia/classificacao-de-sentimento",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:ia/lexico-de-sentimento",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ia/sentimento-por-aspecto",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:ia/o-problema-da-analise-de-sentimentos",
+        "etapa:ia/texto-como-dado-com-nltk",
+        "etapa:ia/classificacao-de-sentimento-supervisionada",
+        "etapa:ia/lexicos-de-sentimento",
+        "etapa:ia/sentimento-em-corpus-com-tidytext",
+        "etapa:ia/sentimento-por-aspecto",
+        "etapa:ia/opiniao-comparativa-e-opiniao-falsa",
+        "etapa:ia/projeto-classificador-de-sentimento"
+      ],
+      "etapas_referenciadas": [
+        "etapa:programacao/python-para-ia"
       ]
     },
     {
@@ -9412,6 +9667,36 @@
       "verificado_em": "2026-10-17"
     },
     {
+      "id": "rec:ia/jurafsky-martin-lexicos-de-sentimento",
+      "titulo": "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — cap. 22, Lexicons for Sentiment, Affect, and Connotation",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/lexicos-de-sentimento",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://web.stanford.edu/~jurafsky/slp3/",
+      "disponivel": true,
+      "obra": "jurafsky-martin-slp3",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ia/jurafsky-martin-naive-bayes-e-regressao-logistica",
+      "titulo": "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — apêndice B, Naive Bayes Classification, e cap. 4, Logistic Regression and Text Classification",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/classificacao-de-sentimento-supervisionada",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 480,
+      "url": "https://web.stanford.edu/~jurafsky/slp3/",
+      "disponivel": true,
+      "obra": "jurafsky-martin-slp3",
+      "verificado_em": "2026-11-14"
+    },
+    {
       "id": "rec:ia/jurafsky-martin-ngramas",
       "titulo": "Speech and Language Processing, 3ª ed. (Jurafsky & Martin) — cap. 3, N-gram Language Models",
       "rev": 2,
@@ -9513,6 +9798,126 @@
       "disponivel": true,
       "obra": "koehn-nmt",
       "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:ia/liu-2012-caps-1-2-o-problema",
+      "titulo": "Sentiment Analysis and Opinion Mining (Bing Liu, 2012) — caps. 1 e 2: o problema e a quíntupla da opinião",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/o-problema-da-analise-de-sentimentos",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf",
+      "disponivel": true,
+      "obra": "liu-sentiment-analysis-opinion-mining",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ia/liu-2012-caps-3-4-classificacao",
+      "titulo": "Sentiment Analysis and Opinion Mining (Bing Liu, 2012) — caps. 3 e 4: classificação de documento e de sentença, subjetividade",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/classificacao-de-sentimento-supervisionada",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf",
+      "disponivel": true,
+      "obra": "liu-sentiment-analysis-opinion-mining",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ia/liu-2012-caps-5-7-aspecto-e-resumo",
+      "titulo": "Sentiment Analysis and Opinion Mining (Bing Liu, 2012) — caps. 5 e 7: análise por aspecto e resumo de opinião",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/sentimento-por-aspecto",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf",
+      "disponivel": true,
+      "obra": "liu-sentiment-analysis-opinion-mining",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ia/liu-2012-caps-8-10-11-comparativa-e-spam",
+      "titulo": "Sentiment Analysis and Opinion Mining (Bing Liu, 2012) — caps. 8, 10 e 11: opinião comparativa, spam de opinião, qualidade de resenha",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/opiniao-comparativa-e-opiniao-falsa",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf",
+      "disponivel": true,
+      "obra": "liu-sentiment-analysis-opinion-mining",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ia/liu-2020-cap-7-geracao-de-lexico",
+      "titulo": "Sentiment Analysis, 2ª ed. (Bing Liu, 2020) — cap. 7, Sentiment Lexicon Generation",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/lexicos-de-sentimento",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 450.0,
+      "duracao_min": 240,
+      "url": "https://www.cs.uic.edu/~liub/FBS/sentiment-opinion-emotion-analysis.html",
+      "disponivel": true,
+      "obra": "liu-sentiment-analysis-2ed",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ia/liu-2020-caps-1-2-o-problema",
+      "titulo": "Sentiment Analysis, 2ª ed. (Bing Liu, 2020) — caps. 1 e 2: introdução e o problema da análise de sentimentos",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/o-problema-da-analise-de-sentimentos",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 450.0,
+      "duracao_min": 300,
+      "url": "https://www.cs.uic.edu/~liub/FBS/chapter-1-and-chapter-2.pdf",
+      "disponivel": true,
+      "obra": "liu-sentiment-analysis-2ed",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ia/liu-2020-caps-5-6-aspecto",
+      "titulo": "Sentiment Analysis, 2ª ed. (Bing Liu, 2020) — caps. 5 e 6: classificação de sentimento por aspecto, extração de aspecto e entidade",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/sentimento-por-aspecto",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 450.0,
+      "duracao_min": 600,
+      "url": "https://www.cs.uic.edu/~liub/FBS/sentiment-opinion-emotion-analysis.html",
+      "disponivel": true,
+      "obra": "liu-sentiment-analysis-2ed",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ia/liu-2020-caps-8-12-13-comparativa-e-falsa",
+      "titulo": "Sentiment Analysis, 2ª ed. (Bing Liu, 2020) — caps. 8, 12 e 13: opinião comparativa, opinião falsa ou enganosa, qualidade de resenha",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/opiniao-comparativa-e-opiniao-falsa",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 450.0,
+      "duracao_min": 480,
+      "url": "https://www.cs.uic.edu/~liub/FBS/sentiment-opinion-emotion-analysis.html",
+      "disponivel": true,
+      "obra": "liu-sentiment-analysis-2ed",
+      "verificado_em": "2026-11-14"
     },
     {
       "id": "rec:ia/llm-engineers-handbook-finetuning",
@@ -9719,6 +10124,65 @@
       "disponivel": true,
       "obra": "tunstall-nlp-with-transformers",
       "verificado_em": "2026-10-08"
+    },
+    {
+      "id": "rec:ia/nltk-book-cap-6-classificar-texto",
+      "titulo": "Natural Language Processing with Python (Bird, Klein & Loper) — cap. 6, Learning to Classify Text, com o classificador de resenhas de filme",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/classificacao-de-sentimento-supervisionada",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://www.nltk.org/book/ch06.html",
+      "disponivel": true,
+      "obra": "bird-klein-loper-nltk",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ia/nltk-book-cap-6-exercicios",
+      "titulo": "Natural Language Processing with Python (Bird, Klein & Loper) — exercícios do cap. 6 sobre o corpus movie_reviews",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/projeto-classificador-de-sentimento",
+      "formato": "exercicio",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://www.nltk.org/book/ch06.html",
+      "disponivel": true,
+      "obra": "bird-klein-loper-nltk",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ia/nltk-book-caps-1-3",
+      "titulo": "Natural Language Processing with Python (Bird, Klein & Loper) — caps. 1 a 3: linguagem e Python, corpus e recursos lexicais, texto cru",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/texto-como-dado-com-nltk",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://www.nltk.org/book/",
+      "disponivel": true,
+      "obra": "bird-klein-loper-nltk",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ia/pang-lee-2002-thumbs-up",
+      "titulo": "Thumbs up? Sentiment Classification using Machine Learning Techniques (Pang, Lee & Vaithyanathan, EMNLP 2002) — o experimento a reproduzir",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/projeto-classificador-de-sentimento",
+      "formato": "projeto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://aclanthology.org/W02-1011/",
+      "disponivel": true,
+      "verificado_em": "2026-11-14"
     },
     {
       "id": "rec:ia/paper-attention-is-all-you-need",
@@ -10008,6 +10472,21 @@
       "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf",
       "disponivel": true,
       "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:ia/silge-robinson-caps-1-4",
+      "titulo": "Text Mining with R (Silge & Robinson) — caps. 1 a 4: formato tidy, sentimento com tidy data, tf-idf, n-gramas e correlações",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ia/sentimento-em-corpus-com-tidytext",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://www.tidytextmining.com/",
+      "disponivel": true,
+      "obra": "silge-robinson-text-mining-r",
+      "verificado_em": "2026-11-14"
     },
     {
       "id": "rec:ia/slp3-transformers",

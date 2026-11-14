@@ -1,0 +1,190 @@
+versao_schema: 1
+trilha:
+  id: trilha:ia/analise-de-sentimentos
+  titulo: Análise de sentimentos — da opinião como problema ao classificador avaliado
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:ia/classificacao-de-sentimento
+      nivel: avancado
+    - competencia: comp:ia/lexico-de-sentimento
+      nivel: intermediario
+    - competencia: comp:ia/sentimento-por-aspecto
+      nivel: intermediario
+
+  # A pergunta que a trilha percorre: o que alguém acha de quê, e como se mede isso
+  # em texto. Ela começa pelo problema antes da técnica — a opinião como quíntupla
+  # (entidade, aspecto, orientação, titular, momento) — porque é essa definição que
+  # separa análise de sentimentos de classificação de texto qualquer, e é ela que
+  # explica por que o nível de aspecto existe.
+  #
+  # Bibliografia, com o papel de cada obra:
+  #   Bing Liu, *Sentiment Analysis and Opinion Mining* (2012) — a espinha curta, em
+  #     rascunho que o autor publica de graça. Doze capítulos que já organizam o
+  #     campo na divisão que a trilha segue.
+  #   Bing Liu, *Sentiment Analysis: Mining Opinions, Sentiments, and Emotions*
+  #     (2ª ed., 2020) — a mesma divisão, aprofundada: aspecto e entidade ganham dois
+  #     capítulos, e entram debate, intenção e opinião falsa. Os dois livros de Liu
+  #     não se excluem: o de 2012 é a leitura de entrada, o de 2020 a de referência.
+  #   Bird, Klein & Loper, *Natural Language Processing with Python* (o livro do
+  #     NLTK) — o texto como dado, em Python, e o primeiro classificador de resenha.
+  #   Jurafsky & Martin, *Speech and Language Processing* (3ª ed., rascunho) — o
+  #     classificador por dentro: Naive Bayes, regressão logística e léxicos.
+  #   Silge & Robinson, *Text Mining with R* — a mesma análise por léxico em R, com
+  #     tidytext, levada ao corpus inteiro. Opcional por ser outra linguagem.
+  #
+  # Depois do problema, o pré-processamento e os léxicos são independentes entre
+  # si; a classificação precisa do primeiro, e o aspecto precisa dos dois — é
+  # grafo, não lista (ADR-0002).
+  etapas:
+    # --- Entrada ------------------------------------------------------------
+    - id: etapa:ia/o-problema-da-analise-de-sentimentos
+      titulo: O problema da análise de sentimentos — opinião, alvo e nível
+      rev: 1
+      status: ativo
+      descricao: >
+        O que é uma opinião antes de qualquer algoritmo: a quíntupla de Liu,
+        subjetividade contra polaridade, opinião regular e comparativa, e os três
+        níveis — documento, sentença, aspecto — em que a pergunta se coloca.
+      esforco_estimado_min: 360
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:ia/problema-de-analise-de-sentimento
+          nivel_resultante: intermediario
+
+    # --- Ferramenta (paralela aos léxicos) ----------------------------------
+    - id: etapa:ia/texto-como-dado-com-nltk
+      titulo: Texto como dado — corpus, tokens e frequências com o NLTK
+      rev: 1
+      status: ativo
+      descricao: >
+        Os três primeiros capítulos do livro do NLTK: carregar e explorar corpus,
+        incluído o de resenhas de filme, tokenizar e normalizar texto cru, e contar
+        frequências — o material de que todo classificador de sentimento parte.
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:programacao/python-dados
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:ia/preprocessamento-de-texto
+          nivel_resultante: intermediario
+
+    # --- As duas vias de medir sentimento -----------------------------------
+    - id: etapa:ia/classificacao-de-sentimento-supervisionada
+      titulo: Classificação supervisionada — Naive Bayes e regressão logística
+      rev: 1
+      status: ativo
+      descricao: >
+        Polaridade de documento e de sentença como classificação: Naive Bayes como
+        linha de base, regressão logística como o classificador que se ajusta, e a
+        avaliação por precisão, revocação e F1 com validação cruzada. Fecha com o
+        que é próprio de sentimento — negação, subjetividade e domínio.
+      esforco_estimado_min: 720
+      opcional: false
+      requires:
+        - competencia: comp:ia/problema-de-analise-de-sentimento
+          nivel_minimo: iniciante
+        - competencia: comp:ia/preprocessamento-de-texto
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ia/classificacao-de-sentimento
+          nivel_resultante: intermediario
+
+    - id: etapa:ia/lexicos-de-sentimento
+      titulo: Léxicos de sentimento, afeto e conotação
+      rev: 1
+      status: ativo
+      descricao: >
+        A via sem rótulo: léxicos prontos de polaridade e emoção, como se induz um
+        léxico por dicionário ou por corpus a partir de sementes, e por que a palavra
+        "previsível" é elogio num romance e defeito num thriller.
+      esforco_estimado_min: 540
+      opcional: false
+      requires:
+        - competencia: comp:ia/problema-de-analise-de-sentimento
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:ia/lexico-de-sentimento
+          nivel_resultante: intermediario
+
+    - id: etapa:ia/sentimento-em-corpus-com-tidytext
+      titulo: Sentimento em corpus inteiro com tidytext, em R
+      rev: 1
+      status: ativo
+      descricao: >
+        A análise por léxico levada ao corpus: texto em formato tidy, três léxicos
+        comparados sobre os mesmos romances, a trajetória do sentimento ao longo da
+        narrativa e a negação tratada por bigramas. Opcional por ser em R; a
+        linguagem se aprende no próprio cap. 1.
+      esforco_estimado_min: 600
+      opcional: true
+      requires:
+        - competencia: comp:ia/lexico-de-sentimento
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ia/lexico-de-sentimento
+          nivel_resultante: avancado
+
+    # --- A granularidade fina -----------------------------------------------
+    - id: etapa:ia/sentimento-por-aspecto
+      titulo: Sentimento por aspecto — extrair o alvo e classificar cada um
+      rev: 1
+      status: ativo
+      descricao: >
+        Onde o problema deixa de ser classificação de texto: extrair entidades e
+        aspectos, agrupar os sinônimos, atribuir orientação por aspecto e resumir a
+        opinião de muitas resenhas aspecto a aspecto.
+      esforco_estimado_min: 720
+      opcional: false
+      requires:
+        - competencia: comp:ia/classificacao-de-sentimento
+          nivel_minimo: intermediario
+        - competencia: comp:ia/lexico-de-sentimento
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ia/sentimento-por-aspecto
+          nivel_resultante: intermediario
+
+    - id: etapa:ia/opiniao-comparativa-e-opiniao-falsa
+      titulo: Opinião comparativa, opinião falsa e qualidade da resenha
+      rev: 1
+      status: ativo
+      descricao: >
+        Os casos que a quíntupla regular não cobre: "A é melhor que B", a resenha
+        escrita para enganar e o que torna uma resenha útil. Opcional: aprofunda o
+        problema, não a técnica que o objetivo declara.
+      esforco_estimado_min: 600
+      opcional: true
+      requires:
+        - competencia: comp:ia/problema-de-analise-de-sentimento
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ia/problema-de-analise-de-sentimento
+          nivel_resultante: avancado
+
+    # --- Fechamento ---------------------------------------------------------
+    - id: etapa:ia/projeto-classificador-de-sentimento
+      titulo: Projeto — classificador de sentimento comparado e avaliado
+      rev: 1
+      status: ativo
+      descricao: >
+        Reproduzir o experimento de Pang, Lee e Vaithyanathan sobre o corpus de
+        resenhas do NLTK: léxico, Naive Bayes e regressão logística sobre a mesma
+        partição, F1 por classe, e a análise de erro que diz onde cada via falha.
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:ia/classificacao-de-sentimento
+          nivel_minimo: intermediario
+        - competencia: comp:ia/lexico-de-sentimento
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ia/classificacao-de-sentimento
+          nivel_resultante: avancado
+
+  # A etapa de Python é introduzida pela trilha do transformer; aqui ela é
+  # pré-requisito do NLTK, não conteúdo novo.
+  etapas_referenciadas:
+    - etapa:programacao/python-para-ia
