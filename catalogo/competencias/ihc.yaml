@@ -157,3 +157,199 @@ competencias:
       previsto e por que via essa responsabilidade se cobraria; e defender uma regra —
       de produto, de plataforma ou de lei — que mudaria o caso, com a objeção mais forte
       a ela.
+
+# -------------------------------------------------------------------------
+# trilha:ihc/computacao-afetiva
+#
+# Segunda trilha da área, pedida pelo estudante em 2026-11-14 a partir de uma lista
+# de sugestões de leitura sobre computação afetiva. Fica em `ihc` pelo mesmo motivo
+# que a captologia: o campo foi fundado por Rosalind Picard no MIT Media Lab como
+# problema de interação, não de aprendizado de máquina — e a parte que é de
+# aprendizado de máquina (o canal textual) já tem casa em `ia`, e é referenciada de
+# lá em vez de reescrita aqui.
+#
+# As oito competências se dividem em quatro famílias, e a divisão é a tese da trilha:
+# **descrever** o campo e o que nele é afeto (as três capacidades, o afeto na
+# decisão), **reconhecer** (afeto por sinal), **produzir** (emoção sintética em
+# agente, resposta social à máquina, design emocional em três níveis) e **duvidar**
+# (validade de construto, crítica política). A quarta família não é apêndice: sem
+# ela, ler Picard e o Oxford Handbook em 2026 é aprender a construir um detector cuja
+# premissa — a de que existe emoção básica com assinatura facial estável — a
+# psicologia da emoção já não sustenta.
+#
+# Mesmo critério das outras áreas de leitura: a `verificacao` se cobra **fora** do
+# corpus da trilha — qualquer produto, qualquer artigo, qualquer sistema em uso. Os
+# nove livros são só onde a trilha as exercita.
+# -------------------------------------------------------------------------
+
+  - id: comp:ihc/tres-capacidades-da-computacao-afetiva
+    titulo: Distinguir, num sistema, reconhecer afeto, expressar afeto e ter afeto
+    rev: 1
+    status: ativo
+    descricao: >
+      Picard separa três capacidades que a palavra "afetivo" junta e que não se
+      implicam: reconhecer o afeto de quem usa, expressar afeto para quem usa (com ou
+      sem estado interno correspondente) e ter um estado afetivo que altere o próprio
+      processamento. A competência é dizer qual delas um sistema concreto tem,
+      distinguir expressão de posse, e dizer para que serve a que ele tem — porque é
+      aí que a maior parte das promessas de produto se desfaz.
+    verificacao: >
+      Dado um produto ou um artigo que se anuncie como afetivo, emocional ou empático
+      e não os do corpus: dizer qual das três capacidades ele realmente tem e por que
+      evidência; apontar onde a descrição confunde expressar com ter, ou reconhecer
+      com inferir corretamente; dizer que decisão do sistema muda por causa do afeto
+      detectado, nomeando a decisão, e se ela mudaria igualmente com uma heurística
+      sem afeto nenhum; e dizer qual das três capacidades o caso dispensaria sem
+      perder a função declarada.
+
+  - id: comp:ihc/emocao-na-decisao
+    titulo: Explicar o papel do afeto numa decisão que se apresenta como racional
+    rev: 1
+    status: ativo
+    descricao: >
+      Damásio argumenta, a partir de lesão pré-frontal ventromedial, que o afeto não é
+      ruído sobre a razão: pacientes com raciocínio e memória preservados e marcação
+      emocional destruída decidem mal a vida prática, e a hipótese do marcador
+      somático explica por quê — o corpo pré-seleciona opções antes da deliberação. A
+      competência é usar isso para ler uma decisão real, e também para dizer o que
+      daqui **não** se segue, que é a parte normalmente atropelada quando o argumento
+      chega à computação afetiva.
+    verificacao: >
+      Dado um caso de decisão documentado — clínico, profissional, de consumo ou de
+      política pública: separar o que no caso é deliberação explícita do que é
+      pré-seleção afetiva, dizendo por que indício; descrever a hipótese do marcador
+      somático como mecanismo, em passos, e dizer que observação a falsificaria;
+      apontar um erro de decisão do caso que a leitura puramente racional não explica;
+      e dizer, explicitamente, por que "afeto participa da decisão" não autoriza
+      concluir "medir afeto melhora a decisão", nomeando o salto.
+
+  - id: comp:ihc/reconhecimento-de-afeto-por-sinal
+    titulo: Projetar e criticar um reconhecedor de afeto a partir de sinal observável
+    rev: 1
+    status: ativo
+    descricao: >
+      O lado de engenharia do campo: escolher a modalidade (face, voz, fisiologia,
+      postura, interação), extrair atributos, treinar e avaliar, e decidir como
+      combinar modalidades — fusão no nível do atributo ou no da decisão. A competência
+      inclui o que costuma afundar esses sistemas antes do algoritmo: de onde veio o
+      rótulo, se a avaliação é dependente ou independente de sujeito, e o que o sinal
+      mede quando o contexto muda.
+    verificacao: >
+      Dado um objetivo de reconhecimento afetivo e um orçamento de sensores: escolher
+      a modalidade e justificar pela razão sinal-ruído e pela intrusividade, não pela
+      disponibilidade de biblioteca; dizer como os rótulos de treino seriam obtidos e
+      que viés cada via de rotulagem (autorrelato, anotador externo, situação
+      induzida) introduz; descrever o protocolo de avaliação separando sujeito,
+      sessão e contexto, e dizer qual separação o sistema provavelmente não respeita;
+      escolher entre fusão precoce e tardia com um motivo que não seja de moda; e
+      nomear uma confusão sistemática esperada — um estado que o sinal escolhido não
+      distingue de outro.
+
+  - id: comp:ihc/emocao-sintetica-em-agente
+    titulo: Projetar o estado afetivo de um agente e dizer o que ele muda no comportamento
+    rev: 1
+    status: ativo
+    descricao: >
+      O lado da geração: fazer um agente expressar afeto de modo legível e, mais
+      difícil, ter um estado interno que altere a própria deliberação. Minsky
+      oferece o enquadramento forte — emoção como "maneira de pensar", um recurso que
+      desliga outros recursos, e não um verniz sobre a cognição —, e a literatura de
+      avaliação (appraisal) oferece as arquiteturas que transformam isso em regra
+      executável. A competência é desenhar um desses estados sem cair no decorativo.
+    verificacao: >
+      Dado um agente com uma tarefa definida — tutor, assistente, personagem,
+      companheiro de equipe: especificar um estado afetivo em termos de que eventos o
+      produzem (avaliação de quê, em relação a que objetivo), quanto ele dura e como
+      decai; dizer que comportamento do agente muda quando ele está nesse estado, e
+      mostrar que a mudança não é obtível por uma regra sem afeto; especificar a
+      expressão do estado em pelo menos dois canais e dizer qual é redundante; dizer
+      se o agente deve declarar que não sente, e defender a escolha; e apontar um modo
+      de falha em que o estado afetivo prejudica a tarefa.
+
+  - id: comp:ihc/resposta-social-a-maquina
+    titulo: Prever a resposta social de quem usa a uma escolha de interface
+    rev: 1
+    status: ativo
+    descricao: >
+      O achado experimental de Nass e colegas: pessoas aplicam a máquinas regras que
+      são sociais — reciprocidade, cortesia, lisonja, atribuição de personalidade e de
+      gênero à voz, constrangimento diante de crítica —, mesmo sabendo perfeitamente
+      que é máquina, e mesmo negando que o fazem. A competência é usar isso para
+      prever o efeito de uma escolha concreta de interface, e para projetar um teste
+      que confirme ou negue a previsão.
+    verificacao: >
+      Dada uma escolha concreta de interface — o texto de uma mensagem de erro, a voz
+      de um assistente, a ordem de um elogio, a identidade de quem dá uma nota:
+      prever a resposta social que ela produz, nomeando a regra social acionada;
+      desenhar um experimento com condição de controle que distinguiria essa previsão
+      da hipótese nula, dizendo o que se mediria; dizer por que perguntar ao usuário
+      não serve como medida nesse caso; e apontar um uso da mesma regra que seria
+      manipulação, separando-o do uso que não é, com o critério explícito.
+
+  - id: comp:ihc/design-emocional-em-tres-niveis
+    titulo: Analisar e corrigir um artefato pelos três níveis do processamento
+    rev: 1
+    status: ativo
+    descricao: >
+      Norman separa o visceral (a reação imediata à forma, antes de qualquer
+      interpretação), o comportamental (o prazer e a frustração de usar, que é o
+      território da usabilidade) e o reflexivo (o que o objeto diz de quem o tem, a
+      memória e a narrativa). A competência é localizar em que nível um artefato
+      acerta e em que nível falha — e saber que os níveis podem se contradizer, caso em
+      que a correção de um piora o outro.
+    verificacao: >
+      Dado um artefato ou interface em uso, de preferência um que o estudante tenha
+      abandonado ou mantido contra a própria conveniência: descrever a resposta em
+      cada um dos três níveis, com o elemento concreto que a produz; apontar uma
+      contradição entre dois níveis e dizer qual venceu na decisão de continuar usando
+      ou não; propor uma mudança que melhore o nível mais fraco e dizer o que ela
+      custa nos outros dois; e dizer em que caso o nível reflexivo sozinho sustenta um
+      produto ruim de usar, com um exemplo que não seja de luxo.
+
+  - id: comp:ihc/validade-de-construto-na-inferencia-de-emocao
+    titulo: Julgar a validade de construto de um sistema que declara inferir emoção
+    rev: 1
+    status: ativo
+    descricao: >
+      A pergunta que vem antes da acurácia: o que exatamente o sistema afirma estar
+      medindo, e esse algo existe na forma que ele supõe? Barrett reúne a evidência de
+      que categorias de emoção não têm assinatura corporal nem facial estável — há
+      variabilidade dentro da categoria e degeneração entre categorias —, e sustenta
+      que a emoção é construída pelo cérebro no contexto. A competência é extrair daí
+      consequências operacionais: o rótulo do conjunto de treino é uma teoria da
+      emoção embutida, e uma acurácia alta contra esse rótulo pode não medir nada do
+      mundo.
+    verificacao: >
+      Dado um sistema de inferência de emoção com métrica publicada: dizer que
+      construto ele afirma medir e que teoria da emoção o seu esquema de rótulos
+      pressupõe; explicar, com a distinção entre variabilidade e degeneração, por que
+      uma acurácia alta contra aqueles rótulos pode ser compatível com não medir
+      emoção; propor uma validação externa que o construto exigiria, e dizer por que a
+      validação cruzada interna não a substitui; reescrever a alegação do sistema numa
+      forma defensável (sobre movimento facial, sobre ativação fisiológica, sobre
+      rótulo de anotador) e dizer o que a reescrita custa ao produto; e dizer em que
+      uso a alegação mais fraca ainda é suficiente, e em que uso não é.
+
+  - id: comp:ihc/critica-politica-do-reconhecimento-de-emocao
+    titulo: Situar um sistema de reconhecimento de emoção na cadeia de poder que o sustenta
+    rev: 1
+    status: ativo
+    descricao: >
+      Crawford lê a inteligência artificial como indústria extrativa — mineral,
+      energética, de trabalho de rotulagem e de dados tomados sem consentimento — e
+      dedica ao reconhecimento de emoção o argumento mais direto: uma teoria
+      psicológica contestada foi convertida em infraestrutura de classificação, e
+      vendida a quem contrata, vigia e pune. A competência é fazer essa leitura num
+      caso concreto, do sensor ao contrato, e distinguir o que é defeito corrigível do
+      que é a função.
+    verificacao: >
+      Dado um uso real de reconhecimento de emoção — triagem de candidatos,
+      monitoramento de sala de aula, fronteira, central de atendimento, carro,
+      publicidade: nomear quem é medido, quem decide e quem lucra, e dizer quem
+      assume o risco do erro; rastrear de onde vieram os dados de treino e que
+      trabalho humano os rotulou, com a condição desse trabalho; dizer se o dano
+      depende de o sistema estar errado ou se um sistema perfeitamente acurado
+      produziria dano igual, justificando; identificar a assimetria que impede quem é
+      pontuado de contestar; e avaliar uma intervenção regulatória concreta — proibição
+      por contexto, exigência de consentimento, abertura de auditoria — dizendo o que
+      ela não resolve.

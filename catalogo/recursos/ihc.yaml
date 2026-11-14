@@ -34,6 +34,77 @@
 #     da resenha na ReCiC/UESB). **O custo é ESTIMATIVA**: nenhuma página lida mostrou
 #     preço.
 # -------------------------------------------------------------------------
+# -------------------------------------------------------------------------
+# trilha:ihc/computacao-afetiva
+#
+# Fichas conferidas em 2026-11-14, detalhadas em docs/bibliografia.md §IHC. Ao
+# contrário das cinco da captologia, **nenhum destes nove preços é estimativa**: cada
+# um saiu de uma página de produto lida no navegador embutido, e a `url` de cada
+# recurso é a página em que o preço estava. A Amazon BR recusa o `curl` deste
+# ambiente mas responde ao navegador, e foi assim que os cinco importados saíram.
+#
+#   obra: picard-affective-computing — Rosalind W. Picard, *Affective Computing*
+#     (MIT Press; brochura de 2000 do original de 1997, 306 p.,
+#     ISBN 978-0-262-66115-7), en-US: nenhuma tradução brasileira encontrada.
+#     R$ 473,48 em capa comum na Amazon BR, que mostra ao lado "6 ofertas de produtos
+#     novos e usados" a partir de R$ 259,99 — o `custo` é o da oferta principal.
+#   obra: oxford-handbook-affective-computing — Calvo, D'Mello, Gratch e Kappas
+#     (orgs.), *The Oxford Handbook of Affective Computing* (Oxford University Press,
+#     2015, 624 p., ISBN 978-0-19-994223-7), en-US. **Duas fatias, por seção e não por
+#     capítulo**: a descrição da editora dá cinco seções — história e teoria,
+#     detecção, geração, metodologias e aplicações — em 41 capítulos, e os números de
+#     capítulo de cada seção não se conferiram em nenhuma página lida. Fatiar por
+#     número aqui seria inventar. R$ 1.513,82 em capa dura na Amazon BR, onde a
+#     página mostra também R$ 1.593,50 "à vista no Pix" — mais alto que o preço
+#     normal, contradição que ficou como está porque é o que a página diz.
+#   obra: konar-chakraborty-emotion-recognition — Amit Konar e Aruna Chakraborty
+#     (orgs.), *Emotion Recognition: A Pattern Analysis Approach* (Wiley, 2015,
+#     584 p., ISBN 978-1-118-13066-7), en-US. R$ 814,37 em capa dura na Amazon BR,
+#     com entrega prevista para o fim de dezembro de 2026.
+#   obra: damasio-o-erro-de-descartes — António Damásio, *O erro de Descartes: emoção,
+#     razão e o cérebro humano*, trad. Dora Vicente e Georgina Segurado (Companhia das
+#     Letras, selo Edição Econômica, lançada em 19/11/2012, 264 p.,
+#     ISBN 978-85-359-2200-4). R$ 67,90 à vista na Martins Fontes Paulista. A página
+#     da editora dá a ficha mas **não dá preço**.
+#   obra: minsky-the-emotion-machine — Marvin Minsky, *The Emotion Machine:
+#     Commonsense Thinking, Artificial Intelligence, and the Future of the Human Mind*
+#     (Simon & Schuster, brochura de 2007 do original de 2006, 400 p.,
+#     ISBN 978-0-7432-7664-1), en-US. R$ 110,96 na Amazon BR, de R$ 211,88.
+#   obra: nass-yen-the-man-who-lied-to-his-laptop — Clifford Nass e Corina Yen,
+#     *The Man Who Lied to His Laptop: What We Can Learn About Ourselves from Our
+#     Machines* (Current/Penguin, brochura de 2013 do original de 2010, 256 p.,
+#     ISBN 978-1-61723-004-2), en-US. R$ 100,67 na Amazon BR, que avisa "Somente 1 em
+#     estoque" — `disponivel: true` hoje, e é o tipo de recurso que a validação 10 vai
+#     mandar reconferir em 180 dias.
+#   obra: norman-emotional-design — Donald A. Norman, *Emotional Design: Why We Love
+#     (or Hate) Everyday Things* (Basic Books, brochura, 272 p.,
+#     ISBN 978-0-465-05136-6), en-US. R$ 103,79 na Amazon BR. **A tradução brasileira
+#     existe e está fora de catálogo**: *Design Emocional*, Rocco, 2008, 278 p.,
+#     ISBN 9788532523327 pelo Skoob; a busca da Martins Fontes Paulista por "design
+#     emocional" devolve um produto só, e é de outro autor. O recurso entra em inglês
+#     porque é o exemplar que se compra hoje.
+#   obra: barrett-como-as-emocoes-sao-feitas — Lisa Feldman Barrett, *Como as emoções
+#     são feitas: a vida secreta do cérebro*, trad. Cássio de Arantes Leite (Objetiva,
+#     lançada em 28/07/2026, 472 p., brochura, ISBN 978-85-390-0961-9). R$ 99,90 na
+#     Martins Fontes Paulista. ⚠️ A página da Companhia das Letras **não traz o preço
+#     do livro** e traz, logo abaixo da ficha, uma vitrine "Você também pode gostar"
+#     com R$ 99,90 ao lado de outro título: a coincidência é acidental, e o preço
+#     deste recurso é o da Martins Fontes.
+#   obra: crawford-atlas-da-ia — Kate Crawford, *Atlas da IA: poder, política e os
+#     custos planetários da inteligência artificial*, trad. Humberto do Amaral
+#     (Edições Sesc São Paulo, 2025, 380 p., brochura, ISBN 978-85-9493-328-7).
+#     R$ 98,00 na Travessa, com "Adicionar à sacola". A Livraria Loyola anuncia
+#     R$ 78,40 (20% de desconto sobre R$ 98,00) e na mesma página diz **"Produto
+#     esgotado"** — preço de exemplar que não se compra não é preço, e por isso o
+#     `custo` é o da Travessa.
+#
+# **Não entrou, e é deliberado:** *The Handbook of Multimodal-Multisensor Interfaces*
+# (Oviatt et al., ACM/Morgan & Claypool), que estava na lista de sugestões. São três
+# volumes com preço e disponibilidade próprios, e `obra` é um exemplar com um preço
+# (validação 12): catalogá-lo exigiria decidir se são uma obra ou três, e a decisão
+# não se toma sem ver as três páginas de produto. A fusão de modalidades, que é o que
+# ele traria, está coberta pela seção de detecção do Oxford Handbook.
+# -------------------------------------------------------------------------
 versao_schema: 1
 recursos:
   # --- etapa:ihc/captologia-e-triade-funcional ----------------------------
@@ -123,5 +194,153 @@ recursos:
     obra: oneil-algoritmos-de-destruicao-em-massa
     duracao_min: 600
     url: https://www.amazon.com.br/s?k=9786586460025
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/computacao-afetiva-o-campo -------------------------------
+  - id: rec:ihc/picard-affective-computing
+    etapa: etapa:ihc/computacao-afetiva-o-campo
+    titulo: "Affective Computing (Rosalind W. Picard)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 473.48
+    obra: picard-affective-computing
+    duracao_min: 600
+    url: https://www.amazon.com.br/s?k=9780262661157
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/emocao-na-decisao-racional -------------------------------
+  - id: rec:ihc/damasio-o-erro-de-descartes
+    etapa: etapa:ihc/emocao-na-decisao-racional
+    titulo: "O erro de Descartes: emoção, razão e o cérebro humano (António Damásio)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 67.90
+    obra: damasio-o-erro-de-descartes
+    duracao_min: 480
+    url: https://www.martinsfontespaulista.com.br/o-erro-de-descartes-695903/p
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/deteccao-de-afeto-por-sinal ------------------------------
+  - id: rec:ihc/oxford-handbook-affective-computing-deteccao
+    etapa: etapa:ihc/deteccao-de-afeto-por-sinal
+    titulo: "The Oxford Handbook of Affective Computing — seção de detecção: face, voz, fisiologia e fusão"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 1513.82
+    obra: oxford-handbook-affective-computing
+    duracao_min: 720
+    url: https://www.amazon.com.br/s?k=9780199942237
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  - id: rec:ihc/konar-chakraborty-emotion-recognition
+    etapa: etapa:ihc/deteccao-de-afeto-por-sinal
+    titulo: "Emotion Recognition: A Pattern Analysis Approach (Amit Konar e Aruna Chakraborty, orgs.)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 814.37
+    obra: konar-chakraborty-emotion-recognition
+    duracao_min: 900
+    url: https://www.amazon.com.br/s?k=9781118130667
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/emocao-sintetica-e-agente-afetivo ------------------------
+  - id: rec:ihc/oxford-handbook-affective-computing-geracao
+    etapa: etapa:ihc/emocao-sintetica-e-agente-afetivo
+    titulo: "The Oxford Handbook of Affective Computing — seção de geração: avaliação, expressão e agente afetivo"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 1513.82
+    obra: oxford-handbook-affective-computing
+    duracao_min: 480
+    url: https://www.amazon.com.br/s?k=9780199942237
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  - id: rec:ihc/minsky-the-emotion-machine
+    etapa: etapa:ihc/emocao-sintetica-e-agente-afetivo
+    titulo: "The Emotion Machine: Commonsense Thinking, Artificial Intelligence, and the Future of the Human Mind (Marvin Minsky)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 110.96
+    obra: minsky-the-emotion-machine
+    duracao_min: 660
+    url: https://www.amazon.com.br/s?k=9780743276641
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/resposta-social-a-maquina --------------------------------
+  - id: rec:ihc/nass-yen-the-man-who-lied-to-his-laptop
+    etapa: etapa:ihc/resposta-social-a-maquina
+    titulo: "The Man Who Lied to His Laptop: What We Can Learn About Ourselves from Our Machines (Clifford Nass e Corina Yen)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 100.67
+    obra: nass-yen-the-man-who-lied-to-his-laptop
+    duracao_min: 420
+    url: https://www.amazon.com.br/s?k=9781617230042
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/design-emocional-em-tres-niveis --------------------------
+  - id: rec:ihc/norman-emotional-design
+    etapa: etapa:ihc/design-emocional-em-tres-niveis
+    titulo: "Emotional Design: Why We Love (or Hate) Everyday Things (Donald A. Norman)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 103.79
+    obra: norman-emotional-design
+    duracao_min: 480
+    url: https://www.amazon.com.br/s?k=9780465051366
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/validade-da-inferencia-de-emocao -------------------------
+  - id: rec:ihc/barrett-como-as-emocoes-sao-feitas
+    etapa: etapa:ihc/validade-da-inferencia-de-emocao
+    titulo: "Como as emoções são feitas: a vida secreta do cérebro (Lisa Feldman Barrett)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 99.90
+    obra: barrett-como-as-emocoes-sao-feitas
+    duracao_min: 600
+    url: https://www.martinsfontespaulista.com.br/como%20as%20emocoes%20sao%20feitas?_q=como%20as%20emocoes%20sao%20feitas&map=ft
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/reconhecimento-de-emocao-como-infraestrutura -------------
+  - id: rec:ihc/crawford-atlas-da-ia
+    etapa: etapa:ihc/reconhecimento-de-emocao-como-infraestrutura
+    titulo: "Atlas da IA: poder, política e os custos planetários da inteligência artificial (Kate Crawford)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 98
+    obra: crawford-atlas-da-ia
+    duracao_min: 540
+    url: https://www.travessa.com.br/atlas-da-ia-poder-politica-e-os-custos-planetarios-da-inteligencia-artificial/artigo/48fa31a0-b199-4b13-854e-47555d594d1f
     disponivel: true
     verificado_em: 2026-11-14
