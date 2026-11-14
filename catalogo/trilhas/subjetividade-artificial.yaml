@@ -1,0 +1,169 @@
+versao_schema: 1
+trilha:
+  id: trilha:filosofia/subjetividade-artificial
+  titulo: Subjetividade artificial — da vida interior reproduzida à crítica do ensaio que a diagnostica
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:filosofia/subjetividade-artificial
+      nivel: intermediario
+    - competencia: comp:filosofia/subjetividade-na-tradicao-filosofica
+      nivel: intermediario
+    - competencia: comp:filosofia/delegacao-da-vida-interior
+      nivel: avancado
+    - competencia: comp:filosofia/critica-do-ensaio-sobre-tecnologia
+      nivel: avancado
+
+  # Nasce de uma leitura em curso: o estudante começou *Gozai por nós — Estudos sobre
+  # a subjetividade artificial*, coletânea organizada por Alfredo Simonetti (psiquiatra
+  # e psicanalista), 19 capítulos, 3 apêndices e um posfácio. Nenhuma obra de
+  # psicanálise ou de filosofia da técnica estava no catálogo antes desta trilha
+  # (`scripts/onde-cabe.sh` por "Simonetti", "gozo" e "psicanal" não casou com recurso
+  # nenhum), e a área `filosofia` só tinha a trilha da Bhagavad Gita. É o movimento da
+  # Gita outra vez: livro sem casa vira trilha.
+  #
+  # **A forma do grafo: um tronco só, porque é um livro só.** As cinco etapas são cinco
+  # fatias do mesmo exemplar, na ordem dos capítulos, e isso é deliberado — uma
+  # coletânea de ensaio não se lê em paralelo como dois manuais se leem. A única
+  # ramificação está no meio: as etapas 2 (a linhagem do conceito) e 3 (o íntimo
+  # capturado) saem as duas da etapa 1 e não dependem uma da outra; a etapa 4 exige as
+  # duas, porque é onde a tese é posta à prova setor a setor e precisa tanto do
+  # vocabulário filosófico quanto do caso cotidiano.
+  #
+  # **Por que a crítica fecha, e não abre.** O livro se autoclassifica "ciência
+  # poética" e reúne psicanalistas, médicos, um historiador, um jornalista, um
+  # linguista e uma estudante. Isso é uma dificuldade de leitura, não um defeito: teses
+  # de capítulos diferentes não se sustentam juntas, e a última etapa cobra exatamente
+  # isso, nos apêndices e no posfácio, onde o livro comenta a si mesmo. Abrir por aí
+  # seria criticar o que ainda não se leu.
+  #
+  # **O que esta trilha não repete.** comp:ihc/vicio-comportamental-por-design e
+  # comp:ihc/ciclo-do-gancho (trilha:ihc/captologia) já cobram o mecanismo pelo qual o
+  # produto prende; comp:ihc/dano-algoritmico-em-escala já cobra o modelo de pontuação
+  # que decide. Aqui o cap. 7 ("Nós achamos que você vai gostar disso") e o cap. 19
+  # ("Os algoritmos do fim") entram por outro ângulo — o que a recomendação faz ao
+  # desejo de quem escolhe, não ao engajamento de quem é medido —, e por isso a trilha
+  # não referencia aquelas etapas.
+  #
+  # LIMITE DE VERIFICAÇÃO — leia antes de confiar no fatiamento.
+  #   CONFERIDO na amostra Kindle da Amazon em 2026-11-14 (ASIN B0CQRJ84FY): a lista
+  #   completa dos 19 capítulos com seus títulos, dos 3 apêndices e do posfácio, na
+  #   ordem em que aparecem abaixo; 348 p. na capa comum e 412 na edição Kindle; 1ª ed.,
+  #   publicada em 20/12/2023.
+  #   NÃO CONFERIDO: a paginação de cada capítulo (o sumário da amostra não a traz), o
+  #   conteúdo de capítulo nenhum, e a autoria de cada capítulo — a coletânea tem vários
+  #   autores e a amostra não os atribui. Logo: o **agrupamento em cinco etapas é
+  #   inferido dos títulos dos capítulos**, não da leitura deles, e as `duracao_min` das
+  #   fatias são estimativa por número de capítulos a ~2,5 min/p. sobre as 348 p., não
+  #   medida. Quem ler o livro conserta isto — corrigir `descricao` e `duracao_min` é
+  #   cosmético (docs/catalogo.md §4) e não sobe `rev`; mudar de que capítulos uma etapa
+  #   se compõe, não.
+  etapas:
+    # --- Raiz: o conceito ---------------------------------------------------
+    - id: etapa:filosofia/conceito-de-subjetividade-artificial
+      titulo: "Gozai por nós, caps. 1 a 3 — a subjetividade artificial, a estranha familiar e a condição pós-humana"
+      rev: 1
+      status: ativo
+      descricao: >
+        Os três capítulos de abertura enunciam o conceito que dá nome ao livro: não a
+        inteligência reproduzida, mas a vida interior — e a nomeiam pelo avesso, como
+        "a estranha familiar", o que já é uma escolha teórica. O terceiro traz a
+        condição pós-humana, termo que carrega pelo menos duas conversas diferentes.
+        O corte é sair daqui com a distinção que o resto da trilha vai usar: função
+        psíquica assistida, mediada ou ocupada.
+      esforco_estimado_min: 180
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:filosofia/subjetividade-artificial
+          nivel_resultante: intermediario
+
+    # --- Do conceito: a linhagem --------------------------------------------
+    - id: etapa:filosofia/subjetividade-e-a-tradicao
+      titulo: "Gozai por nós, caps. 4 a 6 — a inteligência artificial e mais além, a subjetividade na filosofia e a pergunta pelo outro"
+      rev: 1
+      status: ativo
+      descricao: >
+        Onde o livro declara de que tradição fala: o cap. 5 situa "subjetividade" na
+        filosofia e o cap. 6 — "Que outro é esse?" — abre a questão do outro, que na
+        psicanálise não é a mesma coisa que na ética. O cap. 4 marca a fronteira com a
+        inteligência artificial propriamente dita. O corte é cobrar precisão do
+        vocabulário: em que acepção cada capítulo usa a palavra, e o que acontece com
+        a tese do cap. 1 quando se troca uma acepção pela outra.
+      esforco_estimado_min: 180
+      opcional: false
+      requires:
+        - competencia: comp:filosofia/subjetividade-artificial
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:filosofia/subjetividade-na-tradicao-filosofica
+          nivel_resultante: intermediario
+
+    # --- Do conceito: o íntimo capturado ------------------------------------
+    - id: etapa:filosofia/intimo-delegado-a-sistemas
+      titulo: "Gozai por nós, caps. 7 a 12 e Apêndice 1 — recomendação, mal-estar, amor, felicidade, traição e o caso Isabela"
+      rev: 1
+      status: ativo
+      descricao: >
+        O bloco em que o livro desce ao cotidiano: a recomendação que antecipa o gosto
+        (cap. 7), o mal-estar tecnológico lido pelo Eu (cap. 8), as tecnologias do
+        encontro (cap. 9), a felicidade como projeto (cap. 10) e a fidelidade
+        deslocada (cap. 11). Os caps. 12 e o Apêndice 1 formam um par — "Perdão
+        Isabela" e "Isabela antes da tecnologia" — e se leem juntos, o que é a razão
+        de o apêndice entrar aqui e não no fecho. O corte é o difícil: separar, caso a
+        caso, perda de função de troca de meio, e dizer onde a evidência falta.
+      esforco_estimado_min: 360
+      opcional: false
+      requires:
+        - competencia: comp:filosofia/subjetividade-artificial
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:filosofia/delegacao-da-vida-interior
+          nivel_resultante: intermediario
+
+    # --- Das duas: a tese posta à prova setor a setor -----------------------
+    - id: etapa:filosofia/subjetividade-artificial-setor-a-setor
+      titulo: "Gozai por nós, caps. 13 a 19 — cinema, sala de aula, lágrima, máquina, consultório, trabalho e os algoritmos do fim"
+      rev: 1
+      status: ativo
+      descricao: >
+        Sete capítulos que aplicam a tese a sete domínios: o cinema e a sala de aula
+        "artificiais", a qualidade da lágrima, o "(Não) sois máquina", a clínica que
+        não toca (cap. 17), o tempo convertido em dinheiro e a morte algoritmizada. É
+        a prova real da trilha, porque é aqui que a tese pode se mostrar forte num
+        setor e vazia noutro. O corte é não ler os sete do mesmo jeito: escolher um em
+        que ela se sustenta, um em que não, e sustentar os dois julgamentos.
+      esforco_estimado_min: 300
+      opcional: false
+      requires:
+        - competencia: comp:filosofia/delegacao-da-vida-interior
+          nivel_minimo: intermediario
+        - competencia: comp:filosofia/subjetividade-na-tradicao-filosofica
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:filosofia/delegacao-da-vida-interior
+          nivel_resultante: avancado
+        - competencia: comp:filosofia/critica-do-ensaio-sobre-tecnologia
+          nivel_resultante: iniciante
+
+    # --- Fechamento: o livro comentado, inclusive por ele mesmo -------------
+    - id: etapa:filosofia/critica-da-ciencia-poetica
+      titulo: "Gozai por nós, Apêndices 2 e 3 e Posfácio — \"Leia por nós\", o comentário e o livro sobre si mesmo"
+      rev: 1
+      status: ativo
+      descricao: >
+        O fecho em que a coletânea se vira para si: o Apêndice 2 ("Leia por nós:")
+        devolve o trocadilho do título ao leitor, o Apêndice 3 é um comentário e o
+        posfácio fecha. A etapa é curta de leitura e longa de trabalho: é onde se cobra
+        do livro o critério que ele exige dos outros, e onde se nomeiam duas teses de
+        capítulos diferentes que não se sustentam juntas — uma coletânea de nove
+        formações não tem por que ser coerente, e dizer isso é a leitura, não a
+        objeção.
+      esforco_estimado_min: 150
+      opcional: false
+      requires:
+        - competencia: comp:filosofia/critica-do-ensaio-sobre-tecnologia
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:filosofia/critica-do-ensaio-sobre-tecnologia
+          nivel_resultante: avancado

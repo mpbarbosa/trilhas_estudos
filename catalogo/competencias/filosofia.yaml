@@ -58,3 +58,76 @@ competencias:
       com que finalidade declarada — e, para cada parte, dizer se a Gita a sustenta no
       texto, se vem da tradição posterior ou se é hábito de quem a prescreve, sem usar
       "bhakti" como explicação de si mesma.
+
+  # ---------------------------------------------------------------------------
+  # trilha:filosofia/subjetividade-artificial
+  #
+  # Escritas **gerais**, não sobre o livro que as motivou: a `verificacao` de cada
+  # uma se cobra em qualquer ensaio de diagnóstico sobre técnica, e são as etapas
+  # que são do Simonetti. Assim o próximo livro da área entra como etapa, sem
+  # reescrever competência.
+  # ---------------------------------------------------------------------------
+  - id: comp:filosofia/subjetividade-artificial
+    titulo: Subjetividade artificial como conceito
+    rev: 1
+    status: ativo
+    descricao: >
+      A tese de que não é só a inteligência que a máquina reproduz, mas a vida
+      interior — memória, afeto, desejo, escolha, luto —, e o que isso exige que se
+      distinga: assistir uma função psíquica, mediá-la e ocupá-la. Inclui a forma em
+      que o fenômeno costuma ser descrito, a do familiar que ficou estranho, e o
+      preço de usar "pós-humano" como se fosse um só conceito.
+    verificacao: >
+      Diante de um dispositivo ou serviço corrente, separar o que nele é inteligência
+      artificial do que seria subjetividade artificial, nomeando qual função psíquica
+      está em jogo e se ela é assistida, mediada ou ocupada — e dizer, para cada
+      caso, que observação faria a classificação mudar. Uma resposta que não aponte
+      nenhuma observação capaz de refutá-la não cumpre o critério.
+
+  - id: comp:filosofia/subjetividade-na-tradicao-filosofica
+    titulo: O sujeito antes da máquina — a palavra "subjetividade" nas tradições que a usam
+    rev: 1
+    status: ativo
+    descricao: >
+      "Subjetividade" não quer dizer a mesma coisa no sujeito moderno da filosofia,
+      no sujeito dividido da psicanálise e no uso corrente de "a minha experiência".
+      Um texto sobre tecnologia costuma passar de uma acepção à outra sem avisar, e a
+      tese muda de tamanho conforme a acepção em que se a lê.
+    verificacao: >
+      Tomar um texto sobre técnica que fale em subjetividade e localizar a frase em
+      que a acepção muda, dizendo de qual para qual; depois reenunciar a tese central
+      do texto nas duas acepções e apontar qual delas o autor precisaria sustentar
+      para que a tese fosse forte — e se ele a sustenta.
+
+  - id: comp:filosofia/delegacao-da-vida-interior
+    titulo: Delegação da vida interior a sistemas técnicos
+    rev: 1
+    status: ativo
+    descricao: >
+      O que muda quando preferir, lembrar, encontrar alguém, chorar, cuidar e esperar
+      passam a ser propostos, mediados ou guardados por sistemas. O corte difícil é
+      entre mudança de meio e perda de função: escrever num editor não é delegar a
+      escrita, e a diferença tem de ser argumentada, não suposta pelo tom.
+    verificacao: >
+      Tomar uma prática cotidiana hoje mediada por sistema e descrever três estados —
+      o que se fazia antes, o que o sistema passou a fazer, o que o sujeito deixou de
+      fazer — e, para cada item do terceiro, dizer que evidência sustentaria que houve
+      perda de função e não só troca de meio. Declarar explicitamente os itens em que
+      a evidência não existe.
+
+  - id: comp:filosofia/critica-do-ensaio-sobre-tecnologia
+    titulo: Crítica do ensaio de diagnóstico sobre a técnica
+    rev: 1
+    status: ativo
+    descricao: >
+      Ler o gênero que mistura clínica, filosofia, reportagem e literatura — e que às
+      vezes se declara assim, como "ciência poética" — sem confundir seus registros:
+      o que é descrição, o que é interpretação dentro de um quadro teórico declarado,
+      o que é prognóstico e o que é lamento. Vale também para a coletânea, em que
+      autores de formações diferentes sustentam teses incompatíveis sob um título só.
+    verificacao: >
+      Separar, numa lista de teses de um ensaio sobre tecnologia, quais são empíricas
+      (dizendo que medida as decidiria), quais são interpretações de um quadro
+      declarado (nomeando o quadro) e quais são juízos de valor; apontar ao menos um
+      ponto em que o texto não cumpre o critério que ele mesmo exige; e, sendo
+      coletânea, nomear duas teses de capítulos diferentes que não se sustentam juntas.
