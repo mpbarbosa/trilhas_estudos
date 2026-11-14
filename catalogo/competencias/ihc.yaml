@@ -1,0 +1,159 @@
+versao_schema: 1
+competencias:
+# -------------------------------------------------------------------------
+# trilha:ihc/captologia
+#
+# Área nova em 2026-11-14: interação humano-computador. A captologia — o estudo do
+# computador como tecnologia persuasiva — foi nomeada por B.J. Fogg como subcampo da
+# IHC, e é por isso que a área se chama `ihc` e não `captologia`: o próximo livro de
+# IHC que não seja de persuasão cabe aqui sem área nova.
+#
+# Mesmo critério das outras áreas de leitura: a `verificacao` se cobra **fora** do
+# corpus da trilha — qualquer aplicativo, qualquer notificação, qualquer modelo de
+# pontuação. Os cinco livros são só onde a trilha as exercita.
+#
+# As sete competências se dividem em três famílias, e a divisão é o que a trilha
+# quer ensinar: **descrever** a persuasão (tríade funcional, credibilidade, modelo de
+# comportamento), **projetá-la** (o ciclo do gancho) e **julgá-la** (vício por
+# design, dano algorítmico em escala, ética). Ler Fogg e Eyal sem a terceira família
+# é manual de engajamento; lê-los com ela é captologia.
+# -------------------------------------------------------------------------
+
+  - id: comp:ihc/triade-funcional-da-persuasao
+    titulo: Classificar uma tecnologia persuasiva pelo papel que o computador assume
+    rev: 1
+    status: ativo
+    descricao: >
+      A tríade funcional de Fogg: o computador persuade como ferramenta (torna o
+      comportamento mais fácil — redução, encadeamento, sugestão no momento certo,
+      automonitoramento), como mídia (deixa ensaiar a causa e o efeito numa simulação)
+      ou como ator social (elogia, retribui, parece alguém). A competência é decompor um
+      produto real por esses papéis e pelo princípio que cada recurso dele aciona, em
+      vez de chamá-lo de "viciante" ou "intuitivo".
+    verificacao: >
+      Dado um produto digital que não os do livro — aplicativo de exercício, de banco,
+      de idiomas, rede social, painel de carro: listar três recursos dele e dizer, para
+      cada um, se o computador atua como ferramenta, mídia ou ator social, nomeando o
+      princípio acionado (redução, encadeamento, sugestão, automonitoramento,
+      vigilância, condicionamento, simulação, elogio, reciprocidade); apontar um recurso
+      que acumula dois papéis e dizer qual deles faz o trabalho persuasivo; e dizer que
+      comportamento-alvo o produto quer mudar, distinguindo-o do que ele declara.
+
+  - id: comp:ihc/credibilidade-de-sistema-computacional
+    titulo: Avaliar de onde vem a credibilidade que um sistema computacional obtém
+    rev: 1
+    status: ativo
+    descricao: >
+      Persuasão depende de ser acreditado, e Fogg separa a credibilidade em
+      confiabilidade e competência percebidas, e quatro origens: presumida (o que se
+      supõe de antemão), por reputação (o que terceiros dizem), superficial (a
+      aparência) e conquistada (a experiência de uso). A competência é dizer de qual
+      dessas origens um sistema tira a credibilidade que tem, e que erro do sistema a
+      destruiria.
+    verificacao: >
+      Dado um site, assistente ou aplicativo real: dizer que credibilidade ele tem para
+      um usuário novo e para um usuário de um ano, atribuindo cada uma a uma das quatro
+      origens (presumida, reputada, superficial, conquistada) com o elemento concreto que
+      a produz; apontar um elemento superficial que produz credibilidade sem relação
+      com a competência real do sistema; e dizer que erro, e de que tamanho, o usuário
+      perdoaria e qual não perdoaria, justificando pela origem da confiança.
+
+  - id: comp:ihc/modelo-de-comportamento-de-fogg
+    titulo: Diagnosticar e projetar um comportamento pelo modelo B=MAP
+    rev: 1
+    status: ativo
+    descricao: >
+      Comportamento acontece quando motivação, capacidade e um gatilho (prompt)
+      coincidem no mesmo instante; faltando o gatilho, nada acontece, e com motivação
+      baixa só o comportamento muito fácil passa da linha de ação. A competência é usar
+      o modelo nos dois sentidos — explicar por que um comportamento desejado não
+      ocorre, e desenhar um hábito novo por âncora, versão mínima e celebração em vez de
+      força de vontade.
+    verificacao: >
+      Dado um comportamento que alguém quer e não faz — o próprio estudante ou um caso
+      descrito: dizer qual dos três elementos (motivação, capacidade, gatilho) falta e
+      por que evidência se sabe; propor um micro-hábito na forma "depois que eu [âncora],
+      vou [versão mínima]", justificando a âncora pela regularidade e a versão mínima
+      pela capacidade; dizer por que aumentar a motivação é a intervenção menos
+      confiável naquele caso; e aplicar o mesmo diagnóstico a um gatilho de produto
+      digital, dizendo se ele é faísca, facilitador ou sinal.
+
+  - id: comp:ihc/ciclo-do-gancho
+    titulo: Decompor um produto formador de hábito pelo ciclo gatilho, ação, recompensa e investimento
+    rev: 1
+    status: ativo
+    descricao: >
+      O modelo de Eyal para o produto usado sem que se decida usá-lo: gatilho externo
+      que vira interno (uma emoção, um tédio), ação simples, recompensa variável — da
+      tribo, da caça ou do eu — e investimento que carrega o próximo gatilho e aumenta o
+      custo de sair. A competência é ler um produto por esse ciclo com precisão, e
+      também o teste que o próprio Eyal propõe: se quem desenha usaria o produto e se
+      ele melhora a vida de quem o usa.
+    verificacao: >
+      Dado um produto digital de uso diário que não os do livro: identificar o gatilho
+      externo e o interno que ele pretende criar, a ação mínima, o tipo de recompensa
+      variável (tribo, caça, eu) e o investimento que o usuário deixa nele; dizer que
+      parte do ciclo, se removida, mais reduziria o uso, e por quê; e classificar o
+      produto pela matriz de manipulação de Eyal (facilitador, vendedor, artista,
+      traficante), dizendo que evidência faltaria para firmar a classificação.
+
+  - id: comp:ihc/vicio-comportamental-por-design
+    titulo: Identificar os ingredientes de dependência comportamental num produto
+    rev: 1
+    status: ativo
+    descricao: >
+      Alter trata o uso compulsivo de tecnologia como vício comportamental e o
+      decompõe nos ingredientes que o design pode dosar: meta sempre um pouco além,
+      retorno imprevisível, sensação de progresso, dificuldade que escala, tensão não
+      resolvida (o episódio seguinte começa sozinho) e conexão social. A competência é
+      encontrar esses ingredientes num produto e separar o que neles é escolha de
+      design — reversível — do que é a disposição de quem usa.
+    verificacao: >
+      Dado um produto que um grupo de usuários diz não conseguir largar — jogo,
+      plataforma de vídeo, rede social, aplicativo de apostas: apontar quais dos seis
+      ingredientes de Alter ele contém, com o recurso concreto que realiza cada um;
+      dizer qual é escolha de design que poderia ser retirada sem destruir o produto e
+      o que se perderia; distinguir uso intenso de dependência, nomeando o critério e o
+      dado que o mediria; e dizer que intervenção — de design, de ambiente ou de regra —
+      atacaria o ingrediente mais forte.
+
+  - id: comp:ihc/dano-algoritmico-em-escala
+    titulo: Reconhecer quando um modelo de pontuação vira arma de destruição matemática
+    rev: 1
+    status: ativo
+    descricao: >
+      O'Neil chama de arma de destruição matemática o modelo que reúne três traços:
+      opacidade (quem é pontuado não vê nem contesta), escala (decide sobre milhões) e
+      dano (piora a vida de quem pontua mal), quase sempre com um laço de
+      retroalimentação que confirma o próprio erro. A competência é aplicar os três
+      critérios a um modelo real, achar o substituto (proxy) que ele mede no lugar do
+      que diz medir, e dizer que mudança o desarmaria.
+    verificacao: >
+      Dado um modelo de decisão automatizada real e não estudado no livro — análise de
+      crédito, triagem de currículo, ranqueamento de feed, policiamento preditivo,
+      precificação de seguro: dizer se ele é opaco, se opera em escala e que dano
+      produz, com evidência para cada um; nomear o proxy que ele usa e a divergência
+      entre o proxy e o objetivo declarado; descrever o laço de retroalimentação, se
+      houver, como sequência de passos; e propor uma mudança — de transparência, de
+      contestação, de dado, de objetivo — dizendo a que custo ela viria e para quem.
+
+  - id: comp:ihc/etica-da-tecnologia-persuasiva
+    titulo: Julgar eticamente uma tecnologia persuasiva por intenção, método e resultado
+    rev: 1
+    status: ativo
+    descricao: >
+      Fogg propõe julgar a persuasão por três lados — a intenção de quem desenha, os
+      métodos (há engano, coerção, exploração de vulnerabilidade?) e os resultados,
+      previstos ou não — e acrescenta o que o computador muda: persiste sem cansar, não
+      precisa ser honesto sobre ser máquina, opera em escala e dilui a
+      responsabilidade. A competência cresce na trilha: aplicar o esquema a um produto,
+      depois a um vício projetado, depois a um modelo que decide sobre milhões sem
+      persuadir ninguém.
+    verificacao: >
+      Dado um caso real de tecnologia que muda comportamento ou decide sobre pessoas:
+      julgar separadamente intenção, método e resultado, dizendo onde o julgamento
+      diverge entre os três; nomear o que no caso o computador torna diferente de um
+      persuasor humano fazendo o mesmo; dizer quem é responsável por um resultado não
+      previsto e por que via essa responsabilidade se cobraria; e defender uma regra —
+      de produto, de plataforma ou de lei — que mudaria o caso, com a objeção mais forte
+      a ela.
