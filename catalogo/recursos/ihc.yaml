@@ -486,3 +486,152 @@ recursos:
     url: https://www.amazon.com.br/s?k=9783642368059
     disponivel: true
     verificado_em: 2026-11-14
+
+  # ========================================================================
+  # trilha:ihc/reconhecimento-de-emocao-em-expressao-facial — 2026-11-14
+  #
+  # Oito recursos, sete exemplares e um artigo. Preços conferidos hoje, um por um,
+  # no navegador embutido (a Amazon BR e a Estante Virtual recusam o `curl` deste
+  # ambiente) — e vale registrar o que a conferência mostrou, porque o número sozinho
+  # engana:
+  #
+  # - **Darwin**: R$ 74,90 é o preço sugerido pela editora, R$ 48,00 é o praticado pela
+  #   Amazon, e havia hoje uma oferta relâmpago a R$ 34,78 ("42% reservado(s)"). Vale
+  #   `custo: 48.00`, que é o estável.
+  # - **Ekman em português**: a edição da Lua de Papel está **esgotada**. A Amazon pede
+  #   R$ 539,00 por exemplar novo de terceiro e o mercado de usado parte de R$ 345,00,
+  #   que é o que entra. Por isso o original em inglês entra **na mesma etapa**, a
+  #   R$ 79,77: são dois exemplares distintos, duas `obra`s, e a validação 12 compara
+  #   custo só dentro de uma obra. Quem filtra por `custo_maximo` baixo recebe o
+  #   inglês, e a etapa não trava.
+  # - **Kindle onde a diferença é estrutural**: `What the Face Reveals` custa
+  #   R$ 342,05 em Kindle contra R$ 495,38 em capa dura, e o Fridlund R$ 172,00 contra
+  #   R$ 2.132,00. O `custo` é o do formato mais barato que dá acesso, e a ficha em
+  #   docs/bibliografia.md diz qual é.
+  # - **O manual do FACS é em dólar**, US$ 350 no Paul Ekman Group, e não tem revendedor
+  #   brasileiro nem edição traduzida. Convertido a R$ 1.984,50 pelo câmbio de
+  #   2026-11-13 (US$ 1 = R$ 5,67, Morningstar). **Não inclui IOF nem spread de cartão
+  #   internacional**, e o câmbio envelhece — o número aqui é ordem de grandeza honesta,
+  #   não cotação. É o item mais caro do catálogo, e a etapa dele é opcional.
+  # ========================================================================
+
+  # --- etapa:ihc/origem-evolutiva-da-expressao-facial --------------------
+  - id: rec:ihc/darwin-expressao-das-emocoes
+    etapa: etapa:ihc/origem-evolutiva-da-expressao-facial
+    titulo: "A expressão das emoções no homem e nos animais (Charles Darwin)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 48.00
+    obra: darwin-expressao-das-emocoes
+    duracao_min: 600
+    url: https://www.amazon.com.br/dp/853591398X
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/paradigma-das-emocoes-basicas ---------------------------
+  # Duas obras na mesma etapa de propósito: a tradução esgotada e o original barato.
+  - id: rec:ihc/ekman-a-linguagem-das-emocoes
+    etapa: etapa:ihc/paradigma-das-emocoes-basicas
+    titulo: "A linguagem das emoções (Paul Ekman)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 345.00
+    obra: ekman-a-linguagem-das-emocoes
+    duracao_min: 420
+    url: https://www.estantevirtual.com.br/livro/a-linguagem-das-emocoes-0MK-3469-000-BK
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  - id: rec:ihc/ekman-emotions-revealed
+    etapa: etapa:ihc/paradigma-das-emocoes-basicas
+    titulo: "Emotions Revealed, 2nd ed. (Paul Ekman)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 79.77
+    obra: ekman-emotions-revealed
+    duracao_min: 420
+    url: https://www.amazon.com.br/dp/0805083391
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/facs-aplicado -------------------------------------------
+  - id: rec:ihc/ekman-rosenberg-what-the-face-reveals
+    etapa: etapa:ihc/facs-aplicado
+    titulo: "What the Face Reveals, 2nd ed. (Paul Ekman e Erika L. Rosenberg, orgs.)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 342.05
+    obra: ekman-rosenberg-what-the-face-reveals
+    duracao_min: 900
+    url: https://www.amazon.com.br/dp/0195179641
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/manual-do-facs ------------------------------------------
+  - id: rec:ihc/manual-do-facs
+    etapa: etapa:ihc/manual-do-facs
+    titulo: "Facial Action Coding System: manual e guia do investigador (Ekman, Friesen e Hager, 2002)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 1984.50
+    obra: manual-do-facs-2002
+    duracao_min: 3600
+    url: https://www.paulekman.com/facial-action-coding-system/
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/face-como-sinal-social ----------------------------------
+  - id: rec:ihc/fridlund-human-facial-expression
+    etapa: etapa:ihc/face-como-sinal-social
+    titulo: "Human Facial Expression: An Evolutionary View (Alan J. Fridlund)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 172.00
+    obra: fridlund-human-facial-expression
+    duracao_min: 600
+    url: https://www.amazon.com.br/dp/0122676300
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/os-dois-lados-da-controversia ---------------------------
+  - id: rec:ihc/science-of-facial-expression
+    etapa: etapa:ihc/os-dois-lados-da-controversia
+    titulo: "The Science of Facial Expression (James A. Russell e José-Miguel Fernández-Dols, orgs.)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 926.84
+    obra: science-of-facial-expression
+    duracao_min: 780
+    url: https://www.amazon.com.br/dp/0190613505
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/inferencia-facial-reconsiderada -------------------------
+  # Artigo de revisão, não exemplar: sem `obra`, pela regra de docs/catalogo.md §
+  # obra. Texto integral aberto no PubMed Central.
+  - id: rec:ihc/barrett-et-al-expressoes-reconsideradas
+    etapa: etapa:ihc/inferencia-facial-reconsiderada
+    titulo: "Emotional Expressions Reconsidered (Barrett, Adolphs, Marsella, Martinez e Pollak, 2019)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 300
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6640856/
+    disponivel: true
+    verificado_em: 2026-11-14

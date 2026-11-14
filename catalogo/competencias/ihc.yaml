@@ -478,3 +478,116 @@ competencias:
       entra e por que normalizar por falante muda o que o classificador pode aprender;
       e apontar um ponto do encadeamento em que uma decisão de pré-processamento
       vazaria informação do conjunto de teste.
+
+# -------------------------------------------------------------------------
+# Quarta trilha da área, pedida pelo estudante em 2026-11-14 na sequência da voz:
+# ele pediu livros sobre reconhecimento de emoção **em expressão facial** e mandou
+# registrá-los.
+#
+# **Aqui a trilha NÃO é especialização, e a diferença em relação à voz é de fundo.**
+# A trilha da voz abriu um canal que `etapa:ihc/deteccao-de-afeto-por-sinal` já
+# tratava como uma modalidade entre quatro, e por isso exigiu aquela competência. O
+# canal facial tem raiz própria e mais antiga que o campo todo: Darwin, 1872, setenta
+# anos antes de haver computador. Entrar por Picard seria entrar pelo meio. Por isso
+# estas competências partem de perfil vazio e nenhuma depende de outra trilha.
+#
+# Quatro competências, e a ordem delas é a tese: **a origem** (de onde vem a
+# alegação de universalidade e o que a evidência dela sustenta), **o instrumento**
+# (codificar movimento muscular em unidades de ação — e separar isso da inferência de
+# emoção), **o contra-argumento ecológico** (a face como sinal social dirigido a
+# alguém, não como vazamento de estado interno) e **a controvérsia** (situar uma
+# afirmação sobre face e emoção na disputa que a psicologia da emoção não encerrou).
+#
+# A segunda é a que organiza tudo, e vale deixar escrito: **a codificação sobrevive à
+# crítica, a inferência não.** "Unidade de ação 12 ativada" é descrição observável e
+# reprodutível; "alegria 0,87" é outra alegação, e é a que a revisão de Barrett e
+# colegas de 2019 derruba. Um sistema que relata unidades de ação faz afirmação
+# defensável; o mesmo sistema que relata emoções, não. Esta é a aplicação facial de
+# `comp:ihc/validade-de-construto-na-inferencia-de-emocao`
+# (trilha:ihc/computacao-afetiva), que é a forma geral — e, como na voz, a instância
+# **não** exige a geral de propósito: quem chega por aqui faz o juízo sem ter lido
+# Barrett em livro, e sai com motivo para lê-la.
+#
+# Mesmo critério das outras: a `verificacao` se cobra fora do corpus da trilha —
+# qualquer vídeo, qualquer estudo, qualquer produto de "emotion AI" em uso.
+# -------------------------------------------------------------------------
+
+  - id: comp:ihc/origem-evolutiva-da-expressao-facial
+    titulo: Julgar uma alegação de universalidade da expressão facial pela evidência que a sustenta
+    rev: 1
+    status: ativo
+    descricao: >
+      A tese de que certas expressões faciais são as mesmas em toda parte vem de Darwin,
+      que argumenta por **continuidade evolutiva** — o mesmo movimento no bebê, no
+      adulto, no animal, no cego de nascimento —, e não por um conjunto fechado de
+      categorias discretas; a leitura categórica é posterior a ele e tem de se defender
+      sozinha. A competência é saber o que cada desenho de estudo pode estabelecer:
+      reconhecimento transcultural por escolha forçada entre rótulos não é o mesmo que
+      produção espontânea, e os dois sustentam conclusões diferentes.
+    verificacao: >
+      Dado um estudo que alega universalidade de uma expressão: dizer se a evidência é
+      de produção ou de reconhecimento, e se o reconhecimento foi por escolha forçada
+      entre rótulos dados ou por nomeação livre; dizer o que o viés de escolha forçada
+      acrescenta de acerto mesmo quando não há sinal; apontar qual população tornaria o
+      resultado mais informativo e por quê; e reescrever a conclusão do estudo numa
+      forma que o desenho dele realmente autorize.
+
+  - id: comp:ihc/codificacao-anatomica-do-movimento-facial
+    titulo: Codificar movimento facial em unidades de ação e separar a descrição da inferência
+    rev: 1
+    status: ativo
+    descricao: >
+      O FACS decompõe todo movimento facial visível em unidades de ação ancoradas na
+      anatomia, e é por isso que ele atravessa o debate intacto: ele descreve músculo,
+      não sentimento. A competência tem duas metades inseparáveis — saber codificar, e
+      saber onde a codificação termina. Dizer "unidade de ação 6 mais 12" é observação
+      que outro codificador reproduz; dizer "alegria" é uma segunda alegação, que
+      precisa de evidência própria e quase nunca a tem.
+    verificacao: >
+      Dado um quadro ou um trecho de vídeo de um rosto: nomear as unidades de ação
+      plausíveis e dizer em que evidência visível cada uma se apoia; dizer qual par de
+      emoções o mesmo conjunto de unidades seria compatível com, e o que no contexto
+      decidiria entre elas; pegar a saída de um sistema comercial na forma
+      "<emoção> <número>" e reescrevê-la como alegação sobre unidades de ação mais um
+      passo inferencial explícito; e dizer que medida de concordância entre
+      codificadores o resultado precisaria reportar para ser levado a sério.
+
+  - id: comp:ihc/expressao-facial-como-sinal-social
+    titulo: Explicar uma expressão facial como sinal dirigido a alguém, não como vazamento de estado interno
+    rev: 1
+    status: ativo
+    descricao: >
+      A leitura de ecologia comportamental, de Fridlund: expressões faciais são sinais
+      com destinatário e função social — negociar, apaziguar, ameaçar, convidar —, e não
+      leituras de um estado interno que escapa. A consequência prática é grande e é
+      testável: a mesma pessoa, no mesmo estado, expressa de modo diferente com e sem
+      audiência, inclusive audiência imaginada. Um reconhecedor treinado em rosto isolado
+      mede o que a presença de outra pessoa modula, e não sabe disso.
+    verificacao: >
+      Dado um registro de expressão facial com e sem audiência: dizer o que cada leitura
+      — vazamento de estado interno e sinal social — prediz para a diferença, e se o
+      dado disponível separa as duas; apontar, num conjunto de treino de reconhecimento
+      facial de emoção, onde a condição social está fixada sem ter sido declarada; dizer
+      que alteração no protocolo de coleta tornaria a distinção observável; e nomear um
+      caso em que a leitura social explica melhor uma expressão que a leitura de estado
+      trataria como ruído.
+
+  - id: comp:ihc/controversia-da-inferencia-facial-de-emocao
+    titulo: Situar uma afirmação sobre face e emoção na controvérsia que a sustenta ou a derruba
+    rev: 1
+    status: ativo
+    descricao: >
+      Esta é a literatura mais disputada da computação afetiva, e a disputa não é
+      detalhe técnico: há a posição das emoções básicas, a construcionista e a
+      ecológico-comportamental, cada uma privilegiando um tipo de evidência, e meio
+      século de troca entre elas. A competência é ler uma afirmação sobre face e emoção
+      sabendo de que lado da evidência ela depende, em vez de herdar uma posição por
+      acidente de bibliografia — e saber que achado a refutaria.
+    verificacao: >
+      Dada uma afirmação sobre o que um rosto indica — de artigo, de livro-texto ou de
+      material de produto: identificar a posição teórica que ela pressupõe e o tipo de
+      evidência que essa posição privilegia; nomear o achado empírico que a refutaria;
+      dizer o que a revisão de 2019 de Barrett e colegas conclui sobre a confiabilidade,
+      a especificidade e a generalização do mapeamento entre movimento facial e categoria
+      de emoção, e qual das três a afirmação precisaria assumir; e dizer que parte da
+      afirmação continua de pé se o passo inferencial cair.
