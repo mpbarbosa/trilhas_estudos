@@ -627,6 +627,24 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
   codificador-decodificador com atenção e decodificação por feixe, que a trilha do
   transformer pressupõe.
 
+### Natural Language Processing with Python: Analyzing Text with the Natural Language Toolkit
+
+- **Autoria** — Steven Bird, Ewan Klein, Edward Loper
+- **Edição** — 1ª ed., O'Reilly, 2009, en-US. O catálogo usa a edição on-line, que
+  a página do livro diz "updated for Python 3 and NLTK 3"; a 1ª edição impressa
+  segue em https://www.nltk.org/book_1ed/, e os autores dizem não haver plano de 2ª.
+- **Identificadores** — ISBN-13 `9780596516499`
+- **Amazon** — https://www.amazon.com.br/s?k=9780596516499 (link de busca)
+- **Acesso aberto** — https://www.nltk.org/book/ (CC BY-NC-ND 3.0 US)
+- **Sumário** — 1 Language Processing and Python; 2 Accessing Text Corpora and
+  Lexical Resources; 3 Processing Raw Text; 4 Writing Structured Programs;
+  5 Categorizing and Tagging Words; 6 Learning to Classify Text; 7 Extracting
+  Information from Text; 8 Analyzing Sentence Structure; 9 Building Feature Based
+  Grammars; 10 Analyzing the Meaning of Sentences; 11 Managing Linguistic Data;
+  12 Afterword.
+- **Citada por** — `rec:ia/nltk-book-caps-1-3`, `rec:ia/nltk-book-cap-6-classificar-texto`,
+  `rec:ia/nltk-book-cap-6-exercicios` — declaram `obra: bird-klein-loper-nltk`
+
 ### Natural Language Processing with Transformers, Revised Edition: Building Language Applications with Hugging Face
 
 - **Autoria** — Lewis Tunstall, Leandro von Werra, Thomas Wolf
@@ -670,6 +688,57 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
   http://do1.dr-chuck.com/pythonlearn/PT_br/pythonlearn.pdf
 - **Citada por** — `rec:programacao/py4e-severance`
 
+### Sentiment Analysis and Opinion Mining
+
+- **Autoria** — Bing Liu
+- **Edição** — Morgan & Claypool, série *Synthesis Lectures on Human Language
+  Technologies*, maio/2012, en-US. A página do autor diz 165 páginas no cabeçalho e
+  167 no corpo; nenhuma das duas foi conferida no exemplar.
+- **Identificadores** — ISBN-13 `9781608458844` (brochura), `9781608458851` (e-book)
+- **Amazon** — https://www.amazon.com.br/s?k=9781608458844 (link de busca)
+- **Acesso aberto** — rascunho publicado pelo autor:
+  https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf, a partir
+  de https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.html
+- **Sumário** — 1 Sentiment Analysis: A Fascinating Problem; 2 The Problem of
+  Sentiment Analysis; 3 Document Sentiment Classification; 4 Sentence Subjectivity
+  and Sentiment Classification; 5 Aspect-based Sentiment Analysis; 6 Sentiment
+  Lexicon Generation; 7 Opinion Summarization; 8 Analysis of Comparative Opinions;
+  9 Opinion Search and Retrieval; 10 Opinion Spam Detection; 11 Quality of Reviews;
+  12 Concluding Remarks.
+- **Citada por** — `rec:ia/liu-2012-caps-1-2-o-problema`,
+  `rec:ia/liu-2012-caps-3-4-classificacao`, `rec:ia/liu-2012-caps-5-7-aspecto-e-resumo`,
+  `rec:ia/liu-2012-caps-8-10-11-comparativa-e-spam` — declaram
+  `obra: liu-sentiment-analysis-opinion-mining`
+- **Nota** — o cap. 6, de léxico, não tem fatia: a etapa de léxicos usa o cap. 7 da
+  edição de 2020, que trata o mesmo assunto mais extenso.
+
+### Sentiment Analysis: Mining Opinions, Sentiments, and Emotions
+
+- **Autoria** — Bing Liu
+- **Edição** — 2ª ed., Cambridge University Press (série *Studies in Natural
+  Language Processing*), 2020, 448 p., en-US; 1ª ed. de 2015.
+- **Identificadores** — ISBN-13 `9781108486378` (2ª ed., capa dura). A página do
+  autor rotula como ISBN da capa dura o `9781107017894`, que é o da 1ª edição; o
+  `9781108486378` é o que a própria página usa no link do sumário da Cambridge e o
+  que as lojas listam para a 2ª.
+- **Amazon** — https://www.amazon.com.br/s?k=9781108486378 (link de busca)
+- **Acesso aberto** — só os caps. 1 e 2, publicados pelo autor:
+  https://www.cs.uic.edu/~liub/FBS/chapter-1-and-chapter-2.pdf
+- **Sumário** — https://www.cs.uic.edu/~liub/FBS/sentiment-opinion-emotion-analysis.html,
+  sem número na página; a numeração abaixo é a ordem dela: 1 Introduction; 2 The
+  Problem of Sentiment Analysis; 3 Document Sentiment Classification; 4 Sentence
+  Subjectivity and Sentiment Classification; 5 Aspect Sentiment Classification;
+  6 Aspect and Entity Extraction; 7 Sentiment Lexicon Generation; 8 Analysis of
+  Comparative Opinions; 9 Opinion Summarization and Search; 10 Analysis of Debates
+  and Comments; 11 Mining Intentions; 12 Detecting Fake or Deceptive Opinions;
+  13 Quality of Reviews; 14 Conclusions.
+- **Citada por** — `rec:ia/liu-2020-caps-1-2-o-problema`, `rec:ia/liu-2020-cap-7-geracao-de-lexico`,
+  `rec:ia/liu-2020-caps-5-6-aspecto`, `rec:ia/liu-2020-caps-8-12-13-comparativa-e-falsa`
+  — declaram `obra: liu-sentiment-analysis-2ed`
+- **Nota** — **o `custo` de R$ 450 é estimativa** do impresso importado, fixada em
+  2026-11-14: nenhuma loja cedeu preço ao `curl` deste ambiente. Como a numeração dos
+  capítulos é inferida da ordem do sumário, confira o título ao abrir o livro.
+
 ### Spec Driven Development — PT: Da vibe-coding à engenharia de software
 
 - **Autoria** — J.C. Ködel
@@ -702,10 +771,31 @@ Não é um livro, e sim a biblioteca aberta de SRE do Google. As duas obras cent
 - **Acesso aberto** — https://web.stanford.edu/~jurafsky/slp3/
 - **Citada por** — `rec:ia/slp3-transformers`, `rec:ia/jurafsky-martin-ngramas`,
   `rec:ia/jurafsky-martin-suavizacao`, `rec:ia/jurafsky-martin-apendice-hmm`,
-  `rec:ia/jurafsky-martin-etiquetagem-sequencial`
+  `rec:ia/jurafsky-martin-etiquetagem-sequencial`,
+  `rec:ia/jurafsky-martin-naive-bayes-e-regressao-logistica`,
+  `rec:ia/jurafsky-martin-lexicos-de-sentimento`
 - **Nota** — a numeração de capítulo muda entre rascunhos da 3ª edição, e os
   recursos citam o PDF por número (`3.pdf`, `18.pdf`, `A.pdf`). Ao conferir um
   link, confira o **título** do capítulo, não o número.
+  O rascunho de 2026-01-06, conferido em 2026-11-14, numera Naive Bayes como
+  apêndice B, regressão logística como cap. 4 (*Logistic Regression and Text
+  Classification*) e léxicos de sentimento como cap. 22; os dois recursos da
+  trilha de análise de sentimentos apontam para o índice, não para o PDF, por isso.
+
+### Text Mining with R: A Tidy Approach
+
+- **Autoria** — Julia Silge, David Robinson
+- **Edição** — O'Reilly, 2017, xi + 184 p., en-US. A edição on-line foi
+  reconstruída em 2025-04-07, segundo a própria página.
+- **Identificadores** — ISBN-13 `9781491981658`
+- **Amazon** — https://www.amazon.com.br/s?k=9781491981658 (link de busca)
+- **Acesso aberto** — https://www.tidytextmining.com/ (CC BY-NC-SA 3.0 US)
+- **Sumário** — 1 The tidy text format; 2 Sentiment analysis with tidy data;
+  3 Analyzing word and document frequency: tf-idf; 4 Relationships between words:
+  n-grams and correlations; 5 Converting to and from non-tidy formats; 6 Topic
+  modeling; 7–9 estudos de caso (Twitter, metadados da NASA, Usenet).
+- **Citada por** — `rec:ia/silge-robinson-caps-1-4` — declara
+  `obra: silge-robinson-text-mining-r`
 
 ### The Practice of Programming
 
