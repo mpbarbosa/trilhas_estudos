@@ -105,6 +105,46 @@
 # não se toma sem ver as três páginas de produto. A fusão de modalidades, que é o que
 # ele traria, está coberta pela seção de detecção do Oxford Handbook.
 # -------------------------------------------------------------------------
+# -------------------------------------------------------------------------
+# trilha:ihc/reconhecimento-de-emocao-na-voz
+#
+# Fichas conferidas em 2026-11-14, detalhadas em docs/bibliografia.md §IHC. Como nas
+# nove da computação afetiva, **nenhum destes preços é estimativa**: os cinco
+# importados saíram da Amazon BR lida no navegador embutido, e os dois recursos
+# gratuitos têm url conferida por `curl` (HTTP 200 em 2026-11-14).
+#
+#   obra: schuller-batliner-computational-paralinguistics — Björn Schuller e Anton
+#     Batliner, *Computational Paralinguistics: Emotion, Affect and Personality in
+#     Speech and Language Processing* (Wiley, nov./2013 com imprenta 2014, 344 p.,
+#     ISBN 978-1-119-97136-8), en-US. R$ 785,83 em capa dura.
+#   obra: rao-koolagudi-emotion-recognition-speech-features — K. Sreenivasa Rao e
+#     Shashidhar G. Koolagudi, *Emotion Recognition using Speech Features*
+#     (SpringerBriefs in Speech Technology, nov./2012, XII+124 p.,
+#     ISBN 978-1-4614-5142-6), en-US. R$ 320,80 em capa comum.
+#   obra: rao-koolagudi-robust-emotion-recognition — dos mesmos autores e na mesma
+#     série, *Robust Emotion Recognition using Spectral and Prosodic Features*
+#     (jan./2013, 118 p., ISBN 978-1-4614-6359-7), en-US. R$ 320,80, **o mesmo preço
+#     do volume anterior e por coincidência**: são duas obras distintas, com slug e
+#     ficha próprios, e a validação 12 não se aplica entre elas.
+#   obra: fruhholz-belin-oxford-handbook-voice-perception — Sascha Frühholz e Pascal
+#     Belin (orgs.), *The Oxford Handbook of Voice Perception* (Oxford University
+#     Press, série *Oxford Library of Psychology*, 29/01/2019, 976 p.,
+#     ISBN 978-0-19-874318-7), en-US. R$ 1.804,57 em capa dura — **a obra mais cara
+#     do catálogo**, à frente do Oxford Handbook of Affective Computing. Uma fatia só:
+#     o sumário capítulo a capítulo não foi conferido em nenhuma página lida, e nomear
+#     intervalo aqui seria inventar.
+#   obra: schuller-intelligent-audio-analysis — Björn W. Schuller, *Intelligent Audio
+#     Analysis* (Springer, série *Signals and Communication Technology*, 08/05/2013,
+#     XXVIII+345 p., capa dura ISBN 978-3-642-36805-9), en-US. R$ 550,16 em capa dura.
+#     ⚠️ **A capa comum sai mais CARA**: a brochura de 2015 (ISBN 978-3-642-44277-3)
+#     está a R$ 657,83 na mesma loja. O recurso aponta a capa dura por ser a barata, o
+#     que inverte a suposição usual e é o motivo de a ficha registrar os dois.
+#
+# Os dois recursos de `etapa:ihc/corpus-de-emocao-na-fala-em-portugues` **não
+# declaram `obra`**, pela mesma regra que deixou `beej-guide-c` fora: são referência
+# aberta e corpus, sem editora, sem ISBN e sem exemplar à venda — não são exemplares,
+# e `obra` só existe para dar endereço a exemplar (ADR-0020).
+# -------------------------------------------------------------------------
 versao_schema: 1
 recursos:
   # --- etapa:ihc/captologia-e-triade-funcional ----------------------------
@@ -342,5 +382,107 @@ recursos:
     obra: crawford-atlas-da-ia
     duracao_min: 540
     url: https://www.travessa.com.br/atlas-da-ia-poder-politica-e-os-custos-planetarios-da-inteligencia-artificial/artigo/48fa31a0-b199-4b13-854e-47555d594d1f
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/paralinguistica-computacional ----------------------------
+  - id: rec:ihc/schuller-batliner-computational-paralinguistics
+    etapa: etapa:ihc/paralinguistica-computacional
+    titulo: "Computational Paralinguistics: Emotion, Affect and Personality in Speech and Language Processing (Björn Schuller e Anton Batliner)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 785.83
+    obra: schuller-batliner-computational-paralinguistics
+    duracao_min: 900
+    url: https://www.amazon.com.br/s?k=9781119971368
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/fontes-do-sinal-de-emocao-na-fala ------------------------
+  - id: rec:ihc/rao-koolagudi-emotion-recognition-speech-features
+    etapa: etapa:ihc/fontes-do-sinal-de-emocao-na-fala
+    titulo: "Emotion Recognition using Speech Features (K. Sreenivasa Rao e Shashidhar G. Koolagudi)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 320.80
+    obra: rao-koolagudi-emotion-recognition-speech-features
+    duracao_min: 420
+    url: https://www.amazon.com.br/s?k=9781461451426
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/atributos-espectrais-e-prosodicos-robustos --------------
+  - id: rec:ihc/rao-koolagudi-robust-emotion-recognition
+    etapa: etapa:ihc/atributos-espectrais-e-prosodicos-robustos
+    titulo: "Robust Emotion Recognition using Spectral and Prosodic Features (K. Sreenivasa Rao e Shashidhar G. Koolagudi)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 320.80
+    obra: rao-koolagudi-robust-emotion-recognition
+    duracao_min: 420
+    url: https://www.amazon.com.br/s?k=9781461463597
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/percepcao-humana-da-voz ---------------------------------
+  - id: rec:ihc/fruhholz-belin-oxford-handbook-voice-perception
+    etapa: etapa:ihc/percepcao-humana-da-voz
+    titulo: "The Oxford Handbook of Voice Perception (Sascha Frühholz e Pascal Belin, orgs.)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 1804.57
+    obra: fruhholz-belin-oxford-handbook-voice-perception
+    duracao_min: 720
+    url: https://www.amazon.com.br/s?k=9780198743187
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/corpus-de-emocao-na-fala-em-portugues -------------------
+  - id: rec:ihc/pln-brasileiras-recursos-de-fala
+    etapa: etapa:ihc/corpus-de-emocao-na-fala-em-portugues
+    titulo: "Processamento de Linguagem Natural (4ª ed., vol. 1) — capítulo de recursos de fala: tarefas paralinguísticas e corpora do português"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 240
+    url: https://brasileiraspln.ufscar.br/livro-pln-4ed-vol1/fala/cap-recursos-fala/cap-recursos-fala.pdf
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  - id: rec:ihc/projeto-corpus-coraa-ser
+    etapa: etapa:ihc/corpus-de-emocao-na-fala-em-portugues
+    titulo: "Projeto: auditar o CORAA SER e escrever o que ele autoriza concluir"
+    rev: 1
+    status: ativo
+    formato: projeto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 360
+    url: https://github.com/rmarcacini/ser-coraa-pt-br
+    disponivel: true
+    verificado_em: 2026-11-14
+
+  # --- etapa:ihc/analise-de-audio-como-base ------------------------------
+  - id: rec:ihc/schuller-intelligent-audio-analysis
+    etapa: etapa:ihc/analise-de-audio-como-base
+    titulo: "Intelligent Audio Analysis (Björn W. Schuller)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 550.16
+    obra: schuller-intelligent-audio-analysis
+    duracao_min: 840
+    url: https://www.amazon.com.br/s?k=9783642368059
     disponivel: true
     verificado_em: 2026-11-14

@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 72,
-  "gerado_em": "2026-11-14T19:29:20+00:00",
-  "hash": "sha256:cb062c0d4e3e6b36fd89acd44575ed8dd8a680a32c49e42a2689045981ff2a62",
+  "catalogo_versao": 73,
+  "gerado_em": "2026-11-14T19:51:44+00:00",
+  "hash": "sha256:bb3a16081b6c724c8cfac8cee3b728f93cf805ab480942fea3f91f58194f5f6d",
   "competencias": [
     {
       "id": "comp:arquitetura/computador-pessoal",
@@ -725,12 +725,28 @@
       "descricao": "Operar um modelo hospedado: parâmetros de decodificação, saída estruturada, janela de contexto, custo e latência por chamada.\n"
     },
     {
+      "id": "comp:ihc/analise-de-sinal-de-audio",
+      "titulo": "Percorrer o encadeamento de análise de um sinal de áudio até o classificador",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um sinal de áudio e uma tarefa de classificação por segmento: escolher tamanho e sobreposição de janela e justificar pelo fenômeno que se quer medir, não pelo padrão da biblioteca; distinguir atributo de baixo nível do funcional que o agrega, e dizer que informação o funcional destrói; dizer onde a normalização entra e por que normalizar por falante muda o que o classificador pode aprender; e apontar um ponto do encadeamento em que uma decisão de pré-processamento vazaria informação do conjunto de teste.",
+      "descricao": "A base de processamento que o reconhecimento de emoção pressupõe e raramente ensina: janelamento e sobreposição, representação espectral, extração de atributos de baixo nível e sua agregação em funcionais sobre o segmento, normalização, e só então o classificador. Competência de base, oferecida como etapa opcional para quem chega sem ela — e útil além da emoção, porque é o mesmo encadeamento de qualquer tarefa de áudio.\n"
+    },
+    {
       "id": "comp:ihc/ciclo-do-gancho",
       "titulo": "Decompor um produto formador de hábito pelo ciclo gatilho, ação, recompensa e investimento",
       "rev": 1,
       "status": "ativo",
       "verificacao": "Dado um produto digital de uso diário que não os do livro: identificar o gatilho externo e o interno que ele pretende criar, a ação mínima, o tipo de recompensa variável (tribo, caça, eu) e o investimento que o usuário deixa nele; dizer que parte do ciclo, se removida, mais reduziria o uso, e por quê; e classificar o produto pela matriz de manipulação de Eyal (facilitador, vendedor, artista, traficante), dizendo que evidência faltaria para firmar a classificação.",
       "descricao": "O modelo de Eyal para o produto usado sem que se decida usá-lo: gatilho externo que vira interno (uma emoção, um tédio), ação simples, recompensa variável — da tribo, da caça ou do eu — e investimento que carrega o próximo gatilho e aumenta o custo de sair. A competência é ler um produto por esse ciclo com precisão, e também o teste que o próprio Eyal propõe: se quem desenha usaria o produto e se ele melhora a vida de quem o usa.\n"
+    },
+    {
+      "id": "comp:ihc/corpus-de-emocao-na-fala",
+      "titulo": "Julgar um corpus de emoção na fala pelo que ele pode sustentar",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um corpus de emoção na fala e uma métrica publicada sobre ele: dizer se a fala é atuada, induzida ou espontânea e o que isso faz com a validade externa; contar falantes, duração e distribuição de classes, e dizer qual classe a métrica agregada está escondendo; examinar o esquema de rótulos e apontar uma classe que não é emoção, ou que mistura emoção com outro atributo do falante; dizer se a avaliação pode ser independente de falante com aquele número de falantes; e dizer que alegação do estado da arte **deixa de se sustentar** se avaliada só nesse corpus.",
+      "descricao": "É a competência que decide o valor de todo o resto. Um corpus de fala atuada tem rótulo limpo e estímulo irreal; um de fala espontânea tem o inverso, e costuma ser pequeno e desbalanceado. Somam-se a isso a língua, o número de falantes, o canal de gravação, quem anotou e com que concordância, e o esquema de classes — que às vezes mistura dimensões que não são emoção. A competência é dizer o que o corpus autoriza concluir, e o que não.\n"
     },
     {
       "id": "comp:ihc/credibilidade-de-sistema-computacional",
@@ -789,12 +805,36 @@
       "descricao": "Fogg propõe julgar a persuasão por três lados — a intenção de quem desenha, os métodos (há engano, coerção, exploração de vulnerabilidade?) e os resultados, previstos ou não — e acrescenta o que o computador muda: persiste sem cansar, não precisa ser honesto sobre ser máquina, opera em escala e dilui a responsabilidade. A competência cresce na trilha: aplicar o esquema a um produto, depois a um vício projetado, depois a um modelo que decide sobre milhões sem persuadir ninguém.\n"
     },
     {
+      "id": "comp:ihc/fontes-do-sinal-de-emocao-na-fala",
+      "titulo": "Decompor o sinal de fala nas fontes de que a emoção é extraída",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um enunciado gravado e um objetivo de reconhecimento: atribuir cada atributo que você usaria a uma das três fontes (excitação, tracto vocal, prosódia) e dizer o que cada uma contribui naquele caso; dizer qual delas sobrevive a uma gravação ruim de telefone e qual não, justificando pela banda e pelo ruído; apontar um atributo prosódico que depende do **enunciado inteiro** e dizer o que isso impõe à janela de análise; e dizer o que você perderia medindo só coeficientes cepstrais, que é o atalho mais comum.",
+      "descricao": "Rao e Koolagudi organizam o problema pela origem física do atributo, e não pela biblioteca que o calcula: informação da fonte de excitação (o que a glote faz), informação do tracto vocal (a filtragem, de onde saem os atributos espectrais e os cepstrais) e informação prosódica (entoação, duração, intensidade ao longo do enunciado). A competência é saber qual fonte carrega qual parte do afeto, e por que juntar tudo num vetor único esconde a resposta.\n"
+    },
+    {
       "id": "comp:ihc/modelo-de-comportamento-de-fogg",
       "titulo": "Diagnosticar e projetar um comportamento pelo modelo B=MAP",
       "rev": 1,
       "status": "ativo",
       "verificacao": "Dado um comportamento que alguém quer e não faz — o próprio estudante ou um caso descrito: dizer qual dos três elementos (motivação, capacidade, gatilho) falta e por que evidência se sabe; propor um micro-hábito na forma \"depois que eu [âncora], vou [versão mínima]\", justificando a âncora pela regularidade e a versão mínima pela capacidade; dizer por que aumentar a motivação é a intervenção menos confiável naquele caso; e aplicar o mesmo diagnóstico a um gatilho de produto digital, dizendo se ele é faísca, facilitador ou sinal.",
       "descricao": "Comportamento acontece quando motivação, capacidade e um gatilho (prompt) coincidem no mesmo instante; faltando o gatilho, nada acontece, e com motivação baixa só o comportamento muito fácil passa da linha de ação. A competência é usar o modelo nos dois sentidos — explicar por que um comportamento desejado não ocorre, e desenhar um hábito novo por âncora, versão mínima e celebração em vez de força de vontade.\n"
+    },
+    {
+      "id": "comp:ihc/paralinguistica-como-tarefa",
+      "titulo": "Situar o reconhecimento de emoção entre as tarefas paralinguísticas da fala",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dada uma alegação de produto ou de artigo sobre o que se extrai da voz: dizer qual é a tarefa paralinguística em jogo e qual rótulo ela usa; apontar uma tarefa vizinha que o mesmo sinal e o mesmo extrator atenderiam, e dizer o que mudaria no conjunto de rótulos; dizer se o sistema está medindo estado (que passa) ou traço (que não passa), e por que a diferença muda o protocolo de avaliação; e nomear uma tarefa paralinguística cuja confusão com emoção explicaria um resultado bom pelo motivo errado.",
+      "descricao": "Paralinguística computacional é o que na fala não é o que se diz: emoção, mas também personalidade, idade, sexo, intoxicação, sonolência, carga cognitiva e estado de saúde. Schuller e Batliner tratam essas tarefas com o mesmo encadeamento — corpus, atributos, classificador, protocolo — e é isso que a competência exige enxergar: emoção não é um problema sui generis, e o que a distingue das vizinhas é a definição do rótulo, não a técnica.\n"
+    },
+    {
+      "id": "comp:ihc/percepcao-vocal-do-afeto",
+      "titulo": "Comparar o reconhecimento automático com o que o ouvinte humano faz",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um resultado de reconhecimento automático de emoção em voz: dizer qual é o acerto humano na mesma tarefa e com que concordância entre ouvintes, e onde esse número foi obtido; julgar se o sistema superou pessoa ou superou **o rótulo**, e explicar a diferença; nomear duas pistas vocais que o ouvinte humano usa e dizer se o extrator do sistema as captura; apontar um efeito de familiaridade, de língua ou de identidade do falante que contaminaria a comparação; e dizer o que um teto humano baixo significa para a alegação do produto.",
+      "descricao": "Antes de medir máquina contra rótulo, há a pergunta de como o ouvinte humano extrai afeto de uma voz — que pistas usa, com que acerto, com que viés de familiaridade, língua e identidade de quem fala, e o que o cérebro faz com voz que não faz com outro som. A competência é usar a percepção humana como referência explícita: é dela que vem o teto realista de desempenho, e é ela que diz quando a tarefa é mal definida também para gente.\n"
     },
     {
       "id": "comp:ihc/reconhecimento-de-afeto-por-sinal",
@@ -4123,6 +4163,44 @@
       ]
     },
     {
+      "id": "etapa:ihc/analise-de-audio-como-base",
+      "titulo": "Intelligent Audio Analysis — janela, atributo de baixo nível e funcional",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 840,
+      "descricao": "O encadeamento que o reconhecimento de emoção pressupõe e raramente ensina: janelamento, representação espectral, atributos de baixo nível, os funcionais que os agregam no segmento, normalização e classificador. Opcional e com `requires` vazio de propósito: é base para quem chega sem processamento de sinal, e quem já tem pode ignorá-la sem perder nada da trilha. Vale além da emoção — é o mesmo encadeamento de qualquer tarefa de áudio.\n",
+      "trilha": "trilha:ihc/reconhecimento-de-emocao-na-voz",
+      "opcional": true,
+      "teaches": [
+        {
+          "competencia": "comp:ihc/analise-de-sinal-de-audio",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/atributos-espectrais-e-prosodicos-robustos",
+      "titulo": "Robust Emotion Recognition — atributos espectrais sincronizados ao pitch e sub-silábicos",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 420,
+      "descricao": "O segundo volume dos mesmos autores, e aprofundamento genuíno em vez de repetição: propõe caracterizar emoção por atributos espectrais sincronizados ao *pitch* e por unidades sub-silábicas, em lugar da janela fixa. Opcional porque é uma proposta de pesquisa específica, não a base — vale para quem vai extrair atributo e precisa de alternativa ao padrão.\n",
+      "trilha": "trilha:ihc/reconhecimento-de-emocao-na-voz",
+      "opcional": true,
+      "requires": [
+        {
+          "competencia": "comp:ihc/fontes-do-sinal-de-emocao-na-fala",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/fontes-do-sinal-de-emocao-na-fala",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
       "id": "etapa:ihc/captologia-e-triade-funcional",
       "titulo": "Persuasive Technology, introdução e caps. 1 a 5 — o computador como ferramenta, mídia e ator social",
       "rev": 1,
@@ -4150,6 +4228,32 @@
       "teaches": [
         {
           "competencia": "comp:ihc/tres-capacidades-da-computacao-afetiva",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/corpus-de-emocao-na-fala-em-portugues",
+      "titulo": "O corpus como limite — fala atuada, fala espontânea e o CORAA SER em português",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "descricao": "A etapa que decide o valor de todo o resto, e a única gratuita da trilha. O capítulo aberto de recursos de fala do livro de PLN da comunidade brasileira situa o reconhecimento de emoção entre as tarefas paralinguísticas e aponta o CORAA SER, corpus de emoção em fala espontânea do português brasileiro, derivado do C-ORAL-BRASIL I. O projeto é o exercício inteiro: ler o corpus de perto — são cerca de 50 minutos, e o esquema de classes da v1.0 mistura emoção com sexo do falante (\"neutra\", \"feminina não neutra\", \"masculina não neutra\") — e dizer o que ele autoriza concluir. É mais instrutivo que um corpus bom.\n",
+      "trilha": "trilha:ihc/reconhecimento-de-emocao-na-voz",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/fontes-do-sinal-de-emocao-na-fala",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/percepcao-vocal-do-afeto",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/corpus-de-emocao-na-fala",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -4267,6 +4371,28 @@
       ]
     },
     {
+      "id": "etapa:ihc/fontes-do-sinal-de-emocao-na-fala",
+      "titulo": "Emotion Recognition using Speech Features — excitação, tracto vocal e prosódia",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 420,
+      "descricao": "Rao e Koolagudi organizam o problema pela origem física do atributo, e é por isso que este volume curto vale mais que um panorama: um capítulo para a informação da fonte de excitação, um para a do tracto vocal e um para a prosódica. O corte é saber qual fonte carrega qual parte do afeto — e o que se perde no atalho de medir só coeficientes cepstrais, que é o que quase todo tutorial faz.\n",
+      "trilha": "trilha:ihc/reconhecimento-de-emocao-na-voz",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/paralinguistica-como-tarefa",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/fontes-do-sinal-de-emocao-na-fala",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:ihc/micro-habitos-e-b-map",
       "titulo": "Micro-hábitos — o modelo B=MAP, a âncora e a versão mínima",
       "rev": 1,
@@ -4304,6 +4430,50 @@
       "teaches": [
         {
           "competencia": "comp:ihc/ciclo-do-gancho",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/paralinguistica-computacional",
+      "titulo": "Computational Paralinguistics — emoção como uma tarefa paralinguística entre várias",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "descricao": "Schuller e Batliner tratam no mesmo encadeamento — corpus, atributos, classificador, protocolo — tudo o que na fala não é o que se diz: emoção, personalidade, idade, intoxicação, sonolência, carga cognitiva, saúde. O valor de abrir por aqui é não tratar emoção como problema sui generis: o que a distingue das vizinhas é a definição do rótulo, não a técnica. Os autores são quem organizou os *challenges* de emoção do INTERSPEECH e quem assina o openSMILE, de modo que o livro vem de quem fixou o protocolo do campo. O corte é classificar uma alegação de produto pela tarefa e pelo rótulo que ela usa.\n",
+      "trilha": "trilha:ihc/reconhecimento-de-emocao-na-voz",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/reconhecimento-de-afeto-por-sinal",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/paralinguistica-como-tarefa",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/percepcao-humana-da-voz",
+      "titulo": "The Oxford Handbook of Voice Perception — como o ouvinte humano extrai afeto da voz",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 720,
+      "descricao": "O handbook de percepção vocal, de consulta por capítulo: que pistas o ouvinte humano usa, com que acerto e com que viés de familiaridade, língua e identidade de quem fala, e o que o cérebro faz com voz que não faz com outro som. Entra porque é daqui que sai o **teto realista** de desempenho e o critério para separar \"superou pessoa\" de \"superou o rótulo\". O corte é usar a percepção humana como referência explícita de qualquer número automático.\n",
+      "trilha": "trilha:ihc/reconhecimento-de-emocao-na-voz",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/paralinguistica-como-tarefa",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/percepcao-vocal-do-afeto",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -7484,6 +7654,42 @@
       ],
       "etapas_referenciadas": [
         "etapa:ia/o-problema-da-analise-de-sentimentos"
+      ]
+    },
+    {
+      "id": "trilha:ihc/reconhecimento-de-emocao-na-voz",
+      "titulo": "Reconhecimento de emoção na voz — da tarefa paralinguística ao corpus que não sustenta a alegação",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:ihc/paralinguistica-como-tarefa",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/fontes-do-sinal-de-emocao-na-fala",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/percepcao-vocal-do-afeto",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/corpus-de-emocao-na-fala",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:ihc/paralinguistica-computacional",
+        "etapa:ihc/fontes-do-sinal-de-emocao-na-fala",
+        "etapa:ihc/atributos-espectrais-e-prosodicos-robustos",
+        "etapa:ihc/percepcao-humana-da-voz",
+        "etapa:ihc/corpus-de-emocao-na-fala-em-portugues",
+        "etapa:ihc/analise-de-audio-como-base"
+      ],
+      "etapas_referenciadas": [
+        "etapa:ihc/computacao-afetiva-o-campo",
+        "etapa:ihc/deteccao-de-afeto-por-sinal"
       ]
     },
     {
@@ -11418,6 +11624,21 @@
       "verificado_em": "2026-11-14"
     },
     {
+      "id": "rec:ihc/fruhholz-belin-oxford-handbook-voice-perception",
+      "titulo": "The Oxford Handbook of Voice Perception (Sascha Frühholz e Pascal Belin, orgs.)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/percepcao-humana-da-voz",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 1804.57,
+      "duracao_min": 720,
+      "url": "https://www.amazon.com.br/s?k=9780198743187",
+      "disponivel": true,
+      "obra": "fruhholz-belin-oxford-handbook-voice-perception",
+      "verificado_em": "2026-11-14"
+    },
+    {
       "id": "rec:ihc/konar-chakraborty-emotion-recognition",
       "titulo": "Emotion Recognition: A Pattern Analysis Approach (Amit Konar e Aruna Chakraborty, orgs.)",
       "rev": 1,
@@ -11535,6 +11756,94 @@
       "url": "https://www.amazon.com.br/s?k=9780262661157",
       "disponivel": true,
       "obra": "picard-affective-computing",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/pln-brasileiras-recursos-de-fala",
+      "titulo": "Processamento de Linguagem Natural (4ª ed., vol. 1) — capítulo de recursos de fala: tarefas paralinguísticas e corpora do português",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/corpus-de-emocao-na-fala-em-portugues",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://brasileiraspln.ufscar.br/livro-pln-4ed-vol1/fala/cap-recursos-fala/cap-recursos-fala.pdf",
+      "disponivel": true,
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/projeto-corpus-coraa-ser",
+      "titulo": "Projeto: auditar o CORAA SER e escrever o que ele autoriza concluir",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/corpus-de-emocao-na-fala-em-portugues",
+      "formato": "projeto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 360,
+      "url": "https://github.com/rmarcacini/ser-coraa-pt-br",
+      "disponivel": true,
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/rao-koolagudi-emotion-recognition-speech-features",
+      "titulo": "Emotion Recognition using Speech Features (K. Sreenivasa Rao e Shashidhar G. Koolagudi)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/fontes-do-sinal-de-emocao-na-fala",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 320.8,
+      "duracao_min": 420,
+      "url": "https://www.amazon.com.br/s?k=9781461451426",
+      "disponivel": true,
+      "obra": "rao-koolagudi-emotion-recognition-speech-features",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/rao-koolagudi-robust-emotion-recognition",
+      "titulo": "Robust Emotion Recognition using Spectral and Prosodic Features (K. Sreenivasa Rao e Shashidhar G. Koolagudi)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/atributos-espectrais-e-prosodicos-robustos",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 320.8,
+      "duracao_min": 420,
+      "url": "https://www.amazon.com.br/s?k=9781461463597",
+      "disponivel": true,
+      "obra": "rao-koolagudi-robust-emotion-recognition",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/schuller-batliner-computational-paralinguistics",
+      "titulo": "Computational Paralinguistics: Emotion, Affect and Personality in Speech and Language Processing (Björn Schuller e Anton Batliner)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/paralinguistica-computacional",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 785.83,
+      "duracao_min": 900,
+      "url": "https://www.amazon.com.br/s?k=9781119971368",
+      "disponivel": true,
+      "obra": "schuller-batliner-computational-paralinguistics",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/schuller-intelligent-audio-analysis",
+      "titulo": "Intelligent Audio Analysis (Björn W. Schuller)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/analise-de-audio-como-base",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 550.16,
+      "duracao_min": 840,
+      "url": "https://www.amazon.com.br/s?k=9783642368059",
+      "disponivel": true,
+      "obra": "schuller-intelligent-audio-analysis",
       "verificado_em": "2026-11-14"
     },
     {
