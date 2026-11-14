@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 68,
-  "gerado_em": "2026-11-13T00:36:12+00:00",
-  "hash": "sha256:1831912d562ebf4752ec2b416daac124ed5b551636c8859f0b73d81428891367",
+  "catalogo_versao": 69,
+  "gerado_em": "2026-11-14T03:21:17+00:00",
+  "hash": "sha256:3cae26e9e90b74a105f176b848ddba22d2aacd53b098cea9bedfbae58ef87185",
   "competencias": [
     {
       "id": "comp:arquitetura/computador-pessoal",
@@ -651,6 +651,62 @@
       "status": "ativo",
       "verificacao": "Implementar uma chamada que devolva JSON válido conforme um esquema dado, controlando temperatura e limite de tokens, e estimar o custo por mil chamadas.",
       "descricao": "Operar um modelo hospedado: parâmetros de decodificação, saída estruturada, janela de contexto, custo e latência por chamada.\n"
+    },
+    {
+      "id": "comp:ihc/ciclo-do-gancho",
+      "titulo": "Decompor um produto formador de hábito pelo ciclo gatilho, ação, recompensa e investimento",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um produto digital de uso diário que não os do livro: identificar o gatilho externo e o interno que ele pretende criar, a ação mínima, o tipo de recompensa variável (tribo, caça, eu) e o investimento que o usuário deixa nele; dizer que parte do ciclo, se removida, mais reduziria o uso, e por quê; e classificar o produto pela matriz de manipulação de Eyal (facilitador, vendedor, artista, traficante), dizendo que evidência faltaria para firmar a classificação.",
+      "descricao": "O modelo de Eyal para o produto usado sem que se decida usá-lo: gatilho externo que vira interno (uma emoção, um tédio), ação simples, recompensa variável — da tribo, da caça ou do eu — e investimento que carrega o próximo gatilho e aumenta o custo de sair. A competência é ler um produto por esse ciclo com precisão, e também o teste que o próprio Eyal propõe: se quem desenha usaria o produto e se ele melhora a vida de quem o usa.\n"
+    },
+    {
+      "id": "comp:ihc/credibilidade-de-sistema-computacional",
+      "titulo": "Avaliar de onde vem a credibilidade que um sistema computacional obtém",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um site, assistente ou aplicativo real: dizer que credibilidade ele tem para um usuário novo e para um usuário de um ano, atribuindo cada uma a uma das quatro origens (presumida, reputada, superficial, conquistada) com o elemento concreto que a produz; apontar um elemento superficial que produz credibilidade sem relação com a competência real do sistema; e dizer que erro, e de que tamanho, o usuário perdoaria e qual não perdoaria, justificando pela origem da confiança.",
+      "descricao": "Persuasão depende de ser acreditado, e Fogg separa a credibilidade em confiabilidade e competência percebidas, e quatro origens: presumida (o que se supõe de antemão), por reputação (o que terceiros dizem), superficial (a aparência) e conquistada (a experiência de uso). A competência é dizer de qual dessas origens um sistema tira a credibilidade que tem, e que erro do sistema a destruiria.\n"
+    },
+    {
+      "id": "comp:ihc/dano-algoritmico-em-escala",
+      "titulo": "Reconhecer quando um modelo de pontuação vira arma de destruição matemática",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um modelo de decisão automatizada real e não estudado no livro — análise de crédito, triagem de currículo, ranqueamento de feed, policiamento preditivo, precificação de seguro: dizer se ele é opaco, se opera em escala e que dano produz, com evidência para cada um; nomear o proxy que ele usa e a divergência entre o proxy e o objetivo declarado; descrever o laço de retroalimentação, se houver, como sequência de passos; e propor uma mudança — de transparência, de contestação, de dado, de objetivo — dizendo a que custo ela viria e para quem.",
+      "descricao": "O'Neil chama de arma de destruição matemática o modelo que reúne três traços: opacidade (quem é pontuado não vê nem contesta), escala (decide sobre milhões) e dano (piora a vida de quem pontua mal), quase sempre com um laço de retroalimentação que confirma o próprio erro. A competência é aplicar os três critérios a um modelo real, achar o substituto (proxy) que ele mede no lugar do que diz medir, e dizer que mudança o desarmaria.\n"
+    },
+    {
+      "id": "comp:ihc/etica-da-tecnologia-persuasiva",
+      "titulo": "Julgar eticamente uma tecnologia persuasiva por intenção, método e resultado",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um caso real de tecnologia que muda comportamento ou decide sobre pessoas: julgar separadamente intenção, método e resultado, dizendo onde o julgamento diverge entre os três; nomear o que no caso o computador torna diferente de um persuasor humano fazendo o mesmo; dizer quem é responsável por um resultado não previsto e por que via essa responsabilidade se cobraria; e defender uma regra — de produto, de plataforma ou de lei — que mudaria o caso, com a objeção mais forte a ela.",
+      "descricao": "Fogg propõe julgar a persuasão por três lados — a intenção de quem desenha, os métodos (há engano, coerção, exploração de vulnerabilidade?) e os resultados, previstos ou não — e acrescenta o que o computador muda: persiste sem cansar, não precisa ser honesto sobre ser máquina, opera em escala e dilui a responsabilidade. A competência cresce na trilha: aplicar o esquema a um produto, depois a um vício projetado, depois a um modelo que decide sobre milhões sem persuadir ninguém.\n"
+    },
+    {
+      "id": "comp:ihc/modelo-de-comportamento-de-fogg",
+      "titulo": "Diagnosticar e projetar um comportamento pelo modelo B=MAP",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um comportamento que alguém quer e não faz — o próprio estudante ou um caso descrito: dizer qual dos três elementos (motivação, capacidade, gatilho) falta e por que evidência se sabe; propor um micro-hábito na forma \"depois que eu [âncora], vou [versão mínima]\", justificando a âncora pela regularidade e a versão mínima pela capacidade; dizer por que aumentar a motivação é a intervenção menos confiável naquele caso; e aplicar o mesmo diagnóstico a um gatilho de produto digital, dizendo se ele é faísca, facilitador ou sinal.",
+      "descricao": "Comportamento acontece quando motivação, capacidade e um gatilho (prompt) coincidem no mesmo instante; faltando o gatilho, nada acontece, e com motivação baixa só o comportamento muito fácil passa da linha de ação. A competência é usar o modelo nos dois sentidos — explicar por que um comportamento desejado não ocorre, e desenhar um hábito novo por âncora, versão mínima e celebração em vez de força de vontade.\n"
+    },
+    {
+      "id": "comp:ihc/triade-funcional-da-persuasao",
+      "titulo": "Classificar uma tecnologia persuasiva pelo papel que o computador assume",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um produto digital que não os do livro — aplicativo de exercício, de banco, de idiomas, rede social, painel de carro: listar três recursos dele e dizer, para cada um, se o computador atua como ferramenta, mídia ou ator social, nomeando o princípio acionado (redução, encadeamento, sugestão, automonitoramento, vigilância, condicionamento, simulação, elogio, reciprocidade); apontar um recurso que acumula dois papéis e dizer qual deles faz o trabalho persuasivo; e dizer que comportamento-alvo o produto quer mudar, distinguindo-o do que ele declara.",
+      "descricao": "A tríade funcional de Fogg: o computador persuade como ferramenta (torna o comportamento mais fácil — redução, encadeamento, sugestão no momento certo, automonitoramento), como mídia (deixa ensaiar a causa e o efeito numa simulação) ou como ator social (elogia, retribui, parece alguém). A competência é decompor um produto real por esses papéis e pelo princípio que cada recurso dele aciona, em vez de chamá-lo de \"viciante\" ou \"intuitivo\".\n"
+    },
+    {
+      "id": "comp:ihc/vicio-comportamental-por-design",
+      "titulo": "Identificar os ingredientes de dependência comportamental num produto",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um produto que um grupo de usuários diz não conseguir largar — jogo, plataforma de vídeo, rede social, aplicativo de apostas: apontar quais dos seis ingredientes de Alter ele contém, com o recurso concreto que realiza cada um; dizer qual é escolha de design que poderia ser retirada sem destruir o produto e o que se perderia; distinguir uso intenso de dependência, nomeando o critério e o dado que o mediria; e dizer que intervenção — de design, de ambiente ou de regra — atacaria o ingrediente mais forte.",
+      "descricao": "Alter trata o uso compulsivo de tecnologia como vício comportamental e o decompõe nos ingredientes que o design pode dosar: meta sempre um pouco além, retorno imprevisível, sensação de progresso, dificuldade que escala, tensão não resolvida (o episódio seguinte começa sozinho) e conexão social. A competência é encontrar esses ingredientes num produto e separar o que neles é escolha de design — reversível — do que é a disposição de quem usa.\n"
     },
     {
       "id": "comp:linguas/conversacao-em-ingles",
@@ -3611,6 +3667,146 @@
       ]
     },
     {
+      "id": "etapa:ihc/algoritmos-de-destruicao-em-massa",
+      "titulo": "Algoritmos de destruição em massa — opacidade, escala e dano",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "descricao": "O'Neil sobre os modelos de pontuação que decidem matrícula, emprego, crédito, seguro, sentença e o anúncio que cada um vê: opacos, em escala e danosos, quase sempre com um laço de retroalimentação que confirma o próprio erro. Não é persuasão no sentido de Fogg, e é por isso que fecha a trilha: a ética tem de valer também onde ninguém é convencido, só pontuado. O corte é aplicar os três critérios a um modelo que o livro não estuda.\n",
+      "trilha": "trilha:ihc/captologia",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/etica-da-tecnologia-persuasiva",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/dano-algoritmico-em-escala",
+          "nivel_resultante": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/etica-da-tecnologia-persuasiva",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/captologia-e-triade-funcional",
+      "titulo": "Persuasive Technology, introdução e caps. 1 a 5 — o computador como ferramenta, mídia e ator social",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 540,
+      "descricao": "Fogg funda a captologia e a delimita: persuasão é mudança de atitude ou de comportamento sem coerção nem engano, e interessa a que o computador foi projetado para produzir, não o efeito colateral. Os caps. 2 a 5 são a tríade funcional — ferramenta, mídia de simulação, ator social — com os princípios de cada papel. O corte é decompor um produto atual, vinte anos mais novo que os exemplos do livro, por esses papéis.\n",
+      "trilha": "trilha:ihc/captologia",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:ihc/triade-funcional-da-persuasao",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/credibilidade-mobilidade-e-etica",
+      "titulo": "Persuasive Technology, caps. 6 a 10 — credibilidade, mobilidade e a ética da persuasão",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 480,
+      "descricao": "A segunda metade do livro: credibilidade em geral e na web (caps. 6 e 7), o que a conexão e a mobilidade acrescentam à persuasão (cap. 8), a ética da tecnologia persuasiva (cap. 9) e o fechamento sobre o futuro do campo (cap. 10), com o apêndice que resume os princípios. O corte é usar o cap. 9 como esquema de julgamento — intenção, método, resultado — que as etapas seguintes vão esticar.\n",
+      "trilha": "trilha:ihc/captologia",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/triade-funcional-da-persuasao",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/credibilidade-de-sistema-computacional",
+          "nivel_resultante": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/etica-da-tecnologia-persuasiva",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/micro-habitos-e-b-map",
+      "titulo": "Micro-hábitos — o modelo B=MAP, a âncora e a versão mínima",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "descricao": "Fogg dezesseis anos depois, aplicando o próprio modelo ao leitor: comportamento é motivação, capacidade e gatilho no mesmo instante, e a motivação é o elemento menos confiável. O livro ensina a desenhar hábito por âncora, versão mínima e celebração. A etapa cobra as duas direções: projetar um micro-hábito real e mantê-lo por algumas semanas, e usar o mesmo diagnóstico num gatilho de produto — que é a ponte para Eyal.\n",
+      "trilha": "trilha:ihc/captologia",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:ihc/modelo-de-comportamento-de-fogg",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/modelo-do-gancho",
+      "titulo": "Hooked (Engajado) — gatilho, ação, recompensa variável e investimento",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 420,
+      "descricao": "Eyal transforma o modelo de Fogg em método de produto: o gatilho externo que vira interno, a ação mais simples possível, a recompensa variável da tribo, da caça ou do eu, e o investimento que carrega o próximo gatilho. O livro termina na matriz de manipulação, que pergunta se quem desenha usaria o produto e se ele melhora a vida de quem usa. O corte é ler o ciclo com precisão e levar a matriz a sério, sem tratá-la como absolvição.\n",
+      "trilha": "trilha:ihc/captologia",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/modelo-de-comportamento-de-fogg",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/triade-funcional-da-persuasao",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/ciclo-do-gancho",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/vicio-comportamental-por-design",
+      "titulo": "Irresistível — os ingredientes do vício comportamental e como desarmá-los",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 540,
+      "descricao": "Alter lê o mesmo ciclo de Eyal pelo outro lado: o uso compulsivo como vício comportamental, decomposto em seis ingredientes que o design dosa — metas, retorno imprevisível, progresso, escalada, tensão não resolvida e interação social —, e a última parte sobre o que fazer com eles. A etapa cobra separar o que é escolha de design, e portanto reversível, do que é disposição de quem usa, e julgar o caso pelo esquema de Fogg.\n",
+      "trilha": "trilha:ihc/captologia",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/ciclo-do-gancho",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/etica-da-tecnologia-persuasiva",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/vicio-comportamental-por-design",
+          "nivel_resultante": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/etica-da-tecnologia-persuasiva",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:linguas/oracao-simples-e-suas-funcoes",
       "titulo": "Elementos da estrutura gramatical e a oração simples",
       "rev": 2,
@@ -6525,6 +6721,50 @@
       ],
       "etapas_referenciadas": [
         "etapa:programacao/python-para-ia"
+      ]
+    },
+    {
+      "id": "trilha:ihc/captologia",
+      "titulo": "Captologia — da tecnologia persuasiva ao vício por design e ao algoritmo em escala",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:ihc/triade-funcional-da-persuasao",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/credibilidade-de-sistema-computacional",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/modelo-de-comportamento-de-fogg",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/ciclo-do-gancho",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/vicio-comportamental-por-design",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/dano-algoritmico-em-escala",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/etica-da-tecnologia-persuasiva",
+          "nivel": "avancado"
+        }
+      ],
+      "etapas": [
+        "etapa:ihc/captologia-e-triade-funcional",
+        "etapa:ihc/credibilidade-mobilidade-e-etica",
+        "etapa:ihc/micro-habitos-e-b-map",
+        "etapa:ihc/modelo-do-gancho",
+        "etapa:ihc/vicio-comportamental-por-design",
+        "etapa:ihc/algoritmos-de-destruicao-em-massa"
       ]
     },
     {
@@ -10038,6 +10278,96 @@
       "disponivel": true,
       "obra": "souza-engenharia-de-prompts",
       "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:ihc/alter-irresistivel",
+      "titulo": "Irresistível: por que você é viciado em tecnologia e como lidar com ela (Adam Alter)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/vicio-comportamental-por-design",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 92.9,
+      "duracao_min": 540,
+      "url": "https://www.companhiadasletras.com.br/livro/9788547000585/irresistivel",
+      "disponivel": true,
+      "obra": "alter-irresistivel",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/eyal-hooked-engajado",
+      "titulo": "Hooked (Engajado): como construir produtos e serviços formadores de hábitos (Nir Eyal)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/modelo-do-gancho",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 88.81,
+      "duracao_min": 420,
+      "url": "https://www.amazon.com.br/s?k=9788583394761",
+      "disponivel": true,
+      "obra": "eyal-hooked-engajado",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/fogg-micro-habitos",
+      "titulo": "Micro-hábitos: pequenas mudanças que mudam tudo (B.J. Fogg)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/micro-habitos-e-b-map",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 38.43,
+      "duracao_min": 600,
+      "url": "https://www.amazon.com.br/s?k=9788595086883",
+      "disponivel": true,
+      "obra": "fogg-micro-habitos",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/fogg-persuasive-technology-caps-1-5",
+      "titulo": "Persuasive Technology (B.J. Fogg) — introdução e caps. 1 a 5: a captologia e a tríade funcional",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/captologia-e-triade-funcional",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 300.0,
+      "duracao_min": 540,
+      "url": "https://www.amazon.com.br/s?k=9781558606432",
+      "disponivel": true,
+      "obra": "fogg-persuasive-technology",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/fogg-persuasive-technology-caps-6-10",
+      "titulo": "Persuasive Technology (B.J. Fogg) — caps. 6 a 10 e apêndice: credibilidade, mobilidade e ética",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/credibilidade-mobilidade-e-etica",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 300.0,
+      "duracao_min": 480,
+      "url": "https://www.amazon.com.br/s?k=9781558606432",
+      "disponivel": true,
+      "obra": "fogg-persuasive-technology",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/oneil-algoritmos-de-destruicao-em-massa",
+      "titulo": "Algoritmos de destruição em massa: como o big data aumenta a desigualdade e ameaça a democracia (Cathy O'Neil)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/algoritmos-de-destruicao-em-massa",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 70.0,
+      "duracao_min": 600,
+      "url": "https://www.amazon.com.br/s?k=9786586460025",
+      "disponivel": true,
+      "obra": "oneil-algoritmos-de-destruicao-em-massa",
+      "verificado_em": "2026-11-14"
     },
     {
       "id": "rec:linguas/fenn-schwab-english-syntax-caps-1-3",
