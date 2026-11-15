@@ -1810,6 +1810,166 @@ venda — e estão no [§ O que não tem ficha](#o-que-não-tem-ficha).
   erra.
 
 
+As oito fichas da trilha `trilha:ihc/reconhecimento-de-emocao-em-expressao-facial`,
+conferidas em 2026-11-14. Diferença em relação às fichas anteriores desta seção:
+**as páginas de produto foram lidas**, no navegador embutido, e não substituídas por
+link de busca pelo ISBN — a Amazon BR e a Estante Virtual recusam o `curl` deste
+ambiente, mas cedem ao navegador. Cada ficha diz qual formato o `custo` cita, porque
+em três delas o Kindle é muito mais barato que o impresso.
+
+### A expressão das emoções no homem e nos animais
+
+- **Autoria** — Charles Darwin; trad. Leon de Souza Lobo Garcia, introdução de Konrad
+  Lorenz. Original: *The Expression of the Emotions in Man and Animals* (1872).
+- **Edição** — Companhia de Bolso (Companhia das Letras), 19/02/2009, 344 p., capa
+  comum, pt-BR. A primeira edição brasileira é de 2000, na Companhia das Letras, com
+  ISBN-10 `8571649758`.
+- **Identificadores** — ISBN-13 `9788535913989` · ISBN-10 `853591398X`
+- **Amazon** — https://www.amazon.com.br/dp/853591398X — **página de produto lida no
+  navegador embutido**, não link de busca. R$ 48,00 praticado pela Amazon, R$ 74,90 de
+  preço sugerido pela editora.
+- **Citada por** — `rec:ihc/darwin-expressao-das-emocoes` — declara
+  `obra: darwin-expressao-das-emocoes`
+- **Nota** — ⚠️ **havia hoje uma oferta relâmpago a R$ 34,78**, marcada "42%
+  reservado(s)", que é o tipo de preço que não se catalogar: expira. O `custo` ficou
+  em R$ 48,00, o praticado estável. Sobre o conteúdo, uma ressalva que a trilha usa:
+  Darwin argumenta por **continuidade evolutiva**, não por um conjunto fechado de
+  categorias discretas — a leitura categórica é posterior a ele.
+
+### Emotions Revealed
+
+- **Autoria** — Paul Ekman
+- **Edição** — 2ª edição, 20/03/2007, 290 p., capa comum, en-US. A editora não aparece
+  na página da Amazon (é Owl Books / Henry Holt); a 1ª edição é de 2003.
+- **Identificadores** — ISBN-13 `9780805083392` · ISBN-10 `0805083391`
+- **Amazon** — https://www.amazon.com.br/dp/0805083391 — página de produto lida.
+  R$ 79,77 em capa comum, outras ofertas a partir de R$ 66,00; há audiolivro a
+  R$ 0,99 com assinatura.
+- **Citada por** — `rec:ihc/ekman-emotions-revealed` — declara
+  `obra: ekman-emotions-revealed`
+- **Nota** — entra **na mesma etapa** da tradução brasileira, e não no lugar dela: a
+  tradução está esgotada e só circula usada a partir de R$ 345,00, e este exemplar
+  custa R$ 79,77. São duas `obra`s distintas, de modo que a validação 12 (custo único
+  por obra) não é violada — ela compara preço só *dentro* de uma obra. Quem filtra por
+  `custo_maximo` baixo recebe o inglês e a etapa não trava.
+
+### A linguagem das emoções
+
+- **Autoria** — Paul Ekman; trad. Carlos Szlak. Original: *Emotions Revealed* (2003).
+- **Edição** — Lua de Papel (selo da LeYa), 01/03/2011, 288 p., capa comum, pt-BR
+- **Identificadores** — ISBN-13 `9788563066428` · ISBN-10 `8563066420`
+- **Amazon** — https://www.amazon.com.br/dp/8563066420 — página lida, e **não é a `url`
+  do recurso**: R$ 539,00 por exemplar novo de terceiro. O recurso aponta a
+  [página do livro na Estante Virtual](https://www.estantevirtual.com.br/livro/a-linguagem-das-emocoes-0MK-3469-000-BK),
+  com 4 usados e 2 novos a partir de R$ 345,00.
+- **Citada por** — `rec:ihc/ekman-a-linguagem-das-emocoes` — declara
+  `obra: ekman-a-linguagem-das-emocoes`
+- **Nota** — ⚠️ **esgotada na editora, e o preço é de mercado de usado.** É a única
+  tradução brasileira de qualquer obra desta trilha, e é por isso que ela entra apesar
+  do preço. Item de mercado de usado tem estoque único e volátil: `disponivel: true`
+  descreve hoje, não um estado estável, e a `url` é a do livro na plataforma, não a de
+  um anúncio.
+
+### What the Face Reveals
+
+- **Autoria** — Paul Ekman e Erika L. Rosenberg (orgs.), série *Series in Affective
+  Science*
+- **Edição** — 2ª edição, Oxford University Press, 01/02/2005, 672 p. pela Amazon
+  (xxi+639 p. em registro de biblioteca), capa dura, en-US. Há brochura indiana
+  (`9780195398960`) e uma tiragem de 2020 com 656 p. (`9780190202941`).
+- **Identificadores** — ISBN-13 `9780195179644` · ISBN-10 `0195179641`
+- **Amazon** — https://www.amazon.com.br/dp/0195179641 — página lida. **R$ 342,05 em
+  Kindle**, R$ 495,38 em capa dura; usado a partir de R$ 422,61.
+- **Citada por** — `rec:ihc/ekman-rosenberg-what-the-face-reveals` — declara
+  `obra: ekman-rosenberg-what-the-face-reveals`
+- **Nota** — ⚠️ **o `custo` é o do Kindle**, que aqui é R$ 153 mais barato que o
+  impresso e R$ 80 mais barato que o usado. A página não exibe autoria nem editora nos
+  campos que o `ficha-livro.sh` lê — os dois vieram de busca separada, não da loja.
+  Uma fatia só, do exemplar inteiro: o sumário capítulo a capítulo não apareceu em
+  nenhuma página lida, e nomear intervalo seria inventar.
+
+### Facial Action Coding System (manual e guia do investigador)
+
+- **Autoria** — Paul Ekman, Wallace V. Friesen e Joseph C. Hager
+- **Edição** — revisão de 2002, vendida pelo Paul Ekman Group como PDF: manual de 527
+  páginas mais guia do investigador de 197 páginas, com fotos e vídeos de exemplo,
+  en-US. O FACS foi publicado pela primeira vez em 1978, por Ekman e Friesen.
+- **Identificadores** — **nenhum ISBN**: não é livro de livraria, é material vendido
+  direto pelo detentor.
+- **Amazon** — não existe. A venda é só em
+  https://www.paulekman.com/facial-action-coding-system/, que é a `url` do recurso —
+  **página lida no navegador embutido em 2026-11-14**, e é dela que saem o preço, a
+  paginação e as 50 a 100 horas de estudo.
+- **Citada por** — `rec:ihc/manual-do-facs` — declara `obra: manual-do-facs-2002`
+- **Nota** — ⚠️ **preço em dólar, e a conversão é ordem de grandeza, não cotação.**
+  US$ 350 convertidos a **R$ 1.984,50** pelo câmbio de 2026-11-13 (US$ 1 = R$ 5,67,
+  Morningstar via Google). **Não inclui IOF nem spread de cartão internacional**, e o
+  número envelhece com o câmbio, não com a loja — é o primeiro recurso do catálogo
+  nessa situação. Com isso ele passa a ser **a obra mais cara do catálogo**, à frente
+  do *Oxford Handbook of Voice Perception* (R$ 1.804,57).
+  Dois fatos vizinhos, conferidos na mesma página: o **FACS Final Test** custa US$ 50 e
+  é comprado **em separado** — é o único padrão de proficiência que existe, e não está
+  no `custo` do recurso; e o treinamento presencial endossado é o curso de cinco dias
+  de Erika Rosenberg, sem versão on-line aprovada. Não há edição em português nem
+  revendedor brasileiro.
+
+### Human Facial Expression: An Evolutionary View
+
+- **Autoria** — Alan J. Fridlund
+- **Edição** — Academic Press, 26/08/1994, 369 p. pela Amazon (xiv+369 em registro de
+  biblioteca), capa dura, en-US
+- **Identificadores** — ISBN-13 `9780122676307` · ISBN-10 `0122676300`
+- **Amazon** — https://www.amazon.com.br/dp/0122676300 — página lida. **R$ 172,00 em
+  Kindle**, R$ 2.132,00 em capa dura, usado a partir de R$ 474,24.
+- **Citada por** — `rec:ihc/fridlund-human-facial-expression` — declara
+  `obra: fridlund-human-facial-expression`
+- **Nota** — ⚠️ **a diferença entre formatos é de 12 vezes**, o maior salto registrado
+  neste arquivo: R$ 172,00 em Kindle contra R$ 2.132,00 em capa dura, num livro de 1994
+  fora de catálogo impresso. Conferido que o Kindle é o mesmo título, no seletor de
+  formatos da própria página. Há também
+  [cópia para empréstimo no Internet Archive](https://archive.org/details/humanfacialexpre0000frid),
+  que **não** entrou como recurso: empréstimo tem fila e prazo, e `disponivel: true`
+  mentiria. O valor do livro na trilha é a data — a objeção ecológica é de 1994,
+  contemporânea do auge do paradigma, não um arrependimento recente.
+
+### The Science of Facial Expression
+
+- **Autoria** — James A. Russell e José-Miguel Fernández-Dols (orgs.), série *Oxford
+  Series in Social Cognition and Social Neuroscience*
+- **Edição** — Oxford University Press, 15/05/2017, 552 p. pela Amazon (xii+540 em
+  registro de biblioteca), capa dura, en-US
+- **Identificadores** — ISBN-13 `9780190613501` · ISBN-10 `0190613505`
+- **Amazon** — https://www.amazon.com.br/dp/0190613505 — página lida. **R$ 926,84 em
+  Kindle**, R$ 1.341,78 em capa dura.
+- **Citada por** — `rec:ihc/science-of-facial-expression` — declara
+  `obra: science-of-facial-expression`
+- **Nota** — o `custo` é o do Kindle, R$ 415 mais barato. A página não exibe a autoria
+  nos campos lidos pelo `ficha-livro.sh` e devolve o título sem o artigo
+  ("Science of Facial Expression"); os organizadores vieram de busca separada. É o
+  volume em que defensores e críticos do paradigma escrevem em capítulos vizinhos — a
+  razão de ele estar na trilha é essa, e não a abrangência.
+
+### Emotional Expressions Reconsidered: Challenges to Inferring Emotion From Human Facial Movements
+
+- **Autoria** — Lisa Feldman Barrett, Ralph Adolphs, Stacy Marsella, Aleix M. Martinez
+  e Seth D. Pollak
+- **Edição** — *Psychological Science in the Public Interest*, 20(1):1–68, 2019, en-US.
+  **Artigo de revisão, não exemplar** — por isso é o único recurso desta trilha **sem
+  `obra`**, pela regra de docs/catalogo.md.
+- **Identificadores** — DOI `10.1177/1529100619832930`
+- **Amazon** — não se aplica. Texto integral aberto em
+  https://pmc.ncbi.nlm.nih.gov/articles/PMC6640856/, que é a `url` do recurso.
+  `custo: 0`.
+- **Citada por** — `rec:ihc/barrett-et-al-expressoes-reconsideradas`
+- **Nota** — ⚠️ **prefira o PMC ou o repositório institucional ao PDF avulso**: o
+  arquivo que circula no site da *Association for Affective Science* está rotulado como
+  **corrigendum**, não como o artigo. É a leitura mais importante da trilha e a única
+  gratuita, e a conclusão que a trilha usa é tripla: falta confiabilidade, falta
+  especificidade e falta generalização no mapeamento entre movimento facial e categoria
+  de emoção. Não confundir com `rec:ihc/barrett-como-as-emocoes-sao-feitas`, que é o
+  livro da mesma autora e trata da teoria da emoção em geral; este é a instância
+  facial, com a evidência reunida.
+
 ## Línguas
 
 ### Introducing English Syntax: A Basic Guide for Students of English
@@ -1949,6 +2109,24 @@ comercial, sem ISBN e sem edição à venda. E o CORAA SER
 `formato: projeto` e aponta o repositório em que o corpus se baixa, de modo que não é
 exemplar por dois motivos independentes. Os dois estão com url conferida por `curl`
 (HTTP 200 em 2026-11-14).
+
+Em 2026-11-14 a trilha de expressão facial acrescentou **um** recurso sem `obra`, e
+por motivo diferente dos cinco acima: `rec:ihc/barrett-et-al-expressoes-reconsideradas`
+é **artigo de revisão** em periódico — a *Psychological Science in the Public
+Interest* —, e artigo não é exemplar. Tem ficha, ao contrário dos artigos listados no
+primeiro parágrafo, porque é a leitura central de uma etapa e porque há uma armadilha
+de fonte a registrar (o PDF que circula fora do PMC está rotulado como corrigendum).
+
+Três obras ficaram **fora do catálogo** na mesma passada, e a decisão vale escrita:
+
+1. **Handbook of Face Recognition** (Li e Jain) — é de **identidade**, não de emoção.
+   Entraria pelo título e sairia na primeira leitura.
+2. **A cópia do Fridlund no Internet Archive** — empréstimo com fila e prazo, de modo
+   que `disponivel: true` seria falso. O exemplar comprável está catalogado; a cópia
+   está citada na ficha.
+3. **O FACS Final Test** (US$ 50, Paul Ekman Group) — é avaliação de proficiência, não
+   material de estudo, e é comprado em separado do manual. Está na ficha do manual,
+   fora do `custo` do recurso.
 
 ## Divergências
 

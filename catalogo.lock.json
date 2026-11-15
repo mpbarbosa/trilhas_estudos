@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 73,
-  "gerado_em": "2026-11-14T19:51:44+00:00",
-  "hash": "sha256:bb3a16081b6c724c8cfac8cee3b728f93cf805ab480942fea3f91f58194f5f6d",
+  "catalogo_versao": 74,
+  "gerado_em": "2026-11-14T22:50:41+00:00",
+  "hash": "sha256:7f469d598d3575a436b7af3ab467a981d4b3a9534cf5d8c2cf3fdbe22eccd4f9",
   "competencias": [
     {
       "id": "comp:arquitetura/computador-pessoal",
@@ -741,6 +741,22 @@
       "descricao": "O modelo de Eyal para o produto usado sem que se decida usá-lo: gatilho externo que vira interno (uma emoção, um tédio), ação simples, recompensa variável — da tribo, da caça ou do eu — e investimento que carrega o próximo gatilho e aumenta o custo de sair. A competência é ler um produto por esse ciclo com precisão, e também o teste que o próprio Eyal propõe: se quem desenha usaria o produto e se ele melhora a vida de quem o usa.\n"
     },
     {
+      "id": "comp:ihc/codificacao-anatomica-do-movimento-facial",
+      "titulo": "Codificar movimento facial em unidades de ação e separar a descrição da inferência",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um quadro ou um trecho de vídeo de um rosto: nomear as unidades de ação plausíveis e dizer em que evidência visível cada uma se apoia; dizer qual par de emoções o mesmo conjunto de unidades seria compatível com, e o que no contexto decidiria entre elas; pegar a saída de um sistema comercial na forma \"<emoção> <número>\" e reescrevê-la como alegação sobre unidades de ação mais um passo inferencial explícito; e dizer que medida de concordância entre codificadores o resultado precisaria reportar para ser levado a sério.",
+      "descricao": "O FACS decompõe todo movimento facial visível em unidades de ação ancoradas na anatomia, e é por isso que ele atravessa o debate intacto: ele descreve músculo, não sentimento. A competência tem duas metades inseparáveis — saber codificar, e saber onde a codificação termina. Dizer \"unidade de ação 6 mais 12\" é observação que outro codificador reproduz; dizer \"alegria\" é uma segunda alegação, que precisa de evidência própria e quase nunca a tem.\n"
+    },
+    {
+      "id": "comp:ihc/controversia-da-inferencia-facial-de-emocao",
+      "titulo": "Situar uma afirmação sobre face e emoção na controvérsia que a sustenta ou a derruba",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dada uma afirmação sobre o que um rosto indica — de artigo, de livro-texto ou de material de produto: identificar a posição teórica que ela pressupõe e o tipo de evidência que essa posição privilegia; nomear o achado empírico que a refutaria; dizer o que a revisão de 2019 de Barrett e colegas conclui sobre a confiabilidade, a especificidade e a generalização do mapeamento entre movimento facial e categoria de emoção, e qual das três a afirmação precisaria assumir; e dizer que parte da afirmação continua de pé se o passo inferencial cair.",
+      "descricao": "Esta é a literatura mais disputada da computação afetiva, e a disputa não é detalhe técnico: há a posição das emoções básicas, a construcionista e a ecológico-comportamental, cada uma privilegiando um tipo de evidência, e meio século de troca entre elas. A competência é ler uma afirmação sobre face e emoção sabendo de que lado da evidência ela depende, em vez de herdar uma posição por acidente de bibliografia — e saber que achado a refutaria.\n"
+    },
+    {
       "id": "comp:ihc/corpus-de-emocao-na-fala",
       "titulo": "Julgar um corpus de emoção na fala pelo que ele pode sustentar",
       "rev": 1,
@@ -805,6 +821,14 @@
       "descricao": "Fogg propõe julgar a persuasão por três lados — a intenção de quem desenha, os métodos (há engano, coerção, exploração de vulnerabilidade?) e os resultados, previstos ou não — e acrescenta o que o computador muda: persiste sem cansar, não precisa ser honesto sobre ser máquina, opera em escala e dilui a responsabilidade. A competência cresce na trilha: aplicar o esquema a um produto, depois a um vício projetado, depois a um modelo que decide sobre milhões sem persuadir ninguém.\n"
     },
     {
+      "id": "comp:ihc/expressao-facial-como-sinal-social",
+      "titulo": "Explicar uma expressão facial como sinal dirigido a alguém, não como vazamento de estado interno",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um registro de expressão facial com e sem audiência: dizer o que cada leitura — vazamento de estado interno e sinal social — prediz para a diferença, e se o dado disponível separa as duas; apontar, num conjunto de treino de reconhecimento facial de emoção, onde a condição social está fixada sem ter sido declarada; dizer que alteração no protocolo de coleta tornaria a distinção observável; e nomear um caso em que a leitura social explica melhor uma expressão que a leitura de estado trataria como ruído.",
+      "descricao": "A leitura de ecologia comportamental, de Fridlund: expressões faciais são sinais com destinatário e função social — negociar, apaziguar, ameaçar, convidar —, e não leituras de um estado interno que escapa. A consequência prática é grande e é testável: a mesma pessoa, no mesmo estado, expressa de modo diferente com e sem audiência, inclusive audiência imaginada. Um reconhecedor treinado em rosto isolado mede o que a presença de outra pessoa modula, e não sabe disso.\n"
+    },
+    {
       "id": "comp:ihc/fontes-do-sinal-de-emocao-na-fala",
       "titulo": "Decompor o sinal de fala nas fontes de que a emoção é extraída",
       "rev": 1,
@@ -819,6 +843,14 @@
       "status": "ativo",
       "verificacao": "Dado um comportamento que alguém quer e não faz — o próprio estudante ou um caso descrito: dizer qual dos três elementos (motivação, capacidade, gatilho) falta e por que evidência se sabe; propor um micro-hábito na forma \"depois que eu [âncora], vou [versão mínima]\", justificando a âncora pela regularidade e a versão mínima pela capacidade; dizer por que aumentar a motivação é a intervenção menos confiável naquele caso; e aplicar o mesmo diagnóstico a um gatilho de produto digital, dizendo se ele é faísca, facilitador ou sinal.",
       "descricao": "Comportamento acontece quando motivação, capacidade e um gatilho (prompt) coincidem no mesmo instante; faltando o gatilho, nada acontece, e com motivação baixa só o comportamento muito fácil passa da linha de ação. A competência é usar o modelo nos dois sentidos — explicar por que um comportamento desejado não ocorre, e desenhar um hábito novo por âncora, versão mínima e celebração em vez de força de vontade.\n"
+    },
+    {
+      "id": "comp:ihc/origem-evolutiva-da-expressao-facial",
+      "titulo": "Julgar uma alegação de universalidade da expressão facial pela evidência que a sustenta",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um estudo que alega universalidade de uma expressão: dizer se a evidência é de produção ou de reconhecimento, e se o reconhecimento foi por escolha forçada entre rótulos dados ou por nomeação livre; dizer o que o viés de escolha forçada acrescenta de acerto mesmo quando não há sinal; apontar qual população tornaria o resultado mais informativo e por quê; e reescrever a conclusão do estudo numa forma que o desenho dele realmente autorize.",
+      "descricao": "A tese de que certas expressões faciais são as mesmas em toda parte vem de Darwin, que argumenta por **continuidade evolutiva** — o mesmo movimento no bebê, no adulto, no animal, no cego de nascimento —, e não por um conjunto fechado de categorias discretas; a leitura categórica é posterior a ele e tem de se defender sozinha. A competência é saber o que cada desenho de estudo pode estabelecer: reconhecimento transcultural por escolha forçada entre rótulos não é o mesmo que produção espontânea, e os dois sustentam conclusões diferentes.\n"
     },
     {
       "id": "comp:ihc/paralinguistica-como-tarefa",
@@ -4371,6 +4403,50 @@
       ]
     },
     {
+      "id": "etapa:ihc/face-como-sinal-social",
+      "titulo": "Human Facial Expression — a objeção ecológica, de 1994 e não de 2017",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "descricao": "Fridlund argumenta que a face emite **sinais dirigidos a um destinatário**, com função social, e não leituras de estado interno que escapam — a ecologia comportamental da expressão. Entra na trilha por dois motivos. Primeiro, a consequência é testável e cara para a engenharia: a mesma pessoa, no mesmo estado, expressa diferente com e sem audiência, inclusive imaginada, e um reconhecedor treinado em rosto isolado mede justamente o que a presença de outra pessoa modula. Segundo, a data: a objeção é **contemporânea do auge do paradigma**, não um arrependimento recente, o que desmonta a leitura de que a crítica só chegou com a construcionista.\n",
+      "trilha": "trilha:ihc/reconhecimento-de-emocao-em-expressao-facial",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/origem-evolutiva-da-expressao-facial",
+          "nivel_minimo": "avancado"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/expressao-facial-como-sinal-social",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/facs-aplicado",
+      "titulo": "What the Face Reveals — o FACS aplicado, e o que ele de fato mede",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "descricao": "O volume acadêmico que reúne dezenas de estudos de expressão espontânea codificados em FACS, organizado por Ekman e Erika Rosenberg. De consulta por capítulo, e é a melhor via para a metade decisiva da competência: ver o instrumento em uso mostra onde a codificação termina e onde começa a inferência, o que nenhum resumo do sistema mostra. O corte é pegar a saída de um sistema comercial na forma \"<emoção> <número>\" e reescrevê-la como alegação sobre unidades de ação mais um passo inferencial explícito.\n",
+      "trilha": "trilha:ihc/reconhecimento-de-emocao-em-expressao-facial",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/origem-evolutiva-da-expressao-facial",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/codificacao-anatomica-do-movimento-facial",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:ihc/fontes-do-sinal-de-emocao-na-fala",
       "titulo": "Emotion Recognition using Speech Features — excitação, tracto vocal e prosódia",
       "rev": 1,
@@ -4389,6 +4465,54 @@
         {
           "competencia": "comp:ihc/fontes-do-sinal-de-emocao-na-fala",
           "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/inferencia-facial-reconsiderada",
+      "titulo": "Emotional Expressions Reconsidered — a revisão que derruba o passo inferencial",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "descricao": "Sessenta e oito páginas em que Barrett, Adolphs, Marsella, Martinez e Pollak revisam a evidência e concluem que os movimentos faciais tidos por diagnósticos de emoção não o são: falta confiabilidade, falta especificidade e falta generalização entre pessoas, contextos e culturas. É a leitura mais importante da trilha e a única gratuita. Fecha exigindo os dois ramos de propósito: sem saber codificar, a revisão se lê como demolição do campo inteiro — e não é, porque a codificação de unidade de ação atravessa intacta. O corte é dizer, de qualquer alegação sobre face e emoção, que parte continua de pé quando o passo inferencial cai.\n",
+      "trilha": "trilha:ihc/reconhecimento-de-emocao-em-expressao-facial",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/controversia-da-inferencia-facial-de-emocao",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/codificacao-anatomica-do-movimento-facial",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/controversia-da-inferencia-facial-de-emocao",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/manual-do-facs",
+      "titulo": "O manual do FACS — aprender a codificar, com certificação à parte",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 3600,
+      "descricao": "O instrumento em si: manual autoinstrucional de 527 páginas mais o guia do investigador, com fotos e vídeos de exemplo, revisado em 2002 e vendido pelo Paul Ekman Group. São 50 a 100 horas de estudo, e a certificação é um teste separado, único padrão de proficiência que existe. Opcional por três motivos somados: é o item mais caro do catálogo, é treinamento de habilidade e não leitura, e só se justifica para quem vai codificar de fato ou auditar quem codifica. Quem não o fizer sai da trilha sabendo o que a codificação autoriza — o que basta para julgar um sistema.\n",
+      "trilha": "trilha:ihc/reconhecimento-de-emocao-em-expressao-facial",
+      "opcional": true,
+      "requires": [
+        {
+          "competencia": "comp:ihc/codificacao-anatomica-do-movimento-facial",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/codificacao-anatomica-do-movimento-facial",
+          "nivel_resultante": "avancado"
         }
       ]
     },
@@ -4431,6 +4555,70 @@
         {
           "competencia": "comp:ihc/ciclo-do-gancho",
           "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/origem-evolutiva-da-expressao-facial",
+      "titulo": "A expressão das emoções no homem e nos animais — a origem da tese da universalidade",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "descricao": "Darwin em 1872, e a única entrada honesta no assunto: toda alegação de universalidade da expressão facial desce daqui. Importa ler o argumento como ele é feito — por continuidade evolutiva, com o bebê, o animal e o cego de nascimento como evidência de que o movimento não é convenção aprendida — e não como a tese de um conjunto fechado de categorias discretas, que é leitura posterior e tem de se defender sozinha. O corte é separar, em qualquer estudo de universalidade, o que o desenho dele estabelece do que a conclusão afirma.\n",
+      "trilha": "trilha:ihc/reconhecimento-de-emocao-em-expressao-facial",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:ihc/origem-evolutiva-da-expressao-facial",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/os-dois-lados-da-controversia",
+      "titulo": "The Science of Facial Expression — os dois lados em capítulos vizinhos",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 780,
+      "descricao": "Russell e Fernández-Dols põem defensores e críticos do paradigma a escrever no mesmo volume, e é o melhor custo-benefício intelectual da trilha: em lugar de escolher um lado por acidente de bibliografia, lê-se a disputa com cada posição defendida por quem a sustenta. O corte é saber, para uma afirmação qualquer sobre o que um rosto indica, de que tipo de evidência ela depende e que achado a refutaria.\n",
+      "trilha": "trilha:ihc/reconhecimento-de-emocao-em-expressao-facial",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/origem-evolutiva-da-expressao-facial",
+          "nivel_minimo": "avancado"
+        },
+        {
+          "competencia": "comp:ihc/expressao-facial-como-sinal-social",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/controversia-da-inferencia-facial-de-emocao",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/paradigma-das-emocoes-basicas",
+      "titulo": "Emotions Revealed — a tese da universalidade na forma madura, por quem a defendeu",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 420,
+      "descricao": "Ekman é quem transformou a intuição de Darwin em programa de pesquisa, e este é o livro em que ele a apresenta por inteiro para leitor não especialista: as emoções tidas por básicas, os estudos transculturais, a microexpressão, o que ele considera prova. Entra na trilha como **o paradigma dito pelo seu autor**, antes de qualquer crítica — ler a objeção de Fridlund ou de Barrett sem ter lido isto é herdar uma posição sem conhecer a outra. O corte é identificar, no próprio texto, onde a evidência é de reconhecimento por escolha forçada.\n",
+      "trilha": "trilha:ihc/reconhecimento-de-emocao-em-expressao-facial",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/origem-evolutiva-da-expressao-facial",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/origem-evolutiva-da-expressao-facial",
+          "nivel_resultante": "avancado"
         }
       ]
     },
@@ -7654,6 +7842,39 @@
       ],
       "etapas_referenciadas": [
         "etapa:ia/o-problema-da-analise-de-sentimentos"
+      ]
+    },
+    {
+      "id": "trilha:ihc/reconhecimento-de-emocao-em-expressao-facial",
+      "titulo": "Reconhecimento de emoção em expressão facial — do instrumento que descreve à inferência que não se sustenta",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:ihc/origem-evolutiva-da-expressao-facial",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:ihc/codificacao-anatomica-do-movimento-facial",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/expressao-facial-como-sinal-social",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/controversia-da-inferencia-facial-de-emocao",
+          "nivel": "avancado"
+        }
+      ],
+      "etapas": [
+        "etapa:ihc/origem-evolutiva-da-expressao-facial",
+        "etapa:ihc/paradigma-das-emocoes-basicas",
+        "etapa:ihc/facs-aplicado",
+        "etapa:ihc/manual-do-facs",
+        "etapa:ihc/face-como-sinal-social",
+        "etapa:ihc/os-dois-lados-da-controversia",
+        "etapa:ihc/inferencia-facial-reconsiderada"
       ]
     },
     {
@@ -11534,6 +11755,20 @@
       "verificado_em": "2026-11-14"
     },
     {
+      "id": "rec:ihc/barrett-et-al-expressoes-reconsideradas",
+      "titulo": "Emotional Expressions Reconsidered (Barrett, Adolphs, Marsella, Martinez e Pollak, 2019)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/inferencia-facial-reconsiderada",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6640856/",
+      "disponivel": true,
+      "verificado_em": "2026-11-14"
+    },
+    {
       "id": "rec:ihc/crawford-atlas-da-ia",
       "titulo": "Atlas da IA: poder, política e os custos planetários da inteligência artificial (Kate Crawford)",
       "rev": 1,
@@ -11561,6 +11796,66 @@
       "url": "https://www.martinsfontespaulista.com.br/o-erro-de-descartes-695903/p",
       "disponivel": true,
       "obra": "damasio-o-erro-de-descartes",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/darwin-expressao-das-emocoes",
+      "titulo": "A expressão das emoções no homem e nos animais (Charles Darwin)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/origem-evolutiva-da-expressao-facial",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 48.0,
+      "duracao_min": 600,
+      "url": "https://www.amazon.com.br/dp/853591398X",
+      "disponivel": true,
+      "obra": "darwin-expressao-das-emocoes",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/ekman-a-linguagem-das-emocoes",
+      "titulo": "A linguagem das emoções (Paul Ekman)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/paradigma-das-emocoes-basicas",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 345.0,
+      "duracao_min": 420,
+      "url": "https://www.estantevirtual.com.br/livro/a-linguagem-das-emocoes-0MK-3469-000-BK",
+      "disponivel": true,
+      "obra": "ekman-a-linguagem-das-emocoes",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/ekman-emotions-revealed",
+      "titulo": "Emotions Revealed, 2nd ed. (Paul Ekman)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/paradigma-das-emocoes-basicas",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 79.77,
+      "duracao_min": 420,
+      "url": "https://www.amazon.com.br/dp/0805083391",
+      "disponivel": true,
+      "obra": "ekman-emotions-revealed",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/ekman-rosenberg-what-the-face-reveals",
+      "titulo": "What the Face Reveals, 2nd ed. (Paul Ekman e Erika L. Rosenberg, orgs.)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/facs-aplicado",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 342.05,
+      "duracao_min": 900,
+      "url": "https://www.amazon.com.br/dp/0195179641",
+      "disponivel": true,
+      "obra": "ekman-rosenberg-what-the-face-reveals",
       "verificado_em": "2026-11-14"
     },
     {
@@ -11624,6 +11919,21 @@
       "verificado_em": "2026-11-14"
     },
     {
+      "id": "rec:ihc/fridlund-human-facial-expression",
+      "titulo": "Human Facial Expression: An Evolutionary View (Alan J. Fridlund)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/face-como-sinal-social",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 172.0,
+      "duracao_min": 600,
+      "url": "https://www.amazon.com.br/dp/0122676300",
+      "disponivel": true,
+      "obra": "fridlund-human-facial-expression",
+      "verificado_em": "2026-11-14"
+    },
+    {
       "id": "rec:ihc/fruhholz-belin-oxford-handbook-voice-perception",
       "titulo": "The Oxford Handbook of Voice Perception (Sascha Frühholz e Pascal Belin, orgs.)",
       "rev": 1,
@@ -11651,6 +11961,21 @@
       "url": "https://www.amazon.com.br/s?k=9781118130667",
       "disponivel": true,
       "obra": "konar-chakraborty-emotion-recognition",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/manual-do-facs",
+      "titulo": "Facial Action Coding System: manual e guia do investigador (Ekman, Friesen e Hager, 2002)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/manual-do-facs",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 1984.5,
+      "duracao_min": 3600,
+      "url": "https://www.paulekman.com/facial-action-coding-system/",
+      "disponivel": true,
+      "obra": "manual-do-facs-2002",
       "verificado_em": "2026-11-14"
     },
     {
@@ -11844,6 +12169,21 @@
       "url": "https://www.amazon.com.br/s?k=9783642368059",
       "disponivel": true,
       "obra": "schuller-intelligent-audio-analysis",
+      "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/science-of-facial-expression",
+      "titulo": "The Science of Facial Expression (James A. Russell e José-Miguel Fernández-Dols, orgs.)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/os-dois-lados-da-controversia",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 926.84,
+      "duracao_min": 780,
+      "url": "https://www.amazon.com.br/dp/0190613505",
+      "disponivel": true,
+      "obra": "science-of-facial-expression",
       "verificado_em": "2026-11-14"
     },
     {

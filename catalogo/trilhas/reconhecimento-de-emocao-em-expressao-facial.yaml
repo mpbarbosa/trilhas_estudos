@@ -1,0 +1,223 @@
+versao_schema: 1
+trilha:
+  id: trilha:ihc/reconhecimento-de-emocao-em-expressao-facial
+  titulo: Reconhecimento de emoção em expressão facial — do instrumento que descreve à inferência que não se sustenta
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:ihc/origem-evolutiva-da-expressao-facial
+      nivel: avancado
+    - competencia: comp:ihc/codificacao-anatomica-do-movimento-facial
+      nivel: intermediario
+    - competencia: comp:ihc/expressao-facial-como-sinal-social
+      nivel: intermediario
+    - competencia: comp:ihc/controversia-da-inferencia-facial-de-emocao
+      nivel: avancado
+
+  # Quarta trilha da área ihc, pedida em 2026-11-14 na sequência da voz: o estudante
+  # pediu livros sobre reconhecimento de emoção em expressão facial e mandou
+  # registrá-los. `onde-cabe.sh` por "face", "facial", "Ekman", "Darwin", "FACS",
+  # "visao computacional" e "imagem" não achou nenhuma das obras — o único recurso do
+  # catálogo que tocava o assunto era a seção de detecção do Oxford Handbook of
+  # Affective Computing.
+  #
+  # **Não é especialização, e é aqui que ela difere da trilha da voz.** Aquela abriu um
+  # canal que `etapa:ihc/deteccao-de-afeto-por-sinal` já tratava como modalidade, e por
+  # isso exigiu a competência de reconhecimento por sinal. Este canal tem raiz própria e
+  # mais antiga que o campo inteiro: Darwin, 1872, setenta anos antes de haver
+  # computador. Entrar por Picard seria entrar pelo meio, então a trilha parte de perfil
+  # vazio e não referencia etapa de ninguém.
+  #
+  # **A forma do grafo: uma raiz, e dela o instrumento e a crítica, que se reencontram
+  # no fecho.** Darwin abre; Ekman leva a tese à forma madura. Dali saem dois ramos que
+  # não se cruzam no meio: o **instrumento** (o FACS aplicado, e o manual como
+  # aprofundamento opcional) e a **crítica** (Fridlund, depois o volume dos dois lados).
+  # O fecho exige os dois — a revisão de 2019 só se lê inteira sabendo codificar
+  # unidade de ação E conhecendo as posições em disputa.
+  #
+  # **A tese que organiza a trilha, e o motivo de o fecho exigir o instrumento.** O FACS
+  # codifica movimento muscular, e **essa parte sobrevive à crítica**: "unidade de ação
+  # 12 ativada" é descrição observável que outro codificador reproduz. O que não
+  # sobrevive é o passo seguinte, de unidade de ação para emoção — e é exatamente esse
+  # passo que os produtos de "emotion AI" vendem. Quem chega a Barrett e colegas sem ter
+  # aprendido a codificar lê a revisão como demolição do campo todo, o que ela não é.
+  #
+  # **Esta é a literatura mais disputada das três trilhas afetivas, e a ordem de leitura
+  # reflete isso.** No canal vocal o problema era o corpus; aqui é o paradigma. Há uma
+  # teoria dominante com um instrumento excelente e meio século de crítica a ela, de
+  # modo que a crítica entra **junto** com o instrumento, não depois, como apêndice.
+  #
+  # **O preço, declarado.** A trilha tem um problema estrutural de custo igual ao da
+  # computação afetiva, e por motivo diferente: o manual do FACS custa US$ 350
+  # (≈ R$ 1.984,50 pelo câmbio de 2026-11-13) e é a única fonte do instrumento — não há
+  # alternativa, aberta ou barata, nem edição em português. Por isso ele é a **única
+  # etapa opcional** da trilha, e o `What the Face Reveals` (R$ 342,05 em Kindle) é que
+  # carrega a competência de codificação no caminho obrigatório. O fecho, que é a leitura
+  # mais importante, é gratuito. A resposta honesta para o resto é biblioteca
+  # universitária, e biblioteca não é recurso catalogável com url.
+  #
+  # **O que esta trilha não repete.** A engenharia de análise automática de expressão
+  # facial já está coberta — `etapa:ihc/deteccao-de-afeto-por-sinal`
+  # (trilha:ihc/computacao-afetiva) tem o Konar e Chakraborty e a seção de detecção do
+  # Oxford Handbook. Aqui não entra livro de visão computacional, e o `Handbook of Face
+  # Recognition` (Li e Jain) ficou fora de propósito: é de **identidade**, não de emoção,
+  # e entraria pelo título. `comp:ihc/validade-de-construto-na-inferencia-de-emocao` é a
+  # crítica geral, de Barrett em livro; `comp:ihc/controversia-da-inferencia-facial-de-emocao`
+  # é a instância facial, e não exige a geral — pelo mesmo motivo da trilha da voz.
+  etapas:
+    # --- Raiz: a origem, 1872 -----------------------------------------------
+    - id: etapa:ihc/origem-evolutiva-da-expressao-facial
+      titulo: A expressão das emoções no homem e nos animais — a origem da tese da universalidade
+      rev: 1
+      status: ativo
+      descricao: >
+        Darwin em 1872, e a única entrada honesta no assunto: toda alegação de
+        universalidade da expressão facial desce daqui. Importa ler o argumento como ele
+        é feito — por continuidade evolutiva, com o bebê, o animal e o cego de nascimento
+        como evidência de que o movimento não é convenção aprendida — e não como a tese
+        de um conjunto fechado de categorias discretas, que é leitura posterior e tem de
+        se defender sozinha. O corte é separar, em qualquer estudo de universalidade, o
+        que o desenho dele estabelece do que a conclusão afirma.
+      esforco_estimado_min: 600
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:ihc/origem-evolutiva-da-expressao-facial
+          nivel_resultante: intermediario
+
+    - id: etapa:ihc/paradigma-das-emocoes-basicas
+      titulo: Emotions Revealed — a tese da universalidade na forma madura, por quem a defendeu
+      rev: 1
+      status: ativo
+      descricao: >
+        Ekman é quem transformou a intuição de Darwin em programa de pesquisa, e este é o
+        livro em que ele a apresenta por inteiro para leitor não especialista: as emoções
+        tidas por básicas, os estudos transculturais, a microexpressão, o que ele
+        considera prova. Entra na trilha como **o paradigma dito pelo seu autor**, antes
+        de qualquer crítica — ler a objeção de Fridlund ou de Barrett sem ter lido isto é
+        herdar uma posição sem conhecer a outra. O corte é identificar, no próprio texto,
+        onde a evidência é de reconhecimento por escolha forçada.
+      esforco_estimado_min: 420
+      opcional: false
+      requires:
+        - competencia: comp:ihc/origem-evolutiva-da-expressao-facial
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/origem-evolutiva-da-expressao-facial
+          nivel_resultante: avancado
+
+    # --- Ramo do instrumento ------------------------------------------------
+    - id: etapa:ihc/facs-aplicado
+      titulo: What the Face Reveals — o FACS aplicado, e o que ele de fato mede
+      rev: 1
+      status: ativo
+      descricao: >
+        O volume acadêmico que reúne dezenas de estudos de expressão espontânea
+        codificados em FACS, organizado por Ekman e Erika Rosenberg. De consulta por
+        capítulo, e é a melhor via para a metade decisiva da competência: ver o
+        instrumento em uso mostra onde a codificação termina e onde começa a inferência,
+        o que nenhum resumo do sistema mostra. O corte é pegar a saída de um sistema
+        comercial na forma "<emoção> <número>" e reescrevê-la como alegação sobre
+        unidades de ação mais um passo inferencial explícito.
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:ihc/origem-evolutiva-da-expressao-facial
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/codificacao-anatomica-do-movimento-facial
+          nivel_resultante: intermediario
+
+    - id: etapa:ihc/manual-do-facs
+      titulo: O manual do FACS — aprender a codificar, com certificação à parte
+      rev: 1
+      status: ativo
+      descricao: >
+        O instrumento em si: manual autoinstrucional de 527 páginas mais o guia do
+        investigador, com fotos e vídeos de exemplo, revisado em 2002 e vendido pelo Paul
+        Ekman Group. São 50 a 100 horas de estudo, e a certificação é um teste separado,
+        único padrão de proficiência que existe. Opcional por três motivos somados: é o
+        item mais caro do catálogo, é treinamento de habilidade e não leitura, e só se
+        justifica para quem vai codificar de fato ou auditar quem codifica. Quem não o
+        fizer sai da trilha sabendo o que a codificação autoriza — o que basta para
+        julgar um sistema.
+      esforco_estimado_min: 3600
+      opcional: true
+      requires:
+        - competencia: comp:ihc/codificacao-anatomica-do-movimento-facial
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/codificacao-anatomica-do-movimento-facial
+          nivel_resultante: avancado
+
+    # --- Ramo da crítica ----------------------------------------------------
+    - id: etapa:ihc/face-como-sinal-social
+      titulo: Human Facial Expression — a objeção ecológica, de 1994 e não de 2017
+      rev: 1
+      status: ativo
+      descricao: >
+        Fridlund argumenta que a face emite **sinais dirigidos a um destinatário**, com
+        função social, e não leituras de estado interno que escapam — a ecologia
+        comportamental da expressão. Entra na trilha por dois motivos. Primeiro, a
+        consequência é testável e cara para a engenharia: a mesma pessoa, no mesmo estado,
+        expressa diferente com e sem audiência, inclusive imaginada, e um reconhecedor
+        treinado em rosto isolado mede justamente o que a presença de outra pessoa modula.
+        Segundo, a data: a objeção é **contemporânea do auge do paradigma**, não um
+        arrependimento recente, o que desmonta a leitura de que a crítica só chegou com a
+        construcionista.
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:ihc/origem-evolutiva-da-expressao-facial
+          nivel_minimo: avancado
+      teaches:
+        - competencia: comp:ihc/expressao-facial-como-sinal-social
+          nivel_resultante: intermediario
+
+    - id: etapa:ihc/os-dois-lados-da-controversia
+      titulo: The Science of Facial Expression — os dois lados em capítulos vizinhos
+      rev: 1
+      status: ativo
+      descricao: >
+        Russell e Fernández-Dols põem defensores e críticos do paradigma a escrever no
+        mesmo volume, e é o melhor custo-benefício intelectual da trilha: em lugar de
+        escolher um lado por acidente de bibliografia, lê-se a disputa com cada posição
+        defendida por quem a sustenta. O corte é saber, para uma afirmação qualquer sobre
+        o que um rosto indica, de que tipo de evidência ela depende e que achado a
+        refutaria.
+      esforco_estimado_min: 780
+      opcional: false
+      requires:
+        - competencia: comp:ihc/origem-evolutiva-da-expressao-facial
+          nivel_minimo: avancado
+        - competencia: comp:ihc/expressao-facial-como-sinal-social
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/controversia-da-inferencia-facial-de-emocao
+          nivel_resultante: intermediario
+
+    # --- Fecho: exige os dois ramos, e é gratuito ---------------------------
+    - id: etapa:ihc/inferencia-facial-reconsiderada
+      titulo: Emotional Expressions Reconsidered — a revisão que derruba o passo inferencial
+      rev: 1
+      status: ativo
+      descricao: >
+        Sessenta e oito páginas em que Barrett, Adolphs, Marsella, Martinez e Pollak
+        revisam a evidência e concluem que os movimentos faciais tidos por diagnósticos
+        de emoção não o são: falta confiabilidade, falta especificidade e falta
+        generalização entre pessoas, contextos e culturas. É a leitura mais importante da
+        trilha e a única gratuita. Fecha exigindo os dois ramos de propósito: sem saber
+        codificar, a revisão se lê como demolição do campo inteiro — e não é, porque a
+        codificação de unidade de ação atravessa intacta. O corte é dizer, de qualquer
+        alegação sobre face e emoção, que parte continua de pé quando o passo inferencial
+        cai.
+      esforco_estimado_min: 300
+      opcional: false
+      requires:
+        - competencia: comp:ihc/controversia-da-inferencia-facial-de-emocao
+          nivel_minimo: intermediario
+        - competencia: comp:ihc/codificacao-anatomica-do-movimento-facial
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/controversia-da-inferencia-facial-de-emocao
+          nivel_resultante: avancado
