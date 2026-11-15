@@ -1,0 +1,217 @@
+versao_schema: 1
+trilha:
+  id: trilha:filosofia/pos-humano-transumano-e-ciborgue
+  titulo: Pós-humano, transumano e ciborgue — três conversas que a mesma palavra mistura
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:filosofia/figura-do-ciborgue
+      nivel: avancado
+    - competencia: comp:filosofia/argumento-transumanista
+      nivel: intermediario
+    - competencia: comp:filosofia/pos-humanismo-critico
+      nivel: avancado
+    - competencia: comp:filosofia/mapa-do-pos-humano
+      nivel: intermediario
+
+  # Nasce de uma foto de página de notas de rodapé — as notas 37 a 45 —, enviada pelo
+  # estudante em 2026-11-15 com o pedido "adicione os livros citados na foto". A foto
+  # não mostra de que livro é a página. **Inferência, não conferência:** é muito
+  # provavelmente o cap. 3 de *Gozai por nós* ("A condição pós-humana"), que o
+  # estudante está lendo em trilha:filosofia/subjetividade-artificial — as notas estão
+  # em pt-BR ("orgs.", "setembro de 1960", "In") e cobrem exatamente o que o título do
+  # capítulo anuncia. Nada do grafo depende disso.
+  #
+  # **Por que trilha e não recursos da etapa de *Gozai por nós*.** As nove notas não são
+  # vias alternativas ao livro do Simonetti: pendurá-las em
+  # etapa:filosofia/conceito-de-subjetividade-artificial faria o motor sugerir
+  # Kurzweil *no lugar* da coletânea. São o que o capítulo cita, e o que ele cita são
+  # três conversas diferentes sob um prefixo só — o que comp:filosofia/subjetividade-
+  # artificial já chama de "o preço de usar 'pós-humano' como se fosse um só conceito".
+  # Esta trilha é onde esse preço se paga. É o movimento da bibliografia de monografia
+  # de 2026-11-10 (trilha:politica/desinformacao-e-resistencia): lista de referências
+  # vira trilha. Nenhuma etapa de lá é referenciada, e esta trilha parte de perfil
+  # vazio por conta própria.
+  #
+  # **O que entrou.** As nove notas são oito referências: a 42 e a 43 são a mesma
+  # (Clynes e Kline, "Cyborgs and Space"), repetida na página. Seis são livros
+  # inteiros; duas são capítulos de coletânea (Haraway em *Antropologia do ciborgue*,
+  # Hess em *The Cyborg Handbook*) e uma é artigo de revista. Capítulo e artigo
+  # entraram também, porque o pedido é estudar o que a página cita, e o recorte da
+  # página é o capítulo: o Hess são oito páginas e não justificam a coletânea inteira.
+  # O capítulo entra como recurso da etapa, com a `obra` da coletânea — é ela que se
+  # compra —, e não como `parte_de`, que é para capítulo de livro que já é via da
+  # mesma etapa (ADR-0021).
+  #
+  # **A forma do grafo: duas raízes que se encontram duas vezes.** O ciborgue (Clynes
+  # e Kline → Haraway → Hess) e o transumanismo (More e Vita-More → Kurzweil) abrem em
+  # paralelo, com requires vazio, porque nenhum é pré-requisito do outro e as duas
+  # conversas se ignoraram por décadas. Hayles exige as duas: o livro dela lê a
+  # cibernética, de onde vem o ciborgue, para criticar o sonho do upload, que é o do
+  # transumanismo. Braidotti fecha, exigindo Hayles e o ciborgue cotidiano de Hess,
+  # porque é quem desenha o mapa das três conversas — e um mapa se cobra de quem já
+  # andou por elas.
+  #
+  # LIMITE DE VERIFICAÇÃO — leia antes de confiar nos números.
+  #   CONFERIDO em 2026-11-15: o sumário de Hayles na página da University of Chicago
+  #   Press (prólogo, 11 capítulos, 364 p.); o fac-símile de Clynes e Kline no
+  #   cyberneticzoo.com; o ISBN e a paginação de *Antropologia do ciborgue* no Skoob.
+  #   NÃO CONFERIDO: preço de nenhum dos sete exemplares (Amazon e Wiley recusaram a
+  #   leitura automática, e a Estante Virtual também), o sumário do *Transhumanist
+  #   Reader*, os capítulos de *The Singularity Is Near* e de *The Age of Spiritual
+  #   Machines* — os cortes destas etapas vêm da estrutura conhecida desses livros,
+  #   não da leitura do sumário —, e a presença do capítulo de Hess no sumário da
+  #   Routledge, cuja página trazia o sumário de outro livro. Ver
+  #   catalogo/recursos/filosofia.yaml para o que vale cada `custo`.
+  etapas:
+    # --- Raiz 1: o ciborgue nasce na engenharia -----------------------------
+    - id: etapa:filosofia/ciborgue-na-engenharia
+      titulo: "Clynes e Kline, \"Cyborgs and Space\" (1960) — a palavra nasce como projeto de engenharia"
+      rev: 1
+      status: ativo
+      descricao: >
+        O artigo que cunha a palavra, numa revista de astronáutica: em vez de levar a
+        Terra ao espaço, ajustar o organismo a ele por regulação automática — drogas,
+        bombas osmóticas, controle de pressão — para que o astronauta fique livre
+        "para explorar, criar, pensar e sentir". O corte é ler o texto pelo que ele
+        propõe, não pelo que a palavra veio a significar: aqui o ciborgue é um sistema
+        homeostático, e não há nele nada de político nem de pós-humano.
+      esforco_estimado_min: 60
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:filosofia/figura-do-ciborgue
+          nivel_resultante: iniciante
+
+    # --- Do ciborgue de engenharia: a figura política -----------------------
+    - id: etapa:filosofia/ciborgue-como-figura-politica
+      titulo: "Haraway, \"Manifesto ciborgue\" (em Antropologia do ciborgue, pp. 33-118) — o ciborgue contra as fronteiras"
+      rev: 1
+      status: ativo
+      descricao: >
+        Vinte e cinco anos depois, a mesma palavra vira figura de teoria feminista e
+        socialista: o ciborgue como recusa das fronteiras entre humano e animal,
+        organismo e máquina, físico e não físico, e das identidades que se apoiam
+        nelas. O texto é deliberadamente irônico e se declara mito político, o que é
+        parte da dificuldade. O corte é dizer o que ele afirma sobre a técnica de
+        1985 e o que ele usa a técnica para afirmar sobre política, e não confundir os
+        dois.
+      esforco_estimado_min: 300
+      opcional: false
+      requires:
+        - competencia: comp:filosofia/figura-do-ciborgue
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:filosofia/figura-do-ciborgue
+          nivel_resultante: intermediario
+
+    # --- Do ciborgue político: o ciborgue cotidiano -------------------------
+    - id: etapa:filosofia/ciborgue-de-baixa-tecnologia
+      titulo: "Hess, \"On Low-tech Cyborgs\" (em The Cyborg Handbook, pp. 371-378) — o ciborgue que já somos"
+      rev: 1
+      status: ativo
+      descricao: >
+        Oito páginas da antropologia do ciborgue que puxam a palavra de volta do
+        espaço e do manifesto para a vida comum: quem usa óculos, marca-passo,
+        insulina ou carro já vive acoplado a técnica, sem nada de futurista. O corte é
+        usar o texto como contraprova dos dois anteriores — o que sobra do projeto de
+        Clynes e do mito de Haraway quando o ciborgue é banal.
+      esforco_estimado_min: 60
+      opcional: false
+      requires:
+        - competencia: comp:filosofia/figura-do-ciborgue
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:filosofia/figura-do-ciborgue
+          nivel_resultante: avancado
+
+    # --- Raiz 2: o programa transumanista -----------------------------------
+    - id: etapa:filosofia/programa-transumanista
+      titulo: "The Transhumanist Reader (More e Vita-More, orgs., 2013) — o programa nas palavras de quem o defende"
+      rev: 1
+      status: ativo
+      descricao: >
+        A antologia que os próprios transumanistas organizaram, com textos clássicos e
+        contemporâneos. A etapa pede a abertura — a introdução dos organizadores e a
+        parte que define as raízes e os temas centrais —, não as quase quinhentas
+        páginas. O corte é sair com o programa enunciado nos termos dele: o que se quer
+        melhorar, por que meio, com que justificativa, e onde a justificativa é
+        empírica e onde é de valor.
+      esforco_estimado_min: 300
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:filosofia/argumento-transumanista
+          nivel_resultante: iniciante
+
+    # --- Do programa: o argumento da singularidade --------------------------
+    - id: etapa:filosofia/singularidade-de-kurzweil
+      titulo: "Kurzweil — a lei dos retornos acelerados e a singularidade"
+      rev: 1
+      status: ativo
+      descricao: >
+        O argumento transumanista na forma mais citada: a técnica cresce em ritmo
+        exponencial, e a extrapolação leva a máquinas que excedem a inteligência
+        humana e, depois, à fusão das duas. *The Singularity Is Near* (2005) é a
+        formulação madura, e a etapa pede os capítulos que expõem a lei dos retornos
+        acelerados e a resposta aos críticos; *The Age of Spiritual Machines* (1999) é
+        a primeira versão do mesmo argumento e serve de via alternativa. O corte é
+        separar a curva medida da curva extrapolada, e conferir as previsões datadas
+        contra o que se passou desde então.
+      esforco_estimado_min: 420
+      opcional: false
+      requires:
+        - competencia: comp:filosofia/argumento-transumanista
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:filosofia/argumento-transumanista
+          nivel_resultante: intermediario
+
+    # --- Das duas raízes: a informação que perdeu o corpo -------------------
+    - id: etapa:filosofia/informacao-que-perdeu-o-corpo
+      titulo: "Hayles, How We Became Posthuman — prólogo, cap. 1 e cap. 11: como a informação perdeu o corpo"
+      rev: 1
+      status: ativo
+      descricao: >
+        Hayles lê a história da cibernética — das conferências Macy a Wiener e à vida
+        artificial — para mostrar como a informação passou a ser pensada sem o corpo
+        que a carrega, que é a condição para se falar em transferir uma mente para a
+        máquina. O prólogo abre com o teste de Turing e o sonho do upload; o cap. 1
+        propõe a "virtualidade encarnada"; a conclusão (cap. 11) pergunta o que quer
+        dizer ser pós-humano e responde contra o transumanismo. O corte é achar, num
+        argumento de upload, a premissa em que o corpo some.
+      esforco_estimado_min: 300
+      opcional: false
+      requires:
+        - competencia: comp:filosofia/figura-do-ciborgue
+          nivel_minimo: intermediario
+        - competencia: comp:filosofia/argumento-transumanista
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:filosofia/pos-humanismo-critico
+          nivel_resultante: intermediario
+
+    # --- Fechamento: o mapa -------------------------------------------------
+    - id: etapa:filosofia/pos-humano-de-braidotti
+      titulo: "Braidotti, The Posthuman (2013) — o pós-humanismo crítico e o mapa das três conversas"
+      rev: 1
+      status: ativo
+      descricao: >
+        O livro que dá nome à conversa e a cartografa: o pós-humanismo como crítica do
+        humano universal do humanismo, o pós-antropocentrismo como crítica da espécie
+        como medida, e o lugar do transumanismo e do ciborgue nesse quadro. É a etapa
+        de síntese, e por isso a última: o corte é classificar cada nota da página que
+        originou esta trilha numa das três conversas e dizer onde o capítulo que as
+        cita passa de uma à outra.
+      esforco_estimado_min: 540
+      opcional: false
+      requires:
+        - competencia: comp:filosofia/pos-humanismo-critico
+          nivel_minimo: intermediario
+        - competencia: comp:filosofia/figura-do-ciborgue
+          nivel_minimo: avancado
+      teaches:
+        - competencia: comp:filosofia/pos-humanismo-critico
+          nivel_resultante: avancado
+        - competencia: comp:filosofia/mapa-do-pos-humano
+          nivel_resultante: intermediario

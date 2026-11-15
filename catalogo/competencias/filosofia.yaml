@@ -131,3 +131,87 @@ competencias:
       declarado (nomeando o quadro) e quais são juízos de valor; apontar ao menos um
       ponto em que o texto não cumpre o critério que ele mesmo exige; e, sendo
       coletânea, nomear duas teses de capítulos diferentes que não se sustentam juntas.
+
+  # ---------------------------------------------------------------------------
+  # trilha:filosofia/pos-humano-transumano-e-ciborgue
+  #
+  # Nascem da bibliografia do cap. 3 de *Gozai por nós* ("A condição pós-humana",
+  # notas 37 a 45), e cobram exatamente o que comp:filosofia/subjetividade-artificial
+  # deixou anunciado: "o preço de usar 'pós-humano' como se fosse um só conceito".
+  # As notas misturam três conversas — o ciborgue (Clynes e Kline, Haraway, Hess), o
+  # transumanismo (More e Vita-More, Kurzweil) e o pós-humanismo crítico (Hayles,
+  # Braidotti) —, e cada uma vira competência; a quarta é saber separá-las. Escritas
+  # gerais, como as da trilha vizinha: a `verificacao` se cobra em qualquer texto, e
+  # os autores ficam nas etapas.
+  # ---------------------------------------------------------------------------
+  - id: comp:filosofia/figura-do-ciborgue
+    titulo: O ciborgue — do projeto de engenharia à figura política e ao cotidiano
+    rev: 1
+    status: ativo
+    descricao: >
+      A palavra tem certidão de nascimento: em 1960 ela nomeia um projeto de
+      engenharia, o organismo que se ajusta ao espaço por regulação automática, sem
+      que o astronauta precise pensar nisso. Vinte e cinco anos depois ela vira
+      figura de teoria política, a que recusa as fronteiras entre humano e animal,
+      organismo e máquina, físico e não físico. E a antropologia a desce ao
+      cotidiano: óculos, marca-passo, insulina e quem vive deles. O mesmo nome
+      carrega três programas que não se implicam.
+    verificacao: >
+      Dado um uso corrente de "ciborgue" — numa reportagem, num filme, num ensaio —,
+      dizer a qual dos três sentidos ele pertence (o de engenharia, o político ou o
+      cotidiano), apontar a frase que o decide e reescrever a passagem no sentido de
+      um dos outros dois, dizendo o que a tese ganha ou perde com a troca. Uma
+      classificação que não aponte a frase decisiva não cumpre o critério.
+
+  - id: comp:filosofia/argumento-transumanista
+    titulo: O argumento transumanista — melhoramento, aceleração e singularidade
+    rev: 1
+    status: ativo
+    descricao: >
+      O transumanismo é um programa normativo — o humano deve ser melhorado pela
+      técnica, e a condição atual é uma fase — apoiado num argumento que se apresenta
+      como empírico: a técnica cresce em ritmo exponencial, e a extrapolação desse
+      ritmo leva a um ponto em que a inteligência humana se funde com a da máquina.
+      Os dois andares têm de ser lidos separadamente, porque a força do segundo não
+      transfere nada ao primeiro.
+    verificacao: >
+      Reconstruir o argumento da singularidade em premissas e conclusão, marcando
+      quais premissas são medições, quais são extrapolações de medição e quais são
+      juízos de valor; para cada extrapolação, dizer que observação a refutaria e se
+      ela foi feita desde a publicação. Uma reconstrução em que nenhuma premissa possa
+      ser falsa não cumpre o critério.
+
+  - id: comp:filosofia/pos-humanismo-critico
+    titulo: Pós-humanismo crítico — o corpo da informação e o fim do sujeito como medida
+    rev: 1
+    status: ativo
+    descricao: >
+      A outra resposta ao mesmo cenário técnico: não superar o humano, mas criticar a
+      figura de humano que o humanismo pôs no centro. Tem dois movimentos — mostrar
+      como a cibernética separou a informação do corpo que a carrega, condição para
+      se falar em "transferir uma mente", e recusar o sujeito universal masculino,
+      branco e europeu como medida, em favor de uma subjetividade situada entre
+      espécies e máquinas.
+    verificacao: >
+      Tomar um texto que trate a mente como informação transferível de um suporte
+      para outro e apontar a premissa em que o corpo some, dizendo o que mudaria na
+      conclusão se ela fosse negada; depois dizer que sujeito o texto toma como
+      padrão do humano e quem fica de fora dele.
+
+  - id: comp:filosofia/mapa-do-pos-humano
+    titulo: O mapa do pós-humano — três conversas sob um prefixo
+    rev: 1
+    status: ativo
+    descricao: >
+      Pós-humanismo, transumanismo e ciborgue costumam aparecer juntos, às vezes na
+      mesma nota de rodapé, e um texto pode passar de um ao outro sem avisar. O
+      primeiro critica o humano como medida, o segundo quer superá-lo pela técnica, o
+      terceiro nomeia o híbrido que já existe. Saber separá-los é condição para
+      avaliar uma tese sobre "o pós-humano": ela muda de tamanho conforme a conversa
+      em que se a lê.
+    verificacao: >
+      Tomar um texto que fale em pós-humano e classificar cada ocorrência numa das
+      três conversas, apontando onde ele passa de uma à outra; depois reenunciar a
+      tese central em cada uma e dizer em qual ela é mais forte e em qual o autor a
+      sustenta de fato. Um texto em que nenhuma passagem de conversa seja apontada
+      precisa de justificativa explícita de por que ele é homogêneo.

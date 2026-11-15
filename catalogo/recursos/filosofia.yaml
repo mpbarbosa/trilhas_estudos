@@ -256,3 +256,173 @@ recursos:
     obra: simonetti-gozai-por-nos
     disponivel: true
     verificado_em: 2026-11-14
+
+# -------------------------------------------------------------------------
+# trilha:filosofia/pos-humano-transumano-e-ciborgue
+#
+#   Os oito itens vêm da foto das notas 37 a 45 enviada pelo estudante em 2026-11-15
+#   (a 42 e a 43 repetem a mesma referência). Sete são exemplares e declaram `obra`,
+#   cada um com uma fatia só; o artigo de Clynes e Kline é avulso e não declara.
+#
+#   **Nenhum `custo` foi conferido em loja**, e este é o ponto a ler antes de usá-lo.
+#   Amazon, Wiley e Estante Virtual recusaram a leitura automática em 2026-11-15, e as
+#   páginas da Polity, da Routledge e da Penguin Random House que abriram não traziam
+#   preço. Os seis livros em inglês levam o preço de tabela aproximado da brochura nos
+#   EUA, **de memória e arredondado**, convertido pela cotação do BCE de 2026-11-13
+#   (R$ 5,6637/US$, via frankfurter.dev), sem frete nem imposto de importação; o
+#   *Antropologia do ciborgue* leva uma estimativa de mercado brasileiro. São ordem de
+#   grandeza para o fator de custo do motor, não preço — o mesmo estado do custo do
+#   Viewpoint 1 em catalogo/recursos/linguas.yaml. Quem conferir corrige: mudar `custo`
+#   é substantivo e sobe a `rev` do recurso (docs/catalogo.md §4).
+#
+#   Também por isso a `url` dos livros em inglês é a página da Amazon BR pelo ISBN-10
+#   da brochura, **não aberta** — exceto a de Hayles, que é a da University of Chicago
+#   Press, lida em 2026-11-15.
+#
+#   **Edição em português.** O estudante citou as edições em inglês, e são elas que
+#   entram. Há tradução brasileira dos dois Kurzweil, ao que consta, mas não se
+#   conferiu editora, ano nem disponibilidade; se ele preferir ler em português,
+#   o movimento é acrescentar o recurso traduzido como segunda via da mesma etapa.
+# -------------------------------------------------------------------------
+
+  # --- etapa:filosofia/ciborgue-na-engenharia -----------------------------
+  # Fac-símile do número de setembro de 1960 da *Astronautics*, hospedado pelo
+  # cyberneticzoo.com — não pela editora (a revista era da American Rocket Society,
+  # hoje AIAA), e é por isso que o `titulo` diz de onde vem. **Divergência de
+  # paginação:** a referência da foto dá pp. 27-31; o fac-símile imprime o artigo nas
+  # pp. 26-27, com "continued on page 74", e a continuação nas pp. 74-76. Vale o
+  # documento (regra de catalogo/recursos/politica.yaml): o `titulo` traz a
+  # paginação do fac-símile. Artigo avulso: não declara `obra`.
+  - id: rec:filosofia/clynes-kline-cyborgs-and-space
+    etapa: etapa:filosofia/ciborgue-na-engenharia
+    titulo: "Cyborgs and Space (Manfred E. Clynes e Nathan S. Kline, Astronautics, set. 1960, pp. 26-27 e 74-76) — fac-símile no cyberneticzoo.com"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://cyberneticzoo.com/wp-content/uploads/2012/01/cyborgs-Astronautics-sep1960.pdf
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  # --- etapa:filosofia/ciborgue-como-figura-politica ----------------------
+  # O manifesto (1985) na tradução de Tomaz Tadeu, como o estudante citou: pp. 33-118
+  # da 2ª ed. de *Antropologia do ciborgue* (Autêntica, 2009), coletânea que traz
+  # também textos de Hari Kunzru e do organizador (não conferidos). ISBN-13
+  # 9788575263952 e 128 p. segundo o Skoob, que lista também uma entrada de 2025 com
+  # 120 p. e o mesmo ISBN — reimpressão ou erro de cadastro, não se resolveu. O
+  # manifesto é o grosso do livro, e a etapa pede só ele.
+  - id: rec:filosofia/haraway-manifesto-ciborgue
+    etapa: etapa:filosofia/ciborgue-como-figura-politica
+    titulo: "Manifesto ciborgue: ciência, tecnologia e feminismo-socialista no final do século XX (Donna Haraway; trad. Tomaz Tadeu), em Antropologia do ciborgue: as vertigens do pós-humano (Belo Horizonte: Autêntica, 2ª ed., 2009), pp. 33-118"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 60
+    duracao_min: 300
+    url: https://www.amazon.com.br/dp/8575263951
+    obra: kunzru-haraway-tadeu-antropologia-do-ciborgue
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  # --- etapa:filosofia/ciborgue-de-baixa-tecnologia -----------------------
+  # Capítulo de oito páginas numa coletânea de 568 (Routledge, 1995, ISBN
+  # 9780415908498, conferidos na página da editora). Declara a `obra` da coletânea
+  # porque é ela que se compra, e o `custo` é o dela inteira — caro para oito
+  # páginas, e o motor deve ver isso. Biblioteca é a via óbvia, e o catálogo não tem
+  # como dizê-lo.
+  - id: rec:filosofia/hess-low-tech-cyborgs
+    etapa: etapa:filosofia/ciborgue-de-baixa-tecnologia
+    titulo: "On Low-tech Cyborgs (David Hess), em The Cyborg Handbook (Chris Hables Gray, org.; New York: Routledge, 1995), pp. 371-378"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 370
+    duracao_min: 60
+    url: https://www.routledge.com/The-Cyborg-Handbook/Gray/p/book/9780415908498
+    obra: gray-cyborg-handbook
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  # --- etapa:filosofia/programa-transumanista -----------------------------
+  - id: rec:filosofia/more-vita-more-transhumanist-reader
+    etapa: etapa:filosofia/programa-transumanista
+    titulo: "The Transhumanist Reader: Classical and Contemporary Essays on the Science, Technology, and Philosophy of the Human Future (Max More e Natasha Vita-More, orgs.; Oxford: Wiley-Blackwell, 2013) — introdução e parte de abertura"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 300
+    duracao_min: 300
+    url: https://www.amazon.com.br/dp/1118334310
+    obra: more-vita-more-transhumanist-reader
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  # --- etapa:filosofia/singularidade-de-kurzweil --------------------------
+  # Duas vias para o mesmo argumento, a de 2005 primeiro: é a formulação madura e a
+  # que tem a resposta aos críticos. A de 1999 é a primeira versão, e as previsões
+  # datadas dela (para 2009 e 2019) já se podem conferir — o que é exatamente o
+  # exercício da etapa.
+  - id: rec:filosofia/kurzweil-singularity-is-near
+    etapa: etapa:filosofia/singularidade-de-kurzweil
+    titulo: "The Singularity Is Near: When Humans Transcend Biology (Ray Kurzweil; New York: Viking, 2005) — a lei dos retornos acelerados e a resposta aos críticos"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 115
+    duracao_min: 420
+    url: https://www.amazon.com.br/dp/0143037889
+    obra: kurzweil-singularity-is-near
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  - id: rec:filosofia/kurzweil-age-of-spiritual-machines
+    etapa: etapa:filosofia/singularidade-de-kurzweil
+    titulo: "The Age of Spiritual Machines: When Computers Exceed Human Intelligence (Ray Kurzweil; New York: Penguin, 1999)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 115
+    duracao_min: 420
+    url: https://www.amazon.com.br/dp/0140282025
+    obra: kurzweil-age-of-spiritual-machines
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  # --- etapa:filosofia/informacao-que-perdeu-o-corpo ----------------------
+  # Sumário conferido na University of Chicago Press: prólogo e 11 capítulos, 364 p.
+  # A etapa pede o prólogo, o cap. 1 e o 11 (a conclusão), ~80 p. densas.
+  - id: rec:filosofia/hayles-how-we-became-posthuman
+    etapa: etapa:filosofia/informacao-que-perdeu-o-corpo
+    titulo: "How We Became Posthuman: Virtual Bodies in Cybernetics, Literature, and Informatics (N. Katherine Hayles; Chicago: University of Chicago Press, 1999) — prólogo, cap. 1 e cap. 11"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 200
+    duracao_min: 300
+    url: https://press.uchicago.edu/ucp/books/book/chicago/H/bo3769963.html
+    obra: hayles-how-we-became-posthuman
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  # --- etapa:filosofia/pos-humano-de-braidotti ----------------------------
+  - id: rec:filosofia/braidotti-the-posthuman
+    etapa: etapa:filosofia/pos-humano-de-braidotti
+    titulo: "The Posthuman (Rosi Braidotti; Cambridge, UK; Malden, MA: Polity Press, 2013)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 150
+    duracao_min: 540
+    url: https://www.amazon.com.br/dp/0745641580
+    obra: braidotti-the-posthuman
+    disponivel: true
+    verificado_em: 2026-11-15

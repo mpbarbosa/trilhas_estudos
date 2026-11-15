@@ -1469,6 +1469,90 @@ de onde saiu o `custo` dos recursos.
 - **Acesso aberto** — https://www.gutenberg.org/ebooks/2388
 - **Citada por** — `rec:filosofia/arnold-song-celestial`
 
+### Pós-humano, transumano e ciborgue — as fichas de 2026-11-15
+
+As sete fichas abaixo são da trilha `trilha:filosofia/pos-humano-transumano-e-ciborgue`,
+que nasce das notas 37 a 45 de uma página fotografada pelo estudante — muito
+provavelmente do cap. 3 de *Gozai por nós*, inferência não conferida. **Nenhuma cita
+preço conferido**: Amazon, Wiley e Estante Virtual recusaram a leitura automática, e o
+`custo` dos recursos é ordem de grandeza, dito como tal em
+`catalogo/recursos/filosofia.yaml`. Os ISBNs abaixo marcados "não conferido" vêm da
+referência ou de memória, não de página lida. O artigo de Clynes e Kline (notas 42 e
+43, a mesma referência repetida) não é livro e não tem ficha; a divergência de
+paginação dele está no comentário do recurso.
+
+#### Antropologia do ciborgue: as vertigens do pós-humano
+
+- **Autoria** — Donna Haraway, Hari Kunzru e Tomaz Tadeu (org. e tradução)
+- **Edição** — Autêntica (Belo Horizonte), 2ª ed., 2009, pt-BR; 128 p. segundo o
+  Skoob, que lista também uma entrada de 2025 com 120 p. e o mesmo ISBN, não resolvida
+- **Identificadores** — ISBN-13 `9788575263952` (Skoob); ISBN-10 `8575263951`, calculado
+- **Amazon** — https://www.amazon.com.br/dp/8575263951 (não aberto)
+- **Citada por** — `rec:filosofia/haraway-manifesto-ciborgue` (o "Manifesto ciborgue",
+  pp. 33-118, paginação da referência do estudante, não conferida)
+
+#### The Cyborg Handbook
+
+- **Autoria** — Chris Hables Gray (org.), com Steven Mentor e Heidi J. Figueroa-Sarriera
+  (não conferidos)
+- **Edição** — Routledge (New York), 1ª ed., 1995, 568 p., en-US — conferido na página
+  da editora, que trazia, porém, o sumário de outro livro
+- **Identificadores** — ISBN-13 `9780415908498` (editora); ISBN-10 `0415908493`
+- **Editora** — https://www.routledge.com/The-Cyborg-Handbook/Gray/p/book/9780415908498
+- **Citada por** — `rec:filosofia/hess-low-tech-cyborgs` (David Hess, "On Low-tech
+  Cyborgs", pp. 371-378)
+
+#### The Transhumanist Reader: Classical and Contemporary Essays on the Science, Technology, and Philosophy of the Human Future
+
+- **Autoria** — Max More e Natasha Vita-More (orgs.)
+- **Edição** — Wiley-Blackwell (Oxford), 2013, en-US
+- **Identificadores** — ISBN-13 `9781118334317`, ISBN-10 `1118334310` (brochura; não
+  conferido)
+- **Amazon** — https://www.amazon.com.br/dp/1118334310 (não aberto)
+- **Citada por** — `rec:filosofia/more-vita-more-transhumanist-reader`
+
+#### The Age of Spiritual Machines: When Computers Exceed Human Intelligence
+
+- **Autoria** — Ray Kurzweil
+- **Edição** — Viking, 1999; brochura Penguin; en-US. A referência do estudante dá
+  "New York, NY: Penguin, 1999"
+- **Identificadores** — ISBN-10 `0140282025` (brochura Penguin; não conferido)
+- **Amazon** — https://www.amazon.com.br/dp/0140282025 (não aberto)
+- **Citada por** — `rec:filosofia/kurzweil-age-of-spiritual-machines`
+
+#### The Singularity Is Near: When Humans Transcend Biology
+
+- **Autoria** — Ray Kurzweil
+- **Edição** — Viking (New York), 2005; brochura Penguin; en-US
+- **Identificadores** — ISBN-10 `0143037889` (brochura Penguin; não conferido)
+- **Amazon** — https://www.amazon.com.br/dp/0143037889 (não aberto)
+- **Citada por** — `rec:filosofia/kurzweil-singularity-is-near`
+
+#### How We Became Posthuman: Virtual Bodies in Cybernetics, Literature, and Informatics
+
+- **Autoria** — N. Katherine Hayles
+- **Edição** — University of Chicago Press, 1999, 364 p., en-US — conferido na página da
+  editora em 2026-11-15
+- **Identificadores** — a editora lista `9780226321462` e `9780226321394` sem dizer qual
+  é a brochura
+- **Editora** — https://press.uchicago.edu/ucp/books/book/chicago/H/bo3769963.html
+- **Sumário** — Prólogo; 1 Toward Embodied Virtuality; 2 Virtual Bodies and Flickering
+  Signifiers; 3 Contesting for the Body of Information: The Macy Conferences on
+  Cybernetics; 4 Liberal Subjectivity Imperiled: Norbert Wiener and Cybernetic Anxiety;
+  5 From Hyphen to Splice; 6 The Second Wave of Cybernetics; 7 (Philip K. Dick); 8 The
+  Materiality of Informatics; 9 Narratives of Artificial Life; 10 The Semiotics of
+  Virtuality: Mapping the Posthuman; 11 Conclusion: What Does It Mean to Be Posthuman?
+- **Citada por** — `rec:filosofia/hayles-how-we-became-posthuman`
+
+#### The Posthuman
+
+- **Autoria** — Rosi Braidotti
+- **Edição** — Polity Press (Cambridge, UK; Malden, MA), 2013, en-US
+- **Identificadores** — ISBN-13 `9780745641584`, ISBN-10 `0745641580` (brochura; não
+  conferido)
+- **Amazon** — https://www.amazon.com.br/dp/0745641580 (não aberto)
+- **Citada por** — `rec:filosofia/braidotti-the-posthuman`
+
 ## IHC
 
 As cinco fichas da trilha `trilha:ihc/captologia`, conferidas em 2026-11-14. Como nas
