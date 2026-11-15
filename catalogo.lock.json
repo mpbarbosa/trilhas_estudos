@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 77,
-  "gerado_em": "2026-11-15T20:23:46+00:00",
-  "hash": "sha256:510798e1cb9ddd839c96740c87c18e0edad0eefd782a16f8384f467ed42f37da",
+  "catalogo_versao": 78,
+  "gerado_em": "2026-11-15T20:29:14+00:00",
+  "hash": "sha256:b21e2bb8f6fd13a7fcec9e2732235c604d7fec9fc7738969f83ab30d8d619974",
   "competencias": [
     {
       "id": "comp:arquitetura/computador-pessoal",
@@ -10726,7 +10726,7 @@
       "idioma": "en-US",
       "custo": 150.0,
       "duracao_min": 540,
-      "url": "https://www.amazon.com.br/dp/0745641580",
+      "url": "https://www.amazon.com.br/dp/074564158X",
       "disponivel": true,
       "obra": "braidotti-the-posthuman",
       "verificado_em": "2026-11-15"
@@ -10822,7 +10822,7 @@
     },
     {
       "id": "rec:filosofia/haraway-manifesto-ciborgue",
-      "titulo": "Manifesto ciborgue: ciência, tecnologia e feminismo-socialista no final do século XX (Donna Haraway; trad. Tomaz Tadeu), em Antropologia do ciborgue: as vertigens do pós-humano (Belo Horizonte: Autêntica, 2ª ed., 2009), pp. 33-118",
+      "titulo": "Antropologia do ciborgue: as vertigens do pós-humano (Hari Kunzru, Donna Haraway e Tomaz Tadeu, org.; Belo Horizonte: Autêntica, 2ª ed., 2009) — Donna Haraway, \"Manifesto ciborgue: ciência, tecnologia e feminismo-socialista no final do século XX\" (trad. Tomaz Tadeu), pp. 33-118",
       "rev": 1,
       "status": "ativo",
       "etapa": "etapa:filosofia/ciborgue-como-figura-politica",
@@ -10852,7 +10852,7 @@
     },
     {
       "id": "rec:filosofia/hess-low-tech-cyborgs",
-      "titulo": "On Low-tech Cyborgs (David Hess), em The Cyborg Handbook (Chris Hables Gray, org.; New York: Routledge, 1995), pp. 371-378",
+      "titulo": "The Cyborg Handbook (Chris Hables Gray, org.; New York: Routledge, 1995) — David Hess, \"On Low-tech Cyborgs\", pp. 371-378",
       "rev": 1,
       "status": "ativo",
       "etapa": "etapa:filosofia/ciborgue-de-baixa-tecnologia",

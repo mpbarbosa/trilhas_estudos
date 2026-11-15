@@ -1548,9 +1548,9 @@ paginação dele está no comentário do recurso.
 
 - **Autoria** — Rosi Braidotti
 - **Edição** — Polity Press (Cambridge, UK; Malden, MA), 2013, en-US
-- **Identificadores** — ISBN-13 `9780745641584`, ISBN-10 `0745641580` (brochura; não
-  conferido)
-- **Amazon** — https://www.amazon.com.br/dp/0745641580 (não aberto)
+- **Identificadores** — ISBN-13 `9780745641584`, ISBN-10 `074564158X` (brochura, dígito
+  verificador calculado; ISBNs não conferidos em página)
+- **Amazon** — https://www.amazon.com.br/dp/074564158X (não aberto)
 - **Citada por** — `rec:filosofia/braidotti-the-posthuman`
 
 ## IHC

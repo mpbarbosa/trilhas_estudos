@@ -315,7 +315,7 @@ recursos:
   # manifesto é o grosso do livro, e a etapa pede só ele.
   - id: rec:filosofia/haraway-manifesto-ciborgue
     etapa: etapa:filosofia/ciborgue-como-figura-politica
-    titulo: "Manifesto ciborgue: ciência, tecnologia e feminismo-socialista no final do século XX (Donna Haraway; trad. Tomaz Tadeu), em Antropologia do ciborgue: as vertigens do pós-humano (Belo Horizonte: Autêntica, 2ª ed., 2009), pp. 33-118"
+    titulo: "Antropologia do ciborgue: as vertigens do pós-humano (Hari Kunzru, Donna Haraway e Tomaz Tadeu, org.; Belo Horizonte: Autêntica, 2ª ed., 2009) — Donna Haraway, \"Manifesto ciborgue: ciência, tecnologia e feminismo-socialista no final do século XX\" (trad. Tomaz Tadeu), pp. 33-118"
     rev: 1
     status: ativo
     formato: texto
@@ -335,7 +335,7 @@ recursos:
   # como dizê-lo.
   - id: rec:filosofia/hess-low-tech-cyborgs
     etapa: etapa:filosofia/ciborgue-de-baixa-tecnologia
-    titulo: "On Low-tech Cyborgs (David Hess), em The Cyborg Handbook (Chris Hables Gray, org.; New York: Routledge, 1995), pp. 371-378"
+    titulo: "The Cyborg Handbook (Chris Hables Gray, org.; New York: Routledge, 1995) — David Hess, \"On Low-tech Cyborgs\", pp. 371-378"
     rev: 1
     status: ativo
     formato: texto
@@ -422,7 +422,7 @@ recursos:
     idioma: en-US
     custo: 150
     duracao_min: 540
-    url: https://www.amazon.com.br/dp/0745641580
+    url: https://www.amazon.com.br/dp/074564158X
     obra: braidotti-the-posthuman
     disponivel: true
     verificado_em: 2026-11-15
