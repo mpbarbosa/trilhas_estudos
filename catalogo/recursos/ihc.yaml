@@ -818,3 +818,103 @@ recursos:
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC5876074/
     disponivel: true
     verificado_em: 2026-11-15
+
+  # ========================================================================
+  # trilha:ihc/reconhecimento-multimodal-de-emocao — 2026-11-15
+  #
+  # Cinco recursos: dois exemplares, dois artigos e um projeto. Preços conferidos no
+  # navegador embutido — a Amazon devolveu **muro de robô ao `curl`** nos três ISBN
+  # desta trilha, o primeiro bloqueio desse tipo registrado por aqui (antes ela só
+  # omitia campos). As urls gratuitas conferidas por `curl` (HTTP 200 em 2026-11-15).
+  #
+  # - **O volume 2 do handbook do Oviatt**, e só ele: é o que trata detecção de emoção
+  #   e de estado cognitivo. Isso resolve o que barrou a obra na trilha de computação
+  #   afetiva — três volumes tornavam a `obra` indecidível, e um volume é um exemplar.
+  #   **R$ 420,05 em Kindle**, contra R$ 1.033,88 em capa dura e R$ 732,20 em capa
+  #   comum; a página da capa dura diz "Somente 1 em estoque".
+  # - **O Social Signal Processing a R$ 619,27 em Kindle**, contra R$ 693,90 em capa
+  #   dura. A brochura (`9781316613832`) **não existe na Amazon BR**: `dp` dá 404 e a
+  #   busca pelo ISBN devolve zero resultado.
+  # - **O fecho é projeto, não leitura**, e aponta o SDK multimodal da CMU — do próprio
+  #   grupo de Morency, licença MIT, último push em 2023-12-04. É o mesmo padrão do
+  #   `rec:ihc/projeto-corpus-coraa-ser`: `formato: projeto`, sem `obra`, porque corpus
+  #   e ferramenta não são exemplar.
+  #
+  # Um artigo que a trilha usa e **não** está aqui: a meta-análise de D'Mello e Kory
+  # (2015) — a página da ACM responde 403 atrás de verificação de robô, que esta sessão
+  # não contorna. Os números estão na `descricao` da etapa de fecho; o motivo está em
+  # docs/bibliografia.md §O que não tem ficha.
+  # ========================================================================
+
+  # --- etapa:ihc/taxonomia-do-aprendizado-multimodal --------------------
+  - id: rec:ihc/baltrusaitis-multimodal-survey-e-taxonomia
+    etapa: etapa:ihc/taxonomia-do-aprendizado-multimodal
+    titulo: "Multimodal Machine Learning: A Survey and Taxonomy (Baltrušaitis, Ahuja e Morency, 2019)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 300
+    url: https://arxiv.org/abs/1705.09406
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  # --- etapa:ihc/arquitetura-de-fusao -----------------------------------
+  - id: rec:ihc/oviatt-handbook-multimodal-vol2
+    etapa: etapa:ihc/arquitetura-de-fusao
+    titulo: "The Handbook of Multimodal-Multisensor Interfaces, vol. 2: Signal Processing, Architectures, and Detection of Emotion and Cognition (Oviatt, Schuller, Cohen, Sonntag, Potamianos e Krüger, orgs.)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 420.05
+    obra: oviatt-handbook-multimodal-vol2
+    duracao_min: 840
+    url: https://www.amazon.com.br/dp/1970001712
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  # --- etapa:ihc/sinal-social-como-objeto -------------------------------
+  - id: rec:ihc/burgoon-et-al-social-signal-processing
+    etapa: etapa:ihc/sinal-social-como-objeto
+    titulo: "Social Signal Processing (Judee K. Burgoon, Nadia Magnenat-Thalmann, Maja Pantic e Alessandro Vinciarelli, orgs.)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 619.27
+    obra: burgoon-et-al-social-signal-processing
+    duracao_min: 660
+    url: https://www.amazon.com.br/dp/1107161266
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  # --- etapa:ihc/perguntas-abertas-do-multimodal ------------------------
+  - id: rec:ihc/liang-foundations-trends-multimodal
+    etapa: etapa:ihc/perguntas-abertas-do-multimodal
+    titulo: "Foundations and Trends in Multimodal Machine Learning: Principles, Challenges, and Open Questions (Liang, Zadeh e Morency)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 480
+    url: https://arxiv.org/abs/2209.03430
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  # --- etapa:ihc/ganho-real-da-fusao ------------------------------------
+  # Projeto, não leitura: a crítica desta trilha é aritmética, e aritmética se confere.
+  - id: rec:ihc/projeto-auditar-ganho-da-fusao
+    etapa: etapa:ihc/ganho-real-da-fusao
+    titulo: "Auditar o ganho da fusão sobre o CMU Multimodal SDK (CMU-MOSI e CMU-MOSEI)"
+    rev: 1
+    status: ativo
+    formato: projeto
+    idioma: en-US
+    custo: 0
+    duracao_min: 600
+    url: https://github.com/CMU-MultiComp-Lab/CMU-MultimodalSDK
+    disponivel: true
+    verificado_em: 2026-11-15

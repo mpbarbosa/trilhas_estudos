@@ -704,3 +704,117 @@ competencias:
       dizer qual dos dois custa mais naquele uso; dizer o que a interface pode prometer
       se o sinal só carregar ativação, e reescrever a promessa nesses termos; e nomear
       um caso em que a adaptação implícita seria indefensável mesmo funcionando.
+
+# -------------------------------------------------------------------------
+# Sexta trilha da área, pedida pelo estudante em 2026-11-15 depois das três
+# modalidades: ele pediu livros sobre reconhecimento **multimodal** de emoção e mandou
+# registrá-los. É o fecho do conjunto — face, voz e fisiologia ganharam trilha própria,
+# e esta trata o que acontece quando se juntam.
+#
+# **E aqui a crítica não é filosófica, é aritmética.** Na face o problema é o
+# paradigma, na voz o corpus, na fisiologia o sinal — todos argumentos sobre o que a
+# evidência sustenta. Aqui o problema é um número: a meta-análise de D'Mello e Kory
+# (2015, 90 sistemas) acha que o multimodal supera o melhor unimodal em cerca de 85%
+# dos casos, mas por uma **mediana de 6,60%** — e, pior, o ganho em dado natural
+# (4,59%) é um terço do ganho em dado atuado (12,7%). Ou seja, boa parte do ganho
+# publicado da fusão é ganho sobre estímulo atuado, que é o problema de corpus da
+# trilha da voz reaparecendo como aritmética.
+#
+# Quatro competências. A primeira desfaz um vício de vocabulário: o aprendizado
+# multimodal tem **cinco** desafios — representação, tradução, alinhamento, fusão e
+# co-aprendizado —, e a literatura de afeto chama todos de "fusão", escondendo os dois
+# que de fato mordem aqui (alinhamento, porque emoção não chega pelos três canais no
+# mesmo tempo, e co-aprendizado, porque um canal tem corpus bom e outro não). A
+# segunda é a arquitetura; a terceira é a aritmética; a quarta reformula o alvo — o
+# objeto é comportamento não verbal em interação, e aí o multimodal deixa de ser truque
+# de acurácia e passa a ser a unidade natural de análise.
+#
+# **Uma consequência que nenhuma das obras diz com estas palavras e as competências
+# cobram:** a fusão **herda** o problema de construto de cada canal que funde. Somar um
+# sinal facial cujo passo de unidade de ação para emoção não se sustenta, um vocal cujo
+# corpus é atuado e um fisiológico cego a valência não produz medida específica —
+# produz medida mais **confiante**, que é pior, porque três canais concordando parece
+# evidência quando pode ser três vezes o mesmo viés de ativação.
+#
+# Mesmo critério das outras: a `verificacao` se cobra fora do corpus da trilha —
+# qualquer artigo com número de acurácia, qualquer produto que anuncie "análise
+# multimodal".
+# -------------------------------------------------------------------------
+
+  - id: comp:ihc/taxonomia-do-aprendizado-multimodal
+    titulo: Distinguir os cinco desafios do aprendizado multimodal e dizer qual deles um sistema resolve
+    rev: 1
+    status: ativo
+    descricao: >
+      Representação, tradução, alinhamento, fusão e co-aprendizado são problemas
+      distintos, e "fusão" virou nome de todos cinco. A competência é desfazer isso,
+      porque os dois mais caros em detecção de afeto quase nunca são nomeados:
+      **alinhamento**, já que a resposta eletrodérmica tem latência de segundos e uma
+      microexpressão dura menos de meio segundo, de modo que concatenar janelas não é
+      alinhar; e **co-aprendizado**, já que os canais têm corpus de qualidade
+      radicalmente diferente e o bom pode ensinar o ruim.
+    verificacao: >
+      Dado um sistema multimodal de detecção de afeto: nomear qual dos cinco desafios
+      ele enfrenta e qual ele apenas pressupõe resolvido; dizer em que ponto do
+      encadeamento as modalidades são alinhadas no tempo e o que a diferença de
+      latência entre elas custa; dizer o que acontece quando uma modalidade falta no
+      momento da inferência, e se o sistema degrada ou quebra; e apontar uma afirmação
+      do próprio artigo que usa "fusão" para um desafio que não é fusão.
+
+  - id: comp:ihc/arquitetura-de-fusao-de-modalidade
+    titulo: Escolher e criticar o nível em que duas ou mais modalidades se fundem
+    rev: 1
+    status: ativo
+    descricao: >
+      Fusão de atributo, de decisão, de modelo e híbrida não são variantes de
+      implementação: cada nível destrói uma informação diferente e falha de um jeito
+      diferente. Fundir atributo cedo exige sincronia que raramente existe; fundir
+      decisão tarde joga fora a correlação entre canais, que é justamente o que
+      justificaria o custo de ter dois. A competência é escolher o nível pelo fenômeno
+      e pelo modo de falha aceitável, não pelo que a biblioteca oferece.
+    verificacao: >
+      Dado um sistema com dois ou mais canais: dizer em que nível a fusão acontece e que
+      informação esse nível destrói; dizer o que o sistema faz quando um canal está
+      ausente, atrasado ou ruidoso, e se isso foi projetado ou é consequência; dizer de
+      que sincronia a fusão depende e como ela é obtida na prática; e propor um nível
+      alternativo, dizendo o que se ganharia e o que se perderia naquele uso.
+
+  - id: comp:ihc/ganho-real-da-fusao
+    titulo: Julgar quanto a fusão de fato acrescenta a uma detecção de afeto
+    rev: 1
+    status: ativo
+    descricao: >
+      A competência central, e a única do conjunto afetivo que se cobra em números. A
+      literatura meta-analítica reporta que o multimodal supera o melhor unimodal em
+      cerca de 85% dos casos, por mediana próxima de 6,60% — e que o ganho em dado
+      natural é cerca de um terço do ganho em dado atuado. Duas perguntas explicam a
+      maior parte de qualquer ganho publicado: **contra que unimodal** se comparou, e
+      **em que dado**. Uma linha de base unimodal mal ajustada produz ganho de fusão
+      sem fusão nenhuma.
+    verificacao: >
+      Dado um resultado multimodal publicado com número de acurácia: dizer contra que
+      linha de base unimodal ele se compara e se essa linha recebeu o mesmo esforço de
+      ajuste; dizer se o dado é atuado, seminatural ou natural, e que diferença a
+      literatura meta-analítica reporta entre eles; dizer de que ordem é o ganho mediano
+      que o campo reporta sobre o melhor unimodal; e dizer se o ganho daquele caso
+      justifica o sensor, a calibração e a invasividade que ele acrescenta — nomeando o
+      uso em que a resposta mudaria.
+
+  - id: comp:ihc/sinal-social-como-objeto
+    titulo: Tratar comportamento não verbal em interação como o objeto, em vez da emoção como rótulo
+    rev: 1
+    status: ativo
+    descricao: >
+      A reformulação que torna o multimodal obrigatório em vez de opcional: se o objeto
+      é o sinal social em interação — negociar, apaziguar, ameaçar, convidar, tomar
+      turno —, então ele existe simultaneamente em postura, voz, olhar e face, e
+      analisá-lo num canal só é que seria a escolha estranha. A competência é fazer essa
+      troca de alvo e perceber o que ela resolve: a alegação passa a ser sobre
+      comportamento observável e endereçado, não sobre estado interno inferido.
+    verificacao: >
+      Dado um registro de interação entre duas pessoas: nomear os sinais sociais
+      presentes e que função cada um cumpre para o destinatário; dizer por que a
+      unidade natural de análise ali é multimodal, sem recorrer a argumento de
+      acurácia; separar, numa alegação do sistema, a parte que é sobre sinal observável
+      da parte que é sobre estado interno; e nomear um caso em que o sinal é legível e
+      nenhuma categoria de emoção é atribuível.
