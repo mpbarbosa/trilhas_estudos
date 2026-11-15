@@ -1,0 +1,177 @@
+versao_schema: 1
+trilha:
+  id: trilha:ihc/reconhecimento-multimodal-de-emocao
+  titulo: Reconhecimento multimodal de emoção — dos cinco desafios ao ganho de 6,6% que a fusão de fato entrega
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:ihc/taxonomia-do-aprendizado-multimodal
+      nivel: avancado
+    - competencia: comp:ihc/arquitetura-de-fusao-de-modalidade
+      nivel: intermediario
+    - competencia: comp:ihc/sinal-social-como-objeto
+      nivel: intermediario
+    - competencia: comp:ihc/ganho-real-da-fusao
+      nivel: intermediario
+
+  # Sexta trilha da área ihc, pedida em 2026-11-15 e o **fecho do conjunto afetivo**:
+  # face, voz e fisiologia ganharam trilha própria, e esta trata o que acontece quando
+  # se juntam. `onde-cabe.sh` por "multimodal", "fusão", "Morency", "Pantic", "Poria" e
+  # "social signal" só casou com a seção de fusão do Oxford Handbook — e com o
+  # comentário em que o handbook do Oviatt foi deixado de fora de propósito, em
+  # catalogo/recursos/ihc.yaml.
+  #
+  # **O handbook do Oviatt volta, e o problema que o barrou tem resposta.** Ele ficou
+  # fora da trilha de computação afetiva porque três volumes tornavam a `obra`
+  # indecidível — um exemplar ou três? A resposta é que **só o volume 2 trata detecção
+  # de emoção** (*Signal Processing, Architectures, and Detection of Emotion and
+  # Cognition*); os volumes 1 e 3 são fundamentos/modelagem e linguagem/comercialização,
+  # e não entram. Um volume, um exemplar, uma `obra`. O comentário de lá fica como está:
+  # ele registra corretamente por que a decisão foi adiada.
+  #
+  # **Aqui a crítica não é filosófica, é aritmética — e isso muda o fecho.** Nas três
+  # modalidades o problema era o que a evidência sustenta. Aqui é um número: a
+  # meta-análise de D'Mello e Kory (2015, 90 sistemas) acha 85% de vitória do multimodal
+  # sobre o melhor unimodal, por **mediana de 6,60%**, com ganho em dado natural (4,59%)
+  # a um terço do ganho em dado atuado (12,7%). Logo o fecho não é leitura, é
+  # **auditoria**: a última etapa é um projeto sobre o SDK da CMU, em que se toma um
+  # resultado publicado e se faz as duas perguntas que explicam quase todo ganho — contra
+  # que unimodal, e em que dado.
+  #
+  # **A meta-análise que sustenta tudo isso NÃO está no catálogo**, e é a terceira vez
+  # nesta série: a página da ACM responde 403 atrás de verificação de robô, que esta
+  # sessão não contorna, e a única cópia livre está numa página de disciplina da USC com
+  # licenciamento não confirmado. Os números estão na `descricao` da etapa de fecho e na
+  # `descricao` de `comp:ihc/ganho-real-da-fusao`, de modo que a competência se cobra;
+  # o motivo está em docs/bibliografia.md §O que não tem ficha.
+  #
+  # **A forma do grafo: uma raiz grátis, três ramos, um fecho que exige os três.** A
+  # taxonomia abre (de graça) e desfaz o vício de chamar tudo de fusão; dali saem a
+  # arquitetura (Oviatt vol. 2), o sinal social (Cambridge) e o estado da arte (grátis),
+  # e o projeto fecha exigindo os três.
+  #
+  # **O que esta trilha não repete.** Não entra livro de aprendizado profundo
+  # multimodal: o problema desta área não é arquitetura de rede, é alinhamento temporal,
+  # construto e corpus, e um livro de arquitetura responde com rigor a pergunta errada.
+  # Artigo de corpus também não — CMU-MOSEI e companhia entram como o **projeto** da
+  # última etapa, que é onde eles servem.
+  etapas:
+    # --- Raiz: grátis, e desfaz o vocabulário --------------------------------
+    - id: etapa:ihc/taxonomia-do-aprendizado-multimodal
+      titulo: Multimodal Machine Learning — cinco desafios, e só um deles é fusão
+      rev: 1
+      status: ativo
+      descricao: >
+        Baltrušaitis, Ahuja e Morency organizam o campo em representação, tradução,
+        **alinhamento**, fusão e **co-aprendizado**, e a leitura vale sobretudo pelos
+        dois que a literatura de afeto não nomeia. Alinhamento, porque emoção não chega
+        pelos três canais no mesmo tempo: a resposta eletrodérmica tem latência de
+        segundos e uma microexpressão dura menos de meio segundo, de modo que
+        concatenar janelas não é alinhar. Co-aprendizado, porque os canais têm corpus
+        de qualidade radicalmente diferente e o bom pode ensinar o ruim. Grátis, em
+        arXiv, e é a porta da trilha.
+      esforco_estimado_min: 300
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:ihc/taxonomia-do-aprendizado-multimodal
+          nivel_resultante: intermediario
+
+    # --- Ramo da arquitetura ------------------------------------------------
+    - id: etapa:ihc/arquitetura-de-fusao
+      titulo: Handbook of Multimodal-Multisensor Interfaces, vol. 2 — em que nível os canais se fundem
+      rev: 1
+      status: ativo
+      descricao: >
+        O volume do handbook que trata detecção de emoção e de estado cognitivo:
+        processamento de sinal, arquiteturas, e os níveis em que a fusão pode acontecer.
+        O corte é entender que fundir atributo cedo, decisão tarde ou modelo no meio não
+        são variantes de implementação — cada nível destrói uma informação diferente e
+        falha de um jeito diferente, e fundir decisão tarde joga fora exatamente a
+        correlação entre canais que justificaria o custo de ter dois. Lê-se por capítulo.
+      esforco_estimado_min: 840
+      opcional: false
+      requires:
+        - competencia: comp:ihc/taxonomia-do-aprendizado-multimodal
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/arquitetura-de-fusao-de-modalidade
+          nivel_resultante: intermediario
+
+    # --- Ramo do objeto -----------------------------------------------------
+    - id: etapa:ihc/sinal-social-como-objeto
+      titulo: Social Signal Processing — trocar o alvo, e o multimodal deixa de ser truque
+      rev: 1
+      status: ativo
+      descricao: >
+        Burgoon, Magnenat-Thalmann, Pantic e Vinciarelli reformulam o problema: o objeto
+        é comportamento não verbal em interação — negociar, apaziguar, ameaçar,
+        convidar, tomar turno —, e não emoção como rótulo. A consequência é a razão de
+        esta etapa existir: se o sinal social existe simultaneamente em postura, voz,
+        olhar e face, então analisá-lo num canal só é que seria a escolha estranha, e o
+        multimodal passa a ser a unidade natural de análise em vez de um truque de
+        acurácia. E a alegação muda de natureza: passa a ser sobre comportamento
+        observável e endereçado, não sobre estado interno inferido.
+      esforco_estimado_min: 660
+      opcional: false
+      requires:
+        - competencia: comp:ihc/taxonomia-do-aprendizado-multimodal
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/sinal-social-como-objeto
+          nivel_resultante: intermediario
+
+    # --- Ramo do estado da arte: grátis -------------------------------------
+    - id: etapa:ihc/perguntas-abertas-do-multimodal
+      titulo: Foundations and Trends in Multimodal Machine Learning — o que continua aberto
+      rev: 1
+      status: ativo
+      descricao: >
+        O sucessor do mesmo grupo, atualizado para a era dos modelos grandes:
+        princípios, desafios e **perguntas abertas**. Entra porque a taxonomia de 2017
+        organiza melhor e este diz onde o campo está — e porque uma trilha cuja
+        competência central é julgar ganho precisa saber o que ainda não se sabe, em vez
+        de tratar o estado da arte como resolvido. Grátis, em arXiv.
+      esforco_estimado_min: 480
+      opcional: false
+      requires:
+        - competencia: comp:ihc/taxonomia-do-aprendizado-multimodal
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/taxonomia-do-aprendizado-multimodal
+          nivel_resultante: avancado
+
+    # --- Fecho: não é leitura, é auditoria ----------------------------------
+    - id: etapa:ihc/ganho-real-da-fusao
+      titulo: Auditar o ganho — contra que unimodal, e em que dado
+      rev: 1
+      status: ativo
+      descricao: >
+        A única etapa de projeto do conjunto afetivo, e é de propósito: aqui a crítica é
+        aritmética, e aritmética se confere, não se lê. Sobre o SDK multimodal da CMU —
+        o do próprio grupo de Morency, com CMU-MOSI e CMU-MOSEI —, tome um resultado
+        multimodal publicado e faça as duas perguntas que explicam quase todo ganho:
+        **contra que linha de base unimodal** se comparou, e se ela recebeu o mesmo
+        esforço de ajuste; e **em que dado**, atuado ou natural.
+        O parâmetro vem da meta-análise de D'Mello e Kory (2015, 90 sistemas, *ACM
+        Computing Surveys* 47(3), DOI 10.1145/2682899): o multimodal vence o melhor
+        unimodal em cerca de 85% dos casos, por **mediana de 6,60%** (média 9,83%), e o
+        ganho em dado **natural** (4,59%) é um terço do ganho em dado **atuado**
+        (12,7%). Isto é o problema de corpus da trilha da voz reaparecendo como número.
+        A meta-análise é de acesso fechado e não está no catálogo — o motivo está em
+        docs/bibliografia.md —, e é por isso que os números estão aqui.
+        Fecha exigindo os três ramos: sem arquitetura não se diz o que a fusão destrói,
+        sem o sinal social não se sabe se o multimodal era necessário por outra razão, e
+        sem o estado da arte não se sabe o que ainda está aberto.
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:ihc/arquitetura-de-fusao-de-modalidade
+          nivel_minimo: intermediario
+        - competencia: comp:ihc/sinal-social-como-objeto
+          nivel_minimo: intermediario
+        - competencia: comp:ihc/taxonomia-do-aprendizado-multimodal
+          nivel_minimo: avancado
+      teaches:
+        - competencia: comp:ihc/ganho-real-da-fusao
+          nivel_resultante: intermediario

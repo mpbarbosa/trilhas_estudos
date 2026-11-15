@@ -2112,6 +2112,92 @@ aberto anunciado por agregador não é acesso aberto conferido**.
   Kreibig de 2010, que conclui o oposto e não está no catálogo (ver §O que não tem
   ficha).
 
+As quatro fichas da trilha `trilha:ihc/reconhecimento-multimodal-de-emocao`,
+conferidas em 2026-11-15: dois exemplares e dois levantamentos livres. Novidade de
+procedimento que vale registrar: **a Amazon devolveu muro de robô ao `curl`** nos três
+ISBN desta trilha, e não apenas campos faltando como nas fichas anteriores — o
+`ficha-livro.sh` saiu com `BLOQUEIO` e todo o preço veio do navegador embutido.
+
+### The Handbook of Multimodal-Multisensor Interfaces, Volume 2
+
+- **Autoria** — Sharon Oviatt, Björn Schuller, Philip R. Cohen, Daniel Sonntag,
+  Gerasimos Potamianos e Antonio Krüger (orgs.). Subtítulo: *Signal Processing,
+  Architectures, and Detection of Emotion and Cognition*.
+- **Edição** — Association for Computing Machinery (ACM Books; alguns revendedores
+  dizem Morgan & Claypool), 08/10/2018, 556 p., capa dura, en-US
+- **Identificadores** — capa dura ISBN-13 `9781970001716` · ISBN-10 `1970001712`.
+  ⚠️ As listagens divergem nos outros formatos: `9781970001709` (eletrônico, Perlego),
+  `9781970001693` e `9781970001709` (PDF e ePub, Reference Global) e `9781970001686`
+  numa listagem de brochura. Confira na ACM antes de usar qualquer um deles.
+- **Amazon** — https://www.amazon.com.br/dp/1970001712 — página lida. **R$ 420,05 em
+  Kindle**, R$ 1.033,88 em capa dura, R$ 732,20 em capa comum; "Somente 1 em estoque"
+  na capa dura.
+- **Citada por** — `rec:ihc/oviatt-handbook-multimodal-vol2` — declara
+  `obra: oviatt-handbook-multimodal-vol2`
+- **Nota** — ⚠️ **é o volume 2 e só ele, e isso resolve o que barrou a obra antes.** O
+  comentário de `catalogo/recursos/ihc.yaml` na trilha de computação afetiva registra
+  que este handbook foi deixado de fora porque três volumes tornavam a `obra`
+  indecidível — um exemplar ou três? A resposta é que apenas o volume 2 trata detecção
+  de emoção e de estado cognitivo; o 1 é fundamentos e modelagem de usuário, o 3 é
+  processamento de linguagem e comercialização. Um volume, um exemplar, uma `obra`. O
+  comentário antigo fica como está: ele registra corretamente por que a decisão foi
+  adiada, e não por que estava errada.
+
+### Social Signal Processing
+
+- **Autoria** — Judee K. Burgoon, Nadia Magnenat-Thalmann, Maja Pantic e Alessandro
+  Vinciarelli (orgs.)
+- **Edição** — Cambridge University Press, 08/05/2017, 440 p. pela Amazon (xii+428 em
+  registro de biblioteca, que provavelmente conta só o corpo), capa dura, en-US
+- **Identificadores** — capa dura ISBN-13 `9781107161269` · ISBN-10 `1107161266`;
+  brochura `9781316613832` · `1316613836`; eletrônico `9781316676202`; DOI
+  `10.1017/9781316676202`
+- **Amazon** — https://www.amazon.com.br/dp/1107161266 — página lida. **R$ 619,27 em
+  Kindle**, R$ 693,90 em capa dura; "Somente 1 em estoque".
+- **Citada por** — `rec:ihc/burgoon-et-al-social-signal-processing` — declara
+  `obra: burgoon-et-al-social-signal-processing`
+- **Nota** — ⚠️ **a brochura não existe na Amazon BR**: `dp/1316613836` dá HTTP 404 e a
+  busca por `9781316613832` devolve **zero** resultado — não "sem preço", zero. É a
+  primeira vez que esta seção registra um ISBN de brochura ausente do catálogo da loja
+  inteira, e é por isso que o recurso aponta a capa dura. Sobre o conteúdo: é o livro
+  que troca o alvo, de "emoção como rótulo" para "comportamento não verbal em
+  interação", e com isso torna o multimodal a unidade natural de análise em vez de um
+  truque de acurácia.
+
+### Multimodal Machine Learning: A Survey and Taxonomy
+
+- **Autoria** — Tadas Baltrušaitis, Chaitanya Ahuja e Louis-Philippe Morency
+- **Edição** — *IEEE Transactions on Pattern Analysis and Machine Intelligence*
+  41(2):423–443, 18/02/2019, en-US. **Artigo de levantamento, não exemplar** — sem
+  `obra`.
+- **Identificadores** — [arXiv:1705.09406](https://arxiv.org/abs/1705.09406) (v2 de
+  01/08/2017)
+- **Amazon** — não se aplica. Texto integral livre em arXiv, HTTP 200 por `curl` em
+  2026-11-15, que é a `url` do recurso. `custo: 0`.
+- **Citada por** — `rec:ihc/baltrusaitis-multimodal-survey-e-taxonomia`
+- **Nota** — é a obra que dá o vocabulário da trilha: **cinco** desafios —
+  representação, tradução, alinhamento, fusão e co-aprendizado —, dos quais a
+  literatura de afeto nomeia um e chama de "fusão" os outros quatro. ⚠️ Um resumo
+  gerado por IA (emergentmind) acrescenta alegações sobre modalidades futuras —
+  háptica, molecular — que **não se confirmaram no texto do artigo**; para citação,
+  use o PDF do arXiv ou a versão IEEE, não os agregadores.
+
+### Foundations and Trends in Multimodal Machine Learning: Principles, Challenges, and Open Questions
+
+- **Autoria** — Paul Pu Liang, Amir Zadeh e Louis-Philippe Morency
+- **Edição** — levantamento em arXiv, 2022, en-US. **Artigo, não exemplar** — sem
+  `obra`.
+- **Identificadores** — [arXiv:2209.03430](https://arxiv.org/abs/2209.03430)
+- **Amazon** — não se aplica. HTTP 200 por `curl` em 2026-11-15. `custo: 0`.
+- **Citada por** — `rec:ihc/liang-foundations-trends-multimodal`
+- **Nota** — sucessor do mesmo grupo do levantamento de 2017, atualizado para a era dos
+  modelos grandes. Entra **ao lado** e não em lugar do outro: a taxonomia de 2017
+  organiza melhor o problema, este diz onde o campo está e o que continua aberto — e
+  uma trilha cuja competência central é julgar ganho precisa saber o que ainda não se
+  sabe. Não confundir o título com a revista *Foundations and Trends in HCI*, que
+  publicou o *Psychophysiology Primer* da trilha de fisiologia: são coisas diferentes
+  com nomes parecidos.
+
 ## Línguas
 
 ### Introducing English Syntax: A Basic Guide for Students of English
@@ -2296,6 +2382,37 @@ que vale escrito, porque os dois se repetem:
    emerald.com, que respondeu HTTP 403 atrás de **verificação de robô, que esta sessão
    não contorna**. Catalogados ficaram os seis extratos em arXiv, de acesso certo.
    `custo: 0` com acesso incerto seria pior que ausência.
+
+Em 2026-11-15 a trilha multimodal acrescentou **três** recursos sem `obra`: dois
+levantamentos em arXiv, que ganharam ficha por serem leitura central de etapa, e um
+**projeto**, que não ganhou — `rec:ihc/projeto-auditar-ganho-da-fusao` aponta o
+[CMU Multimodal SDK](https://github.com/CMU-MultiComp-Lab/CMU-MultimodalSDK), do grupo
+de Morency, com CMU-MOSI e CMU-MOSEI. É ferramenta e corpus, não leitura: mesmo caso
+de `rec:ihc/projeto-corpus-coraa-ser`, e por dois motivos independentes não é exemplar.
+Conferido em 2026-11-15 pela API do GitHub: licença MIT, não arquivado, último push em
+2023-12-04.
+
+E **a meta-análise que sustenta a competência central da trilha ficou fora**, pela
+terceira vez nesta série de cinco trilhas afetivas — o que já é padrão e não acidente:
+
+**D'Mello & Kory, "A Review and Meta-Analysis of Multimodal Affect Detection Systems"**
+(*ACM Computing Surveys* 47(3), artigo 43, fevereiro de 2015, 36 p., DOI
+`10.1145/2682899`). A página da ACM responde **HTTP 403 atrás de verificação de robô,
+que esta sessão não contorna** — nem por `curl` nem pelo navegador. A única cópia livre
+que apareceu está numa página de disciplina do ICT/USC, **com licenciamento não
+confirmado**, que por isso não serve como `url`. Os números que a trilha usa — 85% de
+vitória sobre o melhor unimodal, mediana de 6,60%, e ganho em dado natural (4,59%) a um
+terço do ganho em dado atuado (12,7%) — estão na `descricao` de
+`etapa:ihc/ganho-real-da-fusao` e na de `comp:ihc/ganho-real-da-fusao`, para que a
+competência se cobre. ⚠️ **Eles vieram de resumos e agregadores, não do PDF do artigo**,
+e estão declarados como tais.
+
+**O padrão, dito de uma vez.** Três vezes o artigo decisivo de uma trilha afetiva foi
+inacessível: o Kreibig de 2010 (acesso fechado), o *Psychophysiology Primer* completo
+(403 atrás de verificação de robô) e este (idem). Nos três casos a decisão foi a mesma
+— o fato vai para a `descricao` da etapa, a obra não vai para o catálogo, e o motivo
+vem para cá. `custo: 0` com acesso incerto, ou `url` de cópia não autorizada, seriam
+piores que a ausência: o catálogo passaria a prometer o que não entrega.
 
 ## Divergências
 

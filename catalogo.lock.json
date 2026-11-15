@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 75,
-  "gerado_em": "2026-11-15T02:56:09+00:00",
-  "hash": "sha256:8d8e019b0daa479a83af58db809c0c95cca1a03ecf9cfca5e34cfd0b0a5ef2de",
+  "catalogo_versao": 76,
+  "gerado_em": "2026-11-15T03:36:36+00:00",
+  "hash": "sha256:517a5ea4bb85abbe8fb30b73ce5a470236d045c0aad4e4d0e53cb96dcfcd5842",
   "competencias": [
     {
       "id": "comp:arquitetura/computador-pessoal",
@@ -741,6 +741,14 @@
       "descricao": "A metade do problema que não aparece no artigo e decide o resultado: posição de eletrodo, taxa de amostragem, filtro, artefato de movimento e de respiração, linha de base, e o fato de que a maior parte do erro em trabalho de emoção por fisiologia é de aquisição e não de modelo. Inclui saber o que cada canal mede de fato — condutância da pele, eletrocardiograma, eletromiografia, eletroencefalograma, rastreamento ocular — e a que custo de invasividade.\n"
     },
     {
+      "id": "comp:ihc/arquitetura-de-fusao-de-modalidade",
+      "titulo": "Escolher e criticar o nível em que duas ou mais modalidades se fundem",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um sistema com dois ou mais canais: dizer em que nível a fusão acontece e que informação esse nível destrói; dizer o que o sistema faz quando um canal está ausente, atrasado ou ruidoso, e se isso foi projetado ou é consequência; dizer de que sincronia a fusão depende e como ela é obtida na prática; e propor um nível alternativo, dizendo o que se ganharia e o que se perderia naquele uso.",
+      "descricao": "Fusão de atributo, de decisão, de modelo e híbrida não são variantes de implementação: cada nível destrói uma informação diferente e falha de um jeito diferente. Fundir atributo cedo exige sincronia que raramente existe; fundir decisão tarde joga fora a correlação entre canais, que é justamente o que justificaria o custo de ter dois. A competência é escolher o nível pelo fenômeno e pelo modo de falha aceitável, não pelo que a biblioteca oferece.\n"
+    },
+    {
       "id": "comp:ihc/atividade-eletrodermal",
       "titulo": "Interpretar atividade eletrodérmica sem confundir ativação com emoção",
       "rev": 1,
@@ -869,6 +877,14 @@
       "descricao": "Rao e Koolagudi organizam o problema pela origem física do atributo, e não pela biblioteca que o calcula: informação da fonte de excitação (o que a glote faz), informação do tracto vocal (a filtragem, de onde saem os atributos espectrais e os cepstrais) e informação prosódica (entoação, duração, intensidade ao longo do enunciado). A competência é saber qual fonte carrega qual parte do afeto, e por que juntar tudo num vetor único esconde a resposta.\n"
     },
     {
+      "id": "comp:ihc/ganho-real-da-fusao",
+      "titulo": "Julgar quanto a fusão de fato acrescenta a uma detecção de afeto",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um resultado multimodal publicado com número de acurácia: dizer contra que linha de base unimodal ele se compara e se essa linha recebeu o mesmo esforço de ajuste; dizer se o dado é atuado, seminatural ou natural, e que diferença a literatura meta-analítica reporta entre eles; dizer de que ordem é o ganho mediano que o campo reporta sobre o melhor unimodal; e dizer se o ganho daquele caso justifica o sensor, a calibração e a invasividade que ele acrescenta — nomeando o uso em que a resposta mudaria.",
+      "descricao": "A competência central, e a única do conjunto afetivo que se cobra em números. A literatura meta-analítica reporta que o multimodal supera o melhor unimodal em cerca de 85% dos casos, por mediana próxima de 6,60% — e que o ganho em dado natural é cerca de um terço do ganho em dado atuado. Duas perguntas explicam a maior parte de qualquer ganho publicado: **contra que unimodal** se comparou, e **em que dado**. Uma linha de base unimodal mal ajustada produz ganho de fusão sem fusão nenhuma.\n"
+    },
+    {
       "id": "comp:ihc/modelo-de-comportamento-de-fogg",
       "titulo": "Diagnosticar e projetar um comportamento pelo modelo B=MAP",
       "rev": 1,
@@ -915,6 +931,22 @@
       "status": "ativo",
       "verificacao": "Dada uma escolha concreta de interface — o texto de uma mensagem de erro, a voz de um assistente, a ordem de um elogio, a identidade de quem dá uma nota: prever a resposta social que ela produz, nomeando a regra social acionada; desenhar um experimento com condição de controle que distinguiria essa previsão da hipótese nula, dizendo o que se mediria; dizer por que perguntar ao usuário não serve como medida nesse caso; e apontar um uso da mesma regra que seria manipulação, separando-o do uso que não é, com o critério explícito.",
       "descricao": "O achado experimental de Nass e colegas: pessoas aplicam a máquinas regras que são sociais — reciprocidade, cortesia, lisonja, atribuição de personalidade e de gênero à voz, constrangimento diante de crítica —, mesmo sabendo perfeitamente que é máquina, e mesmo negando que o fazem. A competência é usar isso para prever o efeito de uma escolha concreta de interface, e para projetar um teste que confirme ou negue a previsão.\n"
+    },
+    {
+      "id": "comp:ihc/sinal-social-como-objeto",
+      "titulo": "Tratar comportamento não verbal em interação como o objeto, em vez da emoção como rótulo",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um registro de interação entre duas pessoas: nomear os sinais sociais presentes e que função cada um cumpre para o destinatário; dizer por que a unidade natural de análise ali é multimodal, sem recorrer a argumento de acurácia; separar, numa alegação do sistema, a parte que é sobre sinal observável da parte que é sobre estado interno; e nomear um caso em que o sinal é legível e nenhuma categoria de emoção é atribuível.",
+      "descricao": "A reformulação que torna o multimodal obrigatório em vez de opcional: se o objeto é o sinal social em interação — negociar, apaziguar, ameaçar, convidar, tomar turno —, então ele existe simultaneamente em postura, voz, olhar e face, e analisá-lo num canal só é que seria a escolha estranha. A competência é fazer essa troca de alvo e perceber o que ela resolve: a alegação passa a ser sobre comportamento observável e endereçado, não sobre estado interno inferido.\n"
+    },
+    {
+      "id": "comp:ihc/taxonomia-do-aprendizado-multimodal",
+      "titulo": "Distinguir os cinco desafios do aprendizado multimodal e dizer qual deles um sistema resolve",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um sistema multimodal de detecção de afeto: nomear qual dos cinco desafios ele enfrenta e qual ele apenas pressupõe resolvido; dizer em que ponto do encadeamento as modalidades são alinhadas no tempo e o que a diferença de latência entre elas custa; dizer o que acontece quando uma modalidade falta no momento da inferência, e se o sistema degrada ou quebra; e apontar uma afirmação do próprio artigo que usa \"fusão\" para um desafio que não é fusão.",
+      "descricao": "Representação, tradução, alinhamento, fusão e co-aprendizado são problemas distintos, e \"fusão\" virou nome de todos cinco. A competência é desfazer isso, porque os dois mais caros em detecção de afeto quase nunca são nomeados: **alinhamento**, já que a resposta eletrodérmica tem latência de segundos e uma microexpressão dura menos de meio segundo, de modo que concatenar janelas não é alinhar; e **co-aprendizado**, já que os canais têm corpus de qualidade radicalmente diferente e o bom pode ensinar o ruim.\n"
     },
     {
       "id": "comp:ihc/tres-capacidades-da-computacao-afetiva",
@@ -4265,6 +4297,28 @@
       ]
     },
     {
+      "id": "etapa:ihc/arquitetura-de-fusao",
+      "titulo": "Handbook of Multimodal-Multisensor Interfaces, vol. 2 — em que nível os canais se fundem",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 840,
+      "descricao": "O volume do handbook que trata detecção de emoção e de estado cognitivo: processamento de sinal, arquiteturas, e os níveis em que a fusão pode acontecer. O corte é entender que fundir atributo cedo, decisão tarde ou modelo no meio não são variantes de implementação — cada nível destrói uma informação diferente e falha de um jeito diferente, e fundir decisão tarde joga fora exatamente a correlação entre canais que justificaria o custo de ter dois. Lê-se por capítulo.\n",
+      "trilha": "trilha:ihc/reconhecimento-multimodal-de-emocao",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/taxonomia-do-aprendizado-multimodal",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/arquitetura-de-fusao-de-modalidade",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:ihc/atividade-eletrodermal",
       "titulo": "Atividade eletrodérmica — o sinal que o campo mais usa, e é cego a valência",
       "rev": 1,
@@ -4597,6 +4651,36 @@
       ]
     },
     {
+      "id": "etapa:ihc/ganho-real-da-fusao",
+      "titulo": "Auditar o ganho — contra que unimodal, e em que dado",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "descricao": "A única etapa de projeto do conjunto afetivo, e é de propósito: aqui a crítica é aritmética, e aritmética se confere, não se lê. Sobre o SDK multimodal da CMU — o do próprio grupo de Morency, com CMU-MOSI e CMU-MOSEI —, tome um resultado multimodal publicado e faça as duas perguntas que explicam quase todo ganho: **contra que linha de base unimodal** se comparou, e se ela recebeu o mesmo esforço de ajuste; e **em que dado**, atuado ou natural. O parâmetro vem da meta-análise de D'Mello e Kory (2015, 90 sistemas, *ACM Computing Surveys* 47(3), DOI 10.1145/2682899): o multimodal vence o melhor unimodal em cerca de 85% dos casos, por **mediana de 6,60%** (média 9,83%), e o ganho em dado **natural** (4,59%) é um terço do ganho em dado **atuado** (12,7%). Isto é o problema de corpus da trilha da voz reaparecendo como número. A meta-análise é de acesso fechado e não está no catálogo — o motivo está em docs/bibliografia.md —, e é por isso que os números estão aqui. Fecha exigindo os três ramos: sem arquitetura não se diz o que a fusão destrói, sem o sinal social não se sabe se o multimodal era necessário por outra razão, e sem o estado da arte não se sabe o que ainda está aberto.\n",
+      "trilha": "trilha:ihc/reconhecimento-multimodal-de-emocao",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/arquitetura-de-fusao-de-modalidade",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/sinal-social-como-objeto",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/taxonomia-do-aprendizado-multimodal",
+          "nivel_minimo": "avancado"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/ganho-real-da-fusao",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:ihc/inferencia-facial-reconsiderada",
       "titulo": "Emotional Expressions Reconsidered — a revisão que derruba o passo inferencial",
       "rev": 1,
@@ -4817,6 +4901,28 @@
       ]
     },
     {
+      "id": "etapa:ihc/perguntas-abertas-do-multimodal",
+      "titulo": "Foundations and Trends in Multimodal Machine Learning — o que continua aberto",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 480,
+      "descricao": "O sucessor do mesmo grupo, atualizado para a era dos modelos grandes: princípios, desafios e **perguntas abertas**. Entra porque a taxonomia de 2017 organiza melhor e este diz onde o campo está — e porque uma trilha cuja competência central é julgar ganho precisa saber o que ainda não se sabe, em vez de tratar o estado da arte como resolvido. Grátis, em arXiv.\n",
+      "trilha": "trilha:ihc/reconhecimento-multimodal-de-emocao",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/taxonomia-do-aprendizado-multimodal",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/taxonomia-do-aprendizado-multimodal",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
       "id": "etapa:ihc/primers-de-sinal-fisiologico-em-ihc",
       "titulo": "Primers de psicofisiologia para IHC — um sinal por vez, de graça",
       "rev": 1,
@@ -4872,6 +4978,44 @@
       "teaches": [
         {
           "competencia": "comp:ihc/resposta-social-a-maquina",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/sinal-social-como-objeto",
+      "titulo": "Social Signal Processing — trocar o alvo, e o multimodal deixa de ser truque",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 660,
+      "descricao": "Burgoon, Magnenat-Thalmann, Pantic e Vinciarelli reformulam o problema: o objeto é comportamento não verbal em interação — negociar, apaziguar, ameaçar, convidar, tomar turno —, e não emoção como rótulo. A consequência é a razão de esta etapa existir: se o sinal social existe simultaneamente em postura, voz, olhar e face, então analisá-lo num canal só é que seria a escolha estranha, e o multimodal passa a ser a unidade natural de análise em vez de um truque de acurácia. E a alegação muda de natureza: passa a ser sobre comportamento observável e endereçado, não sobre estado interno inferido.\n",
+      "trilha": "trilha:ihc/reconhecimento-multimodal-de-emocao",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/taxonomia-do-aprendizado-multimodal",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/sinal-social-como-objeto",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/taxonomia-do-aprendizado-multimodal",
+      "titulo": "Multimodal Machine Learning — cinco desafios, e só um deles é fusão",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "descricao": "Baltrušaitis, Ahuja e Morency organizam o campo em representação, tradução, **alinhamento**, fusão e **co-aprendizado**, e a leitura vale sobretudo pelos dois que a literatura de afeto não nomeia. Alinhamento, porque emoção não chega pelos três canais no mesmo tempo: a resposta eletrodérmica tem latência de segundos e uma microexpressão dura menos de meio segundo, de modo que concatenar janelas não é alinhar. Co-aprendizado, porque os canais têm corpus de qualidade radicalmente diferente e o bom pode ensinar o ruim. Grátis, em arXiv, e é a porta da trilha.\n",
+      "trilha": "trilha:ihc/reconhecimento-multimodal-de-emocao",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:ihc/taxonomia-do-aprendizado-multimodal",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -8109,6 +8253,37 @@
       "etapas_referenciadas": [
         "etapa:ihc/computacao-afetiva-o-campo",
         "etapa:ihc/deteccao-de-afeto-por-sinal"
+      ]
+    },
+    {
+      "id": "trilha:ihc/reconhecimento-multimodal-de-emocao",
+      "titulo": "Reconhecimento multimodal de emoção — dos cinco desafios ao ganho de 6,6% que a fusão de fato entrega",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:ihc/taxonomia-do-aprendizado-multimodal",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:ihc/arquitetura-de-fusao-de-modalidade",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/sinal-social-como-objeto",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/ganho-real-da-fusao",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:ihc/taxonomia-do-aprendizado-multimodal",
+        "etapa:ihc/arquitetura-de-fusao",
+        "etapa:ihc/sinal-social-como-objeto",
+        "etapa:ihc/perguntas-abertas-do-multimodal",
+        "etapa:ihc/ganho-real-da-fusao"
       ]
     },
     {
@@ -11938,6 +12113,20 @@
       "verificado_em": "2026-11-14"
     },
     {
+      "id": "rec:ihc/baltrusaitis-multimodal-survey-e-taxonomia",
+      "titulo": "Multimodal Machine Learning: A Survey and Taxonomy (Baltrušaitis, Ahuja e Morency, 2019)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/taxonomia-do-aprendizado-multimodal",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 300,
+      "url": "https://arxiv.org/abs/1705.09406",
+      "disponivel": true,
+      "verificado_em": "2026-11-15"
+    },
+    {
       "id": "rec:ihc/barrett-como-as-emocoes-sao-feitas",
       "titulo": "Como as emoções são feitas: a vida secreta do cérebro (Lisa Feldman Barrett)",
       "rev": 1,
@@ -11979,6 +12168,21 @@
       "url": "https://www.amazon.com.br/dp/1461411254",
       "disponivel": true,
       "obra": "boucsein-electrodermal-activity",
+      "verificado_em": "2026-11-15"
+    },
+    {
+      "id": "rec:ihc/burgoon-et-al-social-signal-processing",
+      "titulo": "Social Signal Processing (Judee K. Burgoon, Nadia Magnenat-Thalmann, Maja Pantic e Alessandro Vinciarelli, orgs.)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/sinal-social-como-objeto",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 619.27,
+      "duracao_min": 660,
+      "url": "https://www.amazon.com.br/dp/1107161266",
+      "disponivel": true,
+      "obra": "burgoon-et-al-social-signal-processing",
       "verificado_em": "2026-11-15"
     },
     {
@@ -12207,6 +12411,20 @@
       "verificado_em": "2026-11-14"
     },
     {
+      "id": "rec:ihc/liang-foundations-trends-multimodal",
+      "titulo": "Foundations and Trends in Multimodal Machine Learning: Principles, Challenges, and Open Questions (Liang, Zadeh e Morency)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/perguntas-abertas-do-multimodal",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 480,
+      "url": "https://arxiv.org/abs/2209.03430",
+      "disponivel": true,
+      "verificado_em": "2026-11-15"
+    },
+    {
       "id": "rec:ihc/manual-do-facs",
       "titulo": "Facial Action Coding System: manual e guia do investigador (Ekman, Friesen e Hager, 2002)",
       "rev": 1,
@@ -12280,6 +12498,21 @@
       "disponivel": true,
       "obra": "oneil-algoritmos-de-destruicao-em-massa",
       "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/oviatt-handbook-multimodal-vol2",
+      "titulo": "The Handbook of Multimodal-Multisensor Interfaces, vol. 2: Signal Processing, Architectures, and Detection of Emotion and Cognition (Oviatt, Schuller, Cohen, Sonntag, Potamianos e Krüger, orgs.)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/arquitetura-de-fusao",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 420.05,
+      "duracao_min": 840,
+      "url": "https://www.amazon.com.br/dp/1970001712",
+      "disponivel": true,
+      "obra": "oviatt-handbook-multimodal-vol2",
+      "verificado_em": "2026-11-15"
     },
     {
       "id": "rec:ihc/oxford-handbook-affective-computing-deteccao",
@@ -12421,6 +12654,20 @@
       "custo": 0.0,
       "duracao_min": 60,
       "url": "https://arxiv.org/abs/1609.07342",
+      "disponivel": true,
+      "verificado_em": "2026-11-15"
+    },
+    {
+      "id": "rec:ihc/projeto-auditar-ganho-da-fusao",
+      "titulo": "Auditar o ganho da fusão sobre o CMU Multimodal SDK (CMU-MOSI e CMU-MOSEI)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/ganho-real-da-fusao",
+      "formato": "projeto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://github.com/CMU-MultiComp-Lab/CMU-MultimodalSDK",
       "disponivel": true,
       "verificado_em": "2026-11-15"
     },
