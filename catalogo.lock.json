@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 76,
-  "gerado_em": "2026-11-15T03:36:36+00:00",
-  "hash": "sha256:517a5ea4bb85abbe8fb30b73ce5a470236d045c0aad4e4d0e53cb96dcfcd5842",
+  "catalogo_versao": 78,
+  "gerado_em": "2026-11-15T20:29:14+00:00",
+  "hash": "sha256:b21e2bb8f6fd13a7fcec9e2732235c604d7fec9fc7738969f83ab30d8d619974",
   "competencias": [
     {
       "id": "comp:arquitetura/computador-pessoal",
@@ -469,6 +469,14 @@
       "descricao": "A leitura do texto inteiro, não do resumo: as razões de Arjuna para não lutar, a resposta de Krishna e como ela passa da ação desinteressada ao conhecimento e à devoção ao longo dos dezoito capítulos.\n"
     },
     {
+      "id": "comp:filosofia/argumento-transumanista",
+      "titulo": "O argumento transumanista — melhoramento, aceleração e singularidade",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Reconstruir o argumento da singularidade em premissas e conclusão, marcando quais premissas são medições, quais são extrapolações de medição e quais são juízos de valor; para cada extrapolação, dizer que observação a refutaria e se ela foi feita desde a publicação. Uma reconstrução em que nenhuma premissa possa ser falsa não cumpre o critério.",
+      "descricao": "O transumanismo é um programa normativo — o humano deve ser melhorado pela técnica, e a condição atual é uma fase — apoiado num argumento que se apresenta como empírico: a técnica cresce em ritmo exponencial, e a extrapolação desse ritmo leva a um ponto em que a inteligência humana se funde com a da máquina. Os dois andares têm de ser lidos separadamente, porque a força do segundo não transfere nada ao primeiro.\n"
+    },
+    {
       "id": "comp:filosofia/bhakti-como-pratica",
       "titulo": "Bhakti como prática — a devoção do lado de quem a pratica",
       "rev": 1,
@@ -501,12 +509,36 @@
       "descricao": "O que muda quando preferir, lembrar, encontrar alguém, chorar, cuidar e esperar passam a ser propostos, mediados ou guardados por sistemas. O corte difícil é entre mudança de meio e perda de função: escrever num editor não é delegar a escrita, e a diferença tem de ser argumentada, não suposta pelo tom.\n"
     },
     {
+      "id": "comp:filosofia/figura-do-ciborgue",
+      "titulo": "O ciborgue — do projeto de engenharia à figura política e ao cotidiano",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um uso corrente de \"ciborgue\" — numa reportagem, num filme, num ensaio —, dizer a qual dos três sentidos ele pertence (o de engenharia, o político ou o cotidiano), apontar a frase que o decide e reescrever a passagem no sentido de um dos outros dois, dizendo o que a tese ganha ou perde com a troca. Uma classificação que não aponte a frase decisiva não cumpre o critério.",
+      "descricao": "A palavra tem certidão de nascimento: em 1960 ela nomeia um projeto de engenharia, o organismo que se ajusta ao espaço por regulação automática, sem que o astronauta precise pensar nisso. Vinte e cinco anos depois ela vira figura de teoria política, a que recusa as fronteiras entre humano e animal, organismo e máquina, físico e não físico. E a antropologia a desce ao cotidiano: óculos, marca-passo, insulina e quem vive deles. O mesmo nome carrega três programas que não se implicam.\n"
+    },
+    {
       "id": "comp:filosofia/gita-contexto-e-conceitos",
       "titulo": "Contexto e conceitos centrais da Bhagavad Gita",
       "rev": 1,
       "status": "ativo",
       "verificacao": "Contar a cena de abertura a quem nunca ouviu falar da Gita, em até meia página, e definir dharma, karma, atman e ação sem apego ao fruto com um exemplo de decisão cotidiana para cada um, sem recorrer a outro termo sânscrito na definição.",
       "descricao": "Onde a Gita se situa — o diálogo entre Krishna e Arjuna no campo de Kurukshetra, dentro do Mahabharata — e o vocabulário que ela pressupõe: dharma, karma, atman, os três caminhos (karma, jnana e bhakti ioga) e a ação sem apego ao fruto.\n"
+    },
+    {
+      "id": "comp:filosofia/mapa-do-pos-humano",
+      "titulo": "O mapa do pós-humano — três conversas sob um prefixo",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Tomar um texto que fale em pós-humano e classificar cada ocorrência numa das três conversas, apontando onde ele passa de uma à outra; depois reenunciar a tese central em cada uma e dizer em qual ela é mais forte e em qual o autor a sustenta de fato. Um texto em que nenhuma passagem de conversa seja apontada precisa de justificativa explícita de por que ele é homogêneo.",
+      "descricao": "Pós-humanismo, transumanismo e ciborgue costumam aparecer juntos, às vezes na mesma nota de rodapé, e um texto pode passar de um ao outro sem avisar. O primeiro critica o humano como medida, o segundo quer superá-lo pela técnica, o terceiro nomeia o híbrido que já existe. Saber separá-los é condição para avaliar uma tese sobre \"o pós-humano\": ela muda de tamanho conforme a conversa em que se a lê.\n"
+    },
+    {
+      "id": "comp:filosofia/pos-humanismo-critico",
+      "titulo": "Pós-humanismo crítico — o corpo da informação e o fim do sujeito como medida",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Tomar um texto que trate a mente como informação transferível de um suporte para outro e apontar a premissa em que o corpo some, dizendo o que mudaria na conclusão se ela fosse negada; depois dizer que sujeito o texto toma como padrão do humano e quem fica de fora dele.",
+      "descricao": "A outra resposta ao mesmo cenário técnico: não superar o humano, mas criticar a figura de humano que o humanismo pôs no centro. Tem dois movimentos — mostrar como a cibernética separou a informação do corpo que a carrega, condição para se falar em \"transferir uma mente\", e recusar o sujeito universal masculino, branco e europeu como medida, em favor de uma subjetividade situada entre espécies e máquinas.\n"
     },
     {
       "id": "comp:filosofia/subjetividade-artificial",
@@ -3183,6 +3215,66 @@
       ]
     },
     {
+      "id": "etapa:filosofia/ciborgue-como-figura-politica",
+      "titulo": "Haraway, \"Manifesto ciborgue\" (em Antropologia do ciborgue, pp. 33-118) — o ciborgue contra as fronteiras",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "descricao": "Vinte e cinco anos depois, a mesma palavra vira figura de teoria feminista e socialista: o ciborgue como recusa das fronteiras entre humano e animal, organismo e máquina, físico e não físico, e das identidades que se apoiam nelas. O texto é deliberadamente irônico e se declara mito político, o que é parte da dificuldade. O corte é dizer o que ele afirma sobre a técnica de 1985 e o que ele usa a técnica para afirmar sobre política, e não confundir os dois.\n",
+      "trilha": "trilha:filosofia/pos-humano-transumano-e-ciborgue",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:filosofia/figura-do-ciborgue",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:filosofia/figura-do-ciborgue",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:filosofia/ciborgue-de-baixa-tecnologia",
+      "titulo": "Hess, \"On Low-tech Cyborgs\" (em The Cyborg Handbook, pp. 371-378) — o ciborgue que já somos",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 60,
+      "descricao": "Oito páginas da antropologia do ciborgue que puxam a palavra de volta do espaço e do manifesto para a vida comum: quem usa óculos, marca-passo, insulina ou carro já vive acoplado a técnica, sem nada de futurista. O corte é usar o texto como contraprova dos dois anteriores — o que sobra do projeto de Clynes e do mito de Haraway quando o ciborgue é banal.\n",
+      "trilha": "trilha:filosofia/pos-humano-transumano-e-ciborgue",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:filosofia/figura-do-ciborgue",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:filosofia/figura-do-ciborgue",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:filosofia/ciborgue-na-engenharia",
+      "titulo": "Clynes e Kline, \"Cyborgs and Space\" (1960) — a palavra nasce como projeto de engenharia",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 60,
+      "descricao": "O artigo que cunha a palavra, numa revista de astronáutica: em vez de levar a Terra ao espaço, ajustar o organismo a ele por regulação automática — drogas, bombas osmóticas, controle de pressão — para que o astronauta fique livre \"para explorar, criar, pensar e sentir\". O corte é ler o texto pelo que ele propõe, não pelo que a palavra veio a significar: aqui o ciborgue é um sistema homeostático, e não há nele nada de político nem de pós-humano.\n",
+      "trilha": "trilha:filosofia/pos-humano-transumano-e-ciborgue",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:filosofia/figura-do-ciborgue",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
       "id": "etapa:filosofia/conceito-de-subjetividade-artificial",
       "titulo": "Gozai por nós, caps. 1 a 3 — a subjetividade artificial, a estranha familiar e a condição pós-humana",
       "rev": 1,
@@ -3243,6 +3335,32 @@
       ]
     },
     {
+      "id": "etapa:filosofia/informacao-que-perdeu-o-corpo",
+      "titulo": "Hayles, How We Became Posthuman — prólogo, cap. 1 e cap. 11: como a informação perdeu o corpo",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "descricao": "Hayles lê a história da cibernética — das conferências Macy a Wiener e à vida artificial — para mostrar como a informação passou a ser pensada sem o corpo que a carrega, que é a condição para se falar em transferir uma mente para a máquina. O prólogo abre com o teste de Turing e o sonho do upload; o cap. 1 propõe a \"virtualidade encarnada\"; a conclusão (cap. 11) pergunta o que quer dizer ser pós-humano e responde contra o transumanismo. O corte é achar, num argumento de upload, a premissa em que o corpo some.\n",
+      "trilha": "trilha:filosofia/pos-humano-transumano-e-ciborgue",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:filosofia/figura-do-ciborgue",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:filosofia/argumento-transumanista",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:filosofia/pos-humanismo-critico",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:filosofia/intimo-delegado-a-sistemas",
       "titulo": "Gozai por nós, caps. 7 a 12 e Apêndice 1 — recomendação, mal-estar, amor, felicidade, traição e o caso Isabela",
       "rev": 1,
@@ -3298,6 +3416,74 @@
       "teaches": [
         {
           "competencia": "comp:filosofia/gita-contexto-e-conceitos",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:filosofia/pos-humano-de-braidotti",
+      "titulo": "Braidotti, The Posthuman (2013) — o pós-humanismo crítico e o mapa das três conversas",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 540,
+      "descricao": "O livro que dá nome à conversa e a cartografa: o pós-humanismo como crítica do humano universal do humanismo, o pós-antropocentrismo como crítica da espécie como medida, e o lugar do transumanismo e do ciborgue nesse quadro. É a etapa de síntese, e por isso a última: o corte é classificar cada nota da página que originou esta trilha numa das três conversas e dizer onde o capítulo que as cita passa de uma à outra.\n",
+      "trilha": "trilha:filosofia/pos-humano-transumano-e-ciborgue",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:filosofia/pos-humanismo-critico",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:filosofia/figura-do-ciborgue",
+          "nivel_minimo": "avancado"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:filosofia/pos-humanismo-critico",
+          "nivel_resultante": "avancado"
+        },
+        {
+          "competencia": "comp:filosofia/mapa-do-pos-humano",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:filosofia/programa-transumanista",
+      "titulo": "The Transhumanist Reader (More e Vita-More, orgs., 2013) — o programa nas palavras de quem o defende",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "descricao": "A antologia que os próprios transumanistas organizaram, com textos clássicos e contemporâneos. A etapa pede a abertura — a introdução dos organizadores e a parte que define as raízes e os temas centrais —, não as quase quinhentas páginas. O corte é sair com o programa enunciado nos termos dele: o que se quer melhorar, por que meio, com que justificativa, e onde a justificativa é empírica e onde é de valor.\n",
+      "trilha": "trilha:filosofia/pos-humano-transumano-e-ciborgue",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:filosofia/argumento-transumanista",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:filosofia/singularidade-de-kurzweil",
+      "titulo": "Kurzweil — a lei dos retornos acelerados e a singularidade",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 420,
+      "descricao": "O argumento transumanista na forma mais citada: a técnica cresce em ritmo exponencial, e a extrapolação leva a máquinas que excedem a inteligência humana e, depois, à fusão das duas. *The Singularity Is Near* (2005) é a formulação madura, e a etapa pede os capítulos que expõem a lei dos retornos acelerados e a resposta aos críticos; *The Age of Spiritual Machines* (1999) é a primeira versão do mesmo argumento e serve de via alternativa. O corte é separar a curva medida da curva extrapolada, e conferir as previsões datadas contra o que se passou desde então.\n",
+      "trilha": "trilha:filosofia/pos-humano-transumano-e-ciborgue",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:filosofia/argumento-transumanista",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:filosofia/argumento-transumanista",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -7891,6 +8077,39 @@
       ]
     },
     {
+      "id": "trilha:filosofia/pos-humano-transumano-e-ciborgue",
+      "titulo": "Pós-humano, transumano e ciborgue — três conversas que a mesma palavra mistura",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:filosofia/figura-do-ciborgue",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:filosofia/argumento-transumanista",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:filosofia/pos-humanismo-critico",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:filosofia/mapa-do-pos-humano",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:filosofia/ciborgue-na-engenharia",
+        "etapa:filosofia/ciborgue-como-figura-politica",
+        "etapa:filosofia/ciborgue-de-baixa-tecnologia",
+        "etapa:filosofia/programa-transumanista",
+        "etapa:filosofia/singularidade-de-kurzweil",
+        "etapa:filosofia/informacao-que-perdeu-o-corpo",
+        "etapa:filosofia/pos-humano-de-braidotti"
+      ]
+    },
+    {
       "id": "trilha:filosofia/subjetividade-artificial",
       "titulo": "Subjetividade artificial — da vida interior reproduzida à crítica do ensaio que a diagnostica",
       "rev": 1,
@@ -10498,6 +10717,21 @@
       "verificado_em": "2026-10-26"
     },
     {
+      "id": "rec:filosofia/braidotti-the-posthuman",
+      "titulo": "The Posthuman (Rosi Braidotti; Cambridge, UK; Malden, MA: Polity Press, 2013)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/pos-humano-de-braidotti",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 150.0,
+      "duracao_min": 540,
+      "url": "https://www.amazon.com.br/dp/074564158X",
+      "disponivel": true,
+      "obra": "braidotti-the-posthuman",
+      "verificado_em": "2026-11-15"
+    },
+    {
       "id": "rec:filosofia/chetan-30-dias-gita",
       "titulo": "30 Days to Understanding the Bhagavad Gita: A Complete, Simple, and Step-by-Step Guide to the Million-Year-Old Confidential Knowledge (Hari Chetan)",
       "rev": 2,
@@ -10573,6 +10807,65 @@
       "verificado_em": "2026-11-01"
     },
     {
+      "id": "rec:filosofia/clynes-kline-cyborgs-and-space",
+      "titulo": "Cyborgs and Space (Manfred E. Clynes e Nathan S. Kline, Astronautics, set. 1960, pp. 26-27 e 74-76) — fac-símile no cyberneticzoo.com",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/ciborgue-na-engenharia",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://cyberneticzoo.com/wp-content/uploads/2012/01/cyborgs-Astronautics-sep1960.pdf",
+      "disponivel": true,
+      "verificado_em": "2026-11-15"
+    },
+    {
+      "id": "rec:filosofia/haraway-manifesto-ciborgue",
+      "titulo": "Antropologia do ciborgue: as vertigens do pós-humano (Hari Kunzru, Donna Haraway e Tomaz Tadeu, org.; Belo Horizonte: Autêntica, 2ª ed., 2009) — Donna Haraway, \"Manifesto ciborgue: ciência, tecnologia e feminismo-socialista no final do século XX\" (trad. Tomaz Tadeu), pp. 33-118",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/ciborgue-como-figura-politica",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 60.0,
+      "duracao_min": 300,
+      "url": "https://www.amazon.com.br/dp/8575263951",
+      "disponivel": true,
+      "obra": "kunzru-haraway-tadeu-antropologia-do-ciborgue",
+      "verificado_em": "2026-11-15"
+    },
+    {
+      "id": "rec:filosofia/hayles-how-we-became-posthuman",
+      "titulo": "How We Became Posthuman: Virtual Bodies in Cybernetics, Literature, and Informatics (N. Katherine Hayles; Chicago: University of Chicago Press, 1999) — prólogo, cap. 1 e cap. 11",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/informacao-que-perdeu-o-corpo",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 200.0,
+      "duracao_min": 300,
+      "url": "https://press.uchicago.edu/ucp/books/book/chicago/H/bo3769963.html",
+      "disponivel": true,
+      "obra": "hayles-how-we-became-posthuman",
+      "verificado_em": "2026-11-15"
+    },
+    {
+      "id": "rec:filosofia/hess-low-tech-cyborgs",
+      "titulo": "The Cyborg Handbook (Chris Hables Gray, org.; New York: Routledge, 1995) — David Hess, \"On Low-tech Cyborgs\", pp. 371-378",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/ciborgue-de-baixa-tecnologia",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 370.0,
+      "duracao_min": 60,
+      "url": "https://www.routledge.com/The-Cyborg-Handbook/Gray/p/book/9780415908498",
+      "disponivel": true,
+      "obra": "gray-cyborg-handbook",
+      "verificado_em": "2026-11-15"
+    },
+    {
       "id": "rec:filosofia/iep-bhagavad-gita",
       "titulo": "The Bhagavad Gītā (Shyam Ranganathan, Internet Encyclopedia of Philosophy)",
       "rev": 1,
@@ -10585,6 +10878,51 @@
       "url": "https://iep.utm.edu/bhagavad/",
       "disponivel": true,
       "verificado_em": "2026-10-26"
+    },
+    {
+      "id": "rec:filosofia/kurzweil-age-of-spiritual-machines",
+      "titulo": "The Age of Spiritual Machines: When Computers Exceed Human Intelligence (Ray Kurzweil; New York: Penguin, 1999)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/singularidade-de-kurzweil",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 115.0,
+      "duracao_min": 420,
+      "url": "https://www.amazon.com.br/dp/0140282025",
+      "disponivel": true,
+      "obra": "kurzweil-age-of-spiritual-machines",
+      "verificado_em": "2026-11-15"
+    },
+    {
+      "id": "rec:filosofia/kurzweil-singularity-is-near",
+      "titulo": "The Singularity Is Near: When Humans Transcend Biology (Ray Kurzweil; New York: Viking, 2005) — a lei dos retornos acelerados e a resposta aos críticos",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/singularidade-de-kurzweil",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 115.0,
+      "duracao_min": 420,
+      "url": "https://www.amazon.com.br/dp/0143037889",
+      "disponivel": true,
+      "obra": "kurzweil-singularity-is-near",
+      "verificado_em": "2026-11-15"
+    },
+    {
+      "id": "rec:filosofia/more-vita-more-transhumanist-reader",
+      "titulo": "The Transhumanist Reader: Classical and Contemporary Essays on the Science, Technology, and Philosophy of the Human Future (Max More e Natasha Vita-More, orgs.; Oxford: Wiley-Blackwell, 2013) — introdução e parte de abertura",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:filosofia/programa-transumanista",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 300.0,
+      "duracao_min": 300,
+      "url": "https://www.amazon.com.br/dp/1118334310",
+      "disponivel": true,
+      "obra": "more-vita-more-transhumanist-reader",
+      "verificado_em": "2026-11-15"
     },
     {
       "id": "rec:filosofia/simonetti-gozai-apendices-e-posfacio",
