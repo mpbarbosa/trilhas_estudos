@@ -1970,6 +1970,148 @@ em três delas o Kindle é muito mais barato que o impresso.
   livro da mesma autora e trata da teoria da emoção em geral; este é a instância
   facial, com a evidência reunida.
 
+As seis fichas da trilha `trilha:ihc/reconhecimento-de-emocao-em-sinais-fisiologicos`, conferidas em
+2026-11-15: quatro exemplares e dois conjuntos de artigo. Páginas de produto lidas no
+navegador embutido, urls gratuitas conferidas por `curl`. Dois padrões apareceram de
+novo e valem como aviso: **o formato barato não é o que se supõe** (em duas das quatro
+obras a capa dura ou a reimpressão sai muito mais barata que a capa comum), e **acesso
+aberto anunciado por agregador não é acesso aberto conferido**.
+
+### Handbook of Psychophysiology
+
+- **Autoria** — John T. Cacioppo, Louis G. Tassinary e Gary G. Berntson (orgs.)
+- **Edição** — 4ª edição, Cambridge University Press. **Duas tiragens da mesma
+  edição**: capa dura de 15/12/2016, 730 p., e reimpressão em capa comum de
+  07/02/2019, 759 p. pela Amazon (760 em outras listagens), en-US.
+- **Identificadores** — capa dura ISBN-13 `9781107058521` · ISBN-10 `110705852X`;
+  capa comum `9781108723404` · `1108723403`; eletrônico `9781316728581`. ⚠️ O
+  registro da Max Planck Digital Library traz `9781107415782` para uma versão
+  eletrônica — **fonte única, não confirmada**.
+- **Amazon** — https://www.amazon.com.br/dp/1108723403 — página lida, e é a `url` do
+  recurso. **R$ 388,79 em capa comum, "Em estoque"**; Kindle R$ 407,21; capa dura
+  R$ 1.129,14.
+- **Citada por** — `rec:ihc/cacioppo-handbook-of-psychophysiology` — declara
+  `obra: cacioppo-handbook-of-psychophysiology`
+- **Nota** — ⚠️ **o exemplar barato é a reimpressão, não a edição original**, e a
+  diferença é de R$ 740. A página da capa dura de 2016
+  ([dp/110705852X](https://www.amazon.com.br/dp/110705852X)) diz "Somente 1 em
+  estoque" e **não exibe preço no campo principal** — só no seletor de formatos. Como
+  é a mesma 4ª edição, o recurso aponta a de 2019 sem perda de conteúdo. Sobre o
+  porquê de ela estar na trilha: é onde mora a lógica da inferência psicofisiológica
+  — relações um-para-um, um-para-muitos, muitos-para-um e muitos-para-muitos entre
+  medida e construto —, não a abrangência.
+
+### Psychophysiological Recording
+
+- **Autoria** — Robert M. Stern, William J. Ray e Karen S. Quigley
+- **Edição** — 2ª edição, Oxford University Press, 21/12/2000 pela Amazon (2001 nos
+  registros de biblioteca e nos revendedores), 296 p., capa comum, en-US
+- **Identificadores** — capa comum ISBN-13 `9780195113594` · ISBN-10 `0195113594`;
+  encadernado `0195113586` / `9780195113587`; eletrônico `9780199880560`; edição
+  on-line da OUP `9780199846962`
+- **Amazon** — https://www.amazon.com.br/dp/0195113594 — página lida. **R$ 279,71 em
+  capa comum**, Kindle R$ 313,22, capa dura R$ 2.071,07.
+- **Citada por** — `rec:ihc/stern-ray-quigley-psychophysiological-recording` — declara
+  `obra: stern-ray-quigley-psychophysiological-recording`
+- **Nota** — o único dos quatro livros desta trilha em que a capa comum é o formato
+  barato **e** o normal. Entra porque é o livro de *como registrar*, e a maior parte
+  do erro em trabalho de emoção por fisiologia é de aquisição e não de modelo —
+  nenhum artigo de computação afetiva ensina isso, porque todos o pressupõem.
+
+### Electrodermal Activity
+
+- **Autoria** — Wolfram Boucsein
+- **Edição** — 2ª edição, Springer. ⚠️ **As fontes divergem na data e na paginação**:
+  a Amazon diz 02/12/2011 e 636 p.; a Springer diz 2012 e XVIII+618 p. Há brochura de
+  03/03/2014. en-US.
+- **Identificadores** — capa dura ISBN-13 `9781461411253` · ISBN-10 `1461411254`;
+  eletrônico `9781461411260`; brochura de 2014 `9781489990204`; DOI
+  `10.1007/978-1-4614-1126-0` — **o identificador mais consistente entre as fontes**,
+  que divergem nos ISBN por formato.
+- **Amazon** — https://www.amazon.com.br/dp/1461411254 — página lida. **R$ 987,60 em
+  Kindle**, R$ 1.893,71 em capa dura, R$ 1.220,55 em capa comum. A brochura de 2014
+  (`1489990204`) dá **HTTP 404** na Amazon BR.
+- **Citada por** — `rec:ihc/boucsein-electrodermal-activity` — declara
+  `obra: boucsein-electrodermal-activity`
+- **Nota** — ⚠️ **é o recurso mais caro desta trilha, e a etapa dele tem via grátis.**
+  Seiscentas páginas sobre uma única medida: é a monografia definitiva da atividade
+  eletrodérmica, que é o sinal das pulseiras do laboratório da Picard. Como o preço
+  travaria a etapa para quem filtra por `custo_maximo`, o primer de EDA do grupo de
+  Cowley entra na **mesma etapa**, a custo 0 — recurso distinto, não fatia: um é
+  exemplar com `obra`, o outro é artigo sem.
+
+### Advances in Physiological Computing
+
+- **Autoria** — Stephen H. Fairclough e Kiel Gilleade (orgs.), série *Human–Computer
+  Interaction Series*
+- **Edição** — Springer London, 08/04/2014, 238 p., capa dura, en-US. Brochura de
+  03/09/2016.
+- **Identificadores** — capa dura ISBN-13 `9781447163916` · ISBN-10 `1447163915`;
+  eletrônico `9781447163923`; brochura `9781447169932`. ⚠️ O Bookshare lista
+  `9781447163923` como ISBN da obra, que é o do eletrônico — para o impresso vale
+  `9781447163916`.
+- **Amazon** — https://www.amazon.com.br/dp/1447163915 — página lida. **R$ 371,69 em
+  capa dura**, R$ 916,25 em capa comum, R$ 543,57 em Kindle; envio estimado em 9 a 10
+  dias. A brochura (`1447169932`) dá **HTTP 404** na Amazon BR.
+- **Citada por** — `rec:ihc/fairclough-gilleade-physiological-computing` — declara
+  `obra: fairclough-gilleade-physiological-computing`
+- **Nota** — ⚠️ **a capa dura é a barata, e por larga margem**: R$ 371,69 contra
+  R$ 916,25 da capa comum. É a mesma inversão registrada na ficha do *Intelligent
+  Audio Analysis*, agora nos três formatos de uma vez — e mais uma razão para conferir
+  o seletor de formatos antes de fixar `custo`, porque a suposição usual erra duas
+  vezes seguidas nesta seção.
+
+### Primers de psicofisiologia para IHC (seis revisões curtas em arXiv)
+
+- **Autoria** — Benjamin Cowley, Marco Filetti, Kristian Lukander, Jari Torniainen,
+  Andreas Henelius, Lauri Ahonen, Oswald Barral, Ilkka Kosunen, Teppo Valtonen, Minna
+  Huotilainen, Niklas Ravaja e Giulio Jacucci
+- **Edição** — seis **capítulos-companheiros**, publicados em arXiv em 2016, do
+  *Psychophysiology Primer: A Guide to Methods and a Broad Review with a Focus on
+  Human–Computer Interaction* (*Foundations and Trends in HCI* 9(3–4):151–308, DOI
+  `10.1561/1100000065`). **Artigos, não exemplares** — sem `obra`.
+- **Identificadores** — arXiv `1608.06986` (atividade eletrodérmica) · `1609.00183`
+  (eletroencefalografia) · `1608.08041` (eletromiografia) · `1608.08353` (potenciais
+  evocados) · `1609.07342` (rastreamento ocular) · `1609.02016` (aplicações
+  multimodais em trabalho)
+- **Amazon** — não se aplica. As seis urls dão HTTP 200 por `curl` em 2026-11-15;
+  `custo: 0`.
+- **Citada por** — `rec:ihc/primer-eeg-em-ihc`, `rec:ihc/primer-emg-em-ihc`,
+  `rec:ihc/primer-potenciais-evocados-em-ihc`,
+  `rec:ihc/primer-rastreamento-ocular-em-ihc`, `rec:ihc/primer-multimodal-em-ihc` (na
+  etapa de abertura) e `rec:ihc/primer-atividade-eletrodermal-em-ihc` (na etapa de
+  atividade eletrodérmica, como via grátis ao lado do Boucsein)
+- **Nota** — ⚠️ **são os capítulos, não o primer inteiro, e a diferença importa.** O
+  *Psychophysiology Primer* completo sai pela now publishers e **o acesso aberto não
+  foi confirmado**: o OpenAlex marca como OA verde apontando o repositório da
+  Universidade de Helsinque, o registro do editor não diz isso, e a página do editor
+  redireciona para o emerald.com, que respondeu **HTTP 403 atrás de verificação de
+  robô — que esta sessão não contorna**. O que está catalogado são os seis extratos em
+  arXiv, cujo acesso é certo. O de EDA é o mais longo e é o que carrega a via grátis
+  da etapa do Boucsein.
+
+### Emotion Fingerprints or Emotion Populations? A Meta-Analytic Investigation of Autonomic Features of Emotion Categories
+
+- **Autoria** — Erika H. Siegel, Molly K. Sands, Wim Van den Noortgate, Paul Condon,
+  Yale Chang, Jennifer Dy, Karen S. Quigley e Lisa Feldman Barrett
+- **Edição** — *Psychological Bulletin* 144(4):343–393, 2018, en-US. **Meta-análise em
+  periódico, não exemplar** — sem `obra`.
+- **Identificadores** — PMC `PMC5876074`
+- **Amazon** — não se aplica. Texto integral aberto em
+  https://pmc.ncbi.nlm.nih.gov/articles/PMC5876074/, conferida no navegador embutido
+  (título confere, PDF disponível) e por `curl` (HTTP 200). `custo: 0`.
+- **Citada por** — `rec:ihc/siegel-et-al-impressao-digital-ou-populacao`
+- **Nota** — 202 estudos de reatividade autonômica sob indução de emoção, e a
+  conclusão é que **não há mapeamento um-para-um** entre categoria de emoção e padrão
+  autonômico: os tamanhos de efeito crescem, mas o padrão deles não separa uma
+  categoria da outra, e corrigir viés de publicação os reduz e aumenta a
+  heterogeneidade. É o análogo autonômico exato do que
+  `rec:ihc/barrett-et-al-expressoes-reconsideradas` faz com a face, com a mesma autora
+  sênior — e, como lá, ⚠️ **há um PDF circulando no site da Association for Affective
+  Science; prefira o PMC**, que foi a fonte conferida. Leia contra a revisão de
+  Kreibig de 2010, que conclui o oposto e não está no catálogo (ver §O que não tem
+  ficha).
+
 ## Línguas
 
 ### Introducing English Syntax: A Basic Guide for Students of English
@@ -2127,6 +2269,33 @@ Três obras ficaram **fora do catálogo** na mesma passada, e a decisão vale es
 3. **O FACS Final Test** (US$ 50, Paul Ekman Group) — é avaliação de proficiência, não
    material de estudo, e é comprado em separado do manual. Está na ficha do manual,
    fora do `custo` do recurso.
+
+Em 2026-11-15 a trilha de sinais fisiológicos acrescentou **sete** recursos sem
+`obra` — seis primers em arXiv e uma meta-análise —, todos artigos. Os seis primers
+ganharam **uma ficha só**, porque são capítulos de um mesmo trabalho e o que havia a
+registrar é comum aos seis.
+
+E **duas obras que a trilha usa ficaram fora do catálogo**, cada uma por um motivo
+que vale escrito, porque os dois se repetem:
+
+1. **A revisão de Kreibig de 2010** (*Autonomic nervous system activity in emotion: A
+   review*, *Biological Psychology* 84(3):394–421, DOI
+   `10.1016/j.biopsycho.2010.03.010`) — **acesso fechado**: o registro do repositório
+   suíço que a indexa diz literalmente "open access status closed", e os
+   repositórios de Genebra e Friburgo trazem o registro sem PDF. Há uma cópia numa
+   página de disciplina da Universidade de Milão, **de autorização não verificada**,
+   que por isso não serve como `url` de recurso. Ela é citada na `descricao` de
+   `etapa:ihc/especificidade-autonomica-reconsiderada`, porque a competência central
+   da trilha é justamente comparar as duas meta-análises — e sem a comparação não se
+   cobra. Artigo essencial e inacessível é um caso que o catálogo não resolve: o
+   honesto é dizer onde ele está e que custa.
+2. **O *Psychophysiology Primer* completo** (Cowley et al., *Foundations and Trends in
+   HCI* 9(3–4):151–308, DOI `10.1561/1100000065`) — **acesso aberto não confirmado**.
+   O OpenAlex marca OA verde apontando o repositório da Universidade de Helsinque; o
+   registro do editor não diz isso; e a página do editor redireciona para o
+   emerald.com, que respondeu HTTP 403 atrás de **verificação de robô, que esta sessão
+   não contorna**. Catalogados ficaram os seis extratos em arXiv, de acesso certo.
+   `custo: 0` com acesso incerto seria pior que ausência.
 
 ## Divergências
 

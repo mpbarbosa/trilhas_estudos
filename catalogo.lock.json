@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 74,
-  "gerado_em": "2026-11-14T22:50:41+00:00",
-  "hash": "sha256:7f469d598d3575a436b7af3ab467a981d4b3a9534cf5d8c2cf3fdbe22eccd4f9",
+  "catalogo_versao": 75,
+  "gerado_em": "2026-11-15T02:56:09+00:00",
+  "hash": "sha256:8d8e019b0daa479a83af58db809c0c95cca1a03ecf9cfca5e34cfd0b0a5ef2de",
   "competencias": [
     {
       "id": "comp:arquitetura/computador-pessoal",
@@ -733,6 +733,22 @@
       "descricao": "A base de processamento que o reconhecimento de emoção pressupõe e raramente ensina: janelamento e sobreposição, representação espectral, extração de atributos de baixo nível e sua agregação em funcionais sobre o segmento, normalização, e só então o classificador. Competência de base, oferecida como etapa opcional para quem chega sem ela — e útil além da emoção, porque é o mesmo encadeamento de qualquer tarefa de áudio.\n"
     },
     {
+      "id": "comp:ihc/aquisicao-de-sinal-fisiologico",
+      "titulo": "Planejar e criticar a aquisição de um sinal fisiológico destinado a inferir afeto",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um protocolo de coleta de sinal fisiológico para inferir estado afetivo: dizer onde cada eletrodo vai e por que ali; nomear uma fonte de artefato que sobreviveria ao filtro declarado e como ela se parece no traçado; dizer que linha de base a medida exige e por que normalizar por participante muda o que se pode alegar; e apontar uma variável de ambiente ou de rotina — temperatura, postura, cafeína, hora do dia — que explicaria o resultado sem nenhuma emoção.",
+      "descricao": "A metade do problema que não aparece no artigo e decide o resultado: posição de eletrodo, taxa de amostragem, filtro, artefato de movimento e de respiração, linha de base, e o fato de que a maior parte do erro em trabalho de emoção por fisiologia é de aquisição e não de modelo. Inclui saber o que cada canal mede de fato — condutância da pele, eletrocardiograma, eletromiografia, eletroencefalograma, rastreamento ocular — e a que custo de invasividade.\n"
+    },
+    {
+      "id": "comp:ihc/atividade-eletrodermal",
+      "titulo": "Interpretar atividade eletrodérmica sem confundir ativação com emoção",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dado um traçado de condutância da pele com marcas de estímulo: separar nível tônico de resposta fásica e dizer que janela de latência autoriza atribuir a resposta ao estímulo; dizer que par de estados afetivos opostos em valência o traçado não separa, e que segundo canal os separaria; pegar uma alegação de produto na forma \"estresse detectado\" e reescrevê-la como alegação sobre ativação mais um passo inferencial explícito; e dizer que hábito de higiene, de temperatura ou de medicação invalidaria a comparação entre dois participantes.",
+      "descricao": "A atividade eletrodérmica é o sinal que a computação afetiva mais usa, inclusive nas pulseiras do próprio laboratório da Picard, e é o mais fácil de reportar errado. A competência separa o nível tônico da resposta fásica, situa a resposta na janela de latência em que ela pode ser atribuída a um estímulo, e, acima de tudo, sabe o que o sinal **não** distingue: ele acompanha ativação e é cego a valência, de modo que medo e entusiasmo produzem a mesma subida.\n"
+    },
+    {
       "id": "comp:ihc/ciclo-do-gancho",
       "titulo": "Decompor um produto formador de hábito pelo ciclo gatilho, ação, recompensa e investimento",
       "rev": 1,
@@ -813,6 +829,14 @@
       "descricao": "O lado da geração: fazer um agente expressar afeto de modo legível e, mais difícil, ter um estado interno que altere a própria deliberação. Minsky oferece o enquadramento forte — emoção como \"maneira de pensar\", um recurso que desliga outros recursos, e não um verniz sobre a cognição —, e a literatura de avaliação (appraisal) oferece as arquiteturas que transformam isso em regra executável. A competência é desenhar um desses estados sem cair no decorativo.\n"
     },
     {
+      "id": "comp:ihc/especificidade-autonomica-da-emocao",
+      "titulo": "Julgar se um padrão autonômico especifica uma categoria de emoção",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dadas duas revisões com vereditos opostos sobre especificidade autonômica: dizer em que cada uma condiciona a conclusão e que diferença de método produz a divergência; dizer o que a correção para viés de publicação faz com tamanho de efeito e com heterogeneidade, e qual conclusão ela enfraquece; classificar a relação que uma alegação de produto pressupõe entre medida e construto nas quatro formas da inferência psicofisiológica; e dizer que parte da alegação continua de pé se o mapeamento um-para-um cair.",
+      "descricao": "A competência central da trilha, e a que a literatura não encerrou. A lógica da inferência psicofisiológica admite relações um-para-um, um-para-muitos, muitos-para-um e muitos-para-muitos entre medida fisiológica e construto psicológico, e quase tudo que interessa está nas três últimas. Duas meta-análises divergem: uma conclui especificidade considerável sob a condição de distinguir subtipos, a outra conclui que não há impressão digital autonômica por categoria. Saber ler a divergência vale mais que adotar qualquer das duas conclusões.\n"
+    },
+    {
       "id": "comp:ihc/etica-da-tecnologia-persuasiva",
       "titulo": "Julgar eticamente uma tecnologia persuasiva por intenção, método e resultado",
       "rev": 1,
@@ -827,6 +851,14 @@
       "status": "ativo",
       "verificacao": "Dado um registro de expressão facial com e sem audiência: dizer o que cada leitura — vazamento de estado interno e sinal social — prediz para a diferença, e se o dado disponível separa as duas; apontar, num conjunto de treino de reconhecimento facial de emoção, onde a condição social está fixada sem ter sido declarada; dizer que alteração no protocolo de coleta tornaria a distinção observável; e nomear um caso em que a leitura social explica melhor uma expressão que a leitura de estado trataria como ruído.",
       "descricao": "A leitura de ecologia comportamental, de Fridlund: expressões faciais são sinais com destinatário e função social — negociar, apaziguar, ameaçar, convidar —, e não leituras de um estado interno que escapa. A consequência prática é grande e é testável: a mesma pessoa, no mesmo estado, expressa de modo diferente com e sem audiência, inclusive audiência imaginada. Um reconhecedor treinado em rosto isolado mede o que a presença de outra pessoa modula, e não sabe disso.\n"
+    },
+    {
+      "id": "comp:ihc/fisiologia-como-entrada-de-interface",
+      "titulo": "Projetar uma interface que usa sinal fisiológico como entrada e dizer o que ela pode prometer",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Dada uma interface que se adapta ao estado de quem usa: dizer qual sinal a alimenta, com que latência entre evento e adaptação, e se a malha é explícita ou implícita; descrever o comportamento no falso positivo e no falso negativo, e dizer qual dos dois custa mais naquele uso; dizer o que a interface pode prometer se o sinal só carregar ativação, e reescrever a promessa nesses termos; e nomear um caso em que a adaptação implícita seria indefensável mesmo funcionando.",
+      "descricao": "Computação fisiológica é usar o corpo como entrada, e isso é problema de interação antes de ser de classificação: a malha pode ser explícita, com o sinal mostrado a quem usa e sob controle dele, ou implícita, com o sistema se adaptando sem aviso — e as duas têm éticas e modos de falha diferentes. A competência é escolher a malha, dimensionar latência e decidir o que acontece no falso positivo, sabendo que um sinal que só carrega ativação limita o que a interface pode honestamente prometer.\n"
     },
     {
       "id": "comp:ihc/fontes-do-sinal-de-emocao-na-fala",
@@ -4211,6 +4243,50 @@
       ]
     },
     {
+      "id": "etapa:ihc/aquisicao-de-sinal-fisiologico",
+      "titulo": "Psychophysiological Recording — a metade do problema que não aparece no artigo",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 420,
+      "descricao": "Stern, Ray e Quigley no livro de **como registrar**: eletrodo, impedância, artefato de movimento e de respiração, linha de base, calibração. Fino, de 2001, e insubstituível — a maior parte do erro em trabalho de emoção por fisiologia é de aquisição, não de modelo, e nenhum artigo de computação afetiva ensina isso porque todos o pressupõem. O corte é apontar, num protocolo alheio, a variável de ambiente ou de rotina que explicaria o resultado sem emoção alguma.\n",
+      "trilha": "trilha:ihc/reconhecimento-de-emocao-em-sinais-fisiologicos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/aquisicao-de-sinal-fisiologico",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/aquisicao-de-sinal-fisiologico",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/atividade-eletrodermal",
+      "titulo": "Atividade eletrodérmica — o sinal que o campo mais usa, e é cego a valência",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "descricao": "Seiscentas páginas de Boucsein sobre **uma** medida, e é por isso que valem: a atividade eletrodérmica é o sinal das pulseiras do próprio laboratório da Picard e o mais fácil de reportar errado. Separar nível tônico de resposta fásica, situar a resposta na janela de latência, e sobretudo saber que o sinal acompanha ativação e não distingue medo de entusiasmo. Duas vias de propósito: o Boucsein é o mais caro da trilha, e o primer de EDA do grupo de Cowley cobre o mesmo terreno em profundidade de revisão, de graça.\n",
+      "trilha": "trilha:ihc/reconhecimento-de-emocao-em-sinais-fisiologicos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/aquisicao-de-sinal-fisiologico",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/atividade-eletrodermal",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:ihc/atributos-espectrais-e-prosodicos-robustos",
       "titulo": "Robust Emotion Recognition — atributos espectrais sincronizados ao pitch e sub-silábicos",
       "rev": 1,
@@ -4403,6 +4479,32 @@
       ]
     },
     {
+      "id": "etapa:ihc/especificidade-autonomica-reconsiderada",
+      "titulo": "Emotion Fingerprints or Emotion Populations? — a meta-análise contra a impressão digital",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 360,
+      "descricao": "Siegel e colegas revisam 202 estudos de reatividade autonômica sob indução de emoção e concluem que não há mapeamento um-para-um entre categoria de emoção e padrão autonômico: os tamanhos de efeito crescem, mas o padrão deles não separa uma categoria da outra, e corrigir viés de publicação reduz os efeitos e aumenta a heterogeneidade. Grátis no PubMed Central, e o fecho da trilha. **Leia contra a revisão de Kreibig de 2010** (*Biological Psychology* 84(3): 394–421), que sobre 134 estudos conclui o oposto — especificidade considerável *desde que* se considerem subtipos distintos de emoção. A competência é saber em que cada uma condiciona a conclusão, e reparar que a correção de viés de publicação do Siegel consome justamente o condicional da Kreibig. A Kreibig é de acesso fechado e não está no catálogo; o motivo está em docs/bibliografia.md. Fecha exigindo os dois ramos: sem a lógica da inferência não se classifica a alegação, e sem o sinal não se sabe o que sobra quando o mapeamento cai.\n",
+      "trilha": "trilha:ihc/reconhecimento-de-emocao-em-sinais-fisiologicos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/especificidade-autonomica-da-emocao",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/atividade-eletrodermal",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/especificidade-autonomica-da-emocao",
+          "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
       "id": "etapa:ihc/face-como-sinal-social",
       "titulo": "Human Facial Expression — a objeção ecológica, de 1994 e não de 2017",
       "rev": 1,
@@ -4442,6 +4544,32 @@
       "teaches": [
         {
           "competencia": "comp:ihc/codificacao-anatomica-do-movimento-facial",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/fisiologia-como-entrada-de-interface",
+      "titulo": "Advances in Physiological Computing — o corpo como entrada, e a malha explícita",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 360,
+      "descricao": "Fairclough e Gilleade reúnem o problema de **interação**, que vem antes do de classificação: a malha pode ser explícita, com o sinal visível e sob controle de quem usa, ou implícita, com o sistema se adaptando sem aviso — e as duas têm modos de falha e éticas diferentes. Entra depois da atividade eletrodérmica de propósito: só se dimensiona honestamente uma adaptação sabendo que o sinal disponível carrega ativação e não categoria. O corte é dizer o que a interface pode prometer nesses termos.\n",
+      "trilha": "trilha:ihc/reconhecimento-de-emocao-em-sinais-fisiologicos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/aquisicao-de-sinal-fisiologico",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/atividade-eletrodermal",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/fisiologia-como-entrada-de-interface",
           "nivel_resultante": "intermediario"
         }
       ]
@@ -4491,6 +4619,28 @@
         {
           "competencia": "comp:ihc/controversia-da-inferencia-facial-de-emocao",
           "nivel_resultante": "avancado"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/inferencia-psicofisiologica",
+      "titulo": "Handbook of Psychophysiology — a lógica da inferência, em quatro formas",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 960,
+      "descricao": "A referência do campo, de consulta por capítulo, e a razão de ela estar aqui é específica: é onde se aprende que a relação entre medida fisiológica e construto psicológico pode ser um-para-um, um-para-muitos, muitos-para-um ou muitos-para-muitos — e que quase tudo que interessa está nas três últimas. Quem sabe nomear a forma que uma alegação pressupõe já não cai no anúncio de \"detecção de emoção por pulseira\". O corte é classificar a alegação, não repetir a taxonomia.\n",
+      "trilha": "trilha:ihc/reconhecimento-de-emocao-em-sinais-fisiologicos",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:ihc/aquisicao-de-sinal-fisiologico",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:ihc/especificidade-autonomica-da-emocao",
+          "nivel_resultante": "intermediario"
         }
       ]
     },
@@ -4663,6 +4813,22 @@
         {
           "competencia": "comp:ihc/percepcao-vocal-do-afeto",
           "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:ihc/primers-de-sinal-fisiologico-em-ihc",
+      "titulo": "Primers de psicofisiologia para IHC — um sinal por vez, de graça",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 300,
+      "descricao": "Cinco revisões curtas do grupo de Cowley e colegas, publicadas em arXiv como capítulos-companheiros do *Psychophysiology Primer*: eletroencefalografia, eletromiografia, potenciais evocados, rastreamento ocular e aplicações multimodais em trabalho. Cada uma diz o que o sinal mede, como se adquire e onde falha, já em termos de aplicação de interface e não de laboratório. É a porta da trilha por dois motivos: é grátis e é por sinal, de modo que se sai sabendo de que canal se está falando antes de discutir emoção.\n",
+      "trilha": "trilha:ihc/reconhecimento-de-emocao-em-sinais-fisiologicos",
+      "opcional": false,
+      "teaches": [
+        {
+          "competencia": "comp:ihc/aquisicao-de-sinal-fisiologico",
+          "nivel_resultante": "iniciante"
         }
       ]
     },
@@ -7875,6 +8041,38 @@
         "etapa:ihc/face-como-sinal-social",
         "etapa:ihc/os-dois-lados-da-controversia",
         "etapa:ihc/inferencia-facial-reconsiderada"
+      ]
+    },
+    {
+      "id": "trilha:ihc/reconhecimento-de-emocao-em-sinais-fisiologicos",
+      "titulo": "Reconhecimento de emoção em sinais fisiológicos — da aquisição ao padrão autonômico que não especifica a categoria",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:ihc/aquisicao-de-sinal-fisiologico",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/atividade-eletrodermal",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:ihc/especificidade-autonomica-da-emocao",
+          "nivel": "avancado"
+        },
+        {
+          "competencia": "comp:ihc/fisiologia-como-entrada-de-interface",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:ihc/primers-de-sinal-fisiologico-em-ihc",
+        "etapa:ihc/aquisicao-de-sinal-fisiologico",
+        "etapa:ihc/atividade-eletrodermal",
+        "etapa:ihc/inferencia-psicofisiologica",
+        "etapa:ihc/fisiologia-como-entrada-de-interface",
+        "etapa:ihc/especificidade-autonomica-reconsiderada"
       ]
     },
     {
@@ -11769,6 +11967,36 @@
       "verificado_em": "2026-11-14"
     },
     {
+      "id": "rec:ihc/boucsein-electrodermal-activity",
+      "titulo": "Electrodermal Activity, 2nd ed. (Wolfram Boucsein)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/atividade-eletrodermal",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 987.6,
+      "duracao_min": 900,
+      "url": "https://www.amazon.com.br/dp/1461411254",
+      "disponivel": true,
+      "obra": "boucsein-electrodermal-activity",
+      "verificado_em": "2026-11-15"
+    },
+    {
+      "id": "rec:ihc/cacioppo-handbook-of-psychophysiology",
+      "titulo": "Handbook of Psychophysiology, 4th ed. (John T. Cacioppo, Louis G. Tassinary e Gary G. Berntson, orgs.)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/inferencia-psicofisiologica",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 388.79,
+      "duracao_min": 960,
+      "url": "https://www.amazon.com.br/dp/1108723403",
+      "disponivel": true,
+      "obra": "cacioppo-handbook-of-psychophysiology",
+      "verificado_em": "2026-11-15"
+    },
+    {
       "id": "rec:ihc/crawford-atlas-da-ia",
       "titulo": "Atlas da IA: poder, política e os custos planetários da inteligência artificial (Kate Crawford)",
       "rev": 1,
@@ -11872,6 +12100,21 @@
       "disponivel": true,
       "obra": "eyal-hooked-engajado",
       "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/fairclough-gilleade-physiological-computing",
+      "titulo": "Advances in Physiological Computing (Stephen H. Fairclough e Kiel Gilleade, orgs.)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/fisiologia-como-entrada-de-interface",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 371.69,
+      "duracao_min": 360,
+      "url": "https://www.amazon.com.br/dp/1447163915",
+      "disponivel": true,
+      "obra": "fairclough-gilleade-physiological-computing",
+      "verificado_em": "2026-11-15"
     },
     {
       "id": "rec:ihc/fogg-micro-habitos",
@@ -12098,6 +12341,90 @@
       "verificado_em": "2026-11-14"
     },
     {
+      "id": "rec:ihc/primer-atividade-eletrodermal-em-ihc",
+      "titulo": "A short review and primer on electrodermal activity in HCI applications (Cowley et al.)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/atividade-eletrodermal",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 90,
+      "url": "https://arxiv.org/abs/1608.06986",
+      "disponivel": true,
+      "verificado_em": "2026-11-15"
+    },
+    {
+      "id": "rec:ihc/primer-eeg-em-ihc",
+      "titulo": "A short review and primer on electroencephalography in HCI applications (Cowley et al.)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/primers-de-sinal-fisiologico-em-ihc",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://arxiv.org/abs/1609.00183",
+      "disponivel": true,
+      "verificado_em": "2026-11-15"
+    },
+    {
+      "id": "rec:ihc/primer-emg-em-ihc",
+      "titulo": "A short review and primer on electromyography in HCI applications (Cowley et al.)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/primers-de-sinal-fisiologico-em-ihc",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://arxiv.org/abs/1608.08041",
+      "disponivel": true,
+      "verificado_em": "2026-11-15"
+    },
+    {
+      "id": "rec:ihc/primer-multimodal-em-ihc",
+      "titulo": "A short review and primer on multimodal psychophysiological applications in work-related HCI (Cowley et al.)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/primers-de-sinal-fisiologico-em-ihc",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://arxiv.org/abs/1609.02016",
+      "disponivel": true,
+      "verificado_em": "2026-11-15"
+    },
+    {
+      "id": "rec:ihc/primer-potenciais-evocados-em-ihc",
+      "titulo": "A short review and primer on event-related potentials in HCI applications (Cowley et al.)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/primers-de-sinal-fisiologico-em-ihc",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://arxiv.org/abs/1608.08353",
+      "disponivel": true,
+      "verificado_em": "2026-11-15"
+    },
+    {
+      "id": "rec:ihc/primer-rastreamento-ocular-em-ihc",
+      "titulo": "A short review and primer on eye tracking in HCI applications (Cowley et al.)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/primers-de-sinal-fisiologico-em-ihc",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 60,
+      "url": "https://arxiv.org/abs/1609.07342",
+      "disponivel": true,
+      "verificado_em": "2026-11-15"
+    },
+    {
       "id": "rec:ihc/projeto-corpus-coraa-ser",
       "titulo": "Projeto: auditar o CORAA SER e escrever o que ele autoriza concluir",
       "rev": 1,
@@ -12185,6 +12512,35 @@
       "disponivel": true,
       "obra": "science-of-facial-expression",
       "verificado_em": "2026-11-14"
+    },
+    {
+      "id": "rec:ihc/siegel-et-al-impressao-digital-ou-populacao",
+      "titulo": "Emotion Fingerprints or Emotion Populations? (Siegel, Sands, Van den Noortgate, Condon, Chang, Dy, Quigley e Barrett, 2018)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/especificidade-autonomica-reconsiderada",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 360,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5876074/",
+      "disponivel": true,
+      "verificado_em": "2026-11-15"
+    },
+    {
+      "id": "rec:ihc/stern-ray-quigley-psychophysiological-recording",
+      "titulo": "Psychophysiological Recording, 2nd ed. (Robert M. Stern, William J. Ray e Karen S. Quigley)",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:ihc/aquisicao-de-sinal-fisiologico",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 279.71,
+      "duracao_min": 420,
+      "url": "https://www.amazon.com.br/dp/0195113594",
+      "disponivel": true,
+      "obra": "stern-ray-quigley-psychophysiological-recording",
+      "verificado_em": "2026-11-15"
     },
     {
       "id": "rec:linguas/fenn-schwab-english-syntax-caps-1-3",
