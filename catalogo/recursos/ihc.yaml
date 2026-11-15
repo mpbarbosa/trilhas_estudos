@@ -635,3 +635,186 @@ recursos:
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6640856/
     disponivel: true
     verificado_em: 2026-11-14
+
+  # ========================================================================
+  # trilha:ihc/reconhecimento-de-emocao-em-sinais-fisiologicos — 2026-11-15
+  #
+  # Onze recursos: quatro exemplares e sete artigos. Preços conferidos no navegador
+  # embutido; as sete urls gratuitas conferidas por `curl` (HTTP 200 em 2026-11-15).
+  # Três fatos que o número sozinho esconde:
+  #
+  # - **O Handbook of Psychophysiology barato é a reimpressão de 2019.** Mesma 4ª
+  #   edição, ISBN diferente: capa comum `9781108723404` a R$ 388,79, em estoque,
+  #   contra R$ 1.129,14 da capa dura de 2016 (`9781107058521`), que tem "Somente 1 em
+  #   estoque" e nem exibe preço no campo principal. O recurso aponta a reimpressão.
+  # - **No Advances in Physiological Computing a capa dura é a barata**, e por larga
+  #   margem: R$ 371,69 contra R$ 916,25 da capa comum e R$ 543,57 do Kindle. É a
+  #   mesma inversão da ficha do Intelligent Audio Analysis, agora em três formatos.
+  # - **A etapa de atividade eletrodérmica tem duas vias de propósito.** O Boucsein é
+  #   o recurso mais caro da trilha (R$ 987,60 em Kindle, contra R$ 1.893,71 em capa
+  #   dura) e o primer de EDA do grupo de Cowley cobre o mesmo terreno em profundidade
+  #   de revisão, de graça. São recursos distintos da mesma etapa, não fatias: um é
+  #   exemplar com `obra`, o outro é artigo sem.
+  #
+  # Um artigo que a trilha usa e **não** está aqui: a revisão de Kreibig de 2010, de
+  # acesso fechado (o registro do repositório suíço diz "open access status closed").
+  # Ela está na `descricao` da etapa de fecho e em docs/bibliografia.md §O que não tem
+  # ficha, com o motivo.
+  # ========================================================================
+
+  # --- etapa:ihc/primers-de-sinal-fisiologico-em-ihc ---------------------
+  # Cinco revisões curtas em arXiv, capítulos-companheiros do Psychophysiology
+  # Primer. Artigos: sem `obra`.
+  - id: rec:ihc/primer-eeg-em-ihc
+    etapa: etapa:ihc/primers-de-sinal-fisiologico-em-ihc
+    titulo: "A short review and primer on electroencephalography in HCI applications (Cowley et al.)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://arxiv.org/abs/1609.00183
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  - id: rec:ihc/primer-emg-em-ihc
+    etapa: etapa:ihc/primers-de-sinal-fisiologico-em-ihc
+    titulo: "A short review and primer on electromyography in HCI applications (Cowley et al.)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://arxiv.org/abs/1608.08041
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  - id: rec:ihc/primer-potenciais-evocados-em-ihc
+    etapa: etapa:ihc/primers-de-sinal-fisiologico-em-ihc
+    titulo: "A short review and primer on event-related potentials in HCI applications (Cowley et al.)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://arxiv.org/abs/1608.08353
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  - id: rec:ihc/primer-rastreamento-ocular-em-ihc
+    etapa: etapa:ihc/primers-de-sinal-fisiologico-em-ihc
+    titulo: "A short review and primer on eye tracking in HCI applications (Cowley et al.)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://arxiv.org/abs/1609.07342
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  - id: rec:ihc/primer-multimodal-em-ihc
+    etapa: etapa:ihc/primers-de-sinal-fisiologico-em-ihc
+    titulo: "A short review and primer on multimodal psychophysiological applications in work-related HCI (Cowley et al.)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 60
+    url: https://arxiv.org/abs/1609.02016
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  # --- etapa:ihc/aquisicao-de-sinal-fisiologico --------------------------
+  - id: rec:ihc/stern-ray-quigley-psychophysiological-recording
+    etapa: etapa:ihc/aquisicao-de-sinal-fisiologico
+    titulo: "Psychophysiological Recording, 2nd ed. (Robert M. Stern, William J. Ray e Karen S. Quigley)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 279.71
+    obra: stern-ray-quigley-psychophysiological-recording
+    duracao_min: 420
+    url: https://www.amazon.com.br/dp/0195113594
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  # --- etapa:ihc/atividade-eletrodermal ---------------------------------
+  # Duas vias: o exemplar caro e o primer grátis do mesmo grupo dos outros cinco.
+  - id: rec:ihc/boucsein-electrodermal-activity
+    etapa: etapa:ihc/atividade-eletrodermal
+    titulo: "Electrodermal Activity, 2nd ed. (Wolfram Boucsein)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 987.60
+    obra: boucsein-electrodermal-activity
+    duracao_min: 900
+    url: https://www.amazon.com.br/dp/1461411254
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  - id: rec:ihc/primer-atividade-eletrodermal-em-ihc
+    etapa: etapa:ihc/atividade-eletrodermal
+    titulo: "A short review and primer on electrodermal activity in HCI applications (Cowley et al.)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 90
+    url: https://arxiv.org/abs/1608.06986
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  # --- etapa:ihc/inferencia-psicofisiologica ----------------------------
+  - id: rec:ihc/cacioppo-handbook-of-psychophysiology
+    etapa: etapa:ihc/inferencia-psicofisiologica
+    titulo: "Handbook of Psychophysiology, 4th ed. (John T. Cacioppo, Louis G. Tassinary e Gary G. Berntson, orgs.)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 388.79
+    obra: cacioppo-handbook-of-psychophysiology
+    duracao_min: 960
+    url: https://www.amazon.com.br/dp/1108723403
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  # --- etapa:ihc/fisiologia-como-entrada-de-interface -------------------
+  - id: rec:ihc/fairclough-gilleade-physiological-computing
+    etapa: etapa:ihc/fisiologia-como-entrada-de-interface
+    titulo: "Advances in Physiological Computing (Stephen H. Fairclough e Kiel Gilleade, orgs.)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 371.69
+    obra: fairclough-gilleade-physiological-computing
+    duracao_min: 360
+    url: https://www.amazon.com.br/dp/1447163915
+    disponivel: true
+    verificado_em: 2026-11-15
+
+  # --- etapa:ihc/especificidade-autonomica-reconsiderada ----------------
+  # Meta-análise em periódico: artigo, sem `obra`. Texto integral aberto no PMC.
+  - id: rec:ihc/siegel-et-al-impressao-digital-ou-populacao
+    etapa: etapa:ihc/especificidade-autonomica-reconsiderada
+    titulo: "Emotion Fingerprints or Emotion Populations? (Siegel, Sands, Van den Noortgate, Condon, Chang, Dy, Quigley e Barrett, 2018)"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 360
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC5876074/
+    disponivel: true
+    verificado_em: 2026-11-15

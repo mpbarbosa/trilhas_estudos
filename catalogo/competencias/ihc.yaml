@@ -591,3 +591,116 @@ competencias:
       a especificidade e a generalização do mapeamento entre movimento facial e categoria
       de emoção, e qual das três a afirmação precisaria assumir; e dizer que parte da
       afirmação continua de pé se o passo inferencial cair.
+
+# -------------------------------------------------------------------------
+# Quinta trilha da área, pedida pelo estudante em 2026-11-14 na sequência da
+# expressão facial: ele pediu livros sobre reconhecimento de emoção **em sinais
+# fisiológicos** e mandou registrá-los. Fecha as três modalidades que
+# `etapa:ihc/deteccao-de-afeto-por-sinal` (trilha:ihc/computacao-afetiva) trata em
+# bloco — face, voz, fisiologia —, cada uma agora com trilha própria.
+#
+# **E esta modalidade tem um problema que as outras duas não têm.** Na face o
+# problema é o paradigma; na voz, o corpus; aqui é **o sinal**. A condutância da pele
+# sobe com ativação independentemente de valência, e a frequência cardíaca responde a
+# postura, temperatura, cafeína e respiração antes de responder a emoção alguma. Não é
+# artefato de conjunto de dados que um corpus melhor corrija: é fisiologia. A
+# consequência é que a maior parte do trabalho de computação afetiva por fisiologia
+# mede **ativação** e reetiqueta como emoção específica.
+#
+# Quatro competências, e a ordem delas é a tese: **adquirir** (onde o eletrodo vai,
+# que artefato sobrevive ao filtro, que linha de base a medida exige), **ler o sinal
+# que o campo mais usa** (atividade eletrodérmica, sem confundir ativação com
+# emoção), **julgar se o padrão especifica a categoria** — a competência central — e
+# **projetar a interface** que usa isso como entrada.
+#
+# A terceira é a que organiza tudo, e o material dela é uma divergência real, não um
+# consenso: **duas meta-análises, dois vereditos opostos.** Kreibig (2010, 134
+# estudos) conclui que há especificidade considerável *desde que* se considerem
+# subtipos distintos de emoção; Siegel e colegas (2018, 202 estudos, com Barrett)
+# concluem que não há mapeamento um-para-um. A competência não é escolher um lado: é
+# saber em que cada uma condiciona a conclusão, e por que corrigir viés de publicação
+# consome exatamente o condicional da primeira.
+#
+# Mesmo critério das outras: a `verificacao` se cobra fora do corpus da trilha —
+# qualquer registro, qualquer pulseira, qualquer alegação de "detecção de estresse".
+# -------------------------------------------------------------------------
+
+  - id: comp:ihc/aquisicao-de-sinal-fisiologico
+    titulo: Planejar e criticar a aquisição de um sinal fisiológico destinado a inferir afeto
+    rev: 1
+    status: ativo
+    descricao: >
+      A metade do problema que não aparece no artigo e decide o resultado: posição de
+      eletrodo, taxa de amostragem, filtro, artefato de movimento e de respiração,
+      linha de base, e o fato de que a maior parte do erro em trabalho de emoção por
+      fisiologia é de aquisição e não de modelo. Inclui saber o que cada canal mede de
+      fato — condutância da pele, eletrocardiograma, eletromiografia, eletroencefalograma,
+      rastreamento ocular — e a que custo de invasividade.
+    verificacao: >
+      Dado um protocolo de coleta de sinal fisiológico para inferir estado afetivo:
+      dizer onde cada eletrodo vai e por que ali; nomear uma fonte de artefato que
+      sobreviveria ao filtro declarado e como ela se parece no traçado; dizer que linha
+      de base a medida exige e por que normalizar por participante muda o que se pode
+      alegar; e apontar uma variável de ambiente ou de rotina — temperatura, postura,
+      cafeína, hora do dia — que explicaria o resultado sem nenhuma emoção.
+
+  - id: comp:ihc/atividade-eletrodermal
+    titulo: Interpretar atividade eletrodérmica sem confundir ativação com emoção
+    rev: 1
+    status: ativo
+    descricao: >
+      A atividade eletrodérmica é o sinal que a computação afetiva mais usa, inclusive
+      nas pulseiras do próprio laboratório da Picard, e é o mais fácil de reportar
+      errado. A competência separa o nível tônico da resposta fásica, situa a resposta
+      na janela de latência em que ela pode ser atribuída a um estímulo, e, acima de
+      tudo, sabe o que o sinal **não** distingue: ele acompanha ativação e é cego a
+      valência, de modo que medo e entusiasmo produzem a mesma subida.
+    verificacao: >
+      Dado um traçado de condutância da pele com marcas de estímulo: separar nível
+      tônico de resposta fásica e dizer que janela de latência autoriza atribuir a
+      resposta ao estímulo; dizer que par de estados afetivos opostos em valência o
+      traçado não separa, e que segundo canal os separaria; pegar uma alegação de
+      produto na forma "estresse detectado" e reescrevê-la como alegação sobre ativação
+      mais um passo inferencial explícito; e dizer que hábito de higiene, de
+      temperatura ou de medicação invalidaria a comparação entre dois participantes.
+
+  - id: comp:ihc/especificidade-autonomica-da-emocao
+    titulo: Julgar se um padrão autonômico especifica uma categoria de emoção
+    rev: 1
+    status: ativo
+    descricao: >
+      A competência central da trilha, e a que a literatura não encerrou. A lógica da
+      inferência psicofisiológica admite relações um-para-um, um-para-muitos,
+      muitos-para-um e muitos-para-muitos entre medida fisiológica e construto
+      psicológico, e quase tudo que interessa está nas três últimas. Duas meta-análises
+      divergem: uma conclui especificidade considerável sob a condição de distinguir
+      subtipos, a outra conclui que não há impressão digital autonômica por categoria.
+      Saber ler a divergência vale mais que adotar qualquer das duas conclusões.
+    verificacao: >
+      Dadas duas revisões com vereditos opostos sobre especificidade autonômica: dizer
+      em que cada uma condiciona a conclusão e que diferença de método produz a
+      divergência; dizer o que a correção para viés de publicação faz com tamanho de
+      efeito e com heterogeneidade, e qual conclusão ela enfraquece; classificar a
+      relação que uma alegação de produto pressupõe entre medida e construto nas quatro
+      formas da inferência psicofisiológica; e dizer que parte da alegação continua de
+      pé se o mapeamento um-para-um cair.
+
+  - id: comp:ihc/fisiologia-como-entrada-de-interface
+    titulo: Projetar uma interface que usa sinal fisiológico como entrada e dizer o que ela pode prometer
+    rev: 1
+    status: ativo
+    descricao: >
+      Computação fisiológica é usar o corpo como entrada, e isso é problema de
+      interação antes de ser de classificação: a malha pode ser explícita, com o sinal
+      mostrado a quem usa e sob controle dele, ou implícita, com o sistema se adaptando
+      sem aviso — e as duas têm éticas e modos de falha diferentes. A competência é
+      escolher a malha, dimensionar latência e decidir o que acontece no falso
+      positivo, sabendo que um sinal que só carrega ativação limita o que a interface
+      pode honestamente prometer.
+    verificacao: >
+      Dada uma interface que se adapta ao estado de quem usa: dizer qual sinal a
+      alimenta, com que latência entre evento e adaptação, e se a malha é explícita ou
+      implícita; descrever o comportamento no falso positivo e no falso negativo, e
+      dizer qual dos dois custa mais naquele uso; dizer o que a interface pode prometer
+      se o sinal só carregar ativação, e reescrever a promessa nesses termos; e nomear
+      um caso em que a adaptação implícita seria indefensável mesmo funcionando.

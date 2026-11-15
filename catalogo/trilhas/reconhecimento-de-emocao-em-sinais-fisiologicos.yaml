@@ -1,0 +1,202 @@
+versao_schema: 1
+trilha:
+  id: trilha:ihc/reconhecimento-de-emocao-em-sinais-fisiologicos
+  titulo: Reconhecimento de emoção em sinais fisiológicos — da aquisição ao padrão autonômico que não especifica a categoria
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:ihc/aquisicao-de-sinal-fisiologico
+      nivel: intermediario
+    - competencia: comp:ihc/atividade-eletrodermal
+      nivel: intermediario
+    - competencia: comp:ihc/especificidade-autonomica-da-emocao
+      nivel: avancado
+    - competencia: comp:ihc/fisiologia-como-entrada-de-interface
+      nivel: intermediario
+
+  # Quinta trilha da área ihc, pedida em 2026-11-14 na sequência da expressão facial.
+  # `onde-cabe.sh` por "fisiolog", "psicofisiolog", "eletrodermal", "condutancia",
+  # "ECG", "EEG", "wearable", "biossinal" e "Cacioppo" só casou com a seção de detecção
+  # do Oxford Handbook of Affective Computing — nenhuma destas obras estava no catálogo.
+  #
+  # **Com ela as três modalidades que `etapa:ihc/deteccao-de-afeto-por-sinal` trata em
+  # bloco passam a ter trilha própria**: face, voz e fisiologia. Como a facial e ao
+  # contrário da vocal, esta parte de perfil vazio e não referencia etapa de ninguém —
+  # a psicofisiologia é disciplina anterior e independente da computação afetiva, e
+  # entrar por Picard seria entrar pelo meio.
+  #
+  # **O problema desta modalidade é de outra natureza, e isso muda a trilha inteira.**
+  # Na face o problema é o paradigma, na voz é o corpus — os dois corrigíveis em
+  # princípio, por melhor evidência ou melhor dado. Aqui o problema é **o sinal**: a
+  # condutância da pele acompanha ativação e é cega a valência, e a frequência cardíaca
+  # responde a postura, temperatura, cafeína e respiração antes de responder a emoção
+  # alguma. Nenhum conjunto de dados melhor conserta isso. A trilha é construída para
+  # que o estudante saia sabendo exatamente o que o corpo não diz.
+  #
+  # **A forma do grafo: um tronco de método, e três ramos que dele saem.** Os primers
+  # abrem (grátis), a aquisição vem em seguida, e dali partem três ramos: o sinal
+  # central (atividade eletrodérmica), a lógica da inferência (o handbook) e a
+  # interface (computação fisiológica). O fecho exige dois deles.
+  #
+  # **O material da competência central é uma divergência, não um consenso — e é
+  # deliberado.** Kreibig (2010, 134 estudos) conclui que há especificidade considerável
+  # *desde que* se considerem subtipos distintos de emoção; Siegel e colegas (2018, 202
+  # estudos, com Barrett) concluem que não há impressão digital autonômica por
+  # categoria, e relatam que corrigir viés de publicação reduz tamanhos de efeito e
+  # aumenta heterogeneidade — isto é, consome exatamente o condicional da primeira. A
+  # etapa de fecho é o Siegel e colegas; a Kreibig **não** entra como recurso, porque é
+  # de acesso fechado (ver docs/bibliografia.md, §O que não tem ficha), mas está na
+  # `descricao` da etapa, porque sem a comparação a competência não se cobra.
+  #
+  # **Grátis nas duas pontas, e isso não é acidente.** A etapa de abertura são cinco
+  # primers de método em arXiv, e a de fecho é a meta-análise no PubMed Central. Quem
+  # não puder comprar nada sai sabendo o suficiente para desmontar uma alegação de
+  # "detecção de estresse" — o que é o uso mais provável desta trilha. E a etapa de
+  # atividade eletrodérmica tem **duas vias**, o Boucsein (R$ 987,60, o mais caro da
+  # trilha) e o primer de EDA do mesmo grupo, que é grátis: a etapa não trava por preço.
+  #
+  # **O que esta trilha não repete.** A crítica geral de construto é
+  # `comp:ihc/validade-de-construto-na-inferencia-de-emocao` (trilha:ihc/computacao-afetiva),
+  # de Barrett em livro; `comp:ihc/especificidade-autonomica-da-emocao` é a instância
+  # autonômica e operacional dela, e não a exige — como na voz e na face. Livro de
+  # interface cérebro-computador ficou fora de propósito: resolve **controle** por sinal
+  # neural, não inferência de afeto, e entraria pelo "EEG" no título.
+  etapas:
+    # --- Tronco de método: grátis, e é a porta -------------------------------
+    - id: etapa:ihc/primers-de-sinal-fisiologico-em-ihc
+      titulo: Primers de psicofisiologia para IHC — um sinal por vez, de graça
+      rev: 1
+      status: ativo
+      descricao: >
+        Cinco revisões curtas do grupo de Cowley e colegas, publicadas em arXiv como
+        capítulos-companheiros do *Psychophysiology Primer*: eletroencefalografia,
+        eletromiografia, potenciais evocados, rastreamento ocular e aplicações
+        multimodais em trabalho. Cada uma diz o que o sinal mede, como se adquire e
+        onde falha, já em termos de aplicação de interface e não de laboratório. É a
+        porta da trilha por dois motivos: é grátis e é por sinal, de modo que se sai
+        sabendo de que canal se está falando antes de discutir emoção.
+      esforco_estimado_min: 300
+      opcional: false
+      requires: []
+      teaches:
+        - competencia: comp:ihc/aquisicao-de-sinal-fisiologico
+          nivel_resultante: iniciante
+
+    - id: etapa:ihc/aquisicao-de-sinal-fisiologico
+      titulo: Psychophysiological Recording — a metade do problema que não aparece no artigo
+      rev: 1
+      status: ativo
+      descricao: >
+        Stern, Ray e Quigley no livro de **como registrar**: eletrodo, impedância,
+        artefato de movimento e de respiração, linha de base, calibração. Fino, de
+        2001, e insubstituível — a maior parte do erro em trabalho de emoção por
+        fisiologia é de aquisição, não de modelo, e nenhum artigo de computação afetiva
+        ensina isso porque todos o pressupõem. O corte é apontar, num protocolo alheio,
+        a variável de ambiente ou de rotina que explicaria o resultado sem emoção
+        alguma.
+      esforco_estimado_min: 420
+      opcional: false
+      requires:
+        - competencia: comp:ihc/aquisicao-de-sinal-fisiologico
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:ihc/aquisicao-de-sinal-fisiologico
+          nivel_resultante: intermediario
+
+    # --- Ramo do sinal central: duas vias, uma grátis ------------------------
+    - id: etapa:ihc/atividade-eletrodermal
+      titulo: Atividade eletrodérmica — o sinal que o campo mais usa, e é cego a valência
+      rev: 1
+      status: ativo
+      descricao: >
+        Seiscentas páginas de Boucsein sobre **uma** medida, e é por isso que valem: a
+        atividade eletrodérmica é o sinal das pulseiras do próprio laboratório da
+        Picard e o mais fácil de reportar errado. Separar nível tônico de resposta
+        fásica, situar a resposta na janela de latência, e sobretudo saber que o sinal
+        acompanha ativação e não distingue medo de entusiasmo. Duas vias de propósito:
+        o Boucsein é o mais caro da trilha, e o primer de EDA do grupo de Cowley cobre
+        o mesmo terreno em profundidade de revisão, de graça.
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:ihc/aquisicao-de-sinal-fisiologico
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/atividade-eletrodermal
+          nivel_resultante: intermediario
+
+    # --- Ramo da lógica da inferência ---------------------------------------
+    - id: etapa:ihc/inferencia-psicofisiologica
+      titulo: Handbook of Psychophysiology — a lógica da inferência, em quatro formas
+      rev: 1
+      status: ativo
+      descricao: >
+        A referência do campo, de consulta por capítulo, e a razão de ela estar aqui é
+        específica: é onde se aprende que a relação entre medida fisiológica e construto
+        psicológico pode ser um-para-um, um-para-muitos, muitos-para-um ou
+        muitos-para-muitos — e que quase tudo que interessa está nas três últimas. Quem
+        sabe nomear a forma que uma alegação pressupõe já não cai no anúncio de
+        "detecção de emoção por pulseira". O corte é classificar a alegação, não repetir
+        a taxonomia.
+      esforco_estimado_min: 960
+      opcional: false
+      requires:
+        - competencia: comp:ihc/aquisicao-de-sinal-fisiologico
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/especificidade-autonomica-da-emocao
+          nivel_resultante: intermediario
+
+    # --- Ramo da interface --------------------------------------------------
+    - id: etapa:ihc/fisiologia-como-entrada-de-interface
+      titulo: Advances in Physiological Computing — o corpo como entrada, e a malha explícita
+      rev: 1
+      status: ativo
+      descricao: >
+        Fairclough e Gilleade reúnem o problema de **interação**, que vem antes do de
+        classificação: a malha pode ser explícita, com o sinal visível e sob controle de
+        quem usa, ou implícita, com o sistema se adaptando sem aviso — e as duas têm
+        modos de falha e éticas diferentes. Entra depois da atividade eletrodérmica de
+        propósito: só se dimensiona honestamente uma adaptação sabendo que o sinal
+        disponível carrega ativação e não categoria. O corte é dizer o que a interface
+        pode prometer nesses termos.
+      esforco_estimado_min: 360
+      opcional: false
+      requires:
+        - competencia: comp:ihc/aquisicao-de-sinal-fisiologico
+          nivel_minimo: intermediario
+        - competencia: comp:ihc/atividade-eletrodermal
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/fisiologia-como-entrada-de-interface
+          nivel_resultante: intermediario
+
+    # --- Fecho: exige dois ramos, e é grátis --------------------------------
+    - id: etapa:ihc/especificidade-autonomica-reconsiderada
+      titulo: Emotion Fingerprints or Emotion Populations? — a meta-análise contra a impressão digital
+      rev: 1
+      status: ativo
+      descricao: >
+        Siegel e colegas revisam 202 estudos de reatividade autonômica sob indução de
+        emoção e concluem que não há mapeamento um-para-um entre categoria de emoção e
+        padrão autonômico: os tamanhos de efeito crescem, mas o padrão deles não separa
+        uma categoria da outra, e corrigir viés de publicação reduz os efeitos e aumenta
+        a heterogeneidade. Grátis no PubMed Central, e o fecho da trilha.
+        **Leia contra a revisão de Kreibig de 2010** (*Biological Psychology* 84(3):
+        394–421), que sobre 134 estudos conclui o oposto — especificidade considerável
+        *desde que* se considerem subtipos distintos de emoção. A competência é saber em
+        que cada uma condiciona a conclusão, e reparar que a correção de viés de
+        publicação do Siegel consome justamente o condicional da Kreibig. A Kreibig é de
+        acesso fechado e não está no catálogo; o motivo está em docs/bibliografia.md.
+        Fecha exigindo os dois ramos: sem a lógica da inferência não se classifica a
+        alegação, e sem o sinal não se sabe o que sobra quando o mapeamento cai.
+      esforco_estimado_min: 360
+      opcional: false
+      requires:
+        - competencia: comp:ihc/especificidade-autonomica-da-emocao
+          nivel_minimo: intermediario
+        - competencia: comp:ihc/atividade-eletrodermal
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:ihc/especificidade-autonomica-da-emocao
+          nivel_resultante: avancado
