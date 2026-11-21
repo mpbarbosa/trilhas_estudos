@@ -202,8 +202,9 @@ trilha:
   relacionadas:
     - trilha: trilha:so/projeto-e-implementacao
       nota: >
-        Estuda o núcleo por dentro, lendo e modificando o MINIX. Aqui o núcleo é um
-        pacote entre oitenta. As duas se completam e nenhuma pressupõe a outra.
+        O MINIX se estuda por dentro, lendo e modificando o núcleo; a construção de
+        um sistema do zero trata o núcleo como um pacote entre oitenta. As duas se
+        completam e nenhuma pressupõe a outra.
   etapas: [...]                     # definidas aqui, dentro da trilha que as introduz
   etapas_referenciadas:             # definidas noutro arquivo, nunca redefinidas
     - etapa:so/linha-de-comando
@@ -227,6 +228,13 @@ senão em comentário de YAML, invisível a quem lê a página.
 - **Declare num lado só.** A relação é simétrica e a tela deriva o outro sentido;
   declarar nos dois cria duas versões de um fato só, que divergem na primeira
   correção (§5.14).
+- **Escreva a nota sem "aqui" e sem "lá".** Ela é declarada de um lado e aparece
+  nos dois, e a tela não a reescreve: na página de quem não declarou, um "aqui"
+  passa a apontar para a trilha errada — o leitor vê o título de uma e a descrição
+  da outra. Nomeie cada trilha pelo que ela faz ("o MINIX se estuda por dentro…";
+  "construir um sistema do zero passa por…"), de modo que a mesma frase sirva nas
+  duas páginas. Isto é convenção de prosa e nenhuma validação a cobre: só se vê na
+  tela, e foi ali que se viu.
 - **Não declare onde há aresta real.** Se uma ensina o que a outra exige, a ligação
   já aparece como `destrava`, com a competência nomeada — e `relacionadas` a
   encobriria com prosa mais fraca. A validação 14 recusa.

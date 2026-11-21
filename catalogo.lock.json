@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 80,
-  "gerado_em": "2026-11-21T03:37:10+00:00",
-  "hash": "sha256:98759db20b5a25e5d6133d26ffb0a277080ca7e5adc846c7318126dc8235aebd",
+  "catalogo_versao": 81,
+  "gerado_em": "2026-11-21T09:16:14+00:00",
+  "hash": "sha256:a94adcdb7d60614038c6eff6c990f3dbef0fea756730c0d34172f8d03a512f65",
   "competencias": [
     {
       "id": "comp:arquitetura/computador-pessoal",
@@ -9004,11 +9004,11 @@
       "relacionadas": [
         {
           "trilha": "trilha:so/projeto-e-implementacao",
-          "nota": "O editor com que se lê e se modifica o fonte do MINIX. A diferença é de papel, não de assunto: ali o vi é ferramenta e qualquer editor serve — por isso aquela trilha não o exige —, aqui ele é o objeto de estudo."
+          "nota": "O vi é o editor com que se lê e se modifica o fonte do MINIX, e a diferença entre as duas é de papel, não de assunto: no estudo do MINIX o editor é ferramenta e qualquer um serve — por isso a trilha do MINIX não exige o vi —, ao passo que na trilha de edição ele é o objeto de estudo."
         },
         {
           "trilha": "trilha:so/sistema-linux-do-zero",
-          "nota": "A construção do sistema passa por editar arquivo de configuração dentro de um `chroot`, onde o editor disponível costuma ser este. Também aqui o vi é ferramenta, e aquela trilha não o declara como pré-requisito: o livro só pede saber operar a casca."
+          "nota": "Construir um sistema do zero passa por editar arquivo de configuração dentro de um `chroot`, onde o editor disponível costuma ser o vi — e ali ele é ferramenta, não objeto de estudo: a trilha de construção não o declara como pré-requisito, porque o livro só pede saber operar a casca."
         }
       ]
     },
@@ -9091,7 +9091,7 @@
       "relacionadas": [
         {
           "trilha": "trilha:so/projeto-e-implementacao",
-          "nota": "Estuda o núcleo por dentro, lendo e modificando o MINIX. Aqui o núcleo é um pacote entre oitenta, que se configura e se compila: o objeto de estudo é o espaço de usuário em torno dele e a integração das peças. As duas se completam e nenhuma pressupõe a outra."
+          "nota": "O MINIX se estuda por dentro, lendo e modificando o núcleo; a construção de um sistema do zero trata o núcleo como um pacote entre oitenta — configura, compila — e tem por objeto o espaço de usuário em torno dele e a integração das peças. As duas se completam e nenhuma pressupõe a outra."
         }
       ]
     },
