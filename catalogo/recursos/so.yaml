@@ -764,3 +764,152 @@ recursos:
     url: https://www.amazon.com.br/s?k=Sistemas+Operacionais+Oliveira+Carissimi+Toscani
     disponivel: true
     verificado_em: 2026-11-11
+
+  # -------------------------------------------------------------------------
+  # trilha:so/sistema-linux-do-zero
+  #
+  #   O material é um só, fatiado por parte do livro: *Linux From Scratch*, versão
+  #   13.1-systemd, publicada em 1º de setembro de 2026 (criado por Gerard
+  #   Beekmans, editor-gerente Bruce Dubbs), sob Creative Commons
+  #   Atribuição-NãoComercial-CompartilhaIgual 2.0, com os trechos de código
+  #   extraíveis sob licença MIT. A última etapa é servida pelo *Beyond Linux From
+  #   Scratch*, 13.1-systemd, que é outro livro do mesmo projeto.
+  #
+  #   Nenhuma das fatias declara `obra`, e isso é decisão, não esquecimento. O LFS
+  #   é documentação de projeto, não exemplar: não tem editora, não tem ISBN, não
+  #   tem edição à venda, e se versiona por lançamento do próprio projeto — cada
+  #   versão com uma árvore de pacotes diferente. É a classificação que o Guia Foca
+  #   recebeu acima, pelo mesmo argumento; e `obra` existe para que a agregação
+  #   monetária conte um exemplar uma vez (ADR-0009), o que em material de custo
+  #   zero soma zero de qualquer maneira.
+  #
+  #   `custo: 0` porque o livro é servido na web e oferecido para download pelo
+  #   projeto. **Ressalva**: nenhuma página do projeto usa a palavra "gratuito", e a
+  #   licença traz cláusula NãoComercial — o acesso e o uso pessoal são livres, a
+  #   redistribuição comercial não, e o catálogo só aponta.
+  #
+  #   O que **não** entrou, para não ser pesquisado de novo:
+  #
+  #   - A versão SysV do LFS. O próprio projeto diz que "the prior System V version
+  #     of LFS is no longer maintained" e que os pacotes não foram validados nesse
+  #     ambiente; a estável do SysV parou na 12.4. Apontar a trilha para ela seria
+  #     mandar o estudante a um roteiro que o projeto abandonou.
+  #   - Os livros de desenvolvimento (`/lfs/view/systemd/`), marcados pelo projeto
+  #     como "not recommended for inexperienced LFS'ers".
+  #   - A errata (`/lfs/errata/stable-systemd/`) e os avisos de segurança
+  #     (`/advisories/`), que os dois livros mandam ler antes de construir. São
+  #     consulta obrigatória de poucos minutos, não via de estudo de etapa: entrar
+  #     como recurso faria o motor sugerir a página de errata no lugar do capítulo
+  #     (motor §2.4). Ficam citadas aqui, que é onde quem constrói vai olhar.
+  #   - ALFS, MLFS, GLFS e SLFS, subprojetos do mesmo site: automação, multilib,
+  #     jogos e suplementos. Nenhum é caminho de primeira construção, e MLFS e GLFS
+  #     pressupõem o LFS e o BLFS que esta trilha já cobre.
+  #
+  #   A URL de cada fatia é a do índice da versão estável — o mesmo padrão das
+  #   fatias do Shotts acima — porque o endereço de capítulo muda a cada versão do
+  #   livro e o índice não.
+  # -------------------------------------------------------------------------
+
+  # --- etapa:so/lfs-preparacao-do-hospedeiro --------------------------------
+  - id: rec:so/lfs-preparacao
+    etapa: etapa:so/lfs-preparacao-do-hospedeiro
+    titulo: "Linux From Scratch 13.1-systemd — prefácio e parte II: requisitos do hospedeiro, partição, pacotes e patches, usuário de construção e a SBU"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 240
+    url: https://www.linuxfromscratch.org/lfs/view/stable-systemd/
+    disponivel: true
+    verificado_em: 2026-11-20
+
+  # Via em português, e é a única da trilha. Tradução voluntária de Jamenson
+  # Espindula, hospedada fora do site do projeto, que avisa que as traduções "are
+  # done by volunteers" e podem conter erros. A página de traduções do LFS não diz
+  # qual versão do livro cada tradução cobre — o repositório declara "multiple
+  # versions are available" —, então o estudante que seguir por aqui tem de conferir
+  # a versão contra a 13.1 antes de rodar comando. Entrou mesmo assim porque sem ela
+  # a trilha inteira é só em inglês; o `duracao_min` é o da fatia equivalente.
+  - id: rec:so/br-lfs-preparacao
+    etapa: etapa:so/lfs-preparacao-do-hospedeiro
+    titulo: "Linux From Scratch em português do Brasil (tradução de Jamenson Espindula) — preparação do hospedeiro e dos fontes; confira a versão traduzida contra a 13.1"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: pt-BR
+    custo: 0
+    duracao_min: 240
+    url: https://github.com/espindula/br-lfs
+    disponivel: true
+    verificado_em: 2026-11-20
+
+  # --- etapa:so/lfs-toolchain-cruzado ---------------------------------------
+  - id: rec:so/lfs-toolchain-cruzado
+    etapa: etapa:so/lfs-toolchain-cruzado
+    titulo: "Linux From Scratch 13.1-systemd — parte III, notas técnicas do toolchain e caps. 5 e 6: `binutils` e `gcc` em passagens, `glibc`, `libstdc++` e as ferramentas temporárias compiladas por cruzamento"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 480
+    url: https://www.linuxfromscratch.org/lfs/view/stable-systemd/
+    disponivel: true
+    verificado_em: 2026-11-20
+
+  # --- etapa:so/lfs-chroot-e-ferramentas-temporarias ------------------------
+  - id: rec:so/lfs-chroot-e-temporarias
+    etapa: etapa:so/lfs-chroot-e-ferramentas-temporarias
+    titulo: "Linux From Scratch 13.1-systemd — cap. 7: entrar no `chroot`, montar as árvores virtuais do núcleo e construir as ferramentas temporárias que rompem a circularidade"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 360
+    url: https://www.linuxfromscratch.org/lfs/view/stable-systemd/
+    disponivel: true
+    verificado_em: 2026-11-20
+
+  # --- etapa:so/lfs-software-basico -----------------------------------------
+  - id: rec:so/lfs-software-basico
+    etapa: etapa:so/lfs-software-basico
+    titulo: "Linux From Scratch 13.1-systemd — cap. 8: instalação do software básico do sistema, pacote por pacote, com suítes de teste e a reconstrução final do conjunto de ferramentas"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 900
+    url: https://www.linuxfromscratch.org/lfs/view/stable-systemd/
+    disponivel: true
+    verificado_em: 2026-11-20
+
+  # --- etapa:so/lfs-configuracao-e-arranque ---------------------------------
+  - id: rec:so/lfs-configuracao-e-arranque
+    etapa: etapa:so/lfs-configuracao-e-arranque
+    titulo: "Linux From Scratch 13.1-systemd — caps. 9 a 11: configuração do sistema, `fstab`, compilação do núcleo, gerenciador de inicialização e a reinicialização no sistema construído"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 480
+    url: https://www.linuxfromscratch.org/lfs/view/stable-systemd/
+    disponivel: true
+    verificado_em: 2026-11-20
+
+  # --- etapa:so/lfs-alem-do-sistema-base ------------------------------------
+  - id: rec:so/blfs-alem-do-sistema-base
+    etapa: etapa:so/lfs-alem-do-sistema-base
+    titulo: "Beyond Linux From Scratch 13.1-systemd — o que se instala por cima do sistema base: bibliotecas, rede, gráfico e servidores, com a cadeia de dependências por conta de quem constrói"
+    rev: 1
+    status: ativo
+    formato: texto
+    idioma: en-US
+    custo: 0
+    duracao_min: 600
+    url: https://www.linuxfromscratch.org/blfs/view/stable-systemd/
+    disponivel: true
+    verificado_em: 2026-11-20

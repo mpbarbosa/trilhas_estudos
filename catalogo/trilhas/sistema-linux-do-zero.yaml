@@ -1,0 +1,195 @@
+versao_schema: 1
+trilha:
+  id: trilha:so/sistema-linux-do-zero
+  titulo: Construir um sistema Linux do zero — do toolchain cruzado ao primeiro login
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:so/compilacao-cruzada-e-toolchain
+      nivel: intermediario
+    - competencia: comp:so/arvore-do-sistema-e-ambiente-isolado
+      nivel: intermediario
+    - competencia: comp:so/instalacao-a-partir-do-fonte
+      nivel: intermediario
+    - competencia: comp:so/inicializacao-e-configuracao-do-sistema
+      nivel: intermediario
+    - competencia: comp:so/manutencao-de-sistema-do-fonte
+      nivel: intermediario
+
+  # Nasce de um material aberto, não de um exemplar: o livro *Linux From Scratch*
+  # (versão 13.1-systemd, publicada em 1º de setembro de 2026, Creative Commons
+  # BY-NC-SA 2.0), e o *Beyond Linux From Scratch* que o continua. Não é apostila
+  # sobre como um sistema funciona: é um roteiro que manda construir um, e o
+  # conhecimento vem do que é preciso saber para a construção não falhar.
+  #
+  # O corte das etapas é o das **partes e capítulos do livro**, e isso não é
+  # comodidade de autoria: a ordem do livro é a ordem em que um sistema do tipo UNIX
+  # pode ser levantado, e trocá-la não dá um currículo diferente, dá uma construção
+  # que não compila. Daí a forma desta trilha ser a mais linear do catálogo — não há
+  # os ramos paralelos que a ADR-0002 habilita, porque aqui não existem: não se entra
+  # no `chroot` antes de haver ferramentas temporárias, e não se instala o software
+  # básico antes de estar dentro dele. A única folga real está no fim, entre levantar
+  # o sistema e passar a mantê-lo.
+  #
+  # As competências são de construir um sistema do fonte, não do LFS
+  # (catalogo/competencias/so.yaml): a verificação de cada uma se cobra em Gentoo, em
+  # Buildroot ou num porte cruzado. Outro roteiro — ou a próxima versão do livro —
+  # entra como recurso, sem reescrever competência.
+  #
+  # O que esta trilha **não** é: `trilha:so/projeto-e-implementacao` estuda o núcleo
+  # por dentro, lendo e modificando o MINIX. Aqui o núcleo é um pacote entre oitenta,
+  # que se configura e se compila; o objeto de estudo é o espaço de usuário em torno
+  # dele e a integração das peças. As duas se completam e nenhuma pressupõe a outra.
+  #
+  # O pré-requisito é o que o próprio livro declara em "Prerequisites": saber operar
+  # o sistema pela casca — copiar e mover arquivos, listar, mudar de diretório,
+  # instalar software. Não há pré-requisito de programação: em nenhum momento o livro
+  # manda escrever um programa.
+  etapas:
+    # --- Antes de compilar a primeira linha ----------------------------------
+    - id: etapa:so/lfs-preparacao-do-hospedeiro
+      titulo: Preparação — o sistema hospedeiro, a partição, os fontes e o ambiente limpo
+      rev: 1
+      status: ativo
+      descricao: >
+        A etapa que decide se as outras vão funcionar, e a que se costuma pular. O
+        hospedeiro e suas versões mínimas de ferramenta, a partição e o sistema de
+        arquivos que vão receber o novo sistema, a árvore de diretórios inicial, o
+        download dos pacotes e patches com conferência de integridade, e o usuário
+        de construção com um ambiente de shell deliberadamente pobre — sem herdar
+        variável nenhuma do hospedeiro. Aqui também se aprende a ler o custo do
+        resto: a SBU, que é o tempo do `binutils` da primeira passagem num núcleo, e
+        em que unidade o livro mede tudo o mais.
+      esforco_estimado_min: 240
+      opcional: false
+      requires:
+        - competencia: comp:so/linha-de-comando
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:so/arvore-do-sistema-e-ambiente-isolado
+          nivel_resultante: iniciante
+
+    # --- O compilador antes do sistema ---------------------------------------
+    - id: etapa:so/lfs-toolchain-cruzado
+      titulo: O conjunto de ferramentas cruzado — `binutils`, `gcc` e a biblioteca C em passagens
+      rev: 1
+      status: ativo
+      descricao: >
+        O centro conceitual da trilha, e a parte em que o livro para de dar comandos
+        e explica: por que o compilador que vai construir o sistema tem de ser
+        compilado antes dele, e por que de forma cruzada mesmo quando a máquina de
+        origem e a de destino são a mesma. A tripla `build`/`host`/`target`, o
+        `sysroot`, a primeira passagem do `gcc` que só precisa compilar a biblioteca
+        C, a `glibc` contra esse compilador meio pronto, a `libstdc++` que ficou de
+        fora e as ferramentas temporárias compiladas por cruzamento. Estuda-se
+        olhando o resultado: contra qual carregador e quais bibliotecas cada binário
+        novo ficou ligado.
+      esforco_estimado_min: 480
+      opcional: false
+      requires:
+        - competencia: comp:so/arvore-do-sistema-e-ambiente-isolado
+          nivel_minimo: iniciante
+      teaches:
+        - competencia: comp:so/compilacao-cruzada-e-toolchain
+          nivel_resultante: intermediario
+
+    # --- Trocar a raiz -------------------------------------------------------
+    - id: etapa:so/lfs-chroot-e-ferramentas-temporarias
+      titulo: Entrar no `chroot` — montagens virtuais e as ferramentas que rompem a circularidade
+      rev: 1
+      status: ativo
+      descricao: >
+        O momento em que o sistema em construção passa a ser o sistema: a troca de
+        raiz, as árvores virtuais do núcleo que têm de ser montadas dentro dela, os
+        diretórios e arquivos que o `chroot` espera encontrar prontos, e o conjunto
+        de ferramentas temporárias que existe só para resolver dependência circular
+        — pacote que precisa de outro que precisa dele. Daqui em diante o sistema
+        hospedeiro está fora do alcance, e é isso que se quer comprovar.
+      esforco_estimado_min: 360
+      opcional: false
+      requires:
+        - competencia: comp:so/compilacao-cruzada-e-toolchain
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:so/arvore-do-sistema-e-ambiente-isolado
+          nivel_resultante: intermediario
+
+    # --- Oitenta pacotes na ordem certa --------------------------------------
+    - id: etapa:so/lfs-software-basico
+      titulo: O software básico do sistema — o ciclo `configure`, compilar, testar, instalar, oitenta vezes
+      rev: 1
+      status: ativo
+      descricao: >
+        A etapa mais longa, e a que forma pela repetição: o mesmo ciclo aplicado a
+        cada pacote do sistema básico, com o que muda em cada um — as opções de
+        `configure` e por que estas, o patch que precede a compilação, a suíte de
+        testes e as falhas que o livro avisa serem esperadas, o `strip` e o
+        `ldconfig`. Também a reconstrução final do conjunto de ferramentas, agora
+        dentro do sistema e contra as bibliotecas dele, que é o passo que o livro diz
+        não poder ser pulado. O corte é saber instalar do fonte um pacote que o livro
+        não cobre.
+      esforco_estimado_min: 900
+      opcional: false
+      requires:
+        - competencia: comp:so/arvore-do-sistema-e-ambiente-isolado
+          nivel_minimo: intermediario
+        - competencia: comp:so/compilacao-cruzada-e-toolchain
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:so/instalacao-a-partir-do-fonte
+          nivel_resultante: intermediario
+
+    # --- Fazer arrancar ------------------------------------------------------
+    - id: etapa:so/lfs-configuracao-e-arranque
+      titulo: Configuração e arranque — rede, locale, `fstab`, núcleo e gerenciador de inicialização
+      rev: 1
+      status: ativo
+      descricao: >
+        Do conjunto de arquivos instalados a um sistema que liga: a configuração que
+        ele precisa ter antes de ser usável — dispositivos e serviços, rede, relógio,
+        teclado e locale, os arquivos de ambiente do shell, o `fstab` —, o núcleo
+        configurado e compilado com os drivers de que a raiz depende, e o gerenciador
+        de inicialização que passa a ele a linha de comando certa. Termina onde o
+        livro termina: reiniciando na máquina que se construiu, e diagnosticando o
+        que der errado da camada de onde a mensagem vier.
+      esforco_estimado_min: 480
+      opcional: false
+      requires:
+        - competencia: comp:so/instalacao-a-partir-do-fonte
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:so/inicializacao-e-configuracao-do-sistema
+          nivel_resultante: intermediario
+
+    # --- Depois do primeiro login -------------------------------------------
+    - id: etapa:so/lfs-alem-do-sistema-base
+      titulo: Além do sistema base — instalar o resto e manter o que se construiu
+      rev: 1
+      status: ativo
+      descricao: >
+        Um sistema básico não faz nada que se queira fazer, e um sistema sem
+        gerenciador de pacotes não deixa de ter o problema que um gerenciador de
+        pacotes resolve. A etapa é a segunda metade do projeto: instalar e configurar
+        o que vem por cima — bibliotecas, rede, gráfico, servidor —, com a cadeia de
+        dependências agora sendo responsabilidade de quem constrói; e acompanhar
+        errata e aviso de segurança do que já está instalado, decidindo entre patch e
+        nova versão e prevendo o que uma biblioteca nova quebra em quem está ligado a
+        ela. Com o registro da própria construção como entregável, que é o que
+        permite reconstruir.
+      esforco_estimado_min: 600
+      opcional: false
+      requires:
+        - competencia: comp:so/inicializacao-e-configuracao-do-sistema
+          nivel_minimo: intermediario
+        - competencia: comp:so/instalacao-a-partir-do-fonte
+          nivel_minimo: intermediario
+      teaches:
+        - competencia: comp:so/manutencao-de-sistema-do-fonte
+          nivel_resultante: intermediario
+
+  # Definida em catalogo/etapas/avulsas.yaml (ADR-0010). É o pré-requisito que o
+  # próprio livro declara, e referenciá-la é o que o torna alcançável a quem se
+  # matricular só nesta trilha: sem isso o motor não geraria a primeira etapa como
+  # `proxima_etapa` partindo de perfil vazio (docs/catalogo.md §5.3).
+  etapas_referenciadas:
+    - etapa:so/linha-de-comando
