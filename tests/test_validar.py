@@ -8,7 +8,7 @@ from datetime import date, timedelta
 import pytest
 
 from fabrica import N, catalogo, competencia, etapa, minimo_valido, recurso, trilha
-from trilhas.catalogo.modelo import Catalogo, Status
+from trilhas.catalogo.modelo import Catalogo, Relacionada, Requisito, Status
 from trilhas.catalogo.problemas import Codigo, Severidade
 from trilhas.catalogo.snapshot import EstadoAnterior
 from trilhas.catalogo.validar import validar
@@ -394,3 +394,83 @@ def test_parte_nao_conta_como_recurso_da_etapa() -> None:
     cat = _com_capitulo()
     cat.recursos["rec:x/inicial"] = replace(cat.recursos["rec:x/inicial"], disponivel=False)
     assert Codigo.SEM_RECURSO in codigos(validar(cat, hoje=HOJE))
+
+
+# §5.14 -----------------------------------------------------------------------
+
+
+def _com_vizinhas(nota: str = "cortes diferentes do mesmo objeto") -> Catalogo:
+    """Duas trilhas sem aresta de competência entre elas, uma declarando a outra."""
+    cat = minimo_valido()
+    cat.competencias["comp:y/base"] = competencia("comp:y/base")
+    cat.etapas["etapa:y/inicial"] = etapa(
+        "etapa:y/inicial", teaches=[("comp:y/base", N.INICIANTE)], trilha="trilha:y/t"
+    )
+    cat.recursos["rec:y/inicial"] = recurso("rec:y/inicial", "etapa:y/inicial")
+    cat.trilhas["trilha:y/t"] = trilha(
+        "trilha:y/t",
+        etapas=["etapa:y/inicial"],
+        objetivo=[("comp:y/base", N.INICIANTE)],
+    )
+    cat.trilhas["trilha:x/t"] = replace(
+        cat.trilhas["trilha:x/t"], relacionadas=(Relacionada("trilha:y/t", nota),)
+    )
+    return cat
+
+
+def test_vizinhanca_entre_trilhas_independentes_nao_e_problema() -> None:
+    assert validar(_com_vizinhas(), hoje=HOJE) == []
+
+
+def test_vizinha_inexistente_e_referencia_quebrada() -> None:
+    cat = _com_vizinhas()
+    cat.trilhas["trilha:x/t"] = replace(
+        cat.trilhas["trilha:x/t"], relacionadas=(Relacionada("trilha:y/nao-existe", "n"),)
+    )
+    assert Codigo.REFERENCIA_QUEBRADA in codigos(validar(cat, hoje=HOJE))
+
+
+def test_trilha_nao_e_vizinha_de_si_mesma() -> None:
+    cat = _com_vizinhas()
+    cat.trilhas["trilha:x/t"] = replace(
+        cat.trilhas["trilha:x/t"], relacionadas=(Relacionada("trilha:x/t", "n"),)
+    )
+    assert Codigo.RELACAO_INCOERENTE in codigos(validar(cat, hoje=HOJE))
+
+
+def test_vizinhanca_declarada_nos_dois_sentidos() -> None:
+    """A tela deriva o reverso; declarar de novo criaria duas versões de um fato só."""
+    cat = _com_vizinhas()
+    cat.trilhas["trilha:y/t"] = replace(
+        cat.trilhas["trilha:y/t"], relacionadas=(Relacionada("trilha:x/t", "a mesma coisa"),)
+    )
+    problemas = [p for p in validar(cat, hoje=HOJE) if p.codigo is Codigo.RELACAO_INCOERENTE]
+    assert [p.entidade for p in problemas] == ["trilha:x/t"]
+
+
+def test_vizinhanca_que_encobre_pre_requisito() -> None:
+    """Se uma ensina o que a outra exige, a ligação é `destrava`, não vizinhança."""
+    cat = _com_vizinhas()
+    cat.etapas["etapa:y/inicial"] = replace(
+        cat.etapas["etapa:y/inicial"], requires=(Requisito("comp:x/base", N.INICIANTE),)
+    )
+    problemas = [p for p in validar(cat, hoje=HOJE) if p.codigo is Codigo.RELACAO_INCOERENTE]
+    assert [p.entidade for p in problemas] == ["trilha:x/t"]
+    assert "comp:x/base" in problemas[0].mensagem
+
+
+def test_etapa_emprestada_nao_cria_aresta_entre_vizinhas() -> None:
+    """O caso real: as duas referenciam a mesma etapa-tronco e ambas exigem o que ela
+    ensina. Contar a emprestada faria cada uma parecer professora da outra, e §5.14
+    recusaria a vizinhança de `trilha:so/sistema-linux-do-zero` com o núcleo.
+    """
+    cat = _com_vizinhas()
+    cat.competencias["comp:z/tronco"] = competencia("comp:z/tronco")
+    cat.etapas["etapa:z/tronco"] = etapa("etapa:z/tronco", teaches=[("comp:z/tronco", N.INICIANTE)])
+    cat.recursos["rec:z/tronco"] = recurso("rec:z/tronco", "etapa:z/tronco")
+    for tid, eid in (("trilha:x/t", "etapa:x/inicial"), ("trilha:y/t", "etapa:y/inicial")):
+        cat.trilhas[tid] = replace(cat.trilhas[tid], etapas_referenciadas=("etapa:z/tronco",))
+        cat.etapas[eid] = replace(
+            cat.etapas[eid], requires=(Requisito("comp:z/tronco", N.INICIANTE),)
+        )
+    assert validar(cat, hoje=HOJE) == []

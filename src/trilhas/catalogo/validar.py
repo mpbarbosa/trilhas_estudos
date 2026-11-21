@@ -1,4 +1,4 @@
-"""As 13 validações de docs/catalogo.md §5.
+"""As 14 validações de docs/catalogo.md §5.
 
 Função pura: recebe catálogo em memória e o estado do snapshot anterior, devolve
 problemas. Sem I/O.
@@ -11,7 +11,7 @@ from collections.abc import Iterable, Mapping
 from datetime import date, timedelta
 
 from .grafo import fecho_progressivo
-from .modelo import FORMA_DO_ID, ID_PADROES, Catalogo, Etapa, Nivel, Recurso, Status
+from .modelo import FORMA_DO_ID, ID_PADROES, Catalogo, Etapa, Nivel, Recurso, Status, Trilha
 from .problemas import Codigo, Problema, aviso, erro
 from .snapshot import EstadoAnterior
 
@@ -48,6 +48,7 @@ def validar(
     problemas += _v11_etapas_orfas(catalogo)
     problemas += _v12_obra_com_custo_unico(catalogo)
     problemas += _v13_parte_de_recurso(catalogo)
+    problemas += _v14_relacao_entre_trilhas(catalogo)
     return problemas
 
 
@@ -119,6 +120,8 @@ def _v2_referencias(catalogo: Catalogo) -> list[Problema]:
             conferir(trilha.id, etapa_id, "etapas_referenciadas", catalogo.etapas)
         for alvo in trilha.objetivo_declarado:
             conferir(trilha.id, alvo.competencia, "objetivo_declarado", catalogo.competencias)
+        for vizinha in trilha.relacionadas:
+            conferir(trilha.id, vizinha.trilha, "relacionadas", catalogo.trilhas)
 
     todos = catalogo.ids()
     for entidade in catalogo.por_id().values():
@@ -479,6 +482,91 @@ def _v13_parte_de_recurso(catalogo: Catalogo) -> list[Problema]:
                     f"`parte_de` aponta para {todo.id}, que já é parte de "
                     f"{todo.parte_de}; parte de parte não existe",
                     entidade=parte.id,
+                )
+            )
+    return problemas
+
+
+# --- §5.14 ---------------------------------------------------------------------
+
+
+def _competencias_proprias(catalogo: Catalogo, trilha: Trilha) -> tuple[set[str], set[str]]:
+    """O que as etapas **próprias** e ativas da trilha ensinam e exigem.
+
+    Etapa emprestada fica de fora de propósito: ela não é desta trilha nem da outra,
+    e contá-la faria toda trilha que referencia `etapa:so/linha-de-comando` parecer
+    professora de quem apenas a referencia também.
+    """
+    ensina: set[str] = set()
+    exige: set[str] = set()
+    for etapa_id in trilha.etapas:
+        etapa = catalogo.etapas.get(etapa_id)
+        if etapa is None or etapa.status is Status.DEPRECIADO:
+            continue
+        ensina |= {t.competencia for t in etapa.teaches}
+        exige |= {r.competencia for r in etapa.requires}
+    return ensina, exige
+
+
+def _v14_relacao_entre_trilhas(catalogo: Catalogo) -> list[Problema]:
+    """`relacionadas` é vizinhança, e vizinhança é o que **não** é pré-requisito.
+
+    Três coisas a invalidam (ADR-0022):
+
+    1. Apontar para si mesma — a trilha não é vizinha de si.
+    2. Declarar nos dois sentidos. A relação é simétrica e a tela deriva o reverso;
+       declarar de novo do outro lado duplica a nota na página de ambas e cria duas
+       versões de um fato só, que divergem na primeira correção.
+    3. Existir, entre as duas, aresta real de competência — uma ensina o que a outra
+       exige. Aí a ligação já é visível como `destrava`/`destravada por`, com a
+       competência nomeada, e `relacionadas` só a encobriria com prosa mais fraca.
+       É a mesma razão pela qual `ArestaDerivada` carrega as competências.
+    """
+    problemas: list[Problema] = []
+    declaradas: set[tuple[str, str]] = set()
+
+    for trilha in sorted(catalogo.trilhas.values(), key=lambda t: t.id):
+        for vizinha in trilha.relacionadas:
+            if vizinha.trilha == trilha.id:
+                problemas.append(
+                    erro(
+                        Codigo.RELACAO_INCOERENTE,
+                        "`relacionadas` aponta para a própria trilha",
+                        entidade=trilha.id,
+                    )
+                )
+                continue
+            declaradas.add((trilha.id, vizinha.trilha))
+
+    for origem, destino in sorted(declaradas):
+        if (destino, origem) in declaradas:
+            if origem > destino:
+                continue  # o par já foi reportado no outro sentido
+            problemas.append(
+                erro(
+                    Codigo.RELACAO_INCOERENTE,
+                    f"a vizinhança com {destino} está declarada nos dois sentidos; "
+                    "a relação é simétrica e a tela deriva o reverso — declare num "
+                    "lado só",
+                    entidade=origem,
+                )
+            )
+            continue
+
+        outra = catalogo.trilhas.get(destino)
+        if outra is None:
+            continue  # referência quebrada é trabalho de §5.2
+        ensina_origem, exige_origem = _competencias_proprias(catalogo, catalogo.trilhas[origem])
+        ensina_outra, exige_outra = _competencias_proprias(catalogo, outra)
+        aresta = sorted((ensina_origem & exige_outra) | (ensina_outra & exige_origem))
+        if aresta:
+            problemas.append(
+                erro(
+                    Codigo.RELACAO_INCOERENTE,
+                    f"a ligação com {destino} é de pré-requisito, não de vizinhança: "
+                    f"uma ensina {', '.join(aresta)}, que a outra exige; isso já "
+                    "aparece como `destrava`, com a competência nomeada",
+                    entidade=origem,
                 )
             )
     return problemas

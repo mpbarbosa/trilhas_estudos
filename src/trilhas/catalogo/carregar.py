@@ -30,6 +30,7 @@ from .modelo import (
     Formato,
     Nivel,
     Recurso,
+    Relacionada,
     Requisito,
     Status,
     Trilha,
@@ -133,9 +134,48 @@ def _trilha_do_snapshot(item: Mapping[str, Any], col: _Coletor) -> Trilha | None
         ),
         etapas=tuple(str(e) for e in _ids(item, "etapas", col, ident)),
         etapas_referenciadas=tuple(str(e) for e in _ids(item, "etapas_referenciadas", col, ident)),
+        relacionadas=_relacionadas(item, col, ident),
         substituido_por=_opcional_texto(item, "substituido_por"),
         depreciado_em=_data(item, "depreciado_em", col, ident),
     )
+
+
+def _relacionadas(item: Mapping[str, Any], col: _Coletor, entidade: str) -> tuple[Relacionada, ...]:
+    """Lê `relacionadas`, exigindo `trilha` e `nota` em cada item (ADR-0022).
+
+    `nota` ausente é erro de forma, não campo opcional vazio: a vizinhança sem o
+    corte de cada trilha não é informação, e aceitá-la aqui produziria uma seção
+    de tela com links e nenhuma razão.
+    """
+    bruto = item.get("relacionadas", []) or []
+    if not isinstance(bruto, list):
+        col.falha(Codigo.SCHEMA_INVALIDO, "`relacionadas` deve ser uma lista", entidade)
+        return ()
+
+    saida: list[Relacionada] = []
+    for linha in bruto:
+        if not isinstance(linha, Mapping):
+            col.falha(
+                Codigo.SCHEMA_INVALIDO,
+                "cada item de `relacionadas` deve ser um mapa com `trilha` e `nota`",
+                entidade,
+            )
+            continue
+        trilha = linha.get("trilha")
+        nota = linha.get("nota")
+        if not isinstance(trilha, str) or not trilha:
+            col.falha(Codigo.SCHEMA_INVALIDO, "`relacionadas.trilha` ausente", entidade)
+            continue
+        if not isinstance(nota, str) or not nota.strip():
+            col.falha(
+                Codigo.SCHEMA_INVALIDO,
+                f"`relacionadas.nota` ausente em {trilha!r}; diga qual é o corte de "
+                "cada uma, ou não declare a vizinhança",
+                entidade,
+            )
+            continue
+        saida.append(Relacionada(trilha=trilha, nota=" ".join(nota.split())))
+    return tuple(saida)
 
 
 def _ids(item: Mapping[str, Any], chave: str, col: _Coletor, entidade: str) -> list[str]:
@@ -308,6 +348,7 @@ def _trilha(item: Mapping[str, Any], catalogo: Catalogo, col: _Coletor) -> Trilh
         ),
         etapas=tuple(proprias),
         etapas_referenciadas=tuple(str(r) for r in referenciadas),
+        relacionadas=_relacionadas(item, col, ident),
         substituido_por=_opcional_texto(item, "substituido_por"),
         depreciado_em=_data(item, "depreciado_em", col, ident),
     )

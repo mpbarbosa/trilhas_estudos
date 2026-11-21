@@ -499,3 +499,10 @@ select:focus-visible, .no:focus-visible rect {
   padding: .3rem .9rem; font: inherit; cursor: pointer;
 }
 .acao button:hover { border-color: var(--acento); color: var(--acento); }
+
+/* --- trilhas vizinhas (ADR-0022) --- */
+/* A nota é o conteúdo da seção, não um adorno do link: sem a folga entre itens as
+   três ou quatro linhas de prosa de cada vizinha viram um bloco só. */
+.trilhas-vizinhas { list-style: none; padding: 0; }
+.trilhas-vizinhas > li + li { margin-top: .9rem; }
+.trilhas-vizinhas p { margin: .2rem 0 0; max-width: 60ch; }

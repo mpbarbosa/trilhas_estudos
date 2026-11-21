@@ -35,6 +35,7 @@
 | [0019](adr/0019-descricao-de-onda-derivada-da-estrutura.md) | Descrição de onda derivada da estrutura, nunca autorada | aceito |
 | [0020](adr/0020-obra-declarada-tambem-em-exemplar-nao-fatiado.md) | `obra` declarada também em exemplar não fatiado | aceito |
 | [0021](adr/0021-capitulo-como-parte-de-recurso.md) | Capítulo como parte de recurso, fora das vias de estudo da etapa | aceito |
+| [0022](adr/0022-vizinhanca-entre-trilhas.md) | Vizinhança entre trilhas, declarada onde não há pré-requisito | aceito |
 
 ## Pendente
 

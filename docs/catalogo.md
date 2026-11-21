@@ -187,6 +187,52 @@ livro que se compra uma vez. Em troca, o rollup de `mostrar` conta o todo entre 
 fatias: onze capítulos de um livro dão **12 fatias**, e "2/12" quer dizer dois
 capítulos percorridos — não 2 de 12 capítulos.
 
+### Trilha
+
+```yaml
+versao_schema: 1
+trilha:
+  id: trilha:so/sistema-linux-do-zero
+  titulo: Construir um sistema Linux do zero — do toolchain cruzado ao primeiro login
+  rev: 1
+  status: ativo
+  objetivo_declarado:
+    - competencia: comp:so/instalacao-a-partir-do-fonte
+      nivel: intermediario
+  relacionadas:
+    - trilha: trilha:so/projeto-e-implementacao
+      nota: >
+        Estuda o núcleo por dentro, lendo e modificando o MINIX. Aqui o núcleo é um
+        pacote entre oitenta. As duas se completam e nenhuma pressupõe a outra.
+  etapas: [...]                     # definidas aqui, dentro da trilha que as introduz
+  etapas_referenciadas:             # definidas noutro arquivo, nunca redefinidas
+    - etapa:so/linha-de-comando
+```
+
+**Uma trilha tem dois tipos de ligação com outra, e eles não se substituem.**
+
+`etapas_referenciadas` é dependência: a trilha precisa daquela etapa, e o fecho
+progressivo a conta no caminho. É o que liga as cinco trilhas que referenciam
+`etapa:so/linha-de-comando`, e o que a tela mostra como *emprestada*, *destrava* e
+*destravada por*, sempre com a competência nomeada.
+
+`relacionadas` é **vizinhança — a ligação entre trilhas que não se pressupõem**
+([ADR-0022](adr/0022-vizinhanca-entre-trilhas.md)). Não entra no grafo, não destrava
+nada e não muda o que o motor sugere: existe porque "estas duas se completam, e
+nenhuma exige a outra" é um fato sobre o catálogo que não tinha onde ser escrito
+senão em comentário de YAML, invisível a quem lê a página.
+
+- `nota` é **obrigatória**. A vizinhança sem ela não diz nada que a lista de trilhas
+  já não diga, e a informação acionável é qual é o corte de cada uma.
+- **Declare num lado só.** A relação é simétrica e a tela deriva o outro sentido;
+  declarar nos dois cria duas versões de um fato só, que divergem na primeira
+  correção (§5.14).
+- **Não declare onde há aresta real.** Se uma ensina o que a outra exige, a ligação
+  já aparece como `destrava`, com a competência nomeada — e `relacionadas` a
+  encobriria com prosa mais fraca. A validação 14 recusa.
+
+---
+
 ---
 
 ## 3. Identidade
@@ -215,7 +261,7 @@ Cada entidade tem `rev`, inteiro monotônico. **`rev` sobe só em mudança subst
 |---|---|---|
 | Competência | `verificacao`, `status` | `titulo`, `descricao` |
 | Etapa | `requires`, `teaches`, `opcional`, `status`, `esforco_estimado_min` com variação > 20% | `titulo`, `descricao`, ordem no arquivo, ajuste fino de esforço |
-| Trilha | incluir/remover etapa **obrigatória**, `objetivo_declarado`, `status` | `titulo`, ordem de apresentação, etapa opcional |
+| Trilha | incluir/remover etapa **obrigatória**, `objetivo_declarado`, `status` | `titulo`, ordem de apresentação, etapa opcional, `relacionadas` |
 | Recurso | `etapa`, `status`, `disponivel`, `custo`, `obra`, `parte_de`, `idioma`, `formato` | `titulo`, `verificado_em`, `url` que aponta ao mesmo material |
 
 Mudança em recurso **nunca** altera a `rev` da etapa: trocar o vídeo não muda o que
@@ -257,7 +303,7 @@ Esta é a tabela que fecha o assunto. O princípio: **fato datado não retroage.
 Erro bloqueia o snapshot. Aviso é reportado e permite compilar.
 
 1. **Ids** únicos, no formato de §3, e nenhum reaproveitado em relação ao snapshot anterior — *erro*.
-2. **Toda referência resolve** (`requires`, `teaches`, `etapa` e `parte_de` de recurso, `etapas_referenciadas`) — *erro*.
+2. **Toda referência resolve** (`requires`, `teaches`, `etapa` e `parte_de` de recurso, `etapas_referenciadas`, `relacionadas`) — *erro*.
 3. **Toda etapa ativa é alcançável** a partir de perfil vazio — *erro*. Verificado por fecho progressivo, **não** por ordenação topológica: uma competência ensinada em mais de um nível gera arestas nos dois sentidos entre etapas corretamente ordenadas, e um ciclo nesse grafo não significa catálogo inordenável. Dependência circular real aparece como etapa que nunca destrava. Exigido por [ADR-0002](adr/0002-trilha-como-grafo-de-etapas.md).
 4. **Sem beco sem saída**: toda competência exigida por alguma etapa ativa é desenvolvida por ao menos uma etapa ativa — *erro*.
 5. **Toda etapa ativa tem ≥ 1 recurso** ativo e disponível — *erro*. Parte de recurso (`parte_de`) não conta: capítulo não é via de estudo.
@@ -269,6 +315,7 @@ Erro bloqueia o snapshot. Aviso é reportado e permite compilar.
 11. **Etapa órfã**: ativa, fora de qualquer trilha ativa e não referenciada — *aviso* (alcançável só por `exploracao`).
 12. **Obra com custo único**: fatias ativas (ou em rascunho) que declaram a mesma `obra` declaram o mesmo `custo` — *erro*. Fatias de uma obra são um exemplar por definição; dois preços significam ou erro de digitação ou duas obras, e os dois casos se corrigem ([ADR-0009](adr/0009-obra-como-campo-de-agrupamento-no-recurso.md)). Fatia depreciada fica de fora: preço de recurso retirado não é fato do exemplar de hoje.
 13. **Parte coerente**: recurso com `parte_de` aponta para recurso da mesma etapa que não é, ele próprio, parte — *erro* ([ADR-0021](adr/0021-capitulo-como-parte-de-recurso.md)).
+14. **Vizinhança coerente**: `relacionadas` não aponta para a própria trilha, não está declarada nos dois sentidos, e não existe entre as duas aresta de competência — nenhuma ensina o que a outra exige — *erro* ([ADR-0022](adr/0022-vizinhanca-entre-trilhas.md)). O terceiro caso é o que mantém o campo honesto: vizinhança é o que sobra quando não há pré-requisito, e declarar uma por cima de uma dependência real a esconderia atrás de prosa. A conta usa só as etapas **próprias** de cada trilha — emprestada não é de nenhuma das duas, e contá-la faria toda trilha que referencia `etapa:so/linha-de-comando` parecer professora das outras quatro.
 
 ### Snapshot
 
@@ -311,7 +358,7 @@ exigido pela validação §5.8 quando outra entidade ativa ainda aponta para a d
 ## 7. Implementação
 
 O validador e o compilador estão em `src/trilhas/catalogo/`:
-`carregar` (YAML → modelo, só erros de forma) → `validar` (as 13 validações, função
+`carregar` (YAML → modelo, só erros de forma) → `validar` (as 14 validações, função
 pura) → `compilar` (snapshot com hash e versão). A CLI `trilhas` é a interface de CI,
 e o código de saída é o contrato: `0` válido, `1` com erro.
 
