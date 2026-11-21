@@ -162,7 +162,7 @@ continua dando a CLI de CI.
 
 | Entidade | Campos que a UI mostra | Campos que a UI usa sem mostrar |
 |---|---|---|
-| `Trilha` | `titulo`, `objetivo_declarado`, nº de etapas, esforço somado | `id`, `rev`, `status`, `etapas_referenciadas` |
+| `Trilha` | `titulo`, `objetivo_declarado`, nº de etapas, esforço somado, `relacionadas` | `id`, `rev`, `status`, `etapas_referenciadas` |
 | `Etapa` | `titulo`, `descricao`, `esforco_estimado_min`, `opcional`, `requires`, `teaches` | `id`, `rev`, `status`, `trilha` |
 | `Competência` | `titulo`, `descricao`, **`verificacao`** | `id`, `rev`, `status` |
 | `Recurso` | `titulo`, `formato`, `idioma`, `custo`, `duracao_min`, `url`, `verificado_em` | `id`, `rev`, `status`, `disponivel`, `etapa` |
@@ -195,6 +195,7 @@ esquema. É a dívida que a §9 ataca.
 erDiagram
     TRILHA ||--o{ ETAPA : "introduz (etapa.trilha)"
     TRILHA }o--o{ ETAPA : "referencia (etapas_referenciadas)"
+    TRILHA }o--o{ TRILHA : "vizinha de (relacionadas {nota})"
     TRILHA }o--o{ COMPETENCIA : "objetivo_declarado {nivel}"
     ETAPA }o--o{ COMPETENCIA : "requires {nivel_minimo}"
     ETAPA }o--o{ COMPETENCIA : "teaches {nivel_resultante}"
@@ -386,6 +387,15 @@ aparece como grupo vazio com o aviso `CAT-050`: omiti-la esconderia justamente a
 é estudável, pela mesma razão que a §5.4 esmaece o recurso restrito em vez de ocultá-lo.
 A seção responde "o que preciso ter em mãos para fazer esta trilha", que nenhuma outra
 tela responde — a da etapa só mostra uma etapa, e a da obra tem o exemplar por eixo.
+
+**Trilhas vizinhas**: as que se completam com esta sem que nenhuma pressuponha a
+outra, com a nota que diz qual é o corte de cada uma
+([ADR-0022](adr/0022-vizinhanca-entre-trilhas.md)). É a única ligação entre trilhas
+que **não** aparece no grafo, e é por isso que a seção existe: o que destrava já se
+lê em *destrava* / *destravada por*, com a competência nomeada, e o que apenas se
+completa não tinha onde ser dito senão em comentário de YAML. A nota é sempre a de
+quem declarou, inclusive na página de quem não declarou — a relação é simétrica, o
+catálogo a registra num lado só e a tela deriva o outro sentido.
 
 ### 5.4 `/etapa/{id}` — etapa e escolha de recurso
 

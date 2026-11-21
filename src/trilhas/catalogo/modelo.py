@@ -147,6 +147,20 @@ class Recurso:
 
 
 @dataclass(frozen=True, slots=True)
+class Relacionada:
+    """Vizinhança declarada entre duas trilhas que **não** se pressupõem (ADR-0022).
+
+    `nota` é obrigatória de propósito: a aresta sem ela não diz nada que o leitor já
+    não veja na lista de trilhas, e a única informação acionável é qual é o corte de
+    cada uma. É o mesmo princípio de `ArestaDerivada`, que carrega as competências
+    que a produziram.
+    """
+
+    trilha: str
+    nota: str
+
+
+@dataclass(frozen=True, slots=True)
 class Trilha:
     id: str
     titulo: str
@@ -155,6 +169,9 @@ class Trilha:
     objetivo_declarado: tuple[Alvo, ...] = ()
     etapas: tuple[str, ...] = ()
     etapas_referenciadas: tuple[str, ...] = ()
+    relacionadas: tuple[Relacionada, ...] = ()
+    """Trilhas vizinhas, declaradas num lado só — a relação é simétrica e a tela
+    deriva o outro sentido (ADR-0022)."""
     substituido_por: str | None = None
     depreciado_em: date | None = None
 

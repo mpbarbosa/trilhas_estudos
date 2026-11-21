@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 from datetime import date, datetime
 
 import pytest
 
 from fabrica import N, catalogo, competencia, etapa, minimo_valido, recurso, trilha
 from trilhas.catalogo.grafo import arestas_derivadas, fecho_progressivo
-from trilhas.catalogo.modelo import Catalogo, Formato, Nivel, Status
+from trilhas.catalogo.modelo import Catalogo, Formato, Nivel, Relacionada, Status
 from trilhas.catalogo.snapshot import Cabecalho
 from trilhas.motor import Matricula, Percurso, sugerir
 from trilhas.web.apresentar import acervo as apresentar_acervo
@@ -647,3 +648,50 @@ def test_recurso_fora_da_estante_nao_e_marcado() -> None:
     assert sugerido is not None
     assert sugerido.id == "rec:x/site"
     assert not sugerido.na_estante
+
+
+# --- trilhas vizinhas (ADR-0022) -----------------------------------------------
+
+
+def _duas_trilhas_vizinhas() -> Catalogo:
+    cat = minimo_valido()
+    cat.competencias["comp:y/base"] = competencia("comp:y/base")
+    cat.etapas["etapa:y/inicial"] = etapa(
+        "etapa:y/inicial", teaches=[("comp:y/base", N.INICIANTE)], trilha="trilha:y/t"
+    )
+    cat.recursos["rec:y/inicial"] = recurso("rec:y/inicial", "etapa:y/inicial")
+    cat.trilhas["trilha:y/t"] = trilha(
+        "trilha:y/t",
+        titulo="A outra",
+        etapas=["etapa:y/inicial"],
+        objetivo=[("comp:y/base", N.INICIANTE)],
+    )
+    cat.trilhas["trilha:x/t"] = replace(
+        cat.trilhas["trilha:x/t"],
+        relacionadas=(Relacionada("trilha:y/t", "cortes diferentes do mesmo objeto"),),
+    )
+    return cat
+
+
+def test_vizinha_aparece_na_trilha_que_a_declarou() -> None:
+    v = detalhe.trilha(_acervo(_duas_trilhas_vizinhas()), "trilha:x/t", hoje=HOJE)
+    assert v is not None
+    assert [(r.id, r.nota) for r in v.vizinhas] == [
+        ("trilha:y/t", "cortes diferentes do mesmo objeto")
+    ]
+
+
+def test_vizinhanca_aparece_tambem_do_lado_que_nao_declarou() -> None:
+    """A relação é simétrica e o catálogo a declara num lado só: a página do outro
+    lado derivaria uma seção vazia se dependesse da declaração própria."""
+    v = detalhe.trilha(_acervo(_duas_trilhas_vizinhas()), "trilha:y/t", hoje=HOJE)
+    assert v is not None
+    assert [(r.id, r.nota) for r in v.vizinhas] == [
+        ("trilha:x/t", "cortes diferentes do mesmo objeto")
+    ]
+
+
+def test_trilha_sem_vizinha_nao_tem_secao() -> None:
+    v = detalhe.trilha(_acervo(minimo_valido()), "trilha:x/t", hoje=HOJE)
+    assert v is not None
+    assert v.vizinhas == ()

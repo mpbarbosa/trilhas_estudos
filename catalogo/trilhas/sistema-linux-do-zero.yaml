@@ -16,6 +16,14 @@ trilha:
     - competencia: comp:so/manutencao-de-sistema-do-fonte
       nivel: intermediario
 
+  relacionadas:
+    - trilha: trilha:so/projeto-e-implementacao
+      nota: >
+        Estuda o núcleo por dentro, lendo e modificando o MINIX. Aqui o núcleo é um
+        pacote entre oitenta, que se configura e se compila: o objeto de estudo é o
+        espaço de usuário em torno dele e a integração das peças. As duas se
+        completam e nenhuma pressupõe a outra.
+
   # Nasce de um material aberto, não de um exemplar: o livro *Linux From Scratch*
   # (versão 13.1-systemd, publicada em 1º de setembro de 2026, Creative Commons
   # BY-NC-SA 2.0), e o *Beyond Linux From Scratch* que o continua. Não é apostila
@@ -36,10 +44,9 @@ trilha:
   # Buildroot ou num porte cruzado. Outro roteiro — ou a próxima versão do livro —
   # entra como recurso, sem reescrever competência.
   #
-  # O que esta trilha **não** é: `trilha:so/projeto-e-implementacao` estuda o núcleo
-  # por dentro, lendo e modificando o MINIX. Aqui o núcleo é um pacote entre oitenta,
-  # que se configura e se compila; o objeto de estudo é o espaço de usuário em torno
-  # dele e a integração das peças. As duas se completam e nenhuma pressupõe a outra.
+  # O contraste com `trilha:so/projeto-e-implementacao` saiu daqui para o campo
+  # `relacionadas` acima (ADR-0022): era a informação que mais faltava a quem lê a
+  # página da trilha, e comentário de YAML não chega à tela.
   #
   # O pré-requisito é o que o próprio livro declara em "Prerequisites": saber operar
   # o sistema pela casca — copiar e mover arquivos, listar, mudar de diretório,

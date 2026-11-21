@@ -230,4 +230,24 @@
   </ul>
 </section>
 {% endif %}
+
+{% if v.vizinhas %}
+<section>
+  <h2>Trilhas vizinhas</h2>
+  <p class="fraco">
+    Se completam com esta e <strong>nenhuma pressupõe a outra</strong>: não há aqui
+    competência que destrave etapa de lá, nem o contrário — isso apareceria como
+    <em>destrava</em>, com a competência nomeada
+    (<code>docs/adr/0022</code>).
+  </p>
+  <ul class="trilhas-vizinhas">
+    {% for r in v.vizinhas %}
+    <li>
+      <a href="{{ r.href }}">{{ r.titulo }}</a>
+      {% if r.nota %}<p class="fraco">{{ r.nota }}</p>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
 {% endblock %}

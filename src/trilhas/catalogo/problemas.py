@@ -32,6 +32,7 @@ class Codigo(StrEnum):
     ETAPA_ORFA = "CAT-110"  # §5.11 — aviso
     OBRA_CUSTO_DIVERGENTE = "CAT-120"  # §5.12
     PARTE_INCOERENTE = "CAT-130"  # §5.13
+    RELACAO_INCOERENTE = "CAT-140"  # §5.14
 
 
 @dataclass(frozen=True, slots=True)

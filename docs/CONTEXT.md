@@ -86,6 +86,12 @@ erDiagram
    Isso permite que uma competência adquirida fora da trilha (ou em outra trilha)
    destrave etapas, e evita duplicar conhecimento entre trilhas.
 
+   Daí decorre que **trilha não depende de trilha**: o que liga duas trilhas é a
+   competência que uma ensina e a outra exige, ou a etapa que as duas referenciam.
+   Para a ligação que não é de dependência — "estas duas se completam, e nenhuma
+   pressupõe a outra" — existe `relacionadas`, fora do grafo e sem efeito no motor
+   ([ADR-0022](adr/0022-vizinhanca-entre-trilhas.md)).
+
 3. **Progresso e domínio são coisas distintas.**
    Concluir uma etapa é um fato de percurso; dominar uma competência é um fato de
    capacidade, sustentado por **evidência** com data. Uma etapa concluída há dois

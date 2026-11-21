@@ -181,6 +181,10 @@ class VisaoTrilha:
     qtd_obrigatorias: int
     qtd_opcionais: int
     emprestadas: tuple[Referencia, ...]
+    vizinhas: tuple[Referencia, ...]
+    """Trilhas que se completam com esta sem que nenhuma pressuponha a outra
+    (ADR-0022). Declarada num lado só; aqui vêm os dois sentidos, porque a página
+    de quem não declarou precisa da mesma informação."""
     tem_percurso: bool = False
     """Houve percurso para consultar. Distingue "nenhuma etapa concluída" de "não se
     sabe": sem isso a tela afirmaria progresso zero a quem nunca declarou estudante."""
@@ -426,11 +430,35 @@ def trilha(
             )
             for e in alvo.etapas_referenciadas
         ),
+        vizinhas=_vizinhas(cat, alvo),
         tem_percurso=percurso is not None,
         qtd_concluidas=sum(1 for e in etapas if _estado(progresso, e.id) is EstadoEtapa.CONCLUIDA),
         qtd_em_andamento=sum(
             1 for e in etapas if _estado(progresso, e.id) is EstadoEtapa.EM_ANDAMENTO
         ),
+    )
+
+
+def _vizinhas(cat: Catalogo, alvo: Trilha) -> tuple[Referencia, ...]:
+    """Os dois sentidos da vizinhança, que o catálogo declara num só (ADR-0022).
+
+    A nota é sempre a de quem declarou — inclusive na página de quem não declarou.
+    Reescrevê-la na voz do outro lado seria inventar texto que ninguém autorou, e
+    deixar a vizinhança sem nota lá devolveria o link mudo que o campo existe para
+    evitar.
+    """
+    vindas = {r.trilha: r.nota for r in alvo.relacionadas}
+    for outra in cat.trilhas.values():
+        for r in outra.relacionadas:
+            if r.trilha == alvo.id:
+                vindas.setdefault(outra.id, r.nota)
+
+    return tuple(
+        Referencia(id=t.id, titulo=t.titulo, href=f"/trilha/{t.id}", nota=vindas[t.id])
+        for t in sorted(
+            (cat.trilhas[i] for i in vindas if i in cat.trilhas),
+            key=lambda t: t.titulo,
+        )
     )
 
 

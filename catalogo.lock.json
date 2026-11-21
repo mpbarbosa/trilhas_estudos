@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 79,
-  "gerado_em": "2026-11-21T00:37:41+00:00",
-  "hash": "sha256:cc2e364394802f88c4010519771054d96e64b28864b66b894b685fc4158f3521",
+  "catalogo_versao": 80,
+  "gerado_em": "2026-11-21T03:37:10+00:00",
+  "hash": "sha256:98759db20b5a25e5d6133d26ffb0a277080ca7e5adc846c7318126dc8235aebd",
   "competencias": [
     {
       "id": "comp:arquitetura/computador-pessoal",
@@ -9000,6 +9000,16 @@
       ],
       "etapas_referenciadas": [
         "etapa:so/linha-de-comando"
+      ],
+      "relacionadas": [
+        {
+          "trilha": "trilha:so/projeto-e-implementacao",
+          "nota": "O editor com que se lê e se modifica o fonte do MINIX. A diferença é de papel, não de assunto: ali o vi é ferramenta e qualquer editor serve — por isso aquela trilha não o exige —, aqui ele é o objeto de estudo."
+        },
+        {
+          "trilha": "trilha:so/sistema-linux-do-zero",
+          "nota": "A construção do sistema passa por editar arquivo de configuração dentro de um `chroot`, onde o editor disponível costuma ser este. Também aqui o vi é ferramenta, e aquela trilha não o declara como pré-requisito: o livro só pede saber operar a casca."
+        }
       ]
     },
     {
@@ -9077,6 +9087,12 @@
       ],
       "etapas_referenciadas": [
         "etapa:so/linha-de-comando"
+      ],
+      "relacionadas": [
+        {
+          "trilha": "trilha:so/projeto-e-implementacao",
+          "nota": "Estuda o núcleo por dentro, lendo e modificando o MINIX. Aqui o núcleo é um pacote entre oitenta, que se configura e se compila: o objeto de estudo é o espaço de usuário em torno dele e a integração das peças. As duas se completam e nenhuma pressupõe a outra."
+        }
       ]
     },
     {
