@@ -19,10 +19,10 @@ trilha:
   relacionadas:
     - trilha: trilha:so/projeto-e-implementacao
       nota: >
-        Estuda o núcleo por dentro, lendo e modificando o MINIX. Aqui o núcleo é um
-        pacote entre oitenta, que se configura e se compila: o objeto de estudo é o
-        espaço de usuário em torno dele e a integração das peças. As duas se
-        completam e nenhuma pressupõe a outra.
+        O MINIX se estuda por dentro, lendo e modificando o núcleo; a construção de
+        um sistema do zero trata o núcleo como um pacote entre oitenta — configura,
+        compila — e tem por objeto o espaço de usuário em torno dele e a integração
+        das peças. As duas se completam e nenhuma pressupõe a outra.
 
   # Nasce de um material aberto, não de um exemplar: o livro *Linux From Scratch*
   # (versão 13.1-systemd, publicada em 1º de setembro de 2026, Creative Commons

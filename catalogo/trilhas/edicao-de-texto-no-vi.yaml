@@ -19,15 +19,16 @@ trilha:
   relacionadas:
     - trilha: trilha:so/projeto-e-implementacao
       nota: >
-        O editor com que se lê e se modifica o fonte do MINIX. A diferença é de
-        papel, não de assunto: ali o vi é ferramenta e qualquer editor serve — por
-        isso aquela trilha não o exige —, aqui ele é o objeto de estudo.
+        O vi é o editor com que se lê e se modifica o fonte do MINIX, e a diferença
+        entre as duas é de papel, não de assunto: no estudo do MINIX o editor é
+        ferramenta e qualquer um serve — por isso a trilha do MINIX não exige o vi
+        —, ao passo que na trilha de edição ele é o objeto de estudo.
     - trilha: trilha:so/sistema-linux-do-zero
       nota: >
-        A construção do sistema passa por editar arquivo de configuração dentro de
-        um `chroot`, onde o editor disponível costuma ser este. Também aqui o vi é
-        ferramenta, e aquela trilha não o declara como pré-requisito: o livro só
-        pede saber operar a casca.
+        Construir um sistema do zero passa por editar arquivo de configuração dentro
+        de um `chroot`, onde o editor disponível costuma ser o vi — e ali ele é
+        ferramenta, não objeto de estudo: a trilha de construção não o declara como
+        pré-requisito, porque o livro só pede saber operar a casca.
 
   # Nasce de um exemplar: o *vi Editor Pocket Reference* de Arnold Robbins (O'Reilly,
   # 1ª ed., jan. 1999, 66 p.), que o estudante trouxe pela página da edição Kindle. O
