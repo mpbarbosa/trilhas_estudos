@@ -1,8 +1,8 @@
 {
   "versao_snapshot": 1,
-  "catalogo_versao": 78,
-  "gerado_em": "2026-11-15T20:29:14+00:00",
-  "hash": "sha256:b21e2bb8f6fd13a7fcec9e2732235c604d7fec9fc7738969f83ab30d8d619974",
+  "catalogo_versao": 79,
+  "gerado_em": "2026-11-21T00:37:41+00:00",
+  "hash": "sha256:cc2e364394802f88c4010519771054d96e64b28864b66b894b685fc4158f3521",
   "competencias": [
     {
       "id": "comp:arquitetura/computador-pessoal",
@@ -1365,12 +1365,28 @@
       "descricao": "Escrever Python idiomático para manipular dados, usando ambientes isolados, notebooks e bibliotecas de terceiros.\n"
     },
     {
+      "id": "comp:so/arvore-do-sistema-e-ambiente-isolado",
+      "titulo": "Árvore do sistema de arquivos e o ambiente isolado de construção",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Para um sistema montado numa partição à parte, dizer em que diretório vai cada classe de arquivo e justificar pelo FHS; entrar num `chroot` preparado por conta própria, montando as quatro árvores virtuais, e demonstrar — por um comando que falhe antes e funcione depois — o que cada montagem resolve; e explicar o que num ambiente de shell herdado do hospedeiro é capaz de contaminar a construção, nomeando as variáveis e dizendo como se neutralizam.",
+      "descricao": "Onde cada coisa mora e por quê: a hierarquia do FHS, a distinção entre o que é do sistema e o que é de quem o administra, e a unificação de `/bin`, `/sbin` e `/lib` sob `/usr`. A segunda metade é o isolamento: o `chroot` como troca de raiz, os sistemas de arquivos virtuais do núcleo que têm de ser montados dentro dele (`/dev`, `/proc`, `/sys`, `/run`) e o que falha quando não estão, e por que a construção roda num usuário sem privilégio e com ambiente limpo em vez de no do administrador.\n"
+    },
+    {
       "id": "comp:so/comandos-ex-e-faixas",
       "titulo": "Comandos de linha `ex` — faixa de endereços, substituição e comando global",
       "rev": 1,
       "status": "ativo",
       "verificacao": "Dada uma tarefa de edição que atinge só as linhas que casam um padrão num arquivo de centenas de linhas, resolvê-la num **único** comando de linha e explicar cada parte — a faixa, o comando, o padrão, a captura e a referência a ela —, dizer o que acontece com as linhas que não casam, e dizer como se desfaz o comando inteiro se o padrão tiver pegado uma linha a mais.",
       "descricao": "Por baixo do editor de tela cheia há um editor de linha endereçável, e toda edição pode ser dita como \"nestas linhas, faça isto\". A competência é escrever essa frase: faixa por número de linha, `.`, `$`, `%`, marca ou casamento de padrão; substituição com grupo de captura e referência; e o comando global, que aplica outro comando às linhas que casam — ou às que não casam — um padrão.\n"
+    },
+    {
+      "id": "comp:so/compilacao-cruzada-e-toolchain",
+      "titulo": "Conjunto de ferramentas de compilação e compilação cruzada",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Explicar, para uma construção cruzada concreta, o que cada uma das três triplas nomeia e o que mudaria se duas delas fossem iguais; dizer o que a primeira passagem do `gcc` pode fazer que a segunda não precisa mais fazer, e qual dependência circular isso rompe; e, dado um executável acabado de compilar, descobrir por `readelf` ou `ldd` o intérprete e as bibliotecas que ele vai procurar, dizendo de que diretório cada uma veio e se é a do sistema hospedeiro ou a do sistema em construção.",
+      "descricao": "Um compilador não é um programa só: é `binutils`, `gcc` e a biblioteca C amarrados por caminhos de busca que cada um guarda compilados dentro de si. A competência é enxergar essa amarração — a tripla `build`/`host`/`target` e o que cada uma quer dizer, o `sysroot`, por que o `gcc` se compila em mais de uma passagem, e por que a biblioteca C precisa de um compilador que precisa da biblioteca C. Com o corolário prático: diante de um binário recém-nascido, saber contra qual carregador e quais bibliotecas ele ficou ligado.\n"
     },
     {
       "id": "comp:so/configuracao-do-editor",
@@ -1429,12 +1445,36 @@
       "descricao": "Partições, troca (swapping), memória virtual com paginação e tabelas de página, TLB, algoritmos de substituição de página e segmentação.\n"
     },
     {
+      "id": "comp:so/inicializacao-e-configuracao-do-sistema",
+      "titulo": "Inicialização do sistema e sua configuração",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Levar um sistema construído do fonte até um login funcionando e, depois, explicar o arranque em ordem, nomeando quem entrega o controle a quem; dizer qual opção do núcleo, se faltasse, deixaria a raiz inacessível e como o sintoma apareceria; e diagnosticar uma falha de arranque provocada de propósito — uma entrada errada no `fstab` ou um serviço que não sobe — dizendo de que camada vem a mensagem que se está lendo.",
+      "descricao": "O caminho da energia ao shell: o firmware, o gerenciador de inicialização e a linha de comando que ele passa ao núcleo, o núcleo compilado com (ou sem) os drivers de que o disco de raiz depende, a troca para a raiz real, e o primeiro processo — gerente de serviços, unidades ou scripts, ordem e dependência entre serviços. Mais a configuração que o sistema precisa ter antes de ser usável: `fstab`, relógio, teclado e locale, nome e rede, e os arquivos de ambiente do shell.\n"
+    },
+    {
+      "id": "comp:so/instalacao-a-partir-do-fonte",
+      "titulo": "Instalação de software a partir do código-fonte",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Instalar do fonte um pacote que ainda não está no sistema, declarando por que cada opção de `configure` foi passada, rodando a suíte de testes e classificando cada falha como esperada ou não; instalar o mesmo pacote numa árvore alternativa por `DESTDIR` e dizer o que muda; e, diante de uma biblioteca compartilhada recém-instalada que um programa não encontra, achar a causa entre caminho de busca, cache do `ldconfig` e `rpath`.",
+      "descricao": "O ciclo que todo pacote do tipo UNIX repete — obter o fonte, aplicar patch, configurar, compilar, testar, instalar — e o que cada passo decide: prefixo e opções de `configure`, `DESTDIR` contra instalação na raiz viva, a suíte de testes e quando a falha dela é esperada, o que `strip` remove e o que `ldconfig` registra. Com a ordem como parte da competência: qual pacote precisa de qual, e o que acontece quando se instala fora de ordem.\n"
+    },
+    {
       "id": "comp:so/linha-de-comando",
       "titulo": "Linha de comando do UNIX",
       "rev": 1,
       "status": "ativo",
       "verificacao": "Resolver numa linha de comando uma tarefa de três passos sobre uma árvore de arquivos — por exemplo, listar os dez `.c` com mais linhas sob um diretório — e explicar, para um comando com `|` e `>`, quem cria cada processo e para onde vai cada descritor de arquivo.",
       "descricao": "Operar o sistema pela casca: percorrer e manipular arquivos e diretórios, permissões, expansão de nomes pelo shell, redirecionamento e canos, variáveis de ambiente, processos e sinais, e busca em texto e por arquivo com `grep` e `find`. A transformação de texto fica em `comp:so/script-shell`, que é onde os recursos que a ensinam estão.\n"
+    },
+    {
+      "id": "comp:so/manutencao-de-sistema-do-fonte",
+      "titulo": "Manutenção de um sistema construído do fonte",
+      "rev": 1,
+      "status": "ativo",
+      "verificacao": "Diante de um aviso de segurança real sobre um pacote do sistema construído, decidir entre patch e nova versão e justificar pela natureza da mudança; descrever o que precisa ser reconstruído quando uma biblioteca compartilhada sobe de versão, e como se descobre quem depende dela; e apresentar o registro da própria construção — versões, opções e desvios do livro — argumentando o que nele basta para reconstruir o sistema.",
+      "descricao": "Um sistema sem gerenciador de pacotes não deixa de ter o problema que um gerenciador de pacotes resolve. A competência é carregar esse problema com método: acompanhar errata e aviso de segurança do que se construiu, decidir entre aplicar patch e subir de versão, prever o que uma atualização de biblioteca quebra em quem está ligado a ela, e registrar o que foi instalado de modo que outra pessoa — ou você em seis meses — consiga reconstruir.\n"
     },
     {
       "id": "comp:so/nucleo-na-pratica",
@@ -6394,6 +6434,146 @@
       ]
     },
     {
+      "id": "etapa:so/lfs-alem-do-sistema-base",
+      "titulo": "Além do sistema base — instalar o resto e manter o que se construiu",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 600,
+      "descricao": "Um sistema básico não faz nada que se queira fazer, e um sistema sem gerenciador de pacotes não deixa de ter o problema que um gerenciador de pacotes resolve. A etapa é a segunda metade do projeto: instalar e configurar o que vem por cima — bibliotecas, rede, gráfico, servidor —, com a cadeia de dependências agora sendo responsabilidade de quem constrói; e acompanhar errata e aviso de segurança do que já está instalado, decidindo entre patch e nova versão e prevendo o que uma biblioteca nova quebra em quem está ligado a ela. Com o registro da própria construção como entregável, que é o que permite reconstruir.\n",
+      "trilha": "trilha:so/sistema-linux-do-zero",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:so/inicializacao-e-configuracao-do-sistema",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:so/instalacao-a-partir-do-fonte",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:so/manutencao-de-sistema-do-fonte",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:so/lfs-chroot-e-ferramentas-temporarias",
+      "titulo": "Entrar no `chroot` — montagens virtuais e as ferramentas que rompem a circularidade",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 360,
+      "descricao": "O momento em que o sistema em construção passa a ser o sistema: a troca de raiz, as árvores virtuais do núcleo que têm de ser montadas dentro dela, os diretórios e arquivos que o `chroot` espera encontrar prontos, e o conjunto de ferramentas temporárias que existe só para resolver dependência circular — pacote que precisa de outro que precisa dele. Daqui em diante o sistema hospedeiro está fora do alcance, e é isso que se quer comprovar.\n",
+      "trilha": "trilha:so/sistema-linux-do-zero",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:so/compilacao-cruzada-e-toolchain",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:so/arvore-do-sistema-e-ambiente-isolado",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:so/lfs-configuracao-e-arranque",
+      "titulo": "Configuração e arranque — rede, locale, `fstab`, núcleo e gerenciador de inicialização",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 480,
+      "descricao": "Do conjunto de arquivos instalados a um sistema que liga: a configuração que ele precisa ter antes de ser usável — dispositivos e serviços, rede, relógio, teclado e locale, os arquivos de ambiente do shell, o `fstab` —, o núcleo configurado e compilado com os drivers de que a raiz depende, e o gerenciador de inicialização que passa a ele a linha de comando certa. Termina onde o livro termina: reiniciando na máquina que se construiu, e diagnosticando o que der errado da camada de onde a mensagem vier.\n",
+      "trilha": "trilha:so/sistema-linux-do-zero",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:so/instalacao-a-partir-do-fonte",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:so/inicializacao-e-configuracao-do-sistema",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:so/lfs-preparacao-do-hospedeiro",
+      "titulo": "Preparação — o sistema hospedeiro, a partição, os fontes e o ambiente limpo",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 240,
+      "descricao": "A etapa que decide se as outras vão funcionar, e a que se costuma pular. O hospedeiro e suas versões mínimas de ferramenta, a partição e o sistema de arquivos que vão receber o novo sistema, a árvore de diretórios inicial, o download dos pacotes e patches com conferência de integridade, e o usuário de construção com um ambiente de shell deliberadamente pobre — sem herdar variável nenhuma do hospedeiro. Aqui também se aprende a ler o custo do resto: a SBU, que é o tempo do `binutils` da primeira passagem num núcleo, e em que unidade o livro mede tudo o mais.\n",
+      "trilha": "trilha:so/sistema-linux-do-zero",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:so/linha-de-comando",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:so/arvore-do-sistema-e-ambiente-isolado",
+          "nivel_resultante": "iniciante"
+        }
+      ]
+    },
+    {
+      "id": "etapa:so/lfs-software-basico",
+      "titulo": "O software básico do sistema — o ciclo `configure`, compilar, testar, instalar, oitenta vezes",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 900,
+      "descricao": "A etapa mais longa, e a que forma pela repetição: o mesmo ciclo aplicado a cada pacote do sistema básico, com o que muda em cada um — as opções de `configure` e por que estas, o patch que precede a compilação, a suíte de testes e as falhas que o livro avisa serem esperadas, o `strip` e o `ldconfig`. Também a reconstrução final do conjunto de ferramentas, agora dentro do sistema e contra as bibliotecas dele, que é o passo que o livro diz não poder ser pulado. O corte é saber instalar do fonte um pacote que o livro não cobre.\n",
+      "trilha": "trilha:so/sistema-linux-do-zero",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:so/arvore-do-sistema-e-ambiente-isolado",
+          "nivel_minimo": "intermediario"
+        },
+        {
+          "competencia": "comp:so/compilacao-cruzada-e-toolchain",
+          "nivel_minimo": "intermediario"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:so/instalacao-a-partir-do-fonte",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
+      "id": "etapa:so/lfs-toolchain-cruzado",
+      "titulo": "O conjunto de ferramentas cruzado — `binutils`, `gcc` e a biblioteca C em passagens",
+      "rev": 1,
+      "status": "ativo",
+      "esforco_estimado_min": 480,
+      "descricao": "O centro conceitual da trilha, e a parte em que o livro para de dar comandos e explica: por que o compilador que vai construir o sistema tem de ser compilado antes dele, e por que de forma cruzada mesmo quando a máquina de origem e a de destino são a mesma. A tripla `build`/`host`/`target`, o `sysroot`, a primeira passagem do `gcc` que só precisa compilar a biblioteca C, a `glibc` contra esse compilador meio pronto, a `libstdc++` que ficou de fora e as ferramentas temporárias compiladas por cruzamento. Estuda-se olhando o resultado: contra qual carregador e quais bibliotecas cada binário novo ficou ligado.\n",
+      "trilha": "trilha:so/sistema-linux-do-zero",
+      "opcional": false,
+      "requires": [
+        {
+          "competencia": "comp:so/arvore-do-sistema-e-ambiente-isolado",
+          "nivel_minimo": "iniciante"
+        }
+      ],
+      "teaches": [
+        {
+          "competencia": "comp:so/compilacao-cruzada-e-toolchain",
+          "nivel_resultante": "intermediario"
+        }
+      ]
+    },
+    {
       "id": "etapa:so/linha-de-comando",
       "titulo": "A linha de comando do UNIX — arquivos, permissões, canos e processos",
       "rev": 1,
@@ -8858,6 +9038,45 @@
         "etapa:so/linha-de-comando",
         "etapa:so/script-shell",
         "etapa:programacao/programacao-de-sistemas"
+      ]
+    },
+    {
+      "id": "trilha:so/sistema-linux-do-zero",
+      "titulo": "Construir um sistema Linux do zero — do toolchain cruzado ao primeiro login",
+      "rev": 1,
+      "status": "ativo",
+      "objetivo_declarado": [
+        {
+          "competencia": "comp:so/compilacao-cruzada-e-toolchain",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:so/arvore-do-sistema-e-ambiente-isolado",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:so/instalacao-a-partir-do-fonte",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:so/inicializacao-e-configuracao-do-sistema",
+          "nivel": "intermediario"
+        },
+        {
+          "competencia": "comp:so/manutencao-de-sistema-do-fonte",
+          "nivel": "intermediario"
+        }
+      ],
+      "etapas": [
+        "etapa:so/lfs-preparacao-do-hospedeiro",
+        "etapa:so/lfs-toolchain-cruzado",
+        "etapa:so/lfs-chroot-e-ferramentas-temporarias",
+        "etapa:so/lfs-software-basico",
+        "etapa:so/lfs-configuracao-e-arranque",
+        "etapa:so/lfs-alem-do-sistema-base"
+      ],
+      "etapas_referenciadas": [
+        "etapa:so/linha-de-comando"
       ]
     },
     {
@@ -14312,6 +14531,20 @@
       "verificado_em": "2026-10-19"
     },
     {
+      "id": "rec:so/blfs-alem-do-sistema-base",
+      "titulo": "Beyond Linux From Scratch 13.1-systemd — o que se instala por cima do sistema base: bibliotecas, rede, gráfico e servidores, com a cadeia de dependências por conta de quem constrói",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/lfs-alem-do-sistema-base",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 600,
+      "url": "https://www.linuxfromscratch.org/blfs/view/stable-systemd/",
+      "disponivel": true,
+      "verificado_em": "2026-11-20"
+    },
+    {
       "id": "rec:so/blum-bible-linha-de-comando",
       "titulo": "Linux Command Line and Shell Scripting Bible, 5ª ed. (Blum & Bresnahan) — parte I: o shell, o sistema de arquivos, permissões, ambiente e processos",
       "rev": 1,
@@ -14342,6 +14575,20 @@
       "verificado_em": "2026-10-17"
     },
     {
+      "id": "rec:so/br-lfs-preparacao",
+      "titulo": "Linux From Scratch em português do Brasil (tradução de Jamenson Espindula) — preparação do hospedeiro e dos fontes; confira a versão traduzida contra a 13.1",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/lfs-preparacao-do-hospedeiro",
+      "formato": "texto",
+      "idioma": "pt-BR",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://github.com/espindula/br-lfs",
+      "disponivel": true,
+      "verificado_em": "2026-11-20"
+    },
+    {
       "id": "rec:so/guiafoca-linha-de-comando",
       "titulo": "Guia Foca Linux — Iniciante e Intermediário (Gleydson Mazioli da Silva): comandos, estrutura de diretórios, permissões e redirecionamento, em português",
       "rev": 3,
@@ -14369,6 +14616,76 @@
       "disponivel": true,
       "obra": "jargas-shell-script-profissional",
       "verificado_em": "2026-10-17"
+    },
+    {
+      "id": "rec:so/lfs-chroot-e-temporarias",
+      "titulo": "Linux From Scratch 13.1-systemd — cap. 7: entrar no `chroot`, montar as árvores virtuais do núcleo e construir as ferramentas temporárias que rompem a circularidade",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/lfs-chroot-e-ferramentas-temporarias",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 360,
+      "url": "https://www.linuxfromscratch.org/lfs/view/stable-systemd/",
+      "disponivel": true,
+      "verificado_em": "2026-11-20"
+    },
+    {
+      "id": "rec:so/lfs-configuracao-e-arranque",
+      "titulo": "Linux From Scratch 13.1-systemd — caps. 9 a 11: configuração do sistema, `fstab`, compilação do núcleo, gerenciador de inicialização e a reinicialização no sistema construído",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/lfs-configuracao-e-arranque",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 480,
+      "url": "https://www.linuxfromscratch.org/lfs/view/stable-systemd/",
+      "disponivel": true,
+      "verificado_em": "2026-11-20"
+    },
+    {
+      "id": "rec:so/lfs-preparacao",
+      "titulo": "Linux From Scratch 13.1-systemd — prefácio e parte II: requisitos do hospedeiro, partição, pacotes e patches, usuário de construção e a SBU",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/lfs-preparacao-do-hospedeiro",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 240,
+      "url": "https://www.linuxfromscratch.org/lfs/view/stable-systemd/",
+      "disponivel": true,
+      "verificado_em": "2026-11-20"
+    },
+    {
+      "id": "rec:so/lfs-software-basico",
+      "titulo": "Linux From Scratch 13.1-systemd — cap. 8: instalação do software básico do sistema, pacote por pacote, com suítes de teste e a reconstrução final do conjunto de ferramentas",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/lfs-software-basico",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 900,
+      "url": "https://www.linuxfromscratch.org/lfs/view/stable-systemd/",
+      "disponivel": true,
+      "verificado_em": "2026-11-20"
+    },
+    {
+      "id": "rec:so/lfs-toolchain-cruzado",
+      "titulo": "Linux From Scratch 13.1-systemd — parte III, notas técnicas do toolchain e caps. 5 e 6: `binutils` e `gcc` em passagens, `glibc`, `libstdc++` e as ferramentas temporárias compiladas por cruzamento",
+      "rev": 1,
+      "status": "ativo",
+      "etapa": "etapa:so/lfs-toolchain-cruzado",
+      "formato": "texto",
+      "idioma": "en-US",
+      "custo": 0.0,
+      "duracao_min": 480,
+      "url": "https://www.linuxfromscratch.org/lfs/view/stable-systemd/",
+      "disponivel": true,
+      "verificado_em": "2026-11-20"
     },
     {
       "id": "rec:so/minix3-projeto",

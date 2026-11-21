@@ -228,3 +228,119 @@ competencias:
       sair do editor; rodar a compilação de dentro dele e saltar ao primeiro erro
       reportado; e voltar ao shell e retomar a sessão com os arquivos e as marcas onde
       estavam — dizendo, em cada caso, qual processo executou o quê.
+
+  # ---------------------------------------------------------------------------
+  # Construir o sistema a partir do fonte (trilha:so/sistema-linux-do-zero).
+  #
+  # As cinco não são do Linux From Scratch nem de distribuição alguma: a
+  # verificação de cada uma se cobra em qualquer sistema do tipo UNIX montado do
+  # fonte — LFS, Gentoo com `ebuild` à mão, um sistema embarcado por Buildroot ou
+  # Yocto, um porte cruzado para outra arquitetura. O LFS é o material em que a
+  # trilha de hoje as exercita, e é bom nisso porque manda fazer na ordem em que o
+  # sistema de fato se levanta. Mesmo critério das competências de edição modal
+  # acima: competência que só se verifica num programa (ou num livro) é assunto
+  # daquele programa (docs/catalogo.md §2).
+  #
+  # Ficam na área `so` porque é o sistema operacional visto de baixo — a mesma
+  # máquina que `trilha:so/projeto-e-implementacao` estuda por dentro, aqui montada
+  # peça por peça. As duas não se sobrepõem: lá se lê e modifica um núcleo, aqui se
+  # compila e integra o espaço de usuário em torno de um.
+  # ---------------------------------------------------------------------------
+  - id: comp:so/compilacao-cruzada-e-toolchain
+    titulo: Conjunto de ferramentas de compilação e compilação cruzada
+    rev: 1
+    status: ativo
+    descricao: >
+      Um compilador não é um programa só: é `binutils`, `gcc` e a biblioteca C
+      amarrados por caminhos de busca que cada um guarda compilados dentro de si.
+      A competência é enxergar essa amarração — a tripla `build`/`host`/`target` e
+      o que cada uma quer dizer, o `sysroot`, por que o `gcc` se compila em mais de
+      uma passagem, e por que a biblioteca C precisa de um compilador que precisa
+      da biblioteca C. Com o corolário prático: diante de um binário recém-nascido,
+      saber contra qual carregador e quais bibliotecas ele ficou ligado.
+    verificacao: >
+      Explicar, para uma construção cruzada concreta, o que cada uma das três
+      triplas nomeia e o que mudaria se duas delas fossem iguais; dizer o que a
+      primeira passagem do `gcc` pode fazer que a segunda não precisa mais fazer, e
+      qual dependência circular isso rompe; e, dado um executável acabado de
+      compilar, descobrir por `readelf` ou `ldd` o intérprete e as bibliotecas que
+      ele vai procurar, dizendo de que diretório cada uma veio e se é a do sistema
+      hospedeiro ou a do sistema em construção.
+
+  - id: comp:so/arvore-do-sistema-e-ambiente-isolado
+    titulo: Árvore do sistema de arquivos e o ambiente isolado de construção
+    rev: 1
+    status: ativo
+    descricao: >
+      Onde cada coisa mora e por quê: a hierarquia do FHS, a distinção entre o que
+      é do sistema e o que é de quem o administra, e a unificação de `/bin`, `/sbin`
+      e `/lib` sob `/usr`. A segunda metade é o isolamento: o `chroot` como troca de
+      raiz, os sistemas de arquivos virtuais do núcleo que têm de ser montados
+      dentro dele (`/dev`, `/proc`, `/sys`, `/run`) e o que falha quando não estão,
+      e por que a construção roda num usuário sem privilégio e com ambiente limpo
+      em vez de no do administrador.
+    verificacao: >
+      Para um sistema montado numa partição à parte, dizer em que diretório vai cada
+      classe de arquivo e justificar pelo FHS; entrar num `chroot` preparado por
+      conta própria, montando as quatro árvores virtuais, e demonstrar — por um
+      comando que falhe antes e funcione depois — o que cada montagem resolve; e
+      explicar o que num ambiente de shell herdado do hospedeiro é capaz de
+      contaminar a construção, nomeando as variáveis e dizendo como se neutralizam.
+
+  - id: comp:so/instalacao-a-partir-do-fonte
+    titulo: Instalação de software a partir do código-fonte
+    rev: 1
+    status: ativo
+    descricao: >
+      O ciclo que todo pacote do tipo UNIX repete — obter o fonte, aplicar patch,
+      configurar, compilar, testar, instalar — e o que cada passo decide: prefixo e
+      opções de `configure`, `DESTDIR` contra instalação na raiz viva, a suíte de
+      testes e quando a falha dela é esperada, o que `strip` remove e o que
+      `ldconfig` registra. Com a ordem como parte da competência: qual pacote
+      precisa de qual, e o que acontece quando se instala fora de ordem.
+    verificacao: >
+      Instalar do fonte um pacote que ainda não está no sistema, declarando por que
+      cada opção de `configure` foi passada, rodando a suíte de testes e
+      classificando cada falha como esperada ou não; instalar o mesmo pacote numa
+      árvore alternativa por `DESTDIR` e dizer o que muda; e, diante de uma
+      biblioteca compartilhada recém-instalada que um programa não encontra, achar a
+      causa entre caminho de busca, cache do `ldconfig` e `rpath`.
+
+  - id: comp:so/inicializacao-e-configuracao-do-sistema
+    titulo: Inicialização do sistema e sua configuração
+    rev: 1
+    status: ativo
+    descricao: >
+      O caminho da energia ao shell: o firmware, o gerenciador de inicialização e a
+      linha de comando que ele passa ao núcleo, o núcleo compilado com (ou sem) os
+      drivers de que o disco de raiz depende, a troca para a raiz real, e o primeiro
+      processo — gerente de serviços, unidades ou scripts, ordem e dependência entre
+      serviços. Mais a configuração que o sistema precisa ter antes de ser usável:
+      `fstab`, relógio, teclado e locale, nome e rede, e os arquivos de ambiente do
+      shell.
+    verificacao: >
+      Levar um sistema construído do fonte até um login funcionando e, depois,
+      explicar o arranque em ordem, nomeando quem entrega o controle a quem; dizer
+      qual opção do núcleo, se faltasse, deixaria a raiz inacessível e como o
+      sintoma apareceria; e diagnosticar uma falha de arranque provocada de
+      propósito — uma entrada errada no `fstab` ou um serviço que não sobe — dizendo
+      de que camada vem a mensagem que se está lendo.
+
+  - id: comp:so/manutencao-de-sistema-do-fonte
+    titulo: Manutenção de um sistema construído do fonte
+    rev: 1
+    status: ativo
+    descricao: >
+      Um sistema sem gerenciador de pacotes não deixa de ter o problema que um
+      gerenciador de pacotes resolve. A competência é carregar esse problema com
+      método: acompanhar errata e aviso de segurança do que se construiu, decidir
+      entre aplicar patch e subir de versão, prever o que uma atualização de
+      biblioteca quebra em quem está ligado a ela, e registrar o que foi instalado
+      de modo que outra pessoa — ou você em seis meses — consiga reconstruir.
+    verificacao: >
+      Diante de um aviso de segurança real sobre um pacote do sistema construído,
+      decidir entre patch e nova versão e justificar pela natureza da mudança;
+      descrever o que precisa ser reconstruído quando uma biblioteca compartilhada
+      sobe de versão, e como se descobre quem depende dela; e apresentar o registro
+      da própria construção — versões, opções e desvios do livro — argumentando o
+      que nele basta para reconstruir o sistema.
